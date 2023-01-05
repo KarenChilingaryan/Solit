@@ -4,9 +4,9 @@ import "antd/dist/antd.min.css";
 
 import Header from "../components/organisms/header/Header";
 import Footer from "../components/organisms/footer/Footer";
-import { store } from "./store";
 import { Provider } from "react-redux";
 import PageWrapper from "../components/organisms/page-wrapper";
+import store from "./store";
 
 function MyApp({ Component, pageProps }) {
   return (
