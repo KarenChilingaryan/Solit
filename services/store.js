@@ -1,26 +1,26 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { aboutApi } from "../services/aboutApi";
-import { portfolioApi } from "../services/portfolioApi";
-import { postsApi } from "../services/postsApi";
-import { ourServicesApi } from "../services/ourServicesApi";
-import { servicesApi } from "../services/servicesApi";
-import { longPresentationBlogApi } from "../services/longPresentationBlogApi";
-import { blogItemApi } from "../services/blogItemApi";
-import { careerTechnologyItemApi } from "../services/careerTechnologyItemApi";
-import { careerTechnologyLongPresentationApi } from "../services/careerTechnologyLongPresentationApi";
-import { longPresentationPortfolioApi } from "../services/longPresentationPortfolioApi";
-import { postsCareersApi } from "../services/postsCareersApi";
-import { postsServicesApi } from "../services/postsServicesApi";
-import { serviceItemApi } from "../services/servicesItemApi";
-import { tagsApi } from "../services/tagsApi";
-import { aboutUsCommunityApi } from "../services/aboutUsCommunityApi";
-import { portfolioTextApi } from "../services/portfolioTextApi";
-import { headerApi } from "../services/header";
-import { homepageAdditionalServiceApi } from "../services/homepageAdditionalServiceApi";
-import { shortPresentationBlogApi } from "../services/shortPresentationBlogApi";
-import { shortPresentationPortfolioApi } from "../services/shortPresentationPortfolioApi";
-import { aboutOurTeamTitleApi } from "../services/aboutOurTeamTitleApi";
-import { testimonialsFlagTitleApi } from "../services/testimonialsFlagTitleApi";
+import { aboutApi } from "./aboutApi";
+import { portfolioApi } from "./portfolioApi";
+import { postsApi } from "./postsApi";
+import { ourServicesApi } from "./ourServicesApi";
+import { servicesApi } from "./servicesApi";
+import { longPresentationBlogApi } from "./longPresentationBlogApi";
+import { blogItemApi } from "./blogItemApi";
+import { careerTechnologyItemApi } from "./careerTechnologyItemApi";
+import { careerTechnologyLongPresentationApi } from "./careerTechnologyLongPresentationApi";
+import { longPresentationPortfolioApi } from "./longPresentationPortfolioApi";
+import { postsCareersApi } from "./postsCareersApi";
+import { postsServicesApi } from "./postsServicesApi";
+import { serviceItemApi } from "./servicesItemApi";
+import { tagsApi } from "./tagsApi";
+import { aboutUsCommunityApi } from "./aboutUsCommunityApi";
+import { portfolioTextApi } from "./portfolioTextApi";
+import { headerApi } from "./header";
+import { homepageAdditionalServiceApi } from "./homepageAdditionalServiceApi";
+import { shortPresentationBlogApi } from "./shortPresentationBlogApi";
+import { shortPresentationPortfolioApi } from "./shortPresentationPortfolioApi";
+import { aboutOurTeamTitleApi } from "./aboutOurTeamTitleApi";
+import { testimonialsFlagTitleApi } from "./testimonialsFlagTitleApi";
 
 const store = configureStore({
   reducer: {
@@ -51,4 +51,4 @@ const store = configureStore({
     getDefaultMiddleware().concat(postsApi.middleware),
 });
 
-export default store;
+export default store
