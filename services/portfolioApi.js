@@ -9,10 +9,7 @@ export const portfolioApi = createApi({
   refetchOnReconnect: false,
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_APP_API,
-    prepareHeaders: (headers) => {      
-      headers.set('Access-Control-Allow-Origin', `*`)
-      return headers
-    },
+    
   }),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
