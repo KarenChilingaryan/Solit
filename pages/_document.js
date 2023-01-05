@@ -19,25 +19,17 @@ export default class MyDocument extends Document {
           <meta property="og:description" content="Lorem Ipsum SOLIT" />
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:url" content="Solit Website Url" />
-          <meta
-            property="twitter:title"
-            content="Solit"
-          />
-          <meta
-            property="twitter:description"
-            content="Lorem Ipsum twit"
-          />
+          <meta property="twitter:title" content="Solit" />
+          <meta property="twitter:description" content="Lorem Ipsum twit" />
           <meta
             name="viewport"
             content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no"
           />
           <meta
             property="twitter:image"
-            content="https://media.licdn.com/dms/image/C4E0BAQGVf93zisQLPw/company-logo_200_200/0/1662644823778?e=1680739200&v=beta&t=qMeWu5YYl0DJEPm-WUTCHTz4MrXIjo7Kc8jIVytrFKA"
+            content="https://simpl.info/webp/cherry.webp"
           />
-          <script
-            src='//fw-cdn.com/2408772/3004044.js'
-            chat='true' async />
+          <script src="//fw-cdn.com/2408772/3004044.js" chat="true" async />
         </Head>
         <body>
           <Main />
