@@ -75,11 +75,11 @@
         width: calcVW(500);
       }
       .socialIconsWrapper {
-        // order: 1;
-        // align-self: flex-start;
-        // width: 63%;
-        // display: flex;
-        // justify-content: end;
+        order: 1;
+        align-self: flex-start;
+        width: 63%;
+        display: flex;
+        justify-content: flex-end;
         .socialIcons {
           width: calcVW(140);
           height: calcVW(200);
