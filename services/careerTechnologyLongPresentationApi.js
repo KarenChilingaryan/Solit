@@ -2,6 +2,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
 export const careerTechnologyLongPresentationApi = createApi({
+  prepareHeaders: (headers) => {
+    headers.set('Access-Control-Allow-Origin', '*')
+    return headers
+  },
   reducerPath: "careerTechnologyLongPresentationApi",
   refetchOnFocus: false,
   refetchOnMountOrArgChange: false,
