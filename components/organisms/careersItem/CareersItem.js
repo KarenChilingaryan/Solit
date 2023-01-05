@@ -29,10 +29,9 @@ const CareersComponent = () => {
       />
       <div className={styles.textsBlocks}>
         <ReactMarkdown
-          children={careerTechnologyItem ? careerTechnologyItem?.description : ""}
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
-        />
+        >{careerTechnologyItem ? careerTechnologyItem?.description : ""}</ReactMarkdown>
       </div>
       < div className={styles.careersPageForm} >
         <HomeMainTexts

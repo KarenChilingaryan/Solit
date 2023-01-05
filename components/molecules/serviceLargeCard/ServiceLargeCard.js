@@ -20,15 +20,14 @@ const ServiceLargeCard = ({ icon, title, desc, onClick }) => {
         <Paragraph className={styles.title}>{title}</Paragraph>
 
         <Paragraph className={styles.desc}>
-        <ReactMarkdown
-            children={desc || ''}
+          <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
-          />
+          >{desc || ''}</ReactMarkdown>
         </Paragraph>
-      <Paragraph className={styles.more} onClick={onClick}>
-        {moreText} <Image src={moreIcon} alt="more icon" />
-      </Paragraph>
+        <Paragraph className={styles.more} onClick={onClick}>
+          {moreText} <Image src={moreIcon} alt="more icon" />
+        </Paragraph>
       </Col>
     </Col>
   );

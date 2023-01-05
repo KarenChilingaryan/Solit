@@ -1,4 +1,5 @@
 import Document, { Head, Main, NextScript, Html } from "next/document";
+import Script from "next/script";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -32,10 +33,9 @@ export default class MyDocument extends Document {
           <meta property="twitter:url" content="Solit URL!!!!!" />
           <meta property="twitter:description" content="Content!!!!" />
           <meta property="twitter:image" content="Link for image!!!!" />
-          <script
+          <Script
             src='//fw-cdn.com/2408772/3004044.js'
-            chat='true'>
-          </script>
+            chat='true' />
         </Head>
         <body>
           <Main />

@@ -40,10 +40,9 @@ const ServiceSmallCard = ({ icon, title, desc, techIcon, onClick }) => {
           className={`${styles.desc} ${techIcon ? "" : styles.withoutMargin}`}
         >
           <ReactMarkdown
-            children={desc || ""}
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
-          />
+          >{desc || ""}</ReactMarkdown>
         </Paragraph>
       </Col>
     </Col>

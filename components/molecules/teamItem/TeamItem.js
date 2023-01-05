@@ -18,10 +18,9 @@ const TeamItem = ({ img, title, desc }) => {
       </Row>
       <Paragraph className={styles.desc}>
         <ReactMarkdown
-          children={desc ? desc : ''}
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
-        />
+        >{desc ? desc : ''}</ReactMarkdown>
       </Paragraph>
       <Col className={styles.moreWrapper}>
         <Paragraph className={styles.more}>

@@ -22,10 +22,10 @@ const TestimonialsItem = ({ img, desc, author, id }) => {
             </Col>
             <Col className={styles.testimonialsTextWrapper}>
               <Paragraph className={styles.desc}><ReactMarkdown
-                children={desc ? desc : ''}
+
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw]}
-              /></Paragraph>
+              >{desc ? desc : ''}</ReactMarkdown></Paragraph>
               <Paragraph className={styles.author}>{author}</Paragraph>
             </Col>
           </Row>
@@ -34,10 +34,9 @@ const TestimonialsItem = ({ img, desc, author, id }) => {
             <Col className={styles.testimonialsTextWrapperEven} span={12}>
               <Paragraph className={styles.desc}>
                 <ReactMarkdown
-                  children={desc ? desc : ''}
                   remarkPlugins={[remarkGfm]}
                   rehypePlugins={[rehypeRaw]}
-                />
+                >{desc ? desc : ''}</ReactMarkdown>
               </Paragraph>
               <Paragraph className={styles.author}>{author}</Paragraph>
             </Col>

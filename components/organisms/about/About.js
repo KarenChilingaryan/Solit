@@ -49,10 +49,9 @@ const About = ({ data }) => {
             <Title title={"About us"} />
           </Col>
           <ReactMarkdown
-            children={data?.data?.[0]?.presentation_text}
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
-          />
+          >{data?.data?.[0]?.presentation_text}</ReactMarkdown>
         </Col>
       </Row>
       <Col className={styles.buttonWrapper}>

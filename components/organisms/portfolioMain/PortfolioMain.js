@@ -14,9 +14,8 @@ const PortfolioMain = ({ data, main = false }) => {
 
   return (
     <Col
-      className={`${styles.portfolioMainWrapper} ${
-        main ? styles.mainPage : ""
-      }`}
+      className={`${styles.portfolioMainWrapper} ${main ? styles.mainPage : ""
+        }`}
     >
       {data?.title && (
         <Title title={data?.title} lightBlueTitle align="center" />
@@ -25,15 +24,13 @@ const PortfolioMain = ({ data, main = false }) => {
 
       <Paragraph className={styles.text}>
         <ReactMarkdown
-          children={first_details}
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
-        />
+        >{first_details}</ReactMarkdown>
         <ReactMarkdown
-          children={second_details}
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
-        />
+        >{second_details}</ReactMarkdown>
       </Paragraph>
     </Col>
   );

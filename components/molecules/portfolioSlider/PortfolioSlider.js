@@ -49,9 +49,8 @@ const PortfolioSlider = ({
 
   return (
     <Col
-      className={`${styles.portfolioSliderMainWrapper} ${
-        main ? styles.mainPage : ""
-      }`}
+      className={`${styles.portfolioSliderMainWrapper} ${main ? styles.mainPage : ""
+        }`}
     >
       <CarouselWrapper
         className={styles.sliderWrapper}
@@ -67,10 +66,9 @@ const PortfolioSlider = ({
       {main && (
         <Col className={styles.portfolioText}>
           <ReactMarkdown
-            children={portfolioText ? portfolioText[0].presentation_text : ""}
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
-          />
+          >{portfolioText ? portfolioText[0].presentation_text : ""}</ReactMarkdown>
         </Col>
       )}
     </Col>
