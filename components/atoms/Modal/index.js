@@ -80,7 +80,7 @@ const Modal = styled(modal)`
       .ant-modal-footer {
         height: auto;
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         //padding: 10px 30px 20px 10px;
         border-top: none !important;
       }
