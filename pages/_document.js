@@ -21,12 +21,11 @@ export default class MyDocument extends Document {
           <meta property="twitter:url" content="Solit Website Url" />
           <meta
             property="twitter:title"
-            content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+            content="Solit"
           />
           <meta
             property="twitter:description"
-            content="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+            content="Lorem Ipsum twit"
           />
           <meta
             name="viewport"
