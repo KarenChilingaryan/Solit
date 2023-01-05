@@ -22,7 +22,7 @@ import { shortPresentationPortfolioApi } from "../services/shortPresentationPort
 import { aboutOurTeamTitleApi } from "../services/aboutOurTeamTitleApi";
 import { testimonialsFlagTitleApi } from "../services/testimonialsFlagTitleApi";
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     [postsApi.reducerPath]: postsApi.reducer,
     [ourServicesApi.reducerPath]: ourServicesApi.reducer,
@@ -50,3 +50,5 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(postsApi.middleware),
 });
+
+export default store;
