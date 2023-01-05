@@ -5,7 +5,7 @@ export const ourServicesApi = createApi({
   prepareHeaders: (headers) => {
     headers.set('Access-Control-Allow-Origin', '*');
     headers.set('Access-Control-Allow-Headers', 'Content-Type,X-Api-Key');
-    headers.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+    headers.set('Access-Control-Allow-Origin', 'https://solit-karenchilingaryan.vercel.app');
     headers.set('Access-Control-Allow-Methods', 'OPTIONS,POST,GET,PUTCH,PUT');
     return headers
   },
