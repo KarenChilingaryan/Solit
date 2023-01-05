@@ -1,5 +1,4 @@
 import Document, { Head, Main, NextScript, Html } from "next/document";
-import Script from "next/script";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -15,27 +14,28 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta charSet="utf-8" />
-          <meta name="title" content="Fundex" />
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="title" content="Solit" />
+          <meta property="og:description" content="Lorem Ipsum SOLIT" />
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="Solit Website Url" />
           <meta
-            name="description"
-            content="Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+            property="twitter:title"
+            content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
           />
-          <meta name="robots" content="index,follow" />
-          <meta property="og:title" content="Solit" />
-          <meta property="og:url" content="Link!!!" />
-          <meta property="og:description" content="Content!!!" />
-          <meta name="image" property="og:image" content="Website Link" />
-          <meta name="twitter:title" content="Solit" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta property="twitter:card" content="Solit" />
-          <meta property="twitter:domain" content="Domian!!!!!" />
-          <meta property="twitter:url" content="Solit URL!!!!!" />
-          <meta property="twitter:description" content="Content!!!!" />
-          <meta property="twitter:image" content="Link for image!!!!" />
-          <Script
-            src='//fw-cdn.com/2408772/3004044.js'
-            chat='true' />
+          <meta
+            property="twitter:description"
+            content="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+          />
+          <meta
+            name="viewport"
+            content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no"
+          />
+          <meta
+            property="twitter:image"
+            content="https://media.licdn.com/dms/image/C4E0BAQGVf93zisQLPw/company-logo_200_200/0/1662644823778?e=1680739200&v=beta&t=qMeWu5YYl0DJEPm-WUTCHTz4MrXIjo7Kc8jIVytrFKA"
+          />
         </Head>
         <body>
           <Main />

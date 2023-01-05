@@ -1,16 +1,18 @@
 import { memo } from "react";
+import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { Col } from "../../atoms";
 import ServiceSmallCard from "../../molecules/serviceSmallCard/ServiceSmallCard";
 import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
 import svg from "../../../assets/img/serviceImg.svg";
 import webIcon from "../../../assets/img/webIcon.svg";
+import SeoCard from "../../atoms/SEO";
+import { seoData } from "../../../constants/seo";
 
 import styles from "./careers.module.scss";
-import { useRouter } from "next/router";
 
 const Careers = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const careerTechnologyLongPresentation = useSelector(
     (state) =>
@@ -25,6 +27,7 @@ const Careers = () => {
 
   return (
     <div className={styles.careerPage}>
+      <SeoCard details={seoData} />
       <HomeMainTexts
         result={{
           default_text: "We are looking for best talents!",
