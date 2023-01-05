@@ -35,6 +35,7 @@ const Careers = () => {
         }}
         style={{ margin: "0 auto" }}
         square
+        h1
       />
       <Col className={styles.cardSection}>
         {careerTechnologyLongPresentation?.CareersData?.map((el) => (

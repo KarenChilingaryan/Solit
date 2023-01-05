@@ -17,7 +17,7 @@ const HomeMain = ({ data }) => {
 
   return (
     <Col className={styles.MainWrapper}>
-      <HomeMainTexts result={data} smallText={data?.description} home />
+      <HomeMainTexts result={data} smallText={data?.description} home h1/>
       <Col className={styles.buttonWrapper}>
         <Button text={buttonText} />
       </Col>

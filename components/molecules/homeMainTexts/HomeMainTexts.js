@@ -5,7 +5,7 @@ import aboutSquare from '../../../assets/img/aboutSquare.png'
 
 import styles from "./HomeMainTexts.module.scss";
 
-const HomeMainTexts = ({ result, smallText, style = {}, margin = true, square = false, home = false }) => {
+const HomeMainTexts = ({ result, smallText, style = {}, margin = true, square = false, home = false, h1 = false }) => {
   const res = result?.default_text?.split(" ").map((txt, idx) =>
     result?.color_text.split(" ").includes(txt) ? (
       <span className={styles.coloredText} key={idx}>
@@ -27,13 +27,21 @@ const HomeMainTexts = ({ result, smallText, style = {}, margin = true, square = 
           square &&
           <NextImage src={aboutSquare} className={styles.square} />
         }
-        <Paragraph
-          className={
+        {h1 ?
+          <h1 className={
             styles.bigText + ` ${margin ? "" : styles.bigTextWithoutMargin}`
           }
-        >
-          {res}
-        </Paragraph>
+          >
+            {res}
+          </h1> :
+          <Paragraph
+            className={
+              styles.bigText + ` ${margin ? "" : styles.bigTextWithoutMargin}`
+            }
+          >
+            {res}
+          </Paragraph>
+        }
       </Col>
       {smallText && (
         <Col className={styles.smallTextWrapper}>

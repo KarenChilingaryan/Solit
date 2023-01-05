@@ -26,6 +26,7 @@ const CareersComponent = () => {
         }}
         style={{ margin: "0 auto" }}
         square
+        h1
       />
       <div className={styles.textsBlocks}>
         <ReactMarkdown
