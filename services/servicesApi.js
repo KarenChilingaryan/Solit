@@ -2,22 +2,17 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
 export const servicesApi = createApi({
-  prepareHeaders: (headers, { getState }) => {
-    const token = getState().auth.token
 
-    // If we have a token set in state, let's assume that we should be passing it.
-    if (token) {
-      headers.set('authorization', `Bearer ${token}`)
-    }
-    headers.set('Access-Control-Allow-Origin', `*`)
-    return headers
-  },
   reducerPath: "servicesApi",
   refetchOnFocus: false,
   refetchOnMountOrArgChange: false,
   refetchOnReconnect: false,
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_APP_API,
+    prepareHeaders: (headers) => {      
+      headers.set('Access-Control-Allow-Origin', `*`)
+      return headers
+    },
   }),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
