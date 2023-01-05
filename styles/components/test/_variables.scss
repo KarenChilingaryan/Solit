@@ -1,0 +1,23 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$test-sizes: (
+  test-radius: calcVW(40),
+  test-padding: calcVW(49) calcVW(32) calcVW(45) calcVW(35),
+  test-textWrapper-ml: calcVW(20),
+  test-title-fz: calcVW($fz-title),
+  test-title-lh: calcVW($lh-title),
+  test-description-fz: calcVW($fz-description),
+  test-description-lh: calcVW($lh-description),
+  test-width: calcVW(460),
+  test-height: calcVW(283),
+  test-imageWrapper-width: calcVW(66),
+  test-imageWrapper-height: calcVW(66),
+  test-img-width: calcVW(30),
+  test-img-height: calcVW(30),
+  test-img-margin: calcVW(19),
+);
+
+@function getTestSizes($property) {
+  @return map-get($test-sizes, $property);
+}

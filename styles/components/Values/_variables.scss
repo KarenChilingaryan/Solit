@@ -1,0 +1,12 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$values-sizes: (
+  values-wrapper-padding: calcVW(0) calcVW(0) calcVW(0) calcVW(230),
+  values-list-item-wrapper-br: calcVW(5),
+  values-button-margin: calcVW(70) calcVW(0) calcVW(150),
+);
+
+@function getValuesSizes($property) {
+  @return map-get($values-sizes, $property);
+}

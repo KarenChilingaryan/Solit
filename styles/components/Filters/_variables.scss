@@ -1,0 +1,25 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$filters-sizes: (
+  filters-wrapper-padding: calcVW(84) calcVW(0) calcVW(55) calcVW(0),
+  filters-fz: calcVW(25),
+  filters-lh: calcVW(30),
+  filters-padding: calcVW(17) calcVW(0) calcVW(20) calcVW(263),
+  wrapper-padding: calcVW(20),
+  text-wrapper-ml: calcVW(8),
+  text-wrapper-mb: calcVW(5),
+  title-fz: calcVW(30),
+  title-lh: calcVW(36),
+  subtitle-fz: calcVW(18),
+  subtitle-lh: calcVW(21),
+  subtitle-width: calcVW(257),
+  desc-fz: calcVW(18),
+  desc-lh: calcVW(21),
+  img-width: calcVW(75),
+  img-height: calcVW(75),
+);
+
+@function getFiltersSizes($property) {
+  @return map-get($filters-sizes, $property);
+}

@@ -1,0 +1,12 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$about-main-sizes: (
+  about-main-wrapper-padding: calcVW(72) calcVW(365) calcVW(0) calcVW(365),
+  about-main-wrapper-tablet-padding: calcVW(72) calcVW(230) calcVW(0) calcVW(230),
+  button-wrapper-padding: calcVW(100) 0,
+);
+
+@function getAboutMainSizes($property) {
+  @return map-get($about-main-sizes, $property);
+}

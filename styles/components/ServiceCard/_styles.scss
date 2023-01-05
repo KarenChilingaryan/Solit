@@ -1,0 +1,70 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-service-card-styles {
+  .serviceCardWrapper {
+    padding: getServiceCardSizes(serviceCard-wrapper-padding);
+    margin-left: getServiceCardSizes(serviceCard-icon-title-wrapper-ml);
+    .title_iconWrapper {
+      margin-bottom: getServiceCardSizes(serviceCard-icon-title-wrapper-mb);
+      margin-left: getServiceCardSizes(serviceCard-icon-title-wrapper--ml);
+      .iconWrapper {
+        margin-right: getServiceCardSizes(serviceCard-icon-mr);
+        width: getServiceCardSizes(serviceCard-icon-width);
+        height: getServiceCardSizes(serviceCard-icon-height);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .title {
+        width: getServiceCardSizes(serviceCard-title-width);
+        @include font-style(
+          getServiceCardSizes(serviceCard-title-fz),
+          variables.$fw-400,
+          getServiceCardSizes(serviceCard-title-lh),
+          #fff
+        );
+        border-bottom: 2px solid transparent;
+        transition: 0.2s;
+        padding-bottom: getServiceCardSizes(serviceCard-title-pb);
+        &:hover {
+          padding-bottom: getServiceCardSizes(serviceCard-title-pb);
+          font-size: getServiceCardSizes(serviceCard-title-hover-fz);
+          font-weight: variables.$fw-600;
+          border-bottom: 2px solid variables.$main-green;
+        }
+      }
+    }
+    .desc {
+      width: getServiceCardSizes(serviceCard-desc-width);
+      font-weight: 300 !important;
+      margin-left: getServiceCardSizes(serviceCard-desc-ml);
+      color: #c3d4dc !important;
+      @include font-style(
+        getServiceCardSizes(serviceCard-desc-fz),
+        variables.$fw-300,
+        getServiceCardSizes(serviceCard-desc-lh),
+        #c3d4dc
+      );
+    }
+    @media (max-width: 768px) {
+      max-width: unset;
+      .desc {
+        display: none;
+      }
+      .title_iconWrapper {
+        gap: calcVW(90);
+        .iconWrapper {
+          width: calcVW(180);
+          height: calcVW(180);
+        }
+        .title {
+          width: calcVW(620);
+          @include font-style(calcVW(80), variables.$fw-400, calcVW(100), #fff);
+          &:hover {
+            font-size: calcVW(99);
+          }
+        }
+      }
+    }
+  }
+}

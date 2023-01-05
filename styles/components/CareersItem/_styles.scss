@@ -1,0 +1,20 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-careers-item-styles {
+  .careerPage {
+    padding-top: calcVW(150);
+  }
+  .careersPageForm {
+    padding-top: calcVW(150);
+    background-color: variables.$main-dark-blue;
+  }
+  .textsBlocks {
+    padding: calcVW(100) calcVW(240);
+  }
+  @media (max-width: 768px) {
+    .textsBlocks {
+      padding: calcVW(100) calcVW(120);
+    }
+  }
+}

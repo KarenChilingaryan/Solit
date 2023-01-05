@@ -1,0 +1,20 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$value-text-item-sizes: (
+  value-text-item-wrapper-pl: calcVW(50),
+  value-text-item-wrapper-pr: calcVW(150),
+  title-wrapper-mb: calcVW(21),
+  square-width: calcVW(19),
+  square-height: calcVW(19),
+  title-ml: calcVW(20),
+  title-fz: calcVW(40),
+  title-lh: calcVW(47),
+  desc-fz: calcVW(22),
+  desc-lh: calcVW(26),
+  desc-pb: calcVW(30),
+);
+
+@function getValueTextItemSizes($property) {
+  @return map-get($value-text-item-sizes, $property);
+}

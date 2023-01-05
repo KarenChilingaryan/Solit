@@ -1,0 +1,31 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-projects-styles {
+  .projectsWrapper {
+    background-color: variables.$projects-bg;
+    padding: getProjectsSizes(projects-wrapper-padding);
+    .titleWrapper {
+      padding: getProjectsSizes(projects-title-padding);
+    }
+    .buttonWrapper {
+      text-align: center;
+      margin-top: getProjectsSizes(projects-button-wrapper-mt);
+    }
+    @media (max-width: 768px) {
+      padding: calcVW(100);
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: calcVW(80);
+      }
+      .projects > div {
+        max-width: 55%;
+        margin: 0 auto;
+      }
+      .buttonWrapper {
+        margin: calcVW(150) 0 calcVW(50) 0;
+      }
+    }
+  }
+}

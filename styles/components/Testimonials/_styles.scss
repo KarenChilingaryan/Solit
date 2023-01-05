@@ -1,0 +1,12 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-testimonials-styles {
+  .testimonialsMainWrapper {
+    background-color: variables.$main-blue-15;
+    padding: getTestimonialsSizes(testimonials-wrapper-padding);
+    .titleWrapper {
+      padding-bottom: getTestimonialsSizes(testimonials-title-pb);
+    }
+  }
+}

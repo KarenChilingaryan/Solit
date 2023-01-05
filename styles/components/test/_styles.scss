@@ -1,0 +1,47 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-test-styles {
+  .TestWrapper {
+    width: getTestSizes(test-width);
+    height: getTestSizes(test-height);
+
+    padding: getTestSizes(test-padding);
+
+    border-radius: getTestSizes(test-radius);
+
+    @include center-absolute();
+
+    .ImageWrapper {
+      width: getTestSizes(test-imageWrapper-width);
+      height: getTestSizes(test-imageWrapper-height);
+
+      border-radius: 50%;
+      .Image {
+        width: getTestSizes(test-img-width);
+        height: getTestSizes(test-img-height);
+
+        margin: getTestSizes(test-img-margin);
+      }
+    }
+
+    .TextWrapper {
+      margin-left: getTestSizes(test-textWrapper-ml);
+      .TestTitle {
+        @include font-style(
+          getTestSizes(test-title-fz),
+          variables.$fw-title,
+          getTestSizes(test-title-lh)
+        );
+      }
+      .TestDescription {
+        @include font-style(
+          getTestSizes(test-description-fz),
+          variables.$fw-description,
+          getTestSizes(test-description-lh),
+          variables.$main-blue
+        );
+      }
+    }
+  }
+}

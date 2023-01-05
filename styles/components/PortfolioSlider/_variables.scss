@@ -1,0 +1,18 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$portfolio-slider-sizes: (
+  portfolio-slider-wrapper-padding: calcVW(89) calcVW(117) calcVW(0) calcVW(0),
+  slider-wrapper-width: calcVW(630),
+  bg-square-left: calcVW(-200),
+  bg-square-top: calcVW(35),
+  bg-square-width: calcVW(254),
+  bg-square-height: calcVW(234),
+  image-width: calcVW(190),
+  image-height: calcVW(340),
+  image-br: calcVW(5),
+);
+
+@function getPortfolioSliderSizes($property) {
+  @return map-get($portfolio-slider-sizes, $property);
+}

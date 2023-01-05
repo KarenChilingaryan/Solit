@@ -1,0 +1,36 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-blogs-styles {
+  .blogsMainWrapper {
+    .blogsCards {
+      @include flex(center, none, row);
+      row-gap: getBlogsSizes(blog-row-gap);
+      column-gap: getBlogsSizes(blog-column-gap);
+
+    }
+    @include flex(none, none, column);
+    .blogTopWrapper {
+      @include flex(space-between, none, row);
+      padding: getBlogsSizes(blogs-top-wrapper-padding);
+    }
+    .leftSecton {
+      margin-top: getBlogsSizes(blogs-text-mt);
+      height: fit-content;
+    }
+    .cardSection {
+      @include flex(none, none, column, none);
+      row-gap: 20px;
+      flex: none;
+    }
+    .titleWrapper {
+      padding: getBlogsSizes(blogs-wrapper-padding) !important;
+    }
+    .buttonWrapper {
+      @include flex(center, none, row);
+      text-align: center;
+      margin: getBlogsSizes(blogs-button-wrapper-mt);
+      column-gap: getBlogsSizes(blog-buttons-column-gap)
+    }
+  }
+}

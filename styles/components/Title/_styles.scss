@@ -1,0 +1,38 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-title-styles {
+  .square {
+    border-radius: 2px;
+    transform: rotate(45deg);
+    width: getTitleSizes(square-width);
+    height: getTitleSizes(square-height);
+    margin-right: getTitleSizes(square-mr);
+    background: variables.$main-green;
+  }
+  .title {
+    padding: calcVW(50) 0;
+    @include font-style(
+      getTitleSizes(title-fz),
+      variables.$fw-400,
+      getTitleSizes(title-lh)
+    );
+    color: variables.$main-dark-blue;
+    @media (max-width: 768px) {
+      font-size: calcVW(90);
+    }
+  }
+  .whiteTitle {
+    color: #fff;
+  }
+
+  .lightBlueTitle {
+    color: variables.$main-blue;
+  }
+  .borderTitle {
+    border-bottom: 2px solid #00ff96;
+    padding-bottom: calcVW(5);
+    margin-bottom: calcVW(15);
+    color: variables.$main-dark-blue !important;
+  }
+}

@@ -1,0 +1,12 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$offer-sizes: (
+  offer-wrapper-padding: calcVW(84) calcVW(0) calcVW(55) calcVW(0),
+  offer-title-pb: calcVW(82),
+  offer-button-wrapper-mt: calcVW(50),
+);
+
+@function getOfferSizes($property) {
+  @return map-get($offer-sizes, $property);
+}

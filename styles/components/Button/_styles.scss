@@ -1,0 +1,184 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-button-styles {
+  .button {
+    background: variables.$main-blue;
+    border: 1px solid variables.$main-blue;
+    border-radius: getButtonSizes(button-radius);
+    padding: getButtonSizes(button-padding);
+    width: getButtonSizes(button-width);
+    height: getButtonSizes(button-height);
+    @include font-style(
+      getButtonSizes(button-text-fz),
+      variables.$fw-500,
+      getButtonSizes(button-text-fl),
+      #fff
+    );
+
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      background: #105475;
+      border: 1px solid #105475;
+      @include font-style(
+        getButtonSizes(button-hover-text-fz),
+        variables.$fw-500,
+        getButtonSizes(button-text-fl),
+        #fff
+      );
+      transition: 0.3s;
+    }
+    @media (max-width: 768px) {
+      width: calcVW(420);
+      height: calcVW(130);
+      font-size: calcVW(60);
+      border-radius: 5px;
+      &:hover {
+        @include font-style(
+          calcVW(58),
+          variables.$fw-500,
+          getButtonSizes(button-text-fl),
+          #fff
+        );
+      }
+    }
+  }
+
+  .whiteButton {
+    background: #fff;
+    color: #105475;
+    cursor: pointer;
+
+    &:hover {
+      background: variables.$main-blue;
+
+      border: 1px solid variables.$main-blue;
+      @include font-style(
+        getButtonSizes(button-hover-text-fz),
+        variables.$fw-500,
+        getButtonSizes(button-text-fl),
+        #fff
+      );
+      transition: 0.3s;
+    }
+    @media (max-width: 768px) {
+      width: calcVW(400);
+      height: calcVW(120);
+      font-size: calcVW(45);
+      &:hover {
+        @include font-style(
+          calcVW(58),
+          variables.$fw-500,
+          getButtonSizes(button-text-fl),
+          #fff
+        );
+      }
+    }
+  }
+
+  .boldBlue {
+    background: variables.$main-dark-blue;
+    @include font-style(
+      getButtonSizes(button-text-bold-blue-fz),
+      variables.$fw-500,
+      getButtonSizes(button-text-bold-blue-fl),
+      #fff
+    );
+    padding: getButtonSizes(button-bold-blue-padding);
+    width: getButtonSizes(button-width-bold-blue);
+    height: getButtonSizes(button-bold-blue-height);
+    cursor: pointer;
+    &:hover {
+      background: variables.$main-blue;
+
+      border: 1px solid variables.$main-blue;
+      @include font-style(
+        getButtonSizes(button-text-bold-blue-fz),
+        variables.$fw-500,
+        getButtonSizes(button-text-bold-blue-fl),
+        #fff
+      );
+      transition: 0.3s;
+    }
+    @media (max-width: 768px) {
+      &:hover {
+        @include font-style(
+          calcVW(58),
+          variables.$fw-500,
+          getButtonSizes(button-text-fl),
+          #fff
+        );
+      }
+    }
+  }
+
+  .lightBlue {
+    background: variables.$main-blue;
+    @include font-style(
+      getButtonSizes(button-text-bold-blue-fz),
+      variables.$fw-500,
+      getButtonSizes(button-text-bold-blue-fl),
+      #fff
+    );
+    padding: getButtonSizes(button-bold-blue-padding);
+    width: getButtonSizes(button-width-light-blue);
+    height: getButtonSizes(button-bold-blue-height);
+    cursor: pointer;
+    &:hover {
+      background: variables.$main-dark-blue;
+
+      border: 1px solid variables.$main-dark-blue;
+      @include font-style(
+        getButtonSizes(button-text-bold-blue-fz),
+        variables.$fw-500,
+        getButtonSizes(button-text-bold-blue-fl),
+        #fff
+      );
+      transition: 0.3s;
+    }
+    @media (max-width: 768px) {
+      &:hover {
+        @include font-style(
+          calcVW(58),
+          variables.$fw-500,
+          getButtonSizes(button-text-fl),
+          #fff
+        );
+      }
+    }
+  }
+
+  .boldWhite {
+    background: #e7eff2;
+    @include font-style(
+      getButtonSizes(button-text-bold-blue-fz),
+      variables.$fw-500,
+      getButtonSizes(button-text-bold-blue-fl),
+      variables.$main-dark-blue
+    );
+    padding: getButtonSizes(button-bold-blue-padding);
+    width: getButtonSizes(button-width-bold-blue);
+    height: getButtonSizes(button-bold-blue-height);
+    cursor: pointer;
+    &:hover {
+      background: variables.$main-blue;
+
+      border: 1px solid variables.$main-blue;
+      @include font-style(
+        getButtonSizes(button-text-bold-blue-fz),
+        variables.$fw-500,
+        getButtonSizes(button-text-bold-blue-fl),
+        #fff
+      );
+      transition: 0.3s;
+    }
+  }
+  @media (max-width: 768px) {
+    .button {
+      width: calcVW(400);
+      height: calcVW(120);
+      font-size: calcVW(45);
+    }
+  }
+}

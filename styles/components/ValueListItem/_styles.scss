@@ -1,0 +1,26 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-value-list-item-styles {
+  .valueListWrapper {
+    margin: getValuesListItemSizes(values-list-item-wrapper-margin);
+    align-items: center;
+    .square {
+      width: getValuesListItemSizes(square-width);
+      height: getValuesListItemSizes(square-height);
+      border: 2px solid #00ff96;
+      box-shadow: 0px 0px 4px #00ff96;
+      transform: rotate(45deg);
+    }
+
+    .text {
+      @include font-style(
+        getValuesListItemSizes(text-fz),
+        variables.$fw-500,
+        getValuesListItemSizes(text-lh),
+        #fff
+      );
+      margin-left: getValuesListItemSizes(text-ml);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$button-sizes: (
+  button-radius: calcVW(5),
+  button-padding: calcVW(7) calcVW(5),
+  button-bold-blue-padding: calcVW(2) calcVW(5),
+  button-width: calcVW(160), 
+  button-width-bold-blue: calcVW(100),
+  button-height: calcVW(50),
+  button-bold-blue-height: calcVW(35),
+  button-text-fz: calcVW(22),
+  button-text-lh: calcVW(26),
+  button-text-bold-blue-fz: calcVW(16),
+  button-text-bold-blue-lh: calcVW(19),
+  button-hover-text-fz: calcVW(23),
+  button-hover-text-lh: calcVW(26),
+  button-width-light-blue: calcVW(120),
+);
+
+@function getButtonSizes($property) {
+  @return map-get($button-sizes, $property);
+}

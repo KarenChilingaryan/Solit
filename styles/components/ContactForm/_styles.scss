@@ -1,0 +1,99 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-contactForm-styles {
+  .withoutTitle {
+    padding-top: getContactFormSizes(contact-form-wrapper-pt);
+  }
+  .contactFormWrapper {
+    padding-bottom: getContactFormSizes(contact-form-wrapper-pb);
+    background-color: variables.$main-blue-15;
+    .titleWrapper {
+      padding: getContactFormSizes(contact-form-title-padding);
+    }
+    .input {
+      padding: getContactFormSizes(contact-form-input-padding);
+      border-radius: getContactFormSizes(contact-form-input-br);
+      @include font-style(
+        getContactFormSizes(contact-form-input-fz),
+        variables.$fw-500,
+        getContactFormSizes(contact-form-input-lh),
+        $main-dark-blue-80
+      );
+    }
+
+    .row_2,
+    .row_1,
+    .textAreaWrapper {
+      justify-content: center;
+      margin-bottom: getContactFormSizes(contact-form-input-row_1-mb);
+      .inputOdd {
+        margin-right: getContactFormSizes(contact-form-input-input-odd-mr);
+      }
+    }
+
+    .textAreaWrapper {
+      .input {
+        height: getContactFormSizes(contact-form-input-textarea-height);
+      }
+      textarea {
+        line-height: normal;
+      }
+    }
+
+    .buttonWrapper {
+      text-align: center;
+      margin-top: getContactFormSizes(contact-form-button-wrapper-mt);
+    }
+    @media (max-width: 768px) {
+      padding: calcVW(50) calcVW(300) calcVW(200) calcVW(300);
+
+      .form {
+        @include flex(center, none, column);
+        gap: calcVW(90);
+      }
+      .row_2 > div,
+      .row_1 > div {
+        max-width: 100%;
+        margin: 0;
+      }
+      .row_2,
+      .row_1 {
+        flex-direction: column;
+        margin-bottom: 0;
+        gap: calcVW(90);
+        input {
+          width: 100%;
+          height: calcVW(150);
+          font-size: calcVW(60);
+          border-radius: 5px;
+          &::placeholder {
+            color: variables.$main-dark-blue;
+          }
+        }
+        .inputOdd {
+          margin-right: 0;
+        }
+      }
+      .textAreaWrapper > div {
+        width: 100%;
+        max-width: unset;
+        flex: unset;
+      }
+      .textAreaWrapper {
+        textarea {
+          font-size: calcVW(60);
+          height: calcVW(400) !important;
+          border-radius: 5px;
+          &::placeholder {
+            color: variables.$main-dark-blue;
+          }
+        }
+      }
+      .titleWrapper > div > div {
+        font-size: calcVW(90);
+        padding: calcVW(40);
+      }
+    }
+  }
+}

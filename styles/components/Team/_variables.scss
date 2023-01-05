@@ -1,0 +1,12 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$team-sizes: (
+  team-wrapper-padding: calcVW(39) calcVW(300) calcVW(70) calcVW(300),
+  team-items-wrapper-padding: calcVW(25) calcVW(0) calcVW(70) calcVW(0),
+  team-wrapper-tablet-padding: calcVW(39) calcVW(230) calcVW(70) ,
+);
+
+@function getTeamSizes($property) {
+  @return map-get($team-sizes, $property);
+}

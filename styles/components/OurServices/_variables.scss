@@ -1,0 +1,16 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$services-sizes: (
+  services-wrapper-padding: calcVW(39) calcVW(0) calcVW(50) calcVW(0),
+  services-wrapper-pb: calcVW(75),
+  service-button-wrapper-mt: calcVW(55),
+  service-top-wrapper-padding: calcVW(80) calcVW(230),
+  service-text-mt: calcVW(350),
+  service-bottom-wrapper-padding: calcVW(100),
+  button-padding-top: calcVW(100),
+);
+
+@function getServicesSizes($property) {
+  @return map-get($services-sizes, $property);
+}

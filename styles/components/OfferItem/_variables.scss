@@ -1,0 +1,15 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$offer-item-sizes: (
+  offer-item-wrapper-padding: calcVW(28) calcVW(10),
+  offer-item-text-fz: calcVW(22),
+  offer-item-text-lh: calcVW(26),
+  offer-item-text-mt: calcVW(15),
+  offer-item-img-width: calcVW(88),
+  offer-item-img-height: calcVW(50),
+);
+
+@function getOfferItemSizes($property) {
+  @return map-get($offer-item-sizes, $property);
+}

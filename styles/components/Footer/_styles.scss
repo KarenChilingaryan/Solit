@@ -1,0 +1,105 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-footer-styles {
+  .footerWrapper {
+    background: variables.$weldon-blue;
+    padding: getFooterSizes(footer-wrapper-padding);
+
+    .infoWrapper {
+      margin-right: getFooterSizes(footer-info-wrapper-mr);
+      .footerLogo {
+        margin: getFooterSizes(footer-logo-margin);
+        width: getFooterSizes(footer-logo-width);
+        height: getFooterSizes(footer-logo-height);
+      }
+    }
+
+    .expertiseWrapper {
+      margin-right: getFooterSizes(footer-expertise-wrapper-mr);
+    }
+    .companyWrapper {
+      margin-right: getFooterSizes(footer-company-wrapper-mr);
+    }
+    .textTitle {
+      margin-bottom: getFooterSizes(footer-text-title-mb) !important;
+      @include font-style(
+        getFooterSizes(footer-text-title-fz),
+        variables.$fw-400,
+        getFooterSizes(footer-text-title-lh),
+        #fff
+      );
+    }
+    .text {
+      margin-bottom: getFooterSizes(footer-text-mb) !important;
+      @include font-style(getFooterSizes(footer-text-fz), variables.$fw-500, getFooterSizes(footer-text-lh), #fff);
+    }
+    .infoText {
+      margin-bottom: getFooterSizes(footer-info-text-mb) !important;
+      @include font-style(getFooterSizes(footer-text-fz), variables.$fw-500, getFooterSizes(footer-text-lh), #fff);
+    }
+
+    .socialIconsWrapper {
+      align-self: flex-end;
+      .socialIcons {
+        margin-right: getFooterSizes(footer-social-mr);
+        width: getFooterSizes(footer-social-width);
+        height: getFooterSizes(footer-social-height);
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .footerWrapper {
+      padding: calcVW(400) calcVW(100) calcVW(1000) calcVW(100);
+      position: relative;
+      .footerBlock {
+        flex-wrap: wrap;
+        row-gap: calcVW(200);
+      }
+      .infoWrapper {
+        margin-right: 0;
+        width: calcVW(600);
+        position: unset;
+        .footerLogo {
+          width: calcVW(600);
+          height: calcVW(270);
+        }
+      }
+      .expertiseWrapper {
+        order: 2;
+        width: calcVW(500);
+        margin: 0;
+      }
+      .companyWrapper {
+        order: 3;
+        width: calcVW(500);
+      }
+      .socialIconsWrapper {
+        order: 1;
+        align-self: flex-start;
+        width: 63%;
+        display: flex;
+        justify-content: end;
+        .socialIcons {
+          width: calcVW(140);
+          height: calcVW(200);
+          margin: 0;
+          margin-top: calcVW(-40);
+        }
+      }
+      .textTitle {
+        @include font-style(calcVW(60), variables.$fw-500, calcVW(100), #fff);
+      }
+      .text {
+        @include font-style(calcVW(50), variables.$fw-400, calcVW(80), #fff);
+      }
+      .infoBlock {
+        position: absolute;
+        bottom: calcVW(500);
+      }
+      .infoText {
+        @include font-style(calcVW(50), variables.$fw-400, calcVW(80), #fff);
+      }
+    }
+  }
+}

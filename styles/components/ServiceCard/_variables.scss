@@ -1,0 +1,25 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$serviceCard-sizes: (
+  serviceCard-wrapper-padding: calcVW(0) calcVW(0) calcVW(0) calcVW(230),
+  serviceCard-icon-title-wrapper-mb: calcVW(4),
+  serviceCard-icon-title-wrapper-ml: calcVW(15),
+  serviceCard-icon-title-wrapper--ml: calcVW(-15),
+  serviceCard-icon-width: calcVW(52),
+  serviceCard-icon-height: calcVW(52),
+  serviceCard-icon-mr: calcVW(17),
+  serviceCard-title-fz: calcVW(34),
+  serviceCard-title-lh: calcVW(40),
+  serviceCard-title-pb: calcVW(8),
+  serviceCard-title-width: calcVW(250),
+  serviceCard-desc-fz: calcVW(20),
+  serviceCard-desc-lh: calcVW(24),
+  serviceCard-desc-width: calcVW(360),
+  serviceCard-desc-ml: calcVW(-15),
+  serviceCard-title-hover-fz: calcVW(35),
+);
+
+@function getServiceCardSizes($property) {
+  @return map-get($serviceCard-sizes, $property);
+}

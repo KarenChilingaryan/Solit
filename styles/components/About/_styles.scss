@@ -1,0 +1,58 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-about-styles {
+  .aboutWrapper {
+    padding-bottom: getAboutSizes(about-title-pb);
+    position: relative;
+    .titleWrapper {
+      padding: getAboutSizes(about-title-padding);
+    }
+    .logoImg {
+      width: getAboutSizes(about-logo-width);
+      height: getAboutSizes(about-logo-height);
+    }
+    .titleWrapperSmall {
+      display: none;
+    }
+    .leftImage {
+      position: absolute;
+      width: getAboutSizes(left-logo-width);
+      height: getAboutSizes(left-logo-height);
+      top: getAboutSizes(left-logo-top);
+    }
+    .context {
+      padding: getAboutSizes(wrapper-padding);
+    }
+    .buttonWrapper {
+      @include flex(center, center);
+      padding: getAboutSizes(button-wrapper-padding);
+    }
+    @media (max-width: 768px) {
+      .leftImage {
+        display: none;
+      }
+      .context {
+        @include flex(none, center, column);
+        padding-top: calcVW(100);
+      }
+      .context > div {
+        max-width: none;
+      }
+      .context > div:nth-child(1) {
+        padding: calcVW(70) 0;
+      }
+      .titleWrapperSmall {
+        @include center-flex();
+        padding: calcVW(50) 0;
+      }
+      .titleWrapper {
+        display: none;
+      }
+      .logoImg {
+        width: calcVW(1000);
+        height: calcVW(500);
+      }
+    }
+  }
+}

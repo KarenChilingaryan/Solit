@@ -1,0 +1,17 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-values-styles {
+  .valuesMainWrapper {
+    .valuesListItemWrapper {
+      background: variables.$main-dark-blue;
+      padding: getValuesSizes(values-wrapper-padding);
+      border-radius: getValuesSizes(values-list-item-wrapper-br);
+    }
+
+    .buttonWrapper {
+      text-align: center;
+      margin: getValuesSizes(values-button-margin);
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-careers-styles {
+  .careerPage {
+    padding: calcVW(150);
+
+    .cardSection {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      gap: calcVW(50);
+      justify-content: space-evenly;
+      justify-items: center;
+      align-content: space-evenly;
+      align-items: center;
+      margin-top: calcVW(100);
+    }
+
+    .careersPageForm {
+      padding-top: calcVW(150);
+      background-color: variables.$main-dark-blue;
+    }
+    .textsBlocks {
+      padding-left: calcVW(240);
+      padding-right: calcVW(240);
+      padding-bottom: calcVW(100);
+    }
+    @media (max-width: 768px) {
+      margin-top: calcVW(250);
+
+      .cardSection {
+        @include flex(center, center);
+        flex-direction: column;
+        margin-top: calcVW(200);
+      }
+    }
+  }
+}

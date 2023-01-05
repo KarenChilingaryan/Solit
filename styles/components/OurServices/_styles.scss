@@ -1,0 +1,30 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-ourServices-styles {
+  .servicesMainWrapper {
+    background-color: $main-dark-blue;
+    padding-bottom: getServicesSizes(service-bottom-wrapper-padding);
+    @include flex(none, none, column);
+
+    .titleWrapper {
+      padding: getServicesSizes(services-wrapper-padding);
+    }
+    .buttonWrapper {
+      text-align: center;
+      padding-top: getServicesSizes(button-padding-top);
+    }
+    @media (max-width: 768px) {
+      @include flex(space-between, none, column);
+      .serviceSection {
+        flex-direction: column;
+      }
+      .titleWrapper {
+        padding: calcVW(100) 0;
+      }
+      .titleWrapper > div > div {
+        font-size: calcVW(90);
+      }
+    }
+  }
+}

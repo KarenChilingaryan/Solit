@@ -1,0 +1,40 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-offer-item-styles {
+  .offerItemMainWrapper {
+    padding: getOfferItemSizes(offer-item-wrapper-padding);
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    .img {
+      width: getOfferItemSizes(offer-item-img-width);
+      height: getOfferItemSizes(offer-item-img-height);
+    }
+    .offerItemText {
+      text-align: center;
+      margin-top: getOfferItemSizes(offer-item-text-mt);
+      @include font-style(
+        getOfferItemSizes(offer-item-text-fz),
+        variables.$fw-600,
+        getOfferItemSizes(offer-item-text-lh),
+        variables.$main-dark-blue
+      );
+    }
+  }
+  @media (max-width: 768px) {
+    .offerItemMainWrapper {
+      padding-bottom: calcVW(80);
+      .img {
+        width: calcVW(250);
+        height: calcVW(150);
+      }
+      .offerItemText {
+        font-size: calcVW(60);
+        max-width: calcVW(400);
+        line-height: calcVW(60);
+        margin: calcVW(60) auto;
+      }
+    }
+  }
+}

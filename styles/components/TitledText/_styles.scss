@@ -1,0 +1,28 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-titled-text-styles {
+  .title {
+    @include font-style(
+      getTitleSizes(title-fz),
+      variables.$fw-700,
+      getTitleSizes(title-lh)
+    );
+    color: variables.$main-dark-blue;
+  }
+  .description {
+    @include font-style(
+      getTitleSizes(title-fz),
+      variables.$fw-300,
+      getTitleSizes(title-lh)
+    );
+    color: variables.$main-dark-blue;
+  }
+  .block {
+    margin-top: calcVW(26);
+    margin-bottom: calcVW(26);
+  }
+  .shortBlock{
+    width: calcVW(380)
+  }
+}

@@ -1,0 +1,27 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-about-item-styles {
+  .aboutItemWrapper {
+    .title {
+      margin-bottom: getAboutItemSizes(about-item-title-mb);
+      @include font-style(
+        getAboutItemSizes(about-item-desc-fz),
+        variables.$fw-400,
+        getAboutItemSizes(about-item-desc-lh),
+        variables.$main-dark-blue
+      );
+    }
+
+    .desc {
+      margin-bottom: getAboutItemSizes(about-item-desc-mb);
+      width: getAboutItemSizes(about-item-desc-width);
+      @include font-style(
+        getAboutItemSizes(about-item-title-fz),
+        variables.$fw-400,
+        getAboutItemSizes(about-item-title-lh),
+        variables.$main-dark-blue
+      );
+    }
+  }
+}

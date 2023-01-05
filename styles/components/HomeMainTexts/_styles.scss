@@ -1,0 +1,89 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-home-main-texts-styles {
+  .bigTextWrapper {
+    height: fit-content;
+    width: getHomeMainTextsSizes(home-main-title-width);
+    position: relative;
+
+    .square {
+      position: absolute;
+      top: getHomeMainTextsSizes(square-position-top);
+      left: getHomeMainTextsSizes(square-position-left);
+      width: getHomeMainTextsSizes(square-width);
+      height: getHomeMainTextsSizes(square-height);
+      z-index: 1;
+    }
+    .coloredText {
+      color: variables.$main-green;
+      font-weight: variables.$fw-700;
+      position: relative;
+      z-index: 2;
+    }
+    .normalText {
+      color: variables.$main-dark-blue;
+      font-weight: variables.$fw-700;
+      position: relative;
+      z-index: 2;
+    }
+    .normalWhiteText {
+      color: variables.$white;
+      font-weight: variables.$fw-700;
+    }
+    .bigText {
+      @include font-style(
+        getHomeMainTextsSizes(home-main-title-fz),
+        variables.$fw-500,
+        getHomeMainTextsSizes(home-main-title-lh)
+      );
+    }
+    .bigTextWithoutMargin {
+      margin: 0;
+    }
+  }
+
+  .smallTextWrapper {
+    width: getHomeMainTextsSizes(home-main-small-text-width);
+
+    .smallText {
+      @include font-style(
+        getHomeMainTextsSizes(home-main-small-text-fz),
+        variables.$fw-500,
+        getHomeMainTextsSizes(home-main-small-text-lh),
+        variables.$main-dark-blue
+      );
+    }
+  }
+  @media (max-width: 768px) {
+    .bigTextWrapper {
+      margin: auto;
+      .bigText {
+        text-align: center;
+        @include font-style(
+          getHomeMainTextsSizes(home-main-title-tablet-fz),
+          variables.$fw-500,
+          getHomeMainTextsSizes(home-main-title-lh)
+        );
+      }
+    }
+    .bigTextWrapperHome {
+      width: calcVW(1200);
+      margin-left: 0;
+      width: calcVW(1600);
+      .bigText {
+        text-align: left;
+        font-size: calcVW(150);
+        line-height: calcVW(200);
+      }
+    }
+    .smallTextWrapper {
+      width: calcVW(1600);
+      margin-top: calcVW(50);
+      .smallText {
+        font-size: calcVW(45);
+        line-height: calcVW(60);
+      }
+    }
+  }
+}

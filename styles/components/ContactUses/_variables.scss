@@ -1,0 +1,10 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$contact-us-sizes: (
+  header-p: calcVW(150) 0 calcVW(50) 0,
+);
+
+@function getContactUesSizes($property) {
+  @return map-get($contact-us-sizes, $property);
+}

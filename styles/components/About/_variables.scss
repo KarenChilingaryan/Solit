@@ -1,0 +1,18 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$about-sizes: (
+  about-title-padding: calcVW(85) calcVW(0) calcVW(54) calcVW(0),
+  about-title-pb: calcVW(37),
+  about-logo-width: calcVW(602),
+  about-logo-height: calcVW(272),
+  left-logo-width: calcVW(500),
+  left-logo-height: calcVW(500),
+  left-logo-top: calcVW(-80),
+  wrapper-padding: 0 calcVW(230),
+  button-wrapper-padding: calcVW(100) 0,
+);
+
+@function getAboutSizes($property) {
+  @return map-get($about-sizes, $property);
+}

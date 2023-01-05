@@ -1,0 +1,10 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-contactUses-styles {
+  .contactUsMainWrapper {
+      .contactUsHeader {
+          padding: getContactUesSizes(header-p);
+      }
+  }
+}

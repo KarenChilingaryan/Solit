@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@import "./abstract/functions";
+
+* {
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  @media (max-width: 768px) {
+    padding-top: calcVW(250);
+  }
+}
+
+@font-face {
+  font-family: nunito;
+  src: url(../assets/fonts/nunito-regular.ttf);
+}
+
+.ant-carousel .slick-dots {
+  top: 100%;
+
+  li {
+    width: 3.2291708vw;
+  }
+
+  li.slick-active {
+    width: 3.2291708vw;
+  }
+
+  li button {
+    background-color: #d9d9d9 !important;
+    opacity: 1;
+  }
+
+  li.slick-active button {
+    background-color: #3787e7 !important;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+textarea::-webkit-scrollbar {
+  width: 10px;
+  background-color: #def1fa80;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #aad8ec;
+  border-radius: 5px;
+}

@@ -1,0 +1,16 @@
+export { default as Pdf } from './PdfIcon';
+export { default as Blank } from './BlankIcon';
+export { default as Template } from './TemplateIcon';
+export { default as Document } from './DocumentIcon';
+export { default as Shared } from './SharedIcon';
+export { default as Eye } from './EyeIcon';
+export { default as Close } from './CloseIcon';
+export { default as PdfFile } from './PdfFileIcon';
+export { default as Share } from './ShareIcon';
+export { default as Edit } from './EditIcon';
+export { default as Delete } from './DeleteIcon';
+export { default as NoImage } from './NoImageIcon';
+export { default as EditTemplate } from './EditTemplateIcon';
+export { default as DeleteTemplate } from './DeleteTemplateIcon';
+export { default as Plus } from './PlusIcon';
+export { default as Caret } from './CaretIcon';

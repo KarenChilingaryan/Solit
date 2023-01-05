@@ -1,0 +1,15 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$values-list-item-sizes: (
+  values-list-item-wrapper-margin: calcVW(40) calcVW(0),
+  square-width: calcVW(45),
+  square-height: calcVW(45),
+  text-fz: calcVW(22),
+  text-lh: calcVW(26),
+  text-ml: calcVW(19),
+);
+
+@function getValuesListItemSizes($property) {
+  @return map-get($values-list-item-sizes, $property);
+}

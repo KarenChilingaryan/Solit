@@ -1,0 +1,14 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$title-sizes: (
+  title-fz: calcVW(40),
+  title-lh: calcVW(47),
+  square-width: calcVW(19),
+  square-height: calcVW(19),
+  square-mr: calcVW(20),
+);
+
+@function getTitleSizes($property) {
+  @return map-get($title-sizes, $property);
+}
