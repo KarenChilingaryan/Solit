@@ -107,7 +107,7 @@ const ContactForm = ({
                 rules={[
                   {
                     validator: async (_, number) => {
-                      if (!isValidPhoneNumber(++number)) {
+                      if (!isValidPhoneNumber(number)) {
                         return Promise.reject(
                           new Error("Invalid phone number")
                         );
