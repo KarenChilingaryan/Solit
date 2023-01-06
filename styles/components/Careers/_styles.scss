@@ -3,7 +3,7 @@
 
 @mixin generate-careers-styles {
   .careerPage {
-    padding: calcVW(150);
+    padding-top: calcVW(150);
 
     .cardSection {
       display: grid;

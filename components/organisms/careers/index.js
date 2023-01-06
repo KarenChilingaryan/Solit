@@ -10,6 +10,7 @@ import SeoCard from "../../atoms/SEO";
 import { seoData } from "../../../constants/seo";
 
 import styles from "./careers.module.scss";
+import ContactForm from "../contactForm/ContactForm";
 
 const Careers = () => {
   const router = useRouter();
@@ -50,6 +51,24 @@ const Careers = () => {
           />
         ))}
       </Col>
+      <div className={styles.careersPageForm}>
+        <HomeMainTexts
+          result={{
+            default_text: "Send us your CV for future opportunities",
+            color_text: "your CV",
+            white: true,
+          }}
+          margin={false}
+          style={{ margin: "0 auto" }}
+          square
+        />
+        <ContactForm
+          style={{ background: "#105475" }}
+          whiteButton={true}
+          whiteTitle
+          talent
+        />
+      </div>
     </div>
   );
 };

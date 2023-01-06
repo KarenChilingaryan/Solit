@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import {
   Col,
   Row,
@@ -8,54 +8,43 @@ import {
   Form,
   Paragraph,
 } from "../../atoms";
+import PhoneInput from "react-phone-number-input";
+import { isValidPhoneNumber } from "react-phone-number-input";
 import { Upload, Button as AntdButton } from "antd";
 import Title from "../../molecules/title/Title";
 import Button from "../../molecules/button/Button";
+import { contactUsData } from "../../../constants/contactUs";
 
 import styles from "./ContactForm.module.scss";
 
-const props = {
-  action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
-  accept: ".pdf",
-  beforeUpload(file) {
-    return new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      console.log(file, "-----", resolve);
-      // reader.onload = () => {
-      // const img = document.createElement("img");
-      // img.src = reader.result;
-      // img.onload = () => {
-      //   const canvas = document.createElement("canvas");
-      //   canvas.width = img.naturalWidth;
-      //   canvas.height = img.naturalHeight;
-      //   const ctx = canvas.getContext("2d");
-      //   ctx.drawImage(img, 0, 0);
-      //   ctx.fillStyle = "red";
-      //   ctx.textBaseline = "middle";
-      //   ctx.font = "33px Arial";
-      //   ctx.fillText("Ant Design", 20, 20);
-      //   canvas.toBlob((result) => resolve(result));
-      // };
-      // };
-    });
-  },
-};
+import "react-phone-number-input/style.css";
 
 const ContactForm = ({
   title,
   style = {},
   whiteButton = false,
   whiteTitle,
+  talent = false,
 }) => {
   const [form] = Form.useForm();
+  const [file, setFile] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+
+  const props = {
+    accept: ".pdf",
+    beforeUpload(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        setFile(file);
+      });
+    },
+  };
 
   const submitForm = (values) => {
-    const { email, name, Company, Position, Message, file } =
-      form.getFieldsValue();
-    console.log(email, name, Company, Position, Message, file);
-    console.log(values);
+    const data = { ...contactUsData, ...values, file_cv: file };
   };
+
   return (
     <Col
       className={`${styles.contactFormWrapper} ${
@@ -72,7 +61,7 @@ const ContactForm = ({
         <Row className={styles.row_1}>
           <Col span={7} className={styles.inputOdd}>
             <FormItem
-              name={"name"}
+              name={"full_name"}
               rules={[
                 {
                   required: true,
@@ -85,7 +74,7 @@ const ContactForm = ({
           </Col>
           <Col span={7}>
             <FormItem
-              name={"email"}
+              name={"from_email"}
               rules={[
                 {
                   type: "email",
@@ -102,48 +91,91 @@ const ContactForm = ({
           </Col>
         </Row>
 
-        <Row className={styles.row_2}>
-          <Col span={7} className={styles.inputOdd}>
-            <FormItem name={"Company"}>
-              <Input className={styles.input} placeholder="Company" />
-            </FormItem>
-          </Col>
-          <Col span={7}>
-            <FormItem name={"Position"}>
-              <Input className={styles.input} placeholder="Position" />
-            </FormItem>
-          </Col>
-        </Row>
+        {!talent ? (
+          <Row className={styles.row_2}>
+            <Col span={7} className={styles.inputOdd}>
+              <FormItem name={"position_and_company"}>
+                <Input
+                  className={styles.input}
+                  placeholder="Position and Company"
+                />
+              </FormItem>
+            </Col>
+            <Col span={7} className={styles.phoneCol}>
+              <FormItem
+                name={"phon"}
+                rules={[
+                  {
+                    validator: async (_, number) => {
+                      if (!isValidPhoneNumber(++number)) {
+                        return Promise.reject(
+                          new Error("Invalid phone number")
+                        );
+                      }
+                    },
+                  },
+                ]}
+              >
+                {/* <Input className={styles.input} placeholder="Phone" /> */}
+                <PhoneInput
+                  className={styles.phoneInput}
+                  placeholder="Enter phone number"
+                  value={phoneNumber}
+                  onChange={setPhoneNumber}
+                />
+              </FormItem>
+            </Col>
+          </Row>
+        ) : (
+          <Row className={styles.row_2}>
+            <Col span={7} className={styles.inputOdd}>
+              <FormItem
+                name={"position_you_want_to_work_in"}
+                rules={[
+                  {
+                    required: true,
+                    message: "Position you want to work in  is required",
+                  },
+                ]}
+              >
+                <Input
+                  className={styles.input}
+                  placeholder="Position you want to work in"
+                />
+              </FormItem>
+            </Col>
+            <Col span={7}>
+              <FormItem
+                name={"level"}
+                rules={[
+                  {
+                    required: true,
+                    message: "Level  is required",
+                  },
+                ]}
+              >
+                <Input className={styles.input} placeholder="Level" />
+              </FormItem>
+            </Col>
+          </Row>
+        )}
 
         <Row className={styles.textAreaWrapper}>
           <Col span={15}>
-            <FormItem name={"Message"}>
+            <FormItem name={"message"}>
               <TextArea className={styles.input} placeholder="Message" />
             </FormItem>
           </Col>
         </Row>
-        <Col className={styles.upload}>
-          <Row className={styles.uploadButtonWrapper}>
+        <Row className={styles.upload}>
+          <Col className={styles.uploadButtonWrapper}>
             <Paragraph
               className={`${styles.largeText} ${
                 whiteTitle ? styles.whiteText : ""
               }`}
             >
-              Attach a file
+              {!talent ? "Attach a file" : " Attach your CV*"}
             </Paragraph>
-            <FormItem name={"file"}>
-              <Upload {...props}>
-                <AntdButton
-                  className={`${styles.fileUpload} ${
-                    whiteTitle ? styles.whiteBorder : ""
-                  }`}
-                >
-                  PDF file
-                </AntdButton>
-              </Upload>
-            </FormItem>
-          </Row>
-          <Row>
             <Paragraph
               className={`${styles.smallText} ${
                 whiteTitle ? styles.whiteText : ""
@@ -151,8 +183,19 @@ const ContactForm = ({
             >
               File is not attached
             </Paragraph>
-          </Row>
-        </Col>
+          </Col>
+          <FormItem name={"file_cv"}>
+            <Upload {...props}>
+              <AntdButton
+                className={`${styles.fileUpload} ${
+                  whiteTitle ? styles.whiteBorder : ""
+                }`}
+              >
+                PDF file
+              </AntdButton>
+            </Upload>
+          </FormItem>
+        </Row>
 
         <Col className={styles.buttonWrapper}>
           {whiteButton ? (

@@ -14,7 +14,8 @@ const CareersComponent = () => {
   const { id } = useRouter().query;
   const careerTechnologyItem = useSelector(
     (state) =>
-      state?.careerTechnologyItemApi?.queries?.[`careerTechnologyItem("${id}")`]?.data
+      state?.careerTechnologyItemApi?.queries?.[`careerTechnologyItem("${id}")`]
+        ?.data
   );
 
   return (
@@ -29,12 +30,11 @@ const CareersComponent = () => {
         h1
       />
       <div className={styles.textsBlocks}>
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-        >{careerTechnologyItem ? careerTechnologyItem?.description : ""}</ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+          {careerTechnologyItem ? careerTechnologyItem?.description : ""}
+        </ReactMarkdown>
       </div>
-      < div className={styles.careersPageForm} >
+      <div className={styles.careersPageForm}>
         <HomeMainTexts
           result={{
             default_text: "Tell us about your talents!",
@@ -46,12 +46,13 @@ const CareersComponent = () => {
           square
         />
         <ContactForm
-          title={"Tell us about your talents!"}
           style={{ background: "#105475" }}
+          whiteTitle
           whiteButton={true}
+          talent
         />
-      </div >
-    </div >
+      </div>
+    </div>
   );
-}
+};
 export default memo(CareersComponent);

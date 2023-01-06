@@ -32,6 +32,23 @@
       }
     }
 
+    .row_2 {
+      .phoneCol {
+        :global(.ant-form-item-control-input) {
+          padding: calcVW(15) calcVW(16);
+          background-color: white;
+          border-radius: getContactFormSizes(contact-form-input-br);
+          input {
+            border: none;
+            &:focus-visible {
+              outline: none;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+
     .textAreaWrapper {
       .input {
         height: getContactFormSizes(contact-form-input-textarea-height);
@@ -40,31 +57,30 @@
         line-height: normal;
       }
     }
-    
+
     .upload {
       margin-left: calcVW(360);
+      gap: calcVW(70);
+      .fileUpload {
+        background: transparent;
+        border-radius: 4px;
+        padding: 0;
+        width: calcVW(100);
+        height: calcVW(40);
+        font-size: calcVW(16);
+        border: 2px solid variables.$main-dark-blue;
+        font-weight: 700;
+        text-align: center;
+      }
       .uploadButtonWrapper {
         align-items: center;
-        gap: calcVW(70);
-
-        .fileUpload {
-          background: transparent;
-          border-radius: 4px;
-          padding: 0;
-          width: calcVW(100);
-          height: calcVW(40);
-          font-size: calcVW(16);
-          border: 2px solid variables.$main-dark-blue;
-          font-weight: 700;
-          text-align: center;
-        }
 
         .largeText {
           font-size: calcVW(24);
         }
-      }
-      .smallText {
-        font-size: calcVW(14);
+        .smallText {
+          font-size: calcVW(14);
+        }
       }
       .uploadButtonWrapper > div {
         margin-bottom: 0;
