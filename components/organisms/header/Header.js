@@ -53,7 +53,7 @@ const Header = () => {
           className={styles.menuItem}
         >
           <Link
-            href={el?.fix_url === 'techstack' ? '' : `/${el?.fix_url}`}
+            href={el?.fix_url === 'techstack' ? '#' : `/${el?.fix_url}`}
             onClick={() => {
               if (el?.fix_url !== 'techstack') {
                 setOpenMenu(!openMenu)
@@ -72,11 +72,8 @@ const Header = () => {
             }
           </Link>
 
-          <div className={styles.menuItemChildMainWrapper} onMouseDown={() => {
-            setOpenMenu(!openMenu)
-            setFilteredData("none")
-          }}>
-            {el?.subtitle_ingredients?.map((e, idx) => (
+          <div className={styles.menuItemChildMainWrapper}>
+            {el?.subtitle_ingredients?.map((e, idx) =>
               <div
                 key={idx}
                 className={styles.menuItemChildWrapper}
@@ -85,13 +82,17 @@ const Header = () => {
                     el.name === filteredData ? "inline-block" : "none",
                 }}
               >
-                {e?.ingredients?.map((subItem, idx) => (
-                  <div className={styles.menuItemChild} key={idx}>
+                {e?.ingredients?.map((subItem, idx) =>
+                  <div className={styles.menuItemChild} key={idx} onMouseDown={() => {
+                    setOpenMenu(!openMenu)
+                    setFilteredData("none")
+                    router.push(`/services/${subItem?.service}`)
+                  }}>
                     {subItem.name}
                   </div>
-                ))}
+                )}
               </div>
-            ))}
+            )}
           </div>
         </div>
         )}
