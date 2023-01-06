@@ -5,6 +5,7 @@ import ValueTextItem from "../../molecules/valueTextItem/ValueTextItem";
 import Button from "../../molecules/button/Button";
 
 import styles from "./Values.module.scss";
+import Link from "next/link";
 
 const Values = () => {
   const data = {
@@ -51,7 +52,9 @@ const Values = () => {
         </Col>
       </Row>
       <Col className={styles.buttonWrapper}>
-        <Button text={"Our Services"} />
+        <Link href="/services">
+          <Button text={"Our Services"} />
+        </Link>
       </Col>
     </Col>
   );

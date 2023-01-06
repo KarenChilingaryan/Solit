@@ -9,6 +9,7 @@ import Button from "../../molecules/button/Button";
 import FiltersCard from "./FiltersCard";
 
 import styles from "./Filters.module.scss";
+import Link from "next/link";
 
 const data = [
   {
@@ -163,9 +164,13 @@ const Filters = () => {
 
       <Col className={styles.buttonWrapper}>
         <Col className={styles.firstButton}>
-          <Button text={"Our Services"} whiteButton />
+          <Link href="/services">
+            <Button text={"Our Services"} whiteButton />
+          </Link>
         </Col>
-        <Button text={"Contact"} whiteButton />
+        <Link href="/contactus">
+          <Button text={"Contact"} whiteButton />
+        </Link>
       </Col>
     </Col>
   );

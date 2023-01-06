@@ -10,6 +10,7 @@ import Title from "../../molecules/title/Title";
 import Button from "../../molecules/button/Button";
 
 import styles from "./About.module.scss";
+import Link from "next/link";
 
 const About = ({ data }) => {
   const data1 = [
@@ -55,7 +56,9 @@ const About = ({ data }) => {
         </Col>
       </Row>
       <Col className={styles.buttonWrapper}>
-        <Button text="More" lightBlue />
+        <Link href="/aboutus">
+          <Button text="More" lightBlue />
+        </Link>
       </Col>
     </div>
   );

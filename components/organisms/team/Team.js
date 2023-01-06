@@ -7,6 +7,7 @@ import Button from "../../molecules/button/Button";
 import { useSelector } from "react-redux";
 
 import styles from "./Team.module.scss";
+import Link from "next/link";
 
 const buttonText = "Our Portfolio";
 const Team = () => {
@@ -29,7 +30,9 @@ const Team = () => {
       </Row>
 
       <Col className={styles.buttonWrapper}>
-        <Button text={buttonText} whiteButton />
+        <Link href="/portfolio">
+          <Button text={buttonText} whiteButton />
+        </Link>
       </Col>
     </Col>
   );

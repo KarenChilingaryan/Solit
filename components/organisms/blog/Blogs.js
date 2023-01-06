@@ -7,9 +7,10 @@ import Button from "../../molecules/button/Button";
 import ServiceSmallCard from "../../molecules/serviceSmallCard/ServiceSmallCard";
 import ServiceLargeCard from "../../molecules/serviceLargeCard/ServiceLargeCard";
 import { useSelector } from "react-redux";
-import { longPresentationBlogApi } from "../../../services/longPresentationBlogApi";
 import SeoCard from "../../atoms/SEO";
 import { seoData } from "../../../constants/seo";
+import Link from "next/link";
+import Title from "../../molecules/title/Title";
 
 const Blogs = () => {
   const router = useRouter();
@@ -27,6 +28,9 @@ const Blogs = () => {
   };
   return (
     <div className={styles.blogsMainWrapper}>
+    <Col className={styles.titleWrapperSmall}>
+      <Title title={"Blog"} />
+    </Col>
       <SeoCard details={seoData} />
       <Row className={styles.blogsCards}>
         {longPresentationBlog?.map((el, index) =>
@@ -50,8 +54,12 @@ const Blogs = () => {
         )}
       </Row>
       <Col className={styles.buttonWrapper}>
-        <Button text={buttonServicesText} lightBlue />
-        <Button text={buttonContactText} lightBlue />
+        <Link href="/services">
+          <Button text={buttonServicesText} lightBlue />
+        </Link>
+        <Link href="/contactus">
+          <Button text={buttonContactText} lightBlue />
+        </Link>
       </Col>
     </div>
   );

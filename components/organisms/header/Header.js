@@ -31,7 +31,10 @@ const Header = () => {
         [styles.headerWrapperDark]: secondaryUrl,
       })}
     >
-      <Link href="/" onClick={() => window.scrollTo({ top: 0, left: 0 })}>
+      <Link href="/" onClick={() => {
+        window.scrollTo({ top: 0, left: 0 });
+        setOpenMenu(true)
+      }}>
         <Image
           src={menuLogoWhite}
           alt="logo"
@@ -92,25 +95,22 @@ const Header = () => {
           </div>
         </div>
         )}
-        <div className={styles.buttonWrapper}>
+        <div className={styles.buttonWrapper} onClick={() => setOpenMenu(true)}>
           <Link
             href={'/contactus'}>
-
             <Button text="Contact" boldBlue />
           </Link>
         </div>
-        <div className={styles.pricing}>
+        <div className={styles.pricing} onClick={() => setOpenMenu(true)} >
           <Link
             href={'/contactus'}>
-
             <Button text="Pricing" lightBlue />
           </Link>
         </div>
       </div>
-      <div className={`${styles.buttonWrapper} ${styles.buttonWrapperMobile}`}>
+      <div className={`${styles.buttonWrapper} ${styles.buttonWrapperMobile}`} onClick={() => setOpenMenu(true)}>
         <Link
           href={'/contactus'}>
-
           <Button text="Contact" boldBlue />
         </Link>
       </div>

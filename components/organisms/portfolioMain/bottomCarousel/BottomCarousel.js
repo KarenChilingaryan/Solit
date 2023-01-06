@@ -5,6 +5,7 @@ import styles from "../PortfolioMain.module.scss";
 import BottomCarouselItem from "./BottomCarouselItem";
 import { Col, Row } from "../../../atoms";
 import Button from "../../../molecules/button/Button";
+import Link from "next/link";
 
 // const data = [
 //   {
@@ -67,8 +68,12 @@ const BottomCarousel = ({ data }) => {
       </Carousel>
 
       <Row className={styles.buttonWrapper}>
-        <Button text={"Our Services"} whiteButton />
-        <Button text={"Contact"} whiteButton />
+        <Link href="/services">
+          <Button text={"Our Services"} whiteButton />
+        </Link>
+        <Link href="/contactus">
+          <Button text={"Contact"} whiteButton />
+        </Link>
       </Row>
     </Col>
   );
