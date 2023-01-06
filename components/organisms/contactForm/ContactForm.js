@@ -1,9 +1,46 @@
 import { memo } from "react";
-import { Col, Row, Input, TextArea, FormItem, Form } from "../../atoms";
+import {
+  Col,
+  Row,
+  Input,
+  TextArea,
+  FormItem,
+  Form,
+  Paragraph,
+} from "../../atoms";
+import { Upload, Button as AntdButton } from "antd";
 import Title from "../../molecules/title/Title";
 import Button from "../../molecules/button/Button";
 
 import styles from "./ContactForm.module.scss";
+
+const props = {
+  action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
+  accept: ".pdf",
+  beforeUpload(file) {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      console.log(file, "-----", resolve);
+      // reader.onload = () => {
+      // const img = document.createElement("img");
+      // img.src = reader.result;
+      // img.onload = () => {
+      //   const canvas = document.createElement("canvas");
+      //   canvas.width = img.naturalWidth;
+      //   canvas.height = img.naturalHeight;
+      //   const ctx = canvas.getContext("2d");
+      //   ctx.drawImage(img, 0, 0);
+      //   ctx.fillStyle = "red";
+      //   ctx.textBaseline = "middle";
+      //   ctx.font = "33px Arial";
+      //   ctx.fillText("Ant Design", 20, 20);
+      //   canvas.toBlob((result) => resolve(result));
+      // };
+      // };
+    });
+  },
+};
 
 const ContactForm = ({
   title,
@@ -13,7 +50,12 @@ const ContactForm = ({
 }) => {
   const [form] = Form.useForm();
 
-  const submitForm = (values) => {};
+  const submitForm = (values) => {
+    const { email, name, Company, Position, Message, file } =
+      form.getFieldsValue();
+    console.log(email, name, Company, Position, Message, file);
+    console.log(values);
+  };
   return (
     <Col
       className={`${styles.contactFormWrapper} ${
@@ -80,6 +122,37 @@ const ContactForm = ({
             </FormItem>
           </Col>
         </Row>
+        <Col className={styles.upload}>
+          <Row className={styles.uploadButtonWrapper}>
+            <Paragraph
+              className={`${styles.largeText} ${
+                whiteTitle ? styles.whiteText : ""
+              }`}
+            >
+              Attach a file
+            </Paragraph>
+            <FormItem name={"file"}>
+              <Upload {...props}>
+                <AntdButton
+                  className={`${styles.fileUpload} ${
+                    whiteTitle ? styles.whiteBorder : ""
+                  }`}
+                >
+                  PDF file
+                </AntdButton>
+              </Upload>
+            </FormItem>
+          </Row>
+          <Row>
+            <Paragraph
+              className={`${styles.smallText} ${
+                whiteTitle ? styles.whiteText : ""
+              }`}
+            >
+              File is not attached
+            </Paragraph>
+          </Row>
+        </Col>
 
         <Col className={styles.buttonWrapper}>
           {whiteButton ? (
