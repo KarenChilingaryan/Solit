@@ -15,6 +15,7 @@ const ContactUses = () => {
           }}
           style={{ margin: "0 auto" }}
           square
+          h1
         />
       </div>
       <ContactForm

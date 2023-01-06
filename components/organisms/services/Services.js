@@ -28,7 +28,7 @@ const Services = () => {
       <div className={styles.serviceTopWrapper}>
         <Row className={styles.leftSecton}>
           <Col>
-            <HomeMainTexts result={services?.PointedTextServices[0]} square />
+            <HomeMainTexts result={services?.PointedTextServices[0]} square h1 />
           </Col>
           <Col className={styles.buttonWrapper}>
             <Button text={buttonText} />

@@ -31,7 +31,10 @@ const Header = () => {
         [styles.headerWrapperDark]: secondaryUrl,
       })}
     >
-      <Link href="/" onClick={() => window.scrollTo({ top: 0, left: 0 })}>
+      <Link href="/" onClick={() => {
+        window.scrollTo({ top: 0, left: 0 });
+        setOpenMenu(true)
+      }}>
         <Image
           src={menuLogoWhite}
           alt="logo"
@@ -50,7 +53,7 @@ const Header = () => {
           className={styles.menuItem}
         >
           <Link
-            href={el?.fix_url === 'techstack' ? '' : `/${el?.fix_url}`}
+            href={el?.fix_url === 'techstack' ? '#' : `/${el?.fix_url}`}
             onClick={() => {
               if (el?.fix_url !== 'techstack') {
                 setOpenMenu(!openMenu)
@@ -69,11 +72,8 @@ const Header = () => {
             }
           </Link>
 
-          <div className={styles.menuItemChildMainWrapper} onMouseDown={() => {
-            setOpenMenu(!openMenu)
-            setFilteredData("none")
-          }}>
-            {el?.subtitle_ingredients?.map((e, idx) => (
+          <div className={styles.menuItemChildMainWrapper}>
+            {el?.subtitle_ingredients?.map((e, idx) =>
               <div
                 key={idx}
                 className={styles.menuItemChildWrapper}
@@ -82,35 +82,36 @@ const Header = () => {
                     el.name === filteredData ? "inline-block" : "none",
                 }}
               >
-                {e?.ingredients?.map((subItem, idx) => (
-                  <div className={styles.menuItemChild} key={idx}>
+                {e?.ingredients?.map((subItem, idx) =>
+                  <div className={styles.menuItemChild} key={idx} onMouseDown={() => {
+                    setOpenMenu(!openMenu)
+                    setFilteredData("none")
+                    router.push(`/services/${subItem?.service}`)
+                  }}>
                     {subItem.name}
                   </div>
-                ))}
+                )}
               </div>
-            ))}
+            )}
           </div>
         </div>
         )}
-        <div className={styles.buttonWrapper}>
+        <div className={styles.buttonWrapper} onClick={() => setOpenMenu(true)}>
           <Link
             href={'/contactus'}>
-
             <Button text="Contact" boldBlue />
           </Link>
         </div>
-        <div className={styles.pricing}>
+        <div className={styles.pricing} onClick={() => setOpenMenu(true)} >
           <Link
             href={'/contactus'}>
-
             <Button text="Pricing" lightBlue />
           </Link>
         </div>
       </div>
-      <div className={`${styles.buttonWrapper} ${styles.buttonWrapperMobile}`}>
+      <div className={`${styles.buttonWrapper} ${styles.buttonWrapperMobile}`} onClick={() => setOpenMenu(true)}>
         <Link
           href={'/contactus'}>
-
           <Button text="Contact" boldBlue />
         </Link>
       </div>

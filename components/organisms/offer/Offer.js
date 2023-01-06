@@ -7,6 +7,7 @@ import offerLogo from "../../../assets/img/offerLogo.png";
 import Button from "../../molecules/button/Button";
 
 import styles from "./Offer.module.scss";
+import Link from "next/link";
 
 const Offer = () => {
   const homepageAdditionalService = useSelector(
@@ -36,7 +37,9 @@ const Offer = () => {
       </Row>
 
       <Col className={styles.buttonWrapper}>
-        <Button text={"Learn more"} whiteButton />
+        <Link href="/careers">
+          <Button text={"Learn more"} whiteButton />
+        </Link>
       </Col>
     </div>
   );

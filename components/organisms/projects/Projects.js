@@ -6,6 +6,7 @@ import ProjectsCard from "../../molecules/projectsCard/ProjectsCard";
 import projectIcon from "../../../assets/img/projectIcon.png";
 
 import styles from "./Projects.module.scss";
+import Link from "next/link";
 
 const Projects = () => {
   const buttonText = "Our Portfolio";
@@ -66,7 +67,9 @@ const Projects = () => {
       </Row>
 
       <Col className={styles.buttonWrapper}>
-        <Button text={buttonText} />
+        <Link href="/portfolio">
+          <Button text={buttonText} />
+        </Link>
       </Col>
     </div>
   );

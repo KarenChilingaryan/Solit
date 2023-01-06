@@ -6,6 +6,7 @@ import AboutMainItem from "../../molecules/aboutMainItem/AboutMainItem";
 import Title from "../../molecules/title/Title";
 
 import styles from "./AboutMain.module.scss";
+import Link from "next/link";
 
 const AboutMain = () => {
   const buttonText = "Our Services";
@@ -34,7 +35,9 @@ const AboutMain = () => {
         </Row>
       </Col>
       <Col className={styles.buttonWrapper}>
-        <Button text={buttonText} lightBlue />
+        <Link href="/services">
+          <Button text={buttonText} lightBlue />
+        </Link>
       </Col>
     </div>
   );

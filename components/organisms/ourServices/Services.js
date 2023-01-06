@@ -6,6 +6,7 @@ import Button from "../../molecules/button/Button";
 import svg from "../../../assets/img/Web.svg";
 
 import styles from "./Services.module.scss";
+import Link from "next/link";
 
 const Services = ({ data }) => {
   const buttonText = "Learn more";
@@ -25,7 +26,9 @@ const Services = ({ data }) => {
         ))}
       </Row>
       <Col className={styles.buttonWrapper}>
+        <Link href="/services">
         <Button text={buttonText} whiteButton />
+        </Link>
       </Col>
     </div>
   );

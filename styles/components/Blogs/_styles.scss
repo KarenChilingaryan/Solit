@@ -3,11 +3,13 @@
 
 @mixin generate-blogs-styles {
   .blogsMainWrapper {
+    .titleWrapperSmall {
+      display: none;
+    }
     .blogsCards {
       @include flex(center, none, row);
       row-gap: getBlogsSizes(blog-row-gap);
       column-gap: getBlogsSizes(blog-column-gap);
-
     }
     @include flex(none, none, column);
     .blogTopWrapper {
@@ -30,7 +32,15 @@
       @include flex(center, none, row);
       text-align: center;
       margin: getBlogsSizes(blogs-button-wrapper-mt);
-      column-gap: getBlogsSizes(blog-buttons-column-gap)
+      column-gap: getBlogsSizes(blog-buttons-column-gap);
+    }
+  }
+  @media (max-width: 768px) {
+    .blogsMainWrapper {
+      .titleWrapperSmall {
+        @include center-flex();
+        padding: calcVW(50) 0;
+      }
     }
   }
 }
