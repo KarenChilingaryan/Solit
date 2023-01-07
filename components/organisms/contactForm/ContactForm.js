@@ -1,5 +1,4 @@
 import { memo, useState } from "react";
-import { useSelector } from "react-redux";
 import {
   Col,
   Row,
@@ -19,6 +18,8 @@ import { contactUsData } from "../../../constants/contactUs";
 import styles from "./ContactForm.module.scss";
 
 import "react-phone-number-input/style.css";
+import { emailApi, useEmailQuery } from "../../../services/emailApi";
+import { useDispatch } from "react-redux";
 
 const ContactForm = ({
   title,
@@ -27,10 +28,6 @@ const ContactForm = ({
   whiteTitle,
   talent = false,
 }) => {
-  const emailApi = useSelector(
-    (state) =>
-      state?.emailApi?.queries?.["email(undefined)"]
-  );
   const [form] = Form.useForm();
   const [file, setFile] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
@@ -46,16 +43,18 @@ const ContactForm = ({
       });
     },
   };
+  const dispatch = useDispatch()
 
-  const submitForm = (values) => {
+  const submitForm = async (values) => {
+    console.log('/???????????????');
     const data = { ...contactUsData, ...values, file_cv: file };
+    const res = await dispatch(await emailApi.endpoints.email.initiate(data))
   };
 
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${
-        !title ? styles.withoutTitle : ""
-      }`}
+      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
+        }`}
       style={style}
     >
       {title && (
@@ -175,16 +174,14 @@ const ContactForm = ({
         <Row className={styles.upload}>
           <Col className={styles.uploadButtonWrapper}>
             <Paragraph
-              className={`${styles.largeText} ${
-                whiteTitle ? styles.whiteText : ""
-              }`}
+              className={`${styles.largeText} ${whiteTitle ? styles.whiteText : ""
+                }`}
             >
               {!talent ? "Attach a file" : " Attach your CV*"}
             </Paragraph>
             <Paragraph
-              className={`${styles.smallText} ${
-                whiteTitle ? styles.whiteText : ""
-              }`}
+              className={`${styles.smallText} ${whiteTitle ? styles.whiteText : ""
+                }`}
             >
               File is not attached
             </Paragraph>
@@ -192,9 +189,8 @@ const ContactForm = ({
           <FormItem name={"file_cv"}>
             <Upload {...props}>
               <AntdButton
-                className={`${styles.fileUpload} ${
-                  whiteTitle ? styles.whiteBorder : ""
-                }`}
+                className={`${styles.fileUpload} ${whiteTitle ? styles.whiteBorder : ""
+                  }`}
               >
                 PDF file
               </AntdButton>
@@ -204,9 +200,9 @@ const ContactForm = ({
 
         <Col className={styles.buttonWrapper}>
           {whiteButton ? (
-            <Button text={"Submit"} boldWhite />
+            <Button text={"Submit"} boldWhite type='submit' />
           ) : (
-            <Button text={"Submit"} />
+            <Button text={"Submit"} type='submit' />
           )}
         </Col>
       </Form>
