@@ -105,7 +105,7 @@ const Header = () => {
         <div className={styles.pricing} onClick={() => setOpenMenu(true)} >
           <Link
             href={'/contactus'}>
-            <Button text="Pricing" lightBlue />
+            <Button text="Contact" lightBlue />
           </Link>
         </div>
       </div>
