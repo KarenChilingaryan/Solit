@@ -46,9 +46,13 @@ const ContactForm = ({
   const dispatch = useDispatch()
 
   const submitForm = async (values) => {
-    console.log('/???????????????');
-    const data = { ...contactUsData, ...values, file_cv: file };
-    const res = await dispatch(await emailApi.endpoints.email.initiate(data))
+    const data = { ...contactUsData, ...values, file_cv: file?.uid };
+    const formData = new FormData();
+
+    for (const key in data) {
+      formData.append(key, values[key]);
+    }
+    const res = await dispatch(await emailApi.endpoints.email.initiate(formData))
   };
 
   return (
