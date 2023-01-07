@@ -32,33 +32,37 @@ const ContactForm = ({
   const [file, setFile] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
 
-
   const props = {
     accept: ".pdf",
     beforeUpload(file) {
       return new Promise((resolve) => {
         const reader = new FileReader();
+        reader.onloadend = () => {
+          setFile(reader.result);
+        };
         reader.readAsDataURL(file);
-        setFile(file);
       });
     },
   };
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const submitForm = async (values) => {
-    const data = { ...contactUsData, ...values, file_cv: file?.uid };
+    const data = { ...contactUsData, ...values, file_cv: file };
     const formData = new FormData();
 
     for (const key in data) {
       formData.append(key, values[key]);
     }
-    const res = await dispatch(await emailApi.endpoints.email.initiate(formData))
+    const res = await dispatch(
+      await emailApi.endpoints.email.initiate(formData)
+    );
   };
 
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
-        }`}
+      className={`${styles.contactFormWrapper} ${
+        !title ? styles.withoutTitle : ""
+      }`}
       style={style}
     >
       {title && (
@@ -178,14 +182,16 @@ const ContactForm = ({
         <Row className={styles.upload}>
           <Col className={styles.uploadButtonWrapper}>
             <Paragraph
-              className={`${styles.largeText} ${whiteTitle ? styles.whiteText : ""
-                }`}
+              className={`${styles.largeText} ${
+                whiteTitle ? styles.whiteText : ""
+              }`}
             >
               {!talent ? "Attach a file" : " Attach your CV*"}
             </Paragraph>
             <Paragraph
-              className={`${styles.smallText} ${whiteTitle ? styles.whiteText : ""
-                }`}
+              className={`${styles.smallText} ${
+                whiteTitle ? styles.whiteText : ""
+              }`}
             >
               File is not attached
             </Paragraph>
@@ -193,8 +199,9 @@ const ContactForm = ({
           <FormItem name={"file_cv"}>
             <Upload {...props}>
               <AntdButton
-                className={`${styles.fileUpload} ${whiteTitle ? styles.whiteBorder : ""
-                  }`}
+                className={`${styles.fileUpload} ${
+                  whiteTitle ? styles.whiteBorder : ""
+                }`}
               >
                 PDF file
               </AntdButton>
@@ -204,9 +211,9 @@ const ContactForm = ({
 
         <Col className={styles.buttonWrapper}>
           {whiteButton ? (
-            <Button text={"Submit"} boldWhite type='submit' />
+            <Button text={"Submit"} boldWhite type="submit" />
           ) : (
-            <Button text={"Submit"} type='submit' />
+            <Button text={"Submit"} type="submit" />
           )}
         </Col>
       </Form>
