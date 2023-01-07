@@ -7,9 +7,10 @@ import fb from "../../../assets/img/fb.png";
 import linkedIn from "../../../assets/img/linkedin.png";
 import telegram from "../../../assets/img/telegram.png";
 import styles from "./Footer.module.scss";
+import { useFooterQuery } from "../../../services/footerApi";
 
 const Footer = () => {
-  const data = [
+  const dataDefault = [
     {
       info: {
         address: "TGA Business Center, Abelyan 6/4",
@@ -38,27 +39,31 @@ const Footer = () => {
       },
     },
   ];
+  const footer = useFooterQuery();
+  const { data } = footer;
 
   return (
     <div className={styles.footerWrapper}>
       <Row className={styles.footerBlock}>
         <Col className={styles.infoWrapper}>
           <Image src={logoFooter} alt="logo" className={styles.footerLogo} />
-          <div className={styles.infoBlock}>
-            <Paragraph className={styles.infoText}>
-              {data[0].info.address}
-            </Paragraph>
-            <Paragraph className={styles.infoText}>{data[0].info.mail}</Paragraph>
-            <Paragraph className={styles.infoText}>
-              {data[0].info.phone}
-            </Paragraph>
-          </div>
+          {data &&
+            <div className={styles.infoBlock}>
+              <Paragraph className={styles.infoText}>
+                {data[0]?.address}
+              </Paragraph>
+              <Paragraph className={styles.infoText}>{data[0].company_mail}</Paragraph>
+              <Paragraph className={styles.infoText}>
+                {data[0]?.phone_number}
+              </Paragraph>
+            </div>
+          }
         </Col>
         <Col className={styles.expertiseWrapper}>
           <Paragraph className={styles.textTitle}>
-            {data[1].expertise.title}
+            {dataDefault[1].expertise.title}
           </Paragraph>
-          {data[1].expertise.data.map((el, idx) => (
+          {dataDefault[1].expertise.data.map((el, idx) => (
             <Paragraph className={styles.text} key={idx}>
               {el}
             </Paragraph>
@@ -66,19 +71,21 @@ const Footer = () => {
         </Col>
         <Col className={styles.companyWrapper}>
           <Paragraph className={styles.textTitle}>
-            {data[2].company.title}
+            {dataDefault[2].company.title}
           </Paragraph>
-          {data[2].company.data.map((el, idx) => (
+          {dataDefault[2].company.data.map((el, idx) => (
             <Paragraph className={styles.text} key={idx}>
               {el}
             </Paragraph>
           ))}
         </Col>
-        <Col className={styles.socialIconsWrapper}>
-          <Image src={linkedIn} alt="logo" className={styles.socialIcons} />
-          <Image src={telegram} alt="logo" className={styles.socialIcons} />
-          <Image src={fb} alt="logo" className={styles.socialIcons} />
-        </Col>
+        {data &&
+          <Col className={styles.socialIconsWrapper}>
+            {data[0]?.social_link?.map(item =>
+              <Image src={linkedIn} alt="logo" className={styles.socialIcons} />
+            )}
+          </Col>
+        }
       </Row>
     </div>
   );
