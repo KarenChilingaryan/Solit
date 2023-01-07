@@ -82,7 +82,7 @@ const Footer = () => {
         {data &&
           <Col className={styles.socialIconsWrapper}>
             {data[0]?.social_link?.map(item =>
-              <Image src={linkedIn} alt="logo" className={styles.socialIcons} />
+              <Image src={linkedIn} alt="logo" className={styles.socialIcons} key={item.name} />
             )}
           </Col>
         }
