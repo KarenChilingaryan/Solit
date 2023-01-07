@@ -1,0 +1,49 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-404-page-styles {
+  .errorPage {
+    width: 100%;
+    padding: get404PageSizes(error-page-padding);
+
+    .textSection {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      .errorText {
+        margin-right: calcVW(320);
+        @include font-style(
+          get404PageSizes(error-text-fz),
+          variables.$fw-700,
+          get404PageSizes(error-text-lh),
+          variables.$green-light
+        );
+      }
+      .errorCode {
+        @include font-style(
+          get404PageSizes(error-code-fz),
+          variables.$fw-700,
+          get404PageSizes(error-code-lh),
+          variables.$main-dark-blue
+        );
+      }
+      .message {
+        text-align: center;
+        @include font-style(
+          get404PageSizes(message-fz),
+          variables.$fw-500,
+          none,
+          variables.$main-dark-blue
+        );
+      }
+    }
+    .buttonWrapper {
+      margin-top: calcVW(60);
+      display: flex;
+      justify-content: center;
+      gap: calcVW(40);
+    }
+  }
+}
