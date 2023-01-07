@@ -21,9 +21,11 @@ import { shortPresentationBlogApi } from "./shortPresentationBlogApi";
 import { shortPresentationPortfolioApi } from "./shortPresentationPortfolioApi";
 import { aboutOurTeamTitleApi } from "./aboutOurTeamTitleApi";
 import { testimonialsFlagTitleApi } from "./testimonialsFlagTitleApi";
+import { emailApi } from "./email";
 
 const store = configureStore({
   reducer: {
+    [emailApi.reducerPath]: emailApi.reducer,
     [postsApi.reducerPath]: postsApi.reducer,
     [ourServicesApi.reducerPath]: ourServicesApi.reducer,
     [servicesApi.reducerPath]: servicesApi.reducer,

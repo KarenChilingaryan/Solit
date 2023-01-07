@@ -1,4 +1,5 @@
 import { memo, useState } from "react";
+import { useSelector } from "react-redux";
 import {
   Col,
   Row,
@@ -26,9 +27,14 @@ const ContactForm = ({
   whiteTitle,
   talent = false,
 }) => {
+  const emailApi = useSelector(
+    (state) =>
+      state?.emailApi?.queries?.["email(undefined)"]
+  );
   const [form] = Form.useForm();
   const [file, setFile] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
+
 
   const props = {
     accept: ".pdf",
@@ -116,7 +122,6 @@ const ContactForm = ({
                   },
                 ]}
               >
-                {/* <Input className={styles.input} placeholder="Phone" /> */}
                 <PhoneInput
                   className={styles.phoneInput}
                   placeholder="Enter phone number"

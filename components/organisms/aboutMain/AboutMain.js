@@ -1,4 +1,5 @@
 import { memo } from "react";
+import Link from "next/link";
 import { useSelector } from "react-redux";
 import Button from "../../molecules/button/Button";
 import { Row, Col } from "../../atoms";
@@ -6,7 +7,6 @@ import AboutMainItem from "../../molecules/aboutMainItem/AboutMainItem";
 import Title from "../../molecules/title/Title";
 
 import styles from "./AboutMain.module.scss";
-import Link from "next/link";
 
 const AboutMain = () => {
   const buttonText = "Our Services";
