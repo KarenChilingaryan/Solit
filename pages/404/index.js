@@ -1,4 +1,4 @@
-import { Col, Paragraph, Row } from "../../components/atoms";
+import { Col, Link, Paragraph, Row } from "../../components/atoms";
 import Button from "../../components/molecules/button/Button";
 
 import styles from "./error.module.scss";
@@ -13,8 +13,12 @@ export default function Custom404() {
           <Paragraph className={styles.message}>Let’s contact!</Paragraph>
         </Col>
         <Row className={styles.buttonWrapper}>
-          <Button text={"Home"} />
-          <Button text={"Contuct Us"} />
+          <Link href={"/"}>
+            <Button text={"Home"} />
+          </Link>
+          <Link href={"/contactus"}>
+            <Button text={"Contuct Us"} />
+          </Link>
         </Row>
       </Col>
     </Row>
