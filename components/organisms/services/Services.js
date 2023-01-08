@@ -1,4 +1,6 @@
 import { memo } from "react";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 import { Col, Row } from "../../atoms";
 import svg from "../../../assets/img/serviceImg.svg";
 import Button from "../../molecules/button/Button";
@@ -6,8 +8,6 @@ import ContactForm from "../contactForm/ContactForm";
 import ServiceSmallCard from "../../molecules/serviceSmallCard/ServiceSmallCard";
 import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
 import webIcon from "../../../assets/img/webIcon.svg";
-import { useSelector } from "react-redux";
-import { useRouter } from "next/router";
 
 import styles from "./Services.module.scss";
 
@@ -28,7 +28,11 @@ const Services = () => {
       <div className={styles.serviceTopWrapper}>
         <Row className={styles.leftSecton}>
           <Col>
-            <HomeMainTexts result={services?.PointedTextServices[0]} square h1 />
+            <HomeMainTexts
+              result={services?.PointedTextServices[0]}
+              square
+              h1
+            />
           </Col>
           <Col className={styles.buttonWrapper}>
             <Button text={buttonText} />
@@ -47,11 +51,22 @@ const Services = () => {
           ))}
         </Col>
       </div>
-      <ContactForm
-        title={"Let’s Contact for Great"}
-        style={{ background: "#105475" }}
-        whiteTitle
-      />
+      <div className={styles.formWrapper}>
+        <HomeMainTexts
+          result={{
+            default_text: "Let’s connect for great",
+            color_text: "connect",
+            white: true,
+          }}
+          margin={false}
+          style={{ margin: "0 auto" }}
+        />
+        <ContactForm
+          style={{ background: "#105475" }}
+          whiteButton={true}
+          whiteTitle
+        />{" "}
+      </div>
     </div>
   );
 };

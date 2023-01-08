@@ -30,12 +30,22 @@
       .inputOdd {
         margin-right: getContactFormSizes(contact-form-input-input-odd-mr);
       }
+      input {
+        &::placeholder {
+          color: variables.$main-dark-blue !important;
+        }
+      }
+      textarea {
+        &::placeholder {
+          color: variables.$main-dark-blue !important;
+        }
+      }
     }
 
     .row_2 {
       .phoneCol {
         :global(.ant-form-item-control-input) {
-          padding: calcVW(15) calcVW(16);
+          padding: calcVW(21) calcVW(16);
           background-color: white;
           border-radius: getContactFormSizes(contact-form-input-br);
           input {
@@ -60,7 +70,7 @@
 
     .upload {
       margin-left: calcVW(360);
-      gap: calcVW(70);
+      gap: 70px;
       .fileUpload {
         background: transparent;
         border-radius: 4px;
@@ -77,6 +87,7 @@
 
         .largeText {
           font-size: calcVW(24);
+          font-weight: variables.$fw-700;
         }
         .smallText {
           font-size: calcVW(14);
@@ -90,7 +101,7 @@
       }
       .whiteBorder {
         color: variables.$white;
-        border: 2px solid variables.$white !important;
+        border: 1px solid variables.$white !important;
       }
     }
 
@@ -100,6 +111,25 @@
     }
     @media (max-width: 768px) {
       padding: calcVW(50) calcVW(300) calcVW(200) calcVW(300);
+
+      .upload {
+        margin-left: 0;
+        gap: 0;
+        justify-content: space-between;
+        .fileUpload {
+          width: calcVW(200);
+          height: calcVW(80);
+          font-size: calcVW(32);
+        }
+        .uploadButtonWrapper {
+          .largeText {
+            font-size: calcVW(48);
+          }
+          .smallText {
+            font-size: calcVW(28);
+          }
+        }
+      }
 
       .form {
         @include flex(center, none, column);
@@ -121,9 +151,10 @@
           font-size: calcVW(60);
           border-radius: 5px;
           &::placeholder {
-            color: variables.$main-dark-blue;
+            color: variables.$main-dark-blue !important;
           }
         }
+
         .inputOdd {
           margin-right: 0;
         }

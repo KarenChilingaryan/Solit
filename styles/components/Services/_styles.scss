@@ -4,6 +4,12 @@
 @mixin generate-services-styles {
   .servicesMainWrapper {
     @include flex(none, none, column);
+
+    .formWrapper {
+      padding: calcVW(100) 0;
+      background-color: variables.$main-dark-blue;
+    }
+
     .serviceTopWrapper {
       @include flex(space-between, none, row);
       padding: getServicesSizes(service-top-wrapper-padding);
@@ -36,7 +42,7 @@
         top: 0;
 
         .buttonWrapper {
-      margin: calcVW(100) 0;
+          margin: calcVW(100) 0;
 
           button {
             width: calcVW(460);

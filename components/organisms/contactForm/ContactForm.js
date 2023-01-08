@@ -14,12 +14,12 @@ import { Upload, Button as AntdButton } from "antd";
 import Title from "../../molecules/title/Title";
 import Button from "../../molecules/button/Button";
 import { contactUsData } from "../../../constants/contactUs";
+import { emailApi } from "../../../services/emailApi";
+import { useDispatch } from "react-redux";
 
 import styles from "./ContactForm.module.scss";
 
 import "react-phone-number-input/style.css";
-import { emailApi, useEmailQuery } from "../../../services/emailApi";
-import { useDispatch } from "react-redux";
 
 const ContactForm = ({
   title,
@@ -173,7 +173,7 @@ const ContactForm = ({
         <Row className={styles.textAreaWrapper}>
           <Col span={15}>
             <FormItem name={"message"}>
-              <TextArea className={styles.input} placeholder="Message" />
+              <TextArea className={styles.input} placeholder="Comment" />
             </FormItem>
           </Col>
         </Row>

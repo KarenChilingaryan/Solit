@@ -1,5 +1,6 @@
 import { memo } from "react";
 import cx from "classnames";
+
 import styles from "./Button.module.scss";
 
 const Button = ({ text, whiteButton, boldBlue, boldWhite, lightBlue }) => {
