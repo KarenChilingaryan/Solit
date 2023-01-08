@@ -37,10 +37,8 @@ const ContactForm = ({
     beforeUpload(file) {
       return new Promise((resolve) => {
         const reader = new FileReader();
-        reader.onloadend = () => {
-          setFile(reader.result);
-        };
         reader.readAsDataURL(file);
+        setFile(file);
       });
     },
   };
