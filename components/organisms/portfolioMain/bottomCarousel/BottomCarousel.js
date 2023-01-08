@@ -6,6 +6,7 @@ import BottomCarouselItem from "./BottomCarouselItem";
 import { Col, Row } from "../../../atoms";
 import Button from "../../../molecules/button/Button";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 // const data = [
 //   {
@@ -47,6 +48,11 @@ import Link from "next/link";
 // ];
 
 const BottomCarousel = ({ data }) => {
+  const router = useRouter();
+  const onClick = (id) => {
+    router.push(`/portfolio/${id}`)
+  }
+
   return (
     <Col className={styles.bottomCarouselSectionMainWrapper}>
       <Carousel slidesToShow={3} autoplay dots={false} responsive={[
@@ -63,6 +69,7 @@ const BottomCarousel = ({ data }) => {
             img={el?.logo_image || img}
             title={el?.title}
             desc={el?.technologies}
+            onClick={() => onClick(el.id)}
           />
         ))}
       </Carousel>

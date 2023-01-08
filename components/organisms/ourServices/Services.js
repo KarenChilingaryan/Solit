@@ -7,8 +7,13 @@ import svg from "../../../assets/img/Web.svg";
 
 import styles from "./Services.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Services = ({ data }) => {
+  const router = useRouter();
+  const onClick = (id) => {
+    router.push(`/services/${id}`)
+  }
   const buttonText = "Learn more";
   return (
     <div className={styles.servicesMainWrapper}>
@@ -22,12 +27,13 @@ const Services = ({ data }) => {
             title={el.title}
             desc={el.description}
             key={el}
+            onClick={() => onClick(el?.id)}
           />
         ))}
       </Row>
       <Col className={styles.buttonWrapper}>
         <Link href="/services">
-        <Button text={buttonText} whiteButton />
+          <Button text={buttonText} whiteButton />
         </Link>
       </Col>
     </div>

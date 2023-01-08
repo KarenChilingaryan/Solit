@@ -4,9 +4,9 @@ import { Col, Row, Paragraph } from "../../../atoms";
 
 import styles from "../PortfolioMain.module.scss";
 
-const BottomCarouselItem = ({ img, title, desc }) => {
+const BottomCarouselItem = ({ img, title, desc, onClick }) => {
   return (
-    <Row className={styles.bottomCarouselItemWrapper}>
+    <Row className={styles.bottomCarouselItemWrapper} onClick={onClick}>
       <Col className={styles.imgWrapper}>
         <Image src={img} alt="logo" className={styles.img} />
       </Col>

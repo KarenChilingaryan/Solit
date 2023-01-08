@@ -34,6 +34,7 @@
       }
     }
     .bottomCarouselItemWrapper {
+      cursor: pointer;
       border-radius: calcVW(15);
       background: #def1fa;
       padding: calcVW(36) calcVW(19) calcVW(39) calcVW(19);

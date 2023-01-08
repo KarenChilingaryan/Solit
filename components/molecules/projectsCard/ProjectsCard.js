@@ -4,9 +4,9 @@ import { Col, Row } from "../../atoms";
 
 import styles from "./ProjectsCard.module.scss";
 
-const ProjectsCard = ({ icon, title, desc }) => {
+const ProjectsCard = ({ icon, title, desc, onClick }) => {
   return (
-    <Col className={styles.projectsCardWrapper} span={7}>
+    <Col className={styles.projectsCardWrapper} span={7} onClick={onClick}>
       <Row>
         <Col span={7}>
           <Image src={icon} alt="icon" className={styles.img} />

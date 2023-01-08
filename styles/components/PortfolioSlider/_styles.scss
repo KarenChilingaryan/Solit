@@ -8,6 +8,19 @@
 
     .sliderWrapper {
       width: getPortfolioSliderSizes(slider-wrapper-width);
+      :global(.slick-dots) {
+        li {
+          button {
+            background-color: #bdcad1 !important;
+            transform: rotate(45deg);
+          }
+        }
+        .slick-active {
+          button {
+            background-color: #00ff96 !important;
+          }
+        }
+      }
     }
     .img {
       object-fit: cover;

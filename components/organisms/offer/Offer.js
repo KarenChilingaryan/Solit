@@ -8,14 +8,21 @@ import Button from "../../molecules/button/Button";
 
 import styles from "./Offer.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Offer = () => {
+  const router = useRouter();
+
   const homepageAdditionalService = useSelector(
     (state) =>
       state?.homepageAdditionalServiceApi?.queries?.[
         "homepageAdditionalService(undefined)"
       ]?.data
   );
+
+  const onClick = (id) => {
+    router.push(`/careers/${id}`)
+  }
 
   return (
     <div className={styles.offerMainWrapper}>
@@ -32,6 +39,7 @@ const Offer = () => {
             key={el?.id}
             img={el?.image || offerLogo}
             text={el?.title_name}
+            onClick={()=> onClick(el?.id)}
           />
         ))}
       </Row>

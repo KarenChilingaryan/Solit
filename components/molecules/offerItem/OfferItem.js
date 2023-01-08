@@ -3,9 +3,9 @@ import Image from "next/image";
 import { Col, Paragraph } from "../../atoms";
 import styles from "./OfferItem.module.scss";
 
-const OfferItem = ({ img, text }) => {
+const OfferItem = ({ img, text, onClick }) => {
   return (
-    <Col className={styles.offerItemMainWrapper} span={2}>
+    <Col className={styles.offerItemMainWrapper} span={2} onClick={onClick}>
       <Col>
         <Image src={img} alt={"offer logo"} className={styles.img} />
       </Col>

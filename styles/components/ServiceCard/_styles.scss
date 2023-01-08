@@ -26,6 +26,7 @@
         border-bottom: 2px solid transparent;
         transition: 0.2s;
         padding-bottom: getServiceCardSizes(serviceCard-title-pb);
+        cursor: pointer;
         &:hover {
           padding-bottom: getServiceCardSizes(serviceCard-title-pb);
           font-size: getServiceCardSizes(serviceCard-title-hover-fz);

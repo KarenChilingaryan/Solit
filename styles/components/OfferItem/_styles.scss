@@ -3,6 +3,7 @@
 
 @mixin generate-offer-item-styles {
   .offerItemMainWrapper {
+    cursor: pointer;
     padding: getOfferItemSizes(offer-item-wrapper-padding);
     background-color: #fff;
     border-radius: 5px;

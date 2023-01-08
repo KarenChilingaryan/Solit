@@ -7,10 +7,14 @@ import projectIcon from "../../../assets/img/projectIcon.png";
 
 import styles from "./Projects.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Projects = () => {
   const buttonText = "Our Portfolio";
-
+  const router = useRouter();
+  const onClick = (id) => {
+    router.push(`/portfolio/${id}`)
+  }
   const data = [
     {
       id: 1,
@@ -62,6 +66,7 @@ const Projects = () => {
             icon={el.icon}
             title={el?.title}
             desc={el?.desc}
+            onClick={() => onClick(el.id)}
           />
         ))}
       </Row>
