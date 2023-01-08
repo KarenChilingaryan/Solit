@@ -5,6 +5,10 @@
   .errorPage {
     width: 100%;
     padding: get404PageSizes(error-page-padding);
+    background-image: url("../../../assets/img/square.png");
+    background-repeat: no-repeat;
+    background-position: calcVW(1050) calcVW(200);
+    background-size: calcVW(300) calcVW(300);
 
     .textSection {
       display: flex;
