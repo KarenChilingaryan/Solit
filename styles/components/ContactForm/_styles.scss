@@ -45,10 +45,11 @@
     .row_2 {
       .phoneCol {
         :global(.ant-form-item-control-input) {
-          padding: calcVW(21) calcVW(16);
+          padding: calcVW(1) calcVW(16);
           background-color: white;
           border-radius: getContactFormSizes(contact-form-input-br);
           input {
+            height: calcVW(60);
             border: none;
             &:focus-visible {
               outline: none;
@@ -109,6 +110,19 @@
       text-align: center;
       margin-top: getContactFormSizes(contact-form-button-wrapper-mt);
     }
+
+    @media (max-width: 992px) {
+      .row_2 {
+        .phoneCol {
+          :global(.ant-form-item-control-input) {
+            input {
+              height: calcVW(80);
+            }
+          }
+        }
+      }
+    }
+
     @media (max-width: 768px) {
       padding: calcVW(50) calcVW(300) calcVW(200) calcVW(300);
 
@@ -159,6 +173,19 @@
           margin-right: 0;
         }
       }
+
+      .row_2 {
+        .phoneCol {
+          :global(.ant-form-item-control-input) {
+            padding: 0 calcVW(16);
+            border-radius: 5px;
+            input {
+              height: calcVW(160);
+            }
+          }
+        }
+      }
+
       .textAreaWrapper > div {
         width: 100%;
         max-width: unset;
