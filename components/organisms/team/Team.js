@@ -25,7 +25,7 @@ const Team = () => {
         className={styles.teamItemsWrapper}
       >
         {aboutOurTeamTitle?.map((el, index) => (
-          index ? <TeamItem key={el.id} img={el.image || teamIcon} title={el.title} desc={el.description} /> : <></>
+          index ? <TeamItem key={el.id} img={el.image || teamIcon} title={el.title} desc={el.description} id={el.id}/> : <></>
         ))}
       </Row>
 

@@ -7,9 +7,10 @@ import moreIcon from "../../../assets/img/moreIcon.svg";
 import styles from "./TeamItem.module.scss";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import Link from "next/link";
 
 const moreText = "More";
-const TeamItem = ({ img, title, desc }) => {
+const TeamItem = ({ img, title, desc, id }) => {
   return (
     <Col className={styles.teamItemWrapper} span={10}>
       <Row className={styles.titleWrapper}>
@@ -23,9 +24,11 @@ const TeamItem = ({ img, title, desc }) => {
         >{desc ? desc : ''}</ReactMarkdown>
       </Paragraph>
       <Col className={styles.moreWrapper}>
-        <Paragraph className={styles.more}>
-          {moreText} <Image src={moreIcon} alt="more icon" />
-        </Paragraph>
+        <Link href={`/our-team/${id}`}>
+          <Paragraph className={styles.more}>
+            {moreText} <Image src={moreIcon} alt="more icon" />
+          </Paragraph>
+        </Link>
       </Col>
     </Col>
   );

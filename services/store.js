@@ -22,6 +22,7 @@ import { shortPresentationPortfolioApi } from "./shortPresentationPortfolioApi";
 import { aboutOurTeamTitleApi } from "./aboutOurTeamTitleApi";
 import { testimonialsFlagTitleApi } from "./testimonialsFlagTitleApi";
 import { footerApi } from "./footerApi";
+import { ourTeamDetailApi } from "./ourTeamDetail";
 
 const store = configureStore({
   reducer: {
@@ -47,7 +48,8 @@ const store = configureStore({
     [shortPresentationPortfolioApi.reducerPath]: shortPresentationPortfolioApi.reducer,
     [aboutOurTeamTitleApi.reducerPath]: aboutOurTeamTitleApi.reducer,
     [testimonialsFlagTitleApi.reducerPath]: testimonialsFlagTitleApi.reducer,
-    [footerApi.reducerPath]: footerApi.reducer
+    [footerApi.reducerPath]: footerApi.reducer,
+    [ourTeamDetailApi.reducerPath]: ourTeamDetailApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(postsApi.middleware),

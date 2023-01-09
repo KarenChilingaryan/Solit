@@ -1,0 +1,21 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$ourTeam-sizes: (
+  ourTeam-wrapper-padding: calcVW(39) calcVW(0) calcVW(50) calcVW(0),
+  ourTeam-wrapper-pb: calcVW(75),
+  ourTeam-button-wrapper-mt: calcVW(55),
+  ourTeam-top-wrapper-padding: calcVW(80) calcVW(230),
+  ourTeam-text-mt: calcVW(350),
+  ourTeam-text-tablet-mt: calcVW(150),
+  button-text-fz: calcVW(42),
+  button-height: calcVW(120),
+  ourTeamCard-title-fz: calcVW(28),
+  ourTeamCard-title-lh: calcVW(30),
+  ourTeamCard-description-fz: calcVW(22),
+  ourTeamCard-description-lh: calcVW(26),
+);
+
+@function getOurTeamSizes($property) {
+  @return map-get($ourTeam-sizes, $property);
+}

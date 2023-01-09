@@ -1,0 +1,114 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-our-team-card-styles {
+  .ourTeamCardWrapper {
+    width: calcVW(460);
+    max-width: calcVW(460);
+    border-radius: 5px;
+    padding: getOurTeamCardSizes(ourTeamCard-wrapper-padding);
+    margin-left: getOurTeamCardSizes(ourTeamCard-icon-title-wrapper-ml);
+    background: variables.$projects-bg;
+    .title_iconWrapper {
+      margin-bottom: getOurTeamCardSizes(ourTeamCard-icon-title-wrapper-mb);
+      margin-left: getOurTeamCardSizes(ourTeamCard-icon-title-wrapper--ml);
+      .iconWrapper {
+        margin-right: getOurTeamCardSizes(ourTeamCard-icon-mr);
+        width: getOurTeamCardSizes(ourTeamCard-image-width);
+        height: getOurTeamCardSizes(ourTeamCard-image-height);
+        object-fit: cover;
+        border-radius: 5px;
+      }
+    }
+    .title {
+      width: getOurTeamCardSizes(ourTeamCard-title-width);
+      @include font-style(
+        getOurTeamCardSizes(ourTeamCard-title-fz),
+        variables.$fw-500,
+        getOurTeamCardSizes(ourTeamCard-title-lh),
+        variables.$main-dark-blue
+      );
+      padding: getOurTeamCardSizes(ourTeamCard-title-p) 0;
+    }
+    .subTitle {
+      @include font-style(
+        getOurTeamCardSizes(ourTeamCard-sub-title-fz),
+        variables.$fw-400,
+        getOurTeamCardSizes(ourTeamCard-sub-title-lh),
+        variables.$main-dark-blue
+      );
+      padding-bottom: getOurTeamCardSizes(ourTeamCard-sub-title-pb);
+    }
+    .skill {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: calcVW(10);
+      margin-left: auto;
+      width: calcVW(310);
+      .skillItem {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 5px;
+        width: getOurTeamCardSizes(skill-item-width);
+        height: getOurTeamCardSizes(skill-item-height);
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  .desc {
+    width: getOurTeamCardSizes(ourTeamCard-desc-width);
+    font-weight: 300 !important;
+    color: variables.$main-dark-blue !important;
+    margin-bottom: 10px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    @include font-style(
+      getOurTeamCardSizes(ourTeamCard-desc-fz),
+      variables.$fw-300,
+      getOurTeamCardSizes(ourTeamCard-desc-lh),
+      #c3d4dc
+    );
+  }
+  @media (max-width: 768px) {
+    .ourTeamCardWrapper {
+      margin: 0 calcVW(180);
+      max-width: 500px;
+      width: 100%;
+      padding: calcVW(60);
+      .title_iconWrapper {
+        .iconWrapper {
+          width: 100% !important;
+          height: auto !important;
+          max-height: 200px !important;
+          object-fit: cover;
+        }
+      }
+      .title {
+        font-size: calcVW(60);
+        width: auto;
+        font-weight: 500;
+        margin-top: calcVW(40);
+        margin-bottom: calcVW(30) !important;
+      }
+      .desc {
+        width: auto;
+        font-size: calcVW(44);
+        height: calcVW(170);
+        line-height: calcVW(60);
+      }
+    }
+  }
+  @media (max-width: 590px) {
+    .ourTeamCardWrapper {
+      .title_iconWrapper {
+        .iconWrapper {
+          max-height: calcVW(650) !important;
+        }
+      }
+    }
+  }
+}

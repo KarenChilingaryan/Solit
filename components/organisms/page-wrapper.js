@@ -13,6 +13,7 @@ import { homepageAdditionalServiceApi } from "../../services/homepageAdditionalS
 import { longPresentationBlogApi } from "../../services/longPresentationBlogApi";
 import { longPresentationPortfolioApi } from "../../services/longPresentationPortfolioApi";
 import { ourServicesApi } from "../../services/ourServicesApi";
+import { ourTeamDetailApi } from "../../services/ourTeamDetail";
 import { portfolioApi } from "../../services/portfolioApi";
 import { portfolioTextApi } from "../../services/portfolioTextApi";
 import { postsApi } from "../../services/postsApi";
@@ -87,6 +88,12 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await careerTechnologyLongPresentationApi.endpoints.careerTechnologyLongPresentation.initiate())
       if(id){
         await dispatch(await careerTechnologyItemApi.endpoints.careerTechnologyItem.initiate(id))
+      }
+    }
+
+    if (a.pathname.includes('/our-team') && flag || !a.pathname.includes('/our-team') && !flag) {
+      if(id){
+        await dispatch(await ourTeamDetailApi.endpoints.ourTeamDetail.initiate(id))
       }
     }
     

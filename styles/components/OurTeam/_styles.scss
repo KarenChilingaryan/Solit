@@ -1,0 +1,77 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-our-team-styles {
+  .ourTeamMainWrapper {
+    @include flex(none, none, column);
+    .ourTeamTopWrapper {
+      @include flex(space-between, none, row);
+      padding: getOurTeamSizes(ourTeam-top-wrapper-padding);
+    }
+    .leftSecton {
+      margin: 0 auto;
+      margin-top: getOurTeamSizes(ourTeam-text-mt);
+      height: fit-content;
+    }
+    .leftDescription {
+      .title {
+        @include font-style(
+          getOurTeamSizes(ourTeamCard-title-fz),
+          variables.$fw-400,
+          getOurTeamSizes(ourTeamCard-title-lh),
+          variables.$main-dark-blue
+        );
+        margin-bottom: calcVW(20) !important;
+      }
+      .description {
+        max-width: calcVW(630);
+        @include font-style(
+          getOurTeamSizes(ourTeamCard-description-fz),
+          variables.$fw-300,
+          getOurTeamSizes(ourTeamCard-description-lh),
+          variables.$main-dark-blue
+        );
+
+        color: #105475;
+      }
+    }
+    .cardSection {
+      @include flex(none, none, column, none);
+      row-gap: calcVW(50);
+      flex: none;
+    }
+    .titleWrapper {
+      padding: getOurTeamSizes(ourTeam-wrapper-padding) !important;
+    }
+    .buttonWrapper {
+      text-align: center;
+      padding: calcVW(100);
+    }
+    @media (max-width: 768px) {
+      .ourTeamTopWrapper {
+        flex-direction: column;
+      }
+      .leftSecton {
+        margin-top: getOurTeamSizes(ourTeam-text-tablet-mt);
+        flex-direction: column;
+        position: relative;
+        top: 0;
+
+        .buttonWrapper {
+          margin: calcVW(100) 0;
+
+          button {
+            width: calcVW(460);
+            height: getOurTeamSizes(button-height);
+            @include font-style(calcVW(50), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .cardSection {
+      align-items: center;
+    }
+  }
+}
