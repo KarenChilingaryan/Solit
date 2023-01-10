@@ -54,7 +54,12 @@
         }
         .description {
           max-width: 100%;
-          @include font-style(calcVW(35), variables.$fw-300, calcVW(45), variables.$main-dark-blue);
+          @include font-style(
+            calcVW(35),
+            variables.$fw-300,
+            calcVW(45),
+            variables.$main-dark-blue
+          );
         }
         margin-bottom: calcVW(40);
       }
@@ -73,7 +78,12 @@
           button {
             width: calcVW(460);
             height: getOurTeamSizes(button-height);
-            @include font-style(calcVW(50), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
+            @include font-style(
+              calcVW(50),
+              variables.$fw-500,
+              getButtonSizes(button-text-fl),
+              #fff
+            );
           }
         }
       }

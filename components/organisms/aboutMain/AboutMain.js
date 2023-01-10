@@ -36,7 +36,7 @@ const AboutMain = () => {
       </Col>
       <Col className={styles.buttonWrapper}>
         <Link href="/services">
-          <Button text={buttonText} lightBlue />
+          <Button text={buttonText} />
         </Link>
       </Col>
     </div>

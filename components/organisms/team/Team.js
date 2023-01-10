@@ -1,15 +1,16 @@
 import { memo } from "react";
+import Link from "next/link";
+import { useSelector } from "react-redux";
 import { Row, Col } from "../../atoms";
 import Title from "../../molecules/title/Title";
 import TeamItem from "../../molecules/teamItem/TeamItem";
 import teamIcon from "../../../assets/img/teamIcon.svg";
 import Button from "../../molecules/button/Button";
-import { useSelector } from "react-redux";
 
 import styles from "./Team.module.scss";
-import Link from "next/link";
 
 const buttonText = "Our Portfolio";
+
 const Team = () => {
   const aboutOurTeamTitle = useSelector(
     (state) => state?.aboutOurTeamTitleApi?.queries?.["aboutOurTeamTitle(undefined)"]?.data

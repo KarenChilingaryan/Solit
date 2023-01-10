@@ -52,12 +52,14 @@ const About = ({ data }) => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
-          >{data?.data?.[0]?.presentation_text}</ReactMarkdown>
+          >
+            {data?.data?.[0]?.presentation_text}
+          </ReactMarkdown>
         </Col>
       </Row>
       <Col className={styles.buttonWrapper}>
         <Link href="/aboutus">
-          <Button text="More" lightBlue />
+          <Button text="More" />
         </Link>
       </Col>
     </div>
