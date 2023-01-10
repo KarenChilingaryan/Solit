@@ -31,15 +31,21 @@ const ContactForm = ({
   const [form] = Form.useForm();
   const [file, setFile] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
+  const [fileList, setFileList] = useState([]);
 
   const props = {
-    accept: ".pdf",
+    name: "file",
+    accept: "application/pdf",
+    onRemove: (file) => {
+      const index = fileList.indexOf(file);
+      const newFileList = fileList.slice();
+      newFileList.splice(index, 1);
+      setFileList(newFileList);
+    },
     beforeUpload(file) {
-      return new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        setFile(file);
-      });
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      setFile(file);
     },
   };
   const dispatch = useDispatch();
