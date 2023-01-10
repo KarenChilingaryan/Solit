@@ -48,6 +48,16 @@
       padding: calcVW(100);
     }
     @media (max-width: 768px) {
+      .leftDescription {
+        .title {
+          display: none;
+        }
+        .description {
+          max-width: 100%;
+          @include font-style(calcVW(35), variables.$fw-300, calcVW(45), variables.$main-dark-blue);
+        }
+        margin-bottom: calcVW(40);
+      }
       .ourTeamTopWrapper {
         flex-direction: column;
       }
@@ -72,6 +82,14 @@
   @media (max-width: 768px) {
     .cardSection {
       align-items: center;
+    }
+  }
+  @media (max-width: 500px) {
+    .ourTeamTopWrapper {
+      padding: calcVW(100) !important;
+    }
+    .cardSection {
+      padding: 0 calcVW(130) !important;
     }
   }
 }

@@ -53,6 +53,8 @@
         justify-content: center;
         display: flex;
         align-items: center;
+        font-size: calcVW(14);
+        color: #105475;
       }
     }
   }
@@ -76,13 +78,52 @@
   @media (max-width: 768px) {
     .ourTeamCardWrapper {
       margin: 0 calcVW(180);
-      max-width: 500px;
+      max-width: 400px;
       width: 100%;
-      padding: calcVW(60);
+      padding: calcVW(40);
       .title_iconWrapper {
         .iconWrapper {
-          width: 100% !important;
-          height: auto !important;
+          width: 80px !important;
+          height: 80px !important;
+          max-height: 200px !important;
+          object-fit: cover;
+        }
+      }
+      .title {
+        font-size: calcVW(40);
+        width: auto;
+        font-weight: 600;
+        margin-top: calcVW(40);
+        margin-bottom: calcVW(15) !important;
+      }
+      .subTitle {
+        font-size: calcVW(30);
+        padding-top: 0;
+        padding-bottom: calcVW(30);
+      }
+      .desc {
+        width: auto;
+        font-size: calcVW(35);
+        height: calcVW(170);
+        line-height: calcVW(40);
+      }
+      .skill {
+        width: 276px;
+        column-gap: 8px;
+        .skillItem {
+          width: 63px;
+          height: 25px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    .ourTeamCardWrapper {
+      .title_iconWrapper {
+        .iconWrapper {
+          width: calcVW(307) !important;
+          height: calcVW(307) !important;
           max-height: 200px !important;
           object-fit: cover;
         }
@@ -90,23 +131,28 @@
       .title {
         font-size: calcVW(60);
         width: auto;
-        font-weight: 500;
-        margin-top: calcVW(40);
-        margin-bottom: calcVW(30) !important;
+        font-weight: 600;
+        margin-top: calcVW(80);
+        margin-bottom: calcVW(40) !important;
+      }
+      .subTitle {
+        font-size: calcVW(45);
+        padding-top: 0;
+        padding-bottom: calcVW(40);
       }
       .desc {
         width: auto;
-        font-size: calcVW(44);
+        font-size: calcVW(50);
         height: calcVW(170);
-        line-height: calcVW(60);
+        line-height: calcVW(55);
       }
-    }
-  }
-  @media (max-width: 590px) {
-    .ourTeamCardWrapper {
-      .title_iconWrapper {
-        .iconWrapper {
-          max-height: calcVW(650) !important;
+      .skill {
+        width: calcVW(1060);
+        column-gap: calcVW(32);
+        .skillItem {
+          width: calcVW(240);
+          height: calcVW(100);
+          font-size: calcVW(45);
         }
       }
     }
