@@ -7,8 +7,9 @@ import { Projects } from "../components/organisms/projects";
 import { Offer } from "../components/organisms/offer";
 import { Testimonials } from "../components/organisms/testimonials";
 import { ContactForm } from "../components/organisms/contactForm";
-
 import { Loading } from "../components/atoms";
+import Image from "next/image";
+import { HomeMainWithImage } from "../components/organisms/HomeMainWithImage";
 
 const Home = () => {
   const mainInfoData = useSelector(
@@ -26,9 +27,10 @@ const Home = () => {
       {/* {!mainInfoData || !servicesData ? (
         <Loading />
       ) : ( */}
-        <>
-          <HomeMain data={mainInfoData?.[0]} />
-          <Services data={servicesData} />
+        <HomeMainWithImage />
+        
+          {/* <HomeMain data={mainInfoData?.[0]} /> */}
+          {/* <Services data={servicesData} />
           <About data={aboutData} />
           <Projects />
           <Offer />

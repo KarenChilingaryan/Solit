@@ -2,14 +2,9 @@
 @import "../../base/variables";
 
 $homeMain-sizes: (
-  home-main-wrapper-padding: calcVW(183) calcVW(0) calcVW(130) calcVW(230),
-  home-main-wrapper-padding-mobile: calcVW(400) calcVW(0) calcVW(250)
-    calcVW(100),
-  home-main-wrapper-mt: calcVW(50),
-  home-main-button-wrapper-mt: calcVW(116),
-  home-main-button-wrapper-ml: calcVW(-115),
-  home-main-button-wrapper-bg-size: calcVW(960) calcVW(1250),
-  home-main-button-tablet-wrapper-ml: calcVW(-40),
+  home-main-title-width: calcVW(810),
+  home-main-button-wrapper-mt: calcVW(24),
+
 );
 
 @function getHomeMainSizes($property) {

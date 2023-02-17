@@ -1,0 +1,18 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$HomeMainWithImage-sizes: (
+  content-width: calcVW(1216),
+  content-mt:  calcVW(478),
+  social-sites-cg: calcVW(32),
+  site-cg: calcVW(16),
+  sites-image-width: calcVW(24),
+  text-fs: calcVW(20),
+  text-lh: calcVW(24),
+  social-sites-lp: calcVW(-190),
+  social-sites-tp: calcVW(400),
+);
+
+@function getHomeMainWithImage($property) {
+  @return map-get($HomeMainWithImage-sizes, $property);
+}

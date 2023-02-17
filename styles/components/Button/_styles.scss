@@ -4,14 +4,14 @@
 @mixin generate-button-styles {
   .button {
     background: variables.$main-blue;
-    border: 1px solid variables.$main-blue;
-    border-radius: getButtonSizes(button-radius);
+    border: 0;
+    border-radius: 100px;
     padding: getButtonSizes(button-padding);
     width: getButtonSizes(button-width);
     height: getButtonSizes(button-height);
     @include font-style(
       getButtonSizes(button-text-fz),
-      variables.$fw-500,
+      variables.$fw-700,
       getButtonSizes(button-text-fl),
       #fff
     );
@@ -23,7 +23,7 @@
       border: 1px solid #105475;
       @include font-style(
         getButtonSizes(button-hover-text-fz),
-        variables.$fw-500,
+        variables.$fw-700,
         getButtonSizes(button-text-fl),
         #fff
       );
@@ -81,7 +81,7 @@
     background: variables.$main-dark-blue;
     @include font-style(
       getButtonSizes(button-text-bold-blue-fz),
-      variables.$fw-500,
+      variables.$fw-700,
       getButtonSizes(button-text-bold-blue-fl),
       #fff
     );

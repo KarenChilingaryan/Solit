@@ -1,50 +1,53 @@
 import { memo } from "react";
 import { Col, Paragraph } from "../../atoms";
-import NextImage from "next/image";
-import aboutSquare from "../../../assets/img/aboutSquare.png";
-
 import styles from "./HomeMainTexts.module.scss";
+import Button from "../button/Button";
 
 const HomeMainTexts = ({
-  bigText,
-  smallText,
-  style = {},
-  margin = true,
-  square = false,
-  home = false,
+  title,
+  firstSubtitle,
+  secondSubtitle,
   h1 = false,
 }) => {
   return (
     <>
       <Col
-        className={`${styles.bigTextWrapper} ${
-          home ? styles.bigTextWrapperHome : ""
-        }`}
-        style={style}
+        className={styles.bigTextWrapper}
       >
         {h1 ? (
           <h1
             className={
-              styles.bigText + ` ${margin ? "" : styles.bigTextWithoutMargin}`
+              styles.title
             }
           >
-            {bigText}
+            {title}
           </h1>
         ) : (
+
           <Paragraph
-            className={
-              styles.bigText + ` ${margin ? "" : styles.bigTextWithoutMargin}`
-            }
+            className={styles.title}
           >
-            {bigText}
+            {title}
           </Paragraph>
         )}
+
+        {firstSubtitle &&
+          <Paragraph
+            className={styles.firstSubtitle}
+          >
+            {firstSubtitle}
+          </Paragraph>
+        }
+
+        {secondSubtitle &&
+          <Paragraph
+            className={`${styles.firstSubtitle} ${styles.secondSubtitle}`}
+          >
+            {secondSubtitle}
+          </Paragraph>
+        }
       </Col>
-      {smallText && (
-        <Col className={styles.smallTextWrapper}>
-          <Paragraph className={styles.smallText}>{smallText}</Paragraph>
-        </Col>
-      )}
+
     </>
   );
 };

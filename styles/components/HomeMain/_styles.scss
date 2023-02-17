@@ -2,34 +2,11 @@
 @import "../../base/mixins";
 
 @mixin generate-homeMain-styles {
-  .coloredText {
-    color: variables.$main-green;
-  }
-  .normalText {
-    color: variables.$main-blue;
-  }
   .MainWrapper {
-    margin-top: getHomeMainSizes(home-main-wrapper-mt);
-    padding: getHomeMainSizes(home-main-wrapper-padding);
-    background-image: url("../../../assets/img/main4angle.png");
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: getHomeMainSizes(home-main-button-wrapper-bg-size);
+    width: getHomeMainSizes(home-main-title-width);
 
     .buttonWrapper {
       margin-top: getHomeMainSizes(home-main-button-wrapper-mt);
-      margin-left: getHomeMainSizes(home-main-button-wrapper-ml);
-
-      @include center-flex();
-    }
-  }
-  @media (max-width: 768px) {
-    .MainWrapper {
-      padding: getHomeMainSizes(home-main-wrapper-padding-mobile);
-      background-size: calcVW(400) calcVW(500);
-      .buttonWrapper {
-        margin-left: getHomeMainSizes(home-main-button-tablet-wrapper-ml);
-      }
     }
   }
 }

@@ -1,0 +1,33 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-home-main-with-image-styles {
+  .content {
+    width: getHomeMainWithImage(content-width);
+    margin: getHomeMainWithImage(content-mt) auto 0 auto;
+  }
+  .socialSites {
+    position: absolute;
+    z-index: 1;
+    transform: rotate(-90deg);
+    left: getHomeMainWithImage(social-sites-lp);
+    top: getHomeMainWithImage(social-sites-tp);
+    @include flex(flex-start, center);
+    column-gap: getHomeMainWithImage(social-sites-cg);
+
+    .site {
+      column-gap: getHomeMainWithImage(site-cg);
+      @include flex(center, center);
+      .image {
+        width: getHomeMainWithImage(sites-image-width);
+      }
+      .text {
+        @include font-style(
+          getHomeMainWithImage(text-fs),
+          variables.$fw-500,
+          getHomeMainWithImage(text-lh),
+        );
+      }
+    }
+  }
+}

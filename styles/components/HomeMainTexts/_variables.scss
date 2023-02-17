@@ -2,17 +2,11 @@
 @import "../../base/variables";
 
 $home-main-texts-sizes: (
-  home-main-title-fz: calcVW(90),
-  home-main-title-lh: calcVW(107),
-  home-main-title-width: calcVW(930),
-  home-main-small-text-fz: calcVW(22),
-  home-main-small-text-lh: calcVW(26),
-  home-main-small-text-width: calcVW(1160),
-  square-position-top: calcVW(-120),
-  square-position-left: calcVW(-170),
-  home-main-title-tablet-fz: calcVW(120),
-  square-width: calcVW(320),
-  square-height: calcVW(290)
+  home-main-title-fz: calcVW(48),
+  home-main-title-lh: calcVW(59),
+  home-main-first-text-fz: calcVW(24),
+  home-main-first-text-lh: calcVW(32),
+  home-main-first-text-mt: calcVW(24),
 );
 
 @function getHomeMainTextsSizes($property) {
