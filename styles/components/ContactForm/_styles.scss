@@ -104,6 +104,10 @@
         color: variables.$white;
         border: 1px solid variables.$white !important;
       }
+
+      :global(.ant-upload-list) {
+        width: calcVW(100);
+      }
     }
 
     .buttonWrapper {
@@ -130,11 +134,13 @@
         margin-left: 0;
         gap: 0;
         justify-content: space-between;
+
         .fileUpload {
           width: calcVW(200);
           height: calcVW(80);
           font-size: calcVW(32);
         }
+
         .uploadButtonWrapper {
           .largeText {
             font-size: calcVW(48);
@@ -142,6 +148,22 @@
           .smallText {
             font-size: calcVW(28);
           }
+        }
+
+        :global(.ant-upload-list) {
+          width: calcVW(200);
+        }
+
+        :global(.ant-upload-list-item:hover .ant-upload-list-item-info) {
+          background: transparent;
+        }
+
+        :global(.ant-upload-list-item-card-actions .anticon) {
+          color: variables.$black;
+        }
+
+        :global(.ant-upload-list-text .ant-upload-text-icon .anticon) {
+          color: variables.$black;
         }
       }
 

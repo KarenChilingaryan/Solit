@@ -9,11 +9,13 @@ import styles from "./Services.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+const cardsData = [1, 2, 3, 4, 5];
+
 const Services = ({ data }) => {
   const router = useRouter();
   const onClick = (id) => {
-    router.push(`/services/${id}`)
-  }
+    router.push(`/services/${id}`);
+  };
   const buttonText = "Learn more";
   return (
     <div className={styles.servicesMainWrapper}>
@@ -21,7 +23,7 @@ const Services = ({ data }) => {
         <Title title={data?.presentation_title} whiteTitle />
       </Col>
       <Row className={styles.serviceSection} gutter={[0, "2.083336vw"]}>
-        {data?.data?.map((el) => (
+        {cardsData?.map((el) => (
           <ServiceCard
             icon={svg}
             title={el.title}

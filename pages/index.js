@@ -23,9 +23,9 @@ const Home = () => {
   );
   return (
     <>
-      {!mainInfoData || !servicesData ? (
+      {/* {!mainInfoData || !servicesData ? (
         <Loading />
-      ) : (
+      ) : ( */}
         <>
           <HomeMain data={mainInfoData?.[0]} />
           <Services data={servicesData} />
@@ -35,7 +35,7 @@ const Home = () => {
           <Testimonials />
           <ContactForm title="Let’s Contact for Great" />
         </>
-      )}
+      {/* // )/} */}
     </>
   );
 };

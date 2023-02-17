@@ -3,36 +3,33 @@
 
 @mixin generate-service-card-styles {
   .serviceCardWrapper {
-    padding: getServiceCardSizes(serviceCard-wrapper-padding);
     margin-left: getServiceCardSizes(serviceCard-icon-title-wrapper-ml);
     .title_iconWrapper {
+      position: relative;
       margin-bottom: getServiceCardSizes(serviceCard-icon-title-wrapper-mb);
-      margin-left: getServiceCardSizes(serviceCard-icon-title-wrapper--ml);
       .iconWrapper {
-        margin-right: getServiceCardSizes(serviceCard-icon-mr);
         width: getServiceCardSizes(serviceCard-icon-width);
         height: getServiceCardSizes(serviceCard-icon-height);
         background-repeat: no-repeat;
         background-size: contain;
       }
       .title {
-        width: getServiceCardSizes(serviceCard-title-width);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: getServiceCardSizes(serviceCard-title-height);
         @include font-style(
           getServiceCardSizes(serviceCard-title-fz),
           variables.$fw-400,
           getServiceCardSizes(serviceCard-title-lh),
           #fff
         );
-        border-bottom: 2px solid transparent;
-        transition: 0.2s;
-        padding-bottom: getServiceCardSizes(serviceCard-title-pb);
         cursor: pointer;
-        &:hover {
-          padding-bottom: getServiceCardSizes(serviceCard-title-pb);
-          font-size: getServiceCardSizes(serviceCard-title-hover-fz);
-          font-weight: variables.$fw-600;
-          border-bottom: 2px solid variables.$main-green;
-        }
+        background: transparent;
+        backdrop-filter: blur(30px);
+        position: absolute;
+        top: 0;
       }
     }
     .desc {
