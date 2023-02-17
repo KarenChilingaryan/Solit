@@ -5,6 +5,12 @@
   .content {
     width: getHomeMainWithImage(content-width);
     margin: getHomeMainWithImage(content-mt) auto 0 auto;
+    .services {
+      @include flex(space-between, center, null, wrap);
+      width: 100%;
+      row-gap: getHomeMainWithImage(services-rg);
+      margin-top: getHomeMainWithImage(services-mt);;
+    }
   }
   .socialSites {
     position: absolute;
