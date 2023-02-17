@@ -3,20 +3,22 @@
 
 @mixin generate-service-card-styles {
   .serviceCardWrapper {
-    margin-left: getServiceCardSizes(serviceCard-icon-title-wrapper-ml);
+    flex: none;
     .title_iconWrapper {
       position: relative;
-      margin-bottom: getServiceCardSizes(serviceCard-icon-title-wrapper-mb);
+      width: max-content;
       .iconWrapper {
         width: getServiceCardSizes(serviceCard-icon-width);
         height: getServiceCardSizes(serviceCard-icon-height);
         background-repeat: no-repeat;
         background-size: contain;
+        border-radius: 16px;
       }
       .title {
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 16px 16px 0 0;
         width: 100%;
         height: getServiceCardSizes(serviceCard-title-height);
         @include font-style(
@@ -32,37 +34,32 @@
         top: 0;
       }
     }
-    .desc {
-      width: getServiceCardSizes(serviceCard-desc-width);
-      font-weight: 300 !important;
-      margin-left: getServiceCardSizes(serviceCard-desc-ml);
-      color: #c3d4dc !important;
-      @include font-style(
-        getServiceCardSizes(serviceCard-desc-fz),
-        variables.$fw-300,
-        getServiceCardSizes(serviceCard-desc-lh),
-        #c3d4dc
-      );
+    .description {
+      display: none;
     }
+
+    &:hover {
+      .description {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        padding: getServiceCardSizes(serviceCard-desc-p);
+        border-radius: 0 0 16px 16px;
+        background: transparent;
+        backdrop-filter: blur(30px);
+        height: getServiceCardSizes(serviceCard-desc-height);
+        text-align: center;
+        @include font-style(
+          getServiceCardSizes(serviceCard-desc-fz),
+          variables.$fw-300,
+          getServiceCardSizes(serviceCard-desc-lh),
+          #c3d4dc
+        );
+      }
+      box-shadow: 0px 42px 20px -32px rgb(66 53 190 / 80%);
+    }
+
     @media (max-width: 768px) {
-      max-width: unset;
-      .desc {
-        display: none;
-      }
-      .title_iconWrapper {
-        gap: calcVW(90);
-        .iconWrapper {
-          width: calcVW(180);
-          height: calcVW(180);
-        }
-        .title {
-          width: calcVW(620);
-          @include font-style(calcVW(80), variables.$fw-400, calcVW(100), #fff);
-          &:hover {
-            font-size: calcVW(99);
-          }
-        }
-      }
     }
   }
 }

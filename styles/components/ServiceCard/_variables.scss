@@ -3,7 +3,6 @@
 
 $serviceCard-sizes: (
   serviceCard-wrapper-padding: calcVW(0) calcVW(0) calcVW(0) calcVW(230),
-  serviceCard-icon-title-wrapper-mb: calcVW(4),
   serviceCard-icon-title-wrapper-ml: calcVW(15),
   serviceCard-icon-width: calcVW(340),
   serviceCard-icon-height: calcVW(600),
@@ -11,10 +10,11 @@ $serviceCard-sizes: (
   serviceCard-title-fz: calcVW(24),
   serviceCard-title-lh: calcVW(29),
   serviceCard-title-height: calcVW(90),
-  serviceCard-desc-fz: calcVW(20),
-  serviceCard-desc-lh: calcVW(24),
-  serviceCard-desc-width: calcVW(360),
+  serviceCard-desc-fz: calcVW(16),
+  serviceCard-desc-lh: calcVW(20),
+  serviceCard-desc-height: calcVW(135),
   serviceCard-desc-ml: calcVW(-15),
+  serviceCard-desc-p: calcVW(32),
   serviceCard-title-hover-fz: calcVW(35),
 );
 

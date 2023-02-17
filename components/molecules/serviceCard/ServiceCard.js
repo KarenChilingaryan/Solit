@@ -12,6 +12,10 @@ const ServiceCard = ({ icon, title, desc, onClick }) => {
       <Row align_items={"center"} className={styles.title_iconWrapper}>
         <Row className={styles.title}>Mobile Development</Row>
         <Image className={styles.iconWrapper} src={cardIcon} />
+        <Row className={styles.description}>
+          It is a long established fact that a reader will be distracted by the
+          readable content
+        </Row>
       </Row>
     </Col>
   );
