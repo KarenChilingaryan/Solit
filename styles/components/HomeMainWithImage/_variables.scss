@@ -12,7 +12,9 @@ $HomeMainWithImage-sizes: (
   social-sites-lp: calcVW(-190),
   social-sites-tp: calcVW(400),
   services-rg: calcVW(96),
-  services-mt: calcVW(440),
+  services-mt: calcVW(400),
+  bordered-text-mb: calcVW(-40),
+  bordered-text-ml: calcVW(-345),
 );
 
 @function getHomeMainWithImage($property) {

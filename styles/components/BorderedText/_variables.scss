@@ -1,0 +1,11 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$bordered-text-sizes: (
+  bordered-text-fs: calcVW(228),
+  bordered-text-lh: calcVW(200),
+);
+
+@function getBorderedTextSizes($property) {
+  @return map-get($bordered-text-sizes, $property);
+}
