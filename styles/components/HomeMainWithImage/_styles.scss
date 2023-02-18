@@ -13,10 +13,16 @@
         width: 100%;
         row-gap: getHomeMainWithImage(services-rg);
       }
-      .borderedText {
+      
+      .borderedTextBottom {
         margin-bottom: getHomeMainWithImage(bordered-text-mb);
-        margin-left: getHomeMainWithImage(bordered-text-ml);
       }
+    }
+    .borderedTextMargin {
+      margin: getHomeMainWithImage(bordered-text-mtb);
+    }
+    .borderedText {
+      margin-left: getHomeMainWithImage(bordered-text-ml);
     }
   }
   .socialSites {

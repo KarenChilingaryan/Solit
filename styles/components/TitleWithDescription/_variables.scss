@@ -1,0 +1,17 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$tite-with-description-sizes: (
+  block-width: calcVW(624),
+  block-height: calcVW(300),
+  block-p: 0 calcVW(32),
+  title-fs: calcVW(24),
+  title-lh: calcVW(29),
+  description-fs: calcVW(16),
+  description-lh: calcVW(24),
+  block-rg: calcVW(16),
+);
+
+@function getTitleWithDescriptionSizes($property) {
+  @return map-get($tite-with-description-sizes, $property);
+}

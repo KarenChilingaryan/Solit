@@ -6,12 +6,14 @@ import linkedin from "../../../assets/img/icons/u_linkedin-alt.svg"
 import telegram from "../../../assets/img/icons/u_telegram-alt.svg"
 import whatsapp from "../../../assets/img/icons/u_whatsapp-alt.svg"
 import { HomeMain } from "../homeMain";
-
-import styles from "./HomeMainWithImage.module.scss";
 import { Paragraph } from "../../atoms";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 import TeamMemberCard from "../../molecules/teamMemberCard/TeamMemberCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
+import TitleWithDescription from "../../molecules/titleWithDescription/TitleWithDescription";
+
+import styles from "./HomeMainWithImage.module.scss";
+
 const services = [1, 2, 3, 4, 5, 6]
 const HomeMainWithImage = () => {
 
@@ -51,7 +53,7 @@ const HomeMainWithImage = () => {
           }}
         />
         <div className={styles.servicesMain}>
-          <div className={styles.borderedText}>
+          <div className={`${styles.borderedText} ${styles.borderedTextBottom}`}>
 
             <BorderedText text='Services' />
           </div>
@@ -61,7 +63,9 @@ const HomeMainWithImage = () => {
             )}
           </div>
         </div>
-        <TeamMemberCard more={false}/>.
+        <div className={`${styles.borderedText} ${styles.borderedTextMargin}`}>
+          <BorderedText text='About us' />
+        </div>
       </div>
     </div>
   );

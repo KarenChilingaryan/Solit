@@ -15,6 +15,7 @@ $HomeMainWithImage-sizes: (
   services-mt: calcVW(400),
   bordered-text-mb: calcVW(-40),
   bordered-text-ml: calcVW(-345),
+  bordered-text-mtb: calcVW(140) 0 calcVW(80) 0,
 );
 
 @function getHomeMainWithImage($property) {
