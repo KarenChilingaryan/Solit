@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { memo } from "react";
 import { useSelector } from "react-redux";
-import bgImage from "../../../assets/img/main_bg.png"
-import linkedin from "../../../assets/img/icons/u_linkedin-alt.svg"
-import telegram from "../../../assets/img/icons/u_telegram-alt.svg"
-import whatsapp from "../../../assets/img/icons/u_whatsapp-alt.svg"
+import bgImage from "../../../assets/img/main_bg.png";
+import linkedin from "../../../assets/img/icons/u_linkedin-alt.svg";
+import telegram from "../../../assets/img/icons/u_telegram-alt.svg";
+import whatsapp from "../../../assets/img/icons/u_whatsapp-alt.svg";
 import { HomeMain } from "../homeMain";
 import { Paragraph } from "../../atoms";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
@@ -16,6 +16,7 @@ import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
 import styles from "./HomeMainWithImage.module.scss";
 import { ReversedAboutUs } from "../reversedAboutUs";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
+import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 
 const data = [
   {
@@ -84,9 +85,8 @@ const dataProject = [
   'more',
 ]
 
-const services = [1, 2, 3, 4, 5, 6]
+const services = [1, 2, 3, 4, 5, 6];
 const HomeMainWithImage = () => {
-
   const mainInfoData = useSelector(
     (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
   );
@@ -107,34 +107,41 @@ const HomeMainWithImage = () => {
           <Paragraph className={styles.text}>Whatsapp</Paragraph>
         </div>
       </div>
-      <Image src={bgImage} style={{
-        width: '100%',
-        height: 'auto',
-        position: 'absolute',
-        top: 0,
-      }} />
+      <Image
+        src={bgImage}
+        style={{
+          width: "100%",
+          height: "auto",
+          position: "absolute",
+          top: 0,
+        }}
+      />
       <div className={styles.content}>
         <HomeMain
           data={{
             title: "Your partner for software innovations",
-            firstSubtitle: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-            secondSubtitle: "The point of using Lorem Ipsum is that it has a more-or-less normal",
-            buttonText: "Let’s talk"
+            firstSubtitle:
+              "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+            secondSubtitle:
+              "The point of using Lorem Ipsum is that it has a more-or-less normal",
+            buttonText: "Let’s talk",
           }}
         />
         <div className={styles.servicesMain}>
-          <div className={`${styles.borderedText} ${styles.borderedTextBottom}`}>
-
-            <BorderedText text='Services' />
+          <div
+            className={`${styles.borderedText} ${styles.borderedTextBottom}`}
+          >
+            <BorderedText text="Services" />
           </div>
           <div className={styles.services}>
-            {services.map(() =>
+            {services.map(() => (
               <ServiceCard />
-            )}
+            ))}
           </div>
+          {/* <WeDoCard />Karennn */}
         </div>
         <div className={`${styles.borderedText} ${styles.borderedTextMargin}`}>
-          <BorderedText text='About us' />
+          <BorderedText text="About us" />
         </div>
       </div>
       <div className={styles.afterAboutContent}>

@@ -1,0 +1,44 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-we-do-card-styles {
+  .weDoCardWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: getWeDoCardSizes(we-do-card-py) getWeDoCardSizes(we-do-card-px);
+    gap: 16px;
+    width: getWeDoCardSizes(we-do-card-width);
+    height: getWeDoCardSizes(we-do-card-height);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+
+    .iconWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: getWeDoCardSizes(we-do-card-icon-wrapper);
+      border-radius: 50%;
+    }
+    .development {
+      @include font-style(
+        getWeDoCardSizes(we-do-card-development-fz),
+        variables.$fw-500,
+        getWeDoCardSizes(we-do-card-development-lh),
+        #fff
+      );
+    }
+    .description {
+      padding: 0 5px;
+      text-align: center;
+      @include font-style(
+        getWeDoCardSizes(we-do-card-description-fz),
+        variables.$fw-300,
+        getWeDoCardSizes(we-do-card-description-lh),
+        #fff
+      );
+    }
+  }
+}
