@@ -1,0 +1,13 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-bordered-text-styles {
+  .text {
+    font-size: getBorderedTextSizes(bordered-text-fs);
+    line-height: getBorderedTextSizes(bordered-text-lh);
+    -webkit-text-stroke: 1px #56ccf2;
+    text-stroke: 1px #56ccf2;
+    position: relative;
+    color: transparent;
+  }
+}

@@ -10,6 +10,7 @@ import { HomeMain } from "../homeMain";
 import styles from "./HomeMainWithImage.module.scss";
 import { Paragraph } from "../../atoms";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
+import BorderedText from "../../molecules/borderedText/BorderedText";
 const services = [1, 2, 3, 4, 5, 6]
 const HomeMainWithImage = () => {
 
@@ -48,10 +49,16 @@ const HomeMainWithImage = () => {
             buttonText: "Let’s talk"
           }}
         />
-        <div className={styles.services}>
-          {services.map(() =>
-            <ServiceCard />
-          )}
+        <div className={styles.servicesMain}>
+          <div className={styles.borderedText}>
+
+            <BorderedText text='Services' />
+          </div>
+          <div className={styles.services}>
+            {services.map(() =>
+              <ServiceCard />
+            )}
+          </div>
         </div>
       </div>
     </div>
