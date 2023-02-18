@@ -1,0 +1,17 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$team-member-sizes: (
+  team-member-card-width: calcVW(296),
+  team-member-card-height: calcVW(300),
+  team-member-position-section-p: calcVW(32),
+  team-member-position-height: calcVW(120),
+  team-member-name-fz: calcVW(24),
+  team-member-name-lh: calcVW(29),
+  team-member-position-fz: calcVW(16),
+  team-member-position-lh: calcVW(24),
+);
+
+@function getTeamMemberSizes($property) {
+  @return map-get($team-member-sizes, $property);
+}

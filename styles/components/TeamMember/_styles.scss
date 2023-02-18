@@ -1,0 +1,71 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-team-member-styles {
+  .imageContainer {
+    position: relative;
+    border-radius: 16px;
+    width: getTeamMemberSizes(team-member-card-width);
+    height: getTeamMemberSizes(team-member-card-height);
+
+    .img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .positionSection {
+      display: none;
+    }
+
+    .more {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      @include font-style(
+        getTeamMemberSizes(team-member-position-fz),
+        variables.$fw-700,
+        getTeamMemberSizes(team-member-position-lh),
+        #219fdb
+      );
+    }
+
+    &:hover {
+      .positionSection {
+        display: flex;
+        flex-direction: column;
+        height: getTeamMemberSizes(team-member-position-height);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: getTeamMemberSizes(team-member-position-section-p);
+
+        .name {
+          @include font-style(
+            getTeamMemberSizes(team-member-name-fz),
+            variables.$fw-500,
+            getTeamMemberSizes(team-member-name-lh),
+            #fff
+          );
+        }
+
+        .position {
+          @include font-style(
+            getTeamMemberSizes(team-member-position-fz),
+            variables.$fw-300,
+            getTeamMemberSizes(team-member-position-lh),
+            #fff
+          );
+        }
+      }
+    }
+  }
+
+  .moreWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid variables.$light-blue;
+    border-radius: 16px;
+  }
+}

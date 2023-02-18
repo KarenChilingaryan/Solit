@@ -25,11 +25,11 @@ const AboutMain = () => {
           gutter={[0, "2.60417vw"]}
           className={styles.aboutItems}
         >
-          {aboutUsCommunity?.map((el) => (
+          {[1,4]?.map((el) => (
             <AboutMainItem
               key={el.id}
-              title={el?.title}
-              desc={el?.description}
+              title={"qqqq"}
+              desc={"000"}
             />
           ))}
         </Row>

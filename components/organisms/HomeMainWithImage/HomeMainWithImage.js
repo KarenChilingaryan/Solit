@@ -10,6 +10,7 @@ import { HomeMain } from "../homeMain";
 import styles from "./HomeMainWithImage.module.scss";
 import { Paragraph } from "../../atoms";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
+import TeamMemberCard from "../../molecules/teamMemberCard/TeamMemberCard";
 const services = [1, 2, 3, 4, 5, 6]
 const HomeMainWithImage = () => {
 
@@ -53,6 +54,7 @@ const HomeMainWithImage = () => {
             <ServiceCard />
           )}
         </div>
+        <TeamMemberCard more={true}/>.
       </div>
     </div>
   );
