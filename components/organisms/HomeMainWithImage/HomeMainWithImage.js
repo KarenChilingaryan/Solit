@@ -12,11 +12,17 @@ import TeamMemberCard from "../../molecules/teamMemberCard/TeamMemberCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
 import TitleWithDescription from "../../molecules/titleWithDescription/TitleWithDescription";
 import teamMember from "../../../assets/img/teamMember.png";
+import group from "../../../assets/img/Group.svg";
+import group1 from "../../../assets/img/Group-1.svg";
+import group2 from "../../../assets/img/Group-2.svg";
+import whatWeDoImage from "../../../assets/img/what-we-do_bg.png";
+import ourProjectImage from "../../../assets/img/our-project_bg.png";
 import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
 import styles from "./HomeMainWithImage.module.scss";
 import { ReversedAboutUs } from "../reversedAboutUs";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
+import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
 
 const data = [
   {
@@ -86,6 +92,27 @@ const dataProject = [
 ]
 
 const services = [1, 2, 3, 4, 5, 6];
+const aboutData = [
+  {
+    number: '4.5',
+    title: 'RATING OF THE',
+    image: group,
+    status: 'COMPANY',
+  },
+  {
+    number: '100%',
+    title: 'JOB',
+    image: group2,
+    status: 'SUCCESS',
+  },
+  {
+    number: '5.0',
+    title: 'RATING OF THE',
+    image: group1,
+    status: 'COMPANY',
+  },
+]
+
 const HomeMainWithImage = () => {
   const mainInfoData = useSelector(
     (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
@@ -157,16 +184,34 @@ const HomeMainWithImage = () => {
         <div className={styles.borderedTextWhat}>
           <BorderedText text='What we do' />
         </div>
-        <div className={styles.borderedTextWhat}>
+        <div className={styles.projectContent}>
+          <Image src={whatWeDoImage} className={`${styles.backImage} ${styles.topBackImage}`} />
+          {
+            services.map((project) =>
+              <WeDoCard />
+            )
+          }
+        </div>
+        <div className={`${styles.borderedTextWhat} ${styles.borderedTextProject}`}>
           <BorderedText text='Our Projects' />
         </div>
         <div className={styles.projectContent}>
-
+          <Image src={ourProjectImage} className={styles.backImage} />
           {
             dataProject.map((project) =>
               <OurProjectCard name={project} image={ourPtojectImage} more={project == 'more'} />
             )
           }
+        </div>
+        <div className={styles.aboutCompanyContent}>
+          {
+            aboutData.map(about =>
+              <AboutCompany number={about.number} title={about.title} image={about.image} status={about.status} />
+            )
+          }
+        </div>
+        <div className={`${styles.borderedTextWhat} ${styles.borderedTextTestimonials}`}>
+          <BorderedText text='Testimonials' />
         </div>
       </div>
     </div>
@@ -174,3 +219,4 @@ const HomeMainWithImage = () => {
 };
 
 export default memo(HomeMainWithImage);
+

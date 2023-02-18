@@ -1,0 +1,33 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-about-company-styles {
+  .mainWrapper {
+    @include flex(center, center, column);
+    row-gap: getAboutCompanySizes(main-rg);
+
+    .image {
+      height: 45px;
+    }
+
+    .info {
+      @include font-style(getAboutCompanySizes(info-fz), variables.$fw-700, getAboutCompanySizes(info-lh));
+      @include flex(null, center, row);
+      column-gap: getAboutCompanySizes(info-cg);
+      p {
+        margin: 0;
+      };
+      .description {
+        @include flex(null, center, column);
+        @include font-style(
+          getAboutCompanySizes(description-fz),
+          variables.$fw-400,
+          getAboutCompanySizes(description-lh)
+        );
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

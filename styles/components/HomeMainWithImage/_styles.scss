@@ -18,12 +18,25 @@
         margin-bottom: getHomeMainWithImage(bordered-text-mb);
       }
     }
-    .borderedTextMargin {
-      margin: getHomeMainWithImage(bordered-text-mtb);
-    }
-    .borderedText {
-      margin-left: getHomeMainWithImage(bordered-text-ml);
-    }
+  }
+  .borderedTextMargin {
+    margin: getHomeMainWithImage(bordered-text-mtb);
+  }
+  .borderedText {
+    margin-left: getHomeMainWithImage(bordered-text-ml);
+  }
+  .borderedTextTestimonials {
+    margin-top: getHomeMainWithImage(testimonials-mt) !important;
+  }
+  .backImage {
+    width: calcVW(1920);
+    left: calcVW(-320);
+    position: absolute;
+    top: 0;
+    height: auto;
+  }
+  .topBackImage {
+    top: calcVW(117);
   }
   .afterAboutContent {
     width: getHomeMainWithImage(about-content-width);
@@ -40,6 +53,16 @@
     .projectContent {
       @include flex(space-between, center, row, wrap);
       row-gap: getHomeMainWithImage(project-content-rg);
+      position: relative;
+    }
+
+    .aboutCompanyContent {
+      width: getHomeMainWithImage(about-company-width);
+      @include flex(space-between, center, row, wrap);
+      margin: getHomeMainWithImage(about-company-m);
+    }
+    .borderedTextProject {
+      margin-bottom: getHomeMainWithImage(project-mb);
     }
   }
   .socialSites {
