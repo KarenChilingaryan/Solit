@@ -54,7 +54,7 @@ const HomeMainWithImage = () => {
             <ServiceCard />
           )}
         </div>
-        <TeamMemberCard more={true}/>.
+        <TeamMemberCard more={false}/>.
       </div>
     </div>
   );
