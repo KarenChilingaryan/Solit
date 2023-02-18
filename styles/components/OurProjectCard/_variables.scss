@@ -1,0 +1,19 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$ourProjectCard-sizes: (
+  project-card-width: calcVW(296),
+  project-card-height: calcVW(300),
+  main-project-card-width: calcVW(296),
+  main-project-card-height: calcVW(340),
+  project-position-section-p: calcVW(32),
+  project-position-height: calcVW(56),
+  project-name-fz: calcVW(16),
+  project-name-lh: calcVW(24),
+  team-member-position-fz: calcVW(16),
+  team-member-position-lh: calcVW(24),
+);
+
+@function getOurProjectCardSizes($property) {
+  @return map-get($ourProjectCard-sizes, $property);
+}

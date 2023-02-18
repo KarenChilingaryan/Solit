@@ -1,0 +1,76 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-our-project-styles {
+  .mainWrapper {
+    width: getOurProjectCardSizes(main-project-card-width);
+    height: getOurProjectCardSizes(main-project-card-height);
+    @include flex(center, center, center);
+    .imageContainer {
+      transition: 0.1s;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      width: getOurProjectCardSizes(project-card-width);
+      height: getOurProjectCardSizes(project-card-height);
+      cursor: pointer;
+      @include flex(center, center, column);
+
+      .img {
+        transition: 0.1s;
+        width: 100%;
+        height: calcVW(244);
+      }
+
+      .more {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        @include font-style(
+          getTeamMemberSizes(team-member-position-fz),
+          variables.$fw-700,
+          getTeamMemberSizes(team-member-position-lh),
+          #219fdb
+        );
+      }
+
+      .positionSection {
+        transition: 0.1s;
+        display: flex;
+        justify-content: center;
+        height: getOurProjectCardSizes(project-position-height);
+        width: 100%;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+        .name {
+          @include font-style(
+            getOurProjectCardSizes(project-name-fz),
+            variables.$fw-700,
+            getOurProjectCardSizes(project-name-lh),
+            #fff
+          );
+        }
+      }
+      &:hover {
+        transition: all 0.1s;
+        height: getOurProjectCardSizes(main-project-card-height);
+        .img {
+          transition: 0.1s;
+          height: calcVW(284);
+        }
+        .positionSection {
+          transition: 0.1s;
+          background: #219fdb;
+        }
+      }
+    }
+  }
+  .moreWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid variables.$light-blue;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.32);
+  }
+}

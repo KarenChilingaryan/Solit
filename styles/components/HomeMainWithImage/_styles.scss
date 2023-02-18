@@ -36,6 +36,11 @@
       margin: getHomeMainWithImage(bordered-text-mtb);
       margin-left: getHomeMainWithImage(bordered-text-ml-what);
     }
+
+    .projectContent {
+      @include flex(space-between, center, row, wrap);
+      row-gap: getHomeMainWithImage(project-content-rg);
+    }
   }
   .socialSites {
     position: absolute;

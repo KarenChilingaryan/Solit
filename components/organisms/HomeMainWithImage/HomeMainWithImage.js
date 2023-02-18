@@ -12,8 +12,10 @@ import TeamMemberCard from "../../molecules/teamMemberCard/TeamMemberCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
 import TitleWithDescription from "../../molecules/titleWithDescription/TitleWithDescription";
 import teamMember from "../../../assets/img/teamMember.png";
+import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
 import styles from "./HomeMainWithImage.module.scss";
 import { ReversedAboutUs } from "../reversedAboutUs";
+import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 
 const data = [
   {
@@ -70,6 +72,16 @@ const data = [
       description: 'It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal'
     }
   }
+]
+const dataProject = [
+  'Last Order',
+  'First Order',
+  'Forest Predictions',
+  'The Rebellion',
+  'Marketing Cleanup',
+  'Sarfin Inc.',
+  'Pear Computers',
+  'more',
 ]
 
 const services = [1, 2, 3, 4, 5, 6]
@@ -137,6 +149,17 @@ const HomeMainWithImage = () => {
         </div>
         <div className={styles.borderedTextWhat}>
           <BorderedText text='What we do' />
+        </div>
+        <div className={styles.borderedTextWhat}>
+          <BorderedText text='Our Projects' />
+        </div>
+        <div className={styles.projectContent}>
+
+          {
+            dataProject.map((project) =>
+              <OurProjectCard name={project} image={ourPtojectImage} more={project == 'more'} />
+            )
+          }
         </div>
       </div>
     </div>
