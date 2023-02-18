@@ -1,0 +1,10 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$reversedAboutUs-sizes: (
+  users-width: calcVW(624),
+);
+
+@function getReversedAboutUsSizes($property) {
+  @return map-get($reversedAboutUs-sizes, $property);
+}

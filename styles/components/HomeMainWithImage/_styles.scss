@@ -13,7 +13,7 @@
         width: 100%;
         row-gap: getHomeMainWithImage(services-rg);
       }
-      
+
       .borderedTextBottom {
         margin-bottom: getHomeMainWithImage(bordered-text-mb);
       }
@@ -23,6 +23,18 @@
     }
     .borderedText {
       margin-left: getHomeMainWithImage(bordered-text-ml);
+    }
+  }
+  .afterAboutContent {
+    width: getHomeMainWithImage(about-content-width);
+    margin: 0 auto;
+    .aboutContent {
+      row-gap: getHomeMainWithImage(about-content-rg);
+      @include flex(space-between, center, column);
+    }
+    .borderedTextWhat {
+      margin: getHomeMainWithImage(bordered-text-mtb);
+      margin-left: getHomeMainWithImage(bordered-text-ml-what);
     }
   }
   .socialSites {
@@ -41,11 +53,7 @@
         width: getHomeMainWithImage(sites-image-width);
       }
       .text {
-        @include font-style(
-          getHomeMainWithImage(text-fs),
-          variables.$fw-500,
-          getHomeMainWithImage(text-lh),
-        );
+        @include font-style(getHomeMainWithImage(text-fs), variables.$fw-500, getHomeMainWithImage(text-lh));
       }
     }
   }

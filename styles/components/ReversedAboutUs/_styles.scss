@@ -1,0 +1,15 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-reversed-about-us-styles {
+  .block {
+    @include flex(space-between, center);
+    .users {
+      @include flex(space-between, center);
+      width: getReversedAboutUsSizes(users-width);
+    }
+  }
+  .blockReversed {
+    flex-direction: row-reverse;
+  }
+}

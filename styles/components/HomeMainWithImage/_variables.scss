@@ -3,6 +3,7 @@
 
 $HomeMainWithImage-sizes: (
   content-width: calcVW(1216),
+  about-content-width: calcVW(1280),
   content-mt: calcVW(478),
   social-sites-cg: calcVW(32),
   site-cg: calcVW(16),
@@ -15,7 +16,9 @@ $HomeMainWithImage-sizes: (
   services-mt: calcVW(400),
   bordered-text-mb: calcVW(-40),
   bordered-text-ml: calcVW(-345),
+  bordered-text-ml-what: calcVW(-315),
   bordered-text-mtb: calcVW(140) 0 calcVW(80) 0,
+  about-content-rg: calcVW(32),
 );
 
 @function getHomeMainWithImage($property) {

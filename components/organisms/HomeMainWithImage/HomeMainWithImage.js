@@ -11,8 +11,66 @@ import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 import TeamMemberCard from "../../molecules/teamMemberCard/TeamMemberCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
 import TitleWithDescription from "../../molecules/titleWithDescription/TitleWithDescription";
-
+import teamMember from "../../../assets/img/teamMember.png";
 import styles from "./HomeMainWithImage.module.scss";
+import { ReversedAboutUs } from "../reversedAboutUs";
+
+const data = [
+  {
+    users: [
+      {
+        name: 'Marvel Alina ',
+        position: 'UX/UI Designer',
+        image: teamMember
+      },
+      {
+        name: 'Marvel Alina ',
+        position: 'UX/UI Designer',
+        image: teamMember
+      },
+    ],
+    about: {
+      title: 'About us',
+      description: 'It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal'
+    }
+  },
+  {
+    users: [
+      {
+        name: 'Marvel Alina ',
+        position: 'UX/UI Designer',
+        image: teamMember
+      },
+      {
+        name: 'Marvel Alina ',
+        position: 'UX/UI Designer',
+        image: teamMember
+      },
+    ],
+    about: {
+      title: 'Our Team',
+      description: 'It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal'
+    }
+  },
+  {
+    users: [
+      {
+        name: 'Marvel Alina ',
+        position: 'UX/UI Designer',
+        image: teamMember
+      },
+      {
+        name: 'Marvel Alina ',
+        position: 'UX/UI Designer',
+        image: teamMember
+      },
+    ],
+    about: {
+      title: 'Our Values',
+      description: 'It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal'
+    }
+  }
+]
 
 const services = [1, 2, 3, 4, 5, 6]
 const HomeMainWithImage = () => {
@@ -65,6 +123,20 @@ const HomeMainWithImage = () => {
         </div>
         <div className={`${styles.borderedText} ${styles.borderedTextMargin}`}>
           <BorderedText text='About us' />
+        </div>
+      </div>
+      <div className={styles.afterAboutContent}>
+        <div className={styles.aboutContent}>
+
+          {
+            data.map((row, index) =>
+
+              <ReversedAboutUs users={row.users} about={row.about} reversed={index % 2} />
+            )
+          }
+        </div>
+        <div className={styles.borderedTextWhat}>
+          <BorderedText text='What we do' />
         </div>
       </div>
     </div>
