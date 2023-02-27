@@ -1,0 +1,37 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-form-item-styles {
+  
+  .floatLabel {
+    position: relative;
+
+
+    .label {
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      top: 11px;
+      transition: 0.2s ease all;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+      color: #8296a5;
+    }
+
+    .asPlaceholder {
+      color: white;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      top: 2px;
+    }
+
+    .asLabel {
+      top: -8px;
+      font-size: 12px !important;
+      background: transparent;
+    }
+  }
+}

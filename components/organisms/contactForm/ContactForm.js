@@ -1,25 +1,16 @@
-import { memo, useState } from "react";
-import {
-  Col,
-  Row,
-  Input,
-  TextArea,
-  FormItem,
-  Form,
-  Paragraph,
-} from "../../atoms";
-import PhoneInput from "react-phone-number-input";
-import { isValidPhoneNumber } from "react-phone-number-input";
+import { memo, useState, useEffect } from "react";
+import { Col, Row, Input, FormItem, Form } from "../../atoms";
+import Image from "next/image";
 import { Upload, Button as AntdButton } from "antd";
-import Title from "../../molecules/title/Title";
 import Button from "../../molecules/button/Button";
 import { contactUsData } from "../../../constants/contactUs";
 import { emailApi } from "../../../services/emailApi";
 import { useDispatch } from "react-redux";
 
-import styles from "./ContactForm.module.scss";
+import cardIcon from "../../../assets/img/icons/file.svg";
 
-import "react-phone-number-input/style.css";
+import styles from "./ContactForm.module.scss";
+import FloatInput from "../../molecules/floatInput/FloatInput";
 
 const ContactForm = ({
   title,
@@ -30,38 +21,36 @@ const ContactForm = ({
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [fileList, setFileList] = useState([]);
 
-  const props = {
-    name: "file",
-    accept: "application/pdf",
-    onRemove: (file) => {
-      const index = fileList.indexOf(file);
-      const newFileList = fileList.slice();
-      newFileList.splice(index, 1);
-      setFileList(newFileList);
-    },
-    beforeUpload(file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      setFile(file);
-    },
-  };
-  const dispatch = useDispatch();
+  // const props = {
+  //   name: "file",
+  //   accept: "application/pdf",
+  //   onRemove: (file) => {
+  //     const index = fileList.indexOf(file);
+  //     const newFileList = fileList.slice();
+  //     newFileList.splice(index, 1);
+  //     setFileList(newFileList);
+  //   },
+  //   beforeUpload(file) {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     setFile(file);
+  //   },
+  // };
+  // const dispatch = useDispatch();
 
-  const submitForm = async (values) => {
-    const data = { ...contactUsData, ...values, file_cv: file };
-    const formData = new FormData();
-
-    for (const key in data) {
-      formData.append(key, data[key]);
-    }
-    const res = await dispatch(
-      await emailApi.endpoints.email.initiate(formData)
-    );
+  const submitForm = (values) => {
+    // const data = { ...contactUsData, ...values, file_cv: file };
+    // const formData = new FormData();
+    // for (const key in data) {
+    //   formData.append(key, data[key]);
+    // }
+    // const res = await dispatch(
+    //   await emailApi.endpoints.email.initiate(formData)
+    // );
   };
 
+  console.log(file, "---");
   return (
     <Col
       className={`${styles.contactFormWrapper} ${
@@ -69,156 +58,65 @@ const ContactForm = ({
       }`}
       style={style}
     >
-      {title && (
-        <Col className={styles.titleWrapper}>
-          <Title title={title} whiteTitle={whiteTitle} />
-        </Col>
-      )}
       <Form form={form} onFinish={submitForm} className={styles.form}>
-        <Row className={styles.row_1}>
-          <Col span={7} className={styles.inputOdd}>
-            <FormItem
-              name={"full_name"}
-              rules={[
-                {
-                  required: true,
-                  message: "Name is required",
-                },
-              ]}
-            >
-              <Input className={styles.input} placeholder="Full Name*" />
-            </FormItem>
-          </Col>
-          <Col span={7}>
-            <FormItem
-              name={"from_email"}
-              rules={[
-                {
-                  type: "email",
-                  message: "The input is not valid Email",
-                },
-                {
-                  required: true,
-                  message: "Email is required",
-                },
-              ]}
-            >
-              <Input className={styles.input} placeholder="Email*" />
-            </FormItem>
-          </Col>
+        <Row className={styles.title}>Got a project in mind?</Row>
+        <Row className={styles.info}>
+          Share the details of your project – like scope, timeframes, or
+          business challenges you would like to solve. Our team will carefully
+          study them and then we’ll figure out the next move together.
         </Row>
-
-        {!talent ? (
-          <Row className={styles.row_2}>
-            <Col span={7} className={styles.inputOdd}>
-              <FormItem name={"position_and_company"}>
-                <Input
-                  className={styles.input}
-                  placeholder="Position and Company"
-                />
-              </FormItem>
-            </Col>
-            <Col span={7} className={styles.phoneCol}>
-              <FormItem
-                name={"phon"}
-                rules={[
-                  {
-                    validator: async (_, number) => {
-                      if (!isValidPhoneNumber(number)) {
-                        return Promise.reject(
-                          new Error("Invalid phone number")
-                        );
-                      }
-                    },
-                  },
-                ]}
-              >
-                <PhoneInput
-                  className={styles.phoneInput}
-                  placeholder="Enter phone number"
-                  value={phoneNumber}
-                  onChange={setPhoneNumber}
-                />
-              </FormItem>
-            </Col>
-          </Row>
-        ) : (
-          <Row className={styles.row_2}>
-            <Col span={7} className={styles.inputOdd}>
-              <FormItem
-                name={"position_you_want_to_work_in"}
-                rules={[
-                  {
-                    required: true,
-                    message: "Position you want to work in  is required",
-                  },
-                ]}
-              >
-                <Input
-                  className={styles.input}
-                  placeholder="Position you want to work in"
-                />
-              </FormItem>
-            </Col>
-            <Col span={7}>
-              <FormItem
-                name={"level"}
-                rules={[
-                  {
-                    required: true,
-                    message: "Level  is required",
-                  },
-                ]}
-              >
-                <Input className={styles.input} placeholder="Level" />
-              </FormItem>
-            </Col>
-          </Row>
-        )}
-
-        <Row className={styles.textAreaWrapper}>
-          <Col span={15}>
-            <FormItem name={"message"}>
-              <TextArea className={styles.input} placeholder="Comment" />
-            </FormItem>
-          </Col>
-        </Row>
-        <Row className={styles.upload}>
-          <Col className={styles.uploadButtonWrapper}>
-            <Paragraph
-              className={`${styles.largeText} ${
-                whiteTitle ? styles.whiteText : ""
-              }`}
-            >
-              {!talent ? "Attach a file" : " Attach your CV*"}
-            </Paragraph>
-            <Paragraph
-              className={`${styles.smallText} ${
-                whiteTitle ? styles.whiteText : ""
-              }`}
-            >
-              File is not attached
-            </Paragraph>
-          </Col>
+        <Row className={styles.inputSection}>
+          <FormItem
+            name="full_name"
+            rules={[
+              {
+                required: true,
+                message: "Name is required",
+              },
+            ]}
+          >
+            <FloatInput
+              label="Full Name"
+              placeholder="Full Name"
+              name="full_name"
+            />
+          </FormItem>
+          <FormItem
+            name="from_email"
+            rules={[
+              {
+                type: "email",
+                message: "The input is not valid Email",
+              },
+              {
+                required: true,
+                message: "Email is required",
+              },
+            ]}
+          >
+            <FloatInput label="Email" placeholder="Email" name="full_name" />
+          </FormItem>
+          <FormItem name="message">
+            <FloatInput label="Message" placeholder="Message" name="message" />
+          </FormItem>
           <FormItem name={"file_cv"}>
-            <Upload {...props}>
-              <AntdButton
-                className={`${styles.fileUpload} ${
-                  whiteTitle ? styles.whiteBorder : ""
-                }`}
-              >
-                PDF file
-              </AntdButton>
-            </Upload>
+            <FloatInput
+              label="About your project"
+              placeholder="About your project"
+              name="file_cv"
+              multiple
+              type="file"
+              accept=".pdf,.doc,.docx"
+              onChange={(e) => {
+                setFile(e.target.files);
+              }}
+              showUploadList={false}
+            />
           </FormItem>
         </Row>
 
         <Col className={styles.buttonWrapper}>
-          {whiteButton ? (
-            <Button text={"Submit"} boldWhite type="submit" />
-          ) : (
-            <Button text={"Submit"} type="submit" />
-          )}
+          <Button text="Send message" boldBlue type="submit" />
         </Col>
       </Form>
     </Col>

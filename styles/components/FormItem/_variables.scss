@@ -1,0 +1,16 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$form-item-sizes: (
+  form-item-title-mb: calcVW(10),
+  form-item-title-fz: calcVW(22),
+  form-item-title-lh: calcVW(26),
+  form-item-desc-mb: calcVW(27),
+  form-item-desc-fz: calcVW(25),
+  form-item-desc-lh: calcVW(30),
+  form-item-desc-width: calcVW(732),
+);
+
+@function getFormItemSizes($property) {
+  @return map-get($form-item-sizes, $property);
+}

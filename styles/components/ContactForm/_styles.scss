@@ -2,230 +2,118 @@
 @import "../../base/mixins";
 
 @mixin generate-contactForm-styles {
-  .withoutTitle {
-    padding-top: getContactFormSizes(contact-form-wrapper-pt);
-  }
   .contactFormWrapper {
-    padding-bottom: getContactFormSizes(contact-form-wrapper-pb);
-    background-color: variables.$main-blue-15;
-    .titleWrapper {
-      padding: getContactFormSizes(contact-form-title-padding);
+    :global {
+      .ant-form {
+        input[type="file"]:focus {
+          outline: none;
+        }
+      }
     }
-    .input {
-      padding: getContactFormSizes(contact-form-input-padding);
-      border-radius: getContactFormSizes(contact-form-input-br);
-      @include font-style(
-        getContactFormSizes(contact-form-input-fz),
-        variables.$fw-500,
-        getContactFormSizes(contact-form-input-lh),
-        $main-dark-blue-80
-      );
-    }
-
-    .row_2,
-    .row_1,
-    .textAreaWrapper {
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      margin-bottom: getContactFormSizes(contact-form-input-row_1-mb);
-      .inputOdd {
-        margin-right: getContactFormSizes(contact-form-input-input-odd-mr);
-      }
-      input {
-        &::placeholder {
-          color: variables.$main-dark-blue !important;
-        }
-      }
-      textarea {
-        &::placeholder {
-          color: variables.$main-dark-blue !important;
-        }
-      }
-    }
-
-    .row_2 {
-      .phoneCol {
-        :global(.ant-form-item-control-input) {
-          padding: calcVW(1) calcVW(16);
-          background-color: white;
-          border-radius: getContactFormSizes(contact-form-input-br);
-          input {
-            height: calcVW(60);
-            border: none;
-            &:focus-visible {
-              outline: none;
-              border: none;
-            }
-          }
-        }
-      }
-    }
-
-    .textAreaWrapper {
-      .input {
-        height: getContactFormSizes(contact-form-input-textarea-height);
-      }
-      textarea {
-        line-height: normal;
-      }
-    }
-
-    .upload {
-      margin-left: calcVW(360);
-      gap: 70px;
-      .fileUpload {
-        background: transparent;
-        border-radius: 4px;
-        padding: 0;
-        width: calcVW(100);
-        height: calcVW(40);
-        font-size: calcVW(16);
-        border: 2px solid variables.$main-dark-blue;
+      max-width: 406px;
+      gap: 16px;
+      .title {
         font-weight: 700;
-        text-align: center;
+        font-size: 20px;
+        line-height: 24px;
+        color: #ffffff;
       }
-      .uploadButtonWrapper {
-        align-items: center;
-
-        .largeText {
-          font-size: calcVW(24);
-          font-weight: variables.$fw-700;
-        }
-        .smallText {
-          font-size: calcVW(14);
-        }
+      .info {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #ffffff;
       }
-      .uploadButtonWrapper > div {
-        margin-bottom: 0;
-      }
-      .whiteText {
-        color: variables.$white;
-      }
-      .whiteBorder {
-        color: variables.$white;
-        border: 1px solid variables.$white !important;
-      }
-
-      :global(.ant-upload-list) {
-        width: calcVW(100);
-      }
-    }
-
-    .buttonWrapper {
-      text-align: center;
-      margin-top: getContactFormSizes(contact-form-button-wrapper-mt);
-    }
-
-    @media (max-width: 992px) {
-      .row_2 {
-        .phoneCol {
-          :global(.ant-form-item-control-input) {
-            input {
-              height: calcVW(80);
-            }
-          }
-        }
-      }
-    }
-
-    @media (max-width: 768px) {
-      padding: calcVW(50) calcVW(300) calcVW(200) calcVW(300);
-
-      .upload {
-        margin-left: 0;
-        gap: 0;
-        justify-content: space-between;
-
-        .fileUpload {
-          width: calcVW(200);
-          height: calcVW(80);
-          font-size: calcVW(32);
-        }
-
-        .uploadButtonWrapper {
-          .largeText {
-            font-size: calcVW(48);
-          }
-          .smallText {
-            font-size: calcVW(28);
-          }
-        }
-
-        :global(.ant-upload-list) {
-          width: calcVW(200);
-        }
-
-        :global(.ant-upload-list-item:hover .ant-upload-list-item-info) {
-          background: transparent;
-        }
-
-        :global(.ant-upload-list-item-card-actions .anticon) {
-          color: variables.$black;
-        }
-
-        :global(.ant-upload-list-text .ant-upload-text-icon .anticon) {
-          color: variables.$black;
+      .buttonWrapper {
+        button {
+          @include font-style(
+            getContactFormSizes(button-fz),
+            variables.$fw-700,
+            getContactFormSizes(button-fl),
+            #fff
+          );
         }
       }
 
-      .form {
-        @include flex(center, none, column);
-        gap: calcVW(90);
-      }
-      .row_2 > div,
-      .row_1 > div {
-        max-width: 100%;
-        margin: 0;
-      }
-      .row_2,
-      .row_1 {
+      .inputSection {
+        display: flex;
         flex-direction: column;
-        margin-bottom: 0;
-        gap: calcVW(90);
-        input {
-          width: 100%;
-          height: calcVW(150);
-          font-size: calcVW(60);
-          border-radius: 5px;
-          &::placeholder {
-            color: variables.$main-dark-blue !important;
-          }
-        }
-
-        .inputOdd {
-          margin-right: 0;
-        }
-      }
-
-      .row_2 {
-        .phoneCol {
-          :global(.ant-form-item-control-input) {
-            padding: 0 calcVW(16);
-            border-radius: 5px;
-            input {
-              height: calcVW(160);
-            }
-          }
-        }
-      }
-
-      .textAreaWrapper > div {
+        max-width: 500px;
+        gap: 16px;
         width: 100%;
-        max-width: unset;
-        flex: unset;
       }
-      .textAreaWrapper {
-        textarea {
-          font-size: calcVW(60);
-          height: calcVW(400) !important;
-          border-radius: 5px;
-          &::placeholder {
-            color: variables.$main-dark-blue;
-          }
+      .filled {
+        background-color: aquamarine;
+      }
+      .focused {
+        background-color: aqua;
+        :global(.ant-form-item-label) {
+          transform: translateY(-125%);
+          // font-size: 0.75em;
         }
       }
-      .titleWrapper > div > div {
-        font-size: calcVW(90);
-        padding: calcVW(40);
+      :global(.ant-input) {
+        position: relative;
+        padding: 12px 0px 5px 0;
+        width: 100%;
+        outline: 0;
+        border: 0;
+        box-shadow: 0 1px 0 0 #e5e5e5;
+        transition: box-shadow 150ms ease-out;
+        background: transparent;
+        color: #ffffff;
+
+        &:focus {
+          box-shadow: 0 2px 0 0 blue;
+        }
+      }
+      :global(.ant-form-item-label) {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        color: #999;
+        background-color: transparent;
+        z-index: 10;
+        transition: transform 150ms ease-out, font-size 150ms ease-out;
+      }
+      .input {
+        background: transparent;
+        color: #ffffff;
+      }
+      :global {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
+          background: transparent;
+          border-color: none;
+          box-shadow: 0 2px 0 0 rgb(207, 39, 39);
+        }
+
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input {
+          background: transparent;
+          border-color: none !important;
+        }
+
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
+          border-color: none;
+        }
+
+        .ant-form-item-label > label {
+          font-size: 16px;
+          color: #ffffff;
+        }
+        .ant-input:focus + .ant-form-item-label > label {
+          color: blue;
+        }
       }
     }
   }

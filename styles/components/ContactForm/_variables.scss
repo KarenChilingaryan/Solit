@@ -13,6 +13,8 @@ $contact-form-sizes: (
   contact-form-input-input-odd-mr: calcVW(80),
   contact-form-input-textarea-height: calcVW(230),
   contact-form-button-wrapper-mt: calcVW(55),
+  button-fz:calcVW(16),
+  button-fl:calcVW(20),
 );
 
 @function getContactFormSizes($property) {

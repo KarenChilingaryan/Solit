@@ -23,6 +23,7 @@ import { ReversedAboutUs } from "../reversedAboutUs";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
+import ContactForm from "../contactForm/ContactForm";
 
 const data = [
   {
@@ -213,6 +214,8 @@ const HomeMainWithImage = () => {
         <div className={`${styles.borderedTextWhat} ${styles.borderedTextTestimonials}`}>
           <BorderedText text='Testimonials' />
         </div>
+        <ContactForm/>
+
       </div>
     </div>
   );
