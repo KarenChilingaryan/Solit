@@ -3,7 +3,7 @@
 
 @mixin generate-button-styles {
   .button {
-    background: variables.$main-blue;
+    background: variables.$main-white;
     border: 0;
     border-radius: 100px;
     padding: getButtonSizes(button-padding);
@@ -51,9 +51,9 @@
     cursor: pointer;
 
     &:hover {
-      background: variables.$main-blue;
+      background: variables.$main-white;
 
-      border: 1px solid variables.$main-blue;
+      border: 1px solid variables.$main-white;
       @include font-style(
         getButtonSizes(button-hover-text-fz),
         variables.$fw-500,
@@ -111,7 +111,7 @@
   }
 
   .lightBlue {
-    background: variables.$main-blue;
+    background: variables.$main-white;
     @include font-style(
       getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-500,
@@ -159,9 +159,9 @@
     height: getButtonSizes(button-bold-blue-height);
     cursor: pointer;
     &:hover {
-      background: variables.$main-blue;
+      background: variables.$main-white;
 
-      border: 1px solid variables.$main-blue;
+      border: 1px solid variables.$main-white;
       @include font-style(
         getButtonSizes(button-text-bold-blue-fz),
         variables.$fw-500,

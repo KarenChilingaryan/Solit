@@ -43,7 +43,7 @@
           getProjectsCardSizes(projectsCard-more-fz),
           variables.$fw-400,
           getProjectsCardSizes(projectsCard-more-lh),
-          variables.$main-blue
+          variables.$main-white
         );
         transition: 0.3s;
         &:hover {
@@ -51,7 +51,7 @@
             getProjectsCardSizes(projectsCard-more-hover-fz),
             variables.$fw-700,
             getProjectsCardSizes(projectsCard-more-lh),
-            variables.$main-blue
+            variables.$main-white
           );
         }
         img {

@@ -1,0 +1,36 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-facts-item-styles {
+  .factsItemWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 16px;
+    width: getAboutItemSizes(facts-item-width);
+    height: getAboutItemSizes(facts-item-height);
+
+    padding: getAboutItemSizes(facts-item-p);
+    background: #25303e;
+    backdrop-filter: blur(16.5px);
+
+    .title {
+      margin: getAboutItemSizes(facts-item-title-m);
+      @include font-style(
+        getAboutItemSizes(facts-item-title-fz),
+        variables.$fw-400,
+        getAboutItemSizes(facts-item-title-lh),
+        variables.$main-white
+      );
+    }
+
+    .result {
+      @include font-style(
+        getAboutItemSizes(facts-item-result-fz),
+        variables.$fw-500,
+        getAboutItemSizes(facts-item-result-lh),
+        variables.$main-white
+      );
+    }
+  }
+}

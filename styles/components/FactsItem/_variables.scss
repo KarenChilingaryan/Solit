@@ -1,0 +1,17 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$facts-item-sizes: (
+  facts-item-title-m: calcVW(10) 0,
+  facts-item-title-fz: calcVW(16),
+  facts-item-title-lh: calcVW(24),
+  facts-item-result-fz: calcVW(20),
+  facts-item-result-lh: calcVW(24),
+  facts-item-width: calcVW(296),
+  facts-item-height: calcVW(192),
+  facts-item-p: calcVW(32),
+);
+
+@function getAboutItemSizes($property) {
+  @return map-get($facts-item-sizes, $property);
+}

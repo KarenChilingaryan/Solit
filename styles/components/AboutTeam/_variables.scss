@@ -1,0 +1,22 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$about-team-sizes: (
+  about-team-wrapper-width: calcVW(624),
+  about-team-description-lh: calcVW(24),
+  about-team-description-fz: calcVW(16),
+  about-team-title-fz: calcVW(24),
+  about-team-title-lh: calcVW(29),
+  items-distance: calcVW(20),
+  about-team-wrapper-p: calcVW(32),
+  more-img-width: calcVW(12),
+  more-img-height: calcVW(12),
+  more-fz: calcVW(16),
+  more-lh: calcVW(20),
+  icon-width: calcVW(20),
+  icon-height: calcVW(20),
+);
+
+@function getAboutTeamSizes($property) {
+  @return map-get($about-team-sizes, $property);
+}

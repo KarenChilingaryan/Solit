@@ -3,24 +3,32 @@
 
 @mixin generate-about-item-styles {
   .aboutItemWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: getAboutItemSizes(about-item-p);
+    border-radius: 16px;
+    width: getAboutItemSizes(about-item-width);
+    height: getAboutItemSizes(about-item-height);
+    padding: getAboutItemSizes(about-item-p);
+    background: rgba(0, 0, 0, 0.5);
+
     .title {
-      margin-bottom: getAboutItemSizes(about-item-title-mb);
+      margin: getAboutItemSizes(about-item-title-m);
       @include font-style(
-        getAboutItemSizes(about-item-desc-fz),
-        variables.$fw-400,
-        getAboutItemSizes(about-item-desc-lh),
+        getAboutItemSizes(about-item-title-fz),
+        variables.$fw-500,
+        getAboutItemSizes(about-item-title-lh),
         variables.$main-dark-blue
       );
     }
 
     .desc {
-      margin-bottom: getAboutItemSizes(about-item-desc-mb);
-      width: getAboutItemSizes(about-item-desc-width);
       @include font-style(
-        getAboutItemSizes(about-item-title-fz),
+        getAboutItemSizes(about-item-desc-fz),
         variables.$fw-400,
-        getAboutItemSizes(about-item-title-lh),
-        variables.$main-dark-blue
+        getAboutItemSizes(about-item-desc-lh),
+        variables.$main-white
       );
     }
   }

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { HomeMain } from "../components/organisms/homeMain";
 import { Services } from "../components/organisms/ourServices";
-import { About } from "../components/organisms/about";
+import { About } from "../components/organisms/aboutTeam";
 import { Projects } from "../components/organisms/projects";
 import { Offer } from "../components/organisms/offer";
 import { Testimonials } from "../components/organisms/testimonials";

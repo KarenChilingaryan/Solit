@@ -1,5 +1,4 @@
 import { memo } from "react";
-import TitledText from "../../molecules/titledText/TitledText";
 import ContactForm from "../contactForm/ContactForm";
 import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";

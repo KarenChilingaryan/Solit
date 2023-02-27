@@ -1,0 +1,58 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-about-team-styles {
+  .aboutTeamWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: getAboutTeamSizes(items-distance);
+    width: getAboutTeamSizes(about-team-wrapper-width);
+    background: rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(16.5px);
+    border-radius: 16px;
+    padding: getAboutTeamSizes(about-team-wrapper-p);
+
+    .context {
+      @include font-style(
+        getAboutTeamSizes(about-team-description-fz),
+        variables.$fw-400,
+        getAboutTeamSizes(about-team-description-lh),
+        variables.$main-white
+      );
+    }
+
+    .title {
+      @include font-style(
+        getAboutTeamSizes(about-team-title-fz),
+        variables.$fw-400,
+        getAboutTeamSizes(about-team-title-lh),
+        variables.$main-white
+      );
+    }
+
+    .icon {
+      width: getAboutTeamSizes(icon-width);
+      height: getAboutTeamSizes(icon-height);
+    }
+
+    .more {
+      display: flex;
+      align-items: center;
+      column-gap: calcVW(10);
+      cursor: pointer;
+      margin-left: auto;
+      width: max-content;
+      padding: getAboutTeamSizes(more-p);
+      @include font-style(
+        getAboutTeamSizes(more-fz),
+        variables.$fw-700,
+        getAboutTeamSizes(more-lh),
+        $main-dark-blue
+      );
+      img {
+        width: getAboutTeamSizes(more-img-width);
+        height: getAboutTeamSizes(more-img-height);
+      }
+    }
+  }
+}

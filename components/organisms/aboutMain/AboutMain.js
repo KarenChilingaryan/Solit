@@ -25,12 +25,8 @@ const AboutMain = () => {
           gutter={[0, "2.60417vw"]}
           className={styles.aboutItems}
         >
-          {[1,4]?.map((el) => (
-            <AboutMainItem
-              key={el.id}
-              title={"qqqq"}
-              desc={"000"}
-            />
+          {[1, 4]?.map((el) => (
+            <AboutMainItem key={el.id} title={"qqqq"} desc={"000"} />
           ))}
         </Row>
       </Col>
