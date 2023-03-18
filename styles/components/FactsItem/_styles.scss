@@ -11,8 +11,7 @@
     height: getAboutItemSizes(facts-item-height);
 
     padding: getAboutItemSizes(facts-item-p);
-    background: #25303e;
-    backdrop-filter: blur(16.5px);
+    background: transparent;
 
     .title {
       margin: getAboutItemSizes(facts-item-title-m);
@@ -27,9 +26,9 @@
     .result {
       @include font-style(
         getAboutItemSizes(facts-item-result-fz),
-        variables.$fw-500,
+        variables.$fw-400,
         getAboutItemSizes(facts-item-result-lh),
-        variables.$main-white
+        variables.$light-blue
       );
     }
   }

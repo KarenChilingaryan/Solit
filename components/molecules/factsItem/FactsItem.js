@@ -5,8 +5,8 @@ import styles from "./FactsItem.module.scss";
 const FactsItem = ({ title, result }) => {
   return (
     <Col className={styles.factsItemWrapper}>
-      {title && <Col className={styles.title}>{title}</Col>}
       {result && <Col className={styles.result}>{result}</Col>}
+      {title && <Col className={styles.title}>{title}</Col>}
     </Col>
   );
 };

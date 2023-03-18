@@ -13,6 +13,11 @@
     padding: getAboutItemSizes(about-item-p);
     background: rgba(0, 0, 0, 0.5);
 
+    .icon {
+      width: getAboutItemSizes(icon-width);
+      height: getAboutItemSizes(icon-height);
+    }
+
     .title {
       margin: getAboutItemSizes(about-item-title-m);
       @include font-style(

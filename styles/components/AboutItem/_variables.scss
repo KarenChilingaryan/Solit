@@ -2,14 +2,17 @@
 @import "../../base/variables";
 
 $about-item-sizes: (
-  about-item-title-m:  calcVW(10) 0,
-  about-item-title-fz: calcVW(20),
+  about-item-title-m: calcVW(10) 0,
+  about-item-title-fz: calcVW(24),
   about-item-title-lh: calcVW(24),
-  about-item-desc-fz: calcVW(16),
+  about-item-desc-fz: calcVW(18),
   about-item-desc-lh: calcVW(24),
-  about-item-height: calcVW(332),
-  about-item-width: calcVW(296),
+  about-item-height: calcVW(316),
+  about-item-width: calcVW(624),
+  about-item-gap: calcVW(35),
   about-item-p: calcVW(32),
+  icon-width: calcVW(53),
+  icon-height: calcVW(53),
 );
 
 @function getAboutItemSizes($property) {
