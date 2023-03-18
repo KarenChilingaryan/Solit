@@ -21,7 +21,6 @@ const OurTeam = () => {
     (state) =>
       state?.ourTeamDetailApi?.queries?.[`ourTeamDetail("${id}")`]?.data
   );
-  console.log(ourTeam);
 
   const buttonText = "Contact";
 

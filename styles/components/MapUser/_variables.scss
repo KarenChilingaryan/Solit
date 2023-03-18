@@ -1,0 +1,26 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$MapUser-sizes: (
+  user-image-width: calcVW(178),
+  user-image-height: calcVW(178),
+  flag-width: calcVW(36),
+  flag-height: calcVW(26),
+  flag-top: calcVW(10),
+  flag-right: calcVW(10),
+  user-image-br: calcVW(8),
+  img-block-w: calcVW(320),
+  arrow-icon-width: calcVW(15),
+  icon-block-width: calcVW(32),
+  icon-block-height: calcVW(32),
+  icon-block-br: calcVW(8),
+  name-fs: calcVW(24),
+  name-lh: calcVW(29),
+  position-fs: calcVW(20),
+  position-lh: calcVW(24),
+  info-mt: calcVW(20),
+);
+
+@function getMapUser($property) {
+  @return map-get($MapUser-sizes, $property);
+}

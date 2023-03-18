@@ -25,7 +25,6 @@ const ServiceItem = () => {
       state?.serviceItemApi?.queries?.[`serviceItem("${id}")`]?.data
   );
 
-  console.log(serviceItem);
   return (
     <Col className={styles.portfolioItemWrapper}>
       <Title title={serviceItem?.headline} lightBlueTitle />

@@ -1,6 +1,7 @@
 import "../styles/globals.scss";
 
 import "antd/dist/antd.min.css";
+import 'leaflet/dist/leaflet.css';
 
 import Header from "../components/organisms/header/Header";
 import Footer from "../components/organisms/footer/Footer";

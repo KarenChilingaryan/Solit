@@ -1,0 +1,8 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-world-map-styles {
+  .marker {
+    background: blue;
+  }
+}

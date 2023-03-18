@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import bgImage from "../../../assets/img/main_bg.png";
 import linkedin from "../../../assets/img/icons/u_linkedin-alt.svg";
@@ -29,6 +29,8 @@ import FactsItem from "../../molecules/factsItem/FactsItem";
 import { AboutTeam } from "../aboutTeam";
 
 import reactSvg from "../../../assets/img/icons/react.svg";
+import { WorldMap } from "../WorldMap";
+import MapUser from "../../molecules/mapUser/MapUser";
 
 const data = [
   {
@@ -126,6 +128,16 @@ const HomeMainWithImage = () => {
   const mainInfoData = useSelector(
     (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
   );
+
+  const [isSSR, setIsSSR] = useState(false)
+
+  const win = typeof window
+
+  useEffect(() => {
+    if (win) {
+      setIsSSR(true)
+    }
+  }, [win])
 
   return (
     <div>
@@ -231,6 +243,19 @@ const HomeMainWithImage = () => {
           className={`${styles.borderedTextWhat} ${styles.borderedTextTestimonials}`}
         >
           <BorderedText text="Testimonials" />
+        </div>
+        <div className={styles.mapContainer}>
+          <div className={styles.worldMap}>
+            {isSSR && <WorldMap />}
+          </div>
+          <div className={styles.worldMapUser}>
+            <MapUser />
+          </div>
+        </div>
+        <div
+          className={`${styles.borderedTextWhat} ${styles.borderedTextTestimonials}`}
+        >
+          <BorderedText text="Contacts" />
         </div>
         <ContactForm />
         <AboutItem

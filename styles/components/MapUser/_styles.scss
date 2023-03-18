@@ -1,0 +1,53 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-map-user-styles {
+  .container {
+    @include flex(center, center, column);
+
+    .imgBlock {
+      @include flex(space-between, center);
+      width: getMapUser(img-block-w);
+      .imageBlock {
+        position: relative;
+        .flag {
+          position: absolute;
+          width: getMapUser(flag-width);
+          height: getMapUser(flag-height);
+          top: getMapUser(flag-top);
+          right: getMapUser(flag-right);
+        }
+        .userImage {
+          width: getMapUser(user-image-width);
+          height: getMapUser(user-image-height);
+          border-radius: getMapUser(user-image-br);
+        }
+      }
+      .iconBlock {
+        width: getMapUser(icon-block-width);
+        height: getMapUser(icon-block-height);
+        border-radius: getMapUser(icon-block-br);
+        cursor: pointer;
+        @include flex(center, center, center);
+        .arrowIcon {
+          width: getMapUser(arrow-icon-width);
+        }
+        &:hover {
+          background-color: #3fc1ff;
+        }
+      }
+    }
+    .infoBlock {
+      text-align: center;
+      width: getMapUser(img-block-w);
+      margin-top: getMapUser(info-mt);
+
+      .userName {
+        @include font-style(getMapUser(name-fs), variables.$fw-700, getMapUser(name-lh), #219fdb);
+      }
+      .userPosition {
+        @include font-style(getMapUser(position-fs), variables.$fw-500, getMapUser(position-lh));
+      }
+    }
+  }
+}

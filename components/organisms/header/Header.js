@@ -98,7 +98,6 @@ const Header = () => {
     }
   }, [scrollY])
 
-  console.log(router.pathname );
   return (
     <div
       className={cx(styles.headerWrapper, !scrollYNew && styles.headerWrapperScroll)}

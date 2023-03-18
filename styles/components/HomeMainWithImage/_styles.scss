@@ -64,6 +64,16 @@
     .borderedTextProject {
       margin-bottom: getHomeMainWithImage(project-mb);
     }
+    .mapContainer {
+      @include flex(space-between, flex-end);
+      .worldMap {
+        width: getHomeMainWithImage(world-map-w);
+        padding-bottom: getHomeMainWithImage(world-map-pb);
+      }
+      .worldMapUser {
+        width: getHomeMainWithImage(world-map-user-w);
+      }
+    }
   }
   .socialSites {
     position: absolute;

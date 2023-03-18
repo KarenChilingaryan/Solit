@@ -102,10 +102,10 @@ const PageWrapper = ({ children, item }) => {
     }
   }
 
-  useEffect(() => {
-    dispatch(headerApi.endpoints.header.initiate())
-    getAllData()
-  }, [id])
+  // useEffect(() => {
+  //   dispatch(headerApi.endpoints.header.initiate())
+  //   getAllData()
+  // }, [id])
 
   return <div>{children}</div>;
 };
