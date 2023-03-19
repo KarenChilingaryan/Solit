@@ -30,6 +30,7 @@ import reactSvg from "../../../assets/img/icons/react.svg";
 import { WorldMap } from "../WorldMap";
 import MapUser from "../../molecules/mapUser/MapUser";
 import { Technology } from "../Technology";
+import { Process } from "../Process";
 
 const data = [
   {
@@ -201,6 +202,10 @@ const HomeMainWithImage = () => {
             />
           ))}
         </div>
+        <div className={styles.borderedTextWhat}>
+          <BorderedText text="Process" />
+        </div>
+        <Process />
         <div className={styles.borderedTextWhat}>
           <BorderedText text="What we do" />
         </div>

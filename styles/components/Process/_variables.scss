@@ -1,0 +1,14 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$process-sizes: (
+  process-title-fz: calcVW(36),
+  process-title-lh: calcVW(44),
+  process-description-fz: calcVW(18),
+  process-description-lh: calcVW(24),
+  process-description-mt: calcVW(24),
+);
+
+@function getProcessSizes($property) {
+  @return map-get($process-sizes, $property);
+}

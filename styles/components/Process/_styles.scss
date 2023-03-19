@@ -1,0 +1,22 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-process-styles {
+  .container {
+    .title {
+      @include font-style(
+        getProcessSizes(process-title-fz),
+        variables.$fw-500,
+        getProcessSizes(process-title-lh)
+      );
+    }
+    .description {
+      margin-top: getProcessSizes(process-description-mt);
+      @include font-style(
+        getProcessSizes(process-description-fz),
+        variables.$fw-400,
+        getProcessSizes(process-description-lh)
+      );
+    }
+  }
+}
