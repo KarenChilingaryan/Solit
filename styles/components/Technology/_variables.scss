@@ -1,0 +1,22 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$technology-sizes: (
+  technology-title-fz: calcVW(36),
+  technology-title-lh: calcVW(44),
+  technology-description-fz: calcVW(18),
+  technology-description-lh: calcVW(24),
+  technology-description-mt: calcVW(24),
+  technology-buttons-m: calcVW(64) 0 calcVW(32) 0,
+  language-block-w: calcVW(106),
+  language-block-h: calcVW(106),
+  language-w: calcVW(1040),
+  icon-w: calcVW(40),
+  language-block-br: calcVW(16),
+  language-name-fz: calcVW(16),
+  language-name-lh: calcVW(24),
+);
+
+@function getTechnologySizes($property) {
+  @return map-get($technology-sizes, $property);
+}

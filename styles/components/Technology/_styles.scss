@@ -1,0 +1,56 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-technology-styles {
+  .container {
+    .title {
+      @include font-style(
+        getTechnologySizes(technology-title-fz),
+        variables.$fw-500,
+        getTechnologySizes(technology-title-lh)
+      );
+    }
+    .description {
+      margin-top: getTechnologySizes(technology-description-mt);
+      @include font-style(
+        getTechnologySizes(technology-description-fz),
+        variables.$fw-400,
+        getTechnologySizes(technology-description-lh)
+      );
+    }
+    .buttons {
+      @include flex(flex-start, center, row, wrap);
+      column-gap: calcVW(16);
+      margin: getTechnologySizes(technology-buttons-m);
+    }
+    .languages {
+      @include flex(space-between, center, row, wrap);
+      width: getTechnologySizes(language-w);
+      .languageBlock {
+        @include flex(center, center, column);
+        width: getTechnologySizes(language-block-w);
+        height: getTechnologySizes(language-block-h);
+        cursor: pointer;
+        .icon {
+          width: getTechnologySizes(icon-w);
+        }
+        .name {
+          display: none;
+        }
+        &:hover {
+          background-color: #000000;
+          border: 1px solid #3fc1ff;
+          border-radius: getTechnologySizes(language-block-br);
+          .name {
+            display: block;
+            @include font-style(
+              getTechnologySizes(language-name-fz),
+              variables.$fw-600,
+              getTechnologySizes(language-name-lh)
+            );
+          }
+        }
+      }
+    }
+  }
+}

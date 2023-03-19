@@ -8,9 +8,7 @@ import whatsapp from "../../../assets/img/icons/u_whatsapp-alt.svg";
 import { HomeMain } from "../homeMain";
 import { Paragraph } from "../../atoms";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
-import TeamMemberCard from "../../molecules/teamMemberCard/TeamMemberCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
-import TitleWithDescription from "../../molecules/titleWithDescription/TitleWithDescription";
 import teamMember from "../../../assets/img/teamMember.png";
 import group from "../../../assets/img/Group.svg";
 import group1 from "../../../assets/img/Group-1.svg";
@@ -31,6 +29,7 @@ import { AboutTeam } from "../aboutTeam";
 import reactSvg from "../../../assets/img/icons/react.svg";
 import { WorldMap } from "../WorldMap";
 import MapUser from "../../molecules/mapUser/MapUser";
+import { Technology } from "../Technology";
 
 const data = [
   {
@@ -214,12 +213,21 @@ const HomeMainWithImage = () => {
             <WeDoCard />
           ))}
         </div>
-        <div
-          className={`${styles.borderedTextWhat} ${styles.borderedTextProject}`}
-        >
-          <BorderedText text="Our Projects" />
+        <div className={styles.technology}>
+          <div
+            className={`${styles.borderedTextWhat} ${styles.borderedTextProject}`}
+          >
+            <BorderedText text="Technology" />
+          </div>
+          <Technology />
         </div>
+
         <div className={styles.projectContent}>
+          <div
+            className={`${styles.borderedTextWhat} ${styles.borderedTextProject}`}
+          >
+            <BorderedText text="Our Projects" />
+          </div>
           <Image src={ourProjectImage} className={styles.backImage} />
           {dataProject.map((project) => (
             <OurProjectCard

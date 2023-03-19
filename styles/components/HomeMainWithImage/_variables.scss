@@ -23,10 +23,13 @@ $HomeMainWithImage-sizes: (
   about-company-width: calcVW(1100),
   about-company-m: calcVW(90) 0 calcVW(130) 0,
   project-mb: calcVW(130),
+  project-mt: calcVW(120),
   testimonials-mt: calcVW(200),
   world-map-w: calcVW(1200),
   world-map-user-w: calcVW(720),
   world-map-pb: calcVW(140),
+  technology-mt: calcVW(100),
+  technology-mb: calcVW(50),
 );
 
 @function getHomeMainWithImage($property) {

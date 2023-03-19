@@ -3,7 +3,7 @@ import cx from "classnames";
 
 import styles from "./Button.module.scss";
 
-const Button = ({ text, whiteButton, boldBlue, boldWhite, lightBlue }) => {
+const Button = ({ text, whiteButton, boldBlue, boldWhite, lightBlue, transparent }) => {
   return (
     <button
       className={cx(styles.button, {
@@ -11,6 +11,7 @@ const Button = ({ text, whiteButton, boldBlue, boldWhite, lightBlue }) => {
         [styles.boldBlue]: boldBlue,
         [styles.boldWhite]: boldWhite,
         [styles.lightBlue]: lightBlue,
+        [styles.transparent]: transparent,
       })}
     >
       {text}

@@ -32,11 +32,11 @@
     width: calcVW(1920);
     left: calcVW(-320);
     position: absolute;
-    top: 0;
-    height: auto;
+    top: calcVW(80);
+    height: 120%;
   }
   .topBackImage {
-    top: calcVW(117);
+    top: calcVW(-300);
   }
   .afterAboutContent {
     width: getHomeMainWithImage(about-content-width);
@@ -48,6 +48,8 @@
     .borderedTextWhat {
       margin: getHomeMainWithImage(bordered-text-mtb);
       margin-left: getHomeMainWithImage(bordered-text-ml-what);
+      position: relative;
+      z-index: 1;
     }
 
     .projectContent {
@@ -63,6 +65,13 @@
     }
     .borderedTextProject {
       margin-bottom: getHomeMainWithImage(project-mb);
+      margin-top: getHomeMainWithImage(project-mt);
+    }
+    .technology {
+      .borderedTextProject {
+        margin-top: getHomeMainWithImage(technology-mt);
+        margin-bottom: getHomeMainWithImage(technology-mb);
+      }
     }
     .mapContainer {
       @include flex(space-between, flex-end);

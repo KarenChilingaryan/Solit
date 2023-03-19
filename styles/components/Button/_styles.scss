@@ -9,12 +9,7 @@
     padding: getButtonSizes(button-padding);
     width: getButtonSizes(button-width);
     height: getButtonSizes(button-height);
-    @include font-style(
-      getButtonSizes(button-text-fz),
-      variables.$fw-700,
-      getButtonSizes(button-text-fl),
-      #fff
-    );
+    @include font-style(getButtonSizes(button-text-fz), variables.$fw-700, getButtonSizes(button-text-fl), #fff);
 
     transition: 0.3s;
     cursor: pointer;
@@ -35,12 +30,7 @@
       font-size: calcVW(60);
       border-radius: 5px;
       &:hover {
-        @include font-style(
-          calcVW(58),
-          variables.$fw-500,
-          getButtonSizes(button-text-fl),
-          #fff
-        );
+        @include font-style(calcVW(58), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
       }
     }
   }
@@ -67,12 +57,7 @@
       height: calcVW(120);
       font-size: calcVW(45);
       &:hover {
-        @include font-style(
-          calcVW(58),
-          variables.$fw-500,
-          getButtonSizes(button-text-fl),
-          #fff
-        );
+        @include font-style(calcVW(58), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
       }
     }
   }
@@ -100,12 +85,7 @@
     }
     @media (max-width: 768px) {
       &:hover {
-        @include font-style(
-          calcVW(58),
-          variables.$fw-500,
-          getButtonSizes(button-text-fl),
-          #fff
-        );
+        @include font-style(calcVW(58), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
       }
     }
   }
@@ -136,12 +116,7 @@
     }
     @media (max-width: 768px) {
       &:hover {
-        @include font-style(
-          calcVW(58),
-          variables.$fw-500,
-          getButtonSizes(button-text-fl),
-          #fff
-        );
+        @include font-style(calcVW(58), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
       }
     }
   }
@@ -162,6 +137,29 @@
       background: variables.$main-white;
 
       border: 1px solid variables.$main-white;
+      @include font-style(
+        getButtonSizes(button-text-bold-blue-fz),
+        variables.$fw-500,
+        getButtonSizes(button-text-bold-blue-fl),
+        #fff
+      );
+      transition: 0.3s;
+    }
+  }
+  .transparent {
+    background: transparent;
+    @include font-style(
+      getButtonSizes(button-text-bold-blue-fz),
+      variables.$fw-500,
+      getButtonSizes(button-text-bold-blue-fl),
+      variables.$main-dark-blue
+    );
+    padding: getButtonSizes(button-bold-blue-padding);
+    border: 1px solid variables.$main-dark-blue;
+    cursor: pointer;
+    &:hover {
+      background: variables.$main-dark-blue;
+
       @include font-style(
         getButtonSizes(button-text-bold-blue-fz),
         variables.$fw-500,
