@@ -1,0 +1,30 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$about-page-sizes: (
+  content-mt: calcVW(478),
+  services-rg: calcVW(96),
+  services-mt: calcVW(400),
+  content-width: calcVW(1280),
+  bordered-text-mb: calcVW(-40),
+  title-fz: calcVW(36),
+  title-fl: calcVW(44),
+  title-mt: calcVW(150),
+  impact-rg: calcVW(32),
+  impact-mt: calcVW(32),
+  impact-mb: calcVW(384),
+  description-fz: calcVW(18),
+  description-fl: calcVW(24),
+  description-rg: calcVW(32),
+  description-mb: calcVW(32),
+  description-p: calcVW(32),
+  about-image-h: calcVW(683),
+  about-image-br: calcVW(16),
+  about-image-mb: calcVW(352),
+  quick-facts-mt: calcVW(32),
+  description-mt: calcVW(32),
+);
+
+@function getAboutPageSizes($property) {
+  @return map-get($about-page-sizes, $property);
+}
