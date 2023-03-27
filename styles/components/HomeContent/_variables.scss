@@ -1,0 +1,30 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$home-content-sizes: (
+  content-width: calcVW(1216),
+  about-content-width: calcVW(1280),
+  content-mt: calcVW(478),
+  services-rg: calcVW(96),
+  services-mt: calcVW(400),
+  bordered-text-mb: calcVW(-40),
+  bordered-text-ml: calcVW(-345),
+  bordered-text-ml-what: calcVW(-315),
+  bordered-text-mtb: calcVW(140) 0 calcVW(80) 0,
+  about-content-rg: calcVW(32),
+  project-content-rg: calcVW(32),
+  about-company-width: calcVW(1100),
+  about-company-m: calcVW(90) 0 calcVW(130) 0,
+  project-mb: calcVW(130),
+  project-mt: calcVW(120),
+  testimonials-mt: calcVW(200),
+  world-map-w: calcVW(1200),
+  world-map-user-w: calcVW(720),
+  world-map-pb: calcVW(140),
+  technology-mt: calcVW(100),
+  technology-mb: calcVW(50),
+);
+
+@function getHomeContentSizes($property) {
+  @return map-get($home-content-sizes, $property);
+}

@@ -1,0 +1,87 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-home-content-styles {
+    .content {
+        width: getHomeContentSizes(content-width);
+        margin: getHomeContentSizes(content-mt) auto 0 auto;
+        .servicesMain {
+            width: 100%;
+            margin-top: getHomeContentSizes(services-mt);
+            .services {
+                @include flex(space-between, center, null, wrap);
+                width: 100%;
+                row-gap: getHomeContentSizes(services-rg);
+            }
+
+            .borderedTextBottom {
+                margin-bottom: getHomeContentSizes(bordered-text-mb);
+            }
+        }
+    }
+    .borderedTextMargin {
+        margin: getHomeContentSizes(bordered-text-mtb);
+    }
+    .borderedText {
+        margin-left: getHomeContentSizes(bordered-text-ml);
+    }
+    .borderedTextTestimonials {
+        margin-top: getHomeContentSizes(testimonials-mt) !important;
+    }
+    .backImage {
+        width: calcVW(1920);
+        left: calcVW(-320);
+        position: absolute;
+        top: calcVW(80);
+        height: 120%;
+    }
+    .topBackImage {
+        top: calcVW(-300);
+    }
+    .afterAboutContent {
+        width: getHomeContentSizes(about-content-width);
+        margin: 0 auto;
+        .aboutContent {
+            row-gap: getHomeContentSizes(about-content-rg);
+            @include flex(space-between, center, column);
+        }
+        .borderedTextWhat {
+            margin: getHomeContentSizes(bordered-text-mtb);
+            margin-left: getHomeContentSizes(bordered-text-ml-what);
+            position: relative;
+            z-index: 1;
+        }
+
+        .projectContent {
+            @include flex(space-between, center, row, wrap);
+            row-gap: getHomeContentSizes(project-content-rg);
+            position: relative;
+        }
+
+        .aboutCompanyContent {
+            width: getHomeContentSizes(about-company-width);
+            @include flex(space-between, center, row, wrap);
+            margin: getHomeContentSizes(about-company-m);
+        }
+        .borderedTextProject {
+            margin-bottom: getHomeContentSizes(project-mb);
+            margin-top: getHomeContentSizes(project-mt);
+        }
+        .technology {
+            .borderedTextProject {
+                margin-top: getHomeContentSizes(technology-mt);
+                margin-bottom: getHomeContentSizes(technology-mb);
+            }
+        }
+        .mapContainer {
+            @include flex(space-between, flex-end);
+            .worldMap {
+                width: getHomeContentSizes(world-map-w);
+                padding-bottom: getHomeContentSizes(world-map-pb);
+            }
+            .worldMapUser {
+                width: getHomeContentSizes(world-map-user-w);
+            }
+        }
+    }
+}

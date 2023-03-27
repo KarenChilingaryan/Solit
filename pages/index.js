@@ -1,15 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { HomeMain } from "../components/organisms/homeMain";
-import { Services } from "../components/organisms/ourServices";
-import { About } from "../components/organisms/aboutTeam";
-import { Projects } from "../components/organisms/projects";
-import { Offer } from "../components/organisms/offer";
-import { Testimonials } from "../components/organisms/testimonials";
-import { ContactForm } from "../components/organisms/contactForm";
-import { Loading } from "../components/atoms";
-import Image from "next/image";
-import { HomeMainWithImage } from "../components/organisms/HomeMainWithImage";
+import { HomeContent } from "../components/organisms/homeContent";
 
 const Home = () => {
   const mainInfoData = useSelector(
@@ -27,10 +18,10 @@ const Home = () => {
       {/* {!mainInfoData || !servicesData ? (
         <Loading />
       ) : ( */}
-        <HomeMainWithImage />
-        
-          {/* <HomeMain data={mainInfoData?.[0]} /> */}
-          {/* <Services data={servicesData} />
+      <HomeContent />
+
+      {/* <HomeMain data={mainInfoData?.[0]} /> */}
+      {/* <Services data={servicesData} />
           <About data={aboutData} />
           <Projects />
           <Offer />
