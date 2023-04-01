@@ -4,12 +4,21 @@
 @mixin generate-button-styles {
   .button {
     background: variables.$main-white;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
     border: 0;
     border-radius: 100px;
     padding: getButtonSizes(button-padding);
     width: getButtonSizes(button-width);
     height: getButtonSizes(button-height);
-    @include font-style(getButtonSizes(button-text-fz), variables.$fw-700, getButtonSizes(button-text-fl), #fff);
+    @include font-style(
+      getButtonSizes(button-text-fz),
+      variables.$fw-700,
+      getButtonSizes(button-text-fl),
+      #fff
+    );
 
     transition: 0.3s;
     cursor: pointer;
@@ -30,7 +39,12 @@
       font-size: calcVW(60);
       border-radius: 5px;
       &:hover {
-        @include font-style(calcVW(58), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
+        @include font-style(
+          calcVW(58),
+          variables.$fw-500,
+          getButtonSizes(button-text-fl),
+          #fff
+        );
       }
     }
   }
@@ -57,7 +71,12 @@
       height: calcVW(120);
       font-size: calcVW(45);
       &:hover {
-        @include font-style(calcVW(58), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
+        @include font-style(
+          calcVW(58),
+          variables.$fw-500,
+          getButtonSizes(button-text-fl),
+          #fff
+        );
       }
     }
   }
@@ -85,7 +104,12 @@
     }
     @media (max-width: 768px) {
       &:hover {
-        @include font-style(calcVW(58), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
+        @include font-style(
+          calcVW(58),
+          variables.$fw-500,
+          getButtonSizes(button-text-fl),
+          #fff
+        );
       }
     }
   }
@@ -116,13 +140,18 @@
     }
     @media (max-width: 768px) {
       &:hover {
-        @include font-style(calcVW(58), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
+        @include font-style(
+          calcVW(58),
+          variables.$fw-500,
+          getButtonSizes(button-text-fl),
+          #fff
+        );
       }
     }
   }
 
   .boldWhite {
-    background: #e7eff2;
+    background: transparent;
     @include font-style(
       getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-500,
@@ -132,11 +161,11 @@
     padding: getButtonSizes(button-bold-blue-padding);
     width: getButtonSizes(button-width-bold-blue);
     height: getButtonSizes(button-bold-blue-height);
+    border: 1px solid variables.$light-blue;
+    border-radius: calcVW(16);
     cursor: pointer;
     &:hover {
-      background: variables.$main-white;
-
-      border: 1px solid variables.$main-white;
+      background: transparent;
       @include font-style(
         getButtonSizes(button-text-bold-blue-fz),
         variables.$fw-500,
@@ -144,6 +173,10 @@
         #fff
       );
       transition: 0.3s;
+    }
+    img {
+      width: calcVW(20);
+      height: calcVW(20);
     }
   }
   .transparent {

@@ -1,9 +1,18 @@
 import { memo } from "react";
+import Image from "next/image";
 import cx from "classnames";
 
 import styles from "./Button.module.scss";
 
-const Button = ({ text, whiteButton, boldBlue, boldWhite, lightBlue, transparent }) => {
+const Button = ({
+  text,
+  whiteButton,
+  boldBlue,
+  boldWhite,
+  lightBlue,
+  transparent,
+  icon,
+}) => {
   return (
     <button
       className={cx(styles.button, {
@@ -15,6 +24,7 @@ const Button = ({ text, whiteButton, boldBlue, boldWhite, lightBlue, transparent
       })}
     >
       {text}
+      {icon && <Image src={icon} />}
     </button>
   );
 };
