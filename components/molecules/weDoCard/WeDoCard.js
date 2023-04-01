@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { memo } from "react";
+import Image from "next/image";
 import { Col, Row } from "../../atoms";
 
 import styles from "./WeDoCard.module.scss";
@@ -10,7 +10,7 @@ const WeDoCard = ({ title, desc, icon }) => {
   return (
     <Col className={styles.weDoCardWrapper}>
       <Row className={styles.iconWrapper}>
-        <Image src={devIcon} width={15} height={15} />
+        <Image src={devIcon} className={styles.icon} />
       </Row>
       <Col className={styles.development}>Android Development</Col>
       <Col className={styles.description}>

@@ -21,6 +21,11 @@
       align-items: center;
       padding: getWeDoCardSizes(we-do-card-icon-wrapper);
       border-radius: 50%;
+
+      .icon {
+        width: getWeDoCardSizes(icon-width);
+        height: getWeDoCardSizes(icon-height);
+      }
     }
     .development {
       @include font-style(

@@ -1,0 +1,20 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$what-we-do-sizes: (
+  what-we-do-width: calcVW(405),
+  what-we-do-height: calcVW(332),
+  icon-width: calcVW(36),
+  icon-height: calcVW(36),
+  what-we-do-py: calcVW(64),
+  what-we-do-px: calcVW(32),
+  what-we-do-icon-wrapper: calcVW(16),
+  what-we-do-development-fz: calcVW(24),
+  what-we-do-development-lh: calcVW(29),
+  what-we-do-description-fz: calcVW(16),
+  what-we-do-description-lh: calcVW(24),
+);
+
+@function getWhatWeDoSizes($property) {
+  @return map-get($what-we-do-sizes, $property);
+}

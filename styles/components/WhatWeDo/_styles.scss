@@ -1,0 +1,180 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-what-we-do-styles {
+  .whatWeDoWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: calcVW(32);
+    .title {
+      @include font-style(
+        // getWhatWeDoSizes(what-we-do-development-fz),
+        calcVW(36),
+        variables.$fw-500,
+        // getWhatWeDoSizes(what-we-do-development-lh),
+        calcVW(44),
+        variables.$light-blue
+      );
+    }
+    .contextWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: calcVW(30);
+
+      .button {
+        display: flex;
+        gap: 10px;
+        background: transparent;
+        @include font-style(
+          // getWhatWeDoSizes(what-we-do-development-fz),
+          calcVW(18),
+          variables.$fw-700,
+          // getWhatWeDoSizes(what-we-do-development-lh),
+          calcVW(20),
+          variables.$light-blue
+        );
+
+        .btnImg {
+          width: calcVW(18);
+          height: calcVW(20);
+        }
+      }
+      .contextTitle {
+        @include font-style(
+          // getWhatWeDoSizes(what-we-do-development-fz),
+          calcVW(24),
+          variables.$fw-500,
+          // getWhatWeDoSizes(what-we-do-development-lh),
+          calcVW(28),
+          #fff
+        );
+      }
+      .contextHeader {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .context {
+        @include font-style(
+          // getWhatWeDoSizes(what-we-do-development-fz),
+          calcVW(18),
+          variables.$fw-400,
+          // getWhatWeDoSizes(what-we-do-development-lh),
+          calcVW(30),
+          #fff
+        );
+      }
+      .contextIcon {
+        width: calcVW(23);
+        height: calcVW(33);
+      }
+    }
+
+    .tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: calcVW(1280);
+
+      .contextTitle {
+        @include font-style(
+          // getWhatWeDoSizes(what-we-do-development-fz),
+          calcVW(14),
+          variables.$fw-500,
+          // getWhatWeDoSizes(what-we-do-development-lh),
+          calcVW(16),
+          #fff
+        );
+      }
+      .contextHeader {
+        display: flex;
+        gap: 20px;
+      }
+
+      :global(.ant-tabs-nav) {
+        &::before {
+          border-bottom: none;
+        }
+      }
+
+      :global(.ant-tabs-nav-wrap) {
+        background: transparent !important;
+      }
+      :global(.ant-tabs-tab-active) {
+        :global(.ant-tabs-tab-btn) {
+          @include font-style(
+            // getWhatWeDoSizes(what-we-do-development-fz),
+            calcVW(20),
+            variables.$fw-700,
+            // getWhatWeDoSizes(what-we-do-development-lh),
+            calcVW(24),
+            #fff
+          );
+        }
+
+        background: rgba(0, 0, 0, 0.459);
+      }
+      :global(.ant-tabs-tab) {
+        background-color: transparent !important;
+        :global(.ant-tabs-tab-btn) {
+          @include font-style(
+            // getWhatWeDoSizes(what-we-do-development-fz),
+            calcVW(20),
+            variables.$fw-700,
+            // getWhatWeDoSizes(what-we-do-development-lh),
+            calcVW(24),
+            #fff
+          );
+        }
+      }
+
+      :global(.ant-tabs-nav-operations) {
+        display: none;
+      }
+
+      :global(.ant-tabs-nav-list) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        background: rgba(0, 0, 0, 0.262);
+        backdrop-filter: blur(36.5px);
+        border-radius: 10px;
+      }
+      :global(.ant-tabs-tab) {
+        width: calcVW(256);
+        height: calcVW(112);
+        border: none;
+      }
+      :global(.ant-tabs-nav-list) div:first-child {
+        border-top-right-radius: 5px;
+      }
+      :global(.ant-tabs-content-holder) {
+        padding: calcVW(32);
+        background: rgba(0, 0, 0, 0.262);
+        backdrop-filter: blur(36.5px);
+        border-radius: 16px;
+      }
+      :global(.ant-tabs-tab-btn) {
+        font-size: 12px !important;
+      }
+    }
+    .development {
+      @include font-style(
+        getWhatWeDoSizes(what-we-do-development-fz),
+        variables.$fw-500,
+        getWhatWeDoSizes(what-we-do-development-lh),
+        #fff
+      );
+    }
+    .description {
+      padding: 0 5px;
+      // text-align: center;
+      @include font-style(
+        getWhatWeDoSizes(what-we-do-description-fz),
+        variables.$fw-300,
+        getWhatWeDoSizes(what-we-do-description-lh),
+        #fff
+      );
+    }
+  }
+}

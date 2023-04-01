@@ -7,8 +7,6 @@ import { Paragraph } from "../../atoms";
 import styles from "./HomeMainWithImage.module.scss";
 
 const HomeMainWithImage = ({ firstImage, children }) => {
-
-
   return (
     <div>
       <div className={styles.socialSites}>

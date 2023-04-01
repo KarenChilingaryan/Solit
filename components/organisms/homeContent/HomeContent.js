@@ -29,6 +29,7 @@ import { HomeMainWithImage } from "../HomeMainWithImage";
 import styles from "./HomeContent.module.scss";
 import { useState } from "react";
 import { useEffect } from "react";
+import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
 const data = [
   {
     users: [
@@ -121,18 +122,16 @@ const aboutData = [
   },
 ];
 
-
 const HomeContent = () => {
+  const [isSSR, setIsSSR] = useState(false);
 
-  const [isSSR, setIsSSR] = useState(false)
-
-  const win = typeof window
+  const win = typeof window;
 
   useEffect(() => {
     if (win) {
-      setIsSSR(true)
+      setIsSSR(true);
     }
-  }, [win])
+  }, [win]);
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -160,7 +159,9 @@ const HomeContent = () => {
             </div>
             {/* <WeDoCard />Karennn */}
           </div>
-          <div className={`${styles.borderedText} ${styles.borderedTextMargin}`}>
+          <div
+            className={`${styles.borderedText} ${styles.borderedTextMargin}`}
+          >
             <BorderedText text="About us" />
           </div>
         </div>
@@ -230,9 +231,7 @@ const HomeContent = () => {
             <BorderedText text="Testimonials" />
           </div>
           <div className={styles.mapContainer}>
-            <div className={styles.worldMap}>
-              {isSSR && <WorldMap />}
-            </div>
+            <div className={styles.worldMap}>{isSSR && <WorldMap />}</div>
             <div className={styles.worldMapUser}>
               <MapUser />
             </div>
@@ -258,6 +257,7 @@ const HomeContent = () => {
             }
             title={"Our Android Developers"}
           />
+          <WhatWeDo />
         </div>
       </>
     </HomeMainWithImage>
