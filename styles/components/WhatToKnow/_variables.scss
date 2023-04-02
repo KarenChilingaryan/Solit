@@ -1,0 +1,22 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$what-to-know-sizes: (
+  what-to-know-width: calcVW(405),
+  what-to-know-height: calcVW(332),
+  icon-width: calcVW(36),
+  icon-height: calcVW(36),
+  what-to-know-py: calcVW(64),
+  what-to-know-px: calcVW(32),
+  what-to-know-icon-wrapper: calcVW(16),
+  what-to-know-title-fz: calcVW(36),
+  what-to-know-title-lh: calcVW(44),
+  what-to-know-description-fz: calcVW(18),
+  what-to-know-description-lh: calcVW(24),
+  button-fz: calcVw(20),
+  button-lh: calcVW(24),
+);
+
+@function getWhatToKnowSizes($property) {
+  @return map-get($what-to-know-sizes, $property);
+}

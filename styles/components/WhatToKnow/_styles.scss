@@ -1,0 +1,42 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-what-to-know-styles {
+  .whatToKnowWrapper {
+    @include flex(center, center);
+    .context {
+      @include flex(center, center, column);
+      gap: calcVW(20);
+
+      width: calcVW(672);
+      height: calcVW(228);
+
+      .title {
+        @include font-style(
+          getWhatToKnowSizes(what-to-know-title-fz),
+          variables.$fw-400,
+          getWhatToKnowSizes(what-to-know-title-lh),
+          #fff
+        );
+      }
+
+      .description {
+        text-align: center;
+        @include font-style(
+          getWhatToKnowSizes(what-to-know-description-fz),
+          variables.$fw-400,
+          getWhatToKnowSizes(what-to-know-description-lh),
+          #fff
+        );
+      }
+      .button {
+        @include font-style(
+          getWhatToKnowSizes(button-fz),
+          variables.$fw-400,
+          getWhatToKnowSizes(button-lh),
+          #fff
+        );
+      }
+    }
+  }
+}

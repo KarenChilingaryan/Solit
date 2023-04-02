@@ -5,9 +5,9 @@
   .button {
     background: variables.$main-white;
     display: flex;
-    gap: 10px;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     border: 0;
     border-radius: 100px;
     padding: getButtonSizes(button-padding);
@@ -90,8 +90,8 @@
       #fff
     );
     padding: getButtonSizes(button-bold-blue-padding);
-    width: getButtonSizes(button-width-bold-blue);
-    height: getButtonSizes(button-bold-blue-height);
+    // width: getButtonSizes(button-width-bold-blue);
+    // height: getButtonSizes(button-bold-blue-height);
     cursor: pointer;
     &:hover {
       @include font-style(

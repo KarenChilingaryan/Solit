@@ -30,6 +30,7 @@ import styles from "./HomeContent.module.scss";
 import { useState } from "react";
 import { useEffect } from "react";
 import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
+import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 const data = [
   {
     users: [
@@ -260,6 +261,7 @@ const HomeContent = () => {
           <WhatWeDo />
         </div>
       </>
+      <WhatToKnow/>
     </HomeMainWithImage>
   );
 };
