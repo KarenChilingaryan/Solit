@@ -23,6 +23,7 @@ $about-page-sizes: (
   about-image-mb: calcVW(352),
   quick-facts-mt: calcVW(32),
   description-mt: calcVW(32),
+  about-company-m: calcVW(90) 0,
 );
 
 @function getAboutPageSizes($property) {

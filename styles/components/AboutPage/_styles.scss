@@ -19,7 +19,12 @@
       }
     }
     .title {
-      @include font-style(getAboutPageSizes(title-fz), variables.$fw-500, getAboutPageSizes(title-fl), #fff);
+      @include font-style(
+        getAboutPageSizes(title-fz),
+        variables.$fw-500,
+        getAboutPageSizes(title-fl),
+        #fff
+      );
       position: relative;
       margin-top: getAboutPageSizes(title-mt);
     }
@@ -55,7 +60,20 @@
     }
     .descriptionMt {
       margin-top: getAboutPageSizes(description-mt);
-
+    }
+    .aboutCompanyContent {
+      @include flex(space-between, center, row, wrap);
+      margin: getAboutPageSizes(about-company-m);
+    }
+    
+    .aboutCompanyTitle {
+      display: flex;
+      align-items: center;
+      @include font-style(
+        calcVW(36) variables.$fw-500,
+        calcVW(44),
+        variables.$white
+      );
     }
   }
 }

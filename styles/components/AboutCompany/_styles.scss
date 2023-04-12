@@ -2,30 +2,43 @@
 @import "../../base/mixins";
 
 @mixin generate-about-company-styles {
-  .mainWrapper {
-    @include flex(center, center, column);
-    row-gap: getAboutCompanySizes(main-rg);
+  .card {
+    @include flex(flex-start, center, null, wrap);
+    width: calcVW(405);
+    height: calcVW(192);
+    background-color: #00000063;
+    padding: calcVW(40) calcVW(32) calcVW(31);
+    border-radius: 16px;
 
-    .image {
-      height: 45px;
-    }
+    .mainWrapper {
+      @include flex(center, flex-start, column);
+      row-gap: getAboutCompanySizes(main-rg);
 
-    .info {
-      @include font-style(getAboutCompanySizes(info-fz), variables.$fw-700, getAboutCompanySizes(info-lh));
-      @include flex(null, center, row);
-      column-gap: getAboutCompanySizes(info-cg);
-      p {
-        margin: 0;
-      };
-      .description {
-        @include flex(null, center, column);
+      .image {
+        height: 45px;
+      }
+
+      .info {
         @include font-style(
-          getAboutCompanySizes(description-fz),
-          variables.$fw-400,
-          getAboutCompanySizes(description-lh)
+          getAboutCompanySizes(info-fz),
+          variables.$fw-700,
+          getAboutCompanySizes(info-lh)
         );
+        @include flex(null, center, row);
+        column-gap: getAboutCompanySizes(info-cg);
         p {
           margin: 0;
+        }
+        .description {
+          @include flex(null, null, column);
+          @include font-style(
+            getAboutCompanySizes(description-fz),
+            variables.$fw-400,
+            getAboutCompanySizes(description-lh)
+          );
+          p {
+            margin: 0;
+          }
         }
       }
     }

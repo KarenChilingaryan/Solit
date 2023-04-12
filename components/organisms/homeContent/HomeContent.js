@@ -1,5 +1,7 @@
-import Image from "next/image";
+import { useState } from "react";
+import { useEffect } from "react";
 import { memo } from "react";
+import Image from "next/image";
 import { HomeMain } from "../homeMain";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
@@ -27,8 +29,6 @@ import { Process } from "../Process";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 
 import styles from "./HomeContent.module.scss";
-import { useState } from "react";
-import { useEffect } from "react";
 import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 const data = [
@@ -154,8 +154,8 @@ const HomeContent = () => {
               <BorderedText text="Services" />
             </div>
             <div className={styles.services}>
-              {services.map(() => (
-                <ServiceCard />
+              {services.map((_, i) => (
+                <ServiceCard key={i} />
               ))}
             </div>
             {/* <WeDoCard />Karennn */}
@@ -170,6 +170,7 @@ const HomeContent = () => {
           <div className={styles.aboutContent}>
             {data.map((row, index) => (
               <ReversedAboutUs
+                key={i}
                 users={row.users}
                 about={row.about}
                 reversed={index % 2}
@@ -188,8 +189,8 @@ const HomeContent = () => {
               src={whatWeDoImage}
               className={`${styles.backImage} ${styles.topBackImage}`}
             />
-            {services.map((project) => (
-              <WeDoCard />
+            {services.map((project, i) => (
+              <WeDoCard key={i} />
             ))}
           </div>
           <div className={styles.technology}>
@@ -208,8 +209,9 @@ const HomeContent = () => {
               <BorderedText text="Our Projects" />
             </div>
             <Image src={ourProjectImage} className={styles.backImage} />
-            {dataProject.map((project) => (
+            {dataProject.map((project, i) => (
               <OurProjectCard
+                key={i}
                 name={project}
                 image={ourPtojectImage}
                 more={project == "more"}
@@ -217,8 +219,9 @@ const HomeContent = () => {
             ))}
           </div>
           <div className={styles.aboutCompanyContent}>
-            {aboutData.map((about) => (
+            {aboutData.map((about, i) => (
               <AboutCompany
+                key={i}
                 number={about.number}
                 title={about.title}
                 image={about.image}
@@ -261,7 +264,7 @@ const HomeContent = () => {
           <WhatWeDo />
         </div>
       </>
-      <WhatToKnow/>
+      <WhatToKnow />
     </HomeMainWithImage>
   );
 };
