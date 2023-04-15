@@ -1,0 +1,20 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-what-we-do-page-styles {
+  .whatWeDoMainWrapper {
+    width: getWhatWeDoPageSizes(content-width);
+    margin: getWhatWeDoPageSizes(content-mt) auto 0 auto;
+
+    .ourServices {
+      margin-top: calcVW(98);
+      @include flex(space-between, center, null, wrap);
+      row-gap: calcVW(64);
+      column-gap: calcVW(32);
+    }
+    
+    .weKnowSection {
+      margin: calcVW(384) auto calcVW(320);
+    }
+  }
+}
