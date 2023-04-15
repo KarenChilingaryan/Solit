@@ -6,9 +6,13 @@ import cardIcon from "../../../assets/img/cardImage.png";
 
 import styles from "./ServiceCard.module.scss";
 
-const ServiceCard = ({ icon, title, desc, onClick }) => {
+const ServiceCard = ({ icon, title, desc, onClick, className }) => {
   return (
-    <Col className={styles.serviceCardWrapper} span={7} onClick={onClick}>
+    <Col
+      className={`${styles.serviceCardWrapper} ${className}`}
+      span={7}
+      onClick={onClick}
+    >
       <Row align_items={"center"} className={styles.title_iconWrapper}>
         <Row className={styles.title}>Mobile Development</Row>
         <Image className={styles.iconWrapper} src={cardIcon} />

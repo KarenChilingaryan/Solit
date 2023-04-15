@@ -3,38 +3,54 @@
 
 @mixin generate-about-item-styles {
   .aboutItemWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: getAboutItemSizes(about-item-p);
     border-radius: 16px;
     width: getAboutItemSizes(about-item-width);
     height: getAboutItemSizes(about-item-height);
-    padding: getAboutItemSizes(about-item-p);
-    background: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 
-    .icon {
-      width: getAboutItemSizes(icon-width);
-      height: getAboutItemSizes(icon-height);
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: getAboutItemSizes(about-item-p);
+      padding: getAboutItemSizes(about-item-p);
+      background: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 100%;
+
+      .icon {
+        width: getAboutItemSizes(icon-width);
+        height: getAboutItemSizes(icon-height);
+      }
+
+      .title {
+        margin: getAboutItemSizes(about-item-title-m);
+        @include font-style(
+          getAboutItemSizes(about-item-title-fz),
+          variables.$fw-500,
+          getAboutItemSizes(about-item-title-lh),
+          variables.$main-dark-blue
+        );
+      }
+
+      .desc {
+        @include font-style(
+          getAboutItemSizes(about-item-desc-fz),
+          variables.$fw-400,
+          getAboutItemSizes(about-item-desc-lh),
+          variables.$main-white
+        );
+      }
     }
+    .weDoContent {
+      justify-content: space-between;
+      align-items: center;
+      gap: calcVW(16);
+      padding: calcVW(66) calcVW(32) calcVW(64);
 
-    .title {
-      margin: getAboutItemSizes(about-item-title-m);
-      @include font-style(
-        getAboutItemSizes(about-item-title-fz),
-        variables.$fw-500,
-        getAboutItemSizes(about-item-title-lh),
-        variables.$main-dark-blue
-      );
-    }
-
-    .desc {
-      @include font-style(
-        getAboutItemSizes(about-item-desc-fz),
-        variables.$fw-400,
-        getAboutItemSizes(about-item-desc-lh),
-        variables.$main-white
-      );
+      .desc {
+        text-align: center;
+      }
     }
   }
 }

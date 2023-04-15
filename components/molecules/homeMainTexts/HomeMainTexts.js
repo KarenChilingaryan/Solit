@@ -8,46 +8,39 @@ const HomeMainTexts = ({
   firstSubtitle,
   secondSubtitle,
   h1 = false,
+  ellipsis,
 }) => {
   return (
     <>
       <Col
-        className={styles.bigTextWrapper}
+        className={`${styles.bigTextWrapper}  ${
+          ellipsis && styles.contentWrapper
+        }`}
       >
         {h1 ? (
-          <h1
-            className={
-              styles.title
-            }
-          >
-            {title}
-          </h1>
+          <h1 className={styles.title}>{title}</h1>
         ) : (
-
-          <Paragraph
-            className={styles.title}
-          >
-            {title}
-          </Paragraph>
+          <Paragraph className={styles.title}>{title}</Paragraph>
         )}
 
-        {firstSubtitle &&
+        {firstSubtitle && (
           <Paragraph
-            className={styles.firstSubtitle}
+            className={`${styles.firstSubtitle} ${
+              ellipsis && styles.ellipsisText
+            }`}
           >
             {firstSubtitle}
           </Paragraph>
-        }
+        )}
 
-        {secondSubtitle &&
+        {secondSubtitle && (
           <Paragraph
             className={`${styles.firstSubtitle} ${styles.secondSubtitle}`}
           >
             {secondSubtitle}
           </Paragraph>
-        }
+        )}
       </Col>
-
     </>
   );
 };

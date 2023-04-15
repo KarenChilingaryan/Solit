@@ -3,11 +3,11 @@
 
 @mixin generate-what-to-know-styles {
   .whatToKnowWrapper {
+    width: 100%;
     @include flex(center, center);
     .context {
       @include flex(center, center, column);
       gap: calcVW(20);
-
       width: calcVW(672);
       height: calcVW(228);
 
@@ -29,6 +29,7 @@
           #fff
         );
       }
+      
       .button {
         @include font-style(
           getWhatToKnowSizes(button-fz),

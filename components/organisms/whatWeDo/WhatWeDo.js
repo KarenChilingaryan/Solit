@@ -1,28 +1,20 @@
 import { memo } from "react";
-import { useRouter } from "next/router";
-import { Col, Row } from "../../atoms";
+import { Row } from "../../atoms";
 import bgImage from "../../../assets/img/main-bg.png";
-import { HomeMainWithImage } from "../HomeMainWithImage";
-import { HomeMain } from "../homeMain";
+import AboutItem from "../../molecules/aboutItem/AboutItem";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
-import ServiceCard from "../../molecules/serviceCard/ServiceCard";
+import { HomeMain } from "../homeMain";
+import { HomeMainWithImage } from "../HomeMainWithImage";
+import impactIcon from "../../../assets/img/u_adjust-circle.svg";
 
-import styles from "./Services.module.scss";
+import styles from "./WhatWeDo.module.scss";
 
-const Services = () => {
-  const router = useRouter();
-  // const services = useSelector(
-  //   (state) => state?.servicesApi?.queries?.["services(undefined)"]?.data
-  // );
-  const services = [1, 2, 3, 4, 5, 6];
-  const handleClick = (id) => {
-    router.push(`services/${id}`);
-  };
-
+const WhatWeDo = () => {
+  const data = [1, 2, 3, 4, 5, 6];
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
-        <Row className={styles.content}>
+        <Row className={styles.whatWeDoMainWrapper}>
           <HomeMain
             data={{
               title: "Where the stars meet",
@@ -32,9 +24,17 @@ const Services = () => {
             }}
             ellipsis
           />
-          <Row className={styles.services}>
-            {services.map((_, i) => (
-              <ServiceCard key={i} className={styles.serviceCard} />
+          <Row className={styles.ourServices}>
+            {data.map((el, i) => (
+              <AboutItem
+                key={i}
+                title={"Our Approach"}
+                desc={
+                  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+                }
+                icon={impactIcon}
+                weDo
+              />
             ))}
           </Row>
           <Row className={styles.weKnowSection}>
@@ -46,4 +46,4 @@ const Services = () => {
   );
 };
 
-export default memo(Services);
+export default memo(WhatWeDo);

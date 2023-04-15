@@ -2,6 +2,11 @@
 @import "../../base/mixins";
 
 @mixin generate-home-main-texts-styles {
+  .contentWrapper{
+    max-height: 300px;
+    overflow: hidden;
+  }
+  
   .bigTextWrapper {
     height: fit-content;
     position: relative;
@@ -12,6 +17,10 @@
         variables.$fw-400,
         getHomeMainTextsSizes(home-main-title-lh)
       );
+    }
+
+    .ellipsisText{
+      text-overflow: ellipsis;
     }
 
     .firstSubtitle {

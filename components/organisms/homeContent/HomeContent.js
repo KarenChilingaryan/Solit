@@ -158,7 +158,6 @@ const HomeContent = () => {
                 <ServiceCard key={i} />
               ))}
             </div>
-            {/* <WeDoCard />Karennn */}
           </div>
           <div
             className={`${styles.borderedText} ${styles.borderedTextMargin}`}
@@ -168,12 +167,12 @@ const HomeContent = () => {
         </div>
         <div className={styles.afterAboutContent}>
           <div className={styles.aboutContent}>
-            {data.map((row, index) => (
+            {data.map((row, i) => (
               <ReversedAboutUs
                 key={i}
                 users={row.users}
                 about={row.about}
-                reversed={index % 2}
+                reversed={i % 2}
               />
             ))}
           </div>

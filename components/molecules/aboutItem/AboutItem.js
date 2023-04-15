@@ -1,14 +1,16 @@
 import { memo } from "react";
-import { Col } from "../../atoms";
+import { Col, Row } from "../../atoms";
 import Image from "next/image";
 import styles from "./AboutItem.module.scss";
 
-const AboutItem = ({ title, desc,icon }) => {
+const AboutItem = ({ title, desc, icon, weDo = false }) => {
   return (
     <Col className={styles.aboutItemWrapper}>
-      <Image src={icon} className={styles.icon} />
-      {title && <Col className={styles.title}>{title}</Col>}
-      {desc && <Col className={styles.desc}>{desc}</Col>}
+      <Row className={`${styles.content} ${weDo && styles.weDoContent}`}>
+        <Image src={icon} className={styles.icon} />
+        {title && <Col className={styles.title}>{title}</Col>}
+        {desc && <Col className={styles.desc}>{desc}</Col>}
+      </Row>
     </Col>
   );
 };
