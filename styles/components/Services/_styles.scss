@@ -2,65 +2,40 @@
 @import "../../base/mixins";
 
 @mixin generate-services-styles {
-  .servicesMainWrapper {
-    @include flex(none, none, column);
+  .content {
+    width: getServicesSizes(content-width);
+    margin: getServicesSizes(content-mt) auto 0 auto;
 
-    .formWrapper {
-      padding: calcVW(100) 0;
-      background-color: variables.$main-dark-blue;
-    }
+    .services {
+      margin-top: calcVW(124);
+      @include flex(space-between, center, null, wrap);
+      width: 100%;
+      row-gap: getServicesSizes(services-rg);
 
-    .serviceTopWrapper {
-      @include flex(space-between, none, row);
-      padding: getServicesSizes(service-top-wrapper-padding);
-    }
-    .leftSecton {
-      margin-top: getServicesSizes(service-text-mt);
-      height: fit-content;
-      position: sticky;
-      top: calcVW(300);
-    }
-    .cardSection {
-      @include flex(none, none, column, none);
-      row-gap: calcVW(50);
-      flex: none;
-    }
-    .titleWrapper {
-      padding: getServicesSizes(services-wrapper-padding) !important;
-    }
-    .buttonWrapper {
-      text-align: center;
-    }
-    @media (max-width: 768px) {
-      .serviceTopWrapper {
-        flex-direction: column;
-      }
-      .leftSecton {
-        margin-top: getServicesSizes(service-text-tablet-mt);
-        flex-direction: column;
-        position: relative;
-        top: 0;
+      .serviceCard {
+        width: calcVW(560) !important;
+        height: calcVW(600) !important;
+        max-width: none !important;
+        box-shadow: none !important;
 
-        .buttonWrapper {
-          margin: calcVW(100) 0;
+        .iconWrapper {
+          width: 100% !important;
+        }
 
-          button {
-            width: calcVW(460);
-            height: getServicesSizes(button-height);
-            @include font-style(
-              calcVW(50),
-              variables.$fw-500,
-              getButtonSizes(button-text-fl),
-              #fff
-            );
-          }
+        img {
+          width: 100% !important;
+          height: 100% !important;
         }
       }
+
+      .serviceCard > div {
+        width: unset !important;
+        height: 100%;
+      }
     }
-  }
-  @media (max-width: 768px) {
-    .cardSection {
-      align-items: center;
+    
+    .weKnowSection {
+      margin: calcVW(420) auto calcVW(320);
     }
   }
 }
