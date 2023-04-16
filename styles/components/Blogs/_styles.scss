@@ -8,8 +8,8 @@
     }
     .blogsCards {
       @include flex(center, none, row);
-      row-gap: getBlogsSizes(blog-row-gap);
-      column-gap: getBlogsSizes(blog-column-gap);
+      row-gap: getBlogsSizes(blogs-row-gap);
+      column-gap: getBlogsSizes(blogs-column-gap);
     }
     @include flex(none, none, column);
     .blogTopWrapper {
@@ -22,7 +22,7 @@
     }
     .cardSection {
       @include flex(none, none, column, none);
-      row-gap: 20px;
+      row-gap: getBlogsSizes(blogs-card-section-rg);
       flex: none;
     }
     .titleWrapper {
@@ -31,15 +31,15 @@
     .buttonWrapper {
       @include flex(center, none, row);
       text-align: center;
-      margin: getBlogsSizes(blogs-button-wrapper-mt);
-      column-gap: getBlogsSizes(blog-buttons-column-gap);
+      margin: getBlogsSizesblogs-button-wrapper-mt(blogs-button-wrapper-mt);
+      column-gap: getBlogsSizes(blogs-buttons-column-gap);
     }
   }
   @media (max-width: 768px) {
     .blogsMainWrapper {
       .titleWrapperSmall {
         @include center-flex();
-        padding: calcVW(50) 0;
+        padding:getBlogsSizes(blogs-title-wrapper-small-p);
       }
     }
   }

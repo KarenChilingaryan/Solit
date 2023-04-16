@@ -4,74 +4,84 @@
 @mixin generate-filters-styles {
   .filtersMainWrapper {
     background-color: variables.$main-dark-blue;
+
     .filtersWrapper {
       border-top: 2px solid variables.$main-green;
       border-bottom: 2px solid variables.$main-green;
       align-items: center;
       padding: getFiltersSizes(filters-padding);
+
       .filterText {
-        @include font-style(getFiltersSizes(filters-fz), variables.$fw-400, getFiltersSizes(filters-lh), #fff);
+        @include font-style(getFiltersSizes(filters-fz), variables.$fw-400, getFiltersSizes(filters-lh));
       }
     }
   }
+
   .filtersSection {
     @include center-flex();
   }
 
   .buttonWrapper {
-    margin-top: calcVW(70);
-    padding-bottom: calcVW(100);
+    margin-top: getFiltersSizes(button-wrapper-mt);
+    padding-bottom: getFiltersSizes(button-wrapper-pb);
     @include center-flex();
 
     .firstButton {
-      margin-right: calcVW(100);
-      margin-left: calcVW(-40);
+      margin-right: getFiltersSizes(button-first-mr);
+      margin-left: getFiltersSizes(button-first-ml);
     }
   }
+
   @media (max-width: 768px) {
     .filtersSection {
-      column-gap: calcVW(40);
-      row-gap: calcVW(40);
-      padding-top: calcVW(60);
+      column-gap: getFiltersSizes(filtes-section-tablet-cg);
+      row-gap: getFiltersSizes(filters-section-tablet-rg);
+      padding-top: getFiltersSizes(filters-section-tablet-pt);
     }
+
     .filtersWrapper {
-      padding: calcVW(60) calcVW(200) !important;
+      padding: getFiltersSizes(fiters-wrapper-p) !important;
       flex-direction: column;
       align-items: flex-start !important;
-      row-gap: calcVW(60);
+      row-gap: getFiltersSizes(filters-wrapper-rg);
+
       :global(.ant-col) {
-        column-gap: calcVW(80);
+        column-gap: getFiltersSizes(filters-wrapper-global-cg);
         display: flex;
         flex-wrap: wrap;
-        row-gap: calcVW(60);
-        font-size: calcVW(80) !important;
-        line-height: calcVW(80) !important;
+        row-gap: getFiltersSizes(filters-wrapper-global-rg);
+        font-size: getFiltersSizes(filters-wrapper-global-fz) !important;
+        line-height: getFiltersSizes(filters-wrapper-global-lh) !important;
+
         button {
           margin: 0 !important;
-          width: calcVW(260);
-          height: calcVW(100);
+          width: getFiltersSizes(filters-wrapper-button-width);
+          height: getFiltersSizes(filters-wrapper-button-height);
           font-weight: 500;
-          font-size: calcVW(40);
+          font-size: getFiltersSizes(filters-wrapper-button-fz);
           border: 1px solid rgba(255, 255, 255, 0.8);
           border-radius: 5px;
         }
       }
+
       :global(.ant-col):nth-last-child(1) {
         justify-content: start;
-        padding: 0 calcVW(100);
+        padding: getFiltersSizes(filters-wrapper-global-p)
       }
     }
   }
 
   .filterCardMainWrapper {
     cursor: pointer;
-    margin: calcVW(20);
+    margin: getFiltersSizes(card-main-wrapper-margin);
+
     .coverImg {
       width: -webkit-fill-available;
-      height: calcVW(323);
+      height: getFiltersSizes(card-cover-img-height);
       object-fit: cover;
       border-radius: 5px 5px 0 0;
     }
+
     .wrapper {
       background-color: #def1fa;
       padding: getFiltersSizes(wrapper-padding);
@@ -81,17 +91,16 @@
         width: getFiltersSizes(img-width);
         height: getFiltersSizes(img-height);
       }
+
       .textWrapper {
         margin-left: getFiltersSizes(text-wrapper-ml);
         margin-bottom: getFiltersSizes(text-wrapper-mb);
 
         .title {
-          @include font-style(
-            getFiltersSizes(title-fz),
+          @include font-style(getFiltersSizes(title-fz),
             variables.$fw-400,
             getFiltersSizes(title-lh),
-            variables.$main-dark-blue
-          );
+            variables.$main-dark-blue );
         }
 
         .subTitle {
@@ -101,95 +110,50 @@
       }
 
       .desc {
-        @include font-style(
-          getFiltersSizes(desc-fz),
+        @include font-style(getFiltersSizes(desc-fz),
           variables.$fw-400,
           getFiltersSizes(desc-lh),
-          variables.$main-dark-blue-80
-        );
+          variables.$main-dark-blue-80 );
       }
     }
+
     @media (max-width: 768px) {
       flex: 0 0 40%;
       max-width: 40%;
+
       .coverImg {
-        height: calcVW(500);
+        height: getFiltersSizes(card-tablet-cover-img-height);
       }
+
       .wrapper {
-        padding: calcVW(30);
+        padding: getFiltersSizes(card-tablet-wrapper-p);
+
         .prjImg {
-          width: calcVW(200);
-          height: calcVW(200);
+          width: getFiltersSizes(card-tablet-wrapper-width);
+          height: getFiltersSizes(card-tablet-wrapper-height);
         }
+
         .textWrapper {
           .title {
-            @include font-style(calcVW(70), variables.$fw-400, calcVW(80), variables.$main-dark-blue);
-            font-size: calcVW(60);
+            @include font-style(getFiltersSizes(text-tablet-title-fs), variables.$fw-400, getFiltersSizes(text-tablet-title-lh), variables.$main-dark-blue);
+            font-size: getFiltersSizes(text-tablet-title-fz);
           }
+
           .subTitle {
-            height: calcVW(120);
-            @include font-style(calcVW(32), variables.$fw-400, calcVW(38), #6e90a0);
-            font-size: calcVW(40);
-            width: calcVW(400);
+            height: getFiltersSizes(tablet-sub-title-height);
+            @include font-style(getFiltersSizes(tablet-sub-title-fs), variables.$fw-400, getFiltersSizes(tablet-sub-title-lh), #6e90a0);
+            font-size: getFiltersSizes(tablet-sub-title-fz);
+            width: getFiltersSizes(tablet-sub-title-width);
           }
         }
+
         .desc {
-          @include font-style(calcVW(45), variables.$fw-400, calcVW(50), variables.$main-dark-blue-80);
-          margin: calcVW(30) 0 calcVW(60) 0;
-          font-size: calcVW(40);
-          line-height: calcVW(45);
+          @include font-style(getFiltersSizes(tablet-desc-fs), variables.$fw-400, getFiltersSizes(tablet-desc-lh), variables.$main-dark-blue-80);
+          margin: getFiltersSizes(tablet-desc-margin);
+          font-size: getFiltersSizes(tablet-desc-fz);
+          line-height: getFiltersSizes(tablet-desc-lh);
         }
       }
-    }
-    @media (max-width: 576px) {
-      flex: 0 0 60%;
-      max-width: 60%;
-      .coverImg {
-        height: calcVW(1000);
-      }
-      .wrapper {
-        padding: calcVW(80);
-        .textWrapper {
-          padding: calcVW(20);
-          .title {
-            font-size: calcVW(100);
-          }
-          .subTitle {
-            font-size: calcVW(60);
-            width: calcVW(500);
-            line-height: calcVW(60);
-          }
-        }
-        .desc {
-          font-size: calcVW(60);
-          line-height: calcVW(60);
-          margin: calcVW(40) 0 calcVW(100) 0;
-        }
-        .prjImg {
-          width: calcVW(300);
-          height: calcVW(300);
-        }
-      }
-    }
-  }
-  @media (max-width: 576px) {
-    .filtersSection {
-      row-gap: calcVW(120);
-      padding-top: calcVW(200);
-    }
-    .filtersWrapper {
-      :global(.ant-col) {
-        justify-content: center !important;
-        padding: 0 !important;
-        button {
-          width: calcVW(350);
-          height: calcVW(150);
-        }
-      }
-    }
-    .buttonWrapper {
-      padding: calcVW(150) 0;
-      margin: 0;
     }
   }
 }

@@ -34,13 +34,13 @@
       transition: 0.3s;
     }
     @media (max-width: 768px) {
-      width: calcVW(420);
-      height: calcVW(130);
-      font-size: calcVW(60);
+      width: getButtonSizes(button-tablet-width);
+      height: getButtonSizes(button-tablet-height);
+      font-size:getButtonSizes(button-tablet-fz) ;
       border-radius: 5px;
       &:hover {
         @include font-style(
-          calcVW(58),
+          getButtonSizes(button-tablet-fs),
           variables.$fw-500,
           getButtonSizes(button-text-fl),
           #fff

@@ -3,7 +3,7 @@ import { AboutPage } from "../../components/organisms/aboutPage";
 
 const AboutUs = () => {
   console.log('lav eli');
-  return <div><AboutPage/></div>;
+  return <AboutPage />;
 };
 
 export default memo(AboutUs);

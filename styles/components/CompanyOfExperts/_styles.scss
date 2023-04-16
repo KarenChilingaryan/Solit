@@ -1,0 +1,23 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-about-company-of-experts-styles {
+  .aboutCompanyOfExperts {
+    .aboutCompanyContent {
+      @include flex(space-between, center, row, wrap);
+      margin: getCompanyOfExpertsSizes(about-company-m);
+    }
+
+    .aboutCompanyTitle {
+      display: flex;
+      align-items: center;
+      @include font-style(
+        getCompanyOfExpertsSizes(title-fz),
+         variables.$fw-500,
+         getCompanyOfExpertsSizes(title-lh),
+        variables.$white );
+    }
+
+  }
+
+}

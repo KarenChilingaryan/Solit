@@ -16,6 +16,10 @@ $button-sizes: (
   button-hover-text-fz: calcVW(23),
   button-hover-text-lh: calcVW(26),
   button-width-light-blue: calcVW(120),
+  button-tablet-width:calcVW(420),
+  button-tablet-height:calcVW(130),
+  button-tablet-fz:calcVW(60),
+  button-tablet-fs:calcVW(58),
 );
 
 @function getButtonSizes($property) {

@@ -7,14 +7,14 @@
     margin: getServicesSizes(content-mt) auto 0 auto;
 
     .services {
-      margin-top: calcVW(124);
+      margin-top:getServicesSizes(services-margin-top) ;
       @include flex(space-between, center, null, wrap);
       width: 100%;
       row-gap: getServicesSizes(services-rg);
 
       .serviceCard {
-        width: calcVW(560) !important;
-        height: calcVW(600) !important;
+        width: getServicesSizes(service-card-width) !important;
+        height:getServicesSizes(service-card-height)!important;
         max-width: none !important;
         box-shadow: none !important;
 
@@ -35,7 +35,7 @@
     }
     
     .weKnowSection {
-      margin: calcVW(420) auto calcVW(320);
+      margin:getServicesSizes(content-we-know-section-margin) ;
     }
   }
 }

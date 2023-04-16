@@ -11,12 +11,13 @@ import FactsItem from "../../molecules/factsItem/FactsItem";
 import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
+import { CompanyOfExperts } from "../CompanyOfExperts";
 
 import group from "../../../assets/img/Group.svg";
 import group1 from "../../../assets/img/Group-1.svg";
 import group2 from "../../../assets/img/Group-2.svg";
 
-import styles from "./AboutPage.module.scss";
+import styles from "./AboutPage.module.scss" ;
 
 const data = [1, 2, 3, 4];
 const aboutData = [
@@ -99,23 +100,10 @@ const AboutPage = () => {
               <FactsItem key={i} title={"Years of experience"} result={10} />
             ))}
           </div>
+
           <WhatWeDo />
           <WhatToKnow />
-
-          <Paragraph className={styles.aboutCompanyTitle}>
-            Company of experts
-          </Paragraph>
-          <div className={styles.aboutCompanyContent}>
-            {aboutData.map((about, i) => (
-              <AboutCompany
-                key={i}
-                number={about.number}
-                title={about.title}
-                image={about.image}
-                status={about.status}
-              />
-            ))}
-          </div>
+          <CompanyOfExperts aboutData={aboutData} />
         </div>
       </>
     </HomeMainWithImage>

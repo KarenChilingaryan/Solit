@@ -4,10 +4,10 @@
 @mixin generate-about-company-styles {
   .card {
     @include flex(flex-start, center, null, wrap);
-    width: calcVW(405);
-    height: calcVW(192);
+    width: getAboutCompanySizes(card-width);
+    height: getAboutCompanySizes(card-height);
     background-color: #00000063;
-    padding: calcVW(40) calcVW(32) calcVW(31);
+    padding: getAboutCompanySizes(card-p);
     border-radius: 16px;
 
     .mainWrapper {
@@ -15,7 +15,9 @@
       row-gap: getAboutCompanySizes(main-rg);
 
       .image {
-        height: 45px;
+        height: getAboutCompanySizes(card-image-height);
+        width: max-content;
+
       }
 
       .info {
@@ -34,7 +36,7 @@
           @include font-style(
             getAboutCompanySizes(description-fz),
             variables.$fw-400,
-            getAboutCompanySizes(description-lh)
+            getAboutCompanySizes(description-lh),
           );
           p {
             margin: 0;

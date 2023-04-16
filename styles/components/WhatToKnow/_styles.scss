@@ -7,10 +7,9 @@
     @include flex(center, center);
     .context {
       @include flex(center, center, column);
-      gap: calcVW(20);
-      width: calcVW(672);
-      height: calcVW(228);
-
+      gap:getWhatToKnowSizes(what-to-know-context-gap);
+      width:getWhatToKnowSizes(what-to-know-context-width);
+      height:getWhatToKnowSizes(what-to-know-context-height);
       .title {
         @include font-style(
           getWhatToKnowSizes(what-to-know-title-fz),

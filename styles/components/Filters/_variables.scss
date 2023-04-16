@@ -18,6 +18,49 @@ $filters-sizes: (
   desc-lh: calcVW(21),
   img-width: calcVW(75),
   img-height: calcVW(75),
+  button-wrapper-mt:calcVW(70),
+  button-wrapper-pb:calcVW(100),
+  button-first-mr:calcVW(100),
+  button-first-ml:calcVW(-40),
+  filters-section-tablet-cg:calcVW(40),
+  filters-section-tablet-rg:calcVW(40),
+  filters-section-tablet-pt:calcVW(60),
+  fiters-wrapper-p:calcVW(60) calcVW(200),
+  filters-wrapper-rg:calcVW(60),
+  filters-wrapper-global-cg:calcVW(80),
+  filters-wrapper-global-rg:calcVW(60),
+  filters-wrapper-global-fz:calcVW(80),
+  filters-wrapper-global-lh:calcVW(80),
+  filters-wrapper-button-width:calcVW(260),
+  filters-wrapper-button-height:calcVW(100),
+  filters-wrapper-button-fz:calcVW(40),
+  filters-wrapper-global-p: 0 calcVW(100),
+  card-main-wrapper-margin:calcVW(20),
+  card-cover-img-height:calcVW(323),
+  card-tablet-cover-img-height: calcVW(500),
+  card-tablet-wrapper-p:calcVW(30),
+  card-tablet-wrapper-width:calcVW(200),
+  card-tablet-wrapper-height:calcVW(200),
+  text-tablet-title-fs:calcVW(70),
+  text-tablet-title-lh:calcVW(80),
+  text-tablet-title-fz:calcVW(60),
+  tablet-sub-title-height:calcVW(120),
+  tablet-sub-title-width:calcVW(400),
+  tablet-sub-title-fz:calcVW(40) ,
+  tablet-sub-title-fs:calcVW(32),
+  tablet-sub-title-lh:calcVW(38),
+  tablet-desc-fs:calcVW(45),
+  tablet-desc-lh: calcVW(50),
+  tablet-desc-margin:calcVW(30) 0 calcVW(60) 0,
+  tablet-desc-fz:calcVW(40),
+  tablet-desc-lh:calcVW(45),
+
+
+
+
+
+
+
 );
 
 @function getFiltersSizes($property) {
