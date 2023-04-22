@@ -1,0 +1,9 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$portfolios-sizes: (
+);
+
+@function getPortfoliosSizes($property) {
+  @return map-get($portfolios-sizes, $property);
+}

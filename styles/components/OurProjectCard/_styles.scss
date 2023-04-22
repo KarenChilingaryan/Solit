@@ -3,15 +3,14 @@
 
 @mixin generate-our-project-styles {
   .mainWrapper {
-    width: getOurProjectCardSizes(main-project-card-width);
     height: getOurProjectCardSizes(main-project-card-height);
     @include flex(center, center, center);
+
     .imageContainer {
       transition: 0.1s;
       position: relative;
       overflow: hidden;
       border-radius: 16px;
-      width: getOurProjectCardSizes(project-card-width);
       height: getOurProjectCardSizes(project-card-height);
       cursor: pointer;
       @include flex(center, center, column);
@@ -20,6 +19,7 @@
         transition: 0.1s;
         width: 100%;
         height: calcVW(244);
+        filter: grayscale(100%);
       }
 
       .more {
@@ -37,11 +37,13 @@
       .positionSection {
         transition: 0.1s;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         height: getOurProjectCardSizes(project-position-height);
         width: 100%;
         align-items: center;
         background: rgba(0, 0, 0, 0.5);
+
         .name {
           @include font-style(
             getOurProjectCardSizes(project-name-fz),
@@ -50,17 +52,48 @@
             #fff
           );
         }
+
+        .stacks {
+          display: none;
+        }
       }
+
       &:hover {
         transition: all 0.1s;
         height: getOurProjectCardSizes(main-project-card-height);
+
         .img {
-          transition: 0.1s;
+          transition: 0.2s;
           height: calcVW(284);
+          filter: none;
         }
+
         .positionSection {
-          transition: 0.1s;
-          background: #219fdb;
+          transition: 0.3s;
+          background: #020d1cba;
+          height: getOurProjectCardSizes(project-position-hover-height);
+          padding: calcVW(16) calcVW(37);
+          gap: calcVW(16);
+
+          .name {
+            @include font-style(
+              getOurProjectCardSizes(project-name-hover-fz),
+              variables.$fw-700,
+              getOurProjectCardSizes(project-name-hover-lh),
+              #fff
+            );
+          }
+
+          .stacks {
+            display: flex;
+            justify-content: space-between;
+            gap: calcVW(25);
+
+            .icon {
+              width: calcVW(22);
+              height: calcVW(19);
+            }
+          }
         }
       }
     }

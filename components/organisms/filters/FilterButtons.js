@@ -1,28 +1,32 @@
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import styled from "styled-components";
 import { Button } from "../../atoms";
 
 const FilterButtons = ({ name, style, onClick, className, key }) => {
   const ButtonWrapper = styled(Button)`
-    background: #105475;
+    background: transparent;
+    color: #219fdb;
     min-width: 5.20834vw;
+    font-weight: 700;
+
     &:hover {
       background: #219fdb;
-      color: #fff;
+      color: #000;
+      font-weight: 700;
     }
     &.active {
       background: #219fdb;
-      color: #fff;
+      color: #000;
+      font-weight: 700;
       border: 0.1041668vw solid #219fdb;
     }
   `;
   return (
     <ButtonWrapper
-      radius={"0.260417vw"}
-      ml={"1.041668vw"}
       lh={"1.0937514vw"}
-      padding={"0.4083336vw 0.6250008vw"}
-      border={"0.1041668vw solid #fff"}
+      padding={"0.4166672vw 1.6666688vw"}
+      radius={"0.4166672vw"}
+      border={"0.1041668vw  solid #219FDB"}
       fz={"0.9375012vw"}
       height={"unset"}
       key={key}

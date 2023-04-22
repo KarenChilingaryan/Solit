@@ -6,9 +6,8 @@ import PortfolioMain from "../../components/organisms/portfolioMain/PortfolioMai
 const Portfolio = () => {
   return (
     <>
-      <Title title="Portfolio" />
       <PortfolioMain main={true} />
-      <Filters />
+      {/* <Filters /> */}
     </>
   );
 };

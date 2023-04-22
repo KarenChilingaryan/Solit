@@ -214,6 +214,7 @@ const HomeContent = () => {
                 name={project}
                 image={ourPtojectImage}
                 more={project == "more"}
+                width={"15.4583164vw"}
               />
             ))}
           </div>

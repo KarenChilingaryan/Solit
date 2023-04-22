@@ -12,6 +12,7 @@ $services-sizes: (
   service-text-tablet-mt: calcVW(150),
   button-text-fz: calcVW(42),
   button-height: calcVW(120),
+  services-rg: calcVW(96)
 );
 
 @function getServicesSizes($property) {
