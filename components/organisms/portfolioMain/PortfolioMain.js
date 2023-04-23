@@ -1,13 +1,12 @@
 import { memo } from "react";
 import { Row } from "../../atoms";
+import Portfolios from "../portfolios/Portfolios";
 import { HomeMainWithImage } from "../HomeMainWithImage";
+import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { HomeMain } from "../homeMain";
 import bgImage from "../../../assets/img/main-bg.png";
 
-
 import styles from "./PortfolioMain.module.scss";
-import Portfolios from "../portfolios/Portfolios";
-import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 
 const PortfolioMain = ({ data, main = false }) => {
   return (
@@ -25,8 +24,8 @@ const PortfolioMain = ({ data, main = false }) => {
             <Portfolios />
           </Row>
           <Row className={styles.knowMoreSection}>
-        <WhatToKnow />
-      </Row>
+            <WhatToKnow />
+          </Row>
         </div>
       </>
     </HomeMainWithImage>
