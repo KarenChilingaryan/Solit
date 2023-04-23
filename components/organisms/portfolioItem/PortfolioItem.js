@@ -1,8 +1,9 @@
 import { memo } from "react";
 import Image from "next/image";
-import { Col, Link, Row } from "../../atoms";
+import { Col, Row } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { HomeMain } from "../homeMain";
+import Button from "../../molecules/button/Button";
 import portFolioImage from "../../../assets/img/portFolioImage.svg";
 import react from "../../../assets/img/icons/reactjs.svg";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
@@ -12,7 +13,6 @@ import { dataProject } from "../portfolios/Portfolios";
 import arrow from "../../../assets/img/arrow.svg";
 
 import styles from "./PortfolioItem.module.scss";
-import Button from "../../molecules/button/Button";
 
 const PortfolioItem = () => {
   // const { id } = useRouter().query;
@@ -76,6 +76,8 @@ const PortfolioItem = () => {
                     image={ourPtojectImage}
                     more={project == "more"}
                     width={"21.09334vw"}
+                    height={"15.625vw"}
+                    hoverHeight={"19.53336vw"}
                   />
                 )
             )}

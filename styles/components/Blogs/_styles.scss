@@ -2,45 +2,12 @@
 @import "../../base/mixins";
 
 @mixin generate-blogs-styles {
-  .blogsMainWrapper {
-    .titleWrapperSmall {
-      display: none;
-    }
-    .blogsCards {
-      @include flex(center, none, row);
-      row-gap: getBlogsSizes(blog-row-gap);
-      column-gap: getBlogsSizes(blog-column-gap);
-    }
-    @include flex(none, none, column);
-    .blogTopWrapper {
-      @include flex(space-between, none, row);
-      padding: getBlogsSizes(blogs-top-wrapper-padding);
-    }
-    .leftSecton {
-      margin-top: getBlogsSizes(blogs-text-mt);
-      height: fit-content;
-    }
-    .cardSection {
-      @include flex(none, none, column, none);
-      row-gap: 20px;
-      flex: none;
-    }
-    .titleWrapper {
-      padding: getBlogsSizes(blogs-wrapper-padding) !important;
-    }
-    .buttonWrapper {
-      @include flex(center, none, row);
-      text-align: center;
-      margin: getBlogsSizes(blogs-button-wrapper-mt);
-      column-gap: getBlogsSizes(blog-buttons-column-gap);
-    }
-  }
-  @media (max-width: 768px) {
-    .blogsMainWrapper {
-      .titleWrapperSmall {
-        @include center-flex();
-        padding: calcVW(50) 0;
-      }
+  .content {
+    width: getBlogsSizes(content-width);
+    margin: getBlogsSizes(content-mt) auto 0 auto;
+
+    .blogsSection {
+      margin: calcVW(88) 0 calcVW(320);
     }
   }
 }

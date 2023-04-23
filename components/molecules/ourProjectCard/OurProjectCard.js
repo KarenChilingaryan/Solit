@@ -8,22 +8,39 @@ import styles from "./OurProjectCard.module.scss";
 
 const array = [1, 2, 3, 4, 5];
 
-const OurProjectCard = ({ name, more, image, width }) => {
+const OurProjectCard = ({
+  name,
+  more,
+  image,
+  width,
+  height,
+  hoverHeight,
+  blogs = false,
+}) => {
   return (
-    <Col className={styles.mainWrapper} width={width}>
+    <Col className={styles.mainWrapper} width={width} height={height}>
       <Col
         className={`${styles.imageContainer} ${more && styles.moreWrapper}`}
         width={width}
+        hoverHeight={hoverHeight}
       >
         {!more ? (
           <>
             <Image src={image} alt="icon" className={styles.img} />
-            <Row className={styles.positionSection}>
+            <Row className={`${styles.positionSection} ${blogs && styles.blogsPadding}` } >
               <Row className={styles.name}>{name} </Row>
-              <Row className={styles.stacks}>
-                {array?.map((_, i) => (
-                  <Image src={react} className={styles.icon} key={i} />
-                ))}
+              <Row className={styles.stacks} >
+                {!blogs &&
+                  array?.map((_, i) => (
+                    <Image src={react} className={styles.icon} key={i} />
+                  ))}
+                {blogs && (
+                  <Col className={styles.blogDescription}>
+                    Let’s now explore how to manage your backlog using product
+                    data and provide tips and best practices to implement in
+                    your workflow.
+                  </Col>
+                )}
               </Row>
             </Row>
           </>

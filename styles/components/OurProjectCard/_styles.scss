@@ -3,7 +3,6 @@
 
 @mixin generate-our-project-styles {
   .mainWrapper {
-    height: getOurProjectCardSizes(main-project-card-height);
     @include flex(center, center, center);
 
     .imageContainer {
@@ -11,7 +10,6 @@
       position: relative;
       overflow: hidden;
       border-radius: 16px;
-      height: getOurProjectCardSizes(project-card-height);
       cursor: pointer;
       @include flex(center, center, column);
 
@@ -60,7 +58,6 @@
 
       &:hover {
         transition: all 0.1s;
-        height: getOurProjectCardSizes(main-project-card-height);
 
         .img {
           transition: 0.2s;
@@ -68,10 +65,15 @@
           filter: none;
         }
 
+        .blogsPadding{
+          padding: calcVW(16) !important;
+          align-items: flex-start;
+        }
+
         .positionSection {
           transition: 0.3s;
           background: #020d1cba;
-          height: getOurProjectCardSizes(project-position-hover-height);
+          height: unset;
           padding: calcVW(16) calcVW(37);
           gap: calcVW(16);
 
@@ -79,6 +81,15 @@
             @include font-style(
               getOurProjectCardSizes(project-name-hover-fz),
               variables.$fw-700,
+              getOurProjectCardSizes(project-name-hover-lh),
+              #fff
+            );
+          }
+
+          .blogDescription{
+            @include font-style(
+              getOurProjectCardSizes(project-name-hover-fz),
+              variables.$fw-500,
               getOurProjectCardSizes(project-name-hover-lh),
               #fff
             );
@@ -105,5 +116,6 @@
     border: 1px solid variables.$light-blue;
     border-radius: 16px;
     background: rgba(0, 0, 0, 0.32);
+    height: getOurProjectCardSizes(project-card-height);
   }
 }

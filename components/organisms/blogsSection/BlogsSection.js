@@ -4,7 +4,7 @@ import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import FilterButtons from "../filters/FilterButtons";
 
-import styles from "./Portfolios.module.scss";
+import styles from "./BlogsSection.module.scss";
 
 export const dataProject = [
   "Last Order",
@@ -23,7 +23,7 @@ const tags = [
   { id: 17, tag_name: "iOS" },
 ];
 
-const Portfolios = ({ data }) => {
+const BlogsSection = ({ data }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   // const tags = useSelector(
   //   (state) => state?.tagsApi?.queries?.["tags(undefined)"]?.data
@@ -72,6 +72,7 @@ const Portfolios = ({ data }) => {
             width={"21.09334vw"}
             height={"15.625vw"}
             hoverHeight={"19.53336vw"}
+            blogs
           />
         ))}
       </Row>
@@ -79,4 +80,4 @@ const Portfolios = ({ data }) => {
   );
 };
 
-export default memo(Portfolios);
+export default memo(BlogsSection);

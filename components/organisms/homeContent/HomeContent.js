@@ -214,7 +214,9 @@ const HomeContent = () => {
                 name={project}
                 image={ourPtojectImage}
                 more={project == "more"}
+                height={"15.625vw"}
                 width={"15.4583164vw"}
+                hoverHeight={"17.708836vw"}
               />
             ))}
           </div>
