@@ -9,17 +9,14 @@
     background-color: #00000063;
     padding: getAboutCompanySizes(card-p);
     border-radius: 16px;
-
     .mainWrapper {
       @include flex(center, flex-start, column);
       row-gap: getAboutCompanySizes(main-rg);
-
       .image {
         height: getAboutCompanySizes(card-image-height);
         width: max-content;
 
       }
-
       .info {
         @include font-style(
           getAboutCompanySizes(info-fz),

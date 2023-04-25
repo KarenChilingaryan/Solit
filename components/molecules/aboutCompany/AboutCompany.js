@@ -1,9 +1,7 @@
 import Image from "next/image";
 import { memo } from "react";
 import { Col, Paragraph } from "../../atoms";
-
 import styles from "./AboutCompany.module.scss";
-
 const AboutCompany = ({ number, title, image, status }) => {
   return (
     <Col className={styles.card}>
@@ -20,5 +18,4 @@ const AboutCompany = ({ number, title, image, status }) => {
     </Col>
   );
 };
-
 export default memo(AboutCompany);

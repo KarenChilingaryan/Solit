@@ -20,6 +20,12 @@ $button-sizes: (
   button-tablet-height:calcVW(130),
   button-tablet-fz:calcVW(60),
   button-tablet-fs:calcVW(58),
+  button-text-light-blue-lh: calcVW(16),
+  button-light-blue-tablet-fs:calcVW(58),
+  transparent-opposite-br: calcVW(8),
+  transparent-tablet-button-width:calcVW(400),
+  transparent-tablet-button-height:calcVW(120),
+  transparent-tablet-button-fz:calcVW(45)
 );
 
 @function getButtonSizes($property) {

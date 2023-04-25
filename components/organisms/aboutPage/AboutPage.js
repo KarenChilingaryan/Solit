@@ -10,7 +10,6 @@ import AboutItem from "../../molecules/aboutItem/AboutItem";
 import FactsItem from "../../molecules/factsItem/FactsItem";
 import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
-import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
 import { CompanyOfExperts } from "../CompanyOfExperts";
 
 import group from "../../../assets/img/Group.svg";

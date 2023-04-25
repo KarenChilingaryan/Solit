@@ -36,7 +36,7 @@
     @media (max-width: 768px) {
       width: getButtonSizes(button-tablet-width);
       height: getButtonSizes(button-tablet-height);
-      font-size:getButtonSizes(button-tablet-fz) ;
+      font-size: getButtonSizes(button-tablet-fz);
       border-radius: 5px;
       &:hover {
         @include font-style(
@@ -141,7 +141,7 @@
     @media (max-width: 768px) {
       &:hover {
         @include font-style(
-          calcVW(58),
+          getButtonSizes(button-light-blue-tablet-fs),
           variables.$fw-500,
           getButtonSizes(button-text-fl),
           #fff
@@ -196,7 +196,32 @@
       @include font-style(
         getButtonSizes(button-text-bold-blue-fz),
         variables.$fw-500,
-        getButtonSizes(button-text-bold-blue-fl),
+        getButtonSizes(button-text-bold-blue-lh)
+      );
+      transition: 0.3s;
+    }
+  }
+  // To do refactoring
+  .transparentOpposite {
+    background: transparent;
+    @include font-style(
+      getButtonSizes(button-text-bold-blue-fz),
+      variables.$fw-500,
+      getButtonSizes(button-text-bold-blue-lh),
+      #ffffff52
+    );
+    border-radius: getButtonSizes(transparent-opposite-br);
+    padding: getButtonSizes(button-bold-blue-padding);
+    border: 1px solid #ffffff52;
+    height: unset;
+    cursor: pointer;
+    &:hover {
+      background: variables.$main-dark-blue;
+
+      @include font-style(
+        getButtonSizes(button-text-bold-blue-fz),
+        variables.$fw-500,
+        getButtonSizes(button-text-bold-blue-lh),
         #fff
       );
       transition: 0.3s;
@@ -204,9 +229,9 @@
   }
   @media (max-width: 768px) {
     .button {
-      width: calcVW(400);
-      height: calcVW(120);
-      font-size: calcVW(45);
+      width: getButtonSizes(transparent-tablet-button-width);
+      height: getButtonSizes(transparent-tablet-button-height);
+      font-size: getButtonSizes(transparent-tablet-button-fz);
     }
   }
 }
