@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Blogs } from "../../components/organisms/blog";
 
 const Blog = () => {
-  return <div><Blogs/></div>;
+  return <Blogs />;
 };
 
 export default memo(Blog);

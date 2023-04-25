@@ -1,0 +1,8 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$blog-item-sizes: ();
+
+@function getBlogItemSizes($property) {
+  @return map-get($blog-item-sizes, $property);
+}
