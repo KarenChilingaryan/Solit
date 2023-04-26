@@ -113,7 +113,6 @@
       }
     }
   }
-  // To do refactoring
   .lightBlue {
     background: variables.$light-blue;
     @include font-style(
@@ -122,7 +121,7 @@
       getButtonSizes(button-text-bold-blue-lh),
       variables.$black
     );
-    border-radius: calcVW(8);
+    border-radius: getButtonSizes(button-bold-blue-br);
     padding: getButtonSizes(button-bold-blue-padding);
     border: 1px solid variables.$main-dark-blue;
     cursor: pointer;
@@ -146,7 +145,6 @@
           getButtonSizes(button-light-blue-tablet-fs),
           variables.$fw-500,
           getButtonSizes(button-text-fl),
-          #fff
         );
       }
     }
@@ -206,18 +204,17 @@
       transition: 0.3s;
     }
   }
-  // To do refactoring
   .transparentOpposite {
     background: transparent;
     @include font-style(
       getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-500,
       getButtonSizes(button-text-bold-blue-lh),
-      #ffffff52
+      variables.$gray
     );
     border-radius: getButtonSizes(transparent-opposite-br);
     padding: getButtonSizes(button-bold-blue-padding);
-    border: 1px solid #ffffff52;
+    border: 1px solid variables.$gray;
     height: unset;
     cursor: pointer;
     &:hover {
