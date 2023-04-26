@@ -12,7 +12,6 @@ $about-company-sizes: (
   card-height: calcVW(192),
   card-p:calcVW(40) calcVW(32) calcVW(31),
   card-image-height:calcVW(45),
-  
 );
 
 @function getAboutCompanySizes($property) {

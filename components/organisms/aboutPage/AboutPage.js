@@ -11,11 +11,9 @@ import FactsItem from "../../molecules/factsItem/FactsItem";
 import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { CompanyOfExperts } from "../CompanyOfExperts";
-
 import group from "../../../assets/img/Group.svg";
 import group1 from "../../../assets/img/Group-1.svg";
 import group2 from "../../../assets/img/Group-2.svg";
-
 import styles from "./AboutPage.module.scss" ;
 
 const data = [1, 2, 3, 4];
