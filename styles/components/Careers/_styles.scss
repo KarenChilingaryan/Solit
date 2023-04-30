@@ -2,38 +2,50 @@
 @import "../../base/mixins";
 
 @mixin generate-careers-styles {
-  .careerPage {
-    padding-top: calcVW(150);
+  .content {
+    width: getCareersSizes(content-width);
+    margin: getCareersSizes(content-mt) auto 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
-    .cardSection {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+    .pageHeader {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: calcVW(50);
-      justify-content: space-evenly;
-      justify-items: center;
-      align-content: space-evenly;
-      margin: calcVW(100) 0;
-    }
+      gap: calcVW(32);
+      z-index: 2;
+      max-width: calcVW(1220);
 
-    .careersPageForm {
-      padding-top: calcVW(150);
-      background-color: variables.$main-dark-blue;
-    }
-    .textsBlocks {
-      padding-left: calcVW(240);
-      padding-right: calcVW(240);
-      padding-bottom: calcVW(100);
-    }
-    @media (max-width: 768px) {
-      margin-top: calcVW(250);
-
-      .cardSection {
-        padding: 0 calcVW(200);
-        @include flex(center, center);
-        flex-direction: column;
-        margin-top: calcVW(200);
+      .title {
+        @include font-style(calcVW(48), variables.$fw-400, calcVW(58));
       }
+
+      .subTitle {
+        display: flex;
+        gap: calcVW(10);
+
+        @include font-style(calcVW(36), variables.$fw-700, calcVW(44));
+
+        div:last-child {
+          color: variables.$light-blue;
+        }
+      }
+
+      .info {
+        text-align: center;
+
+        @include font-style(calcVW(24), variables.$fw-400, calcVW(32));
+      }
+    }
+
+    .weKnowSection {
+      margin: getCareersSizes(what-we-know-section-margin);
+    }
+
+    .contactUsWrapper {
+      margin: calcVW(496) 0 calcVW(424);
     }
   }
 }

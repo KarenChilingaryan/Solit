@@ -14,10 +14,21 @@ $button-sizes: (
   button-text-bold-blue-fz: calcVW(16),
   button-text-light-blue-fz: calcVW(13),
   button-text-bold-blue-lh: calcVW(19),
+  button-bold-blue-br: calcVW(8),
   button-hover-text-fz: calcVW(23),
   button-hover-text-lh: calcVW(26),
   button-width-light-blue: calcVW(120),
+  button-tablet-width: calcVW(420),
+  button-tablet-height: calcVW(130),
+  button-tablet-fz: calcVW(60),
+  button-tablet-fs: calcVW(58),
   button-text-light-blue-lh: calcVW(16),
+  button-light-blue-tablet-fs: calcVW(58),
+  transparent-opposite-br: calcVW(8),
+  transparent-opposite-p: calcVW(16) calcVW(32),
+  transparent-tablet-button-width: calcVW(400),
+  transparent-tablet-button-height: calcVW(120),
+  transparent-tablet-button-fz: calcVW(45),
 );
 
 @function getButtonSizes($property) {

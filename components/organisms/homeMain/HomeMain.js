@@ -18,7 +18,7 @@ const HomeMain = ({ data, ellipsis = false }) => {
       />
       {buttonText && (
         <Col className={styles.buttonWrapper}>
-          <Button text={buttonText} boldBlue />
+          <Button text={buttonText} transparentOpposite />
         </Col>
       )}
     </Col>

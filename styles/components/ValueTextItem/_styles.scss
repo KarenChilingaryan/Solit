@@ -21,7 +21,7 @@
           getValueTextItemSizes(title-fz),
           variables.$fw-400,
           getValueTextItemSizes(title-lh),
-          variables.$main-dark-blue
+          variables.$light-blue
         );
       }
     }
@@ -32,7 +32,7 @@
         getValueTextItemSizes(desc-fz),
         variables.$fw-400,
         getValueTextItemSizes(desc-lh),
-        variables.$main-dark-blue
+        variables.$light-blue
       );
     }
   }
