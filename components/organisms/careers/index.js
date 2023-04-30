@@ -3,6 +3,7 @@ import { Col, Row } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import Button from "../../molecules/button/Button";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
+import JobsTable from "../../molecules/jobsTable/JobsTable";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import SeoCard from "../../atoms/SEO";
@@ -43,7 +44,9 @@ const Careers = () => {
           </Row>
           <Button text={"Recommended"} transparentOpposite />
         </Row>
-
+        <Row>
+          <JobsTable />
+        </Row>
         <Row className={styles.weKnowSection}>
           <WhatToKnow
             title="If you haven't found position..."
