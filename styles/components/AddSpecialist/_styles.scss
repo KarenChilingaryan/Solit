@@ -1,0 +1,45 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-add-specialist-styles {
+    .colContainer {
+        width: 245px;
+        height: 56px;
+        border-radius: 16px;
+        background-color: #00000052;
+        color: red;
+    }
+    .colContainer:hover {
+        border: 1px solid variables.$dark-turquoise;
+    }
+    .numberZero {
+        width: 10px;
+        height: 24px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        color: #219FDB;
+    }
+    .image {
+        cursor: pointer;
+    }
+    .divContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+        gap: 16px;
+    }
+    .nameSpecialist {
+        width: 107px;
+        height: 24px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        color: #FFFFFF;
+    }
+}

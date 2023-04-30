@@ -1,6 +1,5 @@
 import { memo } from "react";
 import { Col, Paragraph } from "../../atoms";
-
 import styles from "./ContactFormColoredTitles.module.scss";
 
 const ContactFormAbout = ({ background = "#DEF1FA" }) => {

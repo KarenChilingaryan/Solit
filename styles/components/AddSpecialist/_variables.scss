@@ -1,0 +1,11 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$add-specialist-sizes:(
+
+);
+
+
+@function  getAddSpecialistSizes($property){
+    @return map-get($add-specialist-sizes, $property);
+}
