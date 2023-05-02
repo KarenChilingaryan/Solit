@@ -2,44 +2,48 @@
 @import "../../base/mixins";
 
 @mixin generate-add-specialist-styles {
-    .colContainer {
-        width: 245px;
-        height: 56px;
+    .mainWrapper {
+        @include flex(center, center, row, null);
+        width: getAddSpecialistSizes(main-wrapper-width);
+        width: max-content;
+        height: getAddSpecialistSizes(main-wrapper-height);
         border-radius: 16px;
-        background-color: #00000052;
-        color: red;
+        background-color: variables.$checbox-bg;
+        padding: getAddSpecialistSizes(main-wrapper-padding);
+        gap: getAddSpecialistSizes(main-wrapper-gap);
     }
+
     .colContainer:hover {
         border: 1px solid variables.$dark-turquoise;
     }
-    .numberZero {
-        width: 10px;
-        height: 24px;
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 24px;
-        color: #219FDB;
+
+    .countSpecialist {
+        @include flex(null, center, null);
+        @include font-style(getAddSpecialistSizes(count-specialist-fz),
+            variables.$fw-500,
+            getAddSpecialistSizes(count-specialist-lh),
+            variables.$dodger-blue );
+        text-align: center;
     }
-    .image {
+
+    .iconminus {
+        width: getAddSpecialistSizes(icon-minus-width);
+        height: getAddSpecialistSizes(icon-minus-height);
         cursor: pointer;
     }
-    .divContainer {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 16px;
-        gap: 16px;
+
+    .iconplus {
+        width: getAddSpecialistSizes(icnn-plus-width);
+        height: getAddSpecialistSizes(icon-plus-height);
+        cursor: pointer;
     }
+
     .nameSpecialist {
-        width: 107px;
-        height: 24px;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 24px;
-        color: #FFFFFF;
+        @include flex(null, center);
+        @include font-style(getAddSpecialistSizes(name-specialist-fz),
+            variables.$fw-500,
+            getAddSpecialistSizes(name-specialist-lh),
+        );
+        text-align: center;
     }
 }

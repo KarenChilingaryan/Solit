@@ -8,28 +8,32 @@ import styles from "./AddSpecialist.module.scss";
 
 const AddSpecialist = () => {
   const [count, setCount] = useState(0);
+
   function increment() {
     setCount(count + 1);
   }
+
   function decrement() {
-    setCount(count - 1);
+    const newcount = count - 1
+    if (newcount >= 0) {
+      setCount(newcount);
+    }
   }
+
   return (
-    <Col className={styles.colContainer}>
-      <div className={styles.divContainer}>
-        <div>
-          <Image className={styles.image} src={minusIcon} onClick={decrement} />
-        </div>
-        <div>
-          <span className={styles.numberZero}>{count}</span>
-        </div>
-        <div>
-          <Image className={styles.image} src={plusIcon} onClick={increment}  />
-        </div>
-        <div>
-          <span className={styles.nameSpecialist}>Android Native</span>
-        </div>
-      </div>
+    <Col className={styles.mainWrapper}>
+      <Col onClick={decrement}>
+        <Image className={styles.iconminus} src={minusIcon} />
+      </Col>
+      <Col className={styles.countSpecialist}>
+        <span >{count}</span>
+      </Col>
+      <Col onClick={increment}>
+        <Image className={styles.iconplus} src={plusIcon} />
+      </Col>
+      <Col className={styles.nameSpecialist}>
+        Android Native
+      </Col>
     </Col>
   )
 }
