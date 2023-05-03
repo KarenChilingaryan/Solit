@@ -10,7 +10,12 @@
       align-items: center;
       padding: getFiltersSizes(filters-padding);
       .filterText {
-        @include font-style(getFiltersSizes(filters-fz), variables.$fw-400, getFiltersSizes(filters-lh), #fff);
+        @include font-style(
+          getFiltersSizes(filters-fz),
+          variables.$fw-400,
+          getFiltersSizes(filters-lh),
+          #fff
+        );
       }
     }
   }
@@ -96,7 +101,12 @@
 
         .subTitle {
           width: getFiltersSizes(subtitle-width);
-          @include font-style(getFiltersSizes(subtitle-fz), variables.$fw-400, getFiltersSizes(subtitle-lh), #6e90a0);
+          @include font-style(
+            getFiltersSizes(subtitle-fz),
+            variables.$fw-400,
+            getFiltersSizes(subtitle-lh),
+            #6e90a0
+          );
         }
       }
 
@@ -123,18 +133,33 @@
         }
         .textWrapper {
           .title {
-            @include font-style(calcVW(70), variables.$fw-400, calcVW(80), variables.$main-dark-blue);
+            @include font-style(
+              calcVW(70),
+              variables.$fw-400,
+              calcVW(80),
+              variables.$main-dark-blue
+            );
             font-size: calcVW(60);
           }
           .subTitle {
             height: calcVW(120);
-            @include font-style(calcVW(32), variables.$fw-400, calcVW(38), #6e90a0);
+            @include font-style(
+              calcVW(32),
+              variables.$fw-400,
+              calcVW(38),
+              #6e90a0
+            );
             font-size: calcVW(40);
             width: calcVW(400);
           }
         }
         .desc {
-          @include font-style(calcVW(45), variables.$fw-400, calcVW(50), variables.$main-dark-blue-80);
+          @include font-style(
+            calcVW(45),
+            variables.$fw-400,
+            calcVW(50),
+            variables.$main-dark-blue-80
+          );
           margin: calcVW(30) 0 calcVW(60) 0;
           font-size: calcVW(40);
           line-height: calcVW(45);
