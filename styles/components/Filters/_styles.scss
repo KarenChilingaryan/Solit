@@ -12,7 +12,11 @@
       padding: getFiltersSizes(filters-padding);
 
       .filterText {
-        @include font-style(getFiltersSizes(filters-fz), variables.$fw-400, getFiltersSizes(filters-lh));
+        @include font-style(
+          getFiltersSizes(filters-fz),
+          variables.$fw-400,
+          getFiltersSizes(filters-lh)
+        );
       }
     }
   }
@@ -66,7 +70,7 @@
 
       :global(.ant-col):nth-last-child(1) {
         justify-content: start;
-        padding: getFiltersSizes(filters-wrapper-global-p)
+        padding: getFiltersSizes(filters-wrapper-global-p);
       }
     }
   }
@@ -97,23 +101,32 @@
         margin-bottom: getFiltersSizes(text-wrapper-mb);
 
         .title {
-          @include font-style(getFiltersSizes(title-fz),
+          @include font-style(
+            getFiltersSizes(title-fz),
             variables.$fw-400,
             getFiltersSizes(title-lh),
-            variables.$main-dark-blue );
+            variables.$main-dark-blue
+          );
         }
 
         .subTitle {
           width: getFiltersSizes(subtitle-width);
-          @include font-style(getFiltersSizes(subtitle-fz), variables.$fw-400, getFiltersSizes(subtitle-lh), #6e90a0);
+          @include font-style(
+            getFiltersSizes(subtitle-fz),
+            variables.$fw-400,
+            getFiltersSizes(subtitle-lh),
+            #6e90a0
+          );
         }
       }
 
       .desc {
-        @include font-style(getFiltersSizes(desc-fz),
+        @include font-style(
+          getFiltersSizes(desc-fz),
           variables.$fw-400,
           getFiltersSizes(desc-lh),
-          variables.$main-dark-blue-80 );
+          variables.$main-dark-blue-80
+        );
       }
     }
 
@@ -135,20 +148,35 @@
 
         .textWrapper {
           .title {
-            @include font-style(getFiltersSizes(text-tablet-title-fs), variables.$fw-400, getFiltersSizes(text-tablet-title-lh), variables.$main-dark-blue);
+            @include font-style(
+              getFiltersSizes(text-tablet-title-fs),
+              variables.$fw-400,
+              getFiltersSizes(text-tablet-title-lh),
+              variables.$main-dark-blue
+            );
             font-size: getFiltersSizes(text-tablet-title-fz);
           }
 
           .subTitle {
             height: getFiltersSizes(tablet-sub-title-height);
-            @include font-style(getFiltersSizes(tablet-sub-title-fs), variables.$fw-400, getFiltersSizes(tablet-sub-title-lh), #6e90a0);
+            @include font-style(
+              getFiltersSizes(tablet-sub-title-fs),
+              variables.$fw-400,
+              getFiltersSizes(tablet-sub-title-lh),
+              #6e90a0
+            );
             font-size: getFiltersSizes(tablet-sub-title-fz);
             width: getFiltersSizes(tablet-sub-title-width);
           }
         }
 
         .desc {
-          @include font-style(getFiltersSizes(tablet-desc-fs), variables.$fw-400, getFiltersSizes(tablet-desc-lh), variables.$main-dark-blue-80);
+          @include font-style(
+            getFiltersSizes(tablet-desc-fs),
+            variables.$fw-400,
+            getFiltersSizes(tablet-desc-lh),
+            variables.$main-dark-blue-80
+          );
           margin: getFiltersSizes(tablet-desc-margin);
           font-size: getFiltersSizes(tablet-desc-fz);
           line-height: getFiltersSizes(tablet-desc-lh);

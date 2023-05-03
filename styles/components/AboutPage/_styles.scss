@@ -22,10 +22,12 @@
     }
 
     .title {
-      @include font-style(getAboutPageSizes(title-fz),
+      @include font-style(
+        getAboutPageSizes(title-fz),
         variables.$fw-500,
         getAboutPageSizes(title-fl),
-        #fff);
+        #fff
+      );
       position: relative;
       margin-top: getAboutPageSizes(title-mt);
     }
@@ -45,10 +47,12 @@
     }
 
     .description {
-      @include font-style(getAboutPageSizes(description-fz),
+      @include font-style(
+        getAboutPageSizes(description-fz),
         variables.$fw-400,
         getAboutPageSizes(description-fl),
-        #fff);
+        #fff
+      );
     }
 
     .aboutImage {

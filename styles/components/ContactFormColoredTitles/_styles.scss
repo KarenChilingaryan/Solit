@@ -21,8 +21,13 @@
     }
 
     @media (max-width: 768px) {
-      @include font-style( getContactFormColoredTitlesSizes(text-fs), variables.$fw-700, getContactFormColoredTitlesSizes(text-lh), variables.$main-dark-blue);
-      width: getContactFormColoredTitlesSizes(text-width) ;
+      @include font-style(
+        getContactFormColoredTitlesSizes(text-fs),
+        variables.$fw-700,
+        getContactFormColoredTitlesSizes(text-lh),
+        variables.$main-dark-blue
+      );
+      width: getContactFormColoredTitlesSizes(text-width);
       margin: 0 auto;
     }
   }
