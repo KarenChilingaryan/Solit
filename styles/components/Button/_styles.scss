@@ -82,7 +82,7 @@
   }
 
   .boldBlue {
-    background: variables.$main-dark-blue;
+    background: variables.$light-blue;
     @include font-style(
       getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-700,
@@ -123,13 +123,13 @@
     );
     border-radius: getButtonSizes(button-bold-blue-br);
     padding: getButtonSizes(button-bold-blue-padding);
-    border: 1px solid variables.$main-dark-blue;
+    border: 1px solid variables.$light-blue;
     cursor: pointer;
     height: unset;
     &:hover {
-      background: variables.$main-dark-blue;
+      background: variables.$light-blue;
 
-      border: 1px solid variables.$main-dark-blue;
+      border: 1px solid variables.$light-blue;
       @include font-style(
         getButtonSizes(button-text-bold-blue-fz),
         variables.$fw-500,
@@ -144,7 +144,7 @@
         @include font-style(
           getButtonSizes(button-light-blue-tablet-fs),
           variables.$fw-500,
-          getButtonSizes(button-text-fl),
+          getButtonSizes(button-text-fl)
         );
       }
     }
@@ -156,7 +156,7 @@
       getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-500,
       getButtonSizes(button-text-bold-blue-lh),
-      variables.$main-dark-blue
+      variables.$light-blue
     );
     padding: getButtonSizes(button-bold-blue-padding);
     width: getButtonSizes(button-width-bold-blue);
@@ -164,7 +164,7 @@
     border: 1px solid variables.$light-blue;
     border-radius: calcVW(16);
     cursor: pointer;
-    
+
     &:hover {
       background: transparent;
       @include font-style(
@@ -187,14 +187,14 @@
       getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-500,
       getButtonSizes(button-text-bold-blue-lh),
-      variables.$main-dark-blue
+      variables.$light-blue
     );
     border-radius: calcVW(8);
     padding: getButtonSizes(button-bold-blue-padding);
-    border: 1px solid variables.$main-dark-blue;
+    border: 1px solid variables.$light-blue;
     cursor: pointer;
     &:hover {
-      background: variables.$main-dark-blue;
+      background: variables.$light-blue;
 
       @include font-style(
         getButtonSizes(button-text-bold-blue-fz),
@@ -204,27 +204,29 @@
       transition: 0.3s;
     }
   }
+  // To do refactoring
+
   .transparentOpposite {
-    background: transparent;
+    width: unset;
+    background: variables.$transparent-black;
     @include font-style(
       getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-500,
-      getButtonSizes(button-text-bold-blue-lh),
-      variables.$gray
+      getButtonSizes(button-text-bold-blue-lh)
     );
     border-radius: getButtonSizes(transparent-opposite-br);
-    padding: getButtonSizes(button-bold-blue-padding);
-    border: 1px solid variables.$gray;
+    padding: getButtonSizes(transparent-opposite-p);
+    border: 1px solid variables.$light-blue;
     height: unset;
     cursor: pointer;
-    &:hover {
-      background: variables.$main-dark-blue;
 
+    &:hover {
+      background: transparent;
+      border: 1px solid variables.$light-blue;
       @include font-style(
         getButtonSizes(button-text-bold-blue-fz),
         variables.$fw-500,
-        getButtonSizes(button-text-bold-blue-lh),
-        #fff
+        getButtonSizes(button-text-bold-blue-lh)
       );
       transition: 0.3s;
     }

@@ -30,7 +30,7 @@
           get404PageSizes(error-code-fz),
           variables.$fw-700,
           get404PageSizes(error-code-lh),
-          variables.$main-dark-blue
+          variables.$light-blue
         );
       }
       .message {
@@ -39,7 +39,7 @@
           get404PageSizes(message-fz),
           variables.$fw-500,
           none,
-          variables.$main-dark-blue
+          variables.$light-blue
         );
       }
     }

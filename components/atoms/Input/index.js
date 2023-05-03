@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { Input as input } from 'antd';
+import styled, { css } from "styled-components";
+import { Input as input } from "antd";
 
 const Input = styled(input)`
   background: #fff;
@@ -25,68 +25,83 @@ const Input = styled(input)`
     background-color: #fff;
     border: 1px solid #eeeeee;
   }
-  ${props =>
-    props.type === 'blue' &&
+  ${(props) =>
+    props.type === "blue" &&
     css`
       border: 1px solid #000080;
     `}
-  ${props =>
+  ${(props) =>
     (props.mb || props.mb === 0) &&
     css`
       margin-bottom: ${props.mb}px;
     `}
-  ${props =>
+  ${(props) =>
     props.margin &&
     css`
       margin: ${props.margin};
     `}
-  ${props =>
+  ${(props) =>
     props.padding &&
     css`
       padding: ${props.padding};
     `}
-  ${props =>
+  ${(props) =>
     props.input_padding &&
     css`
       input {
         padding: ${props.input_padding};
       }
     `}
-  ${props =>
+  ${(props) =>
     props.height &&
     css`
       height: ${props.height};
     `}
-  ${props =>
+  ${(props) =>
     props.cursor &&
     css`
       cursor: ${props.cursor};
     `}
-  ${props =>
+  ${(props) =>
     props.fz &&
     css`
       input {
         font-size: ${props.fz};
       }
     `}
-  ${props =>
+  ${(props) =>
     props.fw &&
     css`
       input {
         font-weight: ${props.fw};
       }
     `}
-  ${props =>
+  ${(props) =>
     props.radius &&
     css`
       border-radius: ${props.radius};
     `}
 
-    ${props =>
+  ${(props) =>
     props.border &&
     css`
       border: ${props.border};
     `}
+  &[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+    display: none;
+  }
+  &[type="file"]::before {
+    content: " ";
+    display: inline-block;
+    background: url("your-image.png") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+  }
 `;
 
 export default Input;

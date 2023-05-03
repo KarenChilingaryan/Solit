@@ -9,14 +9,14 @@
       getContactFormColoredTitlesSizes(title-fz),
       variables.$fw-700,
       getContactFormColoredTitlesSizes(title-lh),
-      variables.$main-dark-blue
+      variables.$light-blue
     );
     .coloredText {
       color: variables.$main-green;
       font-weight: variables.$fw-700;
     }
     .normalText {
-      color: variables.$main-dark-blue;
+      color: variables.$light-blue;
       font-weight: variables.$fw-700;
     }
 
@@ -25,7 +25,7 @@
         getContactFormColoredTitlesSizes(text-fs),
         variables.$fw-700,
         getContactFormColoredTitlesSizes(text-lh),
-        variables.$main-dark-blue
+        variables.$light-blue
       );
       width: getContactFormColoredTitlesSizes(text-width);
       margin: 0 auto;

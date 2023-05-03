@@ -3,7 +3,7 @@
 
 @mixin generate-filters-styles {
   .filtersMainWrapper {
-    background-color: variables.$main-dark-blue;
+    background-color: variables.$light-blue;
 
     .filtersWrapper {
       border-top: 2px solid variables.$main-green;
@@ -105,7 +105,7 @@
             getFiltersSizes(title-fz),
             variables.$fw-400,
             getFiltersSizes(title-lh),
-            variables.$main-dark-blue
+            variables.$light-blue
           );
         }
 
@@ -125,7 +125,7 @@
           getFiltersSizes(desc-fz),
           variables.$fw-400,
           getFiltersSizes(desc-lh),
-          variables.$main-dark-blue-80
+          variables.$light-blue-80
         );
       }
     }
@@ -152,7 +152,7 @@
               getFiltersSizes(text-tablet-title-fs),
               variables.$fw-400,
               getFiltersSizes(text-tablet-title-lh),
-              variables.$main-dark-blue
+              variables.$light-blue
             );
             font-size: getFiltersSizes(text-tablet-title-fz);
           }
@@ -171,6 +171,9 @@
         }
 
         .desc {
+          margin: getFiltersSizes(tablet-desc-margin);
+          font-size: getFiltersSizes(tablet-desc-fz);
+          line-height: getFiltersSizes(tablet-desc-lh);
           @include font-style(
             getFiltersSizes(tablet-desc-fs),
             variables.$fw-400,

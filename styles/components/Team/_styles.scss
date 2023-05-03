@@ -3,7 +3,7 @@
 
 @mixin generate-team-styles {
   .teamMainWrapper {
-    background: variables.$main-dark-blue;
+    background: variables.$light-blue;
     padding: getTeamSizes(team-wrapper-padding);
     .teamItemsWrapper {
       padding: getTeamSizes(team-items-wrapper-padding);

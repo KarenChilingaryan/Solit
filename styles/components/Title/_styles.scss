@@ -17,7 +17,7 @@
       variables.$fw-400,
       getTitleSizes(title-lh)
     );
-    color: variables.$main-dark-blue;
+    color: variables.$light-blue;
     @media (max-width: 768px) {
       font-size: calcVW(90);
     }
@@ -33,6 +33,6 @@
     border-bottom: 2px solid #00ff96;
     padding-bottom: calcVW(5);
     margin-bottom: calcVW(15);
-    color: variables.$main-dark-blue !important;
+    color: variables.$light-blue !important;
   }
 }
