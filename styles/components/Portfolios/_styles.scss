@@ -1,0 +1,15 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-portfolios-styles {
+  .portfoliosWrapper {
+    .filters {
+      display: flex;
+      gap: calcVW(16);
+    }
+    .projects {
+      margin-top: calcVW(120);
+    }
+  }
+}
+//TO Do refactor Calc

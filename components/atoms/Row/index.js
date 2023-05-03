@@ -135,6 +135,11 @@ const Row = styled(row)`
         background-color: ${props.odd_back};
       }
     `}
+  ${(props) =>
+    props.color &&
+    css`
+      color: ${props.color} !important;
+    `}
 `;
 
 /** @component */

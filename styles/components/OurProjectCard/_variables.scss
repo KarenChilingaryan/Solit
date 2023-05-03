@@ -8,10 +8,13 @@ $ourProjectCard-sizes: (
   main-project-card-height: calcVW(340),
   project-position-section-p: calcVW(32),
   project-position-height: calcVW(56),
+  project-position-hover-height: calcVW(96),
   project-name-fz: calcVW(16),
   project-name-lh: calcVW(24),
   team-member-position-fz: calcVW(16),
   team-member-position-lh: calcVW(24),
+  team-member-position-hover-fz: calcVW(18),
+  team-member-position-hover-lh: calcVW(22),
 );
 
 @function getOurProjectCardSizes($property) {

@@ -15,12 +15,10 @@
         width: 100%;
         row-gap: getAboutPageSizes(services-rg);
       }
-
       .borderedTextBottom {
         margin-bottom: getAboutPageSizes(bordered-text-mb);
       }
     }
-
     .title {
       @include font-style(
         getAboutPageSizes(title-fz),
@@ -31,44 +29,48 @@
       position: relative;
       margin-top: getAboutPageSizes(title-mt);
     }
-
     .impact {
       @include flex(space-between, center, null, wrap);
       row-gap: getAboutPageSizes(impact-rg);
       margin-top: getAboutPageSizes(impact-mt);
       margin-bottom: getAboutPageSizes(impact-mb);
     }
-
     .descriptionBlock {
       @include flex(null, flex-start, column);
       row-gap: getAboutPageSizes(description-rg);
       margin-bottom: getAboutPageSizes(description-mb);
       padding: getAboutPageSizes(description-p);
     }
-
     .description {
       @include font-style(
         getAboutPageSizes(description-fz),
         variables.$fw-400,
-        getAboutPageSizes(description-fl),
-        #fff
-      );
+        getAboutPageSizes(description-fl));
     }
-
     .aboutImage {
       width: 100%;
       height: getAboutPageSizes(about-image-h);
       border-radius: getAboutPageSizes(about-image-br);
       margin-bottom: getAboutPageSizes(about-image-mb);
     }
-
     .quickFacts {
       @include flex(space-between, center);
       margin-top: getAboutPageSizes(quick-facts-mt);
     }
-
     .descriptionMt {
       margin-top: getAboutPageSizes(description-mt);
+    }
+    .aboutCompanyContent {
+      @include flex(space-between, center, row, wrap);
+      margin: getAboutPageSizes(about-company-m);
+    }
+      .aboutCompanyTitle {
+        @include flex(null,center);
+      @include font-style(
+        calcVW(36) variables.$fw-500,
+        calcVW(44),
+        variables.$white
+      );
     }
   }
 }

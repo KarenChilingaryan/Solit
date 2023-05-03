@@ -10,11 +10,11 @@ $blogs-sizes: (
   blogs-wrapper-pb: calcVW(75),
   blogs-buttons-column-gap: calcVW(140),
   blogs-button-wrapper-mt: calcVW(80) 0 calcVW(100) 0,
-  blogs-card-section-rg:calcVW(20),
-  blogs-title-wrapper-small-p:calcVW(50) 0,
-
+  content-mt: calcVW(478),
+  content-width: calcVW(1280),
 );
 
 @function getBlogsSizes($property) {
   @return map-get($blogs-sizes, $property);
 }
+//TO do refactor

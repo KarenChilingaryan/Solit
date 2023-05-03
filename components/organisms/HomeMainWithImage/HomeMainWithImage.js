@@ -4,11 +4,12 @@ import linkedin from "../../../assets/img/icons/u_linkedin-alt.svg";
 import telegram from "../../../assets/img/icons/u_telegram-alt.svg";
 import whatsapp from "../../../assets/img/icons/u_whatsapp-alt.svg";
 import { Paragraph } from "../../atoms";
+
 import styles from "./HomeMainWithImage.module.scss";
 
 const HomeMainWithImage = ({ firstImage, children }) => {
   return (
-    <div>
+    <div className={styles.content}>
       <div className={styles.socialSites}>
         <div className={styles.site}>
           <Image src={linkedin} className={styles.image} />

@@ -1,0 +1,9 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-portfolio-item-page-styles {
+  .portfolioItemWrapper {
+    padding-top: calcVW(51);
+    background-color: variables.$white;
+  }
+}

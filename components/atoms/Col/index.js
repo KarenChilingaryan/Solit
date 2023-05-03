@@ -199,6 +199,10 @@ const Col = styled(col)`
       justify-content: center;
       align-content: space-evenly;
     `}
+    &:hover {
+    height: ${(props) => props.hoverHeight} !important;
+    padding: ${(props) => props.hoverPadding} !important;
+  }
 `;
 
 /** @component */
