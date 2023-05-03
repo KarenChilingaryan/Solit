@@ -2,64 +2,63 @@
 @import "../../base/mixins";
 
 @mixin generate-industry-styles {
-    .industryCol{
-        width:getIndustrySizes(industry-col-width);
-        height: getIndustrySizes(industry-col-height);
-    }
-   .industryMain{
-    @include flex(null,center,row);
+  .industryCol {
+    width: getIndustrySizes(industry-col-width);
+    height: getIndustrySizes(industry-col-height);
+  }
+  .industryMain {
+    @include flex(null, center, row);
     padding: getIndustrySizes(industry-main-padding);
-    gap:getIndustrySizes(industry-main-gap);
+    gap: getIndustrySizes(industry-main-gap);
     border-radius: 16px;
     background: variables.$checbox-bg;
-   }
-   .industryMain:hover{
+  }
+  .industryMain:hover {
     border: 1px solid variables.$dark-turquoise;
-   }
-    .checkbox{
-        :global(.ant-checkbox-input){
-            &:focus{
-                border: #FFFFFF !important;
-                .ant-checkbox-inner{
-                    border-color: #FFFFFF !important;
-                }
-            }
+  }
+  .checkbox {
+    :global(.ant-checkbox-input) {
+      &:focus {
+        border: #ffffff !important;
+        .ant-checkbox-inner {
+          border-color: #ffffff !important;
         }
-        :global(.ant-checkbox-inner){
-            background-color: transparent;
-            border: 1px solid white;
-            border-color: white !important;
-            border-radius: 4px;
-            &:active{
-                border-color: transparent !important;
-                background-color: transparent !important;
-                border: none !important;
-            }
-        }
-        :global(.ant-checkbox-checked .ant-checkbox-inner) {
-            background-color:transparent !important;
-            border-color: transparent !important;
-        }
-        :global(.ant-checkbox-checked::after){
-            border: none !important;
-        }
-        :global(.ant-checkbox-checked .ant-checkbox-inner ){
-            background-color: #00000052;
-            border-color: #00000052;
-          }
+      }
     }
-    .NameText{
-        display: flex;
-        align-items: center;
-        text-align: center;
-        width: getIndustrySizes(name-text-width);
-        height: getIndustrySizes(name-text-height);
-        cursor: pointer;
-        @include font-style(
-            getIndustrySizes(name-text-fz),
-            variables.$fw-500,
-            getIndustrySizes(name-text-lh),
-            #FFFFFF
-        );
+    :global(.ant-checkbox-inner) {
+      background-color: transparent;
+      border: 1px solid white;
+      border-color: white !important;
+      border-radius: 4px;
+      &:active {
+        border-color: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+      }
     }
+    :global(.ant-checkbox-checked .ant-checkbox-inner) {
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+    :global(.ant-checkbox-checked::after) {
+      border: none !important;
+    }
+    :global(.ant-checkbox-checked .ant-checkbox-inner) {
+      background-color: #00000052;
+      border-color: #00000052;
+    }
+  }
+  .NameText {
+    @include flex(null,center);
+    text-align: center;
+    width: getIndustrySizes(name-text-width);
+    height: getIndustrySizes(name-text-height);
+    cursor: pointer;
+    @include font-style(
+      getIndustrySizes(name-text-fz),
+      variables.$fw-500,
+      getIndustrySizes(name-text-lh),
+      #ffffff
+    );
+  }
 }
