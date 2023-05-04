@@ -9,12 +9,13 @@
     }
 
     .aboutCompanyTitle {
-      @include flex(null,center);
+      @include flex(null, center);
       @include font-style(
         getCompanyOfExpertsSizes(title-fz),
-         variables.$fw-500,
-         getCompanyOfExpertsSizes(title-lh),
-        variables.$white );
+        variables.$fw-500,
+        getCompanyOfExpertsSizes(title-lh),
+        variables.$white
+      );
     }
   }
 }

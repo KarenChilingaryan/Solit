@@ -32,7 +32,7 @@
           @include font-style(
             getAboutCompanySizes(description-fz),
             variables.$fw-400,
-            getAboutCompanySizes(description-lh),
+            getAboutCompanySizes(description-lh)
           );
           p {
             margin: 0;

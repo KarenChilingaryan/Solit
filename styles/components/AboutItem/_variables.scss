@@ -13,8 +13,8 @@ $about-item-sizes: (
   about-item-p: calcVW(32),
   icon-width: calcVW(53),
   icon-height: calcVW(53),
-  about-we-do-gap:calcVW(16),
-  about-we-do-p:calcVW(66) calcVW(32) calcVW(64),
+  about-we-do-gap: calcVW(16),
+  about-we-do-p: calcVW(66) calcVW(32) calcVW(64),
 );
 
 @function getAboutItemSizes($property) {

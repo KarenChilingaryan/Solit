@@ -70,7 +70,7 @@
 
       :global(.ant-col):nth-last-child(1) {
         justify-content: start;
-        padding: getFiltersSizes(filters-wrapper-global-p)
+        padding: getFiltersSizes(filters-wrapper-global-p);
       }
     }
   }
@@ -101,7 +101,8 @@
         margin-bottom: getFiltersSizes(text-wrapper-mb);
 
         .title {
-          @include font-style(getFiltersSizes(title-fz),
+          @include font-style(
+            getFiltersSizes(title-fz),
             variables.$fw-400,
             getFiltersSizes(title-lh),
             variables.$light-blue
@@ -120,7 +121,8 @@
       }
 
       .desc {
-        @include font-style(getFiltersSizes(desc-fz),
+        @include font-style(
+          getFiltersSizes(desc-fz),
           variables.$fw-400,
           getFiltersSizes(desc-lh),
           variables.$light-blue-80
@@ -137,7 +139,7 @@
       }
 
       .wrapper {
-        padding: calcVW(30);
+        padding: getFiltersSizes(card-tablet-wrapper-p);
 
         .prjImg {
           width: getFiltersSizes(card-tablet-wrapper-width);
@@ -156,14 +158,14 @@
           }
 
           .subTitle {
-            height: calcVW(120);
-            width: calcVW(400);
+            height: getFiltersSizes(tablet-sub-title-height);
             @include font-style(
-              calcVW(32),
+              getFiltersSizes(tablet-sub-title-fs),
               variables.$fw-400,
-              calcVW(38),
+              getFiltersSizes(tablet-sub-title-lh),
               #6e90a0
             );
+            width: getFiltersSizes(tablet-sub-title-width);
           }
         }
 
@@ -175,8 +177,11 @@
             getFiltersSizes(tablet-desc-fs),
             variables.$fw-400,
             getFiltersSizes(tablet-desc-lh),
-            variables.$light-blue-80
+            variables.$main-dark-blue-80
           );
+          margin: getFiltersSizes(tablet-desc-margin);
+          font-size: getFiltersSizes(tablet-desc-fz);
+          line-height: getFiltersSizes(tablet-desc-lh);
         }
       }
     }

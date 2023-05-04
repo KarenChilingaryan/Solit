@@ -6,12 +6,12 @@ $about-company-sizes: (
   description-lh: calcVW(24),
   info-fz: calcVW(48),
   info-lh: calcVW(65),
-  info-cg:  calcVW(10),
-  main-rg:  calcVW(28),
+  info-cg: calcVW(10),
+  main-rg: calcVW(28),
   card-width: calcVW(405),
   card-height: calcVW(192),
-  card-p:calcVW(40) calcVW(32) calcVW(31),
-  card-image-height:calcVW(45),
+  card-p: calcVW(40) calcVW(32) calcVW(31),
+  card-image-height: calcVW(45),
 );
 
 @function getAboutCompanySizes($property) {
