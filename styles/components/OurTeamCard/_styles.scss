@@ -26,7 +26,7 @@
         getOurTeamCardSizes(ourTeamCard-title-fz),
         variables.$fw-500,
         getOurTeamCardSizes(ourTeamCard-title-lh),
-        variables.$main-dark-blue
+        variables.$light-blue
       );
       padding: getOurTeamCardSizes(ourTeamCard-title-p) 0;
     }
@@ -35,7 +35,7 @@
         getOurTeamCardSizes(ourTeamCard-sub-title-fz),
         variables.$fw-400,
         getOurTeamCardSizes(ourTeamCard-sub-title-lh),
-        variables.$main-dark-blue
+        variables.$light-blue
       );
       padding-bottom: getOurTeamCardSizes(ourTeamCard-sub-title-pb);
     }
@@ -61,7 +61,7 @@
   .desc {
     width: getOurTeamCardSizes(ourTeamCard-desc-width);
     font-weight: 300 !important;
-    color: variables.$main-dark-blue !important;
+    color: variables.$light-blue !important;
     margin-bottom: 10px !important;
     overflow: hidden;
     text-overflow: ellipsis;

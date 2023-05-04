@@ -1,0 +1,44 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-jobs-table-styles {
+  .tableWrapper {
+    width: 100%;
+    .table {
+      width: 100%;
+      :global(.ant-table) {
+        background: transparent;
+      }
+      :global(.ant-table-thead) {
+        background: transparent;
+
+        :global(.ant-table-cell) {
+          background: transparent;
+          border-bottom: none;
+          @include font-style(calcVW(20), variables.$fw-500, calcVW(24));
+        }
+      }
+
+      :global(.ant-table-tbody) {
+        :global(.ant-table-cell) {
+          border-bottom: none;
+          @include font-style(calcVW(20), variables.$fw-500, calcVW(24));
+        }
+        
+        :global(.ant-table-row):nth-child(2n + 1) {
+          background: #ffffff14;
+        }
+
+        :global(.ant-table-row) {
+          &:hover {
+            box-shadow: 0px 24px 33px -16px #701ddbcc;
+            td {
+              color: black;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

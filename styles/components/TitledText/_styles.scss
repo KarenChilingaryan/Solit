@@ -8,7 +8,7 @@
       variables.$fw-700,
       getTitleSizes(title-lh)
     );
-    color: variables.$main-dark-blue;
+    color: variables.$light-blue;
   }
   .description {
     @include font-style(
@@ -16,7 +16,7 @@
       variables.$fw-300,
       getTitleSizes(title-lh)
     );
-    color: variables.$main-dark-blue;
+    color: variables.$light-blue;
   }
   .block {
     margin-top: calcVW(26);

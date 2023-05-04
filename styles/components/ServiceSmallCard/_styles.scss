@@ -47,7 +47,7 @@
         getServiceCardSizes(serviceCard-title-fz),
         variables.$fw-400,
         getServiceCardSizes(serviceCard-title-lh),
-        variables.$main-dark-blue
+        variables.$light-blue
       );
       padding: getServiceCardSizes(serviceCard-title-p) 0;
     }
@@ -59,7 +59,7 @@
     width: getServiceCardSizes(serviceCard-desc-width);
     font-weight: 300 !important;
     margin-left: getServiceCardSizes(serviceCard-desc-ml);
-    color: variables.$main-dark-blue !important;
+    color: variables.$light-blue !important;
     margin-bottom: 10px !important;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -1,16 +1,16 @@
 import { memo, useState, useEffect } from "react";
-import { Col, Row, Input, FormItem, Form } from "../../atoms";
+import { Col, Row, Input, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
 import { Upload, Button as AntdButton } from "antd";
 import Button from "../../molecules/button/Button";
 import { contactUsData } from "../../../constants/contactUs";
 import { emailApi } from "../../../services/emailApi";
 import { useDispatch } from "react-redux";
+import FloatInput from "../../molecules/floatInput/FloatInput";
 
-import cardIcon from "../../../assets/img/icons/file.svg";
+import upload from "../../../assets/img/uploadIcon.svg";
 
 import styles from "./ContactForm.module.scss";
-import FloatInput from "../../molecules/floatInput/FloatInput";
 
 const ContactForm = ({
   title,
@@ -58,13 +58,15 @@ const ContactForm = ({
       }`}
       style={style}
     >
-      <Form form={form} onFinish={submitForm} className={styles.form}>
+      <Col className={styles.infoSection}>
         <Row className={styles.title}>Got a project in mind?</Row>
         <Row className={styles.info}>
           Share the details of your project – like scope, timeframes, or
           business challenges you would like to solve. Our team will carefully
           study them and then we’ll figure out the next move together.
         </Row>
+      </Col>
+      <Form form={form} onFinish={submitForm} className={styles.form}>
         <Row className={styles.inputSection}>
           <FormItem
             name="full_name"
@@ -107,16 +109,24 @@ const ContactForm = ({
               multiple
               type="file"
               accept=".pdf,.doc,.docx"
+              suffix={<Image className={styles.suffix} src={upload} />}
               onChange={(e) => {
                 setFile(e.target.files);
               }}
               showUploadList={false}
+              className={styles.uploadFile}
             />
+          </FormItem>
+          <FormItem name="accept" className={styles.accept}>
+            <Checkbox />
+            <Row className={styles.acceptText}>
+              I accept your Privacy Policy
+            </Row>
           </FormItem>
         </Row>
 
         <Col className={styles.buttonWrapper}>
-          <Button text="Send message" boldBlue type="submit" />
+          <Button text="Send message" transparentOpposite type="submit" />
         </Col>
       </Form>
     </Col>

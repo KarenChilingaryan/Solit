@@ -1,0 +1,14 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$portfolio-item-page-sizes: (
+  portfolio-main-wrapper-padding: calcVW(28) calcVW(0) calcVW(28) calcVW(263),
+  portfolio-main-wrapper-height: calcVW(585),
+  portfolio-main-text-padding: calcVW(89) calcVW(280) calcVW(0) calcVW(0),
+  portfolio-main-text-fz: calcVW(22),
+  portfolio-main-text-lh: calcVW(26),
+);
+
+@function getPortfolioMainSizes($property) {
+  @return map-get($portfolio-item-page-sizes, $property);
+}

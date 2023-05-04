@@ -1,67 +1,44 @@
 import { memo } from "react";
 import { useRouter } from "next/router";
-import styles from "./Blogs.module.scss";
 import { Col, Row } from "../../atoms";
-import svg from "../../../assets/img/serviceImg.svg";
-import Button from "../../molecules/button/Button";
-import ServiceSmallCard from "../../molecules/serviceSmallCard/ServiceSmallCard";
-import ServiceLargeCard from "../../molecules/serviceLargeCard/ServiceLargeCard";
+import earth from "../../../assets/img/earth.png";
 import { useSelector } from "react-redux";
-import SeoCard from "../../atoms/SEO";
-import { seoData } from "../../../constants/seo";
-import Link from "next/link";
-import Title from "../../molecules/title/Title";
+import { HomeMainWithImage } from "../HomeMainWithImage";
+import { HomeMain } from "../homeMain";
+import { BlogsSection } from "../blogsSection";
+import Portfolios from "../portfolios/Portfolios";
+
+import styles from "./Blogs.module.scss";
 
 const Blogs = () => {
-  const router = useRouter();
-  const longPresentationBlog = useSelector(
-    (state) =>
-      state?.longPresentationBlogApi?.queries?.[
-        "longPresentationBlog(undefined)"
-      ]?.data
-  );
-  const buttonServicesText = "Our Services";
-  const buttonContactText = "Contact Us";
+  // const router = useRouter();
+  // const longPresentationBlog = useSelector(
+  //   (state) =>
+  //     state?.longPresentationBlogApi?.queries?.[
+  //       "longPresentationBlog(undefined)"
+  //     ]?.data
+  // );
+  // const buttonServicesText = "Our Services";
+  // const buttonContactText = "Contact Us";
 
-  const handleClick = (e) => {
-    router.push(`blog/${e}`);
-  };
+  // const handleClick = (e) => {
+  //   router.push(`blog/${e}`);
+  // };
   return (
-    <div className={styles.blogsMainWrapper}>
-    <Col className={styles.titleWrapperSmall}>
-      <Title title={"Blog"} />
-    </Col>
-      <SeoCard details={seoData} />
-      <Row className={styles.blogsCards}>
-        {longPresentationBlog?.map((el, index) =>
-          index % 5 !== 0 ? (
-            <ServiceSmallCard
-              icon={svg}
-              title={el.title}
-              desc={el.description}
-              key={el}
-              onClick={() => handleClick(el.id)}
-            />
-          ) : (
-            <ServiceLargeCard
-              icon={svg}
-              title={el.title}
-              desc={el.description}
-              key={el}
-              onClick={() => handleClick(el.id)}
-            />
-          )
-        )}
+    <HomeMainWithImage firstImage={earth}>
+      <Row className={styles.content}>
+        <HomeMain
+          data={{
+            title: "Insights and advice from our expert team",
+            firstSubtitle:
+              "We know a lot about our niche. So we thought, why not share something with you? Learn, explore and stay on top of design and development (and not only) novelties with Merge blog. ",
+          }}
+        />
+        <Row className={styles.blogsSection}>
+          <BlogsSection />
+        </Row>
       </Row>
-      <Col className={styles.buttonWrapper}>
-        <Link href="/services">
-          <Button text={buttonServicesText} lightBlue />
-        </Link>
-        <Link href="/contactus">
-          <Button text={buttonContactText} lightBlue />
-        </Link>
-      </Col>
-    </div>
+    </HomeMainWithImage>
   );
 };
 
