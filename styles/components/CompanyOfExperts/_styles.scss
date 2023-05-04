@@ -13,8 +13,7 @@
       @include font-style(
         getCompanyOfExpertsSizes(title-fz),
         variables.$fw-500,
-        getCompanyOfExpertsSizes(title-lh),
-        variables.$white
+        getCompanyOfExpertsSizes(title-lh)
       );
     }
   }

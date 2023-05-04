@@ -6,11 +6,11 @@ $about-company-sizes: (
   description-lh: calcVW(24),
   info-fz: calcVW(48),
   info-lh: calcVW(65),
-  info-cg:  calcVW(10),
-  main-rg:  calcVW(28),
+  info-cg: calcVW(10),
+  main-rg: calcVW(28),
   image-height: calcVW(45),
-  title-fz:calcVW(36),
-  title-lh:calcVW(44)
+  title-fz: calcVW(36),
+  title-lh: calcVW(44),
 );
 
 @function getCompanyOfExpertsSizes($property) {

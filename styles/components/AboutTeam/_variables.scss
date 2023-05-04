@@ -15,7 +15,7 @@ $about-team-sizes: (
   more-lh: calcVW(20),
   icon-width: calcVW(20),
   icon-height: calcVW(20),
-  about-team-more-cg:calcVW(10),
+  about-team-more-cg: calcVW(10),
 );
 
 @function getAboutTeamSizes($property) {
