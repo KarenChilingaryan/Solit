@@ -2,48 +2,51 @@
 @import "../../base/mixins";
 
 @mixin generate-add-specialist-styles {
-    .mainWrapper {
-        @include flex(center, center, row, null);
-        width: getAddSpecialistSizes(main-wrapper-width);
-        width: max-content;
-        height: getAddSpecialistSizes(main-wrapper-height);
-        border-radius: 16px;
-        background-color: variables.$checbox-bg;
-        padding: getAddSpecialistSizes(main-wrapper-padding);
-        gap: getAddSpecialistSizes(main-wrapper-gap);
-    }
+  .mainWrapper {
+    @include flex(center, center, row, null);
+    width: getAddSpecialistSizes(main-wrapper-width);
+    width: max-content;
+    height: getAddSpecialistSizes(main-wrapper-height);
+    border-radius: 16px;
+    background-color: variables.$checbox-bg;
+    padding: getAddSpecialistSizes(main-wrapper-padding);
+    gap: getAddSpecialistSizes(main-wrapper-gap);
+  }
 
-    .colContainer:hover {
-        border: 1px solid variables.$dark-turquoise;
-    }
+  .colContainer:hover {
+    border: 1px solid variables.$dark-turquoise;
+  }
 
-    .countSpecialist {
-        @include flex(null, center, null);
-        @include font-style(getAddSpecialistSizes(count-specialist-fz),
-            variables.$fw-500,
-            getAddSpecialistSizes(count-specialist-lh),
-            variables.$dodger-blue );
-        text-align: center;
-    }
+  .countSpecialist {
+    @include flex(null, center, null);
+    @include font-style(
+      getAddSpecialistSizes(count-specialist-fz),
+      variables.$fw-500,
+      getAddSpecialistSizes(count-specialist-lh),
+      variables.$dodger-blue
+    );
+    text-align: center;
+  }
 
-    .iconminus {
-        width: getAddSpecialistSizes(icon-minus-width);
-        height: getAddSpecialistSizes(icon-minus-height);
-        cursor: pointer;
-    }
+  .iconminus {
+    width: getAddSpecialistSizes(icon-minus-width);
+    height: getAddSpecialistSizes(icon-minus-height);
+    cursor: pointer;
+  }
 
-    .iconplus {
-        width: getAddSpecialistSizes(icnn-plus-width);
-        height: getAddSpecialistSizes(icon-plus-height);
-        cursor: pointer;
-    }
+  .iconplus {
+    width: getAddSpecialistSizes(icon-plus-width);
+    height: getAddSpecialistSizes(icon-plus-height);
+    cursor: pointer;
+  }
 
-    .nameSpecialist {
-        @include flex(null, center);
-        @include font-style(getAddSpecialistSizes(name-specialist-fz),
-            variables.$fw-500,
-            getAddSpecialistSizes(name-specialist-lh),
-        );
-        text-align: center;
-    }
+  .nameSpecialist {
+    @include flex(null, center);
+    @include font-style(
+      getAddSpecialistSizes(name-specialist-fz),
+      variables.$fw-500,
+      getAddSpecialistSizes(name-specialist-lh)
+    );
+    text-align: center;
+  }
 }
