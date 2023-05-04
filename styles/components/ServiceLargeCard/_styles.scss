@@ -48,7 +48,7 @@
         getServiceCardSizes(serviceCard-title-fz),
         variables.$fw-400,
         getServiceCardSizes(serviceCard-title-lh),
-        variables.$main-dark-blue
+        variables.$light-blue
       );
       border-bottom: 2px solid transparent;
       transition: 0.2s;
@@ -59,7 +59,7 @@
       width: getServiceCardSizes(serviceCard-desc-width);
       font-weight: 300 !important;
       margin-left: getServiceCardSizes(serviceCard-desc-ml);
-      color: variables.$main-dark-blue !important;
+      color: variables.$light-blue !important;
       margin-bottom: 10px !important;
       font-size: 22px;
       overflow: hidden;

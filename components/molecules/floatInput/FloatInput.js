@@ -11,7 +11,7 @@ const FloatInput = ({
   required,
   onChange,
   showUploadList,
-  rest,
+  suffix,  rest,
 }) => {
   const [focus, setFocus] = useState(false);
 
@@ -38,6 +38,7 @@ const FloatInput = ({
         type={type}
         defaultValue={value}
         showUploadList={showUploadList}
+        suffix={suffix}
         {...rest}
       />
       <label className={labelClass}>

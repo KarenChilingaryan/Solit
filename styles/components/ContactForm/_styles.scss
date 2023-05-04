@@ -1,8 +1,13 @@
 @use "../../base/variables";
 @import "../../base/mixins";
 
+//To do refactor
+
 @mixin generate-contactForm-styles {
   .contactFormWrapper {
+    display: flex;
+    gap: calcVW(96);
+
     :global {
       .ant-form {
         input[type="file"]:focus {
@@ -10,25 +15,36 @@
         }
       }
     }
-    .form {
+
+    .infoSection {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      max-width: 406px;
-      gap: 16px;
+      gap: calcVW(16);
+      max-width: 50%;
+
       .title {
         font-weight: 700;
         font-size: 20px;
         line-height: 24px;
         color: #ffffff;
       }
+
       .info {
         font-weight: 400;
-        font-size: 16px;
+        font-size: 18px;
         line-height: 24px;
         color: #ffffff;
       }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 406px;
+      gap: 16px;
+      width: calcVW(410);
+
       .buttonWrapper {
         button {
           @include font-style(
@@ -40,16 +56,96 @@
         }
       }
 
+      .suffix {
+        width: calcVW(17);
+        height: calcVW(19);
+      }
+
+      .accept {
+        :global(.ant-form-item-control-input-content) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: calcVW(18);
+        }
+
+        :global(.ant-checkbox-inner) {
+          background: transparent !important;
+          border-color: white !important;
+        }
+
+        :global(.ant-checkbox-checked) {
+          &::after {
+            border-color: white !important;
+          }
+        }
+
+        .acceptText {
+          @include font-style(
+            getContactFormSizes(text-fz),
+            variables.$fw-400,
+            getContactFormSizes(text-fl)
+          );
+        }
+      }
+
+      .uploadFile {
+        color: #e5e5e5;
+      }
+
+      :global(.ant-input-affix-wrapper) {
+        z-index: 0;
+        background: transparent;
+        border-bottom: 1px solid white;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 0;
+
+        input[type="file"]::-webkit-file-upload-button {
+          visibility: hidden;
+          display: none;
+        }
+
+        input[type="file"]::before {
+          content: " ";
+          display: inline-block;
+          background-size: cover;
+          width: 100%;
+          height: 100%;
+          padding: 10px 0;
+          text-align: center;
+          cursor: pointer;
+        }
+
+        input[type="file"] {
+          z-index: 999;
+        }
+      }
+
+      :global(.ant-input-affix-wrapper-focused) {
+        box-shadow: none;
+        border-bottom: 1px solid white;
+      }
+
+      :global(.ant-input-suffix) {
+        position: absolute;
+        right: 0;
+        color: white;
+        bottom: 7px;
+      }
+
       .inputSection {
         display: flex;
         flex-direction: column;
-        max-width: 500px;
         gap: 16px;
         width: 100%;
       }
+
       .filled {
         background-color: aquamarine;
       }
+
       .focused {
         background-color: aqua;
         :global(.ant-form-item-label) {
@@ -57,6 +153,7 @@
           // font-size: 0.75em;
         }
       }
+
       :global(.ant-input) {
         position: relative;
         padding: 12px 0px 5px 0;
@@ -72,6 +169,7 @@
           box-shadow: 0 2px 0 0 blue;
         }
       }
+
       :global(.ant-form-item-label) {
         position: absolute;
         left: 0;
@@ -81,10 +179,12 @@
         z-index: 10;
         transition: transform 150ms ease-out, font-size 150ms ease-out;
       }
+
       .input {
         background: transparent;
         color: #ffffff;
       }
+
       :global {
         .ant-input-status-error:not(.ant-input-disabled):not(
             .ant-input-borderless
@@ -111,6 +211,7 @@
           font-size: 16px;
           color: #ffffff;
         }
+
         .ant-input:focus + .ant-form-item-label > label {
           color: blue;
         }
