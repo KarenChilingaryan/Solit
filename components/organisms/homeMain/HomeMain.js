@@ -16,9 +16,11 @@ const HomeMain = ({ data, ellipsis = false }) => {
         firstSubtitle={firstSubtitle}
         ellipsis
       />
-      <Col className={styles.buttonWrapper}>
-        <Button text={buttonText} boldBlue />
-      </Col>
+      {buttonText && (
+        <Col className={styles.buttonWrapper}>
+          <Button text={buttonText} transparentOpposite />
+        </Col>
+      )}
     </Col>
   );
 };

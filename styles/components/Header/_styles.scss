@@ -38,7 +38,7 @@
             variables.$main-white
           );
           &:hover {
-            color: variables.$main-dark-blue;
+            color: variables.$light-blue;
             transition: 0.4s;
           }
         }
@@ -59,7 +59,7 @@
                 getHeaderSizes(header-menu-item-child-fz),
                 variables.$fw-400,
                 getHeaderSizes(header-menu-item-child-lh),
-                variables.$main-dark-blue
+                variables.$light-blue
               );
               &:hover {
                 border-bottom: 1px solid #00ff96;

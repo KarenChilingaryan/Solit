@@ -1,0 +1,10 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$jobsTable-sizes: (
+
+);
+
+@function getJobsTableSizes($property) {
+  @return map-get($jobsTable-sizes, $property);
+}

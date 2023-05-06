@@ -11,8 +11,12 @@ $blogs-sizes: (
   blog-row-gap: calcVW(100),
   blog-buttons-column-gap: calcVW(140),
   blogs-button-wrapper-mt: calcVW(80) 0 calcVW(100) 0,
+
+  content-mt: calcVW(478),
+  content-width: calcVW(1280),
 );
 
 @function getBlogsSizes($property) {
   @return map-get($blogs-sizes, $property);
 }
+//TO do refactor

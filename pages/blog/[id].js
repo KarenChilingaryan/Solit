@@ -9,25 +9,10 @@ import { useBlogItemQuery } from "../../services/blogItemApi";
 
 import styles from "./portfolioItem.module.scss";
 import { useSelector } from "react-redux";
+import BlogItem from "../../components/organisms/blogItem/BlogItem";
 
-const BlogItem = () => {
-  const { id } = useRouter().query
-  const shortPresentationBlog = useSelector(
-    (state) => state?.shortPresentationBlogApi?.queries?.["shortPresentationBlog(undefined)"]?.data
-  );
-
-  const blogItem = useSelector(
-    (state) =>
-      state?.blogItemApi?.queries?.[`blogItem("${id}")`]?.data
-  );
-
-  return (
-    <Col className={styles.blogItemWrapper}>
-      <Title title={blogItem?.headline} whiteTitle />
-      <PortfolioMain data={blogItem} />
-      <BottomCarousel data={shortPresentationBlog}/>
-    </Col>
-  );
+const BlogItemPage = () => {
+  return <BlogItem />;
 };
 
-export default memo(BlogItem);
+export default memo(BlogItemPage);

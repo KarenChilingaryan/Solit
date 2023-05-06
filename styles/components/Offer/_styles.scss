@@ -3,7 +3,7 @@
 
 @mixin generate-offer-styles {
   .offerMainWrapper {
-    background-color: variables.$main-dark-blue;
+    background-color: variables.$light-blue;
     padding: getOfferSizes(offer-wrapper-padding);
     .titleWrapper {
       padding-bottom: getOfferSizes(offer-title-pb);

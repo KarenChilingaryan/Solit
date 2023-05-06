@@ -19,7 +19,7 @@
           getOurTeamSizes(ourTeamCard-title-fz),
           variables.$fw-400,
           getOurTeamSizes(ourTeamCard-title-lh),
-          variables.$main-dark-blue
+          variables.$light-blue
         );
         margin-bottom: calcVW(20) !important;
       }
@@ -29,7 +29,7 @@
           getOurTeamSizes(ourTeamCard-description-fz),
           variables.$fw-300,
           getOurTeamSizes(ourTeamCard-description-lh),
-          variables.$main-dark-blue
+          variables.$light-blue
         );
 
         color: #105475;
@@ -58,7 +58,7 @@
             calcVW(35),
             variables.$fw-300,
             calcVW(45),
-            variables.$main-dark-blue
+            variables.$light-blue
           );
         }
         margin-bottom: calcVW(40);

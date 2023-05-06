@@ -20,7 +20,7 @@
           getAboutMainItemSizes(title-fz),
           variables.$fw-400,
           getAboutMainItemSizes(title-lh),
-          variables.$main-dark-blue
+          variables.$light-blue
         );
       }
     }
@@ -30,7 +30,7 @@
         getAboutMainItemSizes(desc-fz),
         variables.$fw-400,
         getAboutMainItemSizes(desc-lh),
-        variables.$main-dark-blue-80
+        variables.$light-blue-80
       );
     }
     @media (max-width: 768px) {
@@ -41,7 +41,7 @@
           getAboutMainItemSizes(title-tablet-fz) !important,
           variables.$fw-400,
           getAboutMainItemSizes(title-lh),
-          variables.$main-dark-blue
+          variables.$light-blue
         );
       }
       .desc {
@@ -49,7 +49,7 @@
           getAboutMainItemSizes(desc-tablet-fz),
           variables.$fw-400,
           unset,
-          variables.$main-dark-blue-80
+          variables.$light-blue-80
         );
       }
       .square {

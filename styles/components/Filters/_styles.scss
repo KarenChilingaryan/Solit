@@ -3,14 +3,20 @@
 
 @mixin generate-filters-styles {
   .filtersMainWrapper {
-    background-color: variables.$main-dark-blue;
+    background-color: variables.$light-blue;
+
     .filtersWrapper {
       border-top: 2px solid variables.$main-green;
       border-bottom: 2px solid variables.$main-green;
       align-items: center;
       padding: getFiltersSizes(filters-padding);
       .filterText {
-        @include font-style(getFiltersSizes(filters-fz), variables.$fw-400, getFiltersSizes(filters-lh), #fff);
+        @include font-style(
+          getFiltersSizes(filters-fz),
+          variables.$fw-400,
+          getFiltersSizes(filters-lh),
+          #fff
+        );
       }
     }
   }
@@ -90,13 +96,18 @@
             getFiltersSizes(title-fz),
             variables.$fw-400,
             getFiltersSizes(title-lh),
-            variables.$main-dark-blue
+            variables.$light-blue
           );
         }
 
         .subTitle {
           width: getFiltersSizes(subtitle-width);
-          @include font-style(getFiltersSizes(subtitle-fz), variables.$fw-400, getFiltersSizes(subtitle-lh), #6e90a0);
+          @include font-style(
+            getFiltersSizes(subtitle-fz),
+            variables.$fw-400,
+            getFiltersSizes(subtitle-lh),
+            #6e90a0
+          );
         }
       }
 
@@ -105,69 +116,59 @@
           getFiltersSizes(desc-fz),
           variables.$fw-400,
           getFiltersSizes(desc-lh),
-          variables.$main-dark-blue-80
+          variables.$light-blue-80
         );
       }
     }
     @media (max-width: 768px) {
       flex: 0 0 40%;
       max-width: 40%;
+
       .coverImg {
         height: calcVW(500);
       }
+
       .wrapper {
         padding: calcVW(30);
+
         .prjImg {
           width: calcVW(200);
           height: calcVW(200);
         }
+
         .textWrapper {
           .title {
-            @include font-style(calcVW(70), variables.$fw-400, calcVW(80), variables.$main-dark-blue);
-            font-size: calcVW(60);
+            @include font-style(
+              getFiltersSizes(text-tablet-title-fs),
+              variables.$fw-400,
+              getFiltersSizes(text-tablet-title-lh),
+              variables.$light-blue
+            );
+            font-size: getFiltersSizes(text-tablet-title-fz);
           }
+
           .subTitle {
             height: calcVW(120);
-            @include font-style(calcVW(32), variables.$fw-400, calcVW(38), #6e90a0);
-            font-size: calcVW(40);
             width: calcVW(400);
+            @include font-style(
+              calcVW(32),
+              variables.$fw-400,
+              calcVW(38),
+              #6e90a0
+            );
           }
         }
+
         .desc {
-          @include font-style(calcVW(45), variables.$fw-400, calcVW(50), variables.$main-dark-blue-80);
-          margin: calcVW(30) 0 calcVW(60) 0;
-          font-size: calcVW(40);
-          line-height: calcVW(45);
-        }
-      }
-    }
-    @media (max-width: 576px) {
-      flex: 0 0 60%;
-      max-width: 60%;
-      .coverImg {
-        height: calcVW(1000);
-      }
-      .wrapper {
-        padding: calcVW(80);
-        .textWrapper {
-          padding: calcVW(20);
-          .title {
-            font-size: calcVW(100);
-          }
-          .subTitle {
-            font-size: calcVW(60);
-            width: calcVW(500);
-            line-height: calcVW(60);
-          }
-        }
-        .desc {
-          font-size: calcVW(60);
-          line-height: calcVW(60);
-          margin: calcVW(40) 0 calcVW(100) 0;
-        }
-        .prjImg {
-          width: calcVW(300);
-          height: calcVW(300);
+          margin: getFiltersSizes(tablet-desc-margin);
+          font-size: getFiltersSizes(tablet-desc-fz);
+          line-height: getFiltersSizes(tablet-desc-lh);
+          @include font-style(
+            getFiltersSizes(tablet-desc-fs),
+            variables.$fw-400,
+            getFiltersSizes(tablet-desc-lh),
+            variables.$light-blue-80
+          );
         }
       }
     }

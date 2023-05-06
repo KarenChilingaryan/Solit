@@ -1,10 +1,10 @@
-import { memo } from "react";
+import { memo, useState } from "react";
+import Image from "next/image";
 import { Paragraph } from "../../atoms";
 import Button from "../../molecules/button/Button";
 import languageIcon from "../../../assets/img/php_color.svg";
 
 import styles from "./Technology.module.scss";
-import Image from "next/image";
 
 const buttonsName = [
   "Back-End",
@@ -19,6 +19,7 @@ const languages = [
   9, 1, 2, 3, 4, 5, 6, 7, 8, 9,
 ];
 const Technology = () => {
+  const [current, setCurrent] = useState(0);
   return (
     <div className={styles.container}>
       <Paragraph className={styles.title}>Technology</Paragraph>
@@ -30,7 +31,12 @@ const Technology = () => {
       </Paragraph>
       <div className={styles.buttons}>
         {buttonsName.map((name, i) => (
-          <Button text={name} transparent key={i} />
+          <Button
+            text={name}
+            lightBlue={i === current}
+            transparentOpposite={i !== current}
+            key={i}
+          />
         ))}
       </div>
       <div className={styles.languages}>

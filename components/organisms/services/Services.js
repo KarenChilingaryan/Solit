@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useRouter } from "next/router";
-import { Col, Row } from "../../atoms";
+import { Checkbox, Col, Row } from "../../atoms";
 import bgImage from "../../../assets/img/main-bg.png";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { HomeMain } from "../homeMain";
