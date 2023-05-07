@@ -8,13 +8,13 @@
     width: max-content;
     height: getAddSpecialistSizes(main-wrapper-height);
     border-radius: 16px;
-    background-color: variables.$checbox-bg;
+    background-color: variables.$transparent-black;
     padding: getAddSpecialistSizes(main-wrapper-padding);
     gap: getAddSpecialistSizes(main-wrapper-gap);
   }
 
   .colContainer:hover {
-    border: 1px solid variables.$dark-turquoise;
+    border: 1px solid variables.$dodger-blue;
   }
 
   .countSpecialist {
@@ -23,7 +23,7 @@
       getAddSpecialistSizes(count-specialist-fz),
       variables.$fw-500,
       getAddSpecialistSizes(count-specialist-lh),
-      variables.$dodger-blue
+      variables.$dark-turquoise
     );
     text-align: center;
   }
