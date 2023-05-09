@@ -7,14 +7,14 @@
     margin: getWhatWeDoPageSizes(content-mt) auto 0 auto;
 
     .ourServices {
-      margin-top: calcVW(98);
+      margin-top: getWhatWeDoPageSizes(what-our-services-margin-top);
       @include flex(space-between, center, null, wrap);
-      row-gap: calcVW(64);
-      column-gap: calcVW(32);
+      row-gap:  getWhatWeDoPageSizes(what-our-services-row-gap);
+      column-gap: getWhatWeDoPageSizes(what-our-services-column-gap);
     }
     
     .weKnowSection {
-      margin: calcVW(384) auto calcVW(320);
+      margin:getWhatWeDoPageSizes(what-we-know-section-margin);
     }
   }
 }

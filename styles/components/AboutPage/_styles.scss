@@ -5,15 +5,16 @@
   .content {
     width: getAboutPageSizes(content-width);
     margin: getAboutPageSizes(content-mt) auto 0 auto;
+
     .servicesMain {
       width: 100%;
       margin-top: getAboutPageSizes(services-mt);
+
       .services {
         @include flex(space-between, center, null, wrap);
         width: 100%;
         row-gap: getAboutPageSizes(services-rg);
       }
-
       .borderedTextBottom {
         margin-bottom: getAboutPageSizes(bordered-text-mb);
       }
@@ -44,9 +45,7 @@
       @include font-style(
         getAboutPageSizes(description-fz),
         variables.$fw-400,
-        getAboutPageSizes(description-fl),
-        #fff
-      );
+        getAboutPageSizes(description-fl));
     }
     .aboutImage {
       width: 100%;
@@ -65,10 +64,8 @@
       @include flex(space-between, center, row, wrap);
       margin: getAboutPageSizes(about-company-m);
     }
-    
-    .aboutCompanyTitle {
-      display: flex;
-      align-items: center;
+      .aboutCompanyTitle {
+        @include flex(null,center);
       @include font-style(
         calcVW(36) variables.$fw-500,
         calcVW(44),

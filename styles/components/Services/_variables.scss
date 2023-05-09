@@ -12,7 +12,11 @@ $services-sizes: (
   service-text-tablet-mt: calcVW(150),
   button-text-fz: calcVW(42),
   button-height: calcVW(120),
-  services-rg: calcVW(96)
+  services-margin-top: calcVW(124),
+  service-card-width: calcVW(560),
+  service-card-height: calcVW(600),
+  content-we-know-section-margin: calcVW(420) auto calcVW(320),
+  services-rg: calcVW(96),
 );
 
 @function getServicesSizes($property) {

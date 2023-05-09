@@ -16,7 +16,7 @@ const AboutMain = () => {
   );
   return (
     <div className={styles.aboutPage}>
-      <Col className={styles.titleWrapperSmall}>
+      <Col className={styles.titleWrapperSmall}> 
         <Title title={"About us"} />
       </Col>
       <Col className={styles.aboutMainWrapper}>

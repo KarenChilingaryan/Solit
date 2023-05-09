@@ -8,12 +8,11 @@ $about-company-sizes: (
   info-lh: calcVW(65),
   info-cg: calcVW(10),
   main-rg: calcVW(28),
-  card-width: calcVW(405),
-  card-height: calcVW(192),
-  card-p: calcVW(40) calcVW(32) calcVW(31),
-  card-image-height: calcVW(45),
+  image-height: calcVW(45),
+  title-fz: calcVW(36),
+  title-lh: calcVW(44),
 );
 
-@function getAboutCompanySizes($property) {
+@function getCompanyOfExpertsSizes($property) {
   @return map-get($about-company-sizes, $property);
 }

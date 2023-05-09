@@ -6,6 +6,9 @@ $contact-form-colored-titles-sizes: (
   text-pt: calcVW(80),
   title-fz: calcVW(50),
   title-lh: calcVW(59),
+  text-fs: calcVW(110),
+  text-lh: calcVW(180),
+  text-width: calcVW(1200),
 );
 
 @function getContactFormColoredTitlesSizes($property) {

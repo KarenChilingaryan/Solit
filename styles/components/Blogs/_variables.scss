@@ -2,16 +2,14 @@
 @import "../../base/variables";
 
 $blogs-sizes: (
+  blogs-row-gap: calcVW(100),
+  blogs-column-gap: calcVW(100),
+  blogs-top-wrapper-padding: calcVW(80) calcVW(230),
+  blogs-text-mt: calcVW(350),
   blogs-wrapper-padding: calcVW(39) calcVW(0) calcVW(50) calcVW(0),
   blogs-wrapper-pb: calcVW(75),
-  blog-button-wrapper-mt: calcVW(55),
-  blog-top-wrapper-padding: calcVW(80) calcVW(230),
-  blog-text-mt: calcVW(350),
-  blog-column-gap: calcVW(100),
-  blog-row-gap: calcVW(100),
-  blog-buttons-column-gap: calcVW(140),
+  blogs-buttons-column-gap: calcVW(140),
   blogs-button-wrapper-mt: calcVW(80) 0 calcVW(100) 0,
-
   content-mt: calcVW(478),
   content-width: calcVW(1280),
 );

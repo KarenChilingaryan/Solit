@@ -12,7 +12,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: getAboutItemSizes(about-item-p);
+      gap: getAboutItemSizes(about-item-gap);
       padding: getAboutItemSizes(about-item-p);
       background: rgba(0, 0, 0, 0.5);
       width: 100%;
@@ -45,8 +45,8 @@
     .weDoContent {
       justify-content: space-between;
       align-items: center;
-      gap: calcVW(16);
-      padding: calcVW(66) calcVW(32) calcVW(64);
+      gap: getAboutItemSizes(about-we-do-gap);
+      padding:  getAboutItemSizes(about-we-do-p);
 
       .desc {
         text-align: center;
