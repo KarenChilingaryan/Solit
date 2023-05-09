@@ -1,0 +1,39 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-industry-styles {
+  .industryCol {
+    width: getIndustrySizes(industry-col-width);
+    height: getIndustrySizes(industry-col-height);
+  }
+  .industryMain {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: getIndustrySizes(industry-main-padding);
+    gap: getIndustrySizes(industry-main-gap);
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.32);
+  }
+  .industryMain:hover {
+    border: 1px solid #3fc1ff;
+  }
+  .checkbox {
+    display: flex;
+  }
+  .NameText {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: getIndustrySizes(name-text-width);
+    height: getIndustrySizes(name-text-height);
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #ffffff;
+  }
+}
+
+//to do refactor

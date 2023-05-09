@@ -1,0 +1,51 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-add-specialist-styles {
+  .mainWrapper {
+    @include flex(center, center, row, null);
+    width: max-content;
+    border-radius: 16px;
+    background-color: variables.$transparent-black;
+    padding: getAddSpecialistSizes(main-wrapper-padding);
+    gap: getAddSpecialistSizes(main-wrapper-gap);
+  }
+
+  .mainWrapper:hover {
+    border: 1px solid variables.$dodger-blue;
+  }
+
+  .countSpecialist {
+    @include flex(null, center);
+    @include font-style(
+      getAddSpecialistSizes(count-specialist-fz),
+      variables.$fw-500,
+      getAddSpecialistSizes(count-specialist-lh),
+      variables.$dark-turquoise
+    );
+    text-align: center;
+  }
+
+  .iconminus {
+    width: getAddSpecialistSizes(icon-minus-width);
+    height: getAddSpecialistSizes(icon-minus-height);
+    cursor: pointer;
+  }
+
+  .iconplus {
+    width: getAddSpecialistSizes(icon-plus-width);
+    height: getAddSpecialistSizes(icon-plus-height);
+    cursor: pointer;
+  }
+
+  .nameSpecialist {
+    @include flex(null, center);
+    @include font-style(
+      getAddSpecialistSizes(name-specialist-fz),
+      variables.$fw-500,
+      getAddSpecialistSizes(name-specialist-lh)
+    );
+    text-align: center;
+  }
+}
+

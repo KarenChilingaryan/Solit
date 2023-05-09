@@ -1,0 +1,17 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$add-specialist-sizes: (
+  main-wrapper-padding: calcVW(16),
+  main-wrapper-gap: calcVW(16),
+  count-specialist-fz: calcVW(14),
+  name-specialist-fz: calcVW(14),
+  name-specialist-lh: calcVW(24),
+  icon-minus-width: calcVW(16),
+  icon-plus-width: calcVW(16),
+  icon-plus-height: calcVW(16),
+);
+
+@function getAddSpecialistSizes($property) {
+  @return map-get($add-specialist-sizes, $property);
+}
