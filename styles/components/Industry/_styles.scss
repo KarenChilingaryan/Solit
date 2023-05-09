@@ -2,34 +2,35 @@
 @import "../../base/mixins";
 
 @mixin generate-industry-styles {
-  .industryCol {
-    width: getIndustrySizes(industry-col-width);
-    height: getIndustrySizes(industry-col-height);
-  }
-  .industryMain {
+  .mainWrapper {
     @include flex(null, center, row);
-    padding: getIndustrySizes(industry-main-padding);
-    gap: getIndustrySizes(industry-main-gap);
+    width: getIndustrySizes(main-wrapper-width);
+    height: getIndustrySizes(main-wrapper-height);
+    padding: getIndustrySizes(main-wrapper-padding);
+    gap: getIndustrySizes(main-wrapper-gap);
     border-radius: 16px;
-    background: variables.$checbox-bg;
+    background: variables.$transparent-black;
+    cursor: pointer;
   }
-  .industryMain:hover {
-    border: 1px solid variables.$dark-turquoise;
+
+  .mainWrapper:hover {
+    border: 1px solid variables.$dodger-blue;
   }
+
   .checkbox {
     :global(.ant-checkbox-input) {
       &:focus {
-        border: #ffffff !important;
+        border: $main-white !important;
         .ant-checkbox-inner {
-          border-color: #ffffff !important;
+          border-color: $main-white !important;
         }
       }
     }
     :global(.ant-checkbox-inner) {
       background-color: transparent;
-      border: 1px solid white;
-      border-color: white !important;
-      border-radius: 4px;
+      border: 1px solid $main-white;
+      border-color: $main-white !important;
+      border-radius: 5px;
       &:active {
         border-color: transparent !important;
         background-color: transparent !important;
@@ -44,21 +45,32 @@
       border: none !important;
     }
     :global(.ant-checkbox-checked .ant-checkbox-inner) {
-      background-color: #00000052;
-      border-color: #00000052;
+      background-color: $transparent-black;
+      border-color: $transparent-black;
     }
   }
-  .NameText {
-    @include flex(null,center);
+
+  .nameSpecialist {
+    @include flex(null, center);
     text-align: center;
-    width: getIndustrySizes(name-text-width);
-    height: getIndustrySizes(name-text-height);
     cursor: pointer;
     @include font-style(
-      getIndustrySizes(name-text-fz),
+      getIndustrySizes(name-specialist-fz),
       variables.$fw-500,
-      getIndustrySizes(name-text-lh),
-      #ffffff
+      getIndustrySizes(name-specialist-lh)
     );
+  }
+
+  .moreWrapper {
+    @include flex(center, row, null);
+    width: max-content;
+    border-radius: 16px;
+    background-color: variables.$transparent-black;
+    padding: getIndustrySizes(more-wrapper-padding);
+    gap: getIndustrySizes(more-wrapper-gap);
+    cursor: pointer;
+  }
+  .moreWrapper:hover {
+    border: 1px solid variables.$dodger-blue;
   }
 }
