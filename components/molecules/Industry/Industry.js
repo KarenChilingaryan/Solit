@@ -1,16 +1,25 @@
 import { memo } from "react";
-import { Row, Col, Checkbox } from "../../atoms";
-
+import { Col } from "../../atoms";
+import { Checkbox } from "../../atoms";
 import styles from "./Industry.module.scss";
+import { useState } from "react";
 
-const Industry = () => {
+const Industry = ({ name, more, width, height, blogs = false }) => {
+  const [isChecked, setIsChecked] = useState(false);
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
-    <Col className={styles.industryCol}>
-      <div className={styles.industryMain}>
-        <Checkbox className={styles.checkbox} />
-        <span className={styles.NameText}>Logistic</span>
-      </div>
+    <Col
+      className={`${styles.mainWrapper} ${blogs && styles.moreWrapper}`}
+      onClick={handleCheckboxChange}
+    >
+      <Checkbox className={styles.checkbox} checked={isChecked} />
+      <span className={styles.nameSpecialist}>Logistic</span>
     </Col>
   );
 };
+
 export default memo(Industry);
+

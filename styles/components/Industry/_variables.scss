@@ -2,12 +2,14 @@
 @import "../../base/variables";
 
 $industry-sizes: (
-  industry-col-width: calcVW(302),
-  industry-col-height: calcVW(56),
-  industry-main-padding: calcVW(16),
-  industry-main-gap: calcVW(16),
-  name-text-width: calcVW(88),
-  name-text-height: calcVW(24),
+  main-wrapper-width: calcVW(302),
+  main-wrapper-height: calcVW(56),
+  main-wrapper-padding: calcVW(16),
+  main-wrapper-gap: calcVW(16),
+  name-specialist-fz: calcVW(14),
+  name-specialist-lh: calcVW(24),
+  more-wrapper-padding: calcVW(16),
+  more-wrapper-gap: calcVW(16),
 );
 
 @function getIndustrySizes($property) {

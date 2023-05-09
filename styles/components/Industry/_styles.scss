@@ -2,38 +2,75 @@
 @import "../../base/mixins";
 
 @mixin generate-industry-styles {
-  .industryCol {
-    width: getIndustrySizes(industry-col-width);
-    height: getIndustrySizes(industry-col-height);
-  }
-  .industryMain {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: getIndustrySizes(industry-main-padding);
-    gap: getIndustrySizes(industry-main-gap);
+  .mainWrapper {
+    @include flex(null, center, row);
+    width: getIndustrySizes(main-wrapper-width);
+    height: getIndustrySizes(main-wrapper-height);
+    padding: getIndustrySizes(main-wrapper-padding);
+    gap: getIndustrySizes(main-wrapper-gap);
     border-radius: 16px;
-    background: rgba(0, 0, 0, 0.32);
-  }
-  .industryMain:hover {
-    border: 1px solid #3fc1ff;
-  }
-  .checkbox {
-    display: flex;
-  }
-  .NameText {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    width: getIndustrySizes(name-text-width);
-    height: getIndustrySizes(name-text-height);
+    background: variables.$transparent-black;
     cursor: pointer;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    color: #ffffff;
+  }
+
+  .mainWrapper:hover {
+    border: 1px solid variables.$dodger-blue;
+  }
+
+  .checkbox {
+    :global(.ant-checkbox-input) {
+      &:focus {
+        border: $main-white !important;
+        .ant-checkbox-inner {
+          border-color: $main-white !important;
+        }
+      }
+    }
+    :global(.ant-checkbox-inner) {
+      background-color: transparent;
+      border: 1px solid $main-white;
+      border-color: $main-white !important;
+      border-radius: 5px;
+      &:active {
+        border-color: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+      }
+    }
+    :global(.ant-checkbox-checked .ant-checkbox-inner) {
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+    :global(.ant-checkbox-checked::after) {
+      border: none !important;
+    }
+    :global(.ant-checkbox-checked .ant-checkbox-inner) {
+      background-color: $transparent-black;
+      border-color: $transparent-black;
+    }
+  }
+
+  .nameSpecialist {
+    @include flex(null, center);
+    text-align: center;
+    cursor: pointer;
+    @include font-style(
+      getIndustrySizes(name-specialist-fz),
+      variables.$fw-500,
+      getIndustrySizes(name-specialist-lh)
+    );
+  }
+
+  .moreWrapper {
+    @include flex(center, row, null);
+    width: max-content;
+    border-radius: 16px;
+    background-color: variables.$transparent-black;
+    padding: getIndustrySizes(more-wrapper-padding);
+    gap: getIndustrySizes(more-wrapper-gap);
+    cursor: pointer;
+  }
+  .moreWrapper:hover {
+    border: 1px solid variables.$dodger-blue;
   }
 }
-
-//to do refactor
