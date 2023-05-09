@@ -4,21 +4,19 @@
 @mixin generate-add-specialist-styles {
   .mainWrapper {
     @include flex(center, center, row, null);
-    width: getAddSpecialistSizes(main-wrapper-width);
     width: max-content;
-    height: getAddSpecialistSizes(main-wrapper-height);
     border-radius: 16px;
     background-color: variables.$transparent-black;
     padding: getAddSpecialistSizes(main-wrapper-padding);
     gap: getAddSpecialistSizes(main-wrapper-gap);
   }
 
-  .colContainer:hover {
+  .mainWrapper:hover {
     border: 1px solid variables.$dodger-blue;
   }
 
   .countSpecialist {
-    @include flex(null, center, null);
+    @include flex(null, center);
     @include font-style(
       getAddSpecialistSizes(count-specialist-fz),
       variables.$fw-500,
@@ -50,3 +48,4 @@
     text-align: center;
   }
 }
+

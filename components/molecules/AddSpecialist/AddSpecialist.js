@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Col } from "../../atoms";
 import minusIcon from "../../../assets/img/icons/minus.svg";
 import plusIcon from "../../../assets/img/icons/plus.svg";
-
 import styles from "./AddSpecialist.module.scss";
 
 const AddSpecialist = () => {

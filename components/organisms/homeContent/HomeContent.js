@@ -27,7 +27,6 @@ import MapUser from "../../molecules/mapUser/MapUser";
 import { Technology } from "../Technology";
 import { Process } from "../Process";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-
 import styles from "./HomeContent.module.scss";
 import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";

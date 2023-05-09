@@ -2,8 +2,6 @@
 @import "../../base/variables";
 
 $add-specialist-sizes: (
-  main-wrapper-width: calcVW(245),
-  main-wrapper-height: calcVW(56),
   main-wrapper-padding: calcVW(16),
   main-wrapper-gap: calcVW(16),
   count-specialist-fz: calcVW(14),
@@ -17,4 +15,3 @@ $add-specialist-sizes: (
 @function getAddSpecialistSizes($property) {
   @return map-get($add-specialist-sizes, $property);
 }
-
