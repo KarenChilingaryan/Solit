@@ -146,17 +146,6 @@
             );
             font-size: getFiltersSizes(text-tablet-title-fz);
           }
-
-          .subTitle {
-            height: calcVW(120);
-            width: calcVW(400);
-            @include font-style(
-              calcVW(32),
-              variables.$fw-400,
-              calcVW(38),
-              #6e90a0
-            );
-          }
         }
 
         .desc {
