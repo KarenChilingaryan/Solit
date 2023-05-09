@@ -156,19 +156,7 @@
             );
             font-size: getFiltersSizes(text-tablet-title-fz);
           }
-
-          .subTitle {
-            height: getFiltersSizes(tablet-sub-title-height);
-            @include font-style(
-              getFiltersSizes(tablet-sub-title-fs),
-              variables.$fw-400,
-              getFiltersSizes(tablet-sub-title-lh),
-              #6e90a0
-            );
-            width: getFiltersSizes(tablet-sub-title-width);
-          }
         }
-
         .desc {
           margin: getFiltersSizes(tablet-desc-margin);
           font-size: getFiltersSizes(tablet-desc-fz);
