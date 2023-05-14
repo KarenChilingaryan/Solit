@@ -2,9 +2,9 @@ import Image from "next/image";
 import { memo } from "react";
 import { Col, Paragraph } from "../../atoms";
 import styles from "./AboutCompany.module.scss";
-const AboutCompany = ({ number, title, image, status }) => {
+const AboutCompany = ({ number, title, image, status, withOutBG }) => {
   return (
-    <Col className={styles.card}>
+    <Col className={`${styles.card} ${withOutBG ? styles.withOutBG : ''}`}>
       <Col className={styles.mainWrapper}>
         <Image src={image} className={styles.image} />
         <Col className={styles.info}>

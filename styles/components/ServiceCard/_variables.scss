@@ -16,6 +16,7 @@ $serviceCard-sizes: (
   serviceCard-desc-ml: calcVW(-15),
   serviceCard-desc-p: calcVW(32),
   serviceCard-title-hover-fz: calcVW(35),
+  serviceCard-card-height:  calcVW(600),
 );
 
 @function getServiceCardSizes($property) {

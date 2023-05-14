@@ -13,12 +13,7 @@
     padding: getButtonSizes(button-padding);
     width: getButtonSizes(button-width);
     height: getButtonSizes(button-height);
-    @include font-style(
-      getButtonSizes(button-text-fz),
-      variables.$fw-700,
-      getButtonSizes(button-text-fl),
-      #fff
-    );
+    @include font-style(getButtonSizes(button-text-fz), variables.$fw-700, getButtonSizes(button-text-fl), #fff);
 
     transition: 0.3s;
     cursor: pointer;
@@ -39,12 +34,7 @@
       font-size: getButtonSizes(button-tablet-fz);
       border-radius: 5px;
       &:hover {
-        @include font-style(
-          getButtonSizes(button-tablet-fs),
-          variables.$fw-500,
-          getButtonSizes(button-text-fl),
-          #fff
-        );
+        @include font-style(getButtonSizes(button-tablet-fs), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
       }
     }
   }
@@ -71,12 +61,7 @@
       height: calcVW(120);
       font-size: calcVW(45);
       &:hover {
-        @include font-style(
-          calcVW(58),
-          variables.$fw-500,
-          getButtonSizes(button-text-fl),
-          #fff
-        );
+        @include font-style(calcVW(58), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
       }
     }
   }
@@ -104,12 +89,7 @@
     }
     @media (max-width: 768px) {
       &:hover {
-        @include font-style(
-          calcVW(58),
-          variables.$fw-500,
-          getButtonSizes(button-text-fl),
-          #fff
-        );
+        @include font-style(calcVW(58), variables.$fw-500, getButtonSizes(button-text-fl), #fff);
       }
     }
   }
@@ -137,6 +117,40 @@
         #fff
       );
       transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      &:hover {
+        @include font-style(
+          getButtonSizes(button-light-blue-tablet-fs),
+          variables.$fw-500,
+          getButtonSizes(button-text-fl)
+        );
+      }
+    }
+  }
+
+  .grayTextBtn {
+    background: rgba(0, 0, 0, 0.32);
+    @include font-style(
+      getButtonSizes(button-text-light-blue-fz),
+      variables.$fw-700,
+      getButtonSizes(button-text-bold-blue-lh),
+      rgba(255, 255, 255, 0.32)
+    );
+    border-radius: getButtonSizes(button-bold-blue-br);
+    padding: getButtonSizes(button-bold-blue-padding);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    cursor: pointer;
+    height: unset;
+    &:hover {
+      background: variables.$light-blue;
+      @include font-style(
+        getButtonSizes(button-text-light-blue-fz),
+        variables.$fw-700,
+        getButtonSizes(button-text-bold-blue-lh),
+        variables.$black
+      );
     }
 
     @media (max-width: 768px) {
@@ -231,6 +245,35 @@
       transition: 0.3s;
     }
   }
+
+  .transparentBlue {
+    width: unset;
+    background: variables.$transparent;
+    @include font-style(
+      getButtonSizes(button-text-bold-blue-fz),
+      variables.$fw-500,
+      getButtonSizes(button-text-bold-blue-lh),
+      variables.$light-blue !important
+    );
+    border-radius: getButtonSizes(transparent-opposite-br);
+    padding: getButtonSizes(button-bold-blue-padding);
+    border: 1px solid variables.$light-blue;
+    height: unset;
+    cursor: pointer;
+
+    &:hover {
+      background: variables.$light-blue;
+      border: 1px solid variables.$light-blue;
+      @include font-style(
+        getButtonSizes(button-text-bold-blue-fz),
+        variables.$fw-500,
+        getButtonSizes(button-text-bold-blue-lh),
+        variables.$white !important
+      );
+      transition: 0.3s;
+    }
+  }
+
   @media (max-width: 768px) {
     .button {
       width: getButtonSizes(transparent-tablet-button-width);

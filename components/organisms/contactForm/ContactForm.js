@@ -126,7 +126,7 @@ const ContactForm = ({
         </Row>
 
         <Col className={styles.buttonWrapper}>
-          <Button text="Send message" transparentOpposite type="submit" />
+          <Button text="Send message" transparentBlue type="submit" />
         </Col>
       </Form>
     </Col>

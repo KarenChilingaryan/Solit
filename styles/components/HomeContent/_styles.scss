@@ -25,6 +25,10 @@
     .borderedText {
         margin-left: getHomeContentSizes(bordered-text-ml);
     }
+    .servicesMainButton {
+        @include flex(center, center);
+        margin-top: getHomeContentSizes(service-main-button-mt);
+    }
     .borderedTextTestimonials {
         margin-top: getHomeContentSizes(testimonials-mt) !important;
     }
@@ -33,7 +37,10 @@
         left: calcVW(-320);
         position: absolute;
         top: calcVW(80);
-        height: 120%;
+        height: 140%;
+    }
+    .backImageSecond {
+        height: 117%;
     }
     .topBackImage {
         top: calcVW(-300);
@@ -56,10 +63,29 @@
             @include flex(space-between, center, row, wrap);
             row-gap: getHomeContentSizes(project-content-rg);
             position: relative;
+            .title {
+                @include font-style(
+                    getHomeContentSizes(what-we-do-title-fz),
+                    variables.$fw-500,
+                    getHomeContentSizes(what-we-do-title-lh)
+                );
+                position: relative;
+                z-index: 1;
+            }
+            .description {
+                margin-top: getHomeContentSizes(what-we-do-description-mt);
+                @include font-style(
+                    getHomeContentSizes(what-we-do-description-fz),
+                    variables.$fw-400,
+                    getHomeContentSizes(what-we-do-description-lh)
+                );
+                position: relative;
+                z-index: 1;
+                margin-bottom: getHomeContentSizes(what-we-do-description-mb) !important;
+            }
         }
 
         .aboutCompanyContent {
-            width: getHomeContentSizes(about-company-width);
             @include flex(space-between, center, row, wrap);
             margin: getHomeContentSizes(about-company-m);
         }
@@ -82,6 +108,13 @@
             .worldMapUser {
                 width: getHomeContentSizes(world-map-user-w);
             }
+        }
+    }
+    .contactBlock {
+        position: relative;
+        padding-bottom: calcVW(380);
+        .backImage{
+            height: calcVW(1290);
         }
     }
 }

@@ -34,7 +34,7 @@ const Technology = () => {
           <Button
             text={name}
             lightBlue={i === current}
-            transparentOpposite={i !== current}
+            grayTextBtn={i !== current}
             key={i}
           />
         ))}
