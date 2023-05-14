@@ -1,0 +1,28 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-discuss-project-styles {
+  .content {
+    width: getDiscussProjectSizes(content-width);
+    margin: getDiscussProjectSizes(content-mt) auto 0 auto;
+    .discussProject {
+      margin-top: 160px;
+
+      .buttons {
+      }
+
+      .industryDetails {
+        display: flex;
+        flex-direction: column;
+        .industries {
+          display: flex;
+          flex-direction: column;
+
+          .title {
+            @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
+          }
+        }
+      }
+    }
+  }
+}

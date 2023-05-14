@@ -1,0 +1,12 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$discuss-project-sizes: (
+  content-mt: calcVW(478),
+  content-width: calcVW(1280),
+
+);
+
+@function getDiscussProjectSizes($property) {
+  @return map-get($discuss-project-sizes, $property);
+}
