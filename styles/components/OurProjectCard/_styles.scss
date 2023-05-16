@@ -4,9 +4,9 @@
 @mixin generate-our-project-styles {
   .mainWrapper {
     @include flex(center, center, center);
-
+    background-color: rgba(2, 13, 28, 0.73);
     .imageContainer {
-      transition: 0.1s;
+      transition: 0.3s;
       position: relative;
       overflow: hidden;
       border-radius: 16px;
@@ -14,8 +14,9 @@
       @include flex(center, center, column);
 
       .img {
-        transition: 0.1s;
+        transition: 0.3s;
         width: 100%;
+        border-radius: 16px 16px 0 0;
         height: calcVW(244);
         filter: grayscale(100%);
       }
@@ -33,7 +34,7 @@
       }
 
       .positionSection {
-        transition: 0.1s;
+        transition: 0.3s;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -52,31 +53,32 @@
         }
 
         .stacks {
-          display: none;
+          transition: 0.3s;
+          display: flex;
+          height: 0;
+          gap: calcVW(0);
+
+          .icon {
+            transition: 0.3s;
+            width: calcVW(22);
+            height: 0;
+          }
         }
       }
 
       &:hover {
-        transition: all 0.1s;
+        transition: all 0.3s;
 
-        .img {
-          transition: 0.2s;
-          height: calcVW(284);
-          filter: none;
-        }
-
-        .blogsPadding{
+        .blogsPadding {
           padding: calcVW(16) !important;
           align-items: flex-start;
         }
 
         .positionSection {
           transition: 0.3s;
-          background: #020d1cba;
-          height: unset;
           padding: calcVW(16) calcVW(37);
           gap: calcVW(16);
-
+          height: calcVW(96);
           .name {
             @include font-style(
               getOurProjectCardSizes(project-name-hover-fz),
@@ -86,7 +88,7 @@
             );
           }
 
-          .blogDescription{
+          .blogDescription {
             @include font-style(
               getOurProjectCardSizes(project-name-hover-fz),
               variables.$fw-500,
@@ -96,11 +98,13 @@
           }
 
           .stacks {
-            display: flex;
+            transition: 0.3s;
+            height: calcVW(15);
             justify-content: space-between;
             gap: calcVW(25);
 
             .icon {
+              transition: 0.3s;
               width: calcVW(22);
               height: calcVW(19);
             }

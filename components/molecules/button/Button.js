@@ -12,9 +12,10 @@ const Button = ({
   lightBlue,
   transparent,
   transparentOpposite,
+  grayTextBtn,
   icon,
+  transparentBlue
 }) => {
-  console.log();
   return (
     <button
       className={cx(styles.button, {
@@ -24,6 +25,8 @@ const Button = ({
         [styles.lightBlue]: lightBlue,
         [styles.transparent]: transparent,
         [styles.transparentOpposite]: transparentOpposite,
+        [styles.transparentBlue]: transparentBlue,
+        [styles.grayTextBtn]: grayTextBtn,
       })}
     >
       {text}

@@ -23,6 +23,13 @@ $home-content-sizes: (
   world-map-pb: calcVW(140),
   technology-mt: calcVW(100),
   technology-mb: calcVW(50),
+  service-main-button-mt: calcVW(64),
+  what-we-do-title-fz: calcVW(36),
+  what-we-do-title-lh: calcVW(44),
+  what-we-do-description-fz: calcVW(18),
+  what-we-do-description-lh: calcVW(24),
+  what-we-do-description-mt: calcVW(24),
+  what-we-do-description-mb: calcVW(60),
 );
 
 @function getHomeContentSizes($property) {

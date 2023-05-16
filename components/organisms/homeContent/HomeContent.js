@@ -10,6 +10,7 @@ import group from "../../../assets/img/Group.svg";
 import group1 from "../../../assets/img/Group-1.svg";
 import group2 from "../../../assets/img/Group-2.svg";
 import whatWeDoImage from "../../../assets/img/what-we-do_bg.png";
+import contactBgImage from "../../../assets/img/contact_bg.png";
 import ourProjectImage from "../../../assets/img/our-project_bg.png";
 import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
 import { ReversedAboutUs } from "../reversedAboutUs";
@@ -30,6 +31,8 @@ import { HomeMainWithImage } from "../HomeMainWithImage";
 import styles from "./HomeContent.module.scss";
 import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
+import Button from "../../molecules/button/Button";
+import { Col, Paragraph } from "../../atoms";
 const data = [
   {
     users: [
@@ -158,6 +161,9 @@ const HomeContent = () => {
               ))}
             </div>
           </div>
+          <Col className={styles.servicesMainButton}>
+            <Button text={"Discuss your project"} transparentOpposite />
+          </Col>
           <div
             className={`${styles.borderedText} ${styles.borderedTextMargin}`}
           >
@@ -187,6 +193,10 @@ const HomeContent = () => {
               src={whatWeDoImage}
               className={`${styles.backImage} ${styles.topBackImage}`}
             />
+            <Paragraph className={styles.title}>What we do?</Paragraph>
+            <Paragraph className={styles.description}>
+              Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.
+            </Paragraph>
             {services.map((project, i) => (
               <WeDoCard key={i} />
             ))}
@@ -206,7 +216,13 @@ const HomeContent = () => {
             >
               <BorderedText text="Our Projects" />
             </div>
-            <Image src={ourProjectImage} className={styles.backImage} />
+            <div>
+              <Paragraph className={styles.title}>Our project</Paragraph>
+              <Paragraph className={styles.description}>
+                Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.
+              </Paragraph>
+            </div>
+            <Image src={ourProjectImage} className={`${styles.backImageSecond} ${styles.backImage}`} />
             {dataProject.map((project, i) => (
               <OurProjectCard
                 key={i}
@@ -222,6 +238,7 @@ const HomeContent = () => {
           <div className={styles.aboutCompanyContent}>
             {aboutData.map((about, i) => (
               <AboutCompany
+                withOutBG={true}
                 key={i}
                 number={about.number}
                 title={about.title}
@@ -241,13 +258,19 @@ const HomeContent = () => {
               <MapUser />
             </div>
           </div>
-          <div
-            className={`${styles.borderedTextWhat} ${styles.borderedTextTestimonials}`}
-          >
-            <BorderedText text="Contacts" />
+          <div className={styles.contactBlock}>
+            <div
+              className={`${styles.borderedTextWhat} ${styles.borderedTextTestimonials}`}
+            >
+              <BorderedText text="Contacts" />
+            </div>
+            <ContactForm />
+            <Image
+              src={contactBgImage}
+              className={`${styles.backImage} ${styles.topBackImage}`}
+            />
           </div>
-          <ContactForm />
-          <AboutItem
+          {/* <AboutItem
             title={"Our Approach"}
             desc={
               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal"
@@ -261,11 +284,11 @@ const HomeContent = () => {
               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal"
             }
             title={"Our Android Developers"}
-          />
-          <WhatWeDo />
+          /> */}
+          {/* <WhatWeDo /> */}
         </div>
       </>
-      <WhatToKnow />
+      {/* <WhatToKnow /> */}
     </HomeMainWithImage>
   );
 };
