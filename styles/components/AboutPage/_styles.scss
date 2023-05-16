@@ -2,6 +2,10 @@
 @import "../../base/mixins";
 
 @mixin generate-about-page-styles {
+  .container {
+    overflow: hidden;
+    margin-bottom: calcVW(320);
+  }
   .content {
     width: getAboutPageSizes(content-width);
     margin: getAboutPageSizes(content-mt) auto 0 auto;

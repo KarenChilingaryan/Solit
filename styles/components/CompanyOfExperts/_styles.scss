@@ -6,9 +6,12 @@
     .aboutCompanyContent {
       @include flex(space-between, center, row, wrap);
       margin: getCompanyOfExpertsSizes(about-company-m);
+      width: 100%;
     }
-
+    
     .aboutCompanyTitle {
+      margin-bottom: calcVW(32) !important;
+      margin-top: calcVW(380) !important;
       @include flex(null, center);
       @include font-style(
         getCompanyOfExpertsSizes(title-fz),
