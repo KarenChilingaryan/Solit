@@ -1,10 +1,10 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { Col } from "../../atoms";
 import { Checkbox } from "../../atoms";
-import styles from "./Industry.module.scss";
-import { useState } from "react";
 
-const Industry = ({ fullWidth = false }) => {
+import styles from "./Industry.module.scss";
+
+const Industry = ({ fullWidth = false, circle = false }) => {
   const [isChecked, setIsChecked] = useState(false);
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -12,7 +12,9 @@ const Industry = ({ fullWidth = false }) => {
 
   return (
     <Col
-      className={`${styles.mainWrapper} ${fullWidth && styles.moreWrapper}`}
+      className={`${styles.mainWrapper} ${fullWidth && styles.moreWrapper},  ${
+        circle && styles.circleCheckbox
+      }`}
       onClick={handleCheckboxChange}
     >
       <Checkbox className={styles.checkbox} checked={isChecked} />

@@ -5,21 +5,44 @@
   .content {
     width: getDiscussProjectSizes(content-width);
     margin: getDiscussProjectSizes(content-mt) auto 0 auto;
+
     .discussProject {
-      margin-top: 160px;
+      display: flex;
+      flex-direction: column;
+      gap: calcVW(32);
+      margin-top: calcVW(200);
 
       .buttons {
+        display: flex;
+        gap: calcVW(16);
       }
 
       .industryDetails {
         display: flex;
         flex-direction: column;
+        gap: calcVW(90);
+
         .industries {
           display: flex;
           flex-direction: column;
+          gap: calcVW(30);
 
           .title {
             @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
+          }
+
+          .checkboxes {
+            display: flex;
+            gap: calcVW(24);
+          }
+
+          .monthsWrapper {
+            display: flex;
+            justify-content: space-between;
+
+            .month {
+              @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
+            }
           }
         }
       }
