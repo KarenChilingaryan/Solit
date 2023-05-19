@@ -162,7 +162,7 @@ const HomeContent = () => {
             </div>
           </div>
           <Col className={styles.servicesMainButton}>
-            <Button text={"Discuss your project"} transparentOpposite />
+            <Button text="Discuss your project" transparentOpposite />
           </Col>
           <div
             className={`${styles.borderedText} ${styles.borderedTextMargin}`}
@@ -195,7 +195,10 @@ const HomeContent = () => {
             />
             <Paragraph className={styles.title}>What we do?</Paragraph>
             <Paragraph className={styles.description}>
-              Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.
+              Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
+              qui esse pariatur duis deserunt mollit dolore cillum minim tempor
+              enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut
+              voluptate aute id deserunt nisi.
             </Paragraph>
             {services.map((project, i) => (
               <WeDoCard key={i} />
@@ -219,10 +222,16 @@ const HomeContent = () => {
             <div>
               <Paragraph className={styles.title}>Our project</Paragraph>
               <Paragraph className={styles.description}>
-                Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.
+                Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
+                Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
+                tempor enim. Elit aute irure tempor cupidatat incididunt sint
+                deserunt ut voluptate aute id deserunt nisi.
               </Paragraph>
             </div>
-            <Image src={ourProjectImage} className={`${styles.backImageSecond} ${styles.backImage}`} />
+            <Image
+              src={ourProjectImage}
+              className={`${styles.backImageSecond} ${styles.backImage}`}
+            />
             {dataProject.map((project, i) => (
               <OurProjectCard
                 key={i}

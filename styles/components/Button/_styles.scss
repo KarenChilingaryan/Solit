@@ -242,7 +242,6 @@
   // To do refactoring
 
   .transparentOpposite {
-    width: unset;
     background: variables.$transparent-black;
     @include font-style(
       getButtonSizes(button-text-bold-blue-fz),

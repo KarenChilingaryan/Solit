@@ -33,6 +33,7 @@
 
           .checkboxes {
             display: flex;
+            flex-wrap: wrap;
             gap: calcVW(24);
           }
 

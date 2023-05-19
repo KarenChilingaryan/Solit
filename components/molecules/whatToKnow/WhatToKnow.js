@@ -1,6 +1,5 @@
 import { memo } from "react";
-import Image from "next/image";
-import { Col, Paragraph, Row } from "../../atoms";
+import { Col, Row } from "../../atoms";
 import Button from "../../molecules/button/Button";
 
 import styles from "./WhatToKnow.module.scss";
@@ -23,7 +22,11 @@ const WhatToKnow = ({
             {description}
           </Row>
         )}
-        <Button text="Let’s talk" transparentOpposite className={styles.button} />
+        <Button
+          text="Let’s talk"
+          transparentOpposite
+          className={styles.button}
+        />
       </Row>
     </Col>
   );

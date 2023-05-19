@@ -42,7 +42,7 @@ const Careers = () => {
             fugiat. Sit labore ipsum veniam sint esse magna labore culpa dolore
             irure amet.
           </Row>
-          <Button text={"Recommended"} transparentOpposite />
+          <Button text="Recommended" transparentOpposite />
         </Row>
         <Row>
           <JobsTable />

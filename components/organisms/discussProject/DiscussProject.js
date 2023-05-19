@@ -3,7 +3,7 @@ import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import bgImage from "../../../assets/img/main-bg.png";
 import aboutImage from "../../../assets/img/about-image.png";
-import { Col, Paragraph, Row } from "../../atoms";
+import { Col, Paragraph, Row, Checkbox } from "../../atoms";
 import Button from "../../molecules/button/Button";
 import Industry from "../../molecules/Industry/Industry";
 import { Slider } from "antd";
@@ -17,6 +17,9 @@ const formatter = (value) => `${value} month`;
 
 const DiscussProject = () => {
   console.log("stex em");
+  const onChange = (checkedValues) => {
+    console.log("checked = ", checkedValues);
+  };
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -36,44 +39,56 @@ const DiscussProject = () => {
                 <Paragraph className={styles.title}>
                   1. What type application would you like with Solit?
                 </Paragraph>
-                <Row className={styles.checkboxes}>
+                <Checkbox.Group
+                  onChange={onChange}
+                  className={styles.checkboxes}
+                >
                   {data.map((item) => (
-                    <Industry key={item} />
+                    <Industry value={item} key={item} />
                   ))}
-                </Row>
+                </Checkbox.Group>
                 <Button text="clear" clear />
               </Row>
               <Row className={styles.industries}>
                 <Paragraph className={styles.title}>
                   2. What type application would you like with Solit?
                 </Paragraph>
-                <Row className={styles.checkboxes}>
+                <Checkbox.Group
+                  onChange={onChange}
+                  className={styles.checkboxes}
+                >
                   {data.map((item) => (
-                    <Industry key={item} circle />
+                    <Industry value={item} key={item} circle />
                   ))}
-                </Row>
+                </Checkbox.Group>
                 <Button text="clear" clear />
               </Row>
               <Row className={styles.industries}>
                 <Paragraph className={styles.title}>
                   3. What type application would you like with Solit?
                 </Paragraph>
-                <Row className={styles.checkboxes}>
+                <Checkbox.Group
+                  onChange={onChange}
+                  className={styles.checkboxes}
+                >
                   {data.map((item) => (
-                    <Industry fullWidth key={item} />
+                    <Industry value={item} fullWidth key={item} />
                   ))}
-                </Row>
+                </Checkbox.Group>
                 <Button text="clear" clear />
               </Row>
               <Row className={styles.industries}>
                 <Paragraph className={styles.title}>
                   4. What type application would you like with Solit?
                 </Paragraph>
-                <Row className={styles.checkboxes}>
+                <Checkbox.Group
+                  onChange={onChange}
+                  className={styles.checkboxes}
+                >
                   {data1.map((item) => (
-                    <Industry key={item} circle />
+                    <Industry value={item} key={item} circle />
                   ))}
-                </Row>
+                </Checkbox.Group>
                 <Button text="clear" clear />
               </Row>
               <Row className={styles.industries}>
@@ -91,6 +106,7 @@ const DiscussProject = () => {
                 <Button text="clear" clear />
               </Row>
             </Row>
+            <Button text="Get Pricing" transparentOpposite />
           </Row>
         </div>
       </>
