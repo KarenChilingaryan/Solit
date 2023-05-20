@@ -117,4 +117,10 @@
             height: calcVW(1290);
         }
     }
+    .ourProjectsCards {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: calcVW(72);
+        justify-content: space-between;
+    }
 }

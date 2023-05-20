@@ -24,4 +24,10 @@
         );
     }
   }
+  .fromCareersDescription {
+    @include flex(flex-start, flex-start, column);
+  }
+  .descriptionTop {
+    margin-top: calcVW(192);
+  }
 }

@@ -33,6 +33,7 @@ import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import Button from "../../molecules/button/Button";
 import { Col, Paragraph } from "../../atoms";
+import { WorldMapNew } from "../worldMapNew";
 const data = [
   {
     users: [
@@ -223,17 +224,19 @@ const HomeContent = () => {
               </Paragraph>
             </div>
             <Image src={ourProjectImage} className={`${styles.backImageSecond} ${styles.backImage}`} />
-            {dataProject.map((project, i) => (
-              <OurProjectCard
-                key={i}
-                name={project}
-                image={ourPtojectImage}
-                more={project == "more"}
-                height={"15.625vw"}
-                width={"15.4583164vw"}
-                hoverHeight={"17.708836vw"}
-              />
-            ))}
+            <div className={styles.ourProjectsCards}>
+              {dataProject.map((project, i) => (
+                <OurProjectCard
+                  key={i}
+                  name={project}
+                  image={ourPtojectImage}
+                  more={project == "more"}
+                  height={"15.625vw"}
+                  width={"15.4583164vw"}
+                  hoverHeight={"17.708836vw"}
+                />
+              ))}
+            </div>
           </div>
           <div className={styles.aboutCompanyContent}>
             {aboutData.map((about, i) => (

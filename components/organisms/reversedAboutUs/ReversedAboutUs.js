@@ -4,14 +4,14 @@ import TitleWithDescription from "../../molecules/titleWithDescription/TitleWith
 
 import styles from "./ReversedAboutUs.module.scss";
 
-const ReversedAboutUs = ({ about, users , reversed}) => {
+const ReversedAboutUs = ({ about, users, reversed, fromCareers = false }) => {
 
   return (
     <div className={`${styles.block} ${reversed && styles.blockReversed}`}>
-      <TitleWithDescription title={about.title} description={about.description}/>
-      <div className={styles.users}>
+      <TitleWithDescription title={about.title} description={about.description}  fromCareers={fromCareers} reversed={reversed}/>
+      <div className={`${styles.users} ${fromCareers ? styles.fromCareers : ''}`}>
         {
-          users.map(user => <TeamMemberCard name={user.name} position={user.position} image={user.image}/>)
+          users.map(user => <TeamMemberCard name={user.name} position={user.position} image={user.image} fromCareers={fromCareers} />)
         }
       </div>
     </div>

@@ -9,6 +9,7 @@ const WhatToKnow = ({
   color = "#fff",
   title = "Want to know more?",
   description = "For further information dont hesitate to contact us. We would be happyto provide you with more information.",
+  buttonText = 'Let’s talk'
 }) => {
   return (
     <Col className={styles.whatToKnowWrapper}>
@@ -23,7 +24,7 @@ const WhatToKnow = ({
             {description}
           </Row>
         )}
-        <Button text="Let’s talk" transparentOpposite className={styles.button} />
+        <Button text={buttonText} transparentOpposite className={styles.button} />
       </Row>
     </Col>
   );
