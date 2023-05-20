@@ -3,9 +3,10 @@ import Image from "next/image";
 import { Col } from "../../atoms";
 import minusIcon from "../../../assets/img/icons/minus.svg";
 import plusIcon from "../../../assets/img/icons/plus.svg";
+
 import styles from "./AddSpecialist.module.scss";
 
-const AddSpecialist = () => {
+const AddSpecialist = ({ name }) => {
   const [count, setCount] = useState(0);
 
   function increment() {
@@ -22,15 +23,15 @@ const AddSpecialist = () => {
   return (
     <Col className={styles.mainWrapper}>
       <Col onClick={decrement}>
-        <Image className={styles.iconminus} src={minusIcon} />
+        <Image className={styles.minusIcon} src={minusIcon} />
       </Col>
       <Col className={styles.countSpecialist}>
         <span>{count}</span>
       </Col>
       <Col onClick={increment}>
-        <Image className={styles.iconplus} src={plusIcon} />
+        <Image className={styles.plusIcon} src={plusIcon} />
       </Col>
-      <Col className={styles.nameSpecialist}>Android Native</Col>
+      <Col className={styles.nameSpecialist}>{name}</Col>
     </Col>
   );
 };

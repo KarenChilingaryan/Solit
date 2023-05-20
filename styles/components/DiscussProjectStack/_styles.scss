@@ -1,0 +1,94 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-discuss-project-stack-styles {
+  .content {
+    width: getDiscussProjectStackSizes(content-width);
+    margin: getDiscussProjectStackSizes(content-mt) auto 0 auto;
+
+    .discussProject {
+      display: flex;
+      flex-direction: column;
+      gap: calcVW(32);
+      margin-top: calcVW(200);
+
+      .buttons {
+        display: flex;
+        gap: calcVW(16);
+      }
+
+      .industryDetails {
+        display: flex;
+        flex-direction: column;
+        gap: calcVW(90);
+
+        .industries {
+          display: flex;
+          flex-direction: column;
+          gap: calcVW(30);
+
+          .title {
+            @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
+          }
+
+          .checkboxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: calcVW(24);
+          }
+
+          .specialistWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: calcVW(66);
+
+            .stacks {
+              display: flex;
+              flex-direction: column;
+              gap: calcVW(24);
+            }
+
+            .stackName {
+              @include font-style(
+                calcVW(20),
+                variables.$fw-700,
+                calcVW(24),
+                variables.$dodger-blue
+              );
+            }
+          }
+
+          .stackWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: calcVW(83);
+
+            .stacks {
+              display: flex;
+              flex-direction: column;
+              gap: calcVW(24);
+            }
+
+            .stackName {
+              @include font-style(
+                calcVW(20),
+                variables.$fw-700,
+                calcVW(24),
+                variables.$dodger-blue
+              );
+            }
+          }
+
+          .monthsWrapper {
+            display: flex;
+            justify-content: space-between;
+
+            .month {
+              @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
+            }
+          }
+        }
+      }
+    }
+  }
+}
