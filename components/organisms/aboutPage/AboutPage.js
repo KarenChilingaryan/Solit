@@ -41,7 +41,7 @@ const AboutPage = () => {
   console.log("stex em");
   return (
     <HomeMainWithImage firstImage={bgImage}>
-      <>
+      <div className={styles.container}>
         <div className={styles.content}>
           <HomeMain
             data={{
@@ -102,7 +102,7 @@ const AboutPage = () => {
           <WhatToKnow />
           <CompanyOfExperts aboutData={aboutData} />
         </div>
-      </>
+      </div>
     </HomeMainWithImage>
   );
 };

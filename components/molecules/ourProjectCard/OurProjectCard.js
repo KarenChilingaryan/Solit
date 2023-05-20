@@ -18,7 +18,7 @@ const OurProjectCard = ({
   blogs = false,
 }) => {
   return (
-    <Col className={styles.mainWrapper} width={width} height={height}>
+    <Col className={styles.mainWrapper}>
       <Col
         className={`${styles.imageContainer} ${more && styles.moreWrapper}`}
         width={width}

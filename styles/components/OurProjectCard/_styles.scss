@@ -3,8 +3,10 @@
 
 @mixin generate-our-project-styles {
   .mainWrapper {
+    height: calcVW(300);
     @include flex(center, center, center);
     background-color: rgba(2, 13, 28, 0.73);
+    border-radius: 16px;
     .imageContainer {
       transition: 0.3s;
       position: relative;
@@ -12,7 +14,7 @@
       border-radius: 16px;
       cursor: pointer;
       @include flex(center, center, column);
-
+      min-height: calcVW(300);
       .img {
         transition: 0.3s;
         width: 100%;
@@ -68,12 +70,17 @@
 
       &:hover {
         transition: all 0.3s;
-
+        min-height: calcVW(400);
+        height: calcVW(400);
+        background: rgba(0, 0, 0, 1);
         .blogsPadding {
           padding: calcVW(16) !important;
           align-items: flex-start;
         }
-
+        .img {
+          transition: all 0.3s;
+          height: calcVW(306);
+        }
         .positionSection {
           transition: 0.3s;
           padding: calcVW(16) calcVW(37);

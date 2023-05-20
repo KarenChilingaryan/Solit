@@ -5,6 +5,9 @@
   .content {
     width: getPortfolioMainSizes(content-width);
     margin: getPortfolioMainSizes(content-mt) auto 0 auto;
+    .contentDescription {
+      margin-left: calcVW(24);
+    }
     .portfoliosSection {
       margin-top: calcVW(88);
     }
