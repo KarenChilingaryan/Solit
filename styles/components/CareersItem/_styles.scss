@@ -2,19 +2,21 @@
 @import "../../base/mixins";
 
 @mixin generate-careers-item-styles {
-  .careerPage {
-    padding-top: calcVW(150);
+  .content {
+    width: getCareersSizes(content-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
-  .careersPageForm {
-    padding-top: calcVW(150);
-    background-color: variables.$light-blue;
-  }
-  .textsBlocks {
-    padding: calcVW(100) calcVW(240);
-  }
-  @media (max-width: 768px) {
-    .textsBlocks {
-      padding: calcVW(100) calcVW(120);
+  .bottomBlock{
+    margin: getCareersSizes(bottom-block-m);
+
+    .title {
+      @include font-style(getCareersSizes(title-fz), variables.$fw-500, getCareersSizes(title-lh), #fff);
+      margin-bottom: calcVW(32) !important;
+    }
+    .blockItems {
+      justify-content: space-between;
     }
   }
 }

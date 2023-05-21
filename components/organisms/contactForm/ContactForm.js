@@ -7,8 +7,8 @@ import { contactUsData } from "../../../constants/contactUs";
 import { emailApi } from "../../../services/emailApi";
 import { useDispatch } from "react-redux";
 import FloatInput from "../../molecules/floatInput/FloatInput";
-
 import upload from "../../../assets/img/uploadIcon.svg";
+import contactBgImage from "../../../assets/img/contact_bg.png";
 
 import styles from "./ContactForm.module.scss";
 
@@ -129,6 +129,11 @@ const ContactForm = ({
           <Button text="Send message" transparentBlue type="submit" />
         </Col>
       </Form>
+
+      <Image
+              src={contactBgImage}
+              className={`${styles.backImage} ${styles.topBackImage}`}
+            />
     </Col>
   );
 };
