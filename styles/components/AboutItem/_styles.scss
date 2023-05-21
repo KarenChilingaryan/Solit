@@ -46,11 +46,15 @@
       justify-content: space-between;
       align-items: center;
       gap: getAboutItemSizes(about-we-do-gap);
-      padding:  getAboutItemSizes(about-we-do-p);
+      padding: getAboutItemSizes(about-we-do-p);
 
       .desc {
         text-align: center;
       }
     }
+  }
+  .weDoWidth {
+    width: getAboutItemSizes(about-item-width-wd);
+    height: getAboutItemSizes(about-item-height-wd);
   }
 }

@@ -1,0 +1,22 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-what-we-do-item-styles {
+  .content {
+    width: getWhatWeDoSizes(content-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .bottomBlock{
+    margin: getWhatWeDoSizes(bottom-block-m);
+
+    .title {
+      @include font-style(getWhatWeDoSizes(title-fz), variables.$fw-500, getWhatWeDoSizes(title-lh), #fff);
+      margin-bottom: calcVW(32) !important;
+    }
+    .blockItems {
+      justify-content: space-between;
+    }
+  }
+}
