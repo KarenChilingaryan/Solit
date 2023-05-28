@@ -1,9 +1,12 @@
-import { memo, use, useEffect, useState } from "react";
+import { memo, use, useEffect, useRef, useState } from "react";
 import { Paragraph } from "../../atoms";
 
 import styles from "./Process.module.scss";
 
 const Line = () => {
+  const targetRef = useRef(null)
+  const [visiblePercentage, setVisiblePercentage] = useState(0);
+
   const getText = (text, A, B) => {
     const [description, setDescription] = useState([]);
     useEffect(() => {
@@ -136,20 +139,55 @@ const Line = () => {
     },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const targetElement = targetRef.current;
+      if (!targetElement) return;
+
+      const { top, height } = targetElement.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      const percentage = Math.round(((windowHeight - top) / height) * 100);
+      setVisiblePercentage(percentage);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+
+  }, []);
+
   return (
-    <svg viewBox="0 0 500 300" width="100%" height="100%">
-      {arr.map((el) => {
+    <svg viewBox="0 0 500 300" width="100%" height="100%" ref={targetRef}>
+      {arr.map((el, index) => {
+        let color = 'white';
+        if (visiblePercentage > 0 && index < 1) {
+          color = '#3FC1FF'
+        } else if (visiblePercentage > 40 && visiblePercentage <= 55 && index < 3) {
+          color = '#3FC1FF'
+        } else if (visiblePercentage > 55 && visiblePercentage < 66 && index < 9) {
+          color = '#3FC1FF'
+        } else if (visiblePercentage >= 66 && visiblePercentage < 95 && index < 11) {
+          color = '#3FC1FF'
+        } else if (visiblePercentage >= 95 && visiblePercentage < 110 && index < 17) {
+          color = '#3FC1FF';
+        } else if (visiblePercentage >= 110) {
+          color = '#3FC1FF';
+        }
         if (el.type === "path") {
           const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
 
-          return <path d={path} stroke="white" strokeWidth="0.5" fill="none" />;
+          return <path d={path} stroke={color} strokeWidth="1" fill="none" />;
         } else if (el.type === "round") {
           return (
             <>
               <text
                 x={el.A}
                 y={el.B - 10}
-                fill="white"
+                fill={"white"}
                 textAnchor="middle"
                 dominantBaseline="baseline"
                 fontSize="14"
@@ -159,11 +197,11 @@ const Line = () => {
               <circle
                 cx={el.A}
                 cy={el.B}
-                r="5"
-                stroke="white"
-                stroke-width="0.5"
+                r="6"
+                stroke={color}
+                stroke-width="1"
               />
-              <circle cx={el.A} cy={el.B} r="3" fill="white" />
+              <circle cx={el.A} cy={el.B} r="4" fill={color} />
               {getText(
                 "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.",
                 el.A,
@@ -173,7 +211,7 @@ const Line = () => {
           );
         } else {
           const path = `M${el.A.x},${el.A.y} Q${el.controlPoint.x},${el.controlPoint.y} ${el.B.x},${el.B.y}`;
-          return <path d={path} stroke="white" strokeWidth="0.5" fill="none" />;
+          return <path d={path} stroke={color} strokeWidth="1" fill="none" />;
         }
       })}
     </svg>
