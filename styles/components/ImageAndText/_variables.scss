@@ -1,0 +1,15 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$ImageAndText-sizes: (
+  block-width: calcVW(405),
+  image-height: calcVW(224),
+
+  text-fz: calcVW(18),
+  text-lh: calcVW(22),
+  text-p: calcVW(16),
+);
+
+@function getImageAndText($property) {
+  @return map-get($ImageAndText-sizes, $property);
+}

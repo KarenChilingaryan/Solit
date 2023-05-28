@@ -33,7 +33,7 @@ import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import Button from "../../molecules/button/Button";
 import { Col, Paragraph } from "../../atoms";
-import { WorldMapNew } from "../worldMapNew";
+
 const data = [
   {
     users: [

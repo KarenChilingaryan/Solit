@@ -1,18 +1,18 @@
 @use "../../base/variables";
 @import "../../base/mixins";
 
-@mixin generate-careers-item-styles {
+@mixin generate-what-we-do-item-styles {
   .content {
-    width: getCareersSizes(content-width);
+    width: getWhatWeDoSizes(content-width);
     margin: 0 auto;
     position: relative;
     z-index: 1;
   }
   .bottomBlock{
-    margin: getCareersSizes(bottom-block-m);
+    margin: getWhatWeDoSizes(bottom-block-m);
 
     .title {
-      @include font-style(getCareersSizes(title-fz), variables.$fw-500, getCareersSizes(title-lh), #fff);
+      @include font-style(getWhatWeDoSizes(title-fz), variables.$fw-500, getWhatWeDoSizes(title-lh), #fff);
       margin-bottom: calcVW(32) !important;
     }
     .blockItems {
