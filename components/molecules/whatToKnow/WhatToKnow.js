@@ -23,11 +23,7 @@ const WhatToKnow = ({
             {description}
           </Row>
         )}
-        <Button
-          text={buttonText}
-          transparentOpposite
-          className={styles.button}
-        />
+        <Button text={buttonText} transparentOpposite className={styles.button} />
       </Row>
     </Col>
   );

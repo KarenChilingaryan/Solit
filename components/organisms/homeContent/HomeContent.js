@@ -224,10 +224,7 @@ const HomeContent = () => {
                 deserunt ut voluptate aute id deserunt nisi.
               </Paragraph>
             </div>
-            <Image
-              src={ourProjectImage}
-              className={`${styles.backImageSecond} ${styles.backImage}`}
-            />
+            <Image src={ourProjectImage} className={`${styles.backImageSecond} ${styles.backImage}`} />
             <div className={styles.ourProjectsCards}>
               {dataProject.map((project, i) => (
                 <OurProjectCard
