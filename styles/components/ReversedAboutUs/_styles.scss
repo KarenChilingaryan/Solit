@@ -2,6 +2,11 @@
 @import "../../base/mixins";
 
 @mixin generate-reversed-about-us-styles {
+  .fromCareers {
+    div:last-of-type{
+      margin-bottom: calcVW(-192)
+    }
+  }
   .block {
     @include flex(space-between, center);
     .users {

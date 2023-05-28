@@ -8,7 +8,9 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-
+    .aboutContent {
+      @include flex(space-between, center, column);
+    }
     .pageHeader {
       display: flex;
       flex-direction: column;
@@ -37,6 +39,29 @@
         text-align: center;
 
         @include font-style(calcVW(24), variables.$fw-400, calcVW(32));
+      }
+    }
+    .secondInfo {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      row-gap: calcVW(32);
+      margin: calcVW(320) 0 calcVW(32) 0;
+      .secondTitle {
+        @include font-style(
+          getCareersSizes(content-second-title-fz),
+          variables.$fw-400,
+          getCareersSizes(content-second-title-lh)
+        );
+      }
+      .secondDescription {
+        text-align: center;
+        @include font-style(
+          getWhatToKnowSizes(content-second-description-fz),
+          variables.$fw-400,
+          getWhatToKnowSizes(content-second-description-lh),
+          #fff
+        );
       }
     }
 

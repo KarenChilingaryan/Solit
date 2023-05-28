@@ -18,9 +18,6 @@ import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
 import ContactForm from "../contactForm/ContactForm";
-import AboutItem from "../../molecules/aboutItem/AboutItem";
-import FactsItem from "../../molecules/factsItem/FactsItem";
-import { AboutTeam } from "../aboutTeam";
 import bgImage from "../../../assets/img/main_bg.png";
 import reactSvg from "../../../assets/img/icons/react.svg";
 import { WorldMap } from "../WorldMap";
@@ -29,10 +26,9 @@ import { Technology } from "../Technology";
 import { Process } from "../Process";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import styles from "./HomeContent.module.scss";
-import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
-import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import Button from "../../molecules/button/Button";
 import { Col, Paragraph } from "../../atoms";
+
 const data = [
   {
     users: [
@@ -232,17 +228,19 @@ const HomeContent = () => {
               src={ourProjectImage}
               className={`${styles.backImageSecond} ${styles.backImage}`}
             />
-            {dataProject.map((project, i) => (
-              <OurProjectCard
-                key={i}
-                name={project}
-                image={ourPtojectImage}
-                more={project == "more"}
-                height={"15.625vw"}
-                width={"15.4583164vw"}
-                hoverHeight={"17.708836vw"}
-              />
-            ))}
+            <div className={styles.ourProjectsCards}>
+              {dataProject.map((project, i) => (
+                <OurProjectCard
+                  key={i}
+                  name={project}
+                  image={ourPtojectImage}
+                  more={project == "more"}
+                  height={"15.625vw"}
+                  width={"15.4583164vw"}
+                  hoverHeight={"17.708836vw"}
+                />
+              ))}
+            </div>
           </div>
           <div className={styles.aboutCompanyContent}>
             {aboutData.map((about, i) => (

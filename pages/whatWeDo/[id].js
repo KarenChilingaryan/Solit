@@ -1,17 +1,12 @@
-import React from "react";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-import { Col } from "../../components/atoms";
+import { memo } from "react";
+import { WhatWeDoComponent } from "../../components/organisms/whatWeDoItem";
 
-import styles from "./serviceItem.module.scss";
-
-const WhatWeDoItem = () => {
-
+const WhatWeDo = () => {
   return (
-    <Col className={styles.whatWeDoWrapper}>
-      
-    </Col>
+    <div>
+      <WhatWeDoComponent />
+    </div>
   );
 };
 
-export default WhatWeDoItem;
+export default memo(WhatWeDo);

@@ -3,9 +3,9 @@ import { Col, Row } from "../../atoms";
 import Image from "next/image";
 import styles from "./AboutItem.module.scss";
 
-const AboutItem = ({ title, desc, icon, weDo = false }) => {
+const AboutItem = ({ title, desc, icon, weDo = false, weDoWidth=false }) => {
   return (
-    <Col className={styles.aboutItemWrapper}>
+    <Col className={`${styles.aboutItemWrapper}  ${weDoWidth ? styles.weDoWidth : ''}`}>
       <Row className={`${styles.content} ${weDo && styles.weDoContent}`}>
         <Image src={icon} className={styles.icon} />
         {title && <Col className={styles.title}>{title}</Col>}

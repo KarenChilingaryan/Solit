@@ -217,5 +217,12 @@
         }
       }
     }
+    .backImage {
+        width: calcVW(1920);
+        left: calcVW(-320);
+        position: absolute;
+        top: calcVW(-625);
+        height: calcVW(1380);
+    }
   }
 }

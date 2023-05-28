@@ -13,13 +13,15 @@ const PortfolioMain = ({ data, main = false }) => {
     <HomeMainWithImage firstImage={bgImage}>
       <>
         <div className={styles.content}>
-          <HomeMain
-            data={{
-              title: "Where the stars meet",
-              firstSubtitle:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo scelerisque nunc nec aliquet. Etiam lobortis erat libero, eget bibendum lorem congue nec. ",
-            }}
-          />
+          <div className={styles.contentDescription}>
+            <HomeMain
+              data={{
+                title: "Where the stars meet",
+                firstSubtitle:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo scelerisque nunc nec aliquet. Etiam lobortis erat libero, eget bibendum lorem congue nec. ",
+              }}
+            />
+          </div>
           <Row className={styles.portfoliosSection}>
             <Portfolios />
           </Row>

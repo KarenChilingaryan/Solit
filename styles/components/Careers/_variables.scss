@@ -4,7 +4,11 @@
 $careers-sizes: (
   content-mt: calcVW(478),
   content-width: calcVW(1280),
-  what-we-know-section-margin: calcVW(302) auto calcVW(320),
+  what-we-know-section-margin: calcVW(302) auto 0 auto,
+  content-second-title-fz: calcVW(36),
+  content-second-title-lh: calcVW(44),
+  content-second-description-fz: calcVW(18),
+  content-second-description-lh: calcVW(24),
 );
 
 @function getCareersSizes($property) {

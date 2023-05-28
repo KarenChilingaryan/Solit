@@ -10,9 +10,50 @@ import SeoCard from "../../atoms/SEO";
 import { seoData } from "../../../constants/seo";
 import ContactForm from "../contactForm/ContactForm";
 import earth from "../../../assets/img/earth.png";
+import teamMember from "../../../assets/img/teamMember.png";
 
 import styles from "./careers.module.scss";
-
+import { ReversedAboutUs } from "../reversedAboutUs";
+const data = [
+  {
+    users: [
+      {
+        name: "Marvel Alina ",
+        position: "UX/UI Designer",
+        image: teamMember,
+      },
+      {
+        name: "Marvel Alina ",
+        position: "UX/UI Designer",
+        image: teamMember,
+      },
+    ],
+    about: {
+      title: "About us",
+      description:
+        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal",
+    },
+  },
+  {
+    users: [
+      {
+        name: "Marvel Alina ",
+        position: "UX/UI Designer",
+        image: teamMember,
+      },
+      {
+        name: "Marvel Alina ",
+        position: "UX/UI Designer",
+        image: teamMember,
+      },
+    ],
+    about: {
+      title: "Our Team",
+      description:
+        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal",
+    },
+  },
+];
 const Careers = () => {
   // const router = useRouter();
 
@@ -44,6 +85,25 @@ const Careers = () => {
           </Row>
           <Button text="Recommended" transparentOpposite />
         </Row>
+        <div className={styles.aboutContent}>
+          {data.map((row, i) => (
+            <ReversedAboutUs
+              key={i}
+              users={row.users}
+              about={row.about}
+              reversed={i % 2}
+              fromCareers={true}
+            />
+          ))}
+        </div>
+        <div className={styles.secondInfo}>
+          <div className={styles.secondTitle}>
+            Current Job Openings
+          </div>
+          <div className={styles.secondDescription}>
+            Take a look and see if there is something that fits your skill set.
+          </div>
+        </div>
         <Row>
           <JobsTable />
         </Row>
@@ -51,6 +111,7 @@ const Careers = () => {
           <WhatToKnow
             title="If you haven't found position..."
             description="For further information don't hesitate to contact us. We would be happy to provide you with more information."
+            buttonText="Apply Here"
           />
         </Row>
         <Row className={styles.contactUsWrapper}>

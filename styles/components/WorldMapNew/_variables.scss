@@ -1,0 +1,18 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$we-do-card-sizes: (
+  we-do-card-width: calcVW(405),
+  we-do-card-height: calcVW(356),
+  we-do-card-py: calcVW(64),
+  we-do-card-px: calcVW(32),
+  we-do-card-icon-wrapper: calcVW(16),
+  we-do-card-development-fz: calcVW(24),
+  we-do-card-development-lh: calcVW(29),
+  we-do-card-description-fz: calcVW(16),
+  we-do-card-description-lh: calcVW(24),
+);
+
+@function getWeDoCardSizes($property) {
+  @return map-get($we-do-card-sizes, $property);
+}

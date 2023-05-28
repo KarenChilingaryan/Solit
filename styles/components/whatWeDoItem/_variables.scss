@@ -2,13 +2,13 @@
 @import "../../base/variables";
 
 
-$careers-sizes: (
+$what-we-do-sizes: (
   content-width: calcVW(1280),
   title-fz: calcVW(36),
   title-lh: calcVW(44),
   bottom-block-m: calcVW(256) 0,
 );
 
-@function getCareersSizes($property) {
-  @return map-get($careers-sizes, $property);
+@function getWhatWeDoSizes($property) {
+  @return map-get($what-we-do-sizes, $property);
 }
