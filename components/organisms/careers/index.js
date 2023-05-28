@@ -11,9 +11,11 @@ import { seoData } from "../../../constants/seo";
 import ContactForm from "../contactForm/ContactForm";
 import earth from "../../../assets/img/earth.png";
 import teamMember from "../../../assets/img/teamMember.png";
+import worldMap from "../../../assets/img/career-world-pam.png";
 
 import styles from "./careers.module.scss";
 import { ReversedAboutUs } from "../reversedAboutUs";
+import Image from "next/image";
 const data = [
   {
     users: [
@@ -85,6 +87,7 @@ const Careers = () => {
           </Row>
           <Button text={"Recommended"} transparentOpposite />
         </Row>
+        <Image className={styles.worldMap} src={worldMap}/>
         <div className={styles.aboutContent}>
           {data.map((row, i) => (
             <ReversedAboutUs

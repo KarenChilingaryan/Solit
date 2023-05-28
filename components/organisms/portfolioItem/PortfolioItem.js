@@ -75,9 +75,7 @@ const PortfolioItem = () => {
                     name={project}
                     image={ourPtojectImage}
                     more={project == "more"}
-                    width={"21.09334vw"}
-                    height={"15.625vw"}
-                    hoverHeight={"19.53336vw"}
+                    component="portfolio"
                   />
                 )
             )}

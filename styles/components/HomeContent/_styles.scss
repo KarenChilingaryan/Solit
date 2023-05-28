@@ -38,12 +38,14 @@
         position: absolute;
         top: calcVW(80);
         height: 140%;
+        z-index: 0;
     }
     .backImageSecond {
         height: 117%;
     }
     .topBackImage {
         top: calcVW(-300);
+        z-index: 0;
     }
     .afterAboutContent {
         width: getHomeContentSizes(about-content-width);

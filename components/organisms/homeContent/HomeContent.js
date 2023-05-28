@@ -231,9 +231,7 @@ const HomeContent = () => {
                   name={project}
                   image={ourPtojectImage}
                   more={project == "more"}
-                  height={"15.625vw"}
-                  width={"15.4583164vw"}
-                  hoverHeight={"17.708836vw"}
+                  component="home"
                 />
               ))}
             </div>
@@ -256,7 +254,7 @@ const HomeContent = () => {
             <BorderedText text="Testimonials" />
           </div>
           <div className={styles.mapContainer}>
-            <div className={styles.worldMap}>{isSSR && <WorldMap />}</div>
+            {/* <div className={styles.worldMap}>{isSSR && <WorldMap />}</div> */}
             <div className={styles.worldMapUser}>
               <MapUser />
             </div>
@@ -268,10 +266,6 @@ const HomeContent = () => {
               <BorderedText text="Contacts" />
             </div>
             <ContactForm />
-            <Image
-              src={contactBgImage}
-              className={`${styles.backImage} ${styles.topBackImage}`}
-            />
           </div>
           {/* <AboutItem
             title={"Our Approach"}

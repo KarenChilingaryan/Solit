@@ -218,6 +218,30 @@
       transition: 0.3s;
     }
   }
+
+  .whiteBlueBorder {
+    background: #fff;
+    @include font-style(
+      getButtonSizes(button-text-bold-blue-fz),
+      variables.$fw-700,
+      getButtonSizes(button-text-bold-blue-lh),
+      variables.$black
+    );
+    border-radius: calcVW(8);
+    padding: getButtonSizes(button-bold-blue-padding);
+    border: 1px solid variables.$light-blue;
+    cursor: pointer;
+    &:hover {
+      background: variables.$light-blue;
+
+      @include font-style(
+        getButtonSizes(button-text-bold-blue-fz),
+        variables.$fw-500,
+        getButtonSizes(button-text-bold-blue-lh)
+      );
+      transition: 0.3s;
+    }
+  }
   // To do refactoring
 
   .transparentOpposite {

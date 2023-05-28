@@ -12,22 +12,18 @@ const OurProjectCard = ({
   name,
   more,
   image,
-  width,
-  height,
-  hoverHeight,
   blogs = false,
+  component
 }) => {
   return (
     <Col className={styles.mainWrapper}>
       <Col
-        className={`${styles.imageContainer} ${more && styles.moreWrapper}`}
-        width={width}
-        hoverHeight={hoverHeight}
+        className={`${styles.imageContainer} ${more && styles.moreWrapper} ${styles[component]}`}
       >
         {!more ? (
           <>
             <Image src={image} alt="icon" className={styles.img} />
-            <Row className={`${styles.positionSection} ${blogs && styles.blogsPadding}` } >
+            <Row className={`${styles.positionSection}`} >
               <Row className={styles.name}>{name} </Row>
               <Row className={styles.stacks} >
                 {!blogs &&

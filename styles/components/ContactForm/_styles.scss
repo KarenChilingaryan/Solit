@@ -21,6 +21,8 @@
       flex-direction: column;
       gap: calcVW(16);
       max-width: 50%;
+      position: relative;
+      z-index: 1;
 
       .title {
         font-weight: 700;
@@ -44,7 +46,8 @@
       max-width: 406px;
       gap: 16px;
       width: calcVW(410);
-
+      position: relative;
+      z-index: 1;
       .buttonWrapper {
         button {
           @include font-style(

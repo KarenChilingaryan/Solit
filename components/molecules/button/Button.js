@@ -14,7 +14,8 @@ const Button = ({
   transparentOpposite,
   grayTextBtn,
   icon,
-  transparentBlue
+  transparentBlue,
+  whiteBlueBorder
 }) => {
   return (
     <button
@@ -27,6 +28,7 @@ const Button = ({
         [styles.transparentOpposite]: transparentOpposite,
         [styles.transparentBlue]: transparentBlue,
         [styles.grayTextBtn]: grayTextBtn,
+        [styles.whiteBlueBorder]: whiteBlueBorder,
       })}
     >
       {text}

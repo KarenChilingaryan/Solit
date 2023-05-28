@@ -3,6 +3,7 @@
 
 @mixin generate-service-card-styles {
   .serviceCardWrapper {
+    width: 100%;
     flex: none;
     max-height: getServiceCardSizes(serviceCard-card-height);
     .title_iconWrapper {

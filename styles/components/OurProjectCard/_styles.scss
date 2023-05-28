@@ -5,22 +5,23 @@
   .mainWrapper {
     height: calcVW(300);
     @include flex(center, center, center);
-    background-color: rgba(2, 13, 28, 0.73);
-    border-radius: 16px;
+    border-radius: calcVW(16);
     .imageContainer {
-      transition: 0.3s;
+      transition: all 0.3s;
       position: relative;
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: calcVW(16);
       cursor: pointer;
       @include flex(center, center, column);
       min-height: calcVW(300);
+      height: calcVW(300);
       .img {
         transition: 0.3s;
         width: 100%;
-        border-radius: 16px 16px 0 0;
+        border-radius: calcVW(16) calcVW(16) 0 0;
         height: calcVW(244);
         filter: grayscale(100%);
+        object-fit: cover;
       }
 
       .more {
@@ -43,7 +44,7 @@
         height: getOurProjectCardSizes(project-position-height);
         width: 100%;
         align-items: center;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(2, 13, 28, 0.73);
 
         .name {
           @include font-style(
@@ -72,7 +73,6 @@
         transition: all 0.3s;
         min-height: calcVW(400);
         height: calcVW(400);
-        background: rgba(0, 0, 0, 1);
         .blogsPadding {
           padding: calcVW(16) !important;
           align-items: flex-start;
@@ -80,12 +80,15 @@
         .img {
           transition: all 0.3s;
           height: calcVW(306);
+          filter: grayscale(0%);
         }
         .positionSection {
           transition: 0.3s;
-          padding: calcVW(16) calcVW(37);
+          padding: calcVW(16) calcVW(16);
           gap: calcVW(16);
           height: calcVW(96);
+          background: rgba(2, 13, 28, 0.73);
+
           .name {
             @include font-style(
               getOurProjectCardSizes(project-name-hover-fz),
@@ -119,13 +122,59 @@
         }
       }
     }
+
+    .home {
+      width: calcVW(296);
+    }
+    .portfolio {
+      width: calcVW(405);
+      &:hover {
+        .positionSection {
+          background: rgba(2, 13, 28, 0.73);
+        }
+      }
+    }
+    .blogs {
+      width: calcVW(405);
+      .positionSection {
+        padding: calcVW(16);
+        height: calcVW(76);
+        justify-content: flex-start;
+        gap: calcVW(16);
+        align-items: flex-start;
+        .stacks {
+          height: 0;
+        }
+      }
+      .img {
+        height: calcVW(224);
+      }
+      .blogDescription {
+        height: 0;
+        overflow: hidden;
+      }
+      &:hover {
+        .img {
+          height: calcVW(212);
+        }
+        .positionSection {
+          height: calcVW(188);
+          background: rgba(2, 13, 28, 0.73);
+        }
+        .blogDescription {
+          height: auto;
+          overflow: hidden;
+          @include font-style(calcVW(18), variables.$fw-400, calcVW(24), #fff);
+        }
+      }
+    }
   }
   .moreWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid variables.$light-blue;
-    border-radius: 16px;
+    border-radius: calcVW(16);
     background: rgba(0, 0, 0, 0.32);
     height: getOurProjectCardSizes(project-card-height);
   }
