@@ -2,26 +2,26 @@
 @import "../../base/mixins";
 
 @mixin generate-title-with-description-styles {
-  .block{
+  .block {
     width: getTitleWithDescriptionSizes(block-width);
     height: getTitleWithDescriptionSizes(block-height);
     padding: getTitleWithDescriptionSizes(block-p);
     @include flex(center, flex-start, column);
     row-gap: getTitleWithDescriptionSizes(block-rg);
 
-    .title{
+    .title {
       @include font-style(
-          getTitleWithDescriptionSizes(title-fs),
-          variables.$fw-500,
-          getTitleWithDescriptionSizes(title-lh),
-        );
+        getTitleWithDescriptionSizes(title-fs),
+        variables.$fw-500,
+        getTitleWithDescriptionSizes(title-lh)
+      );
     }
     .description {
       @include font-style(
-          getTitleWithDescriptionSizes(description-fs),
-          variables.$fw-400,
-          getTitleWithDescriptionSizes(description-lh),
-        );
+        getTitleWithDescriptionSizes(description-fs),
+        variables.$fw-400,
+        getTitleWithDescriptionSizes(description-lh)
+      );
     }
   }
   .fromCareersDescription {
@@ -29,5 +29,16 @@
   }
   .descriptionTop {
     margin-top: calcVW(192);
+  }
+  @media (max-width: 1024px) {
+    .block {
+      width: calcVWT(384);
+      .title {
+        @include font-style(calcVWT(24), variables.$fw-500, calcVWT(29));
+      }
+      .description {
+        @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+      }
+    }
   }
 }

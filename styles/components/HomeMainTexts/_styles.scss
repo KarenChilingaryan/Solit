@@ -31,5 +31,23 @@
       );
       margin-top: getHomeMainTextsSizes(home-main-first-text-mt);
     }
+    @media (max-width: 1024px) {
+      .title {
+        @include font-style(
+          calcVWT(36),
+          variables.$fw-500,
+          calcVWT(44)
+        );
+      }
+      .firstSubtitle {
+
+        @include font-style(
+          calcVWT(24),
+          variables.$fw-400,
+          calcVWT(32)
+        );
+        margin-top: calcVWT(25);
+      }
+    }
   }
 }

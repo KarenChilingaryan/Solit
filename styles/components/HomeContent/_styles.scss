@@ -115,7 +115,7 @@
     .contactBlock {
         position: relative;
         padding-bottom: calcVW(380);
-        .backImage{
+        .backImage {
             height: calcVW(1290);
         }
     }
@@ -124,5 +124,28 @@
         flex-wrap: wrap;
         row-gap: calcVW(72);
         justify-content: space-between;
+    }
+    @media (max-width: 1024px) {
+        .content {
+            width: calcVWT(880);
+            margin-top: calcVWT(170);
+            .servicesMain {
+                margin-top: calcVWT(200);
+                
+            }
+        }
+        .borderedText {
+            margin-left: calcVWT(-70);
+            margin-bottom: calcVWT(30) !important;
+        }
+        .servicesMainButton {
+            display: none;
+        }
+        .afterAboutContent {
+            width: calcVWT(880);
+            .aboutContent {
+                row-gap: calcVWT(110);
+            }
+        }
     }
 }

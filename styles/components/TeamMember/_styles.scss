@@ -69,4 +69,11 @@
     border: 1px solid variables.$light-blue;
     border-radius: 16px;
   }
+
+  @media (max-width: 1024px) {
+    .imageContainer {
+      width: calcVWT(208);
+      height: calcVWT(220);
+    }
+  }
 }

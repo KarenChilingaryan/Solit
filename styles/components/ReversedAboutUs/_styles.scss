@@ -17,4 +17,15 @@
   .blockReversed {
     flex-direction: row-reverse;
   }
+  @media (max-width: 1024px) {
+    .block {
+      width: 100%;
+      align-items: flex-end;
+      .users {
+        width: calcVWT(448);
+        height: calcVWT(220);
+        margin-bottom: calcVWT(40);
+      }
+    }
+  }
 }
