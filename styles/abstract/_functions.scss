@@ -1,3 +1,10 @@
 @function calcVW($value1) {
   @return $value1 * 0.0520834vw;
 }
+
+@function calcVWT($value1) {
+  @return $value1 * 0.097656375vw;
+}
+@function calcVWM($value1) {
+  @return $value1 * 0.266711333vw;
+}

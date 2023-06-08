@@ -2,7 +2,7 @@ import { memo } from "react";
 import Image from "next/image";
 import { Col, Row, Paragraph } from "../../atoms";
 
-import logoFooter from "../../../assets/img/logoFooter.png";
+import logoFooter from "../../../assets/img/bigLogo.png";
 import fb from "../../../assets/img/fb.png";
 import linkedIn from "../../../assets/img/linkedin.png";
 import telegram from "../../../assets/img/telegram.png";
@@ -47,17 +47,6 @@ const Footer = () => {
       <Row className={styles.footerBlock}>
         <Col className={styles.infoWrapper}>
           <Image src={logoFooter} alt="logo" className={styles.footerLogo} />
-          {data &&
-            <div className={styles.infoBlock}>
-              <Paragraph className={styles.infoText}>
-                {data[0]?.address}
-              </Paragraph>
-              <Paragraph className={styles.infoText}>{data[0].company_mail}</Paragraph>
-              <Paragraph className={styles.infoText}>
-                {data[0]?.phone_number}
-              </Paragraph>
-            </div>
-          }
         </Col>
         <Col className={styles.expertiseWrapper}>
           <Paragraph className={styles.textTitle}>
@@ -79,13 +68,30 @@ const Footer = () => {
             </Paragraph>
           ))}
         </Col>
-        {data &&
-          <Col className={styles.socialIconsWrapper}>
-            {data[0]?.social_link?.map(item =>
-              <Image src={linkedIn} alt="logo" className={styles.socialIcons} key={item.name} />
-            )}
-          </Col>
-        }
+        <Col className={styles.companyInfoWraper}>
+          <Paragraph className={styles.textTitle}>
+            Office
+          </Paragraph>
+          {Object.values(dataDefault[0].info).map((el, idx) => (
+            <Paragraph className={styles.text} key={idx}>
+              {el}
+            </Paragraph>
+          ))}
+        </Col>
+        <Col className={styles.socialIconsWrapper}>
+          <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} style={{ ...(data ? { color: 'transparent' } : {}) }}>Let’s Contact for Great</Paragraph>
+          {/* data && data[0]?.social_link? */}
+          {[
+            { name: 'hhhhh' },
+            { name: 'hhhhh' },
+            { name: 'hhhhh' },
+            { name: 'hhhhh' },
+            { name: 'hhhhh' },
+            { name: 'hhhhh' },
+          ].map(item =>
+            <Image src={linkedIn} alt="logo" className={styles.socialIcons} key={item.name} />
+          )}
+        </Col>
       </Row>
     </div>
   );
