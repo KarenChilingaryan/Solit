@@ -2,7 +2,6 @@
 @import "../../base/mixins";
 
 @mixin generate-form-item-styles {
-  
   .floatLabel {
     position: relative;
 
@@ -11,26 +10,35 @@
       position: absolute;
       pointer-events: none;
       left: 0;
-      top: 11px;
+      top: calcVW(11);
       transition: 0.2s ease all;
       font-weight: 400;
-      font-size: 13px;
-      line-height: 20px;
+      font-size: calcVW(13);
+      line-height: calcVW(20);
       color: #8296a5;
     }
 
     .asPlaceholder {
       color: white;
       font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-      top: 2px;
+      font-size: calcVW(16);
+      line-height: calcVW(24);
+      top: calcVW(2);
     }
 
     .asLabel {
       top: -8px;
       font-size: 12px !important;
       background: transparent;
+    }
+
+    @media (max-width: 1024px) {
+      .asPlaceholder {
+        font-weight: 400;
+        font-size: calcVWT(18);
+        line-height: calcVWT(24);
+        top: calcVWT(2);
+      }
     }
   }
 }

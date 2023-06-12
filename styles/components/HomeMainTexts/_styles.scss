@@ -2,11 +2,11 @@
 @import "../../base/mixins";
 
 @mixin generate-home-main-texts-styles {
-  .contentWrapper{
+  .contentWrapper {
     max-height: 300px;
     overflow: hidden;
   }
-  
+
   .bigTextWrapper {
     height: fit-content;
     position: relative;
@@ -19,7 +19,7 @@
       );
     }
 
-    .ellipsisText{
+    .ellipsisText {
       text-overflow: ellipsis;
     }
 
@@ -33,20 +33,23 @@
     }
     @media (max-width: 1024px) {
       .title {
-        @include font-style(
-          calcVWT(36),
-          variables.$fw-500,
-          calcVWT(44)
-        );
+        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
       }
       .firstSubtitle {
-
-        @include font-style(
-          calcVWT(24),
-          variables.$fw-400,
-          calcVWT(32)
-        );
+        @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
         margin-top: calcVWT(25);
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    .bigTextWrapper {
+      max-height: calcVWM(350);
+      .title {
+        @include font-style(calcVWM(36), variables.$fw-400, calcVWM(44));
+      }
+      .firstSubtitle {
+        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+        margin-top: calcVWM(25);
       }
     }
   }

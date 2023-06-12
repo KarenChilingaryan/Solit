@@ -9,8 +9,13 @@
       margin-top: getHomeMainSizes(home-main-button-wrapper-mt);
     }
     @media (max-width: 1024px) {
-    width: calcVWT(880);
-      
+      width: calcVWT(880);
+    }
+    @media (max-width: 576px) {
+      margin-bottom: calcVWM(90);
+      .buttonWrapper {
+        margin-top: calcVWM(20);
+      }
     }
   }
 }

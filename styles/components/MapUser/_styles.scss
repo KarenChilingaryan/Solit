@@ -49,5 +49,34 @@
         @include font-style(getMapUser(position-fs), variables.$fw-500, getMapUser(position-lh));
       }
     }
+    @media (max-width: 1024px) {
+      .imgBlock {
+        width: calcVWT(300);
+        .imageBlock {
+          .userImage {
+            width: calcVWT(178);
+            height: calcVWT(178);
+          }
+        }
+        .iconBlock {
+          border-radius: calcVWT(8);
+          width: calcVWT(32);
+          height: calcVWT(32);
+          .arrowIcon {
+            width: calcVWT(14);
+          }
+        }
+      }
+      .infoBlock {
+        width: auto;
+        .userName {
+          @include font-style(calcVWT(24), variables.$fw-700, calcVWT(29), #219fdb);
+          margin-top: calcVWT(10);
+        }
+        .userPosition {
+          @include font-style(calcVWT(20), variables.$fw-500, calcVWT(24));
+        }
+      }
+    }
   }
 }

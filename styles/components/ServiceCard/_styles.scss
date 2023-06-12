@@ -79,14 +79,28 @@
         .description {
           padding: calcVWT(16);
           height: max-content;
-          @include font-style(
-            calcVWT(18),
-            variables.$fw-400,
-            calcVWT(24),
-            #c3d4dc
-          );
+          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #c3d4dc);
         }
         box-shadow: 0px 42px 98px -42px #7811fe;
+      }
+    }
+    @media (max-width: 576px) {
+      max-width: calcVWM(163);
+      max-height: calcVWM(300);
+      border-radius: calcVWM(16);
+      .title_iconWrapper {
+        .title {
+          min-height: max-content;
+          height: max-content;
+          padding: calcVWM(16);
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+        }
+      }
+      &:hover {
+        .description {
+          padding: calcVWM(8);
+          @include font-style(calcVWM(14), variables.$fw-300, calcVWM(16), #c3d4dc);
+        }
       }
     }
   }

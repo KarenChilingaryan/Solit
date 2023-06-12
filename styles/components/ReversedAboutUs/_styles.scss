@@ -3,8 +3,8 @@
 
 @mixin generate-reversed-about-us-styles {
   .fromCareers {
-    div:last-of-type{
-      margin-bottom: calcVW(-192)
+    div:last-of-type {
+      margin-bottom: calcVW(-192);
     }
   }
   .block {
@@ -21,10 +21,9 @@
     .block {
       width: 100%;
       align-items: flex-end;
+      flex-direction: column;
       .users {
-        width: calcVWT(448);
-        height: calcVWT(220);
-        margin-bottom: calcVWT(40);
+        width: 100%;
       }
     }
   }

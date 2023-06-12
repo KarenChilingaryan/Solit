@@ -13,5 +13,9 @@
       @include font-style(calcVWT(128), variables.$fw-600, calcVWT(156));
       color: transparent;
     }
+    @media (max-width: 576px) {
+      @include font-style(calcVWM(58), variables.$fw-600, calcVWM(71));
+      color: transparent;
+    }
   }
 }
