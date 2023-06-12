@@ -21,8 +21,8 @@
         @include font-style(getHomeMainWithImage(text-fs), variables.$fw-500, getHomeMainWithImage(text-lh));
       }
     }
-  }
-  .content{
-    
+    @media (max-width: 1024px) {
+     display: none; 
+    }
   }
 }

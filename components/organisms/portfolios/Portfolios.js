@@ -1,10 +1,12 @@
 import { memo, useState } from "react";
 import { Col, Row } from "../../atoms";
 import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
+import elipse from "../../../assets/img/Ellipse.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import FilterButtons from "../filters/FilterButtons";
 
 import styles from "./Portfolios.module.scss";
+import Image from "next/image";
 
 export const dataProject = [
   "Last Order",
@@ -60,18 +62,20 @@ const Portfolios = ({ data }) => {
       </Col>
       <Row
         className={styles.projects}
-        justify={"space-between"}
         gutter={[0, "3.645838vw"]}
+        style={{
+          columnGap: '1.645838vw'
+        }}
+
       >
+        <Image className={styles.elipse} src={elipse} />
         {dataProject?.map((project, i) => (
           <OurProjectCard
             key={i}
             name={project}
             image={ourPtojectImage}
             more={project == "more"}
-            width={"21.09334vw"}
-            height={"15.625vw"}
-            hoverHeight={"19.53336vw"}
+            component="portfolio"
           />
         ))}
       </Row>

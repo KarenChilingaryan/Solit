@@ -31,6 +31,7 @@ const Services = () => {
             }}
             ellipsis
           />
+          
           <Row className={styles.services}>
             {services.map((_, i) => (
               <ServiceCard key={i} className={styles.serviceCard} />

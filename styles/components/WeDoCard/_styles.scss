@@ -45,5 +45,45 @@
         #fff
       );
     }
+    @media (max-width: 1024px) {
+      width: calcVWT(288);
+      height: calcVWT(380);
+      padding: calcVWT(64) calcVWT(32);
+      text-align: center;
+      .development {
+        @include font-style(calcVWT(24), variables.$fw-700, calcVWT(29), #fff);
+      }
+      .description {
+        @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+      }
+      .iconWrapper {
+        padding: calcVWT(18);
+        .icon {
+          width: calcVWT(27);
+          height: calcVWT(27);
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      width: calcVWM(163);
+      height: calcVWM(320);
+      padding: calcVWM(32) calcVWM(16);
+      text-align: center;
+      justify-content: space-between;
+      .development {
+        @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), #fff);
+      }
+      .description {
+        @include font-style(calcVWM(13), variables.$fw-400, calcVWM(20), #fff);
+      }
+      .iconWrapper {
+        padding: calcVWM(17);
+        .icon {
+          width: calcVWM(26);
+          height: calcVWM(26);
+        }
+      }
+    }
   }
 }

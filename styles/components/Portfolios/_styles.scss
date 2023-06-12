@@ -9,6 +9,14 @@
     }
     .projects {
       margin-top: calcVW(120);
+      position: relative;
+      .elipse {
+        position: absolute;
+        left: calcVW(-320);
+        width: calc(100% + calcVW(640));
+        height: calc(100% + calcVW(640));
+        top: calcVW(-250);
+      }
     }
   }
 }

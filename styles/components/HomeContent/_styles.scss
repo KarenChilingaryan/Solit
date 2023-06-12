@@ -38,12 +38,14 @@
         position: absolute;
         top: calcVW(80);
         height: 140%;
+        z-index: 0;
     }
     .backImageSecond {
         height: 117%;
     }
     .topBackImage {
         top: calcVW(-300);
+        z-index: 0;
     }
     .afterAboutContent {
         width: getHomeContentSizes(about-content-width);
@@ -113,7 +115,7 @@
     .contactBlock {
         position: relative;
         padding-bottom: calcVW(380);
-        .backImage{
+        .backImage {
             height: calcVW(1290);
         }
     }
@@ -122,5 +124,79 @@
         flex-wrap: wrap;
         row-gap: calcVW(72);
         justify-content: space-between;
+    }
+    @media (max-width: 1024px) {
+        .ourProjectsCards {
+            row-gap: calcVWT(72);
+        }
+        .content {
+            width: calcVWT(880);
+            margin-top: calcVWT(170);
+            .servicesMain {
+                margin-top: calcVWT(150);
+            }
+        }
+        .borderedText {
+            margin-left: calcVWT(-70);
+            margin-bottom: calcVWT(30) !important;
+        }
+        .servicesMainButton {
+            display: none;
+        }
+        .afterAboutContent {
+            width: calcVWT(928);
+            .aboutContent {
+                row-gap: calcVWT(110);
+            }
+            .borderedTextWhat {
+                margin-left: calcVWT(-50);
+            }
+        }
+
+        .backImage {
+            left: calcVWT(-48);
+            width: calcVWT(1024);
+            height: 100%;
+        }
+        .topBackImage {
+            top: calcVWT(150);
+        }
+        .projectContent {
+            .title {
+                display: none;
+            }
+            .description {
+                display: none;
+            }
+        }
+        .backImageSecond {
+            top: calcVWT(280);
+            height: 93%;
+        }
+    }
+    @media (max-width: 576px) {
+        .content {
+            width: calcVWM(343);
+            margin-top: calcVWM(10);
+            .servicesMain {
+                margin-top: calcVWM(20);
+                margin-bottom: calcVWM(80);
+            }
+        }
+        .borderedText {
+            margin-left: calcVWM(-15);
+        }
+        .afterAboutContent {
+            .aboutContent {
+                row-gap: calcVWM(32);
+            }
+        }
+        .projectContent {
+            row-gap: calcVWM(16) !important;
+            margin-bottom: calcVWM(100);
+        }
+        .topBackImage {
+            height: 33%;
+        }
     }
 }

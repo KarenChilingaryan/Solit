@@ -33,8 +33,8 @@ const Technology = () => {
         {buttonsName.map((name, i) => (
           <Button
             text={name}
-            lightBlue={i === current}
-            grayTextBtn={i !== current}
+            lightBlueTech={i === current}
+            grayTextBtnTech={i !== current}
             key={i}
           />
         ))}

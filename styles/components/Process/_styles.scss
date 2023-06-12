@@ -4,11 +4,7 @@
 @mixin generate-process-styles {
   .container {
     .title {
-      @include font-style(
-        getProcessSizes(process-title-fz),
-        variables.$fw-500,
-        getProcessSizes(process-title-lh)
-      );
+      @include font-style(getProcessSizes(process-title-fz), variables.$fw-500, getProcessSizes(process-title-lh));
     }
     .description {
       margin-top: getProcessSizes(process-description-mt);
@@ -17,6 +13,28 @@
         variables.$fw-400,
         getProcessSizes(process-description-lh)
       );
+    }
+
+    @media (max-width: 1024px) {
+      .title {
+        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
+      }
+
+      .description {
+        margin-top: getProcessSizes(process-description-mt);
+        @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+      }
+    }
+
+    @media (max-width: 576px) {
+      .title {
+        @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
+      }
+
+      .description {
+        margin-top: getProcessSizes(process-description-mt);
+        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+      }
     }
   }
 }
