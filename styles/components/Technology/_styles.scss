@@ -91,8 +91,10 @@
         margin-top: calcVWM(32);
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
       }
+      .buttonsParent {
+        overflow: auto;
+      }
       .buttons {
-        overflow: hidden;
         flex-wrap: nowrap;
         min-width: max-content;
         column-gap: calcVWM(16);
