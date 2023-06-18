@@ -26,6 +26,10 @@
       }
     }
 
+    .mobileSvg {
+      display: none;
+    }
+
     @media (max-width: 576px) {
       .title {
         @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
@@ -34,6 +38,13 @@
       .description {
         margin-top: getProcessSizes(process-description-mt);
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+      }
+      .desktopSvg {
+        display: none;
+      }
+
+      .mobileSvg {
+        display: block;
       }
     }
   }
