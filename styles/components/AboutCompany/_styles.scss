@@ -17,11 +17,7 @@
         width: max-content;
       }
       .info {
-        @include font-style(
-          getAboutCompanySizes(info-fz),
-          variables.$fw-700,
-          getAboutCompanySizes(info-lh)
-        );
+        @include font-style(getAboutCompanySizes(info-fz), variables.$fw-700, getAboutCompanySizes(info-lh));
         @include flex(null, center, row);
         column-gap: getAboutCompanySizes(info-cg);
         p {
@@ -46,29 +42,20 @@
   }
   @media (max-width: 1024px) {
     .card {
-    width: max-content;
-    height: max-content;
-      .mainWrapper{
+      width: max-content;
+      height: max-content;
+      .mainWrapper {
         .image {
           height: calcVWT(60);
         }
         .info {
-        column-gap: calcVWT(10);
-        p{
-            @include font-style(
-              calcVWT(48),
-              variables.$fw-700,
-              calcVWT(65),
-            );
+          column-gap: calcVWT(10);
+          p {
+            @include font-style(calcVWT(48), variables.$fw-700, calcVWT(65));
           }
           .description {
-            p{
-
-            @include font-style(
-              calcVWT(18),
-              variables.$fw-400,
-              calcVWT(24),
-            );
+            p {
+              @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
             }
           }
         }
@@ -78,31 +65,27 @@
   @media (max-width: 576px) {
     .card {
       padding: 0;
-      .mainWrapper{
+      width: 100%;
+      padding: calcVWM(32);
+      .mainWrapper {
         .image {
           height: calcVWM(50);
         }
         .info {
-        column-gap: calcVWM(10);
-        p{
-            @include font-style(
-              calcVWM(48),
-              variables.$fw-700,
-              calcVWM(65),
-            );
+          column-gap: calcVWM(10);
+          p {
+            @include font-style(calcVWM(48), variables.$fw-700, calcVWM(65));
           }
           .description {
-            p{
-
-            @include font-style(
-              calcVWM(18),
-              variables.$fw-400,
-              calcVWM(24),
-            );
+            p {
+              @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
             }
           }
         }
       }
+    }
+    .withOutBG {
+      padding: 0;
     }
   }
 }

@@ -8,16 +8,25 @@
       margin: getCompanyOfExpertsSizes(about-company-m);
       width: 100%;
     }
-    
+
     .aboutCompanyTitle {
       margin-bottom: calcVW(32) !important;
       margin-top: calcVW(380) !important;
       @include flex(null, center);
-      @include font-style(
-        getCompanyOfExpertsSizes(title-fz),
-        variables.$fw-500,
-        getCompanyOfExpertsSizes(title-lh)
-      );
+      @include font-style(getCompanyOfExpertsSizes(title-fz), variables.$fw-500, getCompanyOfExpertsSizes(title-lh));
+    }
+    @media (max-width: 1024px) {
+      .aboutCompanyTitle {
+        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44), variables.$white);
+      }
+    }
+    @media (max-width: 576px) {
+      .aboutCompanyTitle {
+        @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44), variables.$white);
+      }
+      .aboutCompanyContent {
+        row-gap: calcVWM(32);
+      }
     }
   }
 }
