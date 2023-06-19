@@ -312,8 +312,42 @@
           margin: calcVWM(32) 0;
           @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
         }
-        .tabs {
-          display: none;
+        // .tabs {
+        //   display: none;
+        // }
+        .contextWrapper {
+          padding: calcVWM(32);
+          width: 100%;
+          height: max-content;
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(36.5px);
+          border-radius: calcVWM(16);
+          .context {
+            @include font-style(
+              // getWhatWeDoSizes(what-we-do-development-fz),
+              calcVWM(18),
+              variables.$fw-400,
+              // getWhatWeDoSizes(what-we-do-development-lh),
+              calcVWM(24),
+              #fff
+            );
+          }
+          .antDropdownLink {
+            display: flex;
+            justify-content: space-between;
+            @include font-style(
+              // getWhatWeDoSizes(what-we-do-development-fz),
+              calcVWM(20),
+              variables.$fw-700,
+              // getWhatWeDoSizes(what-we-do-development-lh),
+              calcVWM(24),
+              #fff
+            );
+            img {
+              width: calcVWM(15);
+              height: calcVWM(15);
+            }
+          }
         }
       }
     }
