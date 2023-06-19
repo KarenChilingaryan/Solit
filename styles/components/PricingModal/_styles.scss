@@ -1,0 +1,131 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-pricing-modal-styles {
+  .content {
+    display: flex;
+    justify-content: space-between;
+
+    .leftContent {
+      max-width: calcVW(678);
+      padding: calcVW(32);
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        gap: calcVW(16);
+
+        .bigTitle {
+          @include font-style(
+            calcVW(36),
+            variables.$fw-500,
+            calcVW(44),
+            variables.$black
+          );
+        }
+        .smallTitle {
+          @include font-style(
+            calcVW(18),
+            variables.$fw-500,
+            calcVW(24),
+            variables.$black
+          );
+        }
+      }
+      .summarySection {
+        display: flex;
+        flex-direction: column;
+        gap: calcVW(20);
+        padding: 0 calcVW(32);
+        margin-top: calcVW(72);
+
+        .summary {
+          @include font-style(
+            calcVW(36),
+            variables.$fw-500,
+            calcVW(44),
+            variables.$black
+          );
+        }
+
+        .projType {
+          display: flex;
+          gap: calcVW(30);
+
+          .itemWrapper {
+            display: flex;
+            align-items: center;
+            gap: calcVW(14);
+            width: max-content;
+            padding: calcVW(5);
+
+            .item {
+              @include font-style(
+                calcVW(20),
+                variables.$fw-500,
+                calcVW(24),
+                variables.$black
+              );
+            }
+
+            .icon {
+              cursor: pointer;
+              width: calcVW(12);
+              height: calcVW(12);
+            }
+          }
+        }
+        .specialists {
+          display: flex;
+          flex-direction: column;
+          gap: calcVW(32);
+
+          .specialistsTitle {
+            @include font-style(
+              calcVW(18),
+              variables.$fw-400,
+              calcVW(24),
+              variables.$black
+            );
+          }
+
+          .addSpecialist {
+            display: flex;
+            align-items: center;
+            gap: calcVW(14);
+            width: max-content;
+            padding: calcVW(5);
+
+            .item {
+              @include font-style(
+                calcVW(14),
+                variables.$fw-500,
+                calcVW(24),
+                variables.$black
+              );
+            }
+          }
+
+          .value {
+            @include font-style(
+              calcVW(14),
+              variables.$fw-500,
+              calcVW(24),
+              variables.$dark-turquoise
+            );
+          }
+
+          .icon {
+            cursor: pointer;
+            width: calcVW(16);
+            height: calcVW(16);
+          }
+        }
+      }
+    }
+    .rightContent {
+      width: calcVW(474);
+      padding: calcVW(32);
+    }
+  }
+}

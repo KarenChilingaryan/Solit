@@ -1,18 +1,19 @@
 import { memo, useState, useEffect } from "react";
-import { Col, Row, Input, FormItem, Form, Checkbox } from "../../atoms";
+import { Col, Row, Input, FormItem, Form, Checkbox, Select } from "../../atoms";
 import Image from "next/image";
 import { Upload, Button as AntdButton } from "antd";
-import Button from "../../molecules/button/Button";
+import Button from "../button/Button";
 import { contactUsData } from "../../../constants/contactUs";
 import { emailApi } from "../../../services/emailApi";
 import { useDispatch } from "react-redux";
-import FloatInput from "../../molecules/floatInput/FloatInput";
-import upload from "../../../assets/img/uploadIcon.svg";
+import FloatInput from "../floatInput/FloatInput";
+import upload from "../../../assets/img/icons/uploadBlack.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
+import arrow from "../../../assets/img/icons/selectIcon.svg";
 
-import styles from "./ContactForm.module.scss";
+import styles from "./ModalForm.module.scss";
 
-const ContactForm = ({
+const ModalForm = ({
   title,
   style = {},
   whiteButton = false,
@@ -52,20 +53,7 @@ const ContactForm = ({
 
   console.log(file, "---");
   return (
-    <Col
-      className={`${styles.contactFormWrapper} ${
-        !title ? styles.withoutTitle : ""
-      }`}
-      style={style}
-    >
-      <Col className={styles.infoSection}>
-        <Row className={styles.title}>Got a project in mind?</Row>
-        <Row className={styles.info}>
-          Share the details of your project – like scope, timeframes, or
-          business challenges you would like to solve. Our team will carefully
-          study them and then we’ll figure out the next move together.
-        </Row>
-      </Col>
+    <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Form form={form} onFinish={submitForm} className={styles.form}>
         <Row className={styles.inputSection}>
           <FormItem
@@ -78,8 +66,8 @@ const ContactForm = ({
             ]}
           >
             <FloatInput
-              label="Full Name"
-              placeholder="Full Name"
+              label="Your full name"
+              placeholder="Your full name"
               name="full_name"
             />
           </FormItem>
@@ -98,10 +86,23 @@ const ContactForm = ({
           >
             <FloatInput label="Email" placeholder="Email" name="full_name" />
           </FormItem>
-          <FormItem name="message">
-            <FloatInput label="Message" placeholder="Message" name="message" />
+          <FormItem
+            name="full_name"
+            rules={[
+              {
+                required: true,
+                message: "Name is required",
+              },
+            ]}
+          >
+            <FloatInput
+              label="Your full name"
+              placeholder="Your full name"
+              name="full_name"
+            />
           </FormItem>
-          <FormItem name={"file_cv"}>
+
+          <FormItem name="file_cv">
             <FloatInput
               label="About your project"
               placeholder="About your project"
@@ -109,13 +110,37 @@ const ContactForm = ({
               multiple
               type="file"
               accept=".pdf,.doc,.docx"
-              suffix={<Image className={styles.suffix} src={upload} />}
+              prefix={<Image className={styles.suffix} src={upload} />}
               onChange={(e) => {
                 setFile(e.target.files);
               }}
               showUploadList={false}
               className={styles.uploadFile}
             />
+          </FormItem>
+          <FormItem name="comment">
+            <FloatInput label="Comment" placeholder="Comment" name="comment" />
+          </FormItem>
+          <FormItem
+            name="from_email"
+            rules={[
+              {
+                type: "select",
+                message: "The input is not valid Email",
+              },
+              {
+                required: true,
+                message: "Email is required",
+              },
+            ]}
+          >
+            <Select
+              className={styles.select}
+              suffixIcon={<Image src={arrow} />}
+              placeholder={<span className={styles.selectPlaceholder}>Your budget</span>}
+            >
+              <Select.Option value="demo">Demo</Select.Option>
+            </Select>
           </FormItem>
           <FormItem name="accept" className={styles.accept}>
             <Checkbox />
@@ -126,16 +151,11 @@ const ContactForm = ({
         </Row>
 
         <Col className={styles.buttonWrapper}>
-          <Button text="Send message" transparentBlue type="submit" />
+          <Button text="Submit" transparentBlue type="submit" />
         </Col>
       </Form>
-
-      <Image
-        src={contactBgImage}
-        className={`${styles.backImage} ${styles.topBackImage}`}
-      />
     </Col>
   );
 };
 
-export default memo(ContactForm);
+export default memo(ModalForm);

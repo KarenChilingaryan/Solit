@@ -1,0 +1,35 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-modal-styles {
+  .modal {
+    :global(.ant-modal-header) {
+      border-bottom: none;
+      padding: 0;
+    }
+
+    :global(.ant-modal-body) {
+      padding: 0;
+    }
+
+    :global(.ant-modal-content) {
+      width: calcVW(1280);
+      padding: calcVW(64);
+    }
+
+    :global(.ant-modal-close) {
+      top: calcVW(60);
+      right: calcVW(70);
+    }
+  }
+
+  .logo {
+    width: calcVW(100);
+    height: calcVW(40);
+  }
+
+  .closeIcon {
+    width: calcVW(24);
+    height: calcVW(24);
+  }
+}

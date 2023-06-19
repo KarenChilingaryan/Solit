@@ -1,0 +1,27 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-success-modal-styles {
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: calcVW(32);
+
+    .title {
+      @include font-style(
+        calcVW(36),
+        variables.$fw-500,
+        calcVW(44),
+        variables.$black
+      );
+    }
+    .message {
+      @include font-style(
+        calcVW(24),
+        variables.$fw-400,
+        calcVW(32),
+        variables.$black
+      );
+    }
+  }
+}

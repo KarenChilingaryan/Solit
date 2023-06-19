@@ -7,86 +7,147 @@
     margin: getDiscussProjectStackSizes(content-mt) auto 0 auto;
 
     .discussProject {
-      display: flex;
-      flex-direction: column;
-      gap: calcVW(32);
       margin-top: calcVW(200);
 
-      .buttons {
-        display: flex;
-        gap: calcVW(16);
-      }
-
-      .industryDetails {
+      .form {
         display: flex;
         flex-direction: column;
-        gap: calcVW(90);
+        gap: calcVW(32);
 
-        .industries {
+        .buttons {
+          :global(.ant-form-item-control-input-content) {
+            display: flex;
+            gap: calcVW(16);
+          }
+        }
+
+        .industryDetails {
           display: flex;
           flex-direction: column;
-          gap: calcVW(30);
+          gap: calcVW(90);
 
-          .title {
-            @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
-          }
-
-          .checkboxes {
+          .industries {
             display: flex;
-            flex-wrap: wrap;
-            gap: calcVW(24);
-          }
+            flex-direction: column;
+            gap: calcVW(30);
 
-          .specialistWrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: calcVW(66);
+            .title {
+              @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
+            }
 
-            .stacks {
+            .checkboxes {
               display: flex;
-              flex-direction: column;
+              flex-wrap: wrap;
               gap: calcVW(24);
             }
 
-            .stackName {
-              @include font-style(
-                calcVW(20),
-                variables.$fw-700,
-                calcVW(24),
-                variables.$dodger-blue
-              );
-            }
-          }
-
-          .stackWrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: calcVW(83);
-
-            .stacks {
+            .specialistWrapper {
               display: flex;
-              flex-direction: column;
-              gap: calcVW(24);
+              flex-wrap: wrap;
+              gap: calcVW(66);
+
+              .stacks {
+                display: flex;
+                flex-direction: column;
+                gap: calcVW(24);
+              }
+
+              .stackName {
+                @include font-style(
+                  calcVW(20),
+                  variables.$fw-700,
+                  calcVW(24),
+                  variables.$dodger-blue
+                );
+              }
             }
 
-            .stackName {
-              @include font-style(
-                calcVW(20),
-                variables.$fw-700,
-                calcVW(24),
-                variables.$dodger-blue
-              );
+            .stackWrapper {
+              display: flex;
+              flex-wrap: wrap;
+              gap: calcVW(83);
+
+              .stacks {
+                display: flex;
+                flex-direction: column;
+                gap: calcVW(24);
+              }
+
+              .stackName {
+                @include font-style(
+                  calcVW(20),
+                  variables.$fw-700,
+                  calcVW(24),
+                  variables.$dodger-blue
+                );
+              }
+            }
+
+            .monthsWrapper {
+              display: flex;
+              justify-content: space-between;
+
+              .month {
+                @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
+              }
             }
           }
+        }
+      }
+    }
+  }
+  .footer {
+    bottom: 0;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+    left: 0;
+    max-width: none;
+    padding: calcVW(64);
+    position: fixed;
+    transform: translateY(150%);
+    transition: margin-bottom 0.5s ease, transform 0.5s ease;
+    width: 100%;
+    z-index: 101;
+    transform: translateY(0);
+    height: calcVW(248);
+    background-color: rgb(255, 255, 255);
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
 
-          .monthsWrapper {
-            display: flex;
-            justify-content: space-between;
+    .footerContent {
+      display: flex;
+      flex-direction: column;
+      gap: calcVW(16);
+      padding: 0 calcVW(32);
 
-            .month {
-              @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
-            }
-          }
+      .footerTitle {
+        @include font-style(
+          calcVW(36),
+          variables.$fw-500,
+          calcVW(44),
+          variables.$black
+        );
+      }
+
+      .itemWrapper {
+        display: flex;
+        align-items: center;
+        gap: calcVW(14);
+        width: max-content;
+        padding: calcVW(5);
+
+        .item {
+          @include font-style(
+            calcVW(20),
+            variables.$fw-500,
+            calcVW(24),
+            variables.$black
+          );
+        }
+
+        .icon {
+          cursor: pointer;
+          width: calcVW(12);
+          height: calcVW(12);
         }
       }
     }

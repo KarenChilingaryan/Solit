@@ -4,12 +4,11 @@ import { Checkbox } from "../../atoms";
 
 import styles from "./Industry.module.scss";
 
-const Industry = ({ fullWidth = false, circle = false , value}) => {
+const Industry = ({ fullWidth = false, circle = false, value }) => {
   const [isChecked, setIsChecked] = useState(false);
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
-
   return (
     <Col
       className={`${styles.mainWrapper} ${fullWidth && styles.moreWrapper},  ${
@@ -17,8 +16,8 @@ const Industry = ({ fullWidth = false, circle = false , value}) => {
       }`}
       onClick={handleCheckboxChange}
     >
-      <Checkbox className={styles.checkbox} checked={isChecked}  />
-      <span className={styles.nameSpecialist}>Logistic</span>
+      <Checkbox className={styles.checkbox} checked={isChecked} value={value} />
+      <span className={styles.nameSpecialist}>{value}</span>
     </Col>
   );
 };

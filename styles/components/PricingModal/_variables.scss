@@ -1,0 +1,9 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$pricing-modal-sizes: (
+);
+
+@function getPricingModal($property) {
+  @return map-get($pricing-modal-sizes, $property);
+}
