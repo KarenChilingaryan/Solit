@@ -52,6 +52,40 @@
         text-align: center;
       }
     }
+    @media (max-width: 1024px) {
+      width: calcVWT(424);
+      height: calcVWT(340);
+      .content {
+        padding: calcVWT(32);
+        .icon {
+          width: calcVWT(54);
+          height: calcVWT(54);
+        }
+        .title {
+          @include font-style(calcVWT(20), variables.$fw-500, calcVWT(24), variables.$light-blue);
+        }
+        .desc {
+          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), variables.$main-white);
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      width: 100%;
+      height: calcVWM(388);
+      .content {
+        padding: calcVWM(32);
+        .icon {
+          width: calcVWM(54);
+          height: calcVWM(54);
+        }
+        .title {
+          @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24), variables.$light-blue);
+        }
+        .desc {
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), variables.$main-white);
+        }
+      }
+    }
   }
   .weDoWidth {
     width: getAboutItemSizes(about-item-width-wd);

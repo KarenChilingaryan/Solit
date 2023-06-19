@@ -258,5 +258,79 @@
         }
       }
     }
+    @media (max-width: 576px) {
+      .backImage {
+        width: calcVWM(1500);
+        height: calcVWM(1100);
+        left: calcVWM(-580);
+        top: calcVWM(-370);
+      }
+      flex-direction: column;
+      margin-top: calcVWM(40);
+      .infoSection {
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        .title {
+          font-weight: 500;
+          font-size: calcVWM(36);
+          line-height: calcVWM(44);
+          color: #ffffff;
+        }
+
+        .info {
+          font-weight: 400;
+          font-size: calcVWM(18);
+          line-height: calcVWM(24);
+          color: #ffffff;
+        }
+      }
+      .form {
+        width: 100%;
+        max-width: 100%;
+        :global(.ant-input-affix-wrapper) {
+          height: calcVWM(35);
+        }
+        :global(.ant-input) {
+          padding: calcVWM(30) 0px calcVWM(5) 0;
+          border-bottom: 2px solid #ffffff;
+          &:focus {
+            box-shadow: 0 2px 0 0 blue;
+          }
+        }
+
+        .buttonWrapper {
+          button {
+            @include font-style(
+              calcVWM(13) !important,
+              variables.$fw-700 !important,
+              calcVWM(16) !important,
+            );
+            padding: calcVWM(8) calcVWM(32);
+            border-radius: calcVWM(8);
+            margin: 0 auto;
+          }
+        }
+
+        .accept {
+          .acceptText {
+            font-size: calcVWM(18);
+            line-height: calcVWM(24);
+          }
+        }
+        :global(.ant-form-item) {
+          margin-bottom: calcVWM(20);
+        }
+        :global(.ant-checkbox-inner) {
+          width: calcVWM(15);
+          height: calcVWM(15);
+          margin-right: calcVWM(10);
+        }
+        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
+          width: calcVWM(20);
+          height: calcVWM(20);
+        }
+      }
+    }
   }
 }

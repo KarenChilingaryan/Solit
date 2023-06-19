@@ -29,15 +29,17 @@ const Technology = () => {
         aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute
         id deserunt nisi.
       </Paragraph>
-      <div className={styles.buttons}>
-        {buttonsName.map((name, i) => (
-          <Button
-            text={name}
-            lightBlueTech={i === current}
-            grayTextBtnTech={i !== current}
-            key={i}
-          />
-        ))}
+      <div className={styles.buttonsParent}>
+        <div className={styles.buttons}>
+          {buttonsName.map((name, i) => (
+            <Button
+              text={name}
+              lightBlueTech={i === current}
+              grayTextBtnTech={i !== current}
+              key={i}
+            />
+          ))}
+        </div>
       </div>
       <div className={styles.languages}>
         {languages.map((el, i) => (

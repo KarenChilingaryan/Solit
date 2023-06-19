@@ -5,16 +5,18 @@
   .whatToKnowWrapper {
     width: 100%;
     @include flex(center, center);
+
     .context {
       @include flex(center, center, column);
-      gap:getWhatToKnowSizes(what-to-know-context-gap);
-      width:getWhatToKnowSizes(what-to-know-context-width);
-      height:getWhatToKnowSizes(what-to-know-context-height);
+      gap: getWhatToKnowSizes(what-to-know-context-gap);
+      width: getWhatToKnowSizes(what-to-know-context-width);
+      height: getWhatToKnowSizes(what-to-know-context-height);
+
       .title {
         @include font-style(
           getWhatToKnowSizes(what-to-know-title-fz),
           variables.$fw-400,
-          getWhatToKnowSizes(what-to-know-title-lh),
+          getWhatToKnowSizes(what-to-know-title-lh)
         );
       }
 
@@ -27,13 +29,45 @@
           #fff
         );
       }
-      
+
       .button {
         @include font-style(
           getWhatToKnowSizes(button-fz),
           variables.$fw-400,
           getWhatToKnowSizes(button-lh),
+          #fff
         );
+      }
+    }
+    @media (max-width: 1024px) {
+
+      .context {
+        width: calcVWT(672);
+        height: calcVWT(196);
+        justify-content: space-between;
+
+        .title {
+          @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
+        }
+        
+        .description {
+          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      .context {
+        width: 100%;
+        height: calcVWM(196);
+        justify-content: space-between;
+
+        .title {
+          @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
+        }
+        
+        .description {
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+        }
       }
     }
   }

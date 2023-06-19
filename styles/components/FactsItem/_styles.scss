@@ -31,5 +31,27 @@
         variables.$light-blue
       );
     }
+    @media (max-width: 1024px) {
+      width: calcVWT(208);
+      height: calcVWT(187);
+      .result {
+        @include font-style(calcVWT(48), variables.$fw-400, calcVWT(59), variables.$light-blue);
+      }
+      .title {
+        @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+        max-width: calcVWT(144);
+      }
+    }
+    @media (max-width: 576px) {
+      width: calcVWM(155);
+      height: calcVWM(155);
+      .result {
+        @include font-style(calcVWM(48), variables.$fw-400, calcVWM(59), variables.$light-blue);
+      }
+      .title {
+        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+        max-width: calcVWM(144);
+      }
+    }
   }
 }

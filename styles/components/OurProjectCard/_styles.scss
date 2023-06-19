@@ -210,6 +210,50 @@
         }
       }
     }
+    @media (max-width: 576px) {
+      height: calcVWM(280);
+      overflow: hidden;
+      border-radius: calcVWM(16);
+      .home {
+        border-radius: calcVWM(17);
+        width: calcVWM(163);
+        height: calcVWM(280);
+        .img {
+          height: calcVWM(250);
+        }
+        .positionSection {
+          height: calcVWM(30);
+          .name {
+            @include font-style(calcVWM(10), variables.$fw-700, calcVWM(12), #fff);
+          }
+        }
+      }
+      &:hover {
+        height: calcVWM(280);
+        margin-top: calcVWM(0);
+        margin-bottom: calcVWM(0);
+        .home {
+          width: calcVWM(163);
+          height: calcVWM(280);
+          .img {
+            height: calcVWM(218);
+          }
+          .positionSection {
+            height: calcVWM(62);
+            .stacks {
+              column-gap: calcVWM(20);
+              flex-wrap: nowrap;
+              min-width: max-content;
+              margin-left: calcVWM(-34);
+              .icon {
+                width: calcVWM(22);
+                height: calcVWM(22);
+              }
+            }
+          }
+        }
+      }
+    }
   }
   .moreWrapper {
     display: flex;

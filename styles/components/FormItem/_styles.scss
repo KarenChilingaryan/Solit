@@ -40,5 +40,14 @@
         top: calcVWT(2);
       }
     }
+
+    @media (max-width: 1024px) {
+      .asPlaceholder {
+        font-weight: 400;
+        font-size: calcVWM(18);
+        line-height: calcVWM(24);
+        top: calcVWM(2);
+      }
+    }
   }
 }

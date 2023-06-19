@@ -151,6 +151,10 @@
             .borderedTextWhat {
                 margin-left: calcVWT(-50);
             }
+            .aboutCompanyContent {
+                height: max-content;
+                margin: calcVWT(90) 0 calcVWT(100) 0;
+            }
         }
 
         .backImage {
@@ -170,11 +174,12 @@
             }
         }
         .backImageSecond {
-            top: calcVWT(280);
+            top: calcVWT(400);
             height: 93%;
         }
     }
     @media (max-width: 576px) {
+
         .content {
             width: calcVWM(343);
             margin-top: calcVWM(10);
@@ -190,13 +195,37 @@
             .aboutContent {
                 row-gap: calcVWM(32);
             }
+            .aboutCompanyContent {
+                margin: calcVWT(90) 0 calcVWT(230) 0;
+                flex-direction: column;
+                align-items: flex-start;
+                row-gap: calcVWM(50);
+            }
+            .mapContainer {
+                width: 100%;
+                .worldMapUser {
+                    width: 100%;
+                }
+            }
         }
         .projectContent {
             row-gap: calcVWM(16) !important;
             margin-bottom: calcVWM(100);
         }
         .topBackImage {
-            height: 33%;
+            height: 53%;
+            width: calcVWM(800);
+            left: calcVWM(-230);
+        }
+        .ourProjectsCards {
+            row-gap: calcVWM(32);
+        }
+
+        .backImageSecond {
+            top: calcVWM(800);
+            height: 86%;
+            width: calcVWM(700);
+            left: calcVWM(-200);
         }
     }
 }

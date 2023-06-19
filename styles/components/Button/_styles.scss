@@ -184,6 +184,15 @@
     }
   }
 
+  @media (max-width: 1024px) {
+    .button {
+      width: calcVWT(159);
+      height: calcVWT(56);
+      @include font-style(calcVWT(20), variables.$fw-700, calcVWT(24));
+      border-radius: calcVWT(8);
+    }
+  }
+
   .boldWhite {
     background: transparent;
     @include font-style(
@@ -204,14 +213,47 @@
       @include font-style(
         getButtonSizes(button-text-bold-blue-fz),
         variables.$fw-500,
-        getButtonSizes(button-text-bold-blue-lh),
-        #fff
+        getButtonSizes(button-text-bold-blue-lh)
       );
       transition: 0.3s;
     }
     img {
       width: calcVW(20);
       height: calcVW(20);
+    }
+
+    @media (max-width: 1024px) {
+      width: max-content;
+      height: max-content;
+      @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22), variables.$light-blue);
+      &:hover {
+        @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22));
+        img {
+          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0) contrast(0);
+        }
+      }
+      border-radius: calcVWT(16);
+      padding: calcVWT(27) calcVWT(56);
+      img {
+        width: calcVWT(20);
+        height: calcVWT(20);
+      }
+    }
+
+    @media (max-width: 576px) {
+      @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), variables.$light-blue);
+      &:hover {
+        @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22));
+        img {
+          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0) contrast(0);
+        }
+      }
+      border-radius: calcVWM(16);
+      padding: calcVWM(27) calcVWM(56);
+      img {
+        width: calcVWM(20);
+        height: calcVWM(20);
+      }
     }
   }
 
@@ -263,14 +305,6 @@
     }
   }
 
-  @media (max-width: 1024px) {
-    .button {
-      width: calcVWT(159);
-      height: calcVWT(56);
-      @include font-style(calcVWT(20), variables.$fw-700, calcVWT(24));
-      border-radius: calcVWT(8);
-    }
-  }
   // To do refactoring
 
   .transparentOpposite {
@@ -295,6 +329,14 @@
         getButtonSizes(button-text-bold-blue-lh)
       );
       transition: 0.3s;
+    }
+
+    @media (max-width: 1024px) {
+      width: max-content;
+      height: max-content;
+      padding: calcVWT(16) calcVWT(32);
+      @include font-style(calcVWT(20), variables.$fw-700, calcVWT(24));
+      border-radius: calcVWT(8);
     }
 
     @media (max-width: 576px) {

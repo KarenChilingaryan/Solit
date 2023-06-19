@@ -24,12 +24,7 @@
       }
     }
     .title {
-      @include font-style(
-        getAboutPageSizes(title-fz),
-        variables.$fw-500,
-        getAboutPageSizes(title-fl),
-        #fff
-      );
+      @include font-style(getAboutPageSizes(title-fz), variables.$fw-500, getAboutPageSizes(title-fl), #fff);
       position: relative;
       margin-top: getAboutPageSizes(title-mt);
     }
@@ -46,10 +41,7 @@
       padding: getAboutPageSizes(description-p);
     }
     .description {
-      @include font-style(
-        getAboutPageSizes(description-fz),
-        variables.$fw-400,
-        getAboutPageSizes(description-fl));
+      @include font-style(getAboutPageSizes(description-fz), variables.$fw-400, getAboutPageSizes(description-fl));
     }
     .aboutImage {
       width: 100%;
@@ -68,13 +60,57 @@
       @include flex(space-between, center, row, wrap);
       margin: getAboutPageSizes(about-company-m);
     }
-      .aboutCompanyTitle {
-        @include flex(null,center);
-      @include font-style(
-        calcVW(36) variables.$fw-500,
-        calcVW(44),
-        variables.$white
-      );
+    .aboutCompanyTitle {
+      @include flex(null, center);
+      @include font-style(calcVW(36) variables.$fw-500, calcVW(44), variables.$white);
+    }
+    @media (max-width: 1024px) {
+      width: calcVWT(928);
+      margin-top: calcVWT(258);
+      .title {
+        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44), #fff);
+        margin-top: calcVWT(160);
+      }
+      .impact {
+        row-gap: calcVWT(32);
+        padding: 0 calcVWT(24);
+      }
+      .description {
+        @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+      }
+      .descriptionBlock {
+        padding: calcVWT(32) calcVWT(24);
+      }
+      .aboutImage {
+        padding: calcVWT(10);
+      }
+      .quickFacts {
+        margin-top: calcVWT(40);
+      }
+    }
+    @media (max-width: 576px) {
+      margin-top: calcVWM(90);
+      .title {
+        @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44), #fff);
+        margin-top: calcVWM(40);
+      }
+      .impact {
+        padding: 0;
+      }
+      .descriptionBlock {
+        padding: calcVWM(16);
+      }
+      .description {
+        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+      }
+      .aboutImage {
+        height: calcVWM(230);
+        padding: 0;
+      }
+      .quickFacts {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
     }
   }
 }

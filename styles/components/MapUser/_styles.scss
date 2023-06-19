@@ -57,6 +57,12 @@
             width: calcVWT(178);
             height: calcVWT(178);
           }
+          .flag {
+            width: calcVWT(36);
+            height: auto;
+            top: calcVWT(10);
+            right: calcVWT(10);
+          }
         }
         .iconBlock {
           border-radius: calcVWT(8);
@@ -75,6 +81,44 @@
         }
         .userPosition {
           @include font-style(calcVWT(20), variables.$fw-500, calcVWT(24));
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      .imgBlock {
+        width: 100%;
+        .imageBlock {
+          .userImage {
+            width: calcVWM(157);
+            height: calcVWM(178);
+            object-fit: cover;
+            border-radius: calcVWM(16);
+          }
+          .flag {
+            width: calcVWM(32);
+            height: auto;
+            top: calcVWM(10);
+            right: calcVWM(10);
+          }
+        }
+        .iconBlock {
+          border-radius: calcVWM(8);
+          width: calcVWM(32);
+          height: calcVWM(32);
+          .arrowIcon {
+            width: calcVWM(14);
+          }
+        }
+      }
+      .infoBlock {
+        width: auto;
+        .userName {
+          @include font-style(calcVWM(24), variables.$fw-700, calcVWM(29), #219fdb);
+          margin-top: calcVWM(10);
+        }
+        .userPosition {
+          @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24));
+          max-width: calcVWM(230);
         }
       }
     }
