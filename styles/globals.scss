@@ -11,7 +11,7 @@ body {
   @media (max-width: 768px) {
     padding-top: calcVW(250);
   }
-  background-color: #020D1C !important;
+  background-color: #020d1c !important;
 }
 
 @font-face {
@@ -52,4 +52,13 @@ textarea::-webkit-scrollbar {
 textarea::-webkit-scrollbar-thumb {
   background-color: #aad8ec;
   border-radius: 5px;
+}
+
+.ant-dropdown-open {
+  background: #000000;
+  border-radius: calcVWM(16) calcVWM(16) 0 0;
+}
+
+.ant-dropdown-menu {
+  padding: 0 !important;
 }
