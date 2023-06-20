@@ -303,6 +303,7 @@
   @media (max-width: 576px) {
     .sectionWrapper {
       .whatWeDoWrapper {
+        margin-bottom: calcVWM(80);
         .title {
           @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44), #fff);
         }
@@ -316,13 +317,14 @@
         //   display: none;
         // }
         .contextWrapper {
-          padding: calcVWM(32);
           width: 100%;
           height: max-content;
           background: rgba(0, 0, 0, 0.5);
           backdrop-filter: blur(36.5px);
           border-radius: calcVWM(16);
           .context {
+            padding: calcVWM(32);
+
             @include font-style(
               // getWhatWeDoSizes(what-we-do-development-fz),
               calcVWM(18),
@@ -335,6 +337,7 @@
           .antDropdownLink {
             display: flex;
             justify-content: space-between;
+            padding: calcVWM(32);
             @include font-style(
               // getWhatWeDoSizes(what-we-do-development-fz),
               calcVWM(20),

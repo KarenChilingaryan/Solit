@@ -16,19 +16,27 @@ import styled from "styled-components";
 
 const MenuItem = styled(Menu.Item)`
   color: #ffffff;
-  padding: ${10 * 0.266711333}vw;
-  font-size: ${18 * 0.266711333}vw;
+  padding: ${10 * 0.266711333}vw ${22 * 0.266711333}vw;
+    span{
+    padding: ${22 * 0.266711333}vw ${20 * 0.266711333}vw;
+    font-size: ${20 * 0.266711333}vw;
+    font-weight: 700
+  }
   &:hover {
     background: rgba(0, 0, 0, 0.5);
     backdrop - filter: blur(36.5px);
     color: #219fdb;
+    span {
+      background: #219FDB;
+      border-radius: 8px;
+      color: #000000
+    }
   }
 `
 
 const FullMenu = styled(Menu)`
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(36.5px);
-  border-radius: ${16 * 0.266711333}vw;
+  background: #000000;
+  border-radius: 0 0 ${16 * 0.266711333}vw ${16 * 0.266711333}vw;
   overflow: hidden;
 `
 const WhatWeDo = () => {

@@ -16,5 +16,13 @@
     .weKnowSection {
       margin:getWhatWeDoPageSizes(what-we-know-section-margin);
     }
+    @media (max-width: 1024px) {
+      width: calcVWT(880);
+      margin-top: calcVWT(256);
+    }
+    @media (max-width: 1024px) {
+      width: calcVWM(343);
+      margin-top: calcVWM(76);
+    }
   }
 }
