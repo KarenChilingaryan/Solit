@@ -26,8 +26,8 @@ const CareersComponent = () => {
 
             <Paragraph className={styles.title}>Explore more</Paragraph>
             <Row className={styles.blockItems}>
-              {[1, 2, 3].map(el =>
-                <ImageAndText image={image} text={'How to build an AI assistant for your business or yourself'} />
+              {[1, 2, 3].map((el, index) =>
+                <ImageAndText key={index} image={image} text={'How to build an AI assistant for your business or yourself'} />
               )}
             </Row>
           </div>

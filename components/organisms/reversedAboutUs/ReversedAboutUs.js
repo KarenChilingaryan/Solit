@@ -11,7 +11,7 @@ const ReversedAboutUs = ({ about, users, reversed, fromCareers = false }) => {
       <TitleWithDescription title={about.title} description={about.description}  fromCareers={fromCareers} reversed={reversed}/>
       <div className={`${styles.users} ${fromCareers ? styles.fromCareers : ''}`}>
         {
-          users.map(user => <TeamMemberCard name={user.name} position={user.position} image={user.image} fromCareers={fromCareers} />)
+          users.map((user, index) => <TeamMemberCard key={index} name={user.name} position={user.position} image={user.image} fromCareers={fromCareers} />)
         }
       </div>
     </div>

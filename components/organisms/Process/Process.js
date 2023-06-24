@@ -1,4 +1,4 @@
-import { memo, use, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Paragraph } from "../../atoms";
 
 import styles from "./Process.module.scss";
@@ -161,44 +161,46 @@ const svgSizesMobile = [
   },
 ];
 
+const GetText = (text, A, B, fs = "8", lh = 10, anchor = "middle") => {
+  const [description, setDescription] = useState([]);
+  useEffect(() => {
+    if (text) {
+      const textArr = text.split(" ");
+      const arr = [];
+      let textValue = "";
+      for (let i = 0; i < textArr.length; i++) {
+        const element = textArr[i];
+        if (textValue.length + element.length < 25) {
+          textValue = `${textValue} ${element}`;
+        } else {
+          arr.push(textValue);
+          textValue = element;
+        }
+      }
+      setDescription(arr);
+    }
+  }, [text]);
+
+  return description?.map((el, index) => (
+    <text
+      key={index}
+      x={A}
+      y={B + 20 + index * lh}
+      fill="rgba(255, 255, 255, 0.73)"
+      textAnchor={anchor}
+      dominantBaseline="baseline"
+      fontSize={fs}
+    >
+      {el}
+    </text>
+  ));
+};
+
 const Line = () => {
   const targetRef = useRef(null)
   const [visiblePercentage, setVisiblePercentage] = useState(0);
 
-  const getText = (text, A, B, fs = "8", lh = 10, anchor = "middle") => {
-    const [description, setDescription] = useState([]);
-    useEffect(() => {
-      if (text) {
-        const textArr = text.split(" ");
-        const arr = [];
-        let textValue = "";
-        for (let i = 0; i < textArr.length; i++) {
-          const element = textArr[i];
-          if (textValue.length + element.length < 25) {
-            textValue = `${textValue} ${element}`;
-          } else {
-            arr.push(textValue);
-            textValue = element;
-          }
-        }
-        setDescription(arr);
-      }
-    }, [text]);
 
-    return description?.map((el, index) => (
-      <text
-        key={index}
-        x={A}
-        y={B + 20 + index * lh}
-        fill="rgba(255, 255, 255, 0.73)"
-        textAnchor={anchor}
-        dominantBaseline="baseline"
-        fontSize={fs}
-      >
-        {el}
-      </text>
-    ));
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -242,7 +244,7 @@ const Line = () => {
           if (el.type === "path") {
             const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
 
-            return <path d={path} stroke={color} strokeWidth="1" fill="none" />;
+            return <path key={path} d={path} stroke={color} strokeWidth="1" fill="none" />;
           } else if (el.type === "round") {
             return (
               <>
@@ -264,7 +266,7 @@ const Line = () => {
                   stroke-width="1"
                 />
                 <circle cx={el.A} cy={el.B} r="4" fill={color} />
-                {getText(
+                {GetText(
                   "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.",
                   el.A,
                   el.B
@@ -273,7 +275,7 @@ const Line = () => {
             );
           } else {
             const path = `M${el.A.x},${el.A.y} Q${el.controlPoint.x},${el.controlPoint.y} ${el.B.x},${el.B.y}`;
-            return <path d={path} stroke={color} strokeWidth="1" fill="none" />;
+            return <path key={index} d={path} stroke={color} strokeWidth="1" fill="none" />;
           }
         })}
       </svg>
@@ -296,7 +298,7 @@ const Line = () => {
           if (el.type === "path") {
             const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
 
-            return <path d={path} stroke={color} strokeWidth="2" fill="none" />;
+            return <path key={index} d={path} stroke={color} strokeWidth="2" fill="none" />;
           } else if (el.type === "round") {
             return (
               <>
@@ -318,7 +320,7 @@ const Line = () => {
                   stroke-width="3"
                 />
                 <circle cx={el.A} cy={el.B} r="9" fill={color} />
-                {getText(
+                {GetText(
                   "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.",
                   el.A + 60,
                   el.B + 40,
