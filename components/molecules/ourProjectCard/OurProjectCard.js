@@ -16,7 +16,7 @@ const OurProjectCard = ({
   component
 }) => {
   return (
-    <Col className={styles.mainWrapper}>
+    <Col className={`${styles.mainWrapper} ${styles['mainWrapper-' + component]}`}>
       <Col
         className={`${styles.imageContainer} ${more && styles.moreWrapper} ${styles[component]}`}
       >

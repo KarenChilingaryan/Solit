@@ -14,6 +14,18 @@
     .knowMoreSection {
       margin: calcVW(384) 0;
     }
+    @media (max-width: 1024px) {
+      width: calcVWT(880);
+      .contentDescription {
+        margin: 0;
+      }
+      .portfoliosSection {
+        margin-top: calcVWT(88);
+      }
+    }
+    @media (max-width: 576px) {
+      width: calcVWM(343);
+    }
   }
 }
 //TO Do refactor Calc

@@ -18,6 +18,16 @@
         top: calcVW(-250);
       }
     }
+    @media (max-width: 1024px) {
+      .filters {
+        gap: calcVWT(16);
+      }
+    }
+    @media (max-width: 576px) {
+      .projects {
+        gap: calcVWM(32) !important;
+      }
+    }
   }
 }
 //TO Do refactor Calc

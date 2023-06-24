@@ -21,6 +21,17 @@
     .block {
       width: 100%;
       align-items: flex-end;
+      .users {
+        width: calcVWT(448);
+        height: calcVWT(220);
+        margin-bottom: calcVWT(40);
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    .block {
+      width: 100%;
+      align-items: flex-end;
       flex-direction: column;
       .users {
         width: 100%;
