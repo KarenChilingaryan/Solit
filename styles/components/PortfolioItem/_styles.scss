@@ -83,22 +83,12 @@
         .buttonWrapper > button {
           width: calcVW(224);
           cursor: pointer;
-          @include font-style(
-            calcVW(18),
-            variables.$fw-700,
-            calcVW(22),
-            variables.$light-blue
-          );
+          @include font-style(calcVW(18), variables.$fw-700, calcVW(22), variables.$light-blue);
 
           &:hover {
             background: initial;
             border: none;
-            @include font-style(
-              calcVW(18),
-              variables.$fw-700,
-              calcVW(22),
-              variables.$light-blue
-            );
+            @include font-style(calcVW(18), variables.$fw-700, calcVW(22), variables.$light-blue);
             transition: none;
           }
         }
@@ -112,6 +102,106 @@
         margin: calcVW(275) 0 calcVW(128);
       }
     }
+
+    @media (max-width: 1024px) {
+      .content {
+        width: calcVWT(928);
+        .itemDescription {
+          margin-top: calcVWT(100);
+          margin-bottom: calcVWT(20);
+          width: calcVWT(928);
+          height: calcVWT(560);
+          .imageCard {
+            width: calcVWT(422);
+            height: calcVWT(636);
+          }
+          .testSection {
+            width: calcVWT(473);
+            justify-content: flex-end;
+            .stacks{
+              .icon{
+                width: calcVWT(40);
+                height: calcVWT(40);
+              }
+            }
+          }
+        }
+      }
+      .whiteSection{
+        .portfoliosSection {
+          width: calcVWT(928);
+          .text {
+            padding: 0;
+            width: calcVWT(500);
+          }
+          .buttonWrapper {
+            margin-top: calcVWT(64);
+          }
+          .buttonWrapper > button {
+            width: calcVWT(224);
+            cursor: pointer;
+            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22), variables.$light-blue);
+  
+            &:hover {
+              background: initial;
+              border: none;
+              @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22), variables.$light-blue);
+              transition: none;
+            }
+          }
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      background-image: linear-gradient(to bottom, #060e1d calcVWM(520), white 0);
+      .content {
+        height: max-content;
+        .itemDescription {
+          justify-content: center;
+          height: max-content;
+          width: 100%;
+          .imageCard {
+            position: inherit;
+            width: calcVWM(343);
+            height: max-content;
+          }
+          .testSection {
+            width: 100%;
+            .stacks {
+              justify-content: space-between;
+              .icon {
+                width: calcVWM(40);
+                height: calcVWM(40);
+              }
+            }
+          }
+        }
+      }}
+      .whiteSection {
+        .portfoliosSection {
+          // margin-top: calcVWM(1000);
+          .projects {
+            row-gap: calcVWM(32) !important;
+          }
+          .text {
+            width: 100%;
+          }
+          .buttonWrapper {
+            margin-top: calcVWM(64);
+            justify-content: flex-start;
+          }
+          .buttonWrapper > button {
+            width: calcVWM(224);
+            @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), variables.$light-blue);
+            &:hover {
+              @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), variables.$light-blue);
+            }
+          }
+        }
+        .knowMoreSection {
+          margin-bottom: calcVWM(80);
+        }
+      }
   }
 }
 //TO Do refactor Calc

@@ -17,11 +17,12 @@ const Button = ({
   transparentBlue,
   whiteBlueBorder,
   grayTextBtnTech,
-  lightBlueTech
+  lightBlueTech,
+  classN
 }) => {
   return (
     <button
-      className={cx(styles.button, {
+      className={`${cx(styles.button, {
         [styles.whiteButton]: whiteButton,
         [styles.boldBlue]: boldBlue,
         [styles.boldWhite]: boldWhite,
@@ -33,7 +34,7 @@ const Button = ({
         [styles.grayTextBtn]: grayTextBtn,
         [styles.grayTextBtnTech]: grayTextBtnTech,
         [styles.whiteBlueBorder]: whiteBlueBorder,
-      })}
+      })} ${styles[classN]}`}
     >
       {text}
       {icon && <Image src={icon} />}

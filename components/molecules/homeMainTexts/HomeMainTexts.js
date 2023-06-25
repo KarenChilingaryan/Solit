@@ -9,13 +9,14 @@ const HomeMainTexts = ({
   secondSubtitle,
   h1 = false,
   ellipsis,
+  className
 }) => {
   return (
     <>
       <Col
-        className={`${styles.bigTextWrapper}  ${
+        className={`${styles.bigTextWrapper} ${
           ellipsis && styles.contentWrapper
-        }`}
+        } ${styles[className]}`}
       >
         {h1 ? (
           <h1 className={styles.title}>{title}</h1>

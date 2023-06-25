@@ -41,6 +41,13 @@
       }
     }
   }
+  @media (max-width: 1024px) {
+    
+    .prtfolioItem {
+      max-height: calcVWT(388);
+  
+    }
+  }
   @media (max-width: 576px) {
     .bigTextWrapper {
       max-height: calcVWM(350);
@@ -49,6 +56,16 @@
       }
       .firstSubtitle {
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+        margin-top: calcVWM(25);
+      }
+    }
+    .prtfolioItem {
+      max-height: max-content;
+      .title {
+        @include font-style(calcVWM(36), variables.$fw-400, calcVWM(44), variables.$black);
+      }
+      .firstSubtitle {
+        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), variables.$black);
         margin-top: calcVWM(25);
       }
     }

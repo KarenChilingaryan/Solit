@@ -76,11 +76,20 @@
       width: calcVWT(208);
       height: calcVWT(220);
     }
+    .fromCareers {
+      width: calcVWT(296);
+      height: calcVWT(300);
+    }
   }
   @media (max-width: 576px) {
     .imageContainer {
       width: calcVWM(163);
       height: calcVWM(200);
+    }
+    .fromCareers {
+      width: calcVWM(155);
+      height: calcVWM(300);
+      
     }
   }
 }

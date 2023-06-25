@@ -7,9 +7,9 @@ import arrow from "../../../assets/img/arrow.svg";
 
 import styles from "./TeamMemberCard.module.scss";
 
-const TeamMember = ({ name, position, more, image }) => {
+const TeamMember = ({ name, position, more, image, fromCareers }) => {
   return (
-    <Col className={`${styles.imageContainer} ${more && styles.moreWrapper}`}>
+    <Col className={`${styles.imageContainer} ${more && styles.moreWrapper} ${fromCareers && styles.fromCareers}`}>
       {!more ? (
         <>
           <Image src={image} alt="icon" className={styles.img} />

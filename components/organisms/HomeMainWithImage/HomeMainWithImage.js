@@ -7,9 +7,9 @@ import { Paragraph } from "../../atoms";
 
 import styles from "./HomeMainWithImage.module.scss";
 
-const HomeMainWithImage = ({ firstImage, children }) => {
+const HomeMainWithImage = ({ firstImage,className, children }) => {
   return (
-    <div className={styles.content}>
+    <div className={`${styles.content} ${styles[className]}`}>
       <div className={styles.socialSites}>
         <div className={styles.site}>
           <Image src={linkedin} className={styles.image} />

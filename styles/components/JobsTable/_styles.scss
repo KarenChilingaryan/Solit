@@ -40,5 +40,55 @@
         }
       }
     }
+    @media (max-width: 1024px) {
+      .table {
+        :global(.ant-table-thead) {
+          :global(.ant-table-cell) {
+            @include font-style(calcVWT(20), variables.$fw-500, calcVWT(24));
+          }
+        }
+        :global(.ant-table-tbody) {
+          :global(.ant-table-cell) {
+            border-bottom: none;
+            @include font-style(calcVWT(20), variables.$fw-500, calcVWT(24));
+          }
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      .table {
+        :global(.ant-table-thead) {
+          :global(.ant-table-cell) {
+            @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24));
+          }
+          :global(.ant-table-cell){
+            display: none;
+          }
+          :global(.ant-table-cell):last-of-type {
+            display: table-cell;
+            text-align: end;
+          }
+          :global(.ant-table-cell):first-of-type {
+            display: table-cell;
+          }
+        }
+        :global(.ant-table-tbody) {
+          :global(.ant-table-cell) {
+            border-bottom: none;
+            @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24));
+          }
+          :global(.ant-table-cell){
+            display: none;
+          }
+          :global(.ant-table-cell):last-of-type {
+            display: table-cell;
+            text-align: end;
+          }
+          :global(.ant-table-cell):first-of-type {
+            display: table-cell;
+          }
+        }
+      }
+    }
   }
 }

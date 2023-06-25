@@ -40,6 +40,15 @@
         @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
       }
     }
+    .careers {
+      width: 100%;
+      padding: 0;
+      margin: calcVWT(40) 0;
+      height: max-content;
+      .title {
+        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43));
+      }
+    }
   }
 
   @media (max-width: 576px) {
@@ -54,6 +63,12 @@
       .description {
         @include font-style(calcVWM(13), variables.$fw-400, calcVWM(20));
         margin-bottom: calcVWM(20) !important;
+      }
+    }
+    .careers {
+      padding: 0;
+      .title {
+        margin-bottom: calcVWM(10) !important;
       }
     }
   }

@@ -18,4 +18,15 @@
       }
     }
   }
+  .prtfolioItemBlock {
+    @media (max-width: 576px) {
+      margin-bottom: calcVWM(20);
+      width: 100%;
+    }
+  }
+  .prtfolioItemDescBlock {
+    @media (max-width: 576px) {
+      width: 100%;
+    }
+  }
 }
