@@ -39,7 +39,8 @@ const Portfolios = ({ data }) => {
   return (
     <Row className={styles.portfoliosWrapper}>
       {/* <Filters/> */}
-      <Col className={styles.filters}>
+      <div className={styles.filtersBlock}>
+        <Col className={styles.filters}>
         <FilterButtons
           name={"All"}
           className={selectedCategory === "All" ? "active" : ""}
@@ -59,7 +60,8 @@ const Portfolios = ({ data }) => {
             }}
           />
         ))}
-      </Col>
+        </Col>
+      </div>
       <Row
         className={styles.projects}
         gutter={[0, "3.645838vw"]}
