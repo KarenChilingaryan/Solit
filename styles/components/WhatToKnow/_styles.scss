@@ -53,7 +53,9 @@
         row-gap: calcVWM(32);
         .title {
           @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
-          text-align: center
+          text-align: center;
+          position: relative;
+          z-index: 10;
         }
         .description {
           @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));

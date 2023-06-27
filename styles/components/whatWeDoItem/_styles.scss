@@ -8,7 +8,7 @@
     position: relative;
     z-index: 1;
   }
-  .bottomBlock{
+  .bottomBlock {
     margin: getWhatWeDoSizes(bottom-block-m);
 
     .title {
@@ -17,6 +17,31 @@
     }
     .blockItems {
       justify-content: space-between;
+    }
+  }
+  @media (max-width: 1024px) {
+    .content {
+      width: calcVWT(976);
+    }
+    .bottomBlock {
+      .title {
+        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43), #fff);
+        margin-bottom: calcVWT(32) !important;
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    .content {
+      width: calcVWM(343);
+    }
+    .bottomBlock {
+      .blockItems {
+        row-gap: calcVWM(32);
+      }
+      .title {
+        @include font-style(calcVWM(36), variables.$fw-500, calcVWM(43), #fff);
+        margin-bottom: calcVWM(32) !important;
+      }
     }
   }
 }
