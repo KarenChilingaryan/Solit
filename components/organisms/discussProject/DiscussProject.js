@@ -1,4 +1,5 @@
-import { memo } from "react";
+import { memo, useState } from "react";
+import { Radio, Slider } from "antd";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import bgImage from "../../../assets/img/main-bg.png";
@@ -6,7 +7,9 @@ import aboutImage from "../../../assets/img/about-image.png";
 import { Col, Paragraph, Row, Checkbox, FormItem, Form } from "../../atoms";
 import Button from "../../molecules/button/Button";
 import Industry from "../../molecules/Industry/Industry";
-import { Slider } from "antd";
+import StackFooter from "../../molecules/stackFooter/StackFooter";
+import PricingModal from "../../molecules/pricingModal/PricingModal";
+import ModalWrapper from "../../molecules/Modal/Modal";
 
 import styles from "./DiscussProject.module.scss";
 
@@ -17,13 +20,132 @@ const formatter = (value) => `${value} month`;
 
 const DiscussProject = () => {
   const [form] = Form.useForm();
+  const [liveStacks, setLiveStacks] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [submitDisabled, setSubmitDisabled] = useState(false);
 
   const submitForm = (values) => {
-    console.log(values, "99999999");
+    setOpen(true);
+    console.log(values, "+++++++++++");
   };
+
+  const handleFormValuesChange = (changedValues, allValues, kkk) => {
+    console.log("Form values changed:", changedValues);
+    console.log("All form values:", allValues);
+    console.log(allValues, "<<<<<<<<<<");
+    getProjectData(allValues);
+  };
+
+  function getProjectData(projectStacks) {
+    const data = [];
+
+    projectStacks?.applicationType?.forEach((type) => {
+      data.push({
+        category: "applicationType",
+        name: type,
+        item: type,
+      });
+    });
+
+    projectStacks?.currentStage?.forEach((stage) => {
+      data.push({
+        category: "currentStage",
+        name: stage,
+        item: stage,
+      });
+    });
+
+    projectStacks?.consultation?.forEach((consult) => {
+      data.push({
+        category: "consultation",
+        name: consult,
+        item: consult,
+      });
+    });
+
+    projectStacks?.industry?.forEach((consult) => {
+      data.push({ category: "industry", item: consult, name: consult });
+    });
+    projectStacks.duration &&
+      data.push({
+        category: "duration",
+        item: `${projectStacks.duration} months`,
+      });
+
+    setLiveStacks([...data]);
+  }
+
+  const handleDelete = (item) => {
+    const updatedStacks = liveStacks.filter(
+      (stack) => stack.name !== item.name
+    );
+
+    setLiveStacks(updatedStacks);
+
+    const updatedValues = updatedStacks.reduce((values, stack) => {
+      switch (stack.category) {
+        case "applicationType":
+        case "currentStage":
+        case "consultation":
+          values[stack.category] = values[stack.category] || [];
+          values[stack.category].push(stack.name);
+          break;
+        case "industry":
+          values.industry = values.industry || [];
+          values.industry.push(stack.item);
+          break;
+        case "duration":
+          values.duration = stack.item;
+          break;
+        default:
+          break;
+      }
+      return values;
+    }, {});
+
+    form.setFieldsValue(updatedValues);
+  };
+
+  const handleClear = (field) => {
+    console.log("IOIOIOOIIOOIOIOIOOO");
+    const updatedStacks = liveStacks.filter(
+      (stack) => stack.category !== field
+    );
+    setLiveStacks(updatedStacks);
+
+    const updatedValues = { ...form.getFieldsValue() };
+
+    switch (field) {
+      case "applicationType":
+      case "currentStage":
+      case "consultation":
+        updatedValues[field] = [];
+        break;
+      case "industry":
+        updatedValues.industry = [];
+        break;
+      case "duration":
+        updatedValues.duration = undefined;
+        break;
+      default:
+        break;
+    }
+
+    form.setFieldsValue(updatedValues);
+  };
+
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
+        <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
+          <PricingModal
+            data={liveStacks}
+            handleDelete={(item) => handleDelete(item)}
+          />
+        </ModalWrapper>
+        {liveStacks?.length && (
+          <StackFooter liveStacks={liveStacks} handleDelete={handleDelete} />
+        )}
         <div className={styles.content}>
           <HomeMain
             data={{
@@ -31,11 +153,40 @@ const DiscussProject = () => {
             }}
           />
           <Row className={styles.discussProject}>
-            <Form form={form} onFinish={submitForm} className={styles.form}>
-              <Row className={styles.buttons}>
-                <Button text="Mobile Application Development" grayTextBtn />
+            <Form
+              form={form}
+              onFinish={submitForm}
+              className={styles.form}
+              onValuesChange={handleFormValuesChange}
+            >
+              {/* <Row className={styles.buttons}>
+                <Button
+                  text="Mobile Application Development"
+                  grayTextBtn
+                  type={"text"}
+                />
                 <Button text="Team Augmentation" grayTextBtn />
-              </Row>
+              </Row> */}
+              <FormItem name="applicationStack">
+                <Radio.Group
+                  buttonStyle="solid"
+                  defaultValue={"none"}
+                  className={styles.buttons}
+                >
+                  <Radio.Button
+                    className={styles.grayTextBtn}
+                    value="Mobile Application Development"
+                  >
+                    Mobile Application Development
+                  </Radio.Button>
+                  <Radio.Button
+                    className={styles.grayTextBtn}
+                    value="Team Augmentation"
+                  >
+                    Team Augmentation
+                  </Radio.Button>
+                </Radio.Group>
+              </FormItem>
               <Row className={styles.industryDetails}>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
@@ -48,7 +199,15 @@ const DiscussProject = () => {
                       ))}
                     </Checkbox.Group>
                   </FormItem>
-                  <Button text="clear" clear />
+                  <Button
+                    text="clear"
+                    clear
+                    // onClick={() => handleClear("applicationType")}
+                    onClick={() => form.resetFields("applicationType")}
+                  />
+                  <span onClick={() => form.resetFields("applicationType")}>
+                    fffffffff
+                  </span>
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
@@ -62,7 +221,12 @@ const DiscussProject = () => {
                       ))}
                     </Checkbox.Group>
                   </FormItem>
-                  <Button text="clear" clear />
+                  {/* <Button
+                    text="clear"
+                    clear
+                    onClick={() => handleClear("currentStage")}
+                  /> */}
+                  <span onClick={() => handleClear("currentStage")}>clear</span>
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
@@ -76,7 +240,11 @@ const DiscussProject = () => {
                       ))}
                     </Checkbox.Group>
                   </FormItem>
-                  <Button text="clear" clear />
+                  <Button
+                    text="clear"
+                    clear
+                    onClick={() => handleClear("consultation")}
+                  />
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
@@ -89,7 +257,11 @@ const DiscussProject = () => {
                       ))}
                     </Checkbox.Group>
                   </FormItem>
-                  <Button text="clear" clear />
+                  <Button
+                    text="clear"
+                    clear
+                    onClick={() => handleClear("industry")}
+                  />
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
@@ -105,7 +277,11 @@ const DiscussProject = () => {
                     <Col className={styles.month}>1.5 year</Col>
                     <Col className={styles.month}>2+ year</Col>
                   </Row>
-                  <Button text="clear" clear />
+                  <Button
+                    text="clear"
+                    clear
+                    onClick={() => handleClear("duration")}
+                  />
                 </Row>
                 <Button text="Get Pricing" transparentOpposite type="submit" />
               </Row>

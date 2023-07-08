@@ -3,104 +3,99 @@
 
 @mixin generate-pricing-modal-styles {
   .content {
-    display: flex;
-    justify-content: space-between;
+    @include flex(space-between);
 
     .leftContent {
-      max-width: calcVW(678);
-      padding: calcVW(32);
+      max-width: getPricingModal(left-content-max-width);
+      padding: getPricingModal(left-content-padding);
 
       .header {
-        display: flex;
-        flex-direction: column;
-        gap: calcVW(16);
+        @include flex(null, null, column);
+        gap: getPricingModal(left-content-header-gap);
 
         .bigTitle {
           @include font-style(
-            calcVW(36),
+            getPricingModal(big-title-fz),
             variables.$fw-500,
-            calcVW(44),
+            getPricingModal(big-title-lh),
             variables.$black
           );
         }
         .smallTitle {
           @include font-style(
-            calcVW(18),
+            getPricingModal(small-title-fz),
             variables.$fw-500,
-            calcVW(24),
+            getPricingModal(small-title-lh),
             variables.$black
           );
         }
       }
+
       .summarySection {
-        display: flex;
-        flex-direction: column;
-        gap: calcVW(20);
-        padding: 0 calcVW(32);
-        margin-top: calcVW(72);
+        @include flex(null, null, column);
+        gap: getPricingModal(summary-section-gap);
+        padding: getPricingModal(summary-section-padding);
+        margin-top: getPricingModal(summary-section-mt);
 
         .summary {
           @include font-style(
-            calcVW(36),
+            getPricingModal(summary-fz),
             variables.$fw-500,
-            calcVW(44),
+            getPricingModal(summary-lh),
             variables.$black
           );
         }
 
         .projType {
           display: flex;
-          gap: calcVW(30);
+          gap: getPricingModal(proj-type-gap);
 
           .itemWrapper {
-            display: flex;
-            align-items: center;
-            gap: calcVW(14);
+            @include flex(null, center);
+            gap: getPricingModal(item-wrapper-gap);
             width: max-content;
-            padding: calcVW(5);
+            padding: getPricingModal(item-wrapper-padding);
 
             .item {
               @include font-style(
-                calcVW(20),
+                getPricingModal(proj-type-item-fz),
                 variables.$fw-500,
-                calcVW(24),
+                getPricingModal(proj-type-item-lh),
                 variables.$black
               );
             }
 
             .icon {
               cursor: pointer;
-              width: calcVW(12);
-              height: calcVW(12);
+              width: getPricingModal(proj-type-icon-width);
+              height: getPricingModal(proj-type-icon-height);
             }
           }
         }
         .specialists {
-          display: flex;
-          flex-direction: column;
-          gap: calcVW(32);
+          @include flex(null, null, column);
+          gap: getPricingModal(specialists-gap);
 
           .specialistsTitle {
             @include font-style(
-              calcVW(18),
+              getPricingModal(specialists-title-fz),
               variables.$fw-400,
-              calcVW(24),
+              getPricingModal(specialists-title-lh),
               variables.$black
             );
           }
 
-          .addSpecialist {
-            display: flex;
-            align-items: center;
-            gap: calcVW(14);
+          .itemWrapper {
+            @include flex(null, center);
+            gap: getPricingModal(add-specialist-gap);
             width: max-content;
-            padding: calcVW(5);
+            padding: getPricingModal(add-specialist-padding);
 
             .item {
               @include font-style(
-                calcVW(14),
+                getPricingModal(add-specialist-item-fz),
                 variables.$fw-500,
-                calcVW(24),
+                getPricingModal(add-specialist-item-lh),
                 variables.$black
               );
             }
@@ -108,24 +103,24 @@
 
           .value {
             @include font-style(
-              calcVW(14),
+              getPricingModal(specialists-value-fz),
               variables.$fw-500,
-              calcVW(24),
+              getPricingModal(specialists-value-lh),
               variables.$dark-turquoise
             );
           }
 
           .icon {
             cursor: pointer;
-            width: calcVW(16);
-            height: calcVW(16);
+            width: getPricingModal(specialists-icon-width);
+            height: getPricingModal(specialists-icon-height);
           }
         }
       }
     }
     .rightContent {
-      width: calcVW(474);
-      padding: calcVW(32);
+      width: getPricingModal(right-content-width);
+      padding: getPricingModal(right-content-padding);
     }
   }
 }

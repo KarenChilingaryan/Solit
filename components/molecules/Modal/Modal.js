@@ -7,18 +7,26 @@ import close from "../../../assets/img/icons/close.svg";
 
 import styles from "./Modal.module.scss";
 
-const ModalWrapper = ({ children, open, width }) => {
+const ModalWrapper = ({ children, open, width ,setOpen}) => {
   return (
     <Modal
+    onCancel={() => setOpen(false)}
       open={open}
       title={<Image src={logo} className={styles.logo} alt="" />}
       className={styles.modal}
       wrapClassName={styles.lll}
       footer={false}
       width={width}
-      closeIcon={<Image src={close} className={styles.closeIcon} width="1.25vw" height="1.25vw" alt="" />}
+      closeIcon={
+        <Image
+          src={close}
+          className={styles.closeIcon}
+          width="1.25vw"
+          height="1.25vw"
+          alt=""
+        />
+      }
     >
-      <Row></Row>
       {children}
     </Modal>
   );

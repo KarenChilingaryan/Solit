@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { Col, Row } from "../../atoms";
+import Image from "next/image";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import Button from "../../molecules/button/Button";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
@@ -12,10 +13,10 @@ import ContactForm from "../contactForm/ContactForm";
 import earth from "../../../assets/img/earth.png";
 import teamMember from "../../../assets/img/teamMember.png";
 import worldMap from "../../../assets/img/career-world-pam.png";
+import { ReversedAboutUs } from "../reversedAboutUs";
 
 import styles from "./careers.module.scss";
-import { ReversedAboutUs } from "../reversedAboutUs";
-import Image from "next/image";
+
 const data = [
   {
     users: [
@@ -87,7 +88,7 @@ const Careers = () => {
           </Row>
           <Button text="Recommended" transparentOpposite />
         </Row>
-        <Image className={styles.worldMap} src={worldMap}/>
+        <Image className={styles.worldMap} src={worldMap} />
         <div className={styles.aboutContent}>
           {data.map((row, i) => (
             <ReversedAboutUs
@@ -100,9 +101,7 @@ const Careers = () => {
           ))}
         </div>
         <div className={styles.secondInfo}>
-          <div className={styles.secondTitle}>
-            Current Job Openings
-          </div>
+          <div className={styles.secondTitle}>Current Job Openings</div>
           <div className={styles.secondDescription}>
             Take a look and see if there is something that fits your skill set.
           </div>

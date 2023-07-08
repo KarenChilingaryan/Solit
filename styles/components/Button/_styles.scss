@@ -225,11 +225,17 @@
     @media (max-width: 1024px) {
       width: max-content;
       height: max-content;
-      @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22), variables.$light-blue);
+      @include font-style(
+        calcVWT(18),
+        variables.$fw-700,
+        calcVWT(22),
+        variables.$light-blue
+      );
       &:hover {
         @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22));
         img {
-          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0) contrast(0);
+          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0)
+            contrast(0);
         }
       }
       border-radius: calcVWT(16);
@@ -241,11 +247,17 @@
     }
 
     @media (max-width: 576px) {
-      @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), variables.$light-blue);
+      @include font-style(
+        calcVWM(18),
+        variables.$fw-700,
+        calcVWM(22),
+        variables.$light-blue
+      );
       &:hover {
         @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22));
         img {
-          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0) contrast(0);
+          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0)
+            contrast(0);
         }
       }
       border-radius: calcVWM(16);
@@ -389,6 +401,7 @@
   }
 
   .clear {
+    padding: calcVW(26) calcVW(32) calcVW(26) calcVW(40);
     width: max-content;
     background: variables.$transparent;
     height: unset;

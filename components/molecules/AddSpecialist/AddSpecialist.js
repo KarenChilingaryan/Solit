@@ -30,7 +30,7 @@ const AddSpecialist = ({ field, name, onChange }) => {
         <Input value={count} readonly className={styles.input} />
       </Col>
       <Col onClick={increment}>
-        <Image className={styles.plusIcon} src={plusIcon} />
+        <Image className={styles.plusIcon} src={plusIcon} alt="" />
       </Col>
       <Col className={styles.nameSpecialist}>{name}</Col>
     </Col>

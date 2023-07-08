@@ -38,7 +38,7 @@ const Button = ({
       })}
     >
       {text}
-      {icon && <Image src={icon} />}
+      {icon && <Image src={icon} alt=""/>}
     </button>
   );
 };

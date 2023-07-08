@@ -5,6 +5,9 @@
 
 @mixin generate-modal-form-styles {
   .modalFormWrapper {
+    :global(.ant-select-dropdown){
+  background-color: aqua !important;
+    }
     display: flex;
     gap: calcVW(96);
 
@@ -15,6 +18,7 @@
         }
       }
     }
+
 
     .infoSection {
       display: flex;

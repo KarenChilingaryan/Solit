@@ -11,9 +11,10 @@ import Button from "../../molecules/button/Button";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import Industry from "../../molecules/Industry/Industry";
 import AddSpecialist from "../../molecules/AddSpecialist/AddSpecialist";
+import PricingModal from "../../molecules/pricingModal/PricingModal";
+import StackFooter from "../../molecules/stackFooter/StackFooter";
 
 import styles from "./DiscussProjectStack.module.scss";
-import PricingModal from "../../molecules/pricingModal/PricingModal";
 
 const data = [1, 2, 3, 4];
 const data1 = ["Real Estate", 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55];
@@ -142,13 +143,11 @@ const DiscussProjectStack = () => {
   console.log(liveStacks, ">>>>>>>>");
 
   const handleDelete = (item) => {
-    let data = form.getFieldsValue();
+    console.log("TTTTTTTTTTTTTT", item);
+    const data = { ...form.getFieldsValue() };
 
     if (["developers", "specialists"].includes(item.category)) {
       data[item.category] = data[item.category].filter(
-        (elem) => elem.name !== item.name
-      );
-      projectStacks[item.category] = projectStacks[item.category].filter(
         (elem) => elem.name !== item.name
       );
     } else if (item.category === "industry") {
@@ -160,33 +159,18 @@ const DiscussProjectStack = () => {
     form.setFieldsValue(data);
     getProjectData(data);
   };
-
+  console.log(liveStacks, "---------");
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
-        <ModalWrapper open={open} width={"66vw"}>
-          <PricingModal />
+        <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
+          <PricingModal
+            data={liveStacks}
+            handleDelete={(item) => handleDelete(item)}
+          />
         </ModalWrapper>
         {liveStacks?.length && (
-          <Row className={styles.footer}>
-            <Row className={styles.footerContent}>
-              <Paragraph className={styles.footerTitle}>
-                Summary of your request:
-              </Paragraph>
-              <Row>
-                {liveStacks.map((item) => (
-                  <Col key={item} className={styles.itemWrapper}>
-                    <Col className={styles.item}>{item.item}</Col>
-                    <Image
-                      src={close}
-                      className={styles.icon}
-                      onClick={() => handleDelete(item)}
-                    />
-                  </Col>
-                ))}
-              </Row>
-            </Row>
-          </Row>
+          <StackFooter liveStacks={liveStacks} handleDelete={handleDelete} />
         )}
         <div className={styles.content}>
           <HomeMain
@@ -202,8 +186,12 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <FormItem name="teamType" className={styles.buttons}>
-                <Button text="Mobile Application Development" grayTextBtn />
-                <Button text="Team Augmentation" grayTextBtn />
+                <Button
+                  text="Mobile Application Development"
+                  grayTextBtn
+                  type="button"
+                />
+                <Button text="Team Augmentation" grayTextBtn type="button" />
               </FormItem>
               <Row className={styles.industryDetails}>
                 <Row className={styles.industries}>
@@ -213,24 +201,28 @@ const DiscussProjectStack = () => {
                   </Paragraph>
                   <FormItem name="developers">
                     <Row className={styles.stackWrapper}>
-                      {stacks.map((item) => (
-                        <Col key={item.name} className={styles.stacks}>
+                      {stacks.map((item, i) => (
+                        <Col key={i} className={styles.stacks}>
                           <Paragraph className={styles.stackName}>
                             {item?.name}
                           </Paragraph>
                           {item?.data?.map((item) => (
                             <AddSpecialist
+                              key={item}
                               name={item}
                               onChange={handleFieldChange}
                               field="developers"
-                              key={item}
                             />
                           ))}
                         </Col>
                       ))}
                     </Row>
                   </FormItem>
-                  <Button text="clear" clear />
+                  <Button
+                    text="Clear"
+                    clear
+                    onClick={() => handleDelete({ category: "developers" })}
+                  />
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
@@ -238,12 +230,12 @@ const DiscussProjectStack = () => {
                   </Paragraph>
                   <FormItem name="specialists">
                     <Row className={styles.specialistWrapper}>
-                      {stacks1?.map((item) => (
-                        <Col key={item.name} className={styles.stacks}>
+                      {stacks1?.map((item, i) => (
+                        <Col key={i} className={styles.stacks}>
                           {item?.data?.map((item) => (
                             <AddSpecialist
-                              name={item}
                               key={item}
+                              name={item}
                               field="specialists"
                               onChange={handleFieldChange}
                             />
@@ -252,24 +244,32 @@ const DiscussProjectStack = () => {
                       ))}
                     </Row>
                   </FormItem>
-                  <Button text="clear" clear />
+                  <Button
+                    text="Clear"
+                    clear
+                    onClick={() => handleDelete({ category: "specialists" })}
+                  />
+                </Row>
+                <Row className={styles.industries}>
+                  <Paragraph className={styles.title}>
+                    3. Please specify your business industry
+                  </Paragraph>
+                  <FormItem name="industry">
+                    <Checkbox.Group className={styles.checkboxes}>
+                      {data1.map((item, i) => (
+                        <Industry key={i} value={item} circle />
+                      ))}
+                    </Checkbox.Group>
+                  </FormItem>
+                  <Button
+                    text="Clear"
+                    clear
+                    onClick={() => handleDelete({ category: "industry" })}
+                  />
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
                     4. What is the expected duration of your project?
-                  </Paragraph>
-                  <FormItem name="industry">
-                    <Checkbox.Group className={styles.checkboxes}>
-                      {data1.map((item) => (
-                        <Industry value={item} key={item} circle />
-                      ))}
-                    </Checkbox.Group>
-                  </FormItem>
-                  <Button text="clear" clear />
-                </Row>
-                <Row className={styles.industries}>
-                  <Paragraph className={styles.title}>
-                    5. What is the expected duration of your project?
                   </Paragraph>
                   <FormItem name="duration">
                     <Slider min={0} max={24} tooltip={{ formatter }} />
@@ -281,7 +281,11 @@ const DiscussProjectStack = () => {
                     <Col className={styles.month}>1.5 year</Col>
                     <Col className={styles.month}>2+ year</Col>
                   </Row>
-                  <Button text="clear" clear />
+                  <Button
+                    text="Clear"
+                    clear
+                    onClick={() => handleDelete({ category: "duration" })}
+                  />
                 </Row>
               </Row>
               <Button text="Get Pricing" transparentOpposite type="submit" />

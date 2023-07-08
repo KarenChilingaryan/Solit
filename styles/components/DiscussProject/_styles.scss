@@ -7,7 +7,8 @@
     margin: getDiscussProjectSizes(content-mt) auto 0 auto;
 
     .discussProject {
-      margin-top: calcVW(200);
+      margin: calcVW(200) 0 calcVW(320);
+
       .form {
         display: flex;
         flex-direction: column;
@@ -16,6 +17,42 @@
         .buttons {
           display: flex;
           gap: calcVW(16);
+          .grayTextBtn {
+            &:focus-visible {
+              outline: none;
+            }
+            &:focus-within{
+              box-shadow: none;
+            }
+            border-style: unset;
+            width: unset;
+            background: rgba(0, 0, 0, 0.32);
+            @include font-style(
+              calcVW(13),
+              variables.$fw-700,
+              calcVW(19),
+              rgba(255, 255, 255, 0.32)
+            );
+            border-radius: calcVW(8);
+            padding: calcVW(8) calcVW(32);
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            cursor: pointer;
+            height: unset;
+            &:hover {
+              background: variables.$light-blue;
+              @include font-style(
+                calcVW(13),
+                variables.$fw-700,
+                calcVW(19),
+                variables.$black
+              );
+            }
+            &::before {
+              background-color: unset;
+            }
+            @media (max-width: 768px) {
+            }
+          }
         }
 
         .industryDetails {
