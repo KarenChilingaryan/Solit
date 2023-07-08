@@ -20,6 +20,17 @@ const FilterButtons = ({ name, style, onClick, className, key }) => {
       font-weight: 700;
       border: 0.1041668vw solid #219fdb;
     }
+    @media (max-width: 1024px) {
+      font-size: 1.27vw;
+      padding: 0.78vw 3.12vw;
+      border-radius: 0.78vw;
+    }
+    @media (max-width: 576px) {
+      font-size: 3.47vw;
+      padding: 2.13vw 8.53vw;
+      border-radius: 2.13vw;
+      line-height: 4.2vw;
+    }
   `;
   return (
     <ButtonWrapper

@@ -13,12 +13,13 @@ const OurProjectCard = ({
   more,
   image,
   blogs = false,
-  component
+  component,
+  blogItem = ''
 }) => {
   return (
-    <Col className={styles.mainWrapper}>
+    <Col className={`${styles.mainWrapper} ${styles['mainWrapper-' + component]}`}>
       <Col
-        className={`${styles.imageContainer} ${more && styles.moreWrapper} ${styles[component]}`}
+        className={`${styles.imageContainer} ${more && styles.moreWrapper} ${styles[component]} ${styles[blogItem]}`}
       >
         {!more ? (
           <>

@@ -2,4 +2,46 @@
 @import "../../base/mixins";
 
 @mixin generate-blog-item-styles {
+    .content {
+        width: getBlogItemSizes(content-width);
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .bottomBlock {
+        margin: getBlogItemSizes(bottom-block-m);
+    
+        .title {
+          @include font-style(getBlogItemSizes(title-fz), variables.$fw-500, getBlogItemSizes(title-lh), #fff);
+          margin-bottom: calcVW(32) !important;
+        }
+        .blockItems {
+          justify-content: space-between;
+        }
+      }
+      @media (max-width: 1024px) {
+        .content {
+          width: calcVWT(976);
+        }
+        .bottomBlock {
+          .title {
+            @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43), #fff);
+            margin-bottom: calcVWT(32) !important;
+          }
+        }
+      }
+      @media (max-width: 576px) {
+        .content {
+          width: calcVWM(343);
+        }
+        .bottomBlock {
+          .blockItems {
+            row-gap: calcVWM(32);
+          }
+          .title {
+            @include font-style(calcVWM(36), variables.$fw-500, calcVWM(43), #fff);
+            margin-bottom: calcVWM(32) !important;
+          }
+        }
+      }
 }

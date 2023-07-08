@@ -25,7 +25,7 @@ const OurTeamCard = ({ icon, title, desc, onClick, position, skill }) => {
           />
         </Col>
         <Col className={styles.skill}>
-          {skill?.map((el) => <div className={styles.skillItem}>{el?.skill}</div>)}
+          {skill?.map((el, index) => <div className={styles.skillItem} key={index}>{el?.skill}</div>)}
         </Col>
       </Row>
       <Col>

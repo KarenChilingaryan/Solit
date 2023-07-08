@@ -82,7 +82,7 @@ const WorldMap = () => {
             arr.push(num)
           }
           arr.reverse()
-          return <GetCordinates coord={el} refs={refs} index={index} />
+          return <GetCordinates  key={index} coord={el} refs={refs} index={index} />
         }
         )
       }

@@ -1,16 +1,16 @@
 import { memo } from "react";
-import { useRouter } from "next/router";
 import styles from "./BlogItem.module.scss";
-import { Col, Row } from "../../atoms";
-import svg from "../../../assets/img/serviceImg.svg";
-import Button from "../../molecules/button/Button";
-import ServiceSmallCard from "../../molecules/serviceSmallCard/ServiceSmallCard";
-import ServiceLargeCard from "../../molecules/serviceLargeCard/ServiceLargeCard";
-import { useSelector } from "react-redux";
-import SeoCard from "../../atoms/SEO";
-import { seoData } from "../../../constants/seo";
-import Link from "next/link";
-import Title from "../../molecules/title/Title";
+import { Paragraph, Row } from "../../atoms";
+import { HomeMainWithImage } from "../HomeMainWithImage";
+import imageBG from "../../../assets/img/career_bg.png"
+import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
+import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
+
+export const dataProject = [
+  "How to manage product backlog with data-driven techniques",
+  "The AI development process - a comprehensive guide",
+  "Applications of NLP in business and everyday life",
+];
 
 const BlogItem = () => {
   // const { id } = useRouter().query
@@ -23,7 +23,29 @@ const BlogItem = () => {
   //     state?.blogItemApi?.queries?.[`blogItem("${id}")`]?.data
   // );
 
-  return <></>;
+  return <div className={styles.careerPage}>
+    <HomeMainWithImage firstImage={imageBG}>
+      <div className={styles.content}>
+        <div className={styles.bottomBlock}>
+
+          <Paragraph className={styles.title}>Explore more</Paragraph>
+          <Row className={styles.blockItems}>
+            {dataProject.map((project, i) =>
+              <OurProjectCard
+                key={i}
+                name={project}
+                image={ourPtojectImage}
+                more={project == "more"}
+                component="blogs"
+                blogItem="blogItem"
+                blogs
+              />
+            )}
+          </Row>
+        </div>
+      </div>
+    </HomeMainWithImage>
+  </div>;
 };
 
 export default memo(BlogItem);

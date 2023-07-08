@@ -4,7 +4,7 @@ import { Col, Row } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { HomeMain } from "../homeMain";
 import Button from "../../molecules/button/Button";
-import portFolioImage from "../../../assets/img/portFolioImage.svg";
+import portFolioImage from "../../../assets/img/portFolioImage.png";
 import react from "../../../assets/img/icons/reactjs.svg";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
@@ -28,7 +28,7 @@ const PortfolioItem = () => {
   const array = [1, 2, 3, 4, 5];
   return (
     <Row className={styles.profilePage}>
-      <HomeMainWithImage>
+      <HomeMainWithImage className={"portfolioItem"}>
         <Row className={styles.content}>
           <Row className={styles.itemDescription}>
             <Col className={styles.imageCard}>
@@ -41,6 +41,7 @@ const PortfolioItem = () => {
                   firstSubtitle:
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo scelerisque nunc nec aliquet. Etiam lobortis erat libero, eget bibendum lorem congue nec. Ut pellentesque faucibus aliquet. In vitae est non eros placerat tristique ut ac lectus. Integer ultrices faucibus ultricies. Etiam posuere quam ligula, eu imperdiet nisi maximus vitae. Suspendisse ipsum quam, ullamcorper at blandit nec, lacinia sed ante. ",
                 }}
+                className={"prtfolioItem"}
               />
               <Row className={styles.stacks}>
                 {array?.map((_, i) => (
@@ -60,6 +61,7 @@ const PortfolioItem = () => {
                 firstSubtitle:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo scelerisque nunc nec aliquet. Etiam lobortis erat libero, eget bibendum lorem congue nec. ",
               }}
+              className={"prtfolioItemDesc"}
             />
           </Row>
           <Row
@@ -84,7 +86,7 @@ const PortfolioItem = () => {
             <Button icon={arrow} text="Go Back to Portfolio" />
           </Row>
           <Row className={styles.knowMoreSection}>
-            <WhatToKnow color="#000" />
+            <WhatToKnow color="#000" className={'transparentOppositeBlack'}/>
           </Row>
         </Row>
       </Row>

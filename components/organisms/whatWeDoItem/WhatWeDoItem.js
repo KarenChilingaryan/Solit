@@ -5,8 +5,6 @@ import { useRouter } from "next/router";
 import styles from "./WhatWeDoItem.module.scss";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { Paragraph, Row } from "../../atoms";
-import ImageAndText from "../../molecules/imageAndText/ImageAndText";
-import image from "../../../assets/img/careers-detail.png"
 import imageBG from "../../../assets/img/career_bg.png"
 import AboutItem from "../../molecules/aboutItem/AboutItem";
 import impactIcon from "../../../assets/img/u_adjust-circle.svg";

@@ -23,6 +23,9 @@
     @media (max-width: 1024px) {
       width: calcVWM(343);
       margin-top: calcVWM(76);
+      .ourServices {
+        row-gap: calcVWM(32);
+      }
     }
   }
 }

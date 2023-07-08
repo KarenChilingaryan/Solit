@@ -320,7 +320,8 @@
   // To do refactoring
 
   .transparentOpposite {
-    background: variables.$transparent-black;
+    width: unset;
+    background: transparent;
     @include font-style(
       getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-500,
@@ -349,6 +350,9 @@
       padding: calcVWT(16) calcVWT(32);
       @include font-style(calcVWT(20), variables.$fw-700, calcVWT(24));
       border-radius: calcVWT(8);
+      &:hover {
+        @include font-style(calcVWT(20), variables.$fw-700, calcVWT(24));
+      }
     }
 
     @media (max-width: 576px) {
@@ -357,9 +361,17 @@
       padding: calcVWM(16) calcVWM(32);
       @include font-style(calcVWM(20), variables.$fw-700, calcVWM(24));
       border-radius: calcVWM(8);
+      &:hover {
+        @include font-style(calcVWM(20), variables.$fw-700, calcVWM(24));
+      }
     }
   }
-
+  .transparentOppositeBlack {
+    color: variables.$black;
+    &:hover {
+      color: variables.$black;
+    }
+  }
   .transparentBlue {
     width: unset;
     background: variables.$transparent;

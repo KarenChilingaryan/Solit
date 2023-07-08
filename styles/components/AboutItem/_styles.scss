@@ -90,5 +90,13 @@
   .weDoWidth {
     width: getAboutItemSizes(about-item-width-wd);
     height: getAboutItemSizes(about-item-height-wd);
+    @media (max-width: 1024px) {
+        width: calcVWT(304);
+        height: calcVWT(380);
+    }
+    @media (max-width: 576px) {
+        width: 100%;
+        height: calcVWM(332);
+    }
   }
 }

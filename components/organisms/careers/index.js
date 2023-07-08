@@ -97,6 +97,7 @@ const Careers = () => {
               about={row.about}
               reversed={i % 2}
               fromCareers={true}
+              className={"careers"}
             />
           ))}
         </div>

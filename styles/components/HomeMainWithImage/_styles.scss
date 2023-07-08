@@ -5,6 +5,9 @@
   .content {
     overflow: hidden;
   }
+  .portfolioItem {
+    overflow: unset;
+  }
   .socialSites {
     position: absolute;
     z-index: 1;

@@ -40,33 +40,35 @@ const BlogsSection = ({ data }) => {
   return (
     <Row className={styles.portfoliosWrapper}>
       {/* <Filters/> */}
-      <Col className={styles.filters}>
-        <FilterButtons
-          name={"All"}
-          className={selectedCategory === "All" ? "active" : ""}
-          onClick={() => {
-            // setPortfolioData(portfolio);
-            setSelectedCategory("All");
-          }}
-        />
-        {tags?.map((el) => (
+      <div className={styles.filtersBlock}>
+        <Col className={styles.filters}>
           <FilterButtons
-            name={el.tag_name}
-            key={el.id}
-            className={selectedCategory === el?.id ? "active" : ""}
+            name={"All"}
+            className={selectedCategory === "All" ? "active" : ""}
             onClick={() => {
-              handleFilter(el?.id);
-              setSelectedCategory(el?.id);
+              // setPortfolioData(portfolio);
+              setSelectedCategory("All");
             }}
           />
-        ))}
-      </Col>
+          {tags?.map((el) => (
+            <FilterButtons
+              name={el.tag_name}
+              key={el.id}
+              className={selectedCategory === el?.id ? "active" : ""}
+              onClick={() => {
+                handleFilter(el?.id);
+                setSelectedCategory(el?.id);
+              }}
+            />
+          ))}
+        </Col>
+      </div>
       <Row
         className={styles.projects}
         justify={"space-between"}
         gutter={[0, "6vw"]}
       >
-        <Image className={styles.elipse} src={elipse}/>
+        <Image className={styles.elipse} src={elipse} />
         {dataProject?.map((project, i) => (
           <OurProjectCard
             key={i}

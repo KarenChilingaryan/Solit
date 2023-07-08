@@ -77,5 +77,57 @@
       height: 100%;
       margin: calcVW(100) 0;
     }
+    @media (max-width: 1024px) {
+      width: calcVWT(928);
+      .pageHeader {
+        max-width: calcVWT(840);
+        margin: 0 auto;
+        .title {
+          @include font-style(calcVWT(36), variables.$fw-400, calcVWT(43));
+        }
+        .subTitle {
+          @include font-style(calcVWT(32), variables.$fw-400, calcVWT(39));
+        }
+        .info {
+          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
+        }
+      }
+      .secondInfo {
+        .secondTitle {
+          @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43));
+        }
+        .secondDescription {
+          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      width: calcVWM(343);
+      .pageHeader {
+        max-width: calcVWM(840);
+        margin: 0 auto;
+        .title {
+          @include font-style(calcVWM(36), variables.$fw-400, calcVWM(43));
+        }
+        .subTitle {
+          @include font-style(calcVWM(36), variables.$fw-700, calcVWM(43));
+          justify-content: center;
+          margin-top: calcVWM(30)
+        }
+        .info {
+          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
+          margin: calcVWM(32) 0;
+        }
+      }
+      .secondInfo {
+        .secondTitle {
+          @include font-style(calcVWM(36), variables.$fw-500, calcVWM(43));
+        }
+        .secondDescription {
+          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
+          margin-top: calcVWM(32);
+        }
+      }
+    }
   }
 }
