@@ -2,6 +2,34 @@
 @import "../../base/mixins";
 
 @mixin generate-modal-styles {
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .modalOpen {
+    animation: slideInFromTop 0.4s ease-in-out;
+  }
+  @keyframes slideOutToTop {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  .modalClose {
+    animation: slideOutToTop 0.22s ease-in-out;
+  }
+
   .modal {
     :global(.ant-modal-header) {
       border-bottom: none;

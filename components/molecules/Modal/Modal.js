@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import { Col, Paragraph, Row } from "../../atoms";
 import { Button, Modal, Animate } from "antd";
 import logo from "../../../assets/img/Logo.svg";
@@ -7,15 +7,45 @@ import close from "../../../assets/img/icons/close.svg";
 
 import styles from "./Modal.module.scss";
 
-const ModalWrapper = ({ children, open, width ,setOpen}) => {
+const ModalWrapper = ({ children, open, width, setOpen }) => {
+  const [visible, setVisible] = useState(false)
+  const [animationClass, setAnimationClass] = useState(false)
+
+  const handleClose = () => {
+    setAnimationClass("modalClose")
+    setTimeout(() => {
+      setVisible(false)
+    }, 200)
+  }
+
+  const handleOpen = () => {
+    setAnimationClass("modalOpen")
+    setVisible(true)
+  }
+  const afterClose = () => {
+    setAnimationClass("")
+  }
+
+  useEffect(() => {
+    if (open != visible) {
+      if (open) {
+        handleOpen()
+      } else {
+        handleClose()
+      }
+    }
+  }, [open])
+
   return (
     <Modal
-    onCancel={() => setOpen(false)}
-      open={open}
+      onCancel={() => setOpen(false)}
+      open={visible}
+      afterClose={afterClose}
       title={<Image src={logo} className={styles.logo} alt="" />}
-      className={styles.modal}
+      className={`${styles.modal} ${styles[animationClass]}`}
       wrapClassName={styles.lll}
       footer={false}
+      transitionName=""
       width={width}
       closeIcon={
         <Image
