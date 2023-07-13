@@ -21,7 +21,7 @@
             &:focus-visible {
               outline: none;
             }
-            &:focus-within{
+            &:focus-within {
               box-shadow: none;
             }
             border-style: unset;
@@ -52,6 +52,15 @@
             }
             @media (max-width: 768px) {
             }
+          }
+          .selectedButton {
+            background: variables.$light-blue;
+            @include font-style(
+              calcVW(13),
+              variables.$fw-700,
+              calcVW(19),
+              variables.$black
+            );
           }
         }
 

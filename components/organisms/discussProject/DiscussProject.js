@@ -23,6 +23,11 @@ const DiscussProject = () => {
   const [liveStacks, setLiveStacks] = useState([]);
   const [open, setOpen] = useState(false);
   const [submitDisabled, setSubmitDisabled] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("none");
+
+  const handleRadioChange = (e) => {
+    setSelectedValue(e.target.value);
+  };
 
   const submitForm = (values) => {
     setOpen(true);
@@ -79,32 +84,34 @@ const DiscussProject = () => {
     const updatedStacks = liveStacks.filter(
       (stack) => stack.name !== item.name
     );
-
     setLiveStacks(updatedStacks);
 
-    const updatedValues = updatedStacks.reduce((values, stack) => {
-      switch (stack.category) {
-        case "applicationType":
-        case "currentStage":
-        case "consultation":
-          values[stack.category] = values[stack.category] || [];
-          values[stack.category].push(stack.name);
-          break;
-        case "industry":
-          values.industry = values.industry || [];
-          values.industry.push(stack.item);
-          break;
-        case "duration":
-          values.duration = stack.item;
-          break;
-        default:
-          break;
-      }
-      return values;
-    }, {});
+    const updatedValues = { ...form.getFieldsValue() };
 
-    form.setFieldsValue(updatedValues);
+    switch (item.category) {
+      case "applicationType":
+      case "currentStage":
+      case "consultation":
+        updatedValues[item.category] = updatedValues[item.category].filter(
+          (value) => value !== item.name
+        );
+        break;
+      case "industry":
+        updatedValues.industry = updatedValues.industry.filter(
+          (value) => value !== item.item
+        );
+        break;
+      case "duration":
+        updatedValues.duration = undefined;
+        break;
+      default:
+        break;
+    }
+
+    form.setFieldsValue(updatedValues, true);
   };
+
+  console.log(form.getFieldsValue(), "dddddd");
 
   const handleClear = (field) => {
     console.log("IOIOIOOIIOOIOIOIOOO");
@@ -131,9 +138,8 @@ const DiscussProject = () => {
         break;
     }
 
-    form.setFieldsValue(updatedValues);
+    form.setFieldsValue(updatedValues, true);
   };
-
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -144,7 +150,10 @@ const DiscussProject = () => {
           />
         </ModalWrapper>
         {liveStacks?.length && (
-          <StackFooter liveStacks={liveStacks} handleDelete={handleDelete} />
+          <StackFooter
+            liveStacks={liveStacks}
+            handleDelete={(item) => handleDelete(item)}
+          />
         )}
         <div className={styles.content}>
           <HomeMain
@@ -159,28 +168,30 @@ const DiscussProject = () => {
               className={styles.form}
               onValuesChange={handleFormValuesChange}
             >
-              {/* <Row className={styles.buttons}>
-                <Button
-                  text="Mobile Application Development"
-                  grayTextBtn
-                  type={"text"}
-                />
-                <Button text="Team Augmentation" grayTextBtn />
-              </Row> */}
               <FormItem name="applicationStack">
                 <Radio.Group
                   buttonStyle="solid"
                   defaultValue={"none"}
+                  value={selectedValue}
+                  onChange={handleRadioChange}
                   className={styles.buttons}
                 >
                   <Radio.Button
-                    className={styles.grayTextBtn}
+                    className={`${styles.grayTextBtn} ${
+                      selectedValue === "Mobile Application Development"
+                        ? styles.selectedButton
+                        : ""
+                    }`}
                     value="Mobile Application Development"
                   >
                     Mobile Application Development
                   </Radio.Button>
                   <Radio.Button
-                    className={styles.grayTextBtn}
+                    className={`${styles.grayTextBtn} ${
+                      selectedValue === "Team Augmentation"
+                        ? styles.selectedButton
+                        : ""
+                    }`}
                     value="Team Augmentation"
                   >
                     Team Augmentation
@@ -202,12 +213,8 @@ const DiscussProject = () => {
                   <Button
                     text="clear"
                     clear
-                    // onClick={() => handleClear("applicationType")}
-                    onClick={() => form.resetFields("applicationType")}
+                    onClick={() => handleClear("applicationType")}
                   />
-                  <span onClick={() => form.resetFields("applicationType")}>
-                    fffffffff
-                  </span>
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
@@ -221,12 +228,11 @@ const DiscussProject = () => {
                       ))}
                     </Checkbox.Group>
                   </FormItem>
-                  {/* <Button
+                  <Button
                     text="clear"
                     clear
                     onClick={() => handleClear("currentStage")}
-                  /> */}
-                  <span onClick={() => handleClear("currentStage")}>clear</span>
+                  />
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>

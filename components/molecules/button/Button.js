@@ -19,7 +19,9 @@ const Button = ({
   whiteBlueBorder,
   grayTextBtnTech,
   lightBlueTech,
-  classN
+  classN,
+  onClick,
+  type = "button",
 }) => {
   return (
     <button
@@ -37,9 +39,11 @@ const Button = ({
         [styles.grayTextBtnTech]: grayTextBtnTech,
         [styles.whiteBlueBorder]: whiteBlueBorder,
       })} ${styles[classN]}`}
+      type={type}
+      onClick={onClick}
     >
       {text}
-      {icon && <Image src={icon} alt=""/>}
+      {icon && <Image src={icon} alt="" />}
     </button>
   );
 };

@@ -5,7 +5,7 @@ import close from "../../../assets/img/icons/closeIcon.svg";
 
 import styles from "./StackFooter.module.scss";
 
-const StackFooter = ({ liveStacks = [],handleDelete }) => {
+const StackFooter = ({ liveStacks = [], handleDelete }) => {
   return (
     <Row className={styles.footer}>
       <Row className={styles.footerContent}>
@@ -20,6 +20,7 @@ const StackFooter = ({ liveStacks = [],handleDelete }) => {
                 src={close}
                 className={styles.icon}
                 onClick={() => handleDelete(item)}
+                alt=""
               />
             </Col>
           ))}
