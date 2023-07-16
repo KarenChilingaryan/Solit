@@ -1,0 +1,24 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$modal-form-sizes: (
+  modal-form-wrapper-pb: calcVW(100),
+  modal-form-wrapper-pt: calcVW(50),
+  modal-form-title-padding: calcVW(55) calcVW(0) calcVW(55) calcVW(0),
+  modal-form-input-padding: calcVW(30) calcVW(16),
+  modal-form-input-fz: calcVW(24),
+  modal-form-input-lh: calcVW(28),
+  modal-form-input-br: calcVW(5),
+  modal-form-input-row_1-mb: calcVW(30),
+  modal-form-input-input-odd-mr: calcVW(80),
+  modal-form-input-textarea-height: calcVW(230),
+  modal-form-button-wrapper-mt: calcVW(55),
+  button-fz: calcVW(16),
+  button-fl: calcVW(20),
+  text-fz: calcVW(18),
+  text-fl: calcVW(24),
+);
+
+@function getModalFormSizes($property) {
+  @return map-get($modal-form-sizes, $property);
+}

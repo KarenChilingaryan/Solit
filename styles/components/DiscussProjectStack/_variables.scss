@@ -1,0 +1,11 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$discuss-project-stack-sizes: (
+  content-mt: calcVW(478),
+  content-width: calcVW(1280),
+);
+
+@function getDiscussProjectStackSizes($property) {
+  @return map-get($discuss-project-stack-sizes, $property);
+}

@@ -15,10 +15,13 @@ const Button = ({
   grayTextBtn,
   icon,
   transparentBlue,
+  clear,
   whiteBlueBorder,
   grayTextBtnTech,
   lightBlueTech,
-  classN
+  classN,
+  onClick,
+  type = "button",
 }) => {
   return (
     <button
@@ -32,12 +35,15 @@ const Button = ({
         [styles.transparentOpposite]: transparentOpposite,
         [styles.transparentBlue]: transparentBlue,
         [styles.grayTextBtn]: grayTextBtn,
+        [styles.clear]: clear,
         [styles.grayTextBtnTech]: grayTextBtnTech,
         [styles.whiteBlueBorder]: whiteBlueBorder,
       })} ${styles[classN]}`}
+      type={type}
+      onClick={onClick}
     >
       {text}
-      {icon && <Image src={icon} />}
+      {icon && <Image src={icon} alt="" />}
     </button>
   );
 };

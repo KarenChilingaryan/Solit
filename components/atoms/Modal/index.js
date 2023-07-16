@@ -1,20 +1,19 @@
-import styled, { css } from 'styled-components';
-import { Modal as modal } from 'antd';
-
+import styled, { css } from "styled-components";
+import { Modal as modal } from "antd";
 
 const Modal = styled(modal)`
   cursor: pointer;
-  ${props =>
+  ${(props) =>
     props.width &&
     css`
       width: ${props.width}px;
     `}
-  ${props =>
+  ${(props) =>
     props.cursor &&
     css`
       cursor: ${props.cursor} !important;
     `}
-  ${props =>
+  ${(props) =>
     props.height &&
     css`
       height: ${props.height}px!important;
@@ -22,7 +21,7 @@ const Modal = styled(modal)`
         height: 100%;
       }
     `}
-  ${props =>
+  ${(props) =>
     props.footerCustomize &&
     css`
       .ant-modal-content {
@@ -59,7 +58,7 @@ const Modal = styled(modal)`
       }
     `}
   
-  ${props =>
+  ${(props) =>
     props.modalDelete &&
     css`
       .ant-modal-body {
@@ -71,7 +70,7 @@ const Modal = styled(modal)`
         border-top: none !important;
       }
     `},
-  ${props =>
+  ${(props) =>
     props.modalDef &&
     css`
       .ant-modal-body {
@@ -86,13 +85,13 @@ const Modal = styled(modal)`
         border-top: none !important;
       }
     `}
-  ${props =>
-    props.type === 'notification' &&
+  ${(props) =>
+    props.type === "notification" &&
     css`
       margin-right: 70.62px;
       margin-left: 66.62px;
     `}
-  ${props =>
+  ${(props) =>
     props.services_modal &&
     css`
       .ant-modal-body {
@@ -121,7 +120,7 @@ const Modal = styled(modal)`
         }
       }
     `}
-    ${props =>
+    ${(props) =>
     props.buttonWidth &&
     css`
       .ant-modal-footer {
@@ -130,14 +129,14 @@ const Modal = styled(modal)`
         }
       }
     `}
-  ${props =>
+  ${(props) =>
     props.disp_footer &&
     css`
       .ant-modal-footer {
         display: ${props.disp_footer};
       }
     `}
-    ${props =>
+    ${(props) =>
     props.buttonHeight &&
     css`
       .ant-modal-footer {
@@ -146,14 +145,14 @@ const Modal = styled(modal)`
         }
       }
     `}
-    ${props =>
+    ${(props) =>
     props.b_align &&
     css`
       .ant-modal-body {
         text-align: ${props.b_align};
       }
     `}
-    ${props =>
+    ${(props) =>
     props.b_padding &&
     css`
       .ant-modal-body {

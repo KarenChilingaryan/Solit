@@ -1,0 +1,9 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$stack-footer-sizes: (
+);
+
+@function getAboutItemSizes($property) {
+  @return map-get($stack-footer-sizes, $property);
+}

@@ -102,7 +102,7 @@
         }
 
         input[type="file"]::before {
-          content: " ";
+          // content: " ";
           display: inline-block;
           background-size: cover;
           width: 100%;

@@ -5,11 +5,13 @@
   .whatToKnowWrapper {
     width: 100%;
     @include flex(center, center);
+
     .context {
       @include flex(center, center, column);
       gap: getWhatToKnowSizes(what-to-know-context-gap);
       width: getWhatToKnowSizes(what-to-know-context-width);
       height: getWhatToKnowSizes(what-to-know-context-height);
+
       .title {
         @include font-style(
           getWhatToKnowSizes(what-to-know-title-fz),
@@ -29,7 +31,12 @@
       }
 
       .button {
-        @include font-style(getWhatToKnowSizes(button-fz), variables.$fw-400, getWhatToKnowSizes(button-lh), #fff);
+        @include font-style(
+          getWhatToKnowSizes(button-fz),
+          variables.$fw-400,
+          getWhatToKnowSizes(button-lh),
+          #fff
+        );
       }
     }
     @media (max-width: 1024px) {
@@ -37,9 +44,11 @@
         width: calcVWT(672);
         height: calcVWT(196);
         justify-content: space-between;
+
         .title {
           @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
         }
+
         .description {
           @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
         }
@@ -57,6 +66,7 @@
           position: relative;
           z-index: 10;
         }
+
         .description {
           @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
         }

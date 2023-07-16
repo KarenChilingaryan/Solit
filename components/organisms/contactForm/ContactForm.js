@@ -131,9 +131,9 @@ const ContactForm = ({
       </Form>
 
       <Image
-              src={contactBgImage}
-              className={`${styles.backImage} ${styles.topBackImage}`}
-            />
+        src={contactBgImage}
+        className={`${styles.backImage} ${styles.topBackImage}`}
+      />
     </Col>
   );
 };

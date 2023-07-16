@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table, Tag } from "antd";
 import { Row } from "../../atoms";
 

@@ -3,17 +3,11 @@ import Image from "next/image";
 import { Paragraph } from "../../atoms";
 import styles from "./ImageAndText.module.scss";
 
-const ImageAndText = ({
-  text,
-  image
-}) => {
+const ImageAndText = ({ text, image }) => {
   return (
     <div className={styles.block}>
-      <Image src={image} className={styles.image}/>
-      <Paragraph className={styles.text}>
-        {text}
-
-      </Paragraph>
+      <Image src={image} className={styles.image} alt="" />
+      <Paragraph className={styles.text}>{text}</Paragraph>
     </div>
   );
 };

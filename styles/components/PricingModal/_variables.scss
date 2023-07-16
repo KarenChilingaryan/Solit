@@ -1,0 +1,41 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$pricing-modal-sizes: (
+  left-content-max-width: calcVW(678),
+  left-content-padding: calcVW(32),
+  left-content-header-gap: calcVW(16),
+  big-title-fz: calcVW(36),
+  big-title-lh: calcVW(44),
+  small-title-fz: calcVW(18),
+  small-title-lh: calcVW(24),
+  summary-section-gap: calcVW(20),
+  summary-section-padding: 0 calcVW(32),
+  summary-section-mt: calcVW(72),
+  summary-fz: calcVW(36),
+  summary-lh: calcVW(44),
+  item-wrapper-gap: calcVW(14),
+  item-wrapper-padding: calcVW(5),
+  proj-type-gap: calcVW(30),
+  proj-type-item-fz: calcVW(20),
+  proj-type-item-lh: calcVW(24),
+  proj-type-icon-width: calcVW(12),
+  proj-type-icon-height: calcVW(12),
+  specialists-gap: calcVW(32),
+  specialists-title-fz: calcVW(18),
+  specialists-title-lh: calcVW(24),
+  add-specialist-gap: calcVW(14),
+  add-specialist-padding: calcVW(5),
+  add-specialist-item-fz: calcVW(14),
+  add-specialist-item-lh: calcVW(24),
+  specialists-value-fz: calcVW(14),
+  specialists-value-lh: calcVW(24),
+  specialists-icon-width: calcVW(16),
+  specialists-icon-height: calcVW(16),
+  right-content-width: calcVW(474),
+  right-content-padding: calcVW(32),
+);
+
+@function getPricingModal($property) {
+  @return map-get($pricing-modal-sizes, $property);
+}

@@ -12,27 +12,45 @@
   }
 
   .mainWrapper:hover {
-    border: 1px solid variables.$dodger-blue;
+    outline: 1px solid variables.$dodger-blue;
   }
 
   .countSpecialist {
     @include flex(null, center);
-    @include font-style(
-      getAddSpecialistSizes(count-specialist-fz),
-      variables.$fw-500,
-      getAddSpecialistSizes(count-specialist-lh),
-      variables.$dark-turquoise
-    );
-    text-align: center;
+    .input {
+      background: transparent;
+      text-align: center;
+      border: none;
+      width: 15px;
+      padding: 0;
+      height: getAddSpecialistSizes(icon-plus-height);
+      // pointer-events: none;
+      // caret-color: transparent;
+
+      @include font-style(
+        getAddSpecialistSizes(count-specialist-fz),
+        variables.$fw-500,
+        getAddSpecialistSizes(count-specialist-lh),
+        variables.$dark-turquoise
+      );
+
+      &:focus-visible {
+        border: none;
+      }
+      &:focus {
+        border: none;
+        box-shadow: none;
+      }
+    }
   }
 
-  .iconminus {
+  .minusIcon {
     width: getAddSpecialistSizes(icon-minus-width);
     height: getAddSpecialistSizes(icon-minus-height);
     cursor: pointer;
   }
 
-  .iconplus {
+  .plusIcon {
     width: getAddSpecialistSizes(icon-plus-width);
     height: getAddSpecialistSizes(icon-plus-height);
     cursor: pointer;
@@ -48,4 +66,3 @@
     text-align: center;
   }
 }
-

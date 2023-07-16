@@ -2,6 +2,14 @@
 @import "../../base/mixins";
 
 @mixin generate-industry-styles {
+  .circleCheckbox {
+    .checkbox {
+      :global(.ant-checkbox-inner) {
+        border-radius: 50% !important;
+      }
+    }
+  }
+  
   .mainWrapper {
     @include flex(null, center, row);
     width: getIndustrySizes(main-wrapper-width);

@@ -1,0 +1,64 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-modal-styles {
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .modalOpen {
+    animation: slideInFromTop 0.4s ease-in-out;
+  }
+  @keyframes slideOutToTop {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  .modalClose {
+    animation: slideOutToTop 0.22s ease-in-out;
+  }
+
+  .modal {
+    :global(.ant-modal-header) {
+      border-bottom: none;
+      padding: 0;
+    }
+
+    :global(.ant-modal-body) {
+      padding: 0;
+    }
+
+    :global(.ant-modal-content) {
+      width: calcVW(1280);
+      padding: calcVW(64);
+      border-radius: calcVW(16);
+    }
+
+    :global(.ant-modal-close) {
+      top: calcVW(60);
+      right: calcVW(70);
+    }
+  }
+
+  .logo {
+    width: calcVW(100);
+    height: calcVW(40);
+  }
+
+  .closeIcon {
+    width: calcVW(24);
+    height: calcVW(24);
+  }
+}

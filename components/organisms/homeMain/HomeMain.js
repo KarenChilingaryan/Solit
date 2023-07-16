@@ -1,9 +1,10 @@
 import { memo } from "react";
 import { Col } from "../../atoms";
+import Button from "../../molecules/button/Button";
+import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
+
 import styles from "./HomeMain.module.scss";
 
-import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
-import Button from "../../molecules/button/Button";
 
 const HomeMain = ({ data, ellipsis = false, className }) => {
   const { title, secondSubtitle, firstSubtitle, buttonText } = data;

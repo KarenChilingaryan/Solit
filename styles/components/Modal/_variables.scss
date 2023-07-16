@@ -1,0 +1,9 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$modal-sizes: (
+);
+
+@function getModalSizes($property) {
+  @return map-get($modal-sizes, $property);
+}

@@ -116,7 +116,7 @@ const Header = () => {
     } else if (!scrollYNew && scrollY) {
       setScrollYNew(scrollY);
     }
-  }, [scrollY])
+  }, [scrollY]);
 
   return (
     <div className={styles.mainWraperBlock}>

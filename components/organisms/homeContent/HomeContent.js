@@ -18,9 +18,6 @@ import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
 import ContactForm from "../contactForm/ContactForm";
-import AboutItem from "../../molecules/aboutItem/AboutItem";
-import FactsItem from "../../molecules/factsItem/FactsItem";
-import { AboutTeam } from "../aboutTeam";
 import bgImage from "../../../assets/img/main_bg.png";
 import reactSvg from "../../../assets/img/icons/react.svg";
 import { WorldMap } from "../WorldMap";
@@ -29,8 +26,6 @@ import { Technology } from "../Technology";
 import { Process } from "../Process";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import styles from "./HomeContent.module.scss";
-import WhatWeDo from "../../molecules/whatWeDo/WhatWeDo";
-import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import Button from "../../molecules/button/Button";
 import { Col, Paragraph } from "../../atoms";
 
@@ -163,7 +158,7 @@ const HomeContent = () => {
             </div>
           </div>
           <Col className={styles.servicesMainButton}>
-            <Button text={"Discuss your project"} transparentOpposite />
+            <Button text="Discuss your project" transparentOpposite />
           </Col>
           <div
             className={`${styles.borderedText} ${styles.borderedTextMargin}`}
@@ -196,7 +191,10 @@ const HomeContent = () => {
             />
             <Paragraph className={styles.title}>What we do?</Paragraph>
             <Paragraph className={styles.description}>
-              Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.
+              Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
+              qui esse pariatur duis deserunt mollit dolore cillum minim tempor
+              enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut
+              voluptate aute id deserunt nisi.
             </Paragraph>
             {services.map((project, i) => (
               <WeDoCard key={i} />
@@ -220,7 +218,10 @@ const HomeContent = () => {
             <div>
               <Paragraph className={styles.title}>Our project</Paragraph>
               <Paragraph className={styles.description}>
-                Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.
+                Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
+                Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
+                tempor enim. Elit aute irure tempor cupidatat incididunt sint
+                deserunt ut voluptate aute id deserunt nisi.
               </Paragraph>
             </div>
             <Image src={ourProjectImage} className={`${styles.backImageSecond} ${styles.backImage}`} />
