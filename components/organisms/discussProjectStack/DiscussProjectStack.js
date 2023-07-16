@@ -1,10 +1,7 @@
 import { memo, useState } from "react";
-import Image from "next/image";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import bgImage from "../../../assets/img/main-bg.png";
-import close from "../../../assets/img/icons/closeIcon.svg";
-import aboutImage from "../../../assets/img/about-image.png";
 import { Col, Paragraph, Row, Checkbox, Form, FormItem } from "../../atoms";
 import { Slider } from "antd";
 import Button from "../../molecules/button/Button";
@@ -140,16 +137,17 @@ const DiscussProjectStack = () => {
 
     setLiveStacks([...data]);
   }
-  console.log(liveStacks, ">>>>>>>>");
 
   const handleDelete = (item) => {
-    console.log("TTTTTTTTTTTTTT", item);
     const data = { ...form.getFieldsValue() };
-
     if (["developers", "specialists"].includes(item.category)) {
-      data[item.category] = data[item.category].filter(
-        (elem) => elem.name !== item.name
-      );
+      if (item?.naem) {
+        data[item.category] = data[item.category].filter(
+          (elem) => elem.name !== item.name
+        );
+      } else {
+        data[item.category] = [];
+      }
     } else if (item.category === "industry") {
       data[item.category] = [];
     } else if (item.category === "duration") {
@@ -208,6 +206,7 @@ const DiscussProjectStack = () => {
                           </Paragraph>
                           {item?.data?.map((item) => (
                             <AddSpecialist
+                              liveStacks={liveStacks}
                               key={item}
                               name={item}
                               onChange={handleFieldChange}
@@ -234,10 +233,12 @@ const DiscussProjectStack = () => {
                         <Col key={i} className={styles.stacks}>
                           {item?.data?.map((item) => (
                             <AddSpecialist
+                              form={form}
                               key={item}
                               name={item}
                               field="specialists"
                               onChange={handleFieldChange}
+                              liveStacks={liveStacks}
                             />
                           ))}
                         </Col>

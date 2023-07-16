@@ -6,7 +6,7 @@ import plusIcon from "../../../assets/img/icons/plus.svg";
 
 import styles from "./AddSpecialist.module.scss";
 
-const AddSpecialist = ({ field, name, onChange }) => {
+const AddSpecialist = ({ field, name, onChange, liveStacks }) => {
   const [count, setCount] = useState(0);
 
   function increment() {
@@ -21,6 +21,13 @@ const AddSpecialist = ({ field, name, onChange }) => {
       onChange(field, name, newCount);
     }
   }
+
+  useEffect(() => {
+    if (!liveStacks?.length) {
+      setCount(0)
+    }
+  }, [liveStacks])
+
   return (
     <Col className={styles.mainWrapper} key={name}>
       <Col onClick={decrement}>
