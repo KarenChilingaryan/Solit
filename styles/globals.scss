@@ -8,9 +8,9 @@
 body {
   margin: 0;
   padding: 0;
-  @media (max-width: 768px) {
-    padding-top: calcVW(250);
-  }
+  // @media (max-width: 768px) {
+  //   padding-top: calcVW(250);
+  // }
   background-color: #020d1c !important;
 }
 
