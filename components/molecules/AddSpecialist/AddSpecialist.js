@@ -23,7 +23,8 @@ const AddSpecialist = ({ field, name, onChange, liveStacks }) => {
   }
 
   useEffect(() => {
-    if (!liveStacks?.length) {
+    const elem = liveStacks.find(el => el?.name == name && el.category == field)
+    if (!elem) {
       setCount(0)
     }
   }, [liveStacks])

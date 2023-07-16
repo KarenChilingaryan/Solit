@@ -78,13 +78,9 @@ const DiscussProjectStack = () => {
 
   const submitForm = (values) => {
     setOpen(true);
-    console.log(values, "+++++++++++");
   };
 
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
-    console.log("Form values changed:", changedValues);
-    console.log("All form values:", allValues);
-    console.log(allValues, "<<<<<<<<<<");
     getProjectData(allValues);
   };
 
@@ -110,12 +106,14 @@ const DiscussProjectStack = () => {
   function getProjectData(projectStacks) {
     const data = [];
 
+    const developers = [];
     projectStacks?.developers?.forEach((developer, index) => {
       data.push({
         category: "developers",
         name: developer.name,
         item: `${developer.name} - ${developer.count}`,
       });
+      developers.push(developer)
     });
 
     projectStacks?.specialists?.forEach((specialist, index) => {
@@ -135,13 +133,18 @@ const DiscussProjectStack = () => {
         item: `${projectStacks.duration} months`,
       });
 
+    const newProjectStacks = {
+      developers: projectStacks?.developers || [],
+      specialists: projectStacks?.specialists || []
+    }
+    setProjectStacks(newProjectStacks)
     setLiveStacks([...data]);
   }
 
   const handleDelete = (item) => {
     const data = { ...form.getFieldsValue() };
     if (["developers", "specialists"].includes(item.category)) {
-      if (item?.naem) {
+      if (item?.name) {
         data[item.category] = data[item.category].filter(
           (elem) => elem.name !== item.name
         );
@@ -157,7 +160,7 @@ const DiscussProjectStack = () => {
     form.setFieldsValue(data);
     getProjectData(data);
   };
-  console.log(liveStacks, "---------");
+
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
