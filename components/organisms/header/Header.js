@@ -120,7 +120,6 @@ const Header = () => {
 
   return (
     <div className={styles.mainWraperBlock}>
-
       <div
         className={`${cx(styles.headerWrapper, !scrollYNew && styles.headerWrapperScroll)} ${!openMenu && styles.openHeaderWrapper}`}
       >
