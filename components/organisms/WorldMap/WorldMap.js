@@ -31,7 +31,6 @@ const GetCordinates = ({ coord, refs, index }) => {
   useEffect(() => {
     if (!refs[index]) {
       // const a = 
-      console.log(ref);
     }
   }, [coord, ref])
 

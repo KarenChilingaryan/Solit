@@ -26,7 +26,7 @@ const FloatInput = ({
   const requiredMark = required ? (
     <span className={styles.textDanger}>*</span>
   ) : null;
-  console.log(rest, "===");
+
   return (
     <div
       className={styles.floatLabel}

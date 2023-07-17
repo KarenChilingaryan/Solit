@@ -52,54 +52,54 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsApi.endpoints.posts.initiate())
       await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate())
       await dispatch(await postsMainProcessTextApi.endpoints.posts.initiate())
-      await dispatch(await aboutApi.endpoints.about.initiate())
-      await dispatch(await ourServicesApi.endpoints.ourServices.initiate())
-      await dispatch(await homepageAdditionalServiceApi.endpoints.homepageAdditionalService.initiate())
-      await dispatch(await testimonialsFlagTitleApi.endpoints.testimonialsFlagTitle.initiate())
+      // await dispatch(await aboutApi.endpoints.about.initiate())
+      // await dispatch(await ourServicesApi.endpoints.ourServices.initiate())
+      // await dispatch(await homepageAdditionalServiceApi.endpoints.homepageAdditionalService.initiate())
+      // await dispatch(await testimonialsFlagTitleApi.endpoints.testimonialsFlagTitle.initiate())
       await dispatch(await servicesApi.endpoints.services.initiate())
     }
 
-    if (a.pathname.includes('/portfolio') && flag || !a.pathname.includes('/portfolio') && !flag) {
-      await dispatch(await portfolioTextApi.endpoints.portfolioText.initiate())
-      await dispatch(await longPresentationPortfolioApi.endpoints.longPresentationPortfolio.initiate())
-      await dispatch(await tagsApi.endpoints.tags.initiate())
-      await dispatch(await shortPresentationPortfolioApi.endpoints.shortPresentationPortfolio.initiate())
-      if (id) {
-        await dispatch(await portfolioApi.endpoints.portfolio.initiate(id))
-      }
-    }
+    // if (a.pathname.includes('/portfolio') && flag || !a.pathname.includes('/portfolio') && !flag) {
+    //   await dispatch(await portfolioTextApi.endpoints.portfolioText.initiate())
+    //   await dispatch(await longPresentationPortfolioApi.endpoints.longPresentationPortfolio.initiate())
+    //   await dispatch(await tagsApi.endpoints.tags.initiate())
+    //   await dispatch(await shortPresentationPortfolioApi.endpoints.shortPresentationPortfolio.initiate())
+    //   if (id) {
+    //     await dispatch(await portfolioApi.endpoints.portfolio.initiate(id))
+    //   }
+    // }
 
-    if (a.pathname.includes('/blog') && flag || !a.pathname.includes('/blog') && !flag) {
-      await dispatch(await longPresentationBlogApi.endpoints.longPresentationBlog.initiate())
-      // await dispatch(await shortPresentationBlogApi.endpoints.shortPresentationBlog.initiate())
-      if (id) {
-        await dispatch(await blogItemApi.endpoints.blogItem.initiate(id))
-      }
-    }
+    // if (a.pathname.includes('/blog') && flag || !a.pathname.includes('/blog') && !flag) {
+    //   await dispatch(await longPresentationBlogApi.endpoints.longPresentationBlog.initiate())
+    //   // await dispatch(await shortPresentationBlogApi.endpoints.shortPresentationBlog.initiate())
+    //   if (id) {
+    //     await dispatch(await blogItemApi.endpoints.blogItem.initiate(id))
+    //   }
+    // }
 
-    if (a.pathname.includes('/services') && flag || !a.pathname.includes('/services') && !flag) {
-      if (id) {
-        await dispatch(await serviceItemApi.endpoints.serviceItem.initiate(id))
-      }
-    }
+    // if (a.pathname.includes('/services') && flag || !a.pathname.includes('/services') && !flag) {
+    //   if (id) {
+    //     await dispatch(await serviceItemApi.endpoints.serviceItem.initiate(id))
+    //   }
+    // }
 
-    if (a.pathname.includes('/aboutus') && flag || !a.pathname.includes('/aboutus') && !flag) {
-      await dispatch(await aboutUsCommunityApi.endpoints.aboutUsCommunity.initiate())
-      await dispatch(await aboutOurTeamTitleApi.endpoints.aboutOurTeamTitle.initiate())
-    }
+    // if (a.pathname.includes('/aboutus') && flag || !a.pathname.includes('/aboutus') && !flag) {
+    //   await dispatch(await aboutUsCommunityApi.endpoints.aboutUsCommunity.initiate())
+    //   await dispatch(await aboutOurTeamTitleApi.endpoints.aboutOurTeamTitle.initiate())
+    // }
 
-    if (a.pathname.includes('/careers') && flag || !a.pathname.includes('/careers') && !flag) {
-      await dispatch(await careerTechnologyLongPresentationApi.endpoints.careerTechnologyLongPresentation.initiate())
-      if (id) {
-        await dispatch(await careerTechnologyItemApi.endpoints.careerTechnologyItem.initiate(id))
-      }
-    }
+    // if (a.pathname.includes('/careers') && flag || !a.pathname.includes('/careers') && !flag) {
+    //   await dispatch(await careerTechnologyLongPresentationApi.endpoints.careerTechnologyLongPresentation.initiate())
+    //   if (id) {
+    //     await dispatch(await careerTechnologyItemApi.endpoints.careerTechnologyItem.initiate(id))
+    //   }
+    // }
 
-    if (a.pathname.includes('/our-team') && flag || !a.pathname.includes('/our-team') && !flag) {
-      if (id) {
-        await dispatch(await ourTeamDetailApi.endpoints.ourTeamDetail.initiate(id))
-      }
-    }
+    // if (a.pathname.includes('/our-team') && flag || !a.pathname.includes('/our-team') && !flag) {
+    //   if (id) {
+    //     await dispatch(await ourTeamDetailApi.endpoints.ourTeamDetail.initiate(id))
+    //   }
+    // }
 
     if (flag) {
       await getAllData(false)

@@ -31,13 +31,9 @@ const DiscussProject = () => {
 
   const submitForm = (values) => {
     setOpen(true);
-    console.log(values, "+++++++++++");
   };
 
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
-    console.log("Form values changed:", changedValues);
-    console.log("All form values:", allValues);
-    console.log(allValues, "<<<<<<<<<<");
     getProjectData(allValues);
   };
 
@@ -111,10 +107,8 @@ const DiscussProject = () => {
     form.setFieldsValue(updatedValues, true);
   };
 
-  console.log(form.getFieldsValue(), "dddddd");
 
   const handleClear = (field) => {
-    console.log("IOIOIOOIIOOIOIOIOOO");
     const updatedStacks = liveStacks.filter(
       (stack) => stack.category !== field
     );

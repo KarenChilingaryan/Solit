@@ -38,7 +38,6 @@ const aboutData = [
   },
 ];
 const AboutPage = () => {
-  console.log("stex em");
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <div className={styles.container}>

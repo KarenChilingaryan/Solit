@@ -65,7 +65,6 @@ const WhatWeDo = () => {
   }, []);
 
   const renderTabsOrDropdown = () => {
-    console.log(isMobile, "isMobileisMobileisMobile");
     if (isMobile) {
       // Render Dropdown component
       const menu = (

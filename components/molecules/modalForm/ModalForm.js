@@ -51,7 +51,6 @@ const ModalForm = ({
     // );
   };
 
-  console.log(file, "---");
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Form form={form} onFinish={submitForm} className={styles.form}>

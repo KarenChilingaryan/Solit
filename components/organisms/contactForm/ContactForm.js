@@ -50,7 +50,6 @@ const ContactForm = ({
     // );
   };
 
-  console.log(file, "---");
   return (
     <Col
       className={`${styles.contactFormWrapper} ${

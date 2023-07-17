@@ -145,8 +145,6 @@ const HomeContent = () => {
     (state) => state?.servicesApi?.queries?.["services(undefined)"]?.data
   );
 
-  console.log(servicesData, 'mainInfoData');
-
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
