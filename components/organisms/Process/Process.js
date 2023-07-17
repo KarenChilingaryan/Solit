@@ -199,11 +199,21 @@ const GetText = (text, A, B, fs = "8", lh = 10, anchor = "middle") => {
 
 const Line = () => {
   const targetRef = useRef(null)
+  const targetRefMobile = useRef(null)
   const [visiblePercentage, setVisiblePercentage] = useState(0);
-
-
+  const [visiblePercentageMobile, setVisiblePercentageMobile] = useState(0);
 
   useEffect(() => {
+    const getForMobile = () => {
+
+      const targetElement = targetRefMobile.current;
+      if (!targetElement) return;
+
+      const { top, height } = targetElement.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const percentage = Math.round(((windowHeight - top) / height) * 100);
+      setVisiblePercentageMobile(percentage);
+    }
     const handleScroll = () => {
       const targetElement = targetRef.current;
       if (!targetElement) return;
@@ -212,6 +222,7 @@ const Line = () => {
       const windowHeight = window.innerHeight;
       const percentage = Math.round(((windowHeight - top) / height) * 100);
       setVisiblePercentage(percentage);
+      getForMobile()
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -279,20 +290,20 @@ const Line = () => {
           }
         })}
       </svg>
-      <svg viewBox="0 0 500 1100" width="100%" height="100%" ref={targetRef} className={styles.mobileSvg}>
+      <svg viewBox="0 0 500 1100" width="100%" height="100%" ref={targetRefMobile} className={styles.mobileSvg}>
         {svgSizesMobile.map((el, index) => {
           let color = 'white';
-          if (visiblePercentage > 0 && index < 1) {
+          if (visiblePercentageMobile > 0 && index < 1) {
             color = '#3FC1FF'
-          } else if (visiblePercentage > 40 && visiblePercentage <= 55 && index < 3) {
+          } else if (visiblePercentageMobile > 40 && visiblePercentageMobile <= 55 && index < 3) {
             color = '#3FC1FF'
-          } else if (visiblePercentage > 55 && visiblePercentage < 66 && index < 5) {
+          } else if (visiblePercentageMobile > 55 && visiblePercentageMobile < 66 && index < 5) {
             color = '#3FC1FF'
-          } else if (visiblePercentage >= 66 && visiblePercentage < 85 && index < 7) {
+          } else if (visiblePercentageMobile >= 66 && visiblePercentageMobile < 85 && index < 7) {
             color = '#3FC1FF'
-          } else if (visiblePercentage >= 85 && visiblePercentage < 100 && index < 9) {
+          } else if (visiblePercentageMobile >= 85 && visiblePercentageMobile < 100 && index < 9) {
             color = '#3FC1FF';
-          } else if (visiblePercentage >= 100) {
+          } else if (visiblePercentageMobile >= 100) {
             color = '#3FC1FF';
           }
           if (el.type === "path") {
