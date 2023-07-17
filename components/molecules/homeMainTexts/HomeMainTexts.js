@@ -14,9 +14,8 @@ const HomeMainTexts = ({
   return (
     <>
       <Col
-        className={`${styles.bigTextWrapper} ${
-          ellipsis && styles.contentWrapper
-        } ${styles[className]}`}
+        className={`${styles.bigTextWrapper} ${ellipsis && styles.contentWrapper
+          } ${styles[className]}`}
       >
         {h1 ? (
           <h1 className={styles.title}>{title}</h1>
@@ -25,13 +24,11 @@ const HomeMainTexts = ({
         )}
 
         {firstSubtitle && (
-          <Paragraph
-            className={`${styles.firstSubtitle} ${
-              ellipsis && styles.ellipsisText
-            }`}
-          >
-            {firstSubtitle}
-          </Paragraph>
+          <div
+            dangerouslySetInnerHTML={{ __html: firstSubtitle }}
+            className={`${styles.firstSubtitle} ${ellipsis && styles.ellipsisText
+              }`}
+          />
         )}
 
         {secondSubtitle && (

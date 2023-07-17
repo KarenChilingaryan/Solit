@@ -9,6 +9,9 @@ const nextConfig = {
     },
     reactRemoveProperties: true,
   },
+  images: {
+    domains: ['djnago-solit-static.s3.amazonaws.com'],
+  },
 };
 
 module.exports = nextConfig;

@@ -28,6 +28,7 @@ import { HomeMainWithImage } from "../HomeMainWithImage";
 import styles from "./HomeContent.module.scss";
 import Button from "../../molecules/button/Button";
 import { Col, Paragraph } from "../../atoms";
+import { useSelector } from "react-redux";
 
 const data = [
   {
@@ -131,17 +132,29 @@ const HomeContent = () => {
       setIsSSR(true);
     }
   }, [win]);
+
+  const mainInfoData = useSelector(
+    (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
+  );
+
+  const postsMainOurProjectsApi = useSelector(
+    (state) => state?.postsMainOurProjectsApi?.queries?.["posts(undefined)"]?.data
+  );
+
+  const servicesData = useSelector(
+    (state) => state?.servicesApi?.queries?.["services(undefined)"]?.data
+  );
+
+  console.log(servicesData, 'mainInfoData');
+
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
         <div className={styles.content}>
           <HomeMain
             data={{
-              title: "Your partner for software innovations",
-              firstSubtitle:
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-              secondSubtitle:
-                "The point of using Lorem Ipsum is that it has a more-or-less normal",
+              title: mainInfoData ? mainInfoData[0]?.title : '',
+              firstSubtitle: mainInfoData ? mainInfoData[0]?.description : '',
               buttonText: "Let’s talk",
             }}
           />
@@ -152,8 +165,8 @@ const HomeContent = () => {
               <BorderedText text="Services" />
             </div>
             <div className={styles.services}>
-              {services.map((_, i) => (
-                <ServiceCard key={i} />
+              {servicesData?.data_list?.map((item, i) => (
+                <ServiceCard item={item} key={i} />
               ))}
             </div>
           </div>
@@ -216,13 +229,11 @@ const HomeContent = () => {
               <BorderedText text="Our Projects" />
             </div>
             <div>
-              <Paragraph className={styles.title}>Our project</Paragraph>
-              <Paragraph className={styles.description}>
-                Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
-                Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
-                tempor enim. Elit aute irure tempor cupidatat incididunt sint
-                deserunt ut voluptate aute id deserunt nisi.
-              </Paragraph>
+              <Paragraph className={styles.title}>{postsMainOurProjectsApi ? postsMainOurProjectsApi[0]?.title : ''}</Paragraph>
+              <div
+                className={styles.description}
+                dangerouslySetInnerHTML={{ __html: postsMainOurProjectsApi ? postsMainOurProjectsApi[0]?.description : '' }}
+              />
             </div>
             <Image src={ourProjectImage} className={`${styles.backImageSecond} ${styles.backImage}`} />
             <div className={styles.ourProjectsCards}>

@@ -17,6 +17,7 @@ import { ourTeamDetailApi } from "../../services/ourTeamDetail";
 import { portfolioApi } from "../../services/portfolioApi";
 import { portfolioTextApi } from "../../services/portfolioTextApi";
 import { postsApi } from "../../services/postsApi";
+import { postsMainOurProjectsApi } from "../../services/postsMainOurProjectsApi";
 import { servicesApi } from "../../services/servicesApi";
 import { serviceItemApi } from "../../services/servicesItemApi";
 import { shortPresentationBlogApi } from "../../services/shortPresentationBlogApi";
@@ -48,10 +49,12 @@ const PageWrapper = ({ children, item }) => {
   const getAllData = async (flag = true) => {
     if (a.pathname === '/' && flag || a.pathname !== '/' && !flag) {
       await dispatch(await postsApi.endpoints.posts.initiate())
+      await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate())
       await dispatch(await aboutApi.endpoints.about.initiate())
       await dispatch(await ourServicesApi.endpoints.ourServices.initiate())
       await dispatch(await homepageAdditionalServiceApi.endpoints.homepageAdditionalService.initiate())
       await dispatch(await testimonialsFlagTitleApi.endpoints.testimonialsFlagTitle.initiate())
+      await dispatch(await servicesApi.endpoints.services.initiate())
     }
 
     if (a.pathname.includes('/portfolio') && flag || !a.pathname.includes('/portfolio') && !flag) {
@@ -59,22 +62,21 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await longPresentationPortfolioApi.endpoints.longPresentationPortfolio.initiate())
       await dispatch(await tagsApi.endpoints.tags.initiate())
       await dispatch(await shortPresentationPortfolioApi.endpoints.shortPresentationPortfolio.initiate())
-      if(id){
+      if (id) {
         await dispatch(await portfolioApi.endpoints.portfolio.initiate(id))
       }
     }
 
     if (a.pathname.includes('/blog') && flag || !a.pathname.includes('/blog') && !flag) {
       await dispatch(await longPresentationBlogApi.endpoints.longPresentationBlog.initiate())
-      await dispatch(await shortPresentationBlogApi.endpoints.shortPresentationBlog.initiate())
-      if(id){
+      // await dispatch(await shortPresentationBlogApi.endpoints.shortPresentationBlog.initiate())
+      if (id) {
         await dispatch(await blogItemApi.endpoints.blogItem.initiate(id))
       }
     }
 
     if (a.pathname.includes('/services') && flag || !a.pathname.includes('/services') && !flag) {
-      await dispatch(await servicesApi.endpoints.services.initiate())
-      if(id){
+      if (id) {
         await dispatch(await serviceItemApi.endpoints.serviceItem.initiate(id))
       }
     }
@@ -86,26 +88,26 @@ const PageWrapper = ({ children, item }) => {
 
     if (a.pathname.includes('/careers') && flag || !a.pathname.includes('/careers') && !flag) {
       await dispatch(await careerTechnologyLongPresentationApi.endpoints.careerTechnologyLongPresentation.initiate())
-      if(id){
+      if (id) {
         await dispatch(await careerTechnologyItemApi.endpoints.careerTechnologyItem.initiate(id))
       }
     }
 
     if (a.pathname.includes('/our-team') && flag || !a.pathname.includes('/our-team') && !flag) {
-      if(id){
+      if (id) {
         await dispatch(await ourTeamDetailApi.endpoints.ourTeamDetail.initiate(id))
       }
     }
-    
+
     if (flag) {
       await getAllData(false)
     }
   }
 
-  // useEffect(() => {
-  //   dispatch(headerApi.endpoints.header.initiate())
-  //   getAllData()
-  // }, [id])
+  useEffect(() => {
+    dispatch(headerApi.endpoints.header.initiate())
+    getAllData()
+  }, [id])
 
   return <div>{children}</div>;
 };

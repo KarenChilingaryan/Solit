@@ -23,10 +23,12 @@ import { aboutOurTeamTitleApi } from "./aboutOurTeamTitleApi";
 import { testimonialsFlagTitleApi } from "./testimonialsFlagTitleApi";
 import { footerApi } from "./footerApi";
 import { ourTeamDetailApi } from "./ourTeamDetail";
+import { postsMainOurProjectsApi } from "./postsMainOurProjectsApi";
 
 const store = configureStore({
   reducer: {
     [postsApi.reducerPath]: postsApi.reducer,
+    [postsMainOurProjectsApi.reducerPath]: postsMainOurProjectsApi.reducer,
     [ourServicesApi.reducerPath]: ourServicesApi.reducer,
     [servicesApi.reducerPath]: servicesApi.reducer,
     [aboutApi.reducerPath]: aboutApi.reducer,

@@ -17,7 +17,7 @@ export const postsApi = createApi({
     }
   },
   endpoints: (builder) => ({
-    posts: builder.query({ query: () => "/painted_text/home/" }),
+    posts: builder.query({ query: () => "/main_first_text/" }),
   }),
 });
 

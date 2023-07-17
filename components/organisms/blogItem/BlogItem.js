@@ -5,6 +5,8 @@ import { HomeMainWithImage } from "../HomeMainWithImage";
 import imageBG from "../../../assets/img/career_bg.png"
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 export const dataProject = [
   "How to manage product backlog with data-driven techniques",
@@ -13,21 +15,22 @@ export const dataProject = [
 ];
 
 const BlogItem = () => {
-  // const { id } = useRouter().query
+  const { id } = useRouter().query
   // const shortPresentationBlog = useSelector(
   //   (state) => state?.shortPresentationBlogApi?.queries?.["shortPresentationBlog(undefined)"]?.data
   // );
 
-  // const blogItem = useSelector(
-  //   (state) =>
-  //     state?.blogItemApi?.queries?.[`blogItem("${id}")`]?.data
-  // );
+  const blogItem = useSelector(
+    (state) =>
+      state?.blogItemApi?.queries?.[`blogItem("${id}")`]?.data
+  );
 
-  return <div className={styles.careerPage}>
+return <div className={styles.careerPage}>
     <HomeMainWithImage firstImage={imageBG}>
       <div className={styles.content}>
         <div className={styles.bottomBlock}>
-
+          <div className="" dangerouslySetInnerHTML={{ __html: blogItem?.create_page_blog_detail || "" }}>
+          </div>
           <Paragraph className={styles.title}>Explore more</Paragraph>
           <Row className={styles.blockItems}>
             {dataProject.map((project, i) =>

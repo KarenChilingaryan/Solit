@@ -3,9 +3,7 @@ import { useSelector } from "react-redux";
 import { HomeContent } from "../components/organisms/homeContent";
 
 const Home = () => {
-  const mainInfoData = useSelector(
-    (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
-  );
+  
   const servicesData = useSelector(
     (state) => state?.ourServicesApi?.queries?.["ourServices(undefined)"]?.data
   );

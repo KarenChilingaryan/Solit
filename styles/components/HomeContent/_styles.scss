@@ -12,6 +12,7 @@
                 @include flex(space-between, center, null, wrap);
                 width: 100%;
                 row-gap: getHomeContentSizes(services-rg);
+                margin-top: calcVW(100);
             }
 
             .borderedTextBottom {
