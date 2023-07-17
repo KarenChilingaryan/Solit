@@ -32,13 +32,13 @@ const AddSpecialist = ({ field, name, onChange, liveStacks }) => {
   return (
     <Col className={styles.mainWrapper} key={name}>
       <Col onClick={decrement}>
-        <Image className={styles.minusIcon} src={minusIcon} alt="hi" />
+        <Image className={styles.minusIcon} src={minusIcon} alt={name} />
       </Col>
       <Col className={styles.countSpecialist}>
         <Input value={count} readonly className={styles.input} />
       </Col>
       <Col onClick={increment}>
-        <Image className={styles.plusIcon} src={plusIcon} alt="" />
+        <Image className={styles.plusIcon} src={plusIcon} alt={name} />
       </Col>
       <Col className={styles.nameSpecialist}>{name}</Col>
     </Col>

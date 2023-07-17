@@ -6,7 +6,7 @@ const AboutCompany = ({ number, title, image, status, withOutBG }) => {
   return (
     <Col className={`${styles.card} ${withOutBG ? styles.withOutBG : ''}`}>
       <Col className={styles.mainWrapper}>
-        <Image src={image} className={styles.image} alt=""/>
+        <Image src={image} className={styles.image} alt={title}/>
         <Col className={styles.info}>
           <p className={styles.number}>{number}</p>
           <Col className={styles.description}>
