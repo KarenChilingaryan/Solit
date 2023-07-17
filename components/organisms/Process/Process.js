@@ -1,4 +1,5 @@
 import { memo, useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { Paragraph } from "../../atoms";
 
 import styles from "./Process.module.scss";
@@ -209,7 +210,6 @@ const Line = () => {
 
       const { top, height } = targetElement.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-
       const percentage = Math.round(((windowHeight - top) / height) * 100);
       setVisiblePercentage(percentage);
     };
@@ -230,13 +230,13 @@ const Line = () => {
           let color = 'white';
           if (visiblePercentage > 0 && index < 1) {
             color = '#3FC1FF'
-          } else if (visiblePercentage > 30 && visiblePercentage <= 45 && index < 3) {
+          } else if (visiblePercentage > 30 && visiblePercentage <= 55 && index < 3) {
             color = '#3FC1FF'
-          } else if (visiblePercentage > 55 && visiblePercentage < 66 && index < 5) {
+          } else if (visiblePercentage > 55 && visiblePercentage < 66 && index < 9) {
             color = '#3FC1FF'
-          } else if (visiblePercentage >= 66 && visiblePercentage < 77 && index < 7) {
+          } else if (visiblePercentage >= 66 && visiblePercentage < 77 && index < 11) {
             color = '#3FC1FF'
-          } else if (visiblePercentage >= 95 && visiblePercentage < 110 && index < 11) {
+          } else if (visiblePercentage >= 77 && visiblePercentage < 110 && index < 17) {
             color = '#3FC1FF';
           } else if (visiblePercentage >= 110) {
             color = '#3FC1FF';
@@ -286,13 +286,13 @@ const Line = () => {
             color = '#3FC1FF'
           } else if (visiblePercentage > 40 && visiblePercentage <= 55 && index < 3) {
             color = '#3FC1FF'
-          } else if (visiblePercentage > 55 && visiblePercentage < 66 && index < 9) {
+          } else if (visiblePercentage > 55 && visiblePercentage < 66 && index < 5) {
             color = '#3FC1FF'
-          } else if (visiblePercentage >= 66 && visiblePercentage < 95 && index < 11) {
+          } else if (visiblePercentage >= 66 && visiblePercentage < 85 && index < 7) {
             color = '#3FC1FF'
-          } else if (visiblePercentage >= 95 && visiblePercentage < 110 && index < 17) {
+          } else if (visiblePercentage >= 85 && visiblePercentage < 100 && index < 9) {
             color = '#3FC1FF';
-          } else if (visiblePercentage >= 110) {
+          } else if (visiblePercentage >= 100) {
             color = '#3FC1FF';
           }
           if (el.type === "path") {
@@ -339,15 +339,17 @@ const Line = () => {
 };
 
 const Process = () => {
+
+  const postsMainProcessTextApi = useSelector(
+    (state) => state?.postsMainProcessTextApi?.queries?.["posts(undefined)"]?.data
+  );
+
   return (
     <div className={styles.container}>
-      <Paragraph className={styles.title}>Development process</Paragraph>
-      <Paragraph className={styles.description}>
-        Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui
-        esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit
-        aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute
-        id deserunt nisi.
-      </Paragraph>
+      <Paragraph className={styles.title}>{postsMainProcessTextApi ? postsMainProcessTextApi[0].title : ""}</Paragraph>
+      <div className={styles.description}
+        dangerouslySetInnerHTML={{ __html: postsMainProcessTextApi ? postsMainProcessTextApi[0].description : "" }}
+      />
       <Line />;
     </div>
   );

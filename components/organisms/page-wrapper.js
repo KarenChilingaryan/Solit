@@ -18,6 +18,7 @@ import { portfolioApi } from "../../services/portfolioApi";
 import { portfolioTextApi } from "../../services/portfolioTextApi";
 import { postsApi } from "../../services/postsApi";
 import { postsMainOurProjectsApi } from "../../services/postsMainOurProjectsApi";
+import { postsMainProcessTextApi } from "../../services/postsMainProcessTextApi";
 import { servicesApi } from "../../services/servicesApi";
 import { serviceItemApi } from "../../services/servicesItemApi";
 import { shortPresentationBlogApi } from "../../services/shortPresentationBlogApi";
@@ -50,6 +51,7 @@ const PageWrapper = ({ children, item }) => {
     if (a.pathname === '/' && flag || a.pathname !== '/' && !flag) {
       await dispatch(await postsApi.endpoints.posts.initiate())
       await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate())
+      await dispatch(await postsMainProcessTextApi.endpoints.posts.initiate())
       await dispatch(await aboutApi.endpoints.about.initiate())
       await dispatch(await ourServicesApi.endpoints.ourServices.initiate())
       await dispatch(await homepageAdditionalServiceApi.endpoints.homepageAdditionalService.initiate())

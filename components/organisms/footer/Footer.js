@@ -88,8 +88,8 @@ const Footer = () => {
             { name: 'hhhhh' },
             { name: 'hhhhh' },
             { name: 'hhhhh' },
-          ].map(item =>
-            <Image src={linkedIn} alt="logo" className={styles.socialIcons} key={item.name} />
+          ].map((item, index) =>
+            <Image src={linkedIn} alt="logo" className={styles.socialIcons} key={index} />
           )}
         </Col>
       </Row>
