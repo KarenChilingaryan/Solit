@@ -5,6 +5,7 @@ import Button from "../../molecules/button/Button";
 import languageIcon from "../../../assets/img/php_color.svg";
 
 import styles from "./Technology.module.scss";
+import { useSelector } from "react-redux";
 
 const buttonsName = [
   "Back-End",
@@ -20,15 +21,17 @@ const languages = [
 ];
 const Technology = () => {
   const [current, setCurrent] = useState(0);
+
+  const postsMainTechnologyApi = useSelector(
+    (state) => state?.postsMainTechnologyApi?.queries?.["posts(undefined)"]?.data
+  );
+
   return (
     <div className={styles.container}>
-      <Paragraph className={styles.title}>Technology</Paragraph>
-      <Paragraph className={styles.description}>
-        Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui
-        esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit
-        aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute
-        id deserunt nisi.
-      </Paragraph>
+      <Paragraph className={styles.title}>{postsMainTechnologyApi?.data_text ? postsMainTechnologyApi?.data_text[0].title : ""}</Paragraph>
+      <div className={styles.description}
+        dangerouslySetInnerHTML={{ __html: postsMainTechnologyApi?.data_text ? postsMainTechnologyApi?.data_text[0].description : "" }}
+      />
       <div className={styles.buttonsParent}>
         <div className={styles.buttons}>
           {buttonsName.map((name, i) => (
@@ -42,10 +45,10 @@ const Technology = () => {
         </div>
       </div>
       <div className={styles.languages}>
-        {languages.map((el, i) => (
+        {postsMainTechnologyApi?.data_list?.map((el, i) => (
           <div className={styles.languageBlock} key={i}>
-            <Image src={languageIcon} className={styles.icon} />
-            <Paragraph className={styles.name}>name</Paragraph>
+            <Image src={el.technology_logos_for_main.original_logo} className={styles.icon} width={20} height={25} />
+            <Paragraph className={styles.name}>{el.main_technology_name}</Paragraph>
           </div>
         ))}
       </div>

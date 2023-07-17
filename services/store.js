@@ -25,12 +25,18 @@ import { footerApi } from "./footerApi";
 import { ourTeamDetailApi } from "./ourTeamDetail";
 import { postsMainOurProjectsApi } from "./postsMainOurProjectsApi";
 import { postsMainProcessTextApi } from "./postsMainProcessTextApi";
+import { postsMainWhatWeDoTextApi } from "./postsMainWhatWeDoTextApi";
+import { postsMainTechnologyApi } from "./postsMainTechnologyApi";
+import { postsMainContactsTextApi } from "./postsMainContactsTextApi";
 
 const store = configureStore({
   reducer: {
     [postsApi.reducerPath]: postsApi.reducer,
     [postsMainOurProjectsApi.reducerPath]: postsMainOurProjectsApi.reducer,
     [postsMainProcessTextApi.reducerPath]: postsMainProcessTextApi.reducer,
+    [postsMainWhatWeDoTextApi.reducerPath]: postsMainWhatWeDoTextApi.reducer,
+    [postsMainTechnologyApi.reducerPath]: postsMainTechnologyApi.reducer,
+    [postsMainContactsTextApi.reducerPath]: postsMainContactsTextApi.reducer,
     [ourServicesApi.reducerPath]: ourServicesApi.reducer,
     [servicesApi.reducerPath]: servicesApi.reducer,
     [aboutApi.reducerPath]: aboutApi.reducer,

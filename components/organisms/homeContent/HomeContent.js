@@ -145,6 +145,14 @@ const HomeContent = () => {
     (state) => state?.servicesApi?.queries?.["services(undefined)"]?.data
   );
 
+
+  const postsMainWhatWeDoTextApi = useSelector(
+    (state) => state?.postsMainWhatWeDoTextApi?.queries?.["posts(undefined)"]?.data
+  );
+  const postsMainContactsTextApi = useSelector(
+    (state) => state?.postsMainContactsTextApi?.queries?.["posts(undefined)"]?.data
+  );
+  
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -200,13 +208,10 @@ const HomeContent = () => {
               src={whatWeDoImage}
               className={`${styles.backImage} ${styles.topBackImage}`}
             />
-            <Paragraph className={styles.title}>What we do?</Paragraph>
-            <Paragraph className={styles.description}>
-              Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
-              qui esse pariatur duis deserunt mollit dolore cillum minim tempor
-              enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut
-              voluptate aute id deserunt nisi.
-            </Paragraph>
+            <Paragraph className={styles.title}>{postsMainWhatWeDoTextApi ? postsMainWhatWeDoTextApi[0].title : ""}</Paragraph>
+            <div className={styles.description}
+              dangerouslySetInnerHTML={{ __html: postsMainWhatWeDoTextApi ? postsMainWhatWeDoTextApi[0].description : "" }}
+            />
             {services.map((project, i) => (
               <WeDoCard key={i} />
             ))}
@@ -275,7 +280,7 @@ const HomeContent = () => {
             >
               <BorderedText text="Contacts" />
             </div>
-            <ContactForm />
+            <ContactForm data={postsMainContactsTextApi ? postsMainContactsTextApi[0] : null}/>
           </div>
           {/* <AboutItem
             title={"Our Approach"}

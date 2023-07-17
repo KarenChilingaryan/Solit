@@ -17,8 +17,11 @@ import { ourTeamDetailApi } from "../../services/ourTeamDetail";
 import { portfolioApi } from "../../services/portfolioApi";
 import { portfolioTextApi } from "../../services/portfolioTextApi";
 import { postsApi } from "../../services/postsApi";
+import { postsMainContactsTextApi } from "../../services/postsMainContactsTextApi";
 import { postsMainOurProjectsApi } from "../../services/postsMainOurProjectsApi";
 import { postsMainProcessTextApi } from "../../services/postsMainProcessTextApi";
+import { postsMainTechnologyApi } from "../../services/postsMainTechnologyApi";
+import { postsMainWhatWeDoTextApi } from "../../services/postsMainWhatWeDoTextApi";
 import { servicesApi } from "../../services/servicesApi";
 import { serviceItemApi } from "../../services/servicesItemApi";
 import { shortPresentationBlogApi } from "../../services/shortPresentationBlogApi";
@@ -52,6 +55,9 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsApi.endpoints.posts.initiate())
       await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate())
       await dispatch(await postsMainProcessTextApi.endpoints.posts.initiate())
+      await dispatch(await postsMainWhatWeDoTextApi.endpoints.posts.initiate())
+      await dispatch(await postsMainTechnologyApi.endpoints.posts.initiate())
+      await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate())
       // await dispatch(await aboutApi.endpoints.about.initiate())
       // await dispatch(await ourServicesApi.endpoints.ourServices.initiate())
       // await dispatch(await homepageAdditionalServiceApi.endpoints.homepageAdditionalService.initiate())

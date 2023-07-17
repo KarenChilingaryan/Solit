@@ -18,6 +18,7 @@ const ContactForm = ({
   whiteButton = false,
   whiteTitle,
   talent = false,
+  data = null
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
@@ -58,12 +59,13 @@ const ContactForm = ({
       style={style}
     >
       <Col className={styles.infoSection}>
-        <Row className={styles.title}>Got a project in mind?</Row>
-        <Row className={styles.info}>
-          Share the details of your project – like scope, timeframes, or
-          business challenges you would like to solve. Our team will carefully
-          study them and then we’ll figure out the next move together.
-        </Row>
+        <Row className={styles.title}>{ data?.title ? "Got a project in mind?" : ""}</Row>
+        <div className={styles.info}
+              dangerouslySetInnerHTML={{ __html: data?.description || "Share the details of your project – like scope, timeframes, or business challenges you would like to solve. Our team will carefully study them and then we’ll figure out the next move together." }}
+        
+        >
+          
+        </div>
       </Col>
       <Form form={form} onFinish={submitForm} className={styles.form}>
         <Row className={styles.inputSection}>
