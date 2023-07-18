@@ -88,8 +88,8 @@ const Footer = () => {
         <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} >Let’s Contact for Great</Paragraph>
         {/* data && data[0]?.social_link? */}
         {data && data?.contact?.map((item, index) =>
-          <Link href={item.link} target="_blank">
-            <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} key={index} width={50} height={50} />
+          <Link href={item.link} target="_blank" key={index}>
+            <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} width={50} height={50} />
           </Link>
         )}
       </Col>
