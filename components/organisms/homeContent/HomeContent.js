@@ -152,7 +152,14 @@ const HomeContent = () => {
   const postsMainContactsTextApi = useSelector(
     (state) => state?.postsMainContactsTextApi?.queries?.["posts(undefined)"]?.data
   );
-  
+  const postsWhatWeDoApi = useSelector(
+    (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
+  );
+  const postPortfolioApi = useSelector(
+    (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
+  );
+  console.log(postPortfolioApi);
+
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -212,8 +219,8 @@ const HomeContent = () => {
             <div className={styles.description}
               dangerouslySetInnerHTML={{ __html: postsMainWhatWeDoTextApi ? postsMainWhatWeDoTextApi[0].description : "" }}
             />
-            {services.map((project, i) => (
-              <WeDoCard key={i} />
+            {postsWhatWeDoApi && postsWhatWeDoApi?.data_list?.map((project, i) => (
+              <WeDoCard key={i} item={project} />
             ))}
           </div>
           <div className={styles.technology}>
@@ -240,13 +247,14 @@ const HomeContent = () => {
             </div>
             <Image src={ourProjectImage} className={`${styles.backImageSecond} ${styles.backImage}`} />
             <div className={styles.ourProjectsCards}>
-              {dataProject.map((project, i) => (
+              {postPortfolioApi && postPortfolioApi?.data_list?.map((project, i) => (
                 <OurProjectCard
                   key={i}
-                  name={project}
-                  image={ourPtojectImage}
+                  name={project.title}
+                  image={project.webp_image_portfolio}
                   more={project == "more"}
                   component="home"
+                  images={project?.technology_logos}
                 />
               ))}
             </div>
@@ -280,7 +288,7 @@ const HomeContent = () => {
             >
               <BorderedText text="Contacts" />
             </div>
-            <ContactForm data={postsMainContactsTextApi ? postsMainContactsTextApi[0] : null}/>
+            <ContactForm data={postsMainContactsTextApi ? postsMainContactsTextApi[0] : null} />
           </div>
           {/* <AboutItem
             title={"Our Approach"}

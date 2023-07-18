@@ -125,6 +125,7 @@
         flex-wrap: wrap;
         row-gap: calcVW(72);
         justify-content: space-between;
+        width: 100%;
     }
     @media (max-width: 1024px) {
         .ourProjectsCards {

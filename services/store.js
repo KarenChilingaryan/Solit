@@ -28,6 +28,10 @@ import { postsMainProcessTextApi } from "./postsMainProcessTextApi";
 import { postsMainWhatWeDoTextApi } from "./postsMainWhatWeDoTextApi";
 import { postsMainTechnologyApi } from "./postsMainTechnologyApi";
 import { postsMainContactsTextApi } from "./postsMainContactsTextApi";
+import { postsMainTechnologyFiltersApi } from "./postsMainTechnologyFiltersApi";
+import { postsWhatWeDoApi } from "./postsWhatWeDoApi";
+import { postPortfolioApi } from "./postPortfolioApi";
+import { emailApi } from "./emailApi";
 
 const store = configureStore({
   reducer: {
@@ -37,6 +41,9 @@ const store = configureStore({
     [postsMainWhatWeDoTextApi.reducerPath]: postsMainWhatWeDoTextApi.reducer,
     [postsMainTechnologyApi.reducerPath]: postsMainTechnologyApi.reducer,
     [postsMainContactsTextApi.reducerPath]: postsMainContactsTextApi.reducer,
+    [postsMainTechnologyFiltersApi.reducerPath]: postsMainTechnologyFiltersApi.reducer,
+    [postsWhatWeDoApi.reducerPath]: postsWhatWeDoApi.reducer,
+    [postPortfolioApi.reducerPath]: postPortfolioApi.reducer,
     [ourServicesApi.reducerPath]: ourServicesApi.reducer,
     [servicesApi.reducerPath]: servicesApi.reducer,
     [aboutApi.reducerPath]: aboutApi.reducer,
@@ -60,6 +67,7 @@ const store = configureStore({
     [testimonialsFlagTitleApi.reducerPath]: testimonialsFlagTitleApi.reducer,
     [footerApi.reducerPath]: footerApi.reducer,
     [ourTeamDetailApi.reducerPath]: ourTeamDetailApi.reducer,
+    [emailApi.reducerPath]: emailApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(postsApi.middleware),

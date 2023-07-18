@@ -12,6 +12,7 @@ const OurProjectCard = ({
   name,
   more,
   image,
+  images,
   blogs = false,
   component,
   blogItem = ''
@@ -23,13 +24,13 @@ const OurProjectCard = ({
       >
         {!more ? (
           <>
-            <Image src={image} alt="icon" className={styles.img} />
+            <Image src={image} alt="icon" className={styles.img} width={400} height={400}/>
             <Row className={`${styles.positionSection}`} >
               <Row className={styles.name}>{name} </Row>
               <Row className={styles.stacks} >
                 {!blogs &&
-                  array?.map((_, i) => (
-                    <Image src={react} className={styles.icon} key={i} />
+                  (images || array)?.map((item, i) => (
+                    <Image src={item?.original_logo || react} className={styles.icon} key={i}  width={100} height={100} />
                   ))}
                 {blogs && (
                   <Col className={styles.blogDescription}>

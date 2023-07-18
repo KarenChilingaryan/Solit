@@ -8,6 +8,7 @@ import linkedIn from "../../../assets/img/linkedin.png";
 import telegram from "../../../assets/img/telegram.png";
 import styles from "./Footer.module.scss";
 import { useFooterQuery } from "../../../services/footerApi";
+import Link from "next/link";
 
 const Footer = () => {
   const dataDefault = [
@@ -15,7 +16,7 @@ const Footer = () => {
       info: {
         address: "TGA Business Center, Abelyan 6/4",
         mail: "solit@gmail.com",
-        phone: "+2-25-635-65",
+        number: "+2-25-635-65",
       },
     },
     {
@@ -42,6 +43,11 @@ const Footer = () => {
   const footer = useFooterQuery();
   const { data } = footer;
 
+  const info = data && data.office ? {
+    address: data.office.address,
+    mail: data.office.mail,
+    number: data.office.number,
+  } : {};
   return (
     <div className={styles.footerWrapper}>
       <Row className={styles.footerBlock}>
@@ -72,28 +78,23 @@ const Footer = () => {
           <Paragraph className={styles.textTitle}>
             Office
           </Paragraph>
-          {Object.values(dataDefault[0].info).map((el, idx) => (
+          {Object.values(info).map((el, idx) => (
             <Paragraph className={styles.text} key={idx}>
               {el}
             </Paragraph>
           ))}
-        </Col>
-        <Col className={styles.socialIconsWrapper}>
-          <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} style={{ ...(data ? { color: 'transparent' } : {}) }}>Let’s Contact for Great</Paragraph>
-          {/* data && data[0]?.social_link? */}
-          {[
-            { name: 'hhhhh' },
-            { name: 'hhhhh' },
-            { name: 'hhhhh' },
-            { name: 'hhhhh' },
-            { name: 'hhhhh' },
-            { name: 'hhhhh' },
-          ].map((item, index) =>
-            <Image src={linkedIn} alt="logo" className={styles.socialIcons} key={index} />
-          )}
-        </Col>
-      </Row>
-    </div>
+      </Col>
+      <Col className={styles.socialIconsWrapper}>
+        <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} >Let’s Contact for Great</Paragraph>
+        {/* data && data[0]?.social_link? */}
+        {data && data?.contact?.map((item, index) =>
+          <Link href={item.link} target="_blank">
+            <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} key={index} width={50} height={50} />
+          </Link>
+        )}
+      </Col>
+    </Row>
+    </div >
   );
 };
 

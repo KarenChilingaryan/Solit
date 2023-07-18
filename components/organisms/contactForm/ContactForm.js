@@ -38,33 +38,32 @@ const ContactForm = ({
   //     setFile(file);
   //   },
   // };
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const submitForm = (values) => {
-    // const data = { ...contactUsData, ...values, file_cv: file };
-    // const formData = new FormData();
-    // for (const key in data) {
-    //   formData.append(key, data[key]);
-    // }
-    // const res = await dispatch(
-    //   await emailApi.endpoints.email.initiate(formData)
-    // );
+  const submitForm = async (values) => {
+    const data = { ...values, file_cv: file };
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    const res = await dispatch(
+      await emailApi.endpoints.email.initiate(formData)
+    );
   };
 
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${
-        !title ? styles.withoutTitle : ""
-      }`}
+      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
+        }`}
       style={style}
     >
       <Col className={styles.infoSection}>
-        <Row className={styles.title}>{ data?.title ? "Got a project in mind?" : ""}</Row>
+        <Row className={styles.title}>{data?.title ? "Got a project in mind?" : ""}</Row>
         <div className={styles.info}
-              dangerouslySetInnerHTML={{ __html: data?.description || "Share the details of your project – like scope, timeframes, or business challenges you would like to solve. Our team will carefully study them and then we’ll figure out the next move together." }}
-        
+          dangerouslySetInnerHTML={{ __html: data?.description || "Share the details of your project – like scope, timeframes, or business challenges you would like to solve. Our team will carefully study them and then we’ll figure out the next move together." }}
+
         >
-          
+
         </div>
       </Col>
       <Form form={form} onFinish={submitForm} className={styles.form}>
@@ -112,7 +111,7 @@ const ContactForm = ({
               accept=".pdf,.doc,.docx"
               suffix={<Image className={styles.suffix} src={upload} />}
               onChange={(e) => {
-                setFile(e.target.files);
+                setFile(e.target.files[0]);
               }}
               showUploadList={false}
               className={styles.uploadFile}

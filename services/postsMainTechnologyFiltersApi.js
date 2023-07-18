@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
-export const postsMainContactsTextApi = createApi({
+export const postsMainTechnologyFiltersApi = createApi({
 
-  reducerPath: "postsMainContactsTextApi",
+  reducerPath: "postsMainTechnologyFiltersApi",
   refetchOnFocus: false,
   refetchOnMountOrArgChange: false,
   refetchOnReconnect: false,
@@ -17,8 +17,8 @@ export const postsMainContactsTextApi = createApi({
     }
   },
   endpoints: (builder) => ({
-    posts: builder.query({ query: () => "/main_contacts_text/" }),
+    posts: builder.query({ query: () => "/main_technology_filters/" }),
   }),
 });
 
-export const { usePostsQuery } = postsMainContactsTextApi;
+export const { usePostsQuery } = postsMainTechnologyFiltersApi;

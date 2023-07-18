@@ -25,6 +25,10 @@ const Technology = () => {
   const postsMainTechnologyApi = useSelector(
     (state) => state?.postsMainTechnologyApi?.queries?.["posts(undefined)"]?.data
   );
+  const postsMainTechnologyFiltersApi = useSelector(
+    (state) => state?.postsMainTechnologyFiltersApi?.queries?.["posts(undefined)"]?.data
+  );
+  console.log(postsMainTechnologyFiltersApi);
 
   return (
     <div className={styles.container}>
@@ -34,9 +38,9 @@ const Technology = () => {
       />
       <div className={styles.buttonsParent}>
         <div className={styles.buttons}>
-          {buttonsName.map((name, i) => (
+          {postsMainTechnologyFiltersApi && postsMainTechnologyFiltersApi.map((el, i) => (
             <Button
-              text={name}
+              text={el.filter_name_main_technology}
               lightBlueTech={i === current}
               grayTextBtnTech={i !== current}
               key={i}

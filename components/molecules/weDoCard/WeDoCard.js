@@ -6,17 +6,18 @@ import styles from "./WeDoCard.module.scss";
 
 import devIcon from "../../../assets/img/devIcon.svg";
 
-const WeDoCard = ({ title, desc, icon }) => {
+const WeDoCard = ({ item }) => {
   return (
     <Col className={styles.weDoCardWrapper}>
       <Row className={styles.iconWrapper}>
-        <Image src={devIcon} className={styles.icon} />
+        <Image src={item?.original_logo_what_we_do || devIcon} className={styles.icon} width={40} height={40}/>
       </Row>
-      <Col className={styles.development}>Android Development</Col>
-      <Col className={styles.description}>
-        Save time routing and tagging rules, and get insights on time before
-        release collection of
-      </Col>
+      <Col className={styles.development}>{item?.title || "Android Development"}</Col>
+      <div className={styles.description}
+        dangerouslySetInnerHTML={{
+          __html: item?.description || " Save time routing and tagging rules, and get insights on time before release collection of"
+        }}
+      />
     </Col>
   );
 };

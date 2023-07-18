@@ -35,7 +35,8 @@
       .socialIcons {
         margin-right: getFooterSizes(footer-social-mr);
         width: getFooterSizes(footer-social-width);
-        height: getFooterSizes(footer-social-height);
+        height: getFooterSizes(footer-social-width);
+        object-fit: contain;
       }
       .socialIconsTitle {
         width: 100%;

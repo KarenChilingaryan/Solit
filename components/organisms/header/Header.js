@@ -16,35 +16,6 @@ import { useSelector } from "react-redux";
 import styles from "./Header.module.scss";
 import { Col, Paragraph } from "../../atoms";
 
-const dropdownElements = [
-  {
-    id: 1,
-    name: "Tech Stack",
-    fix_url: "techstack",
-    data: [
-      { name: "mobile" },
-      { name: "Android" },
-      { name: "iOS" },
-      { name: "ReactJS" },
-      { name: "BacEnd" },
-      { name: "Python" }
-    ],
-  },
-  {
-    id: 2,
-    name: "Services",
-    fix_url: "/services",
-    data: [
-      { name: "Web development" },
-      { name: "Mobile Development" },
-      { name: "Software Testing" },
-      { name: "UI/UX Design" },
-      { name: "Dedicated Team" },
-      { name: "Completed Projects" },
-    ],
-  },
-]
-
 const data = [
   {
     dropdown: false,
@@ -85,15 +56,12 @@ const data = [
 const Header = () => {
   const router = useRouter();
   const [openMenu, setOpenMenu] = useState(true);
-  // const data = useSelector(
-  //   (state) => state?.headerApi?.queries?.["header(undefined)"]?.data
-  // );
+  const [dropdownElements, setDropdownElements] = useState([])
+  const headerData = useSelector(
+    (state) => state?.headerApi?.queries?.["header(undefined)"]?.data
+  );
 
   const [filteredData, setFilteredData] = useState("none");
-
-  const routes = ["/", "/about", "/blog"];
-
-  const secondaryUrl = !routes.includes(router.pathname);
 
   const [scrollY, setScrollY] = useState(0);
   const [scrollYNew, setScrollYNew] = useState(0);
@@ -118,6 +86,27 @@ const Header = () => {
     }
   }, [scrollY]);
 
+
+
+  useEffect(() => {
+    if (headerData) {
+      setDropdownElements([
+        {
+          id: 1,
+          name: "Tech Stack",
+          fix_url: "/techstack",
+          data: headerData?.tech_steck || [],
+        },
+        {
+          id: 2,
+          name: "Services",
+          fix_url: "/services",
+          data: headerData?.service || [],
+        },
+      ])
+    }
+  }, [headerData])
+
   return (
     <div className={styles.mainWraperBlock}>
       <div
@@ -135,15 +124,15 @@ const Header = () => {
         </Link>
 
         <div className={`${styles.menuWrapper}`}>
-          {[...dropdownElements]?.map((el) => <div
-            key={el?.id}
+          {headerData && dropdownElements?.map((el) => <div
+            key={el.id}
             onClick={() => {
               setFilteredData(filteredData !== el.name ? el.name : 'none');
             }}
             className={`${styles.menuItem} ${filteredData !== el.name ? styles.closedMenu : ''}`}
           >
             <Link
-              href={el?.fix_url === 'techstack' ? '/' : `/${el?.fix_url}`}
+              href={el?.fix_url === '/techstack' ? '' : `${el?.fix_url}`}
               onClick={() => {
                 window.scrollTo({ top: 0, left: 0 })
               }}
@@ -162,19 +151,18 @@ const Header = () => {
                   className={styles.menuItemChildWrapper}
                   style={{
                     display:
-                      el.name === filteredData ? "inline-block" : "none",
+                      el.name === filteredData ? "flex" : "none",
                   }}
                 >
                   <Image src={active_menu_element} className={styles.activeElem} />
                   <Image src={menu_element} className={styles.disActiveElem} />
-                  {e.name}
+                  {e.title}
                 </div>
               )}
             </div>
           </div>
           )}
           <div className={styles.menuSecondItemBlock}>
-
             {[...data]?.map((el) => <div
               key={el?.id}
               onClick={() => {
@@ -183,7 +171,7 @@ const Header = () => {
               className={styles.menuItem}
             >
               <Link
-                href={el?.fix_url === 'techstack' ? '#' : `/${el?.fix_url}`}
+                href={el?.fix_url === 'techstack' ? '#' : `${el?.fix_url}`}
                 onClick={() => {
                   if (el?.fix_url !== 'techstack') {
                     setOpenMenu(!openMenu)
@@ -200,20 +188,20 @@ const Header = () => {
             </div>
             )}
           </div>
-        <Col className={styles.socialIconsWrapper}>
-          <Paragraph className={styles.socialIconsTitle}>Let’s Contact for Great</Paragraph>
-          {/* data && data[0]?.social_link? */}
-          {[
-            { name: 'hhhhh' },
-            { name: 'hhhhh' },
-            { name: 'hhhhh' },
-            { name: 'hhhhh' },
-            { name: 'hhhhh' },
-            { name: 'hhhhh' },
-          ].map((item, index) =>
-            <Image src={linkedIn} alt="logo" className={styles.socialIcons} key={index} />
-          )}
-        </Col>
+          <Col className={styles.socialIconsWrapper}>
+            <Paragraph className={styles.socialIconsTitle}>Let’s Contact for Great</Paragraph>
+            {/* data && data[0]?.social_link? */}
+            {[
+              { name: 'hhhhh' },
+              { name: 'hhhhh' },
+              { name: 'hhhhh' },
+              { name: 'hhhhh' },
+              { name: 'hhhhh' },
+              { name: 'hhhhh' },
+            ].map((item, index) =>
+              <Image src={linkedIn} alt="logo" className={styles.socialIcons} key={index} />
+            )}
+          </Col>
         </div>
         <div className={`${styles.menuWrapper} ${openMenu ? styles.closedMenu : ''}`}>
 
