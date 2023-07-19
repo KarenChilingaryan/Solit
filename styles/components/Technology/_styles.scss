@@ -33,6 +33,7 @@
         cursor: pointer;
         .icon {
           width: getTechnologySizes(icon-w);
+          object-fit: cover;
         }
         .name {
           display: none;

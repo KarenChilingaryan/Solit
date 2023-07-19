@@ -3,9 +3,6 @@ import Image from "next/image";
 import { Col, Row, Paragraph } from "../../atoms";
 
 import logoFooter from "../../../assets/img/bigLogo.png";
-import fb from "../../../assets/img/fb.png";
-import linkedIn from "../../../assets/img/linkedin.png";
-import telegram from "../../../assets/img/telegram.png";
 import styles from "./Footer.module.scss";
 import { useFooterQuery } from "../../../services/footerApi";
 import Link from "next/link";
@@ -83,17 +80,16 @@ const Footer = () => {
               {el}
             </Paragraph>
           ))}
-      </Col>
-      <Col className={styles.socialIconsWrapper}>
-        <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} >Let’s Contact for Great</Paragraph>
-        {/* data && data[0]?.social_link? */}
-        {data && data?.contact?.map((item, index) =>
-          <Link href={item.link} target="_blank" key={index}>
-            <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} width={50} height={50} />
-          </Link>
-        )}
-      </Col>
-    </Row>
+        </Col>
+        <Col className={styles.socialIconsWrapper}>
+          <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} >Let’s Contact for Great</Paragraph>
+          {data && data?.contact?.map((item, index) =>
+            <Link href={item.link} target="_blank" key={index}>
+              <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} width={300} height={300} />
+            </Link>
+          )}
+        </Col>
+      </Row>
     </div >
   );
 };
