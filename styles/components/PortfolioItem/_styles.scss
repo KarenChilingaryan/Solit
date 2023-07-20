@@ -44,8 +44,9 @@
             gap: calcVW(40);
 
             .icon {
-              width: calcVW(22);
-              height: calcVW(19);
+              width: calcVW(40);
+              height: calcVW(40);
+              object-fit: cover;
             }
           }
         }

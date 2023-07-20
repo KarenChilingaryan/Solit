@@ -1,35 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { serviceItemApi } from "../../services/servicesItemApi";
 import { Col } from "../../components/atoms";
-import Title from "../../components/molecules/title/Title";
-import Filters from "../../components/organisms/filters/Filters";
-import { usePortfolioQuery } from "../../services/portfolioApi";
+import PortfolioMain from "../../components/organisms/portfolioMain/PortfolioMain";
 
 import styles from "./serviceItem.module.scss";
-import { useServiceItemQuery } from "../../services/servicesItemApi";
-import PortfolioMain from "../../components/organisms/portfolioMain/PortfolioMain";
 
 const ServiceItem = () => {
   const { id } = useRouter().query;
-
-  const shortPresentationPortfolio = useSelector(
-    (state) =>
-      state?.shortPresentationPortfolioApi?.queries?.[
-        "shortPresentationPortfolio(undefined)"
-      ]?.data
-  );
-
-  const serviceItem = useSelector(
-    (state) =>
-      state?.serviceItemApi?.queries?.[`serviceItem("${id}")`]?.data
-  );
+  const dispatch = useDispatch();
+  const [postServiceApiData, setPostServiceApiData] = useState(null)
+  const getData = async (id) => {
+    const res = await dispatch(await serviceItemApi.endpoints.serviceItem.initiate(id));
+    setPostServiceApiData(res.data)
+  }
+  useEffect(() => {
+    if (id) {
+      getData(id)
+    }
+  }, [id])
 
   return (
     <Col className={styles.portfolioItemWrapper}>
-      <Title title={serviceItem?.headline} lightBlueTitle />
-      <PortfolioMain data={serviceItem} />
-      <Filters data={shortPresentationPortfolio} />
+      <PortfolioMain data={postServiceApiData} />
     </Col>
   );
 };

@@ -16,9 +16,9 @@ const PortfolioMain = ({ data, main = false }) => {
           <div className={styles.contentDescription}>
             <HomeMain
               data={{
-                title: "Where the stars meet",
+                title: data?.name_service_detail,
                 firstSubtitle:
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo scelerisque nunc nec aliquet. Etiam lobortis erat libero, eget bibendum lorem congue nec. ",
+                  data?.create_page_service_detail
               }}
             />
           </div>

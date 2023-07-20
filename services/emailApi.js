@@ -19,7 +19,6 @@ export const emailApi = createApi({
   endpoints: (builder) => ({
     email: builder.query({
       query: (body) => {
-        console.log(body);
         return {
           url: '/email_main_contact/',
           method: 'POST',

@@ -15,22 +15,23 @@ const OurProjectCard = ({
   images,
   blogs = false,
   component,
-  blogItem = ''
+  blogItem = '',
+  onClick,
 }) => {
   return (
-    <Col className={`${styles.mainWrapper} ${styles['mainWrapper-' + component]}`}>
+    <Col className={`${styles.mainWrapper} ${styles['mainWrapper-' + component]}`} onClick={onClick}>
       <Col
         className={`${styles.imageContainer} ${more && styles.moreWrapper} ${styles[component]} ${styles[blogItem]}`}
       >
         {!more ? (
           <>
-            <Image src={image} alt="icon" className={styles.img} width={400} height={400}/>
+            <Image src={image} alt="icon" className={styles.img} width={400} height={400} />
             <Row className={`${styles.positionSection}`} >
               <Row className={styles.name}>{name} </Row>
               <Row className={styles.stacks} >
                 {!blogs &&
                   (images || array)?.map((item, i) => (
-                    <Image src={item?.original_logo || react} className={styles.icon} key={i}  width={100} height={100} />
+                    <Image src={item?.original_logo || react} className={styles.icon} key={i} width={100} height={100} />
                   ))}
                 {blogs && (
                   <Col className={styles.blogDescription}>

@@ -1,8 +1,14 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { memo } from "react";
 import Image from "next/image";
 import { HomeMain } from "../homeMain";
+import { HomeMainWithImage } from "../HomeMainWithImage";
+import { Col, Paragraph } from "../../atoms";
+import { ReversedAboutUs } from "../reversedAboutUs";
+import { Technology } from "../Technology";
+import { Process } from "../Process";
+import { WorldMap } from "../WorldMap";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
 import teamMember from "../../../assets/img/teamMember.png";
@@ -10,25 +16,16 @@ import group from "../../../assets/img/Group.svg";
 import group1 from "../../../assets/img/Group-1.svg";
 import group2 from "../../../assets/img/Group-2.svg";
 import whatWeDoImage from "../../../assets/img/what-we-do_bg.png";
-import contactBgImage from "../../../assets/img/contact_bg.png";
 import ourProjectImage from "../../../assets/img/our-project_bg.png";
-import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
-import { ReversedAboutUs } from "../reversedAboutUs";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
 import ContactForm from "../contactForm/ContactForm";
 import bgImage from "../../../assets/img/main_bg.png";
-import reactSvg from "../../../assets/img/icons/react.svg";
-import { WorldMap } from "../WorldMap";
 import MapUser from "../../molecules/mapUser/MapUser";
-import { Technology } from "../Technology";
-import { Process } from "../Process";
-import { HomeMainWithImage } from "../HomeMainWithImage";
-import styles from "./HomeContent.module.scss";
 import Button from "../../molecules/button/Button";
-import { Col, Paragraph } from "../../atoms";
-import { useSelector } from "react-redux";
+
+import styles from "./HomeContent.module.scss";
 
 const data = [
   {
@@ -89,18 +86,7 @@ const data = [
     },
   },
 ];
-const dataProject = [
-  "Last Order",
-  "First Order",
-  "Forest Predictions",
-  "The Rebellion",
-  "Marketing Cleanup",
-  "Sarfin Inc.",
-  "Pear Computers",
-  "more",
-];
 
-const services = [1, 2, 3, 4, 5, 6];
 const aboutData = [
   {
     number: "4.5",
@@ -158,7 +144,6 @@ const HomeContent = () => {
   const postPortfolioApi = useSelector(
     (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
   );
-  console.log(postPortfolioApi);
 
   return (
     <HomeMainWithImage firstImage={bgImage}>

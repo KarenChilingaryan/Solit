@@ -1,20 +1,20 @@
 import { memo, useEffect, useState } from "react";
-import _ from "lodash";
-import Link from "next/link";
-import cx from "classnames";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
+import _ from "lodash";
+import cx from "classnames";
+import { Col, Paragraph } from "../../atoms";
+import { useSelector } from "react-redux";
 import menuLogoWhite from "../../../assets/img/bigLogo.png";
 import hamburger from "../../../assets/img/hamburger.svg";
 import dropdown from "../../../assets/img/dropdown.svg";
 import active_menu_element from "../../../assets/img/active-menu-element.svg";
 import menu_element from "../../../assets/img/menu-element.svg";
 import Button from "../../molecules/button/Button";
-import Image from "next/image";
 import linkedIn from "../../../assets/img/linkedin.png";
-import { useSelector } from "react-redux";
 
 import styles from "./Header.module.scss";
-import { Col, Paragraph } from "../../atoms";
 
 const data = [
   {
@@ -146,18 +146,19 @@ const Header = () => {
             </Link>
             <div className={styles.menuItemChildMainWrapper}>
               {el?.data?.map((e, idx) =>
-                <div
-                  key={idx}
-                  className={styles.menuItemChildWrapper}
-                  style={{
-                    display:
-                      el.name === filteredData ? "flex" : "none",
-                  }}
-                >
-                  <Image src={active_menu_element} className={styles.activeElem} />
-                  <Image src={menu_element} className={styles.disActiveElem} />
-                  {e.title}
-                </div>
+                <Link href={el?.fix_url + '/' + e.service_detail} key={idx}>
+                  <div
+                    className={styles.menuItemChildWrapper}
+                    style={{
+                      display:
+                        el.name === filteredData ? "flex" : "none",
+                    }}
+                  >
+                    <Image src={active_menu_element} className={styles.activeElem} />
+                    <Image src={menu_element} className={styles.disActiveElem} />
+                    {e.title}
+                  </div>
+                </Link>
               )}
             </div>
           </div>

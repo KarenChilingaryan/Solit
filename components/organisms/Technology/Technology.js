@@ -2,7 +2,6 @@ import { memo, useState } from "react";
 import Image from "next/image";
 import { Paragraph } from "../../atoms";
 import Button from "../../molecules/button/Button";
-import languageIcon from "../../../assets/img/php_color.svg";
 
 import styles from "./Technology.module.scss";
 import { useSelector } from "react-redux";
@@ -28,7 +27,6 @@ const Technology = () => {
   const postsMainTechnologyFiltersApi = useSelector(
     (state) => state?.postsMainTechnologyFiltersApi?.queries?.["posts(undefined)"]?.data
   );
-  console.log(postsMainTechnologyFiltersApi);
 
   return (
     <div className={styles.container}>

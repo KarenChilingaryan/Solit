@@ -1,12 +1,13 @@
 import { memo, useState } from "react";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import Image from "next/image";
 import { Col, Row } from "../../atoms";
-import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
 import elipse from "../../../assets/img/Ellipse.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import FilterButtons from "../filters/FilterButtons";
 
 import styles from "./Portfolios.module.scss";
-import Image from "next/image";
 
 export const dataProject = [
   "Last Order",
@@ -26,6 +27,7 @@ const tags = [
 ];
 
 const Portfolios = ({ data }) => {
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState("All");
   // const tags = useSelector(
   //   (state) => state?.tagsApi?.queries?.["tags(undefined)"]?.data
@@ -36,30 +38,36 @@ const Portfolios = ({ data }) => {
     // const sortedData = data?.filter((el) => el?.id === id);
     // setPortfolioData(sortedData);
   };
+
+  const handleClick = (id) => {
+    router.push(`/portfolio/${id}`);
+  };
+  const postPortfolioApi = useSelector(
+    (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
+  );
+
   return (
     <Row className={styles.portfoliosWrapper}>
-      {/* <Filters/> */}
       <div className={styles.filtersBlock}>
         <Col className={styles.filters}>
-        <FilterButtons
-          name={"All"}
-          className={selectedCategory === "All" ? "active" : ""}
-          onClick={() => {
-            // setPortfolioData(portfolio);
-            setSelectedCategory("All");
-          }}
-        />
-        {tags?.map((el) => (
           <FilterButtons
-            name={el.tag_name}
-            key={el.id}
-            className={selectedCategory === el?.id ? "active" : ""}
+            name={"All"}
+            className={selectedCategory === "All" ? "active" : ""}
             onClick={() => {
-              handleFilter(el?.id);
-              setSelectedCategory(el?.id);
+              setSelectedCategory("All");
             }}
           />
-        ))}
+          {tags?.map((el) => (
+            <FilterButtons
+              name={el.tag_name}
+              key={el.id}
+              className={selectedCategory === el?.id ? "active" : ""}
+              onClick={() => {
+                handleFilter(el?.id);
+                setSelectedCategory(el?.id);
+              }}
+            />
+          ))}
         </Col>
       </div>
       <Row
@@ -71,13 +79,15 @@ const Portfolios = ({ data }) => {
 
       >
         <Image className={styles.elipse} src={elipse} />
-        {dataProject?.map((project, i) => (
+        {postPortfolioApi && [...postPortfolioApi?.data_list]?.map((project, i) => (
           <OurProjectCard
+            onClick={() => handleClick(project.id)}
             key={i}
-            name={project}
-            image={ourPtojectImage}
             more={project == "more"}
             component="portfolio"
+            name={project.title}
+            image={project.webp_image_portfolio}
+            images={project?.technology_logos}
           />
         ))}
       </Row>
