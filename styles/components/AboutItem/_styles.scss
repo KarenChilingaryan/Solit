@@ -21,6 +21,7 @@
       .icon {
         width: getAboutItemSizes(icon-width);
         height: getAboutItemSizes(icon-height);
+        object-fit: cover;
       }
 
       .title {

@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { Dropdown, Menu } from 'antd';
 
@@ -13,6 +13,8 @@ import downOutlined from "../../../assets/img/grey-dropdown.svg";
 
 import styles from "./WhatWeDo.module.scss";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { postAbutUsWhatWeDoApi } from "../../../services/postAbutUsWhatWeDoApi";
 
 const MenuItem = styled(Menu.Item)`
   color: #ffffff;
@@ -39,13 +41,14 @@ const FullMenu = styled(Menu)`
   border-radius: 0 0 ${16 * 0.266711333}vw ${16 * 0.266711333}vw;
   overflow: hidden;
 `
-const WhatWeDo = () => {
+const WhatWeDo = ({ data }) => {
+  const [contextData, setContextData] = useState(null);
+
+  const dispatch = useDispatch();
+
   const onChange = (e) => {
     // setSize(e.target.value);
   };
-  const context =
-    "Obtain a top-of-the-class custom mobile application of any complexity with Andersen - a mobile app development company possessing deep expertise and knowledge of the latest mobile development frameworks With Andersen, you will get a source of solid IT expertise and well-honed skills in mobile software projects";
-  const title = "Mobile Development";
 
 
   const [isMobile, setIsMobile] = useState(false);
@@ -64,15 +67,27 @@ const WhatWeDo = () => {
     };
   }, []);
 
+  const getContext = async (id) => {
+    const data = await dispatch(await postAbutUsWhatWeDoApi.endpoints.about.initiate(id));
+    setContextData(data?.data)
+    console.log(data.data);
+  }
+
+  useEffect(() => {
+    if (!contextData && data) {
+      getContext(data.data_list[0].about_as_what_we_do_detail)
+    }
+  }, [data])
+
   const renderTabsOrDropdown = () => {
     if (isMobile) {
-      // Render Dropdown component
       const menu = (
-        <FullMenu>
-          {new Array(7).fill(null).map((_, i) => (
+        <FullMenu onChange={((e) => {
+          console.log(e);
+        })}>
+          {data?.data_list?.map((item, i) => (
             <MenuItem key={i + 1} className={styles.dropdownOption}>
-              {/* Render your dropdown menu items */}
-              {`Option ${i + 1} `}
+              {item.title}
             </MenuItem>
           ))}
         </FullMenu>
@@ -82,34 +97,39 @@ const WhatWeDo = () => {
         <div className={styles.contextWrapper}>
           <Dropdown overlay={menu} trigger={['click']}>
             <a className={styles.antDropdownLink} onClick={(e) => e.preventDefault()}>
-              Mobile Development <Image src={downOutlined} />
+              {contextData?.name_about_as_what_we_do_detail} <Image src={downOutlined} />
             </a>
           </Dropdown>
-          <Row className={styles.context}>{context}</Row>
+          <Row className={styles.context}>
+            <div dangerouslySetInnerHTML={{ __html: contextData?.info_name_about_as_what_we_do_detail }} />
+          </Row>
         </div>
       );
     }
 
-    // Render Tabs component
     return (
-      <Tabs
+      <Tabs onChange={((e) => {
+        getContext(data.data_list[e - 1].about_as_what_we_do_detail)
+      })}
         defaultActiveKey="1"
         type="card"
         className={styles.tabs}
         // size={size}
-        items={new Array(7).fill(null).map((_, i) => {
+        items={data?.data_list?.map((item, i) => {
           const id = String(i + 1);
           return {
-            label: title,
+            label: item.title,
             key: id,
             children: (
               // <Context icon={devIcon} context={context} title={title} />
               <Row className={styles.contextWrapper}>
                 <Row className={styles.contextHeader}>
                   <Image src={devIcon} className={styles.contextIcon} />
-                  <Col className={styles.contextTitle}>{title}</Col>
+                  <Col className={styles.contextTitle}>{contextData?.name_about_as_what_we_do_detail}</Col>
                 </Row>
-                <Row className={styles.context}>{context}</Row>
+                <Row className={styles.context}>
+                  <div dangerouslySetInnerHTML={{ __html: contextData?.info_name_about_as_what_we_do_detail }} />
+                </Row>
                 <ShowMore className={styles.button}>
                   Show more <Image src={showMore} className={styles.btnImg} />
                 </ShowMore>
@@ -124,18 +144,12 @@ const WhatWeDo = () => {
     <div className={styles.container}>
       <Col className={styles.sectionWrapper}>
         <Col className={styles.whatWeDoWrapper}>
-          <Col className={styles.title}>What we do?</Col>
-          <Col className={styles.description}>
-            Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui
-            esse pariatur duis deserunt mollit dolore cillum minim tempor enim.
-            Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate
-            aute id deserunt nisi.
-          </Col>
+          <Col className={styles.title}>{data ? data.data_text[0]?.title : ''}</Col>
+          <div className={styles.description} dangerouslySetInnerHTML={{ __html: data && data.data_text[0].description || '' }} />
+
           {renderTabsOrDropdown()}
         </Col>
-
         <Button text="More expertise" boldWhite icon={goRight} />
-
       </Col>
       <Image
         src={ourTeamBg}

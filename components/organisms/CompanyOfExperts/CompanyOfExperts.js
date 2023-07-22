@@ -1,23 +1,28 @@
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Row, Col, Paragraph } from "../../atoms";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
 
 import styles from "./CompanyOfExperts.module.scss";
 
-const CompanyOfExperts = ({ aboutData }) => {
+const CompanyOfExperts = () => {
+  const abutUsCompanyOfExpertsApi = useSelector(
+    (state) => state?.abutUsCompanyOfExpertsApi?.queries?.["about(undefined)"]?.data
+  );
+
   return (
     <Row className = {styles.aboutCompanyOfExperts}> 
       <Paragraph className={styles.aboutCompanyTitle}>
         Company of experts
       </Paragraph>
       <div className={styles.aboutCompanyContent}>
-        {aboutData?.map((about, i) => (
+        {abutUsCompanyOfExpertsApi?.map((about, i) => (
           <AboutCompany
             key={i}
-            number={about.number}
-            title={about.title}
-            image={about.image}
-            status={about.status}
+            number={about.rating_number}
+            title={about.rating_text}
+            image={about.original_logo_company_of_expert}
+            // status={about.status}
           />
         ))}
       </div>

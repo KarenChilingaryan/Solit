@@ -9,7 +9,7 @@
     overflow: unset;
   }
   .socialSites {
-    position: absolute;
+    position: fixed;
     z-index: 1;
     transform: rotate(-90deg);
     left: getHomeMainWithImage(social-sites-lp);

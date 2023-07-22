@@ -9,17 +9,6 @@ import FilterButtons from "../filters/FilterButtons";
 
 import styles from "./Portfolios.module.scss";
 
-export const dataProject = [
-  "Last Order",
-  "First Order",
-  "Forest Predictions",
-  "The Rebellion",
-  "Marketing Cleanup",
-  "Sarfin Inc.",
-  "Pear Computers",
-  "Pear Computers",
-];
-
 const tags = [
   { id: 1, tag_name: "React" },
   { id: 16, tag_name: "Android" },
@@ -42,9 +31,7 @@ const Portfolios = ({ data }) => {
   const handleClick = (id) => {
     router.push(`/portfolio/${id}`);
   };
-  const postPortfolioApi = useSelector(
-    (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
-  );
+
 
   return (
     <Row className={styles.portfoliosWrapper}>
@@ -79,7 +66,7 @@ const Portfolios = ({ data }) => {
 
       >
         <Image className={styles.elipse} src={elipse} />
-        {postPortfolioApi && [...postPortfolioApi?.data_list]?.map((project, i) => (
+        {data && [...data]?.map((project, i) => (
           <OurProjectCard
             onClick={() => handleClick(project.id)}
             key={i}

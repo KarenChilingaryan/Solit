@@ -5,10 +5,10 @@ import cardIcon from "../../../assets/img/cardImage.png";
 
 import styles from "./ServiceCard.module.scss";
 
-const ServiceCard = ({ item, onClick, className }) => {
+const ServiceCard = ({ item, onClick, className, fromDetail }) => {
   return (
     <Col
-      className={`${styles.serviceCardWrapper} ${className}`}
+      className={`${styles.serviceCardWrapper} ${className} ${styles[fromDetail]}`}
       span={7}
       onClick={onClick}
     >

@@ -32,6 +32,11 @@ import { postsMainTechnologyFiltersApi } from "./postsMainTechnologyFiltersApi";
 import { postsWhatWeDoApi } from "./postsWhatWeDoApi";
 import { postPortfolioApi } from "./postPortfolioApi";
 import { emailApi } from "./emailApi";
+import { abutUsImpactApi } from "./abutUsImpactApi";
+import { abutQuickFactsApi } from "./abutQuickFactsApi";
+import { abutUsWhatWeDoApi } from "./abutUsWhatWeDoApi";
+import { postAbutUsWhatWeDoApi } from "./postAbutUsWhatWeDoApi";
+import { abutUsCompanyOfExpertsApi } from "./abutUsCompanyOfExpertsApi";
 
 const store = configureStore({
   reducer: {
@@ -47,6 +52,10 @@ const store = configureStore({
     [ourServicesApi.reducerPath]: ourServicesApi.reducer,
     [servicesApi.reducerPath]: servicesApi.reducer,
     [aboutApi.reducerPath]: aboutApi.reducer,
+    [abutUsImpactApi.reducerPath]: abutUsImpactApi.reducer,
+    [abutQuickFactsApi.reducerPath]: abutQuickFactsApi.reducer,
+    [abutUsCompanyOfExpertsApi.reducerPath]: abutUsCompanyOfExpertsApi.reducer,
+    [abutUsWhatWeDoApi.reducerPath]: abutUsWhatWeDoApi.reducer,
     [portfolioApi.reducerPath]: portfolioApi.reducer,
     [longPresentationBlogApi.reducerPath]: longPresentationBlogApi.reducer,
     [blogItemApi.reducerPath]: blogItemApi.reducer,
@@ -57,6 +66,7 @@ const store = configureStore({
     [postsCareersApi.reducerPath]: postsCareersApi.reducer,
     [postsServicesApi.reducerPath]: postsServicesApi.reducer,
     [serviceItemApi.reducerPath]: serviceItemApi.reducer,
+    [postAbutUsWhatWeDoApi.reducerPath]: postAbutUsWhatWeDoApi.reducer,
     [tagsApi.reducerPath]: tagsApi.reducer,
     [aboutUsCommunityApi.reducerPath]: aboutUsCommunityApi.reducer,
     [headerApi.reducerPath]: headerApi.reducer,

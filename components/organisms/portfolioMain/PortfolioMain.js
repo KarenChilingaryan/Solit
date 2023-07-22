@@ -7,8 +7,13 @@ import { HomeMain } from "../homeMain";
 import bgImage from "../../../assets/img/blogs_bg.png";
 
 import styles from "./PortfolioMain.module.scss";
+import { useSelector } from "react-redux";
 
 const PortfolioMain = ({ data, main = false }) => {
+  const postPortfolioApi = useSelector(
+    (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
+  );
+
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -16,14 +21,14 @@ const PortfolioMain = ({ data, main = false }) => {
           <div className={styles.contentDescription}>
             <HomeMain
               data={{
-                title: data?.name_service_detail,
+                title: postPortfolioApi?.data_text[0]?.title,
                 firstSubtitle:
-                  data?.create_page_service_detail
+                  postPortfolioApi?.data_text[0]?.description
               }}
             />
           </div>
           <Row className={styles.portfoliosSection}>
-            <Portfolios />
+            <Portfolios data={postPortfolioApi?.data_list}/>
           </Row>
           <Row className={styles.knowMoreSection}>
             <WhatToKnow />

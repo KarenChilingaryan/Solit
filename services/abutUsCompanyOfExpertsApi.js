@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
-export const aboutApi = createApi({
+export const abutUsCompanyOfExpertsApi = createApi({
 
-  reducerPath: "aboutApi",
+  reducerPath: "abutUsCompanyOfExpertsApi",
   refetchOnFocus: false,
   refetchOnMountOrArgChange: false,
   refetchOnReconnect: false,
@@ -16,8 +16,8 @@ export const aboutApi = createApi({
     }
   },
   endpoints: (builder) => ({
-    about: builder.query({ query: () => "/about_us_text_about_us/" }),
+    about: builder.query({ query: () => "/abut_us_company_of_experts/" }),
   }),
 });
 
-export const { useAboutQuery } = aboutApi;
+export const { useAboutQuery } = abutUsCompanyOfExpertsApi;

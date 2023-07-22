@@ -1,0 +1,14 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$services-item-sizes: (
+
+  content-width: calcVW(1280),
+  title-fz: calcVW(36),
+  title-lh: calcVW(44),
+  bottom-block-m: calcVW(256) 0,
+);
+
+@function getServicesItemSizes($property) {
+  @return map-get($services-item-sizes, $property);
+}

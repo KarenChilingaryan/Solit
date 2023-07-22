@@ -5,6 +5,10 @@ import { useDispatch } from "react-redux";
 import { aboutApi } from "../../services/aboutApi";
 import { aboutOurTeamTitleApi } from "../../services/aboutOurTeamTitleApi";
 import { aboutUsCommunityApi } from "../../services/aboutUsCommunityApi";
+import { abutQuickFactsApi } from "../../services/abutQuickFactsApi";
+import { abutUsCompanyOfExpertsApi } from "../../services/abutUsCompanyOfExpertsApi";
+import { abutUsImpactApi } from "../../services/abutUsImpactApi";
+import { abutUsWhatWeDoApi } from "../../services/abutUsWhatWeDoApi";
 import { blogItemApi } from "../../services/blogItemApi";
 import { careerTechnologyItemApi } from "../../services/careerTechnologyItemApi";
 import { careerTechnologyLongPresentationApi } from "../../services/careerTechnologyLongPresentationApi";
@@ -64,7 +68,6 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsMainTechnologyFiltersApi.endpoints.posts.initiate())
       await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate())
       await dispatch(await postPortfolioApi.endpoints.posts.initiate())
-      // await dispatch(await aboutApi.endpoints.about.initiate())
       // await dispatch(await ourServicesApi.endpoints.ourServices.initiate())
       // await dispatch(await homepageAdditionalServiceApi.endpoints.homepageAdditionalService.initiate())
       // await dispatch(await testimonialsFlagTitleApi.endpoints.testimonialsFlagTitle.initiate())
@@ -95,10 +98,16 @@ const PageWrapper = ({ children, item }) => {
     //   }
     // }
 
-    // if (a.pathname.includes('/aboutus') && flag || !a.pathname.includes('/aboutus') && !flag) {
-    //   await dispatch(await aboutUsCommunityApi.endpoints.aboutUsCommunity.initiate())
-    //   await dispatch(await aboutOurTeamTitleApi.endpoints.aboutOurTeamTitle.initiate())
-    // }
+    if (a.pathname.includes('/aboutus') && flag || !a.pathname.includes('/aboutus') && !flag) {
+      await dispatch(await aboutApi.endpoints.about.initiate())
+      await dispatch(await abutUsImpactApi.endpoints.about.initiate())
+      await dispatch(await abutQuickFactsApi.endpoints.about.initiate())
+      await dispatch(await abutUsCompanyOfExpertsApi.endpoints.about.initiate())
+      await dispatch(await abutUsWhatWeDoApi.endpoints.about.initiate())
+      
+      // await dispatch(await aboutUsCommunityApi.endpoints.aboutUsCommunity.initiate())
+      // await dispatch(await aboutOurTeamTitleApi.endpoints.aboutOurTeamTitle.initiate())
+    }
 
     // if (a.pathname.includes('/careers') && flag || !a.pathname.includes('/careers') && !flag) {
     //   await dispatch(await careerTechnologyLongPresentationApi.endpoints.careerTechnologyLongPresentation.initiate())

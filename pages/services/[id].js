@@ -6,6 +6,7 @@ import { Col } from "../../components/atoms";
 import PortfolioMain from "../../components/organisms/portfolioMain/PortfolioMain";
 
 import styles from "./serviceItem.module.scss";
+import ServicesItem from "../../components/organisms/servicesItem/ServicesItem";
 
 const ServiceItem = () => {
   const { id } = useRouter().query;
@@ -23,7 +24,7 @@ const ServiceItem = () => {
 
   return (
     <Col className={styles.portfolioItemWrapper}>
-      <PortfolioMain data={postServiceApiData} />
+      <ServicesItem data={postServiceApiData} />
     </Col>
   );
 };

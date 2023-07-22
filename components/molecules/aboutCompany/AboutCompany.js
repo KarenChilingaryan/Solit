@@ -11,7 +11,7 @@ const AboutCompany = ({ number, title, image, status, withOutBG }) => {
           <p className={styles.number}>{number}</p>
           <Col className={styles.description}>
             <p className={styles.title}>{title}</p>
-            <p className={styles.status}>{status}</p>
+            {/* <p className={styles.status}>{status}</p> */}
           </Col>
         </Col>
       </Col>
