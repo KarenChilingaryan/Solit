@@ -57,7 +57,7 @@ const data = [
   },
 ];
 const Careers = () => {
-  const [open, setOpen] = useState(false);
+  const [openData, setOpenData] = useState(null);
   // const router = useRouter();
 
   const careersJobOpeningApi = useSelector(
@@ -104,22 +104,22 @@ const Careers = () => {
           <div className={styles.secondDescription} dangerouslySetInnerHTML={{ __html: careersJobOpeningApi?.data_text[0].description || "" }} />
         </div>
         <Row>
-          <JobsTable data={careersJobOpeningApi?.data_list} />
+          <JobsTable data={careersJobOpeningApi?.data_list} setOpenData={setOpenData}/>
         </Row>
         <Row className={styles.weKnowSection}>
           <WhatToKnow
             title="If you haven't found position..."
             description="For further information don't hesitate to contact us. We would be happy to provide you with more information."
             buttonText="Apply Here"
-            onClick={() => setOpen(true)}
+            onClick={() => setOpenData(true)}
           />
         </Row>
         <Row className={styles.contactUsWrapper}>
           <ContactForm />
         </Row>
       </Row>
-      <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
-        <ModalForm />
+      <ModalWrapper open={!!openData} width={"66vw"} setOpen={setOpenData}>
+        <ModalForm openData={openData}/>
       </ModalWrapper>
     </HomeMainWithImage>
   );

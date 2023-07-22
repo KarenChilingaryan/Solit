@@ -14,11 +14,8 @@ import arrow from "../../../assets/img/icons/selectIcon.svg";
 import styles from "./ModalForm.module.scss";
 
 const ModalForm = ({
-  title,
   style = {},
-  whiteButton = false,
-  whiteTitle,
-  talent = false,
+  openData
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();

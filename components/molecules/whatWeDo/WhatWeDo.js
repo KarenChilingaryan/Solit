@@ -15,6 +15,7 @@ import styles from "./WhatWeDo.module.scss";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { postAbutUsWhatWeDoApi } from "../../../services/postAbutUsWhatWeDoApi";
+import Link from "next/link";
 
 const MenuItem = styled(Menu.Item)`
   color: #ffffff;
@@ -150,7 +151,9 @@ const WhatWeDo = ({ data }) => {
 
           {renderTabsOrDropdown()}
         </Col>
-        <Button text="More expertise" boldWhite icon={goRight} />
+        <Link href={'/whatWeDo'}>
+          <Button text="More expertise" boldWhite icon={goRight} />
+        </Link>
       </Col>
       <Image
         src={ourTeamBg}

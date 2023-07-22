@@ -8,8 +8,14 @@ import bgImage from "../../../assets/img/blogs_bg.png";
 
 import styles from "./PortfolioMain.module.scss";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const PortfolioMain = ({ data, main = false }) => {
+  const router = useRouter()
+  const handleClickDiscuss = () => {
+    router.push(`/discussProject`);
+  };
+
   const postPortfolioApi = useSelector(
     (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
   );
@@ -28,10 +34,10 @@ const PortfolioMain = ({ data, main = false }) => {
             />
           </div>
           <Row className={styles.portfoliosSection}>
-            <Portfolios data={postPortfolioApi?.data_list}/>
+            <Portfolios data={postPortfolioApi?.data_list} />
           </Row>
           <Row className={styles.knowMoreSection}>
-            <WhatToKnow />
+            <WhatToKnow onClick={handleClickDiscuss} />
           </Row>
         </div>
       </>

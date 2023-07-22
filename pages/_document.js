@@ -29,7 +29,6 @@ export default class MyDocument extends Document {
             property="twitter:image"
             content="https://simpl.info/webp/cherry.webp"
           />
-          <script src="//fw-cdn.com/2408772/3004044.js" chat="true" async />
         </Head>
         <body>
           <Main />
