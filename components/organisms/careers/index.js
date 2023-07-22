@@ -60,13 +60,6 @@ const data = [
 const Careers = () => {
   // const router = useRouter();
 
-  // const careerTechnologyLongPresentation = useSelector(
-  //   (state) =>
-  //     state?.careerTechnologyLongPresentationApi?.queries?.[
-  //       "careerTechnologyLongPresentation(undefined)"
-  //     ]?.data
-  // );
-
   const careersJobOpeningApi = useSelector(
     (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
   );

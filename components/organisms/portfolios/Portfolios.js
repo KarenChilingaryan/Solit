@@ -18,9 +18,6 @@ const tags = [
 const Portfolios = ({ data }) => {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState("All");
-  // const tags = useSelector(
-  //   (state) => state?.tagsApi?.queries?.["tags(undefined)"]?.data
-  // );
 
   const handleFilter = (id) => {
     // const data = [...portfolio];

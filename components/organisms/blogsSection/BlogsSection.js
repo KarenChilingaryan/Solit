@@ -1,6 +1,5 @@
 import { memo, useState } from "react";
 import { Col, Row } from "../../atoms";
-import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
 import elipse from "../../../assets/img/Ellipse.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import FilterButtons from "../filters/FilterButtons";
@@ -21,12 +20,6 @@ export const dataProject = [
   "How do chatbots work?",
 ];
 
-const tags = [
-  { id: 1, tag_name: "React" },
-  { id: 16, tag_name: "Android" },
-  { id: 17, tag_name: "iOS" },
-];
-
 const BlogsSection = ({ data }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const postsFilterNameBlogApi = useSelector(
@@ -36,9 +29,6 @@ const BlogsSection = ({ data }) => {
       ]?.data
   );
 
-  //   (state) => state?.tagsApi?.queries?.["tags(undefined)"]?.data
-  // );
-
   const handleFilter = (id) => {
     // const data = [...portfolio];
     // const sortedData = data?.filter((el) => el?.id === id);
@@ -46,7 +36,6 @@ const BlogsSection = ({ data }) => {
   };
   return (
     <Row className={styles.portfoliosWrapper}>
-      {/* <Filters/> */}
       <div className={styles.filtersBlock}>
         <Col className={styles.filters}>
           <FilterButtons
