@@ -10,6 +10,8 @@ import image from "../../../assets/img/careers-detail.png"
 import imageBG from "../../../assets/img/career_bg.png"
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { postsCareersJobOpeningApi } from "../../../services/postsCareersJobOpeningApi";
+import ModalForm from "../../molecules/modalForm/ModalForm";
+import { Modal } from "antd";
 
 
 const CareersComponent = () => {
@@ -36,7 +38,7 @@ const CareersComponent = () => {
             <div className={styles.secondDescription} dangerouslySetInnerHTML={{ __html: postsCareersJobOpeningApiData?.requirements }} />
             <div className={styles.secondDescription} dangerouslySetInnerHTML={{ __html: postsCareersJobOpeningApiData?.responsibilities }} />
             <div className={styles.secondDescription} dangerouslySetInnerHTML={{ __html: postsCareersJobOpeningApiData?.last_part }} />
-            
+
             <Row className={styles.blockItems}>
               <WhatToKnow
                 title="Apply for this Position"

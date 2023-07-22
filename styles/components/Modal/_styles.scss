@@ -41,14 +41,19 @@
     }
 
     :global(.ant-modal-content) {
-      width: calcVW(1280);
+      width: max-content;
       padding: calcVW(64);
       border-radius: calcVW(16);
+      margin: 0 auto;
+    }
+
+    :global(.ant-modal-title) {
+      margin-bottom: calcVW(60);
     }
 
     :global(.ant-modal-close) {
-      top: calcVW(60);
-      right: calcVW(70);
+      top: calcVW(40);
+      right: calcVW(30);
     }
   }
 
