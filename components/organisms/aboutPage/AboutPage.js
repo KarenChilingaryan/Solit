@@ -52,7 +52,6 @@ const AboutPage = () => {
     }
   }, [abutQuickFactsApi])
 
-  console.log(abutUsWhatWeDoApi, 'abutUsWhatWeDoApi');
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <div className={styles.container}>

@@ -10,7 +10,7 @@ import { abutUsCompanyOfExpertsApi } from "../../services/abutUsCompanyOfExperts
 import { abutUsImpactApi } from "../../services/abutUsImpactApi";
 import { abutUsWhatWeDoApi } from "../../services/abutUsWhatWeDoApi";
 import { blogItemApi } from "../../services/blogItemApi";
-import { careerTechnologyItemApi } from "../../services/careerTechnologyItemApi";
+import { careersJobOpeningApi } from "../../services/careersJobOpeningApi";
 import { careerTechnologyLongPresentationApi } from "../../services/careerTechnologyLongPresentationApi";
 import { headerApi } from "../../services/header";
 import { homepageAdditionalServiceApi } from "../../services/homepageAdditionalServiceApi";
@@ -109,12 +109,12 @@ const PageWrapper = ({ children, item }) => {
       // await dispatch(await aboutOurTeamTitleApi.endpoints.aboutOurTeamTitle.initiate())
     }
 
-    // if (a.pathname.includes('/careers') && flag || !a.pathname.includes('/careers') && !flag) {
-    //   await dispatch(await careerTechnologyLongPresentationApi.endpoints.careerTechnologyLongPresentation.initiate())
-    //   if (id) {
-    //     await dispatch(await careerTechnologyItemApi.endpoints.careerTechnologyItem.initiate(id))
-    //   }
-    // }
+    if (a.pathname.includes('/careers') && flag || !a.pathname.includes('/careers') && !flag) {
+      await dispatch(await careersJobOpeningApi.endpoints.career.initiate())
+      // if (id) {
+      //   await dispatch(await careersJobOpeningApi.endpoints.careerTechnologyItem.initiate(id))
+      // }
+    }
 
     // if (a.pathname.includes('/our-team') && flag || !a.pathname.includes('/our-team') && !flag) {
     //   if (id) {

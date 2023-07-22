@@ -67,9 +67,14 @@ const Careers = () => {
   //     ]?.data
   // );
 
+  const careersJobOpeningApi = useSelector(
+    (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
+  );
+
   // const handleClick = (id) => {
   //   router.push(`/careers/${id}`);
   // };
+
 
   return (
     <HomeMainWithImage firstImage={earth}>
@@ -102,13 +107,11 @@ const Careers = () => {
           ))}
         </div>
         <div className={styles.secondInfo}>
-          <div className={styles.secondTitle}>Current Job Openings</div>
-          <div className={styles.secondDescription}>
-            Take a look and see if there is something that fits your skill set.
-          </div>
+          <div className={styles.secondTitle}>{careersJobOpeningApi?.data_text[0].title}</div>
+          <div className={styles.secondDescription} dangerouslySetInnerHTML={{ __html: careersJobOpeningApi?.data_text[0].description || "" }} />
         </div>
         <Row>
-          <JobsTable />
+          <JobsTable data={careersJobOpeningApi?.data_list}/>
         </Row>
         <Row className={styles.weKnowSection}>
           <WhatToKnow

@@ -24,6 +24,7 @@
           margin: 0;
         }
         .description {
+          max-width: calcVW(150);
           @include flex(null, null, column);
           @include font-style(
             getAboutCompanySizes(description-fz),

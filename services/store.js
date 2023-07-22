@@ -6,7 +6,7 @@ import { ourServicesApi } from "./ourServicesApi";
 import { servicesApi } from "./servicesApi";
 import { longPresentationBlogApi } from "./longPresentationBlogApi";
 import { blogItemApi } from "./blogItemApi";
-import { careerTechnologyItemApi } from "./careerTechnologyItemApi";
+import { careersJobOpeningApi } from "./careersJobOpeningApi";
 import { careerTechnologyLongPresentationApi } from "./careerTechnologyLongPresentationApi";
 import { longPresentationPortfolioApi } from "./longPresentationPortfolioApi";
 import { postsCareersApi } from "./postsCareersApi";
@@ -37,6 +37,8 @@ import { abutQuickFactsApi } from "./abutQuickFactsApi";
 import { abutUsWhatWeDoApi } from "./abutUsWhatWeDoApi";
 import { postAbutUsWhatWeDoApi } from "./postAbutUsWhatWeDoApi";
 import { abutUsCompanyOfExpertsApi } from "./abutUsCompanyOfExpertsApi";
+import { postsWhatWeDoDetailApi } from "./postsWhatWeDoDetailApi";
+import { postsCareersJobOpeningApi } from "./postsCareersJobOpeningApi";
 
 const store = configureStore({
   reducer: {
@@ -50,6 +52,7 @@ const store = configureStore({
     [postsWhatWeDoApi.reducerPath]: postsWhatWeDoApi.reducer,
     [postPortfolioApi.reducerPath]: postPortfolioApi.reducer,
     [ourServicesApi.reducerPath]: ourServicesApi.reducer,
+    [postsCareersJobOpeningApi.reducerPath]: postsCareersJobOpeningApi.reducer,
     [servicesApi.reducerPath]: servicesApi.reducer,
     [aboutApi.reducerPath]: aboutApi.reducer,
     [abutUsImpactApi.reducerPath]: abutUsImpactApi.reducer,
@@ -57,9 +60,10 @@ const store = configureStore({
     [abutUsCompanyOfExpertsApi.reducerPath]: abutUsCompanyOfExpertsApi.reducer,
     [abutUsWhatWeDoApi.reducerPath]: abutUsWhatWeDoApi.reducer,
     [portfolioApi.reducerPath]: portfolioApi.reducer,
+    [postsWhatWeDoDetailApi.reducerPath]: postsWhatWeDoDetailApi.reducer,
     [longPresentationBlogApi.reducerPath]: longPresentationBlogApi.reducer,
     [blogItemApi.reducerPath]: blogItemApi.reducer,
-    [careerTechnologyItemApi.reducerPath]: careerTechnologyItemApi.reducer,
+    [careersJobOpeningApi.reducerPath]: careersJobOpeningApi.reducer,
     [careerTechnologyLongPresentationApi.reducerPath]: careerTechnologyLongPresentationApi.reducer,
     [longPresentationPortfolioApi.reducerPath]: longPresentationPortfolioApi.reducer,
     [portfolioTextApi.reducerPath]: portfolioTextApi.reducer,

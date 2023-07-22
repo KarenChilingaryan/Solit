@@ -70,7 +70,6 @@ const WhatWeDo = ({ data }) => {
   const getContext = async (id) => {
     const data = await dispatch(await postAbutUsWhatWeDoApi.endpoints.about.initiate(id));
     setContextData(data?.data)
-    console.log(data.data);
   }
 
   useEffect(() => {
@@ -82,11 +81,13 @@ const WhatWeDo = ({ data }) => {
   const renderTabsOrDropdown = () => {
     if (isMobile) {
       const menu = (
-        <FullMenu onChange={((e) => {
-          console.log(e);
-        })}>
+        <FullMenu>
           {data?.data_list?.map((item, i) => (
-            <MenuItem key={i + 1} className={styles.dropdownOption}>
+            <MenuItem key={i + 1} className={styles.dropdownOption}
+              onClick={((e) => {
+                getContext(data.data_list[i].about_as_what_we_do_detail)
+              })}
+            >
               {item.title}
             </MenuItem>
           ))}
@@ -95,7 +96,7 @@ const WhatWeDo = ({ data }) => {
 
       return (
         <div className={styles.contextWrapper}>
-          <Dropdown overlay={menu} trigger={['click']}>
+          <Dropdown overlay={menu} trigger={['click']}  >
             <a className={styles.antDropdownLink} onClick={(e) => e.preventDefault()}>
               {contextData?.name_about_as_what_we_do_detail} <Image src={downOutlined} />
             </a>

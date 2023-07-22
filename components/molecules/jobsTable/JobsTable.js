@@ -17,8 +17,8 @@ const columns = [
   },
   {
     title: "Project",
-    dataIndex: "project",
-    key: "project",
+    dataIndex: "position",
+    key: "position",
   },
   {
     title: "Location",
@@ -36,31 +36,7 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    key: "1",
-    department: "John Brown",
-    project: 32,
-    location: "New York No. 1 Lake Park",
-    role: "nice",
-  },
-  {
-    key: "2",
-    department: "John Brown",
-    project: 32,
-    location: "New York No. 1 Lake Park",
-    role: "nice",
-  },
-  {
-    key: "3",
-    department: "John Brown",
-    project: 32,
-    location: "New York No. 1 Lake Park",
-    role: "nice",
-  },
-];
-
-const JobsTable = () => {
+const JobsTable = ({data}) => {
   return (
     <Row className={styles.tableWrapper}>
       <Table

@@ -10,6 +10,7 @@
   }
   .bottomBlock{
     margin: getCareersSizes(bottom-block-m);
+    color: white;
 
     .title {
       @include font-style(getCareersSizes(title-fz), variables.$fw-500, getCareersSizes(title-lh), #fff);

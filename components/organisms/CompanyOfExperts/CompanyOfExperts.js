@@ -22,7 +22,6 @@ const CompanyOfExperts = () => {
             number={about.rating_number}
             title={about.rating_text}
             image={about.original_logo_company_of_expert}
-            // status={about.status}
           />
         ))}
       </div>

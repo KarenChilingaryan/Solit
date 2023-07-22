@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
-export const careerTechnologyItemApi = createApi({
+export const postsCareersJobOpeningApi = createApi({
 
-  reducerPath: "careerTechnologyItemApi",
+  reducerPath: "postsCareersJobOpeningApi",
   refetchOnFocus: false,
   refetchOnMountOrArgChange: false,
   refetchOnReconnect: false,
@@ -17,8 +17,8 @@ export const careerTechnologyItemApi = createApi({
     }
   },
   endpoints: (builder) => ({
-    careerTechnologyItem: builder.query({ query: (id) => `/career_technology/${id}/` }),
+    career: builder.query({ query: (id) => `/careers_job_opening/${id}/` }),
   }),
 });
 
-export const { useCareerTechnologyItemQuery } = careerTechnologyItemApi;
+export const { useServiceItemQuery } = postsCareersJobOpeningApi;
