@@ -5,13 +5,10 @@ import AboutItem from "../../molecules/aboutItem/AboutItem";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import impactIcon from "../../../assets/img/u_adjust-circle.svg";
-
 import styles from "./WhatWeDo.module.scss";
 import { useSelector } from "react-redux";
 
 const WhatWeDo = () => {
-  const data = [1, 2, 3, 4, 5, 6];
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
   );
@@ -33,7 +30,6 @@ const WhatWeDo = () => {
             {postsWhatWeDoApi?.data_list.map((el, i) => (
               <AboutItem
                 key={i}
-                icon={impactIcon}
                 weDo
                 title={el.title}
                 desc={el.description}

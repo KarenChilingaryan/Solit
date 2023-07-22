@@ -17,8 +17,9 @@ const ServicesItem = ({ data }) => {
           <div className="" dangerouslySetInnerHTML={{ __html: data?.create_page_service_detail || "" }} />
           <Paragraph className={styles.title}>Explore more</Paragraph>
           <Row className={styles.blockItems}>
-            {servicesData?.data_list.slice(0,3)?.map((item, i) =>
+            {servicesData?.data_list.slice(0, 3)?.map((item, i) =>
               <ServiceCard
+                key={i}
                 item={item}
                 fromDetail={"fromDetail"}
               />
