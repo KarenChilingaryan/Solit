@@ -13,8 +13,8 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
     <div className={`${styles.content} ${styles[className]}`}>
       <div className={styles.socialSites}>
 
-        {data?.contact?.map(el =>
-          <Link href={el.link} target="_blank">
+        {data?.contact?.map((el, i) =>
+          <Link href={el.link} target="_blank" key={i}>
             <div className={styles.site}>
               <Image src={el.logo} className={styles.image} width={80} height={80} />
               <Paragraph className={styles.text}>{el.name}</Paragraph>
