@@ -13,7 +13,6 @@ const WhatWeDo = () => {
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
   );
 
-  console.log(postsWhatWeDoApi?.data_text[0].description);
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>

@@ -44,7 +44,7 @@ const PageWrapper = ({ children, item }) => {
 
   }
   const getAllData = async (flag = true) => {
-    if (a.pathname === '/' && flag || a.pathname !== '/' && !flag) {
+    if (a.pathname === '/' || flag) {
       await dispatch(await postsApi.endpoints.posts.initiate())
       await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate())
       await dispatch(await postsMainProcessTextApi.endpoints.posts.initiate())
@@ -60,15 +60,12 @@ const PageWrapper = ({ children, item }) => {
     // if (a.pathname.includes('/portfolio') && flag || !a.pathname.includes('/portfolio') && !flag) {
     // }
 
-    if (a.pathname.includes('/blog') && flag || !a.pathname.includes('/blog') && !flag) {
+    if (a.pathname.includes('/blog') || flag) {
       await dispatch(await postsBlogApi.endpoints.blog.initiate())
       await dispatch(await postsFilterNameBlogApi.endpoints.blog.initiate())
     }
 
-    // if (a.pathname.includes('/services') && flag || !a.pathname.includes('/services') && !flag) {
-    // }
-
-    if (a.pathname.includes('/aboutus') && flag || !a.pathname.includes('/aboutus') && !flag) {
+    if (a.pathname.includes('/about') || flag) {
       await dispatch(await aboutApi.endpoints.about.initiate())
       await dispatch(await abutUsImpactApi.endpoints.about.initiate())
       await dispatch(await abutQuickFactsApi.endpoints.about.initiate())
@@ -76,21 +73,18 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await abutUsWhatWeDoApi.endpoints.about.initiate())
     }
 
-    if (a.pathname.includes('/careers') && flag || !a.pathname.includes('/careers') && !flag) {
+    if (a.pathname.includes('/careers') || flag) {
       await dispatch(await careersJobOpeningApi.endpoints.career.initiate())
     }
 
-    // if (a.pathname.includes('/our-team') && flag || !a.pathname.includes('/our-team') && !flag) {
-    // }
-
-    if (flag) {
-      await getAllData(false)
+    if (!flag) {
+      await getAllData(true)
     }
   }
 
   useEffect(() => {
     dispatch(headerApi.endpoints.header.initiate())
-    getAllData()
+    getAllData(false)
   }, [id])
 
   return <div>{children}</div>;

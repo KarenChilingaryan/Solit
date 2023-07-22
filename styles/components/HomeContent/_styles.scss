@@ -124,12 +124,13 @@
         display: flex;
         flex-wrap: wrap;
         row-gap: calcVW(72);
-        justify-content: space-between;
+        column-gap: calcVW(32);
         width: 100%;
     }
     @media (max-width: 1024px) {
         .ourProjectsCards {
             row-gap: calcVWT(72);
+            column-gap: calcVWT(32);
         }
         .content {
             width: calcVWT(880);
@@ -181,7 +182,6 @@
         }
     }
     @media (max-width: 576px) {
-
         .content {
             width: calcVWM(343);
             margin-top: calcVWM(90);
@@ -221,6 +221,7 @@
         }
         .ourProjectsCards {
             row-gap: calcVWM(32);
+            column-gap: calcVWM(13);
         }
 
         .backImageSecond {

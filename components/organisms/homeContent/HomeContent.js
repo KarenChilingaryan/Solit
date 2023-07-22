@@ -26,6 +26,8 @@ import MapUser from "../../molecules/mapUser/MapUser";
 import Button from "../../molecules/button/Button";
 
 import styles from "./HomeContent.module.scss";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const data = [
   {
@@ -111,6 +113,11 @@ const aboutData = [
 const HomeContent = () => {
   const [isSSR, setIsSSR] = useState(false);
 
+  const router = useRouter();
+  const handleClick = (id) => {
+    router.push(`/portfolio/${id}`);
+  };
+
   const win = typeof window;
 
   useEffect(() => {
@@ -169,7 +176,9 @@ const HomeContent = () => {
             </div>
           </div>
           <Col className={styles.servicesMainButton}>
+            <Link href={'/discussProject'}>
             <Button text="Discuss your project" transparentOpposite />
+            </Link>
           </Col>
           <div
             className={`${styles.borderedText} ${styles.borderedTextMargin}`}
@@ -234,6 +243,7 @@ const HomeContent = () => {
             <div className={styles.ourProjectsCards}>
               {postPortfolioApi && postPortfolioApi?.data_list?.map((project, i) => (
                 <OurProjectCard
+                  onClick={() => handleClick(project.id)}
                   key={i}
                   name={project.title}
                   image={project.webp_image_portfolio}

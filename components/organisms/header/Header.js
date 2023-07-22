@@ -94,7 +94,7 @@ const Header = () => {
         {
           id: 1,
           name: "Tech Stack",
-          fix_url: "/techstack",
+          fix_url: "/whatWeDo",
           data: headerData?.tech_steck || [],
         },
         {
@@ -132,13 +132,13 @@ const Header = () => {
             className={`${styles.menuItem} ${filteredData !== el.name ? styles.closedMenu : ''}`}
           >
             <Link
-              href={el?.fix_url === '/techstack' ? '' : `${el?.fix_url}`}
+              href={el?.fix_url === '/whatWeDo' ? '' : `${el?.fix_url}`}
               onClick={() => {
                 window.scrollTo({ top: 0, left: 0 })
               }}
               className={styles.menuItemTitle}
               style={{
-                borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'techstack' && router.pathname === "/") ? "2px solid #ffffff" : "0",
+                borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'whatWeDo' && router.pathname === "/") ? "2px solid #ffffff" : "0",
               }}
             >
               {el.name}
@@ -146,7 +146,7 @@ const Header = () => {
             </Link>
             <div className={styles.menuItemChildMainWrapper}>
               {el?.data?.map((e, idx) =>
-                <Link href={el?.fix_url + '/' + e.service_detail} key={idx}>
+                <Link href={el?.fix_url + '/' + (e?.service_detail || e?.what_we_do_detail)} key={idx}>
                   <div
                     className={styles.menuItemChildWrapper}
                     style={{
@@ -172,16 +172,16 @@ const Header = () => {
               className={styles.menuItem}
             >
               <Link
-                href={el?.fix_url === 'techstack' ? '#' : `${el?.fix_url}`}
+                href={el?.fix_url === 'whatWeDo' ? '#' : `${el?.fix_url}`}
                 onClick={() => {
-                  if (el?.fix_url !== 'techstack') {
+                  if (el?.fix_url !== 'whatWeDo') {
                     setOpenMenu(!openMenu)
                   }
                   window.scrollTo({ top: 0, left: 0 })
                 }}
                 className={styles.menuItemTitle}
                 style={{
-                  borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'techstack' && router.pathname === "/") ? "2px solid #ffffff" : "0",
+                  borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'whatWeDo' && router.pathname === "/") ? "2px solid #ffffff" : "0",
                 }}
               >
                 {el.name}
