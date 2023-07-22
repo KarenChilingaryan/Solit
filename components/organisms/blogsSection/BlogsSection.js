@@ -7,6 +7,7 @@ import FilterButtons from "../filters/FilterButtons";
 
 import styles from "./BlogsSection.module.scss";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 export const dataProject = [
   "How to manage product backlog with data-driven techniques",
@@ -28,7 +29,13 @@ const tags = [
 
 const BlogsSection = ({ data }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  // const tags = useSelector(
+  const postsFilterNameBlogApi = useSelector(
+    (state) =>
+      state?.postsFilterNameBlogApi?.queries?.[
+        "blog(undefined)"
+      ]?.data
+  );
+
   //   (state) => state?.tagsApi?.queries?.["tags(undefined)"]?.data
   // );
 
@@ -50,9 +57,9 @@ const BlogsSection = ({ data }) => {
               setSelectedCategory("All");
             }}
           />
-          {tags?.map((el) => (
+          {postsFilterNameBlogApi?.map((el) => (
             <FilterButtons
-              name={el.tag_name}
+              name={el.name}
               key={el.id}
               className={selectedCategory === el?.id ? "active" : ""}
               onClick={() => {
@@ -69,11 +76,12 @@ const BlogsSection = ({ data }) => {
         gutter={[0, "6vw"]}
       >
         <Image className={styles.elipse} src={elipse} />
-        {dataProject?.map((project, i) => (
+        {data?.map((project, i) => (
           <OurProjectCard
             key={i}
-            name={project}
-            image={ourPtojectImage}
+            name={project.title}
+            image={project?.original_image_blog}
+            description={project.description}
             more={project == "more"}
             component="blogs"
             blogs

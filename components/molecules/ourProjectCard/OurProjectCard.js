@@ -17,6 +17,7 @@ const OurProjectCard = ({
   component,
   blogItem = '',
   onClick,
+  description
 }) => {
   return (
     <Col className={`${styles.mainWrapper} ${styles['mainWrapper-' + component]}`} onClick={onClick}>
@@ -35,9 +36,7 @@ const OurProjectCard = ({
                   ))}
                 {blogs && (
                   <Col className={styles.blogDescription}>
-                    Let’s now explore how to manage your backlog using product
-                    data and provide tips and best practices to implement in
-                    your workflow.
+                    {description || "Let’s now explore how to manage your backlog using product data and provide tips and best practices to implement in your workflow."}
                   </Col>
                 )}
               </Row>

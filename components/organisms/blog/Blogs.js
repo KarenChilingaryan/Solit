@@ -12,30 +12,31 @@ import styles from "./Blogs.module.scss";
 
 const Blogs = () => {
   // const router = useRouter();
-  // const longPresentationBlog = useSelector(
-  //   (state) =>
-  //     state?.longPresentationBlogApi?.queries?.[
-  //       "longPresentationBlog(undefined)"
-  //     ]?.data
-  // );
+  const postsBlogApi = useSelector(
+    (state) =>
+      state?.postsBlogApi?.queries?.[
+        "blog(undefined)"
+      ]?.data
+  );
   // const buttonServicesText = "Our Services";
   // const buttonContactText = "Contact Us";
 
   // const handleClick = (e) => {
   //   router.push(`blog/${e}`);
   // };
+  
   return (
     <HomeMainWithImage firstImage={earth}>
       <Row className={styles.content}>
         <HomeMain
           data={{
-            title: "Insights and advice from our expert team",
+            title: postsBlogApi?.data_text[0].title,
             firstSubtitle:
-              "We know a lot about our niche. So we thought, why not share something with you? Learn, explore and stay on top of design and development (and not only) novelties with Merge blog. ",
+              postsBlogApi?.data_text[0].description
           }}
         />
         <Row className={styles.blogsSection}>
-          <BlogsSection />
+          <BlogsSection data={postsBlogApi?.data_list}/>
         </Row>
       </Row>
     </HomeMainWithImage>

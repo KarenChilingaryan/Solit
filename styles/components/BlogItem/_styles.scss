@@ -10,6 +10,7 @@
       }
       .bottomBlock {
         margin: getBlogItemSizes(bottom-block-m);
+        color: white;
     
         .title {
           @include font-style(getBlogItemSizes(title-fz), variables.$fw-500, getBlogItemSizes(title-lh), #fff);

@@ -14,7 +14,7 @@ import { careersJobOpeningApi } from "../../services/careersJobOpeningApi";
 import { careerTechnologyLongPresentationApi } from "../../services/careerTechnologyLongPresentationApi";
 import { headerApi } from "../../services/header";
 import { homepageAdditionalServiceApi } from "../../services/homepageAdditionalServiceApi";
-import { longPresentationBlogApi } from "../../services/longPresentationBlogApi";
+import { postsBlogApi } from "../../services/postsBlogApi";
 import { longPresentationPortfolioApi } from "../../services/longPresentationPortfolioApi";
 import { ourServicesApi } from "../../services/ourServicesApi";
 import { ourTeamDetailApi } from "../../services/ourTeamDetail";
@@ -35,6 +35,7 @@ import { shortPresentationBlogApi } from "../../services/shortPresentationBlogAp
 import { shortPresentationPortfolioApi } from "../../services/shortPresentationPortfolioApi";
 import { tagsApi } from "../../services/tagsApi";
 import { testimonialsFlagTitleApi } from "../../services/testimonialsFlagTitleApi";
+import { postsFilterNameBlogApi } from "../../services/postsFilterNameBlogApi";
 
 export async function getServerSideProps(context) {
   const res = await axios.get(`https://jsonplaceholder.typicode.com/users/`);
@@ -84,13 +85,15 @@ const PageWrapper = ({ children, item }) => {
     //   }
     // }
 
-    // if (a.pathname.includes('/blog') && flag || !a.pathname.includes('/blog') && !flag) {
-    //   await dispatch(await longPresentationBlogApi.endpoints.longPresentationBlog.initiate())
-    //   // await dispatch(await shortPresentationBlogApi.endpoints.shortPresentationBlog.initiate())
-    //   if (id) {
-    //     await dispatch(await blogItemApi.endpoints.blogItem.initiate(id))
-    //   }
-    // }
+    if (a.pathname.includes('/blog') && flag || !a.pathname.includes('/blog') && !flag) {
+      await dispatch(await postsBlogApi.endpoints.blog.initiate())
+      await dispatch(await postsFilterNameBlogApi.endpoints.blog.initiate())
+      
+      // await dispatch(await shortPresentationBlogApi.endpoints.shortPresentationBlog.initiate())
+      // if (id) {
+      //   await dispatch(await blogItemApi.endpoints.blogItem.initiate(id))
+      // }
+    }
 
     // if (a.pathname.includes('/services') && flag || !a.pathname.includes('/services') && !flag) {
     //   if (id) {

@@ -4,7 +4,7 @@ import { portfolioApi } from "./portfolioApi";
 import { postsApi } from "./postsApi";
 import { ourServicesApi } from "./ourServicesApi";
 import { servicesApi } from "./servicesApi";
-import { longPresentationBlogApi } from "./longPresentationBlogApi";
+import { postsBlogApi } from "./postsBlogApi";
 import { blogItemApi } from "./blogItemApi";
 import { careersJobOpeningApi } from "./careersJobOpeningApi";
 import { careerTechnologyLongPresentationApi } from "./careerTechnologyLongPresentationApi";
@@ -39,6 +39,7 @@ import { postAbutUsWhatWeDoApi } from "./postAbutUsWhatWeDoApi";
 import { abutUsCompanyOfExpertsApi } from "./abutUsCompanyOfExpertsApi";
 import { postsWhatWeDoDetailApi } from "./postsWhatWeDoDetailApi";
 import { postsCareersJobOpeningApi } from "./postsCareersJobOpeningApi";
+import { postsFilterNameBlogApi } from "./postsFilterNameBlogApi";
 
 const store = configureStore({
   reducer: {
@@ -61,7 +62,8 @@ const store = configureStore({
     [abutUsWhatWeDoApi.reducerPath]: abutUsWhatWeDoApi.reducer,
     [portfolioApi.reducerPath]: portfolioApi.reducer,
     [postsWhatWeDoDetailApi.reducerPath]: postsWhatWeDoDetailApi.reducer,
-    [longPresentationBlogApi.reducerPath]: longPresentationBlogApi.reducer,
+    [postsBlogApi.reducerPath]: postsBlogApi.reducer,
+    [postsFilterNameBlogApi.reducerPath]: postsFilterNameBlogApi.reducer,
     [blogItemApi.reducerPath]: blogItemApi.reducer,
     [careersJobOpeningApi.reducerPath]: careersJobOpeningApi.reducer,
     [careerTechnologyLongPresentationApi.reducerPath]: careerTechnologyLongPresentationApi.reducer,

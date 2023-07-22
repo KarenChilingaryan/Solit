@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
-export const longPresentationBlogApi = createApi({
+export const postsBlogApi = createApi({
 
-  reducerPath: "longPresentationBlogApi",
+  reducerPath: "postsBlogApi",
   refetchOnFocus: false,
   refetchOnMountOrArgChange: false,
   refetchOnReconnect: false,
@@ -17,8 +17,8 @@ export const longPresentationBlogApi = createApi({
     }
   },
   endpoints: (builder) => ({
-    longPresentationBlog: builder.query({ query: () => "/blog/" }),
+    blog: builder.query({ query: () => "/blog/" }),
   }),
 });
 
-export const { useLongPresentationBlogQuery } = longPresentationBlogApi;
+export const { useLongPresentationBlogQuery } = postsBlogApi;
