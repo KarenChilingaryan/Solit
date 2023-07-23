@@ -1,7 +1,6 @@
 import { memo } from "react";
 import Image from "next/image";
 import { Col, Row, Paragraph } from "../../atoms";
-
 import logoFooter from "../../../assets/img/bigLogo.png";
 import styles from "./Footer.module.scss";
 import { useFooterQuery } from "../../../services/footerApi";
@@ -37,14 +36,14 @@ const Footer = () => {
       },
     },
   ];
-  const footer = useFooterQuery();
-  const { data } = footer;
+  //const footer = useFooterQuery();
+  //const { data } = footer;
 
-  const info = data && data.office ? {
-    address: data.office.address,
-    mail: data.office.mail,
-    number: data.office.number,
-  } : {};
+  // const info = data && data.office ? {
+  //   address: data.office.address,
+  //   mail: data.office.mail,
+  //   number: data.office.number,
+  // } : {};
   return (
     <div className={styles.footerWrapper}>
       <Row className={styles.footerBlock}>
@@ -75,19 +74,19 @@ const Footer = () => {
           <Paragraph className={styles.textTitle}>
             Office
           </Paragraph>
-          {Object.values(info).map((el, idx) => (
+          {/* {Object.values(info).map((el, idx) => (
             <Paragraph className={styles.text} key={idx}>
               {el}
             </Paragraph>
-          ))}
+          ))} */}
         </Col>
         <Col className={styles.socialIconsWrapper}>
           <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} >Let’s Contact for Great</Paragraph>
-          {data && data?.contact?.map((item, index) =>
+          {/* {data && data?.contact?.map((item, index) =>
             <Link href={item.link} target="_blank" key={index}>
               <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} width={300} height={300} />
             </Link>
-          )}
+          )} */}
         </Col>
       </Row>
     </div >

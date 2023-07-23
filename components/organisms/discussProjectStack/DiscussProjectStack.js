@@ -10,6 +10,8 @@ import Industry from "../../molecules/Industry/Industry";
 import AddSpecialist from "../../molecules/AddSpecialist/AddSpecialist";
 import PricingModal from "../../molecules/pricingModal/PricingModal";
 import StackFooter from "../../molecules/stackFooter/StackFooter";
+import ModalForm from "../../molecules/modalForm/ModalForm";
+
 
 import styles from "./DiscussProjectStack.module.scss";
 
@@ -75,10 +77,7 @@ const DiscussProjectStack = () => {
   });
   const [liveStacks, setLiveStacks] = useState([]);
   const [open, setOpen] = useState(false);
-
-  const submitForm = (values) => {
-    setOpen(true);
-  };
+  const [modalFormData, setModalFormData] = useState(null);
 
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
     getProjectData(allValues);
@@ -113,7 +112,7 @@ const DiscussProjectStack = () => {
         name: developer.name,
         item: `${developer.name} - ${developer.count}`,
       });
-      developers.push(developer)
+      developers.push(developer);
     });
 
     projectStacks?.specialists?.forEach((specialist, index) => {
@@ -135,9 +134,9 @@ const DiscussProjectStack = () => {
 
     const newProjectStacks = {
       developers: projectStacks?.developers || [],
-      specialists: projectStacks?.specialists || []
-    }
-    setProjectStacks(newProjectStacks)
+      specialists: projectStacks?.specialists || [],
+    };
+    setProjectStacks(newProjectStacks);
     setLiveStacks([...data]);
   }
 
@@ -161,6 +160,21 @@ const DiscussProjectStack = () => {
     getProjectData(data);
   };
 
+
+  const submitForm = (values) => {
+    const formData = {
+      step_one: values.developers?.map((dev) => `${dev.name} - ${dev.count}`).join(" ") || "",
+      step_two: values.specialists?.map((spec) => `${spec.name} - ${spec.count}`).join(" ") || "",
+      step_three: values.industry?.join(", ") || "",
+      step_four: values.duration || "",
+    };
+
+    setModalFormData(formData);
+    setOpen(true);
+  };
+
+
+
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -176,7 +190,7 @@ const DiscussProjectStack = () => {
         <div className={styles.content}>
           <HomeMain
             data={{
-              title: "Get fast response to for a fast solution",
+              title: "Get fast response for a fast solution",
             }}
           />
           <Row className={styles.discussProject}>
@@ -197,7 +211,7 @@ const DiscussProjectStack = () => {
               <Row className={styles.industryDetails}>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
-                    1.Specify the tech stack and the number of developers you
+                    1. Specify the tech stack and the number of developers you
                     need per each technology?
                   </Paragraph>
                   <FormItem name="developers">
@@ -228,7 +242,7 @@ const DiscussProjectStack = () => {
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
-                    2. Extra specialist to add to the team:
+                    2. Extra specialists to add to the team:
                   </Paragraph>
                   <FormItem name="specialists">
                     <Row className={styles.specialistWrapper}>
@@ -280,10 +294,10 @@ const DiscussProjectStack = () => {
                   </FormItem>
                   <Row className={styles.monthsWrapper}>
                     <Col className={styles.month}>1 month</Col>
-                    <Col className={styles.month}>6 month</Col>
+                    <Col className={styles.month}>6 months</Col>
                     <Col className={styles.month}>1 year</Col>
-                    <Col className={styles.month}>1.5 year</Col>
-                    <Col className={styles.month}>2+ year</Col>
+                    <Col className={styles.month}>1.5 years</Col>
+                    <Col className={styles.month}>2+ years</Col>
                   </Row>
                   <Button
                     text="Clear"
@@ -296,6 +310,20 @@ const DiscussProjectStack = () => {
             </Form>
           </Row>
         </div>
+        {modalFormData !== null && (
+          <ModalForm
+            title="Your title here"
+            talent={false}
+            data={{
+              step_one: modalFormData.step_one,
+              step_two: modalFormData.step_two,
+              step_three: modalFormData.step_three,
+              step_four: modalFormData.step_four,
+
+            }}
+          />
+        )}
+
       </>
     </HomeMainWithImage>
   );

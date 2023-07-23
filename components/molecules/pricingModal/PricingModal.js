@@ -1,14 +1,20 @@
 import { memo } from "react";
 import { Col, Paragraph, Row } from "../../atoms";
 import Image from "next/image";
-import minusBlackIcon from "../../../assets/img/icons/minusBlack.svg";
-import plusBlackIcon from "../../../assets/img/icons/plusBlack.svg";
 import close from "../../../assets/img/icons/closeIcon.svg";
 import ModalForm from "../modalForm/ModalForm";
 
 import styles from "./PricingModal.module.scss";
 
+
+
+
 const PricingModal = ({ data, handleDelete }) => {
+  
+  const filterDataByCategory = (category) => {
+    return data.filter((item) => item.category === category);
+  };
+
   return (
     <Row className={styles.content}>
       <Col className={styles.leftContent}>
@@ -17,7 +23,7 @@ const PricingModal = ({ data, handleDelete }) => {
             Please, leave your contact details to proceed
           </Paragraph>
           <Paragraph className={styles.smallTitle}>
-            Your personal data will be processed securely and wont be available
+            Your personal data will be processed securely and won't be available
             to third parties.
           </Paragraph>
         </Row>
@@ -26,24 +32,28 @@ const PricingModal = ({ data, handleDelete }) => {
             Summary of your request:
           </Paragraph>
           <Row className={styles.projType}>
-            {data.map((item) => {
-              if (
-                item.category === "industry" ||
-                item.category === "duration"
-              ) {
-                return (
-                  <Col key={item} className={styles.itemWrapper}>
-                    <Col className={styles.item}>{item.item}</Col>
-                    <Image
-                      src={close}
-                      className={styles.icon}
-                      onClick={() => handleDelete(item)}
-                      alt="i"
-                    />
-                  </Col>
-                );
-              }
-            })}
+          {filterDataByCategory("industry").map((item, index) => (
+          <Col key={index} className={styles.itemWrapper}>
+            <Col className={styles.item}>{item.item}</Col>
+            <Image
+              src={close}
+              className={styles.icon}
+              onClick={() => handleDelete(item)}
+              alt="i"
+            />
+          </Col>
+        ))}
+          {filterDataByCategory("duration").map((item, index) => (
+          <Col key={index} className={styles.itemWrapper}>
+            <Col className={styles.item}>{item.item}</Col>
+            <Image
+              src={close}
+              className={styles.icon}
+              onClick={() => handleDelete(item)}
+              alt="i"
+            />
+          </Col>
+        ))}
           </Row>
 
           <Row className={styles.specialists}>
@@ -51,23 +61,29 @@ const PricingModal = ({ data, handleDelete }) => {
               Specialists selected for your project:
             </Paragraph>
 
-            {data.map((item) => {
-              if (
-                item.category === "specialists" ||
-                item.category === "developers"
-              ) {
-                return (
-                  <Col key={item} className={styles.itemWrapper}>
-                    <Col className={styles.item}>{item.item}</Col>
-                    <Image
-                      src={close}
-                      className={styles.icon}
-                      onClick={() => handleDelete(item)}
-                    />
-                  </Col>
-                );
-              }
-            })}
+            {filterDataByCategory("specialists").map((item, index) => (
+          <Col key={index} className={styles.itemWrapper}>
+            <Col className={styles.item}>{item.item}</Col>
+            <Image
+              src={close}
+              className={styles.icon}
+              onClick={() => handleDelete(item)}
+              alt="i"
+            />
+          </Col>
+        ))}
+
+          {filterDataByCategory("developers").map((item, index) => (
+          <Col key={index} className={styles.itemWrapper}>
+            <Col className={styles.item}>{item.item}</Col>
+            <Image
+              src={close}
+              className={styles.icon}
+              onClick={() => handleDelete(item)}
+              alt="i"
+            />
+          </Col>
+        ))}
           </Row>
         </Row>
       </Col>

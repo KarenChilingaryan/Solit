@@ -11,49 +11,38 @@ import upload from "../../../assets/img/icons/uploadBlack.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
 import arrow from "../../../assets/img/icons/selectIcon.svg";
 
+
+
+
 import styles from "./ModalForm.module.scss";
 
-const ModalForm = ({
-  title,
-  style = {},
-  whiteButton = false,
-  whiteTitle,
-  talent = false,
-}) => {
-  const [form] = Form.useForm();
-  const [file, setFile] = useState();
 
-  // const props = {
-  //   name: "file",
-  //   accept: "application/pdf",
-  //   onRemove: (file) => {
-  //     const index = fileList.indexOf(file);
-  //     const newFileList = fileList.slice();
-  //     newFileList.splice(index, 1);
-  //     setFileList(newFileList);
-  //   },
-  //   beforeUpload(file) {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     setFile(file);
-  //   },
-  // };
-  // const dispatch = useDispatch();
+const ModalForm = ({ title, style = {}, data, developers }) => {
+
+
+
+  const [file, setFile] = useState(null);
+
+
 
   const submitForm = (values) => {
-    // const data = { ...contactUsData, ...values, file_cv: file };
-    // const formData = new FormData();
-    // for (const key in data) {
-    //   formData.append(key, data[key]);
-    // }
-    // const res = await dispatch(
-    //   await emailApi.endpoints.email.initiate(formData)
-    // );
+
+    const formData = {
+      ...values,
+      step_one: data?.developers?.map((dev) => `${dev.name} - ${dev.count}`).join(" ") || "",
+      step_two: data?.specialists?.map((spec) => `${spec.name} - ${spec.count}`).join(" ") || "",
+      step_three: data?.industry?.join(", ") || "",
+      step_four: data?.duration || "",
+    };
+    console.log(formData)
+
   };
+
+
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
-      <Form form={form} onFinish={submitForm} className={styles.form}>
+      <Form onFinish={submitForm(data)} className={styles.form}>
         <Row className={styles.inputSection}>
           <FormItem
             name="full_name"
@@ -64,18 +53,14 @@ const ModalForm = ({
               },
             ]}
           >
-            <FloatInput
-              label="Your full name"
-              placeholder="Your full name"
-              name="full_name"
-            />
+            <FloatInput label="Your full name" placeholder="Your full name" name="full_name" />
           </FormItem>
           <FormItem
             name="from_email"
             rules={[
               {
                 type: "email",
-                message: "The input is not valid Email",
+                message: "The input is not a valid Email",
               },
               {
                 required: true,
@@ -83,22 +68,7 @@ const ModalForm = ({
               },
             ]}
           >
-            <FloatInput label="Email" placeholder="Email" name="full_name" />
-          </FormItem>
-          <FormItem
-            name="full_name"
-            rules={[
-              {
-                required: true,
-                message: "Name is required",
-              },
-            ]}
-          >
-            <FloatInput
-              label="Your full name"
-              placeholder="Your full name"
-              name="full_name"
-            />
+            <FloatInput label="Email" placeholder="Email" name="from_email" />
           </FormItem>
 
           <FormItem name="file_cv">
@@ -121,15 +91,15 @@ const ModalForm = ({
             <FloatInput label="Comment" placeholder="Comment" name="comment" />
           </FormItem>
           <FormItem
-            name="from_email"
+            name="budget"
             rules={[
               {
                 type: "select",
-                message: "The input is not valid Email",
+                message: "Please select your budget",
               },
               {
                 required: true,
-                message: "Email is required",
+                message: "Budget is required",
               },
             ]}
           >
