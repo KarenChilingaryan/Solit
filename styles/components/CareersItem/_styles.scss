@@ -8,12 +8,47 @@
     position: relative;
     z-index: 1;
   }
-  .bottomBlock{
+  .bottomBlock {
+    display: flex;
+    flex-direction: column;
+    gap: calcVW(32);
     margin: getCareersSizes(bottom-block-m);
     color: white;
 
+    .backSection {
+      display: flex;
+      justify-content: space-between;
+      padding: calcVW(24);
+      background-color: #1c2844;
+
+      .back {
+        display: flex;
+        align-items: center;
+        gap: calcVW(10);
+      }
+
+      .share {
+        display: flex;
+        gap: calcVW(10);
+
+        span {
+          @include font-style(
+            getCareersSizes(18),
+            variables.$fw-700,
+            getCareersSizes(24),
+            variables.$light-blue
+          );
+        }
+      }
+    }
+
     .title {
-      @include font-style(getCareersSizes(title-fz), variables.$fw-500, getCareersSizes(title-lh), #fff);
+      @include font-style(
+        getCareersSizes(title-fz),
+        variables.$fw-500,
+        getCareersSizes(title-lh),
+        #fff
+      );
       margin-bottom: calcVW(32) !important;
     }
     .blockItems {
