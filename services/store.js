@@ -27,6 +27,9 @@ import { postsWhatWeDoDetailApi } from "./postsWhatWeDoDetailApi";
 import { postsCareersJobOpeningApi } from "./postsCareersJobOpeningApi";
 import { postsFilterNameBlogApi } from "./postsFilterNameBlogApi";
 import { postsBlogApi } from "./postsBlogApi";
+import { emailApplyForJobPositionApi } from "./emailApplyForJobPositionApi";
+import { emailDiscussYourProject2Api } from "./emailDiscussYourProject2Api";
+import { emailDiscussYourProject1Api } from "./emailDiscussYourProject1Api";
 
 const store = configureStore({
   reducer: {
@@ -58,6 +61,9 @@ const store = configureStore({
     [headerApi.reducerPath]: headerApi.reducer,
     [footerApi.reducerPath]: footerApi.reducer,
     [emailApi.reducerPath]: emailApi.reducer,
+    [emailDiscussYourProject1Api.reducerPath]: emailDiscussYourProject1Api.reducer,
+    [emailDiscussYourProject2Api.reducerPath]: emailDiscussYourProject2Api.reducer,
+    [emailApplyForJobPositionApi.reducerPath]: emailApplyForJobPositionApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(postsApi.middleware),

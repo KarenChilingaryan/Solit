@@ -10,6 +10,7 @@
   }
   .socialSites {
     position: fixed;
+    width: calcVW(440);
     z-index: 1;
     transform: rotate(-90deg);
     left: getHomeMainWithImage(social-sites-lp);
@@ -21,7 +22,9 @@
       column-gap: getHomeMainWithImage(site-cg);
       @include flex(center, center);
       .image {
+        object-fit: cover;
         width: getHomeMainWithImage(sites-image-width);
+        height: getHomeMainWithImage(sites-image-width);
       }
       .text {
         @include font-style(getHomeMainWithImage(text-fs), variables.$fw-500, getHomeMainWithImage(text-lh));

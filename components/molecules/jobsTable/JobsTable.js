@@ -1,42 +1,43 @@
-import { memo } from "react";
-import { Button, Input, Space, Table, Tag } from "antd";
+import { memo, useState } from "react";
+import { Space, Table } from "antd";
 import { Row } from "../../atoms";
+import ModalWrapper from "../../molecules/Modal/Modal";
 
 import styles from "./JobsTable.module.scss";
+import ModalForm from "../modalForm/ModalForm";
 
-const columns = [
-  {
-    title: "Role",
-    dataIndex: "role",
-    key: "role",
-  },
-  {
-    title: "Department",
-    dataIndex: "department",
-    key: "department",
-  },
-  {
-    title: "Project",
-    dataIndex: "position",
-    key: "position",
-  },
-  {
-    title: "Location",
-    dataIndex: "location",
-    key: "location",
-  },
-  {
-    title: "Apply",
-    key: "apply",
-    render: (_, record) => (
-      <Space size="middle">
+
+
+const JobsTable = ({ data, setOpenData }) => {
+  const columns = [
+    {
+      title: "Role",
+      dataIndex: "role",
+      key: "role",
+    },
+    {
+      title: "Department",
+      dataIndex: "department",
+      key: "department",
+    },
+    {
+      title: "Project",
+      dataIndex: "position",
+      key: "position",
+    },
+    {
+      title: "Location",
+      dataIndex: "location",
+      key: "location",
+    },
+    {
+      title: "Apply",
+      key: "apply",
+      render: (item, record) => <Space size="middle" onClick={() => setOpenData(item)}>
         <a>Apply Now</a>
-      </Space>
-    ),
-  },
-];
-
-const JobsTable = ({data}) => {
+      </Space>,
+    },
+  ];
   return (
     <Row className={styles.tableWrapper}>
       <Table
@@ -44,8 +45,7 @@ const JobsTable = ({data}) => {
         dataSource={data}
         className={styles.table}
         pagination={false}
-      />
-      ;
+      />;
     </Row>
   );
 };

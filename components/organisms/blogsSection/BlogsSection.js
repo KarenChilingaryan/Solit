@@ -7,6 +7,7 @@ import FilterButtons from "../filters/FilterButtons";
 import styles from "./BlogsSection.module.scss";
 import Image from "next/image";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 export const dataProject = [
   "How to manage product backlog with data-driven techniques",
@@ -21,6 +22,7 @@ export const dataProject = [
 ];
 
 const BlogsSection = ({ data }) => {
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const postsFilterNameBlogApi = useSelector(
     (state) =>
@@ -34,6 +36,11 @@ const BlogsSection = ({ data }) => {
     // const sortedData = data?.filter((el) => el?.id === id);
     // setPortfolioData(sortedData);
   };
+
+  const handleClick = (id) => {
+    router.push(`/blog/${id}`);
+  };
+
   return (
     <Row className={styles.portfoliosWrapper}>
       <div className={styles.filtersBlock}>
@@ -67,6 +74,7 @@ const BlogsSection = ({ data }) => {
         <Image className={styles.elipse} src={elipse} />
         {data?.map((project, i) => (
           <OurProjectCard
+            onClick={() => handleClick(project.blog_detail)}
             key={i}
             name={project.title}
             image={project?.original_image_blog}

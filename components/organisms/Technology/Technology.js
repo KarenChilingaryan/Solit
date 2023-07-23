@@ -6,18 +6,6 @@ import Button from "../../molecules/button/Button";
 import styles from "./Technology.module.scss";
 import { useSelector } from "react-redux";
 
-const buttonsName = [
-  "Back-End",
-  "Front-End",
-  "iOS",
-  "Android",
-  "Databases",
-  "UI/UX tools",
-];
-const languages = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8,
-  9, 1, 2, 3, 4, 5, 6, 7, 8, 9,
-];
 const Technology = () => {
   const [current, setCurrent] = useState(0);
 

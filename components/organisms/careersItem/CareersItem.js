@@ -12,6 +12,8 @@ import back from "../../../assets/img/icons/back.svg";
 import share from "../../../assets/img/icons/share.svg";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { postsCareersJobOpeningApi } from "../../../services/postsCareersJobOpeningApi";
+import ModalForm from "../../molecules/modalForm/ModalForm";
+import { Modal } from "antd";
 
 import styles from "./careersItem.module.scss";
 

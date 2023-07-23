@@ -12,9 +12,20 @@ import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { CompanyOfExperts } from "../CompanyOfExperts";
 import styles from "./AboutPage.module.scss";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const AboutPage = () => {
   const [data, setData] = useState([])
+  const router = useRouter();
+
+  const handleClick = (id) => {
+    router.push(`/discussProject`);
+  };
+
+  const handleClickDiscuss = () => {
+    router.push(`/discussProject`);
+  };
+
 
   const aboutApi = useSelector(
     (state) => state?.aboutApi?.queries?.["about(undefined)"]?.data
@@ -61,8 +72,11 @@ const AboutPage = () => {
               title: abutUsImpactApi?.data_text[0]?.title,
               firstSubtitle: abutUsImpactApi?.data_text[0]?.description,
               buttonText: "Let’s talk",
+
             }}
-          />}
+            onClick={handleClick}
+          />
+          }
           <Paragraph className={styles.title}>
             Making a global & local impact
           </Paragraph>
@@ -89,8 +103,8 @@ const AboutPage = () => {
           </div>
 
           <WhatWeDo data={abutUsWhatWeDoApi} />
-          <WhatToKnow />
-          <CompanyOfExperts/>
+          <WhatToKnow onClick={handleClickDiscuss} />
+          <CompanyOfExperts />
         </div>
       </div>
     </HomeMainWithImage>

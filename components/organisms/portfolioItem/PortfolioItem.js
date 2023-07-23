@@ -16,6 +16,10 @@ import styles from "./PortfolioItem.module.scss";
 const PortfolioItem = () => {
   const { id } = useRouter().query;
   const router = useRouter();
+  const handleClickDiscuss = () => {
+    router.push(`/discussProject`);
+  };
+
   const dispatch = useDispatch();
   const [postPortfolioApiData, setPostPortfolioApiData] = useState(null)
 
@@ -97,7 +101,7 @@ const PortfolioItem = () => {
             <Button icon={arrow} text="Go Back to Portfolio" />
           </Row>
           <Row className={styles.knowMoreSection}>
-            <WhatToKnow color="#000" className={'transparentOppositeBlack'} />
+            <WhatToKnow color="#000" className={'transparentOppositeBlack'} onClick={handleClickDiscuss} />
           </Row>
         </Row>
       </Row>

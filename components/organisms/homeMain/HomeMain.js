@@ -6,11 +6,11 @@ import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
 import styles from "./HomeMain.module.scss";
 
 
-const HomeMain = ({ data, ellipsis = false, className }) => {
+const HomeMain = ({ data, className, onClick }) => {
   const { title, secondSubtitle, firstSubtitle, buttonText } = data;
 
   return (
-    <Col className={`${styles.MainWrapper} ${styles[className +'Block']}`}>
+    <Col className={`${styles.MainWrapper} ${styles[className + 'Block']}`}>
       <HomeMainTexts
         title={title}
         secondSubtitle={secondSubtitle}
@@ -20,7 +20,7 @@ const HomeMain = ({ data, ellipsis = false, className }) => {
       />
       {buttonText && (
         <Col className={styles.buttonWrapper}>
-          <Button text={buttonText} transparentOpposite />
+          <Button text={buttonText} transparentOpposite onClick={onClick} />
         </Col>
       )}
     </Col>
