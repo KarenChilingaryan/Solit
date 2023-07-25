@@ -49,7 +49,7 @@ const data = [
     dropdown: false,
     id: 7,
     name: "Contact Us",
-    fix_url: "/contactUs",
+    fix_url: "/contactus",
     data: [],
   },
 ];

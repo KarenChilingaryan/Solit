@@ -1,26 +1,18 @@
 import { memo } from "react";
-import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
+import { useSelector } from "react-redux";
 import ContactForm from "../contactForm/ContactForm";
 
 import styles from "./ContactUses.module.scss";
 
 const ContactUses = () => {
+  const postsMainContactsTextApi = useSelector(
+    (state) => state?.postsMainContactsTextApi?.queries?.["posts(undefined)"]?.data
+  );
   return (
     <div className={styles.contactUsMainWrapper}>
       <div className={styles.contactUsHeader}>
-        <HomeMainTexts
-          result={{
-            default_text: "Let’s contact for the great!",
-            color_text: "contact",
-          }}
-          style={{ margin: "0 auto" }}
-          square
-          h1
-        />
+        <ContactForm data={postsMainContactsTextApi ? postsMainContactsTextApi[0] : null} fromContactPage={true} />
       </div>
-      <ContactForm
-        style={{ background: "#DEF1FA" }}
-      />
     </div>
   );
 };

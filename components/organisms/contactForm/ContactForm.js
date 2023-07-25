@@ -9,16 +9,15 @@ import { useDispatch } from "react-redux";
 import FloatInput from "../../molecules/floatInput/FloatInput";
 import upload from "../../../assets/img/uploadIcon.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
+import contactUsBgImage from "../../../assets/img/contactus-background.png";
 
 import styles from "./ContactForm.module.scss";
 
 const ContactForm = ({
   title,
   style = {},
-  whiteButton = false,
-  whiteTitle,
-  talent = false,
-  data = null
+  data = null,
+  fromContactPage = false
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
@@ -57,14 +56,14 @@ const ContactForm = ({
         }`}
       style={style}
     >
-      <Col className={styles.infoSection}>
+      <Col className={styles.infoSection} style={{ ...(fromContactPage ? { paddingLeft: 0 } : {}) }}>
         <Row className={styles.title}>{data?.title ? "Got a project in mind?" : ""}</Row>
         <div className={styles.info}
           dangerouslySetInnerHTML={{ __html: data?.description || "Share the details of your project – like scope, timeframes, or business challenges you would like to solve. Our team will carefully study them and then we’ll figure out the next move together." }}
-
-        >
-
-        </div>
+        />{
+          fromContactPage &&
+          <Image src={contactUsBgImage} className={styles.contactUsImage} />
+        }
       </Col>
       <Form form={form} onFinish={submitForm} className={styles.form}>
         <Row className={styles.inputSection}>
@@ -129,11 +128,13 @@ const ContactForm = ({
           <Button text="Send message" transparentBlue type="submit" />
         </Col>
       </Form>
-
-      <Image
-        src={contactBgImage}
-        className={`${styles.backImage} ${styles.topBackImage}`}
-      />
+      {
+        !fromContactPage &&
+        <Image
+          src={contactBgImage}
+          className={`${styles.backImage} ${styles.topBackImage}`}
+        />
+      }
     </Col>
   );
 };
