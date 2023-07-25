@@ -50,6 +50,8 @@ const ContactForm = ({
     );
   };
 
+  console.log(data);
+
   return (
     <Col
       className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
@@ -57,7 +59,7 @@ const ContactForm = ({
       style={style}
     >
       <Col className={styles.infoSection} style={{ ...(fromContactPage ? { paddingLeft: 0 } : {}) }}>
-        <Row className={styles.title}>{data?.title ? "Got a project in mind?" : ""}</Row>
+        <Row className={styles.title}>{data?.title || "Got a project in mind?"}</Row>
         <div className={styles.info}
           dangerouslySetInnerHTML={{ __html: data?.description || "Share the details of your project – like scope, timeframes, or business challenges you would like to solve. Our team will carefully study them and then we’ll figure out the next move together." }}
         />{
