@@ -149,6 +149,11 @@ const HomeContent = () => {
   const postsMainContactsTextApi = useSelector(
     (state) => state?.postsMainContactsTextApi?.queries?.["posts(undefined)"]?.data
   );
+  const postsTextCareersAboutUsApi = useSelector(
+    (state) => state?.postsTextCareersAboutUsApi?.queries?.["careersAbout(undefined)"]?.data
+  );
+
+  console.log(postsTextCareersAboutUsApi, 'postsTextCareersAboutUsApi');
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
   );

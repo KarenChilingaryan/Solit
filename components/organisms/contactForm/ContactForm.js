@@ -50,8 +50,6 @@ const ContactForm = ({
     );
   };
 
-  console.log(data);
-
   return (
     <Col
       className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""

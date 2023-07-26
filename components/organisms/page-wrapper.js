@@ -21,6 +21,7 @@ import { postsMainWhatWeDoTextApi } from "../../services/postsMainWhatWeDoTextAp
 import { postsWhatWeDoApi } from "../../services/postsWhatWeDoApi";
 import { servicesApi } from "../../services/servicesApi";
 import { postsFilterNameBlogApi } from "../../services/postsFilterNameBlogApi";
+import { postsTextCareersAboutUsApi } from "../../services/postsTextCareersAboutUsApi";
 
 export async function getServerSideProps(context) {
   const res = await axios.get(`https://jsonplaceholder.typicode.com/users/`);
@@ -51,6 +52,7 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsMainWhatWeDoTextApi.endpoints.posts.initiate())
       await dispatch(await postsMainTechnologyApi.endpoints.posts.initiate())
       await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate())
+      await dispatch(await postsTextCareersAboutUsApi.endpoints.careersAbout.initiate())
       await dispatch(await postsMainTechnologyFiltersApi.endpoints.posts.initiate())
       await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate())
       await dispatch(await postPortfolioApi.endpoints.posts.initiate())
@@ -86,10 +88,6 @@ const PageWrapper = ({ children, item }) => {
     dispatch(headerApi.endpoints.header.initiate())
     getAllData(false)
   }, [id])
-  useEffect(() => {
-    dispatch(headerApi.endpoints.header.initiate());
-    getAllData();
-  }, [id]);
 
   return <div>{children}</div>;
 };

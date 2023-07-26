@@ -310,20 +310,6 @@ const DiscussProjectStack = () => {
             </Form>
           </Row>
         </div>
-        {modalFormData !== null && (
-          <ModalForm
-            title="Your title here"
-            talent={false}
-            data={{
-              step_one: modalFormData.step_one,
-              step_two: modalFormData.step_two,
-              step_three: modalFormData.step_three,
-              step_four: modalFormData.step_four,
-
-            }}
-          />
-        )}
-
       </>
     </HomeMainWithImage>
   );
