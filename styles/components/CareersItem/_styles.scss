@@ -54,5 +54,28 @@
     .blockItems {
       justify-content: space-between;
     }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      gap: calcVW(100);
+
+      span {
+        color: variables.$main-dark-blue;
+      }
+      p {
+        width: calcVW(840);
+      }
+    }
+    @media (max-width: 576px) {
+      .info {
+        flex-direction: column;
+        gap: calcVW(1);
+
+        p {
+          width: unset;
+          padding-left: calcVWM(10);
+        }
+      }
+    }
   }
 }

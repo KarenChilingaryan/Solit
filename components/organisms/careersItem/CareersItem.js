@@ -54,24 +54,33 @@ const CareersComponent = () => {
                 <Image src={share} alt="share" />
               </div>
             </div>
-            <div
-              className={styles.secondDescription}
-              dangerouslySetInnerHTML={{
-                __html: postsCareersJobOpeningApiData?.responsibilities,
-              }}
-            />
-            <div
-              className={styles.secondDescription}
-              dangerouslySetInnerHTML={{
-                __html: postsCareersJobOpeningApiData?.requirements,
-              }}
-            />
-            <div
-              className={styles.secondDescription}
-              dangerouslySetInnerHTML={{
-                __html: postsCareersJobOpeningApiData?.pluses,
-              }}
-            />
+            <div className={styles.info}>
+              <span>Responsibilities</span>
+              <div
+                className={styles.secondDescription}
+                dangerouslySetInnerHTML={{
+                  __html: postsCareersJobOpeningApiData?.responsibilities,
+                }}
+              />
+            </div>
+            <div className={styles.info}>
+              <span>requirements</span>
+              <div
+                className={styles.secondDescription}
+                dangerouslySetInnerHTML={{
+                  __html: postsCareersJobOpeningApiData?.requirements,
+                }}
+              />
+            </div>
+            <div className={styles.info}>
+              <span>pluses</span>
+              <div
+                className={styles.secondDescription}
+                dangerouslySetInnerHTML={{
+                  __html: postsCareersJobOpeningApiData?.pluses,
+                }}
+              />
+            </div>
             <div
               className={styles.secondDescription}
               dangerouslySetInnerHTML={{
