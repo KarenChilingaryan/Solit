@@ -10,17 +10,13 @@ export default function Custom404() {
     <Row>
       <Col className={styles.errorPage}>
         <Col className={styles.textSection}>
-          <Paragraph className={styles.errorText}>ERROR</Paragraph>
-          <Image href={error}/>
-          <Paragraph className={styles.errorCode}>404</Paragraph>
+          <Paragraph className={styles.errorText}>Oops!</Paragraph>
+          <Image src={error} className={styles.errorCode}/>
           <Paragraph className={styles.message}>Let’s contact!</Paragraph>
         </Col>
         <Row className={styles.buttonWrapper}>
           <Link href={"/"}>
-            <Button text={"Home"} />
-          </Link>
-          <Link href={"/contactus"}>
-            <Button text={"Contuct Us"} />
+            <Button text={"Go back home"} transparentOpposite />
           </Link>
         </Row>
       </Col>
