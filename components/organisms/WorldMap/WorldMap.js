@@ -20,13 +20,13 @@ const markers = [
 const WorldMap = () => {
   return <div className={styles.mapImage}>
     {markers.map((el, index) =>
-      <div style={{
+      <div key={index} style={{
         position: 'absolute',
         left: `${el.x / DEFAULT_WIDTH * 100 - 2}%`,
         top: `${el.y / DEFAULT_HEIGHT * 100 - 6}%`
       }} className={styles.personIcon}>
-        <Image key={index} src={mapPersonActive} className={styles.active} />
-        <Image key={index} src={mapPersonDisActive} className={styles.disActive} />
+        <Image src={mapPersonActive} className={styles.active} />
+        <Image src={mapPersonDisActive} className={styles.disActive} />
       </div>
     )}
     <Image src={mapimage} />

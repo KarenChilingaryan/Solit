@@ -90,7 +90,7 @@ const Footer = () => {
             {dataDefault[1].expertise.title}
           </Paragraph>
           {dataDefault[1].expertise.data.map((el, idx) => (
-            <Link href={el.link}>
+            <Link href={el.link} key={idx}>
               <Paragraph className={styles.text} key={idx}>
                 {el.name}
               </Paragraph>
@@ -102,7 +102,7 @@ const Footer = () => {
             {dataDefault[2].company.title}
           </Paragraph>
           {dataDefault[2].company.data.map((el, idx) => (
-            <Link href={el.link}>
+            <Link href={el.link} key={idx}>
               <Paragraph className={styles.text} key={idx}>
                 {el.name}
               </Paragraph>

@@ -19,8 +19,7 @@ const PricingModal = ({ data, handleDelete }) => {
             Please, leave your contact details to proceed
           </Paragraph>
           <Paragraph className={styles.smallTitle}>
-            Your personal data will be processed securely and won't be available
-            to third parties.
+            {"Your personal data will be processed securely and won't be available to third parties."}
           </Paragraph>
         </Row>
         <Row className={styles.summarySection}>
