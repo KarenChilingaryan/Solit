@@ -71,14 +71,14 @@ const Footer = () => {
       },
     },
   ];
-  //const footer = useFooterQuery();
-  //const { data } = footer;
+  const footer = useFooterQuery();
+  const { data } = footer;
 
-  // const info = data && data.office ? {
-  //   address: data.office.address,
-  //   mail: data.office.mail,
-  //   number: data.office.number,
-  // } : {};
+  const info = data && data.office ? {
+    address: data.office.address,
+    mail: data.office.mail,
+    number: data.office.number,
+  } : {};
   return (
     <div className={styles.footerWrapper}>
       <Row className={styles.footerBlock}>
@@ -121,11 +121,11 @@ const Footer = () => {
         </Col>
         <Col className={styles.socialIconsWrapper}>
           <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} >Let’s Contact for Great</Paragraph>
-          {/* {data && data?.contact?.map((item, index) =>
+          {data && data?.contact?.map((item, index) =>
             <Link href={item.link} target="_blank" key={index}>
               <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} width={300} height={300} />
             </Link>
-          )} */}
+          )}
         </Col>
       </Row>
     </div >

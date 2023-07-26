@@ -6,11 +6,7 @@ import ModalForm from "../modalForm/ModalForm";
 
 import styles from "./PricingModal.module.scss";
 
-
-
-
 const PricingModal = ({ data, handleDelete }) => {
-  
   const filterDataByCategory = (category) => {
     return data.filter((item) => item.category === category);
   };
@@ -32,28 +28,28 @@ const PricingModal = ({ data, handleDelete }) => {
             Summary of your request:
           </Paragraph>
           <Row className={styles.projType}>
-          {filterDataByCategory("industry").map((item, index) => (
-          <Col key={index} className={styles.itemWrapper}>
-            <Col className={styles.item}>{item.item}</Col>
-            <Image
-              src={close}
-              className={styles.icon}
-              onClick={() => handleDelete(item)}
-              alt="i"
-            />
-          </Col>
-        ))}
-          {filterDataByCategory("duration").map((item, index) => (
-          <Col key={index} className={styles.itemWrapper}>
-            <Col className={styles.item}>{item.item}</Col>
-            <Image
-              src={close}
-              className={styles.icon}
-              onClick={() => handleDelete(item)}
-              alt="i"
-            />
-          </Col>
-        ))}
+            {filterDataByCategory("industry").map((item, index) => (
+              <Col key={index} className={styles.itemWrapper}>
+                <Col className={styles.item}>{item.item}</Col>
+                <Image
+                  src={close}
+                  className={styles.icon}
+                  onClick={() => handleDelete(item)}
+                  alt="i"
+                />
+              </Col>
+            ))}
+            {filterDataByCategory("duration").map((item, index) => (
+              <Col key={index} className={styles.itemWrapper}>
+                <Col className={styles.item}>{item.item}</Col>
+                <Image
+                  src={close}
+                  className={styles.icon}
+                  onClick={() => handleDelete(item)}
+                  alt="i"
+                />
+              </Col>
+            ))}
           </Row>
 
           <Row className={styles.specialists}>
@@ -62,28 +58,28 @@ const PricingModal = ({ data, handleDelete }) => {
             </Paragraph>
 
             {filterDataByCategory("specialists").map((item, index) => (
-          <Col key={index} className={styles.itemWrapper}>
-            <Col className={styles.item}>{item.item}</Col>
-            <Image
-              src={close}
-              className={styles.icon}
-              onClick={() => handleDelete(item)}
-              alt="i"
-            />
-          </Col>
-        ))}
+              <Col key={index} className={styles.itemWrapper}>
+                <Col className={styles.item}>{item.item}</Col>
+                <Image
+                  src={close}
+                  className={styles.icon}
+                  onClick={() => handleDelete(item)}
+                  alt="i"
+                />
+              </Col>
+            ))}
 
-          {filterDataByCategory("developers").map((item, index) => (
-          <Col key={index} className={styles.itemWrapper}>
-            <Col className={styles.item}>{item.item}</Col>
-            <Image
-              src={close}
-              className={styles.icon}
-              onClick={() => handleDelete(item)}
-              alt="i"
-            />
-          </Col>
-        ))}
+            {filterDataByCategory("developers").map((item, index) => (
+              <Col key={index} className={styles.itemWrapper}>
+                <Col className={styles.item}>{item.item}</Col>
+                <Image
+                  src={close}
+                  className={styles.icon}
+                  onClick={() => handleDelete(item)}
+                  alt="i"
+                />
+              </Col>
+            ))}
           </Row>
         </Row>
       </Col>

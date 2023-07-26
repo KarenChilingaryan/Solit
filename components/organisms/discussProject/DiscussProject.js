@@ -30,7 +30,6 @@ const DiscussProject = () => {
 
   const submitForm = (values) => {
     setOpen(true);
-    console.log(values, "+++++++++++");
   };
 
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -42,7 +41,7 @@ const DiscussProject = () => {
 
   function getProjectData(projectStacks) {
     const data = [];
-  
+
     projectStacks?.applicationType?.forEach((type) => {
       data.push({
         category: "applicationType",
@@ -50,7 +49,7 @@ const DiscussProject = () => {
         item: type,
       });
     });
-  
+
     projectStacks?.currentStage?.forEach((stage) => {
       data.push({
         category: "currentStage",
@@ -58,7 +57,7 @@ const DiscussProject = () => {
         item: stage,
       });
     });
-  
+
     projectStacks?.consultation?.forEach((consult) => {
       data.push({
         category: "consultation",
@@ -66,24 +65,24 @@ const DiscussProject = () => {
         item: consult,
       });
     });
-  
+
     projectStacks?.industry?.forEach((consult) => {
-      data.push({ 
-        category: "industry", 
-        item: consult, 
-        name: consult 
+      data.push({
+        category: "industry",
+        item: consult,
+        name: consult,
       });
     });
-  
+
     projectStacks.duration &&
       data.push({
         category: "duration",
         item: `${projectStacks.duration} months`,
       });
-  
-    setLiveStacks(data); 
+
+    setLiveStacks(data);
   }
-  
+
   const handleDelete = (item) => {
     const updatedStacks = liveStacks.filter(
       (stack) => stack.name !== item.name
@@ -115,10 +114,7 @@ const DiscussProject = () => {
     form.setFieldsValue(updatedValues, true);
   };
 
-  console.log(form.getFieldsValue(), "dddddd");
-
   const handleClear = (field) => {
-    console.log("IOIOIOOIIOOIOIOIOOO");
     const updatedStacks = liveStacks.filter(
       (stack) => stack.category !== field
     );
@@ -144,23 +140,25 @@ const DiscussProject = () => {
 
     form.setFieldsValue(updatedValues, true);
   };
-  
+
   const handleButtonClick = (field, item) => {
     const currentValues = form.getFieldsValue();
     let updatedValues = {};
-  
-    if (field === "applicationType" || field === "currentStage" || field === "consultation") {
+
+    if (
+      field === "applicationType" ||
+      field === "currentStage" ||
+      field === "consultation"
+    ) {
       const isItemSelected = currentValues[field]?.includes(item);
       updatedValues = {
         ...currentValues,
         [field]: isItemSelected
           ? currentValues[field].filter((value) => value !== item)
           : [...(currentValues[field] || []), item],
-          
       };
       form.setFieldsValue(updatedValues, true);
     } else if (field === "industry") {
-      
       const isItemSelected = currentValues[field]?.includes(item);
       updatedValues = {
         ...currentValues,
@@ -170,80 +168,76 @@ const DiscussProject = () => {
       };
       form.setFieldsValue(updatedValues, true);
     } else if (field === "duration") {
-      
       updatedValues = {
         ...currentValues,
         [field]: item,
       };
     }
-  
-    
+
     getProjectData(updatedValues);
-  
-    
+
     setSelectedValue(updatedValues.applicationStack || "none");
   };
-  
-  
+
   return (
-  <HomeMainWithImage firstImage={bgImage}>
-    <>
-      <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
-        <PricingModal
-          data={liveStacks}
-          handleDelete={(item) => handleDelete(item)}
-          liveStacks={liveStacks} 
-        />
-      </ModalWrapper>
-      {liveStacks?.length && (
-        <StackFooter
-          liveStacks={liveStacks}
-          handleDelete={(item) => handleDelete(item)}
-        />
-      )}
-      <div className={styles.content}>
-        <HomeMain
-          data={{
-            title: "Get fast response for a fast solution",
-          }}
-        />
-        <Row className={styles.discussProject}>
-          <Form
-            form={form}
-            onFinish={submitForm}
-            className={styles.form}
-            onValuesChange={handleFormValuesChange}
-          >
-            <FormItem name="applicationStack">
-              <Radio.Group
-                buttonStyle="solid"
-                defaultValue={"none"}
-                value={selectedValue}
-                onChange={handleRadioChange}
-                className={styles.buttons}
-              >
-                <Radio.Button
-                  className={`${styles.grayTextBtn} ${
-                    selectedValue === "Mobile Application Development"
-                      ? styles.selectedButton
-                      : ""
-                  }`}
-                  value="Mobile Application Development"
+    <HomeMainWithImage firstImage={bgImage}>
+      <>
+        <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
+          <PricingModal
+            data={liveStacks}
+            handleDelete={(item) => handleDelete(item)}
+            liveStacks={liveStacks}
+          />
+        </ModalWrapper>
+        {liveStacks?.length && (
+          <StackFooter
+            liveStacks={liveStacks}
+            handleDelete={(item) => handleDelete(item)}
+          />
+        )}
+        <div className={styles.content}>
+          <HomeMain
+            data={{
+              title: "Get fast response for a fast solution",
+            }}
+          />
+          <Row className={styles.discussProject}>
+            <Form
+              form={form}
+              onFinish={submitForm}
+              className={styles.form}
+              onValuesChange={handleFormValuesChange}
+            >
+              <FormItem name="applicationStack">
+                <Radio.Group
+                  buttonStyle="solid"
+                  defaultValue={"none"}
+                  value={selectedValue}
+                  onChange={handleRadioChange}
+                  className={styles.buttons}
                 >
-                  Mobile Application Development
-                </Radio.Button>
-                <Radio.Button
-                  className={`${styles.grayTextBtn} ${
-                    selectedValue === "Team Augmentation"
-                      ? styles.selectedButton
-                      : ""
-                  }`}
-                  value="Team Augmentation"
-                >
-                  Team Augmentation
-                </Radio.Button>
-              </Radio.Group>
-            </FormItem>
+                  <Radio.Button
+                    className={`${styles.grayTextBtn} ${
+                      selectedValue === "Mobile Application Development"
+                        ? styles.selectedButton
+                        : ""
+                    }`}
+                    value="Mobile Application Development"
+                  >
+                    Mobile Application Development
+                  </Radio.Button>
+                  <Radio.Button
+                    className={`${styles.grayTextBtn} ${
+                      selectedValue === "Team Augmentation"
+                        ? styles.selectedButton
+                        : ""
+                    }`}
+                    value="Team Augmentation"
+                  >
+                    Team Augmentation
+                  </Radio.Button>
+                </Radio.Group>
+              </FormItem>
               <Row className={styles.industryDetails}>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
@@ -254,14 +248,16 @@ const DiscussProject = () => {
                       {data.map((item) => (
                         <Col
                           key={item}
-                          onClick={() => handleButtonClick("applicationType", item)}
+                          onClick={() =>
+                            handleButtonClick("applicationType", item)
+                          }
                           className={`${styles.clickableOption} ${
-                            form.getFieldsValue().applicationType?.includes(item)
+                            form
+                              .getFieldsValue()
+                              .applicationType?.includes(item)
                               ? styles.selected
                               : ""
-                              
-                          }`
-                        }
+                          }`}
                         >
                           <Industry value={item} />
                         </Col>
@@ -276,14 +272,17 @@ const DiscussProject = () => {
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
-                    2. What is the current stage of your software development process?
+                    2. What is the current stage of your software development
+                    process?
                   </Paragraph>
                   <FormItem name="currentStage">
                     <Checkbox.Group className={styles.checkboxes}>
                       {data.map((item) => (
                         <Col
                           key={item}
-                          onClick={() => handleButtonClick("currentStage", item)}
+                          onClick={() =>
+                            handleButtonClick("currentStage", item)
+                          }
                           className={`${styles.clickableOption} ${
                             form.getFieldsValue().currentStage?.includes(item)
                               ? styles.selected
@@ -303,14 +302,17 @@ const DiscussProject = () => {
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
-                    3. Do you need a professional consultation from any of the specialists below?
+                    3. Do you need a professional consultation from any of the
+                    specialists below?
                   </Paragraph>
                   <FormItem name="consultation">
                     <Checkbox.Group className={styles.checkboxes}>
                       {data.map((item) => (
                         <Col
                           key={item}
-                          onClick={() => handleButtonClick("consultation", item)}
+                          onClick={() =>
+                            handleButtonClick("consultation", item)
+                          }
                           className={`${styles.clickableOption} ${
                             form.getFieldsValue().consultation?.includes(item)
                               ? styles.selected
