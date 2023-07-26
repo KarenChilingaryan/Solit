@@ -11,34 +11,27 @@ import upload from "../../../assets/img/icons/uploadBlack.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
 import arrow from "../../../assets/img/icons/selectIcon.svg";
 
-
-
-
 import styles from "./ModalForm.module.scss";
 
-
 const ModalForm = ({ title, style = {}, data, developers }) => {
-
-
-
   const [file, setFile] = useState(null);
 
-
-
   const submitForm = (values) => {
-
     const formData = {
       ...values,
-      step_one: data?.developers?.map((dev) => `${dev.name} - ${dev.count}`).join(" ") || "",
-      step_two: data?.specialists?.map((spec) => `${spec.name} - ${spec.count}`).join(" ") || "",
+      step_one:
+        data?.developers
+          ?.map((dev) => `${dev.name} - ${dev.count}`)
+          .join(" ") || "",
+      step_two:
+        data?.specialists
+          ?.map((spec) => `${spec.name} - ${spec.count}`)
+          .join(" ") || "",
       step_three: data?.industry?.join(", ") || "",
       step_four: data?.duration || "",
     };
-    console.log(formData)
-
+    console.log(formData);
   };
-
-
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
@@ -53,7 +46,11 @@ const ModalForm = ({ title, style = {}, data, developers }) => {
               },
             ]}
           >
-            <FloatInput label="Your full name" placeholder="Your full name" name="full_name" />
+            <FloatInput
+              label="Your full name"
+              placeholder="Your full name"
+              name="full_name"
+            />
           </FormItem>
           <FormItem
             name="from_email"
@@ -106,7 +103,9 @@ const ModalForm = ({ title, style = {}, data, developers }) => {
             <Select
               className={styles.select}
               suffixIcon={<Image src={arrow} />}
-              placeholder={<span className={styles.selectPlaceholder}>Your budget</span>}
+              placeholder={
+                <span className={styles.selectPlaceholder}>Your budget</span>
+              }
             >
               <Select.Option value="demo">Demo</Select.Option>
             </Select>

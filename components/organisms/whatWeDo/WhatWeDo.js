@@ -7,11 +7,20 @@ import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import styles from "./WhatWeDo.module.scss";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const WhatWeDo = () => {
+  const router = useRouter();
+  const handleClickDiscuss = () => {
+    router.push(`/discussProject`);
+  };
+
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
   );
+  const handleClick = (id) => {
+    router.push(`/discussProject`);
+  };
 
   return (
     <HomeMainWithImage firstImage={bgImage}>
@@ -23,7 +32,7 @@ const WhatWeDo = () => {
               firstSubtitle: postsWhatWeDoApi?.data_text[0].description,
               buttonText: "Let’s talk",
             }}
-            ellipsis
+            onClick={handleClick}
           />
           <Row className={styles.ourServices}>
             {postsWhatWeDoApi?.data_list.map((el, i) => (
@@ -37,7 +46,7 @@ const WhatWeDo = () => {
             ))}
           </Row>
           <Row className={styles.weKnowSection}>
-            <WhatToKnow />
+            <WhatToKnow onClick={handleClickDiscuss} />
           </Row>
         </Row>
       </>

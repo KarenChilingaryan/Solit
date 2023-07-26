@@ -8,6 +8,11 @@
     display: flex;
     gap: calcVW(96);
 
+    .contactUsImage {
+      width: 100%;
+      height: auto;
+    }
+
     :global {
       .ant-form {
         input[type="file"]:focus {

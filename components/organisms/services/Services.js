@@ -12,6 +12,9 @@ import styles from "./Services.module.scss";
 
 const Services = () => {
   const router = useRouter();
+  const handleClickDiscuss = () => {
+    router.push(`/discussProject`);
+  };
   const services = useSelector(
     (state) => state?.servicesApi?.queries?.["services(undefined)"]?.data
   );
@@ -39,7 +42,7 @@ const Services = () => {
             ))}
           </Row>
           <Row className={styles.weKnowSection}>
-            <WhatToKnow />
+            <WhatToKnow onClick={handleClickDiscuss} />
           </Row>
         </Row>
       </>

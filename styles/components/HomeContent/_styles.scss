@@ -43,6 +43,7 @@
     }
     .backImageSecond {
         height: 117%;
+        min-height: calcVW(1300);
     }
     .topBackImage {
         top: calcVW(-300);

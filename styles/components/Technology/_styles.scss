@@ -33,6 +33,7 @@
         cursor: pointer;
         .icon {
           width: getTechnologySizes(icon-w);
+          height: getTechnologySizes(icon-w);
           object-fit: cover;
         }
         .name {
@@ -73,6 +74,7 @@
           height: calcVWT(106);
           .icon {
             width: calcVWT(40);
+            height: calcVWT(40);
           }
           &:hover {
             border-radius: calcVWT(16);

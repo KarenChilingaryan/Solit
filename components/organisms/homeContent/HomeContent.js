@@ -112,8 +112,12 @@ const aboutData = [
 
 const HomeContent = () => {
   const [isSSR, setIsSSR] = useState(false);
-
   const router = useRouter();
+  const handleClickDiscuss = () => {
+    router.push(`/discussProject`);
+  };
+
+
   const handleClick = (id) => {
     router.push(`/portfolio/${id}`);
   };
@@ -162,6 +166,7 @@ const HomeContent = () => {
               firstSubtitle: mainInfoData ? mainInfoData[0]?.description : '',
               buttonText: "Let’s talk",
             }}
+            onClick={handleClickDiscuss}
           />
           <div className={styles.servicesMain}>
             <div
@@ -177,7 +182,7 @@ const HomeContent = () => {
           </div>
           <Col className={styles.servicesMainButton}>
             <Link href={'/discussProject'}>
-            <Button text="Discuss your project" transparentOpposite />
+              <Button text="Discuss your project" transparentOpposite />
             </Link>
           </Col>
           <div

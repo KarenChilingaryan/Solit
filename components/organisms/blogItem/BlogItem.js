@@ -17,6 +17,8 @@ export const dataProject = [
 
 const BlogItem = () => {
   const { id } = useRouter().query
+  const router = useRouter();
+
   const dispatch = useDispatch();
   const [blogItemData, setBlogItem] = useState(null)
   const getData = async (id) => {
@@ -36,6 +38,10 @@ const BlogItem = () => {
       ]?.data
   );
 
+  const handleClick = (id) => {
+    router.push(`/blog/${id}`);
+  };
+
   return <div className={styles.careerPage}>
     <HomeMainWithImage firstImage={imageBG}>
       <div className={styles.content}>
@@ -46,6 +52,7 @@ const BlogItem = () => {
           <Row className={styles.blockItems}>
             {postsBlogApi?.data_list?.slice(0, 3)?.map((project, i) =>
               <OurProjectCard
+                onClick={() => handleClick(project.blog_detail)}
                 key={i}
                 name={project.title}
                 image={project?.original_image_blog}

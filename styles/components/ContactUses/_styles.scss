@@ -3,8 +3,24 @@
 
 @mixin generate-contactUses-styles {
   .contactUsMainWrapper {
+    .contactUsHeader {
+      padding: calcVW(302) 0 calcVW(80) 0;
+      max-width: calcVW(1220);
+      margin: 0 auto;
+      min-height: calc(100vh - calcVW(435));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 1024px) {
       .contactUsHeader {
-          padding: getContactUesSizes(header-p);
+        max-width: calcVWT(880);
       }
+    }
+    @media (max-width: 576px) {
+      .contactUsHeader {
+        max-width: calcVWM(330);
+      }
+    }
   }
 }

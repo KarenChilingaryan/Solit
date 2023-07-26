@@ -18,7 +18,24 @@ const Footer = () => {
     {
       expertise: {
         title: "EXPERTISE",
-        data: ["Our Services", "Tech Stack", "Portfolio", "Careers"],
+        data: [
+          {
+            link: 'services',
+            name: "Our Services"
+          },
+          {
+            link: '/',
+            name: "Tech Stack"
+          },
+          {
+            link: 'portfolio',
+            name: "Portfolio"
+          },
+          {
+            link: 'careers',
+            name: "Careers"
+          }
+        ],
       },
     },
 
@@ -26,12 +43,30 @@ const Footer = () => {
       company: {
         title: "COMPANY",
         data: [
-          "About Us",
-          "Terms and Conditions",
-          "Privacy Policy",
-          "Testimonials",
-          "Blog",
-          "Contact",
+          {
+            link: 'about',
+            name: "About Us",
+          },
+          {
+            link: 'terms-and-conditions',
+            name: "Terms and Conditions",
+          },
+          {
+            link: 'privacy-policy',
+            name: "Privacy Policy",
+          },
+          {
+            link: 'testimonials',
+            name: "Testimonials",
+          },
+          {
+            link: 'blog',
+            name: "Blog",
+          },
+          {
+            link: 'contactus',
+            name: "Contact",
+          },
         ],
       },
     },
@@ -55,9 +90,11 @@ const Footer = () => {
             {dataDefault[1].expertise.title}
           </Paragraph>
           {dataDefault[1].expertise.data.map((el, idx) => (
-            <Paragraph className={styles.text} key={idx}>
-              {el}
-            </Paragraph>
+            <Link href={el.link}>
+              <Paragraph className={styles.text} key={idx}>
+                {el.name}
+              </Paragraph>
+            </Link>
           ))}
         </Col>
         <Col className={styles.companyWrapper}>
@@ -65,9 +102,11 @@ const Footer = () => {
             {dataDefault[2].company.title}
           </Paragraph>
           {dataDefault[2].company.data.map((el, idx) => (
-            <Paragraph className={styles.text} key={idx}>
-              {el}
-            </Paragraph>
+            <Link href={el.link}>
+              <Paragraph className={styles.text} key={idx}>
+                {el.name}
+              </Paragraph>
+            </Link>
           ))}
         </Col>
         <Col className={styles.companyInfoWraper}>
