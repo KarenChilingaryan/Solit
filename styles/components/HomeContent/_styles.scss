@@ -106,11 +106,12 @@
         .mapContainer {
             @include flex(space-between, flex-end);
             .worldMap {
-                width: getHomeContentSizes(world-map-w);
                 padding-bottom: getHomeContentSizes(world-map-pb);
             }
             .worldMapUser {
                 width: getHomeContentSizes(world-map-user-w);
+                position: relative;
+                z-index: 10;
             }
         }
     }
@@ -158,6 +159,9 @@
             .aboutCompanyContent {
                 height: max-content;
                 margin: calcVWT(90) 0 calcVWT(100) 0;
+            }
+            .mapContainer {
+                flex-direction: column;
             }
         }
 
@@ -209,6 +213,9 @@
                 .worldMapUser {
                     width: 100%;
                 }
+            }
+            .borderedTextWhat {
+                margin-top: calcVWM(150) !important;
             }
         }
         .projectContent {

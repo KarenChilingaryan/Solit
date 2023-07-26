@@ -31,6 +31,8 @@ import { emailDiscussYourProject2Api } from "./emailDiscussYourProject2Api";
 import { emailDiscussYourProject1Api } from "./emailDiscussYourProject1Api";
 import { postsTextCareersAboutUsApi } from "./postsTextCareersAboutUsApi";
 import { footerApi } from "./footerApi";
+import { postsTextCareersColourfulApi } from "./postsTextCareersColourfulApi";
+import { postsTextMainAboutUsApi } from "./postsTextMainAboutUsApi";
 
 const store = configureStore({
   reducer: {
@@ -65,6 +67,8 @@ const store = configureStore({
     [emailDiscussYourProject2Api.reducerPath]: emailDiscussYourProject2Api.reducer,
     [postsTextCareersAboutUsApi.reducerPath]: postsTextCareersAboutUsApi.reducer,
     [emailApplyForJobPositionApi.reducerPath]: emailApplyForJobPositionApi.reducer,
+    [postsTextCareersColourfulApi.reducerPath]: postsTextCareersColourfulApi.reducer,
+    [postsTextMainAboutUsApi.reducerPath]: postsTextMainAboutUsApi.reducer,
     [footerApi.reducerPath]: footerApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

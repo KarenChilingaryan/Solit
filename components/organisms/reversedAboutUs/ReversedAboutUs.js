@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { useSelector } from "react-redux";
 import TeamMemberCard from "../../molecules/teamMemberCard/TeamMemberCard";
 import TitleWithDescription from "../../molecules/titleWithDescription/TitleWithDescription";
 
