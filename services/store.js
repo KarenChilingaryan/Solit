@@ -8,7 +8,6 @@ import { careersJobOpeningApi } from "./careersJobOpeningApi";
 import { postsCareersApi } from "./postsCareersApi";
 import { serviceItemApi } from "./servicesItemApi";
 import { headerApi } from "./header";
-import { footerApi } from "./footerApi";
 import { postsMainOurProjectsApi } from "./postsMainOurProjectsApi";
 import { postsMainProcessTextApi } from "./postsMainProcessTextApi";
 import { postsMainWhatWeDoTextApi } from "./postsMainWhatWeDoTextApi";
@@ -59,7 +58,6 @@ const store = configureStore({
     [serviceItemApi.reducerPath]: serviceItemApi.reducer,
     [postAbutUsWhatWeDoApi.reducerPath]: postAbutUsWhatWeDoApi.reducer,
     [headerApi.reducerPath]: headerApi.reducer,
-    [footerApi.reducerPath]: footerApi.reducer,
     [emailApi.reducerPath]: emailApi.reducer,
     [emailDiscussYourProject1Api.reducerPath]: emailDiscussYourProject1Api.reducer,
     [emailDiscussYourProject2Api.reducerPath]: emailDiscussYourProject2Api.reducer,

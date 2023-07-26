@@ -1,7 +1,6 @@
 import { memo } from "react";
 import Image from "next/image";
 import { Col, Row, Paragraph } from "../../atoms";
-
 import logoFooter from "../../../assets/img/bigLogo.png";
 import styles from "./Footer.module.scss";
 import { useFooterQuery } from "../../../services/footerApi";
@@ -114,11 +113,11 @@ const Footer = () => {
           <Paragraph className={styles.textTitle}>
             Office
           </Paragraph>
-          {Object.values(info).map((el, idx) => (
+          {/* {Object.values(info).map((el, idx) => (
             <Paragraph className={styles.text} key={idx}>
               {el}
             </Paragraph>
-          ))}
+          ))} */}
         </Col>
         <Col className={styles.socialIconsWrapper}>
           <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} >Let’s Contact for Great</Paragraph>
