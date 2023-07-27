@@ -5,7 +5,7 @@
   .aboutItemWrapper {
     border-radius: 16px;
     width: getAboutItemSizes(about-item-width);
-    height: getAboutItemSizes(about-item-height);
+    height: max-content;
     overflow: hidden;
 
     .content {
@@ -55,7 +55,6 @@
     }
     @media (max-width: 1024px) {
       width: calcVWT(424);
-      height: calcVWT(340);
       .content {
         padding: calcVWT(32);
         .icon {
@@ -72,7 +71,6 @@
     }
     @media (max-width: 576px) {
       width: 100%;
-      height: calcVWM(388);
       .content {
         padding: calcVWM(32);
         .icon {
