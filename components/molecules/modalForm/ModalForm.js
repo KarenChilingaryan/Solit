@@ -1,10 +1,12 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, useMemo } from "react";
 import { Col, Row, Input, FormItem, Form, Checkbox, Select } from "../../atoms";
 import Image from "next/image";
 import { Upload, Button as AntdButton } from "antd";
 import Button from "../button/Button";
 import { contactUsData } from "../../../constants/contactUs";
 import { emailApi } from "../../../services/emailApi";
+import { emailDiscussYourProject1Api } from "../../../services/emailDiscussYourProject1Api";
+import { emailDiscussYourProject2Api } from "../../../services/emailDiscussYourProject2Api";
 import { useDispatch } from "react-redux";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
@@ -17,32 +19,38 @@ import arrow from "../../../assets/img/icons/selectIcon.svg";
 import styles from "./ModalForm.module.scss";
 
 
-const ModalForm = ({ title, style = {}, data, developers }) => {
 
-
-
+const ModalForm = ({ style = {}, data, formData = null }) => {
+  const [form] = Form.useForm();
   const [file, setFile] = useState(null);
 
 
 
-  const submitForm = (values) => {
 
-    const formData = {
-      ...values,
-      step_one: data?.developers?.map((dev) => `${dev.name} - ${dev.count}`).join(" ") || "",
-      step_two: data?.specialists?.map((spec) => `${spec.name} - ${spec.count}`).join(" ") || "",
-      step_three: data?.industry?.join(", ") || "",
-      step_four: data?.duration || "",
-    };
-    console.log(formData)
+  const dispatch = useDispatch();
 
+  const email = (data.step_five === undefined) ? emailDiscussYourProject2Api : emailDiscussYourProject1Api;
+
+
+
+
+
+  const submitForm = async (values, data) => {
+    const formData = { ...values, ...data, file_cv: file };
+    const newformData = new FormData();
+    for (const key in formData) {
+      newformData.append(key, formData[key]);
+    }
+    const res = await dispatch(await emailApi.endpoints.email.initiate(newformData));
   };
 
 
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
-      <Form onFinish={submitForm(data)} className={styles.form}>
+      <Form onFinish={(values) => {
+        submitForm(values, data)
+      }} className={styles.form} >
         <Row className={styles.inputSection}>
           <FormItem
             name="full_name"
@@ -53,7 +61,7 @@ const ModalForm = ({ title, style = {}, data, developers }) => {
               },
             ]}
           >
-            <FloatInput label="Your full name" placeholder="Your full name" name="full_name" />
+            <FloatInput label="Your full name" placeholder="Your full name" />
           </FormItem>
           <FormItem
             name="from_email"
