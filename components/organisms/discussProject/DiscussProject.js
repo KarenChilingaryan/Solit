@@ -12,8 +12,10 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 
 import styles from "./DiscussProject.module.scss";
 
-const data = ["field1", "field2", "field3", "field4"];
-const data1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55];
+const data = ["Android", "iOS", "Cross-platform"];
+const data1 = ["idea", "MVP", "Prototype/Specification"];
+const data2 = ["Project manager", "Ui/UX Designer", "Business Analyst"];
+const data3 = ["eCommers", "Finance", "Travel & Hospitality", "Telecom", "Media & Entertainment", "Enterprice", "Real Estate", "Helthcare", "iGaming", "Logistic", "eLerning", "Retail", "Automotive", "Manufacturing", "Aviation"];
 
 const formatter = (value) => `${value} month`;
 
@@ -23,12 +25,22 @@ const DiscussProject = () => {
   const [open, setOpen] = useState(false);
   const [submitDisabled, setSubmitDisabled] = useState(false);
   const [selectedValue, setSelectedValue] = useState("none");
+  const [modalFormData, setModalFormData] = useState(null);
 
   const handleRadioChange = (e) => {
     setSelectedValue(e.target.value);
   };
 
   const submitForm = (values) => {
+    const formData = {
+      step_one: values.applicationType?.join(" ") || "",
+      step_two: values.currentStage?.join(" ") || "",
+      step_three: values.consultation?.join(", ") || "",
+      step_four: values.industry?.join(", ") || "",
+      step_five: values.duration || "",
+    };
+
+    setModalFormData(formData)
     setOpen(true);
   };
 
@@ -70,7 +82,7 @@ const DiscussProject = () => {
       data.push({
         category: "industry",
         item: consult,
-        name: consult,
+        name: consult
       });
     });
 
@@ -112,6 +124,7 @@ const DiscussProject = () => {
     }
 
     form.setFieldsValue(updatedValues, true);
+    submitForm(form.getFieldsValue())
   };
 
   const handleClear = (field) => {
@@ -145,20 +158,18 @@ const DiscussProject = () => {
     const currentValues = form.getFieldsValue();
     let updatedValues = {};
 
-    if (
-      field === "applicationType" ||
-      field === "currentStage" ||
-      field === "consultation"
-    ) {
+    if (field === "applicationType" || field === "currentStage" || field === "consultation") {
       const isItemSelected = currentValues[field]?.includes(item);
       updatedValues = {
         ...currentValues,
         [field]: isItemSelected
           ? currentValues[field].filter((value) => value !== item)
           : [...(currentValues[field] || []), item],
+
       };
       form.setFieldsValue(updatedValues, true);
     } else if (field === "industry") {
+
       const isItemSelected = currentValues[field]?.includes(item);
       updatedValues = {
         ...currentValues,
@@ -174,21 +185,26 @@ const DiscussProject = () => {
       };
     }
 
+
     getProjectData(updatedValues);
+
 
     setSelectedValue(updatedValues.applicationStack || "none");
   };
 
+
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
-        <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
+        {modalFormData && <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
           <PricingModal
             data={liveStacks}
             handleDelete={(item) => handleDelete(item)}
-            liveStacks={liveStacks}
+            dataForm={modalFormData}
+            stackNames={["applicationType", "currentStage", "consultation", "industry", "duration"]}
           />
         </ModalWrapper>
+        }
         {liveStacks?.length && (
           <StackFooter
             liveStacks={liveStacks}
@@ -217,21 +233,19 @@ const DiscussProject = () => {
                   className={styles.buttons}
                 >
                   <Radio.Button
-                    className={`${styles.grayTextBtn} ${
-                      selectedValue === "Mobile Application Development"
-                        ? styles.selectedButton
-                        : ""
-                    }`}
+                    className={`${styles.grayTextBtn} ${selectedValue === "Mobile Application Development"
+                      ? styles.selectedButton
+                      : ""
+                      }`}
                     value="Mobile Application Development"
                   >
                     Mobile Application Development
                   </Radio.Button>
                   <Radio.Button
-                    className={`${styles.grayTextBtn} ${
-                      selectedValue === "Team Augmentation"
-                        ? styles.selectedButton
-                        : ""
-                    }`}
+                    className={`${styles.grayTextBtn} ${selectedValue === "Team Augmentation"
+                      ? styles.selectedButton
+                      : ""
+                      }`}
                     value="Team Augmentation"
                   >
                     Team Augmentation
@@ -248,16 +262,13 @@ const DiscussProject = () => {
                       {data.map((item) => (
                         <Col
                           key={item}
-                          onClick={() =>
-                            handleButtonClick("applicationType", item)
+                          onClick={() => handleButtonClick("applicationType", item)}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().applicationType?.includes(item)
+                            ? styles.selected
+                            : ""
+
+                            }`
                           }
-                          className={`${styles.clickableOption} ${
-                            form
-                              .getFieldsValue()
-                              .applicationType?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
                         >
                           <Industry value={item} />
                         </Col>
@@ -277,17 +288,14 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="currentStage">
                     <Checkbox.Group className={styles.checkboxes}>
-                      {data.map((item) => (
+                      {data1.map((item) => (
                         <Col
                           key={item}
-                          onClick={() =>
-                            handleButtonClick("currentStage", item)
-                          }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().currentStage?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          onClick={() => handleButtonClick("currentStage", item)}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry value={item} circle />
                         </Col>
@@ -307,17 +315,14 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="consultation">
                     <Checkbox.Group className={styles.checkboxes}>
-                      {data.map((item) => (
+                      {data2.map((item) => (
                         <Col
                           key={item}
-                          onClick={() =>
-                            handleButtonClick("consultation", item)
-                          }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          onClick={() => handleButtonClick("consultation", item)}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry value={item} fullWidth />
                         </Col>
@@ -336,15 +341,14 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="industry">
                     <Checkbox.Group className={styles.checkboxes}>
-                      {data1.map((item) => (
+                      {data3.map((item) => (
                         <Col
                           key={item}
                           onClick={() => handleButtonClick("industry", item)}
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().industry?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry value={item} circle />
                         </Col>

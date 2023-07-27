@@ -6,10 +6,20 @@ import ModalForm from "../modalForm/ModalForm";
 
 import styles from "./PricingModal.module.scss";
 
-const PricingModal = ({ data, handleDelete }) => {
+
+
+
+const PricingModal = ({
+  data,
+  handleDelete,
+  dataForm,
+  stackNames = []
+}) => {
+
   const filterDataByCategory = (category) => {
     return data.filter((item) => item.category === category);
   };
+
 
   return (
     <Row className={styles.content}>
@@ -27,7 +37,20 @@ const PricingModal = ({ data, handleDelete }) => {
             Summary of your request:
           </Paragraph>
           <Row className={styles.projType}>
-            {filterDataByCategory("industry").map((item, index) => (
+            {stackNames.map((name) =>
+              filterDataByCategory(name).map((item, index) => (
+                <Col key={index} className={styles.itemWrapper}>
+                  <Col className={styles.item}>{item.item}</Col>
+                  <Image
+                    src={close}
+                    className={styles.icon}
+                    onClick={() => handleDelete(item)}
+                    alt="i"
+                  />
+                </Col>
+              )
+              ))}
+            {/* {filterDataByCategory("duration").map((item, index) => (
               <Col key={index} className={styles.itemWrapper}>
                 <Col className={styles.item}>{item.item}</Col>
                 <Image
@@ -37,21 +60,10 @@ const PricingModal = ({ data, handleDelete }) => {
                   alt="i"
                 />
               </Col>
-            ))}
-            {filterDataByCategory("duration").map((item, index) => (
-              <Col key={index} className={styles.itemWrapper}>
-                <Col className={styles.item}>{item.item}</Col>
-                <Image
-                  src={close}
-                  className={styles.icon}
-                  onClick={() => handleDelete(item)}
-                  alt="i"
-                />
-              </Col>
-            ))}
+            ))} */}
           </Row>
 
-          <Row className={styles.specialists}>
+          {/* <Row className={styles.specialists}>
             <Paragraph className={styles.specialistsTitle}>
               Specialists selected for your project:
             </Paragraph>
@@ -79,11 +91,13 @@ const PricingModal = ({ data, handleDelete }) => {
                 />
               </Col>
             ))}
-          </Row>
+          </Row> */}
         </Row>
       </Col>
       <Col className={styles.rightContent}>
-        <ModalForm />
+        <ModalForm
+          data={dataForm}
+        />
       </Col>
     </Row>
   );

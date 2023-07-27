@@ -1,10 +1,12 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, useMemo } from "react";
 import { Col, Row, Input, FormItem, Form, Checkbox, Select } from "../../atoms";
 import Image from "next/image";
 import { Upload, Button as AntdButton } from "antd";
 import Button from "../button/Button";
 import { contactUsData } from "../../../constants/contactUs";
 import { emailApi } from "../../../services/emailApi";
+import { emailDiscussYourProject1Api } from "../../../services/emailDiscussYourProject1Api";
+import { emailDiscussYourProject2Api } from "../../../services/emailDiscussYourProject2Api";
 import { useDispatch } from "react-redux";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
@@ -35,7 +37,9 @@ const ModalForm = ({ title, style = {}, data, developers }) => {
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
-      <Form onFinish={submitForm(data)} className={styles.form}>
+      <Form onFinish={(values) => {
+        submitForm(values, data)
+      }} className={styles.form} >
         <Row className={styles.inputSection}>
           <FormItem
             name="full_name"
@@ -46,11 +50,7 @@ const ModalForm = ({ title, style = {}, data, developers }) => {
               },
             ]}
           >
-            <FloatInput
-              label="Your full name"
-              placeholder="Your full name"
-              name="full_name"
-            />
+            <FloatInput label="Your full name" placeholder="Your full name" />
           </FormItem>
           <FormItem
             name="from_email"

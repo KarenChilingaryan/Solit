@@ -158,13 +158,14 @@ const DiscussProjectStack = () => {
 
     form.setFieldsValue(data);
     getProjectData(data);
+    submitForm(form.getFieldsValue())
   };
 
 
   const submitForm = (values) => {
     const formData = {
-      step_one: values.developers?.map((dev) => `${dev.name} - ${dev.count}`).join(" ") || "",
-      step_two: values.specialists?.map((spec) => `${spec.name} - ${spec.count}`).join(" ") || "",
+      step_one: values.developers?.map((dev) => `${dev.name}-${dev.count}`).join(" ") || "",
+      step_two: values.specialists?.map((spec) => `${spec.name}-${spec.count}`).join(" ") || "",
       step_three: values.industry?.join(", ") || "",
       step_four: values.duration || "",
     };
@@ -178,12 +179,14 @@ const DiscussProjectStack = () => {
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
-        <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
+        {modalFormData && <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
           <PricingModal
             data={liveStacks}
             handleDelete={(item) => handleDelete(item)}
+            dataForm={modalFormData}
+            stackNames={["industry", "duration", "specialists", "developers"]}
           />
-        </ModalWrapper>
+        </ModalWrapper>}
         {liveStacks?.length && (
           <StackFooter liveStacks={liveStacks} handleDelete={handleDelete} />
         )}
