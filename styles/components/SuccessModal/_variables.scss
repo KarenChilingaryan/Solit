@@ -1,9 +1,0 @@
-@import "../../abstract/functions";
-@import "../../base/variables";
-
-$success-modal-sizes: (
-);
-
-@function getSuccessModal($property) {
-  @return map-get($pricing-modal-sizes, $property);
-}
