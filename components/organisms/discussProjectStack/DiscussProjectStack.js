@@ -10,10 +10,10 @@ import Industry from "../../molecules/Industry/Industry";
 import AddSpecialist from "../../molecules/AddSpecialist/AddSpecialist";
 import PricingModal from "../../molecules/pricingModal/PricingModal";
 import StackFooter from "../../molecules/stackFooter/StackFooter";
-import ModalForm from "../../molecules/modalForm/ModalForm";
-
+import { emailDiscussYourProject2Api } from "../../../services/emailDiscussYourProject2Api";
 
 import styles from "./DiscussProjectStack.module.scss";
+import { useDispatch } from "react-redux";
 
 const data = [1, 2, 3, 4];
 const data1 = ["Real Estate", 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55];
@@ -79,6 +79,7 @@ const DiscussProjectStack = () => {
   const [open, setOpen] = useState(false);
   const [modalFormData, setModalFormData] = useState(null);
 
+  const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
     getProjectData(allValues);
   };
@@ -167,14 +168,22 @@ const DiscussProjectStack = () => {
       step_one: values.developers?.map((dev) => `${dev.name}-${dev.count}`).join(" ") || "",
       step_two: values.specialists?.map((spec) => `${spec.name}-${spec.count}`).join(" ") || "",
       step_three: values.industry?.join(", ") || "",
-      step_four: values.duration || "",
+      step_for: values.duration || "",
     };
 
     setModalFormData(formData);
     setOpen(true);
   };
 
-
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    const res = await dispatch(
+      await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
+    );
+  }
 
   return (
     <HomeMainWithImage firstImage={bgImage}>
@@ -185,6 +194,7 @@ const DiscussProjectStack = () => {
             handleDelete={(item) => handleDelete(item)}
             dataForm={modalFormData}
             stackNames={["industry", "duration", "specialists", "developers"]}
+            onSubmit={onSubmit}
           />
         </ModalWrapper>}
         {liveStacks?.length && (

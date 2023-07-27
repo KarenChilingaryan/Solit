@@ -13,7 +13,8 @@ const PricingModal = ({
   data,
   handleDelete,
   dataForm,
-  stackNames = []
+  stackNames = [],
+  onSubmit
 }) => {
 
   const filterDataByCategory = (category) => {
@@ -97,6 +98,7 @@ const PricingModal = ({
       <Col className={styles.rightContent}>
         <ModalForm
           data={dataForm}
+          onSubmit={onSubmit}
         />
       </Col>
     </Row>

@@ -1,38 +1,23 @@
-import { memo, useState, useEffect, useMemo } from "react";
-import { Col, Row, Input, FormItem, Form, Checkbox, Select } from "../../atoms";
+import { memo, useState } from "react";
+import { Col, Row, FormItem, Form, Checkbox, Select } from "../../atoms";
 import Image from "next/image";
-import { Upload, Button as AntdButton } from "antd";
 import Button from "../button/Button";
-import { contactUsData } from "../../../constants/contactUs";
-import { emailApi } from "../../../services/emailApi";
-import { emailDiscussYourProject1Api } from "../../../services/emailDiscussYourProject1Api";
-import { emailDiscussYourProject2Api } from "../../../services/emailDiscussYourProject2Api";
-import { useDispatch } from "react-redux";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
-import contactBgImage from "../../../assets/img/contact_bg.png";
 import arrow from "../../../assets/img/icons/selectIcon.svg";
 
 import styles from "./ModalForm.module.scss";
 
-const ModalForm = ({ title, style = {}, data, developers }) => {
+const ModalForm = ({ title, style = {}, data, onSubmit }) => {
   const [file, setFile] = useState(null);
 
-  const submitForm = (values) => {
+  const submitForm = (values, data) => {
     const formData = {
       ...values,
-      step_one:
-        data?.developers
-          ?.map((dev) => `${dev.name} - ${dev.count}`)
-          .join(" ") || "",
-      step_two:
-        data?.specialists
-          ?.map((spec) => `${spec.name} - ${spec.count}`)
-          .join(" ") || "",
-      step_three: data?.industry?.join(", ") || "",
-      step_four: data?.duration || "",
+      ...data,
+      file_document: file,
     };
-    console.log(formData);
+    onSubmit(formData)
   };
 
   return (
@@ -68,17 +53,17 @@ const ModalForm = ({ title, style = {}, data, developers }) => {
             <FloatInput label="Email" placeholder="Email" name="from_email" />
           </FormItem>
 
-          <FormItem name="file_cv">
+          <FormItem name="file_document">
             <FloatInput
               label="About your project"
               placeholder="About your project"
-              name="file_cv"
+              name="file_document"
               multiple
               type="file"
               accept=".pdf,.doc,.docx"
               prefix={<Image className={styles.suffix} src={upload} />}
               onChange={(e) => {
-                setFile(e.target.files);
+                setFile(e.target.files[0]);
               }}
               showUploadList={false}
               className={styles.uploadFile}
@@ -87,8 +72,12 @@ const ModalForm = ({ title, style = {}, data, developers }) => {
           <FormItem name="comment">
             <FloatInput label="Comment" placeholder="Comment" name="comment" />
           </FormItem>
+          <FormItem name="comment" name="phon_number" >
+            <FloatInput label="Phone number" placeholder="Phone number" name="phon_number" type="number" />
+          </FormItem>
+          
           <FormItem
-            name="budget"
+            name="your_budget"
             rules={[
               {
                 type: "select",
@@ -110,7 +99,7 @@ const ModalForm = ({ title, style = {}, data, developers }) => {
               <Select.Option value="demo">Demo</Select.Option>
             </Select>
           </FormItem>
-          <FormItem name="accept" className={styles.accept}>
+          <FormItem className={styles.accept}>
             <Checkbox />
             <Row className={styles.acceptText}>
               I accept your Privacy Policy

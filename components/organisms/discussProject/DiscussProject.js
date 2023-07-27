@@ -11,6 +11,8 @@ import PricingModal from "../../molecules/pricingModal/PricingModal";
 import ModalWrapper from "../../molecules/Modal/Modal";
 
 import styles from "./DiscussProject.module.scss";
+import { emailDiscussYourProject1Api } from "../../../services/emailDiscussYourProject1Api";
+import { useDispatch } from "react-redux";
 
 const data = ["Android", "iOS", "Cross-platform"];
 const data1 = ["idea", "MVP", "Prototype/Specification"];
@@ -27,6 +29,7 @@ const DiscussProject = () => {
   const [selectedValue, setSelectedValue] = useState("none");
   const [modalFormData, setModalFormData] = useState(null);
 
+  const dispatch = useDispatch();
   const handleRadioChange = (e) => {
     setSelectedValue(e.target.value);
   };
@@ -36,7 +39,7 @@ const DiscussProject = () => {
       step_one: values.applicationType?.join(" ") || "",
       step_two: values.currentStage?.join(" ") || "",
       step_three: values.consultation?.join(", ") || "",
-      step_four: values.industry?.join(", ") || "",
+      step_for: values.industry?.join(", ") || "",
       step_five: values.duration || "",
     };
 
@@ -45,9 +48,6 @@ const DiscussProject = () => {
   };
 
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
-    console.log("Form values changed:", changedValues);
-    console.log("All form values:", allValues);
-    console.log(allValues, "<<<<<<<<<<");
     getProjectData(allValues);
   };
 
@@ -192,7 +192,15 @@ const DiscussProject = () => {
     setSelectedValue(updatedValues.applicationStack || "none");
   };
 
-
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    const res = await dispatch(
+      await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
+    );
+  }
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -202,6 +210,7 @@ const DiscussProject = () => {
             handleDelete={(item) => handleDelete(item)}
             dataForm={modalFormData}
             stackNames={["applicationType", "currentStage", "consultation", "industry", "duration"]}
+            onSubmit={onSubmit}
           />
         </ModalWrapper>
         }
