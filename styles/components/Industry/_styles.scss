@@ -9,7 +9,7 @@
       }
     }
   }
-  
+
   .mainWrapper {
     @include flex(null, center, row);
     width: getIndustrySizes(main-wrapper-width);
@@ -62,11 +62,7 @@
     @include flex(null, center);
     text-align: center;
     cursor: pointer;
-    @include font-style(
-      getIndustrySizes(name-specialist-fz),
-      variables.$fw-500,
-      getIndustrySizes(name-specialist-lh)
-    );
+    @include font-style(getIndustrySizes(name-specialist-fz), variables.$fw-500, getIndustrySizes(name-specialist-lh));
   }
 
   .moreWrapper {
@@ -80,5 +76,11 @@
   }
   .moreWrapper:hover {
     border: 1px solid variables.$dodger-blue;
+  }
+  @media (max-width: 1024px) {
+    .mainWrapper {
+      width: calcVWT(277);
+      height: calcVWT(56);
+    }
   }
 }
