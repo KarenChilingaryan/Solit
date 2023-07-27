@@ -49,7 +49,7 @@ const data = [
     dropdown: false,
     id: 7,
     name: "Contact Us",
-    fix_url: "/contactUs",
+    fix_url: "/contactus",
     data: [],
   },
 ];
@@ -132,7 +132,7 @@ const Header = () => {
             className={`${styles.menuItem} ${filteredData !== el.name ? styles.closedMenu : ''}`}
           >
             <Link
-              href={el?.fix_url === '/whatWeDo' ? '' : `${el?.fix_url}`}
+              href={`${el?.fix_url}`}
               onClick={() => {
                 window.scrollTo({ top: 0, left: 0 })
               }}

@@ -1,5 +1,5 @@
 import { memo } from "react";
-import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
+import { useSelector } from "react-redux";
 import ContactForm from "../contactForm/ContactForm";
 
 import styles from "./ContactUses.module.scss";
@@ -8,19 +8,8 @@ const ContactUses = () => {
   return (
     <div className={styles.contactUsMainWrapper}>
       <div className={styles.contactUsHeader}>
-        <HomeMainTexts
-          result={{
-            default_text: "Let’s contact for the great!",
-            color_text: "contact",
-          }}
-          style={{ margin: "0 auto" }}
-          square
-          h1
-        />
+        <ContactForm data={{title: 'Contact with us', description: "Share the details of your project – like scope, timeframes, or business challenges you'd like to solve. Our team will carefully study them and then we’ll figure out the next move together."}} fromContactPage={true} />
       </div>
-      <ContactForm
-        style={{ background: "#DEF1FA" }}
-      />
     </div>
   );
 };

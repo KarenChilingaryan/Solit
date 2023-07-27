@@ -5,10 +5,6 @@
   .errorPage {
     width: 100%;
     padding: get404PageSizes(error-page-padding);
-    background-image: url("../../../assets/img/square.png");
-    background-repeat: no-repeat;
-    background-position: calcVW(1050) calcVW(200);
-    background-size: calcVW(300) calcVW(300);
 
     .textSection {
       display: flex;
@@ -17,30 +13,16 @@
       align-items: center;
 
       .errorText {
-        margin-right: calcVW(320);
-        @include font-style(
-          get404PageSizes(error-text-fz),
-          variables.$fw-700,
-          get404PageSizes(error-text-lh),
-          variables.$green-light
-        );
+        @include font-style(calcVW(36), variables.$fw-400, calcVW(43), variables.$main-white);
       }
       .errorCode {
-        @include font-style(
-          get404PageSizes(error-code-fz),
-          variables.$fw-700,
-          get404PageSizes(error-code-lh),
-          variables.$light-blue
-        );
+        height: calcVW(130);
+        width: auto;
+        margin: calcVW(38) 0;
       }
       .message {
         text-align: center;
-        @include font-style(
-          get404PageSizes(message-fz),
-          variables.$fw-500,
-          none,
-          variables.$light-blue
-        );
+        @include font-style(calcVW(48), variables.$fw-400, calcVW(58), variables.$main-white);
       }
     }
     .buttonWrapper {
@@ -48,6 +30,46 @@
       display: flex;
       justify-content: center;
       gap: calcVW(40);
+    }
+    @media (max-width: 1024px) {
+      padding: calcVWT(230) 0;
+
+      .textSection {
+        .errorText {
+          @include font-style(calcVWT(36), variables.$fw-400, calcVWT(43), variables.$main-white);
+        }
+        .errorCode {
+          height: calcVWT(130);
+          margin: calcVWT(38) 0;
+        }
+        .message {
+          @include font-style(calcVWT(48), variables.$fw-400, calcVWT(58), variables.$main-white);
+        }
+      }
+      .buttonWrapper {
+        margin-top: calcVWT(60);
+        gap: calcVWT(40);
+      }
+    }
+    @media (max-width: 576px) {
+      padding: calcVWM(180) 0;
+
+      .textSection {
+        .errorText {
+          @include font-style(calcVWM(36), variables.$fw-400, calcVWM(43), variables.$main-white);
+        }
+        .errorCode {
+          height: calcVWM(130);
+          margin: calcVWM(38) 0;
+        }
+        .message {
+          @include font-style(calcVWM(48), variables.$fw-400, calcVWM(58), variables.$main-white);
+        }
+      }
+      .buttonWrapper {
+        margin-top: calcVWM(60);
+        gap: calcVWM(40);
+      }
     }
   }
 }

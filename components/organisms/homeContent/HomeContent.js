@@ -29,65 +29,7 @@ import styles from "./HomeContent.module.scss";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const data = [
-  {
-    users: [
-      {
-        name: "Marvel Alina ",
-        position: "UX/UI Designer",
-        image: teamMember,
-      },
-      {
-        name: "Marvel Alina ",
-        position: "UX/UI Designer",
-        image: teamMember,
-      },
-    ],
-    about: {
-      title: "About us",
-      description:
-        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal",
-    },
-  },
-  {
-    users: [
-      {
-        name: "Marvel Alina ",
-        position: "UX/UI Designer",
-        image: teamMember,
-      },
-      {
-        name: "Marvel Alina ",
-        position: "UX/UI Designer",
-        image: teamMember,
-      },
-    ],
-    about: {
-      title: "Our Team",
-      description:
-        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal",
-    },
-  },
-  {
-    users: [
-      {
-        name: "Marvel Alina ",
-        position: "UX/UI Designer",
-        image: teamMember,
-      },
-      {
-        name: "Marvel Alina ",
-        position: "UX/UI Designer",
-        image: teamMember,
-      },
-    ],
-    about: {
-      title: "Our Values",
-      description:
-        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal",
-    },
-  },
-];
+
 
 const aboutData = [
   {
@@ -112,8 +54,13 @@ const aboutData = [
 
 const HomeContent = () => {
   const [isSSR, setIsSSR] = useState(false);
-
+  const [data, setData] = useState([]);
   const router = useRouter();
+  const handleClickDiscuss = () => {
+    router.push(`/discussProject`);
+  };
+
+
   const handleClick = (id) => {
     router.push(`/portfolio/${id}`);
   };
@@ -145,12 +92,78 @@ const HomeContent = () => {
   const postsMainContactsTextApi = useSelector(
     (state) => state?.postsMainContactsTextApi?.queries?.["posts(undefined)"]?.data
   );
+  const postsTextMainAboutUsApi = useSelector(
+    (state) => state?.postsTextMainAboutUsApi?.queries?.["mainAbout(undefined)"]?.data
+  );
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
   );
   const postPortfolioApi = useSelector(
     (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
   );
+
+  useEffect(() => {
+    if (postsTextMainAboutUsApi) {
+
+      const data = [
+        {
+          users: [
+            {
+              name: "Marvel Alina ",
+              position: "UX/UI Designer",
+              image: teamMember,
+            },
+            {
+              name: "Marvel Alina ",
+              position: "UX/UI Designer",
+              image: teamMember,
+            },
+          ],
+          about: {
+            title: "About us",
+            description: postsTextMainAboutUsApi.about_us
+          },
+        },
+        {
+          users: [
+            {
+              name: "Marvel Alina ",
+              position: "UX/UI Designer",
+              image: teamMember,
+            },
+            {
+              name: "Marvel Alina ",
+              position: "UX/UI Designer",
+              image: teamMember,
+            },
+          ],
+          about: {
+            title: "Our Team",
+            description: postsTextMainAboutUsApi.our_team
+          },
+        },
+        {
+          users: [
+            {
+              name: "Marvel Alina ",
+              position: "UX/UI Designer",
+              image: teamMember,
+            },
+            {
+              name: "Marvel Alina ",
+              position: "UX/UI Designer",
+              image: teamMember,
+            },
+          ],
+          about: {
+            title: "Our Values",
+            description: postsTextMainAboutUsApi.our_values
+          },
+        },
+      ];
+      setData(data)
+    }
+  }, [postsTextMainAboutUsApi])
 
   return (
     <HomeMainWithImage firstImage={bgImage}>
@@ -162,6 +175,7 @@ const HomeContent = () => {
               firstSubtitle: mainInfoData ? mainInfoData[0]?.description : '',
               buttonText: "Let’s talk",
             }}
+            onClick={handleClickDiscuss}
           />
           <div className={styles.servicesMain}>
             <div
@@ -177,7 +191,7 @@ const HomeContent = () => {
           </div>
           <Col className={styles.servicesMainButton}>
             <Link href={'/discussProject'}>
-            <Button text="Discuss your project" transparentOpposite />
+              <Button text="Discuss your project" transparentOpposite />
             </Link>
           </Col>
           <div
@@ -272,7 +286,7 @@ const HomeContent = () => {
             <BorderedText text="Testimonials" />
           </div>
           <div className={styles.mapContainer}>
-            {/* <div className={styles.worldMap}>{isSSR && <WorldMap />}</div> */}
+            <div className={styles.worldMap}>{isSSR && <WorldMap />}</div>
             <div className={styles.worldMapUser}>
               <MapUser />
             </div>

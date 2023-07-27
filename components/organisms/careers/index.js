@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Col, Row } from "../../atoms";
 import Image from "next/image";
 import { HomeMainWithImage } from "../HomeMainWithImage";
@@ -16,73 +16,81 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 import styles from "./careers.module.scss";
 import ModalForm from "../../molecules/modalForm/ModalForm";
 
-const data = [
-  {
-    users: [
-      {
-        name: "Marvel Alina ",
-        position: "UX/UI Designer",
-        image: teamMember,
-      },
-      {
-        name: "Marvel Alina ",
-        position: "UX/UI Designer",
-        image: teamMember,
-      },
-    ],
-    about: {
-      title: "About us",
-      description:
-        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal",
-    },
-  },
-  {
-    users: [
-      {
-        name: "Marvel Alina ",
-        position: "UX/UI Designer",
-        image: teamMember,
-      },
-      {
-        name: "Marvel Alina ",
-        position: "UX/UI Designer",
-        image: teamMember,
-      },
-    ],
-    about: {
-      title: "Our Team",
-      description:
-        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal",
-    },
-  },
-];
 const Careers = () => {
-  const [open, setOpen] = useState(false);
+  const [openData, setOpenData] = useState(null);
+  const [data, setData] = useState([]);
   // const router = useRouter();
 
   const careersJobOpeningApi = useSelector(
     (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
   );
+  const postsTextCareersAboutUsApi = useSelector(
+    (state) => state?.postsTextCareersAboutUsApi?.queries?.["careersAbout(undefined)"]?.data
+  );
+  const postsTextCareersColourfulApi = useSelector(
+    (state) => state?.postsTextCareersColourfulApi?.queries?.["careersAbout(undefined)"]?.data
+  );
 
   // const handleClick = (id) => {
   //   router.push(`/careers/${id}`);
   // };
+  useEffect(() => {
+    if (postsTextCareersAboutUsApi) {
 
+      const data = [
+        {
+          users: [
+            {
+              name: "Marvel Alina ",
+              position: "UX/UI Designer",
+              image: teamMember,
+            },
+            {
+              name: "Marvel Alina ",
+              position: "UX/UI Designer",
+              image: teamMember,
+            },
+          ],
+          about: {
+            title: "About us",
+            description: postsTextCareersAboutUsApi.about_us
+          },
+        },
+        {
+          users: [
+            {
+              name: "Marvel Alina ",
+              position: "UX/UI Designer",
+              image: teamMember,
+            },
+            {
+              name: "Marvel Alina ",
+              position: "UX/UI Designer",
+              image: teamMember,
+            },
+          ],
+          about: {
+            title: "Our Team",
+            description: postsTextCareersAboutUsApi.our_team
+          },
+        },
+      ];
+      setData(data)
+    }
+  }, [postsTextCareersAboutUsApi])
 
   return (
     <HomeMainWithImage firstImage={earth}>
       {/* <SeoCard details={seoData} /> */}
       <Row className={styles.content}>
         <Row className={styles.pageHeader}>
-          <Row className={styles.title}>Careers</Row>
+          <Row className={styles.title}>{postsTextCareersColourfulApi?.title}</Row>
           <Row className={styles.subTitle}>
-            <Col>Recommended</Col>
-            <Col>Friends</Col>
+            <Col>{postsTextCareersColourfulApi?.default_text?.replace(postsTextCareersColourfulApi.painted_text, '')}</Col>
+            <Col>{postsTextCareersColourfulApi?.painted_text}</Col>
           </Row>
           <Row className={styles.info}>
-            Ex non nostrud ullamco ullamco cupidatat laboris eu nisi ut in
-            fugiat. Sit labore ipsum veniam sint esse magna labore culpa dolore
-            irure amet.
+            {postsTextCareersColourfulApi?.description}
           </Row>
           <Button text="Recommended" transparentOpposite />
         </Row>
@@ -104,22 +112,22 @@ const Careers = () => {
           <div className={styles.secondDescription} dangerouslySetInnerHTML={{ __html: careersJobOpeningApi?.data_text[0].description || "" }} />
         </div>
         <Row>
-          <JobsTable data={careersJobOpeningApi?.data_list} />
+          <JobsTable data={careersJobOpeningApi?.data_list} setOpenData={setOpenData} />
         </Row>
         <Row className={styles.weKnowSection}>
           <WhatToKnow
             title="If you haven't found position..."
             description="For further information don't hesitate to contact us. We would be happy to provide you with more information."
             buttonText="Apply Here"
-            onClick={() => setOpen(true)}
+            onClick={() => setOpenData(true)}
           />
         </Row>
         <Row className={styles.contactUsWrapper}>
           <ContactForm />
         </Row>
       </Row>
-      <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
-        <ModalForm />
+      <ModalWrapper open={!!openData} width={"66vw"} setOpen={setOpenData}>
+        <ModalForm openData={openData} />
       </ModalWrapper>
     </HomeMainWithImage>
   );

@@ -1,14 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
-export const footerApi = createApi({
-
-  reducerPath: "footerApi",
+export const postsTextCareersColourfulApi = createApi({
+  reducerPath: "postsTextCareersColourfulApi",
   refetchOnFocus: false,
   refetchOnMountOrArgChange: false,
   refetchOnReconnect: false,
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_APP_API,
+    
   }),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
@@ -16,8 +16,8 @@ export const footerApi = createApi({
     }
   },
   endpoints: (builder) => ({
-    footer: builder.query({ query: () => "/footer/" }),
+    careersAbout: builder.query({ query: () => "/text_careers_colourful/" }),
   }),
 });
 
-export const { useFooterQuery } = footerApi;
+export const { usePostsQuery } = postsTextCareersColourfulApi;

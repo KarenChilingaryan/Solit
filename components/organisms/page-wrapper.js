@@ -21,6 +21,9 @@ import { postsMainWhatWeDoTextApi } from "../../services/postsMainWhatWeDoTextAp
 import { postsWhatWeDoApi } from "../../services/postsWhatWeDoApi";
 import { servicesApi } from "../../services/servicesApi";
 import { postsFilterNameBlogApi } from "../../services/postsFilterNameBlogApi";
+import { postsTextCareersAboutUsApi } from "../../services/postsTextCareersAboutUsApi";
+import { postsTextCareersColourfulApi } from "../../services/postsTextCareersColourfulApi";
+import { postsTextMainAboutUsApi } from "../../services/postsTextMainAboutUsApi";
 
 export async function getServerSideProps(context) {
   const res = await axios.get(`https://jsonplaceholder.typicode.com/users/`);
@@ -51,7 +54,9 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsMainWhatWeDoTextApi.endpoints.posts.initiate())
       await dispatch(await postsMainTechnologyApi.endpoints.posts.initiate())
       await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate())
+      await dispatch(await postsTextCareersAboutUsApi.endpoints.careersAbout.initiate())
       await dispatch(await postsMainTechnologyFiltersApi.endpoints.posts.initiate())
+      await dispatch(await postsTextMainAboutUsApi.endpoints.mainAbout.initiate())
       await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate())
       await dispatch(await postPortfolioApi.endpoints.posts.initiate())
       await dispatch(await servicesApi.endpoints.services.initiate())
@@ -75,6 +80,7 @@ const PageWrapper = ({ children, item }) => {
 
     if (a.pathname.includes('/careers') || flag) {
       await dispatch(await careersJobOpeningApi.endpoints.career.initiate())
+      await dispatch(await postsTextCareersColourfulApi.endpoints.careersAbout.initiate())
     }
 
     if (!flag) {
@@ -86,10 +92,6 @@ const PageWrapper = ({ children, item }) => {
     dispatch(headerApi.endpoints.header.initiate())
     getAllData(false)
   }, [id])
-  // useEffect(() => {
-  //   dispatch(headerApi.endpoints.header.initiate())
-  //   getAllData()
-  // }, [id])
 
   return <div>{children}</div>;
 };

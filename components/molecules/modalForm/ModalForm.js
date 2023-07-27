@@ -13,38 +13,27 @@ import upload from "../../../assets/img/icons/uploadBlack.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
 import arrow from "../../../assets/img/icons/selectIcon.svg";
 
-
-
-
 import styles from "./ModalForm.module.scss";
 
-
-
-const ModalForm = ({ style = {}, data, formData = null }) => {
-  const [form] = Form.useForm();
+const ModalForm = ({ title, style = {}, data, developers }) => {
   const [file, setFile] = useState(null);
 
-
-
-
-  const dispatch = useDispatch();
-
-  const email = (data.step_five === undefined) ? emailDiscussYourProject2Api : emailDiscussYourProject1Api;
-
-
-
-
-
-  const submitForm = async (values, data) => {
-    const formData = { ...values, ...data, file_cv: file };
-    const newformData = new FormData();
-    for (const key in formData) {
-      newformData.append(key, formData[key]);
-    }
-    const res = await dispatch(await emailApi.endpoints.email.initiate(newformData));
+  const submitForm = (values) => {
+    const formData = {
+      ...values,
+      step_one:
+        data?.developers
+          ?.map((dev) => `${dev.name} - ${dev.count}`)
+          .join(" ") || "",
+      step_two:
+        data?.specialists
+          ?.map((spec) => `${spec.name} - ${spec.count}`)
+          .join(" ") || "",
+      step_three: data?.industry?.join(", ") || "",
+      step_four: data?.duration || "",
+    };
+    console.log(formData);
   };
-
-
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
@@ -114,7 +103,9 @@ const ModalForm = ({ style = {}, data, formData = null }) => {
             <Select
               className={styles.select}
               suffixIcon={<Image src={arrow} />}
-              placeholder={<span className={styles.selectPlaceholder}>Your budget</span>}
+              placeholder={
+                <span className={styles.selectPlaceholder}>Your budget</span>
+              }
             >
               <Select.Option value="demo">Demo</Select.Option>
             </Select>

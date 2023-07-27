@@ -127,10 +127,7 @@ const DiscussProject = () => {
     submitForm(form.getFieldsValue())
   };
 
-  console.log(form.getFieldsValue(), "dddddd");
-
   const handleClear = (field) => {
-    console.log("IOIOIOOIIOOIOIOIOOO");
     const updatedStacks = liveStacks.filter(
       (stack) => stack.category !== field
     );
@@ -182,7 +179,6 @@ const DiscussProject = () => {
       };
       form.setFieldsValue(updatedValues, true);
     } else if (field === "duration") {
-
       updatedValues = {
         ...currentValues,
         [field]: item,
@@ -287,7 +283,8 @@ const DiscussProject = () => {
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
-                    2. What is the current stage of your software development process?
+                    2. What is the current stage of your software development
+                    process?
                   </Paragraph>
                   <FormItem name="currentStage">
                     <Checkbox.Group className={styles.checkboxes}>
@@ -313,7 +310,8 @@ const DiscussProject = () => {
                 </Row>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
-                    3. Do you need a professional consultation from any of the specialists below?
+                    3. Do you need a professional consultation from any of the
+                    specialists below?
                   </Paragraph>
                   <FormItem name="consultation">
                     <Checkbox.Group className={styles.checkboxes}>

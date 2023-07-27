@@ -2,7 +2,68 @@
 @import "../../base/mixins";
 
 @mixin generate-world-map-styles {
-  .marker {
-    background: blue;
+  .mapImage {
+    position: relative;
+    width: calcVW(816);
+    height: calcVW(448);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .personIcon {
+      transition: 0.2s;
+      width: calcVW(25);
+      height: calcVW(25);
+      cursor: pointer;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .active {
+        display: none;
+      }
+      &:hover {
+        transition: 0.2s;
+        width: calcVW(30);
+        height: calcVW(30);
+        margin-left: calcVW(-2.5);
+        margin-top: calcVW(-2.5);
+        .active {
+          display: block;
+        }
+        .disActive {
+          display: none;
+        }
+      }
+    }
+    @media (max-width: 1024px) {
+      width: calcVWT(816);
+      height: calcVWT(448);
+      margin: 0 auto;
+      .personIcon {
+        width: calcVWT(25);
+        height: calcVWT(25);
+        &:hover {
+          width: calcVWT(30);
+          height: calcVWT(30);
+          margin-left: calcVWT(-2.5);
+          margin-top: calcVWT(-2.5);
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      width: calcVWM(349);
+      height: calcVWM(191);
+      .personIcon {
+        width: calcVWM(25);
+        height: calcVWM(25);
+        &:hover {
+          width: calcVWM(30);
+          height: calcVWM(30);
+          margin-left: calcVWM(-2.5);
+          margin-top: calcVWM(-2.5);
+        }
+      }
+    }
   }
 }
