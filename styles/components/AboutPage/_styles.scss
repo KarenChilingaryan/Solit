@@ -29,7 +29,7 @@
       margin-top: getAboutPageSizes(title-mt);
     }
     .impact {
-      @include flex(space-between, center, null, wrap);
+      @include flex(space-between, flex-start, null, wrap);
       row-gap: getAboutPageSizes(impact-rg);
       margin-top: getAboutPageSizes(impact-mt);
       margin-bottom: getAboutPageSizes(impact-mb);
