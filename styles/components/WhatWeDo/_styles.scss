@@ -8,10 +8,10 @@
     margin: calcVW(200) 0;
     .backImage {
       position: absolute;
-      top: 0;
+      top: calcVW(100);
       left: calcVW(-320);
-      width: calcVW(1920);
-      height: 100%;
+      width: calcVW(2560);
+      height: calcVW(1463);
       z-index: 0;
     }
   }

@@ -11,6 +11,11 @@
   .bottomBlock {
     margin: getBlogItemSizes(bottom-block-m);
     color: white;
+    .blockItemImage {
+      img {
+        max-width: 100%;
+      }
+    }
 
     .title {
       @include font-style(getBlogItemSizes(title-fz), variables.$fw-500, getBlogItemSizes(title-lh), #fff);

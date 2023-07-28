@@ -2,7 +2,7 @@ import { memo, useEffect, useState } from "react";
 import Image from "next/image";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import bgImage from "../../../assets/img/main-bg.png";
+import bgImage from "../../../assets/img/main-bg-about.png";
 import aboutImage from "../../../assets/img/about-image.png";
 import { Paragraph } from "../../atoms";
 import AboutItem from "../../molecules/aboutItem/AboutItem";

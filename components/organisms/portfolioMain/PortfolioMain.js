@@ -4,7 +4,7 @@ import Portfolios from "../portfolios/Portfolios";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { HomeMain } from "../homeMain";
-import bgImage from "../../../assets/img/blogs_bg.png";
+import bgImage from "../../../assets/img/main-bg-portfolio.png";
 
 import styles from "./PortfolioMain.module.scss";
 import { useSelector } from "react-redux";

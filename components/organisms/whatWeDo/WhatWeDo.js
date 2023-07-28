@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Row } from "../../atoms";
-import bgImage from "../../../assets/img/main-bg.png";
+import bgImage from "../../../assets/img/main-bg-what-we-do.png";
 import AboutItem from "../../molecules/aboutItem/AboutItem";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { HomeMain } from "../homeMain";
@@ -8,6 +8,7 @@ import { HomeMainWithImage } from "../HomeMainWithImage";
 import styles from "./WhatWeDo.module.scss";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const WhatWeDo = () => {
   const router = useRouter();
@@ -36,13 +37,15 @@ const WhatWeDo = () => {
           />
           <Row className={styles.ourServices}>
             {postsWhatWeDoApi?.data_list.map((el, i) => (
-              <AboutItem
-                key={i}
-                weDo
-                title={el.title}
-                desc={el.description}
-                icon={el.original_logo_what_we_do}
-              />
+              <Link href={`/whatWeDo/${el.what_we_do_detail}`}>
+                <AboutItem
+                  key={i}
+                  weDo
+                  title={el.title}
+                  desc={el.description}
+                  icon={el.original_logo_what_we_do}
+                />
+              </Link>
             ))}
           </Row>
           <Row className={styles.weKnowSection}>

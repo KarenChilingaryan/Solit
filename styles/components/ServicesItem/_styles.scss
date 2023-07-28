@@ -12,6 +12,12 @@
     margin: getServicesItemSizes(bottom-block-m);
     color: white;
 
+    .blockItemImage {
+      img {
+        max-width: 100%;
+      }
+    }
+
     .title {
       @include font-style(getServicesItemSizes(title-fz), variables.$fw-500, getServicesItemSizes(title-lh), #fff);
       margin: calcVW(300) 0 calcVW(32) 0 !important;

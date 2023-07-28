@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Row } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { HomeMain } from "../homeMain";
-import bgImage from "../../../assets/img/main-bg.png";
+import bgImage from "../../../assets/img/main-bg-services.png";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 

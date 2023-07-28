@@ -1,19 +1,15 @@
 import { memo, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import { Paragraph, Row } from "../../atoms";
-import ImageAndText from "../../molecules/imageAndText/ImageAndText";
-import image from "../../../assets/img/careers-detail.png";
-import imageBG from "../../../assets/img/career_bg.png";
+import { Row } from "../../atoms";
+import imageBG from "../../../assets/img/main-bg-career-detail.png";
 import back from "../../../assets/img/icons/back.svg";
 import share from "../../../assets/img/icons/share.svg";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { postsCareersJobOpeningApi } from "../../../services/postsCareersJobOpeningApi";
-import ModalForm from "../../molecules/modalForm/ModalForm";
-import { Modal } from "antd";
 
 import styles from "./careersItem.module.scss";
 
@@ -40,7 +36,7 @@ const CareersComponent = () => {
         <div className={styles.content}>
           <div className={styles.bottomBlock}>
             <div
-              className={styles.secondDescription}
+              className={styles.blockItemImage}
               dangerouslySetInnerHTML={{
                 __html: postsCareersJobOpeningApiData?.first_part,
               }}

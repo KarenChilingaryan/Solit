@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useRouter } from "next/router";
 import { Col, Row } from "../../atoms";
-import earth from "../../../assets/img/earth.png";
+import earth from "../../../assets/img/main-bg-blogs.png";
 import { useSelector } from "react-redux";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { HomeMain } from "../homeMain";

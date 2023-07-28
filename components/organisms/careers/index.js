@@ -7,7 +7,7 @@ import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import JobsTable from "../../molecules/jobsTable/JobsTable";
 import { useSelector } from "react-redux";
 import ContactForm from "../contactForm/ContactForm";
-import earth from "../../../assets/img/earth.png";
+import earth from "../../../assets/img/main-bg-careers.png";
 import teamMember from "../../../assets/img/teamMember.png";
 import worldMap from "../../../assets/img/career-world-pam.png";
 import { ReversedAboutUs } from "../reversedAboutUs";

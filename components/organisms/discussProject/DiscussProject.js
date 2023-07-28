@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 import { Radio, Slider } from "antd";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import bgImage from "../../../assets/img/main-bg.png";
+import bgImage from "../../../assets/img/main-bg-discuss.png";
 import { Col, Paragraph, Row, Checkbox, FormItem, Form } from "../../atoms";
 import Button from "../../molecules/button/Button";
 import Industry from "../../molecules/Industry/Industry";

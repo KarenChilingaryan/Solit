@@ -1,7 +1,7 @@
 import { memo, useState } from "react";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import bgImage from "../../../assets/img/main-bg.png";
+import bgImage from "../../../assets/img/main-bg-discuss-stack.png";
 import { Col, Paragraph, Row, Checkbox, Form, FormItem } from "../../atoms";
 import { Slider } from "antd";
 import Button from "../../molecules/button/Button";
