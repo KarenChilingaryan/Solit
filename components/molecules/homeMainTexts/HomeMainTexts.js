@@ -9,7 +9,8 @@ const HomeMainTexts = ({
   secondSubtitle,
   h1 = false,
   ellipsis,
-  className
+  className,
+  showMoreClassName
 }) => {
   return (
     <>
@@ -27,7 +28,7 @@ const HomeMainTexts = ({
           <div
             dangerouslySetInnerHTML={{ __html: firstSubtitle }}
             className={`${styles.firstSubtitle} ${ellipsis && styles.ellipsisText
-              }`}
+              } ${styles[showMoreClassName]}`}
           />
         )}
 

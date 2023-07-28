@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Row } from "../../atoms";
+import { Row, } from "../../atoms";
 import bgImage from "../../../assets/img/main-bg-what-we-do.png";
 import AboutItem from "../../molecules/aboutItem/AboutItem";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
@@ -31,10 +31,11 @@ const WhatWeDo = () => {
             data={{
               title: postsWhatWeDoApi?.data_text[0].title,
               firstSubtitle: postsWhatWeDoApi?.data_text[0].description,
-              buttonText: "Let’s talk",
             }}
+            showMoreButton={true}
             onClick={handleClick}
           />
+          
           <Row className={styles.ourServices}>
             {postsWhatWeDoApi?.data_list.map((el, i) => (
               <Link href={`/what-we-do/${el.what_we_do_detail}`} key={i}>

@@ -8,6 +8,24 @@
     .buttonWrapper {
       margin-top: getHomeMainSizes(home-main-button-wrapper-mt);
     }
+    .button {
+      display: flex;
+      gap: 10px;
+      background: transparent;
+      @include font-style(
+        calcVW(18),
+        variables.$fw-700,
+        calcVW(20),
+      );
+      width: max-content;
+      padding: 0;
+      align-items: center;
+
+      .btnImg {
+        width: calcVW(18);
+        height: calcVW(20);
+      }
+    }
     @media (max-width: 1024px) {
       width: calcVWT(880);
     }

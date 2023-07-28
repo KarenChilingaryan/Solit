@@ -33,6 +33,7 @@ const Services = () => {
               firstSubtitle:
                 services?.data_text[0]?.description
             }}
+            showMoreButton={true}
             ellipsis
           />
 

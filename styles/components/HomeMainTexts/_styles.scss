@@ -31,6 +31,14 @@
       );
       margin-top: getHomeMainTextsSizes(home-main-first-text-mt);
     }
+    .showMoreClass {
+      height: max-content;
+    }
+    .defaultShowMoreClass {
+      height: calcVW(230);
+      overflow: hidden;
+    }
+
     @media (max-width: 1024px) {
       .title {
         @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
@@ -42,10 +50,8 @@
     }
   }
   @media (max-width: 1024px) {
-    
     .prtfolioItem {
       max-height: calcVWT(388);
-  
     }
   }
   @media (max-width: 576px) {
