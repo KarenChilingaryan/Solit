@@ -57,7 +57,7 @@ const HomeContent = () => {
   const [data, setData] = useState([]);
   const router = useRouter();
   const handleClickDiscuss = () => {
-    router.push(`/discussProject`);
+    router.push(`/discuss-project`);
   };
 
 
@@ -190,7 +190,7 @@ const HomeContent = () => {
             </div>
           </div>
           <Col className={styles.servicesMainButton}>
-            <Link href={'/discussProject'}>
+            <Link href={'/discuss-project'}>
               <Button text="Discuss your project" transparentOpposite />
             </Link>
           </Col>

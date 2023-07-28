@@ -4,6 +4,15 @@
 @mixin generate-home-main-with-image-styles {
   .content {
     overflow: hidden;
+    .breadcrumb {
+      top: calcVW(200);
+      left: calcVW(400);
+      position: relative;
+      z-index: 1000;
+      :global(.ant-breadcrumb-link) {
+        color: white !important;
+      }
+    }
   }
   .portfolioItem {
     overflow: unset;

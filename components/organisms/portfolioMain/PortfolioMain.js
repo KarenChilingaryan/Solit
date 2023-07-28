@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 const PortfolioMain = ({ data, main = false }) => {
   const router = useRouter()
   const handleClickDiscuss = () => {
-    router.push(`/discussProject`);
+    router.push(`/discuss-project`);
   };
 
   const postPortfolioApi = useSelector(

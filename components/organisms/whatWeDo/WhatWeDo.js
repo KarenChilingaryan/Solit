@@ -13,14 +13,14 @@ import Link from "next/link";
 const WhatWeDo = () => {
   const router = useRouter();
   const handleClickDiscuss = () => {
-    router.push(`/discussProject`);
+    router.push(`/discuss-project`);
   };
 
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
   );
   const handleClick = (id) => {
-    router.push(`/discussProject`);
+    router.push(`/discuss-project`);
   };
 
   return (
@@ -37,7 +37,7 @@ const WhatWeDo = () => {
           />
           <Row className={styles.ourServices}>
             {postsWhatWeDoApi?.data_list.map((el, i) => (
-              <Link href={`/whatWeDo/${el.what_we_do_detail}`} key={i}>
+              <Link href={`/what-we-do/${el.what_we_do_detail}`} key={i}>
                 <AboutItem
                   weDo
                   title={el.title}

@@ -78,7 +78,7 @@ const BottomCarousel = ({ data }) => {
         <Link href="/services">
           <Button text={"Our Services"} whiteButton />
         </Link>
-        <Link href="/contactus">
+        <Link href="/contact-us">
           <Button text={"Contact"} whiteButton />
         </Link>
       </Row>

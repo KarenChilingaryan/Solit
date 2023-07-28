@@ -1,3 +1,4 @@
+import { Breadcrumb } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
@@ -11,6 +12,12 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
   const { data } = footer;
   return (
     <div className={`${styles.content} ${styles[className]}`}>
+      <Breadcrumb className={styles.breadcrumb}>
+        <Breadcrumb.Item href="/"> Home</Breadcrumb.Item>
+        <Breadcrumb.Item href="/projects">Projects</Breadcrumb.Item>
+        <Breadcrumb.Item href="/projects/project-123">Project-123</Breadcrumb.Item>
+        <Breadcrumb.Item>Current Page</Breadcrumb.Item>
+      </Breadcrumb>
       <div className={styles.socialSites}>
 
         {data?.contact?.map((el, i) =>

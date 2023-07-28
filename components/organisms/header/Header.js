@@ -49,7 +49,7 @@ const data = [
     dropdown: false,
     id: 7,
     name: "Contact Us",
-    fix_url: "/contactus",
+    fix_url: "/contact-us",
     data: [],
   },
 ];
@@ -94,7 +94,7 @@ const Header = () => {
         {
           id: 1,
           name: "Tech Stack",
-          fix_url: "/whatWeDo",
+          fix_url: "/what-we-do",
           data: headerData?.tech_steck || [],
         },
         {
@@ -138,7 +138,7 @@ const Header = () => {
               }}
               className={styles.menuItemTitle}
               style={{
-                borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'whatWeDo' && router.pathname === "/") ? "2px solid #ffffff" : "0",
+                borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'what-we-do' && router.pathname === "/") ? "2px solid #ffffff" : "0",
               }}
             >
               {el.name}
@@ -172,16 +172,16 @@ const Header = () => {
               className={styles.menuItem}
             >
               <Link
-                href={el?.fix_url === 'whatWeDo' ? '#' : `${el?.fix_url}`}
+                href={el?.fix_url === 'what-we-do' ? '#' : `${el?.fix_url}`}
                 onClick={() => {
-                  if (el?.fix_url !== 'whatWeDo') {
+                  if (el?.fix_url !== 'what-we-do') {
                     setOpenMenu(!openMenu)
                   }
                   window.scrollTo({ top: 0, left: 0 })
                 }}
                 className={styles.menuItemTitle}
                 style={{
-                  borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'whatWeDo' && router.pathname === "/") ? "2px solid #ffffff" : "0",
+                  borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'what-we-do' && router.pathname === "/") ? "2px solid #ffffff" : "0",
                 }}
               >
                 {el.name}
@@ -208,7 +208,7 @@ const Header = () => {
 
           <div className={styles.pricing} onClick={() => setOpenMenu(true)} >
             <Link
-              href={'/contactus'}>
+              href={'/contact-us'}>
               <Button text="Pricing" transparentBlue />
             </Link>
           </div>
@@ -216,7 +216,7 @@ const Header = () => {
         </div>
         <div className={`${styles.buttonWrapper} ${styles.buttonWrapperMobile}`} onClick={() => setOpenMenu(true)}>
           <Link
-            href={'/contactus'}>
+            href={'/contact-us'}>
             <Button text="Pricing" transparentBlue />
           </Link>
         </div>

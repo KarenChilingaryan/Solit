@@ -64,7 +64,7 @@ const Footer = () => {
             name: "Blog",
           },
           {
-            link: 'contactus',
+            link: 'contact-us',
             name: "Contact",
           },
         ],

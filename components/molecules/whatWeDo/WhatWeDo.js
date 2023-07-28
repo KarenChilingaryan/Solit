@@ -151,7 +151,7 @@ const WhatWeDo = ({ data }) => {
 
           {renderTabsOrDropdown()}
         </Col>
-        <Link href={'/whatWeDo'}>
+        <Link href={'/what-we-do'}>
           <Button text="More expertise" boldWhite icon={goRight} />
         </Link>
       </Col>

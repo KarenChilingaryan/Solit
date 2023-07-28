@@ -17,7 +17,7 @@ const PortfolioItem = () => {
   const { id } = useRouter().query;
   const router = useRouter();
   const handleClickDiscuss = () => {
-    router.push(`/discussProject`);
+    router.push(`/discuss-project`);
   };
 
   const dispatch = useDispatch();

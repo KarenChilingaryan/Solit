@@ -9,7 +9,7 @@ import devIcon from "../../../assets/img/devIcon.svg";
 
 const WeDoCard = ({ item }) => {
   return (
-    <Link href={`/whatWeDo/${item.what_we_do_detail}`}>
+    <Link href={`/what-we-do/${item.what_we_do_detail}`}>
       <Col className={styles.weDoCardWrapper}>
         <Row className={styles.iconWrapper}>
           <Image src={item?.original_logo_what_we_do || devIcon} className={styles.icon} width={40} height={40} />

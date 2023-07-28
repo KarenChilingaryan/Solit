@@ -13,7 +13,7 @@ import styles from "./Services.module.scss";
 const Services = () => {
   const router = useRouter();
   const handleClickDiscuss = () => {
-    router.push(`/discussProject`);
+    router.push(`/discuss-project`);
   };
   const services = useSelector(
     (state) => state?.servicesApi?.queries?.["services(undefined)"]?.data

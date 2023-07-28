@@ -19,11 +19,11 @@ const AboutPage = () => {
   const router = useRouter();
 
   const handleClick = (id) => {
-    router.push(`/discussProject`);
+    router.push(`/discuss-project`);
   };
 
   const handleClickDiscuss = () => {
-    router.push(`/discussProject`);
+    router.push(`/discuss-project`);
   };
 
 
