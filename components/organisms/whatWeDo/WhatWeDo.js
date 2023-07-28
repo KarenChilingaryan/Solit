@@ -37,9 +37,8 @@ const WhatWeDo = () => {
           />
           <Row className={styles.ourServices}>
             {postsWhatWeDoApi?.data_list.map((el, i) => (
-              <Link href={`/whatWeDo/${el.what_we_do_detail}`}>
+              <Link href={`/whatWeDo/${el.what_we_do_detail}`} key={i}>
                 <AboutItem
-                  key={i}
                   weDo
                   title={el.title}
                   desc={el.description}

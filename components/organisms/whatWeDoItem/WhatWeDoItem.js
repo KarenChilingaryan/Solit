@@ -41,9 +41,8 @@ const WhatWeDoComponent = () => {
             <Paragraph className={styles.title}>Explore more</Paragraph>
             <Row className={styles.blockItems}>
               {postsWhatWeDoApi?.data_list.slice(0, 3).map((el, i) =>
-                <Link href={`/whatWeDo/${el.what_we_do_detail}`}>
+                <Link href={`/whatWeDo/${el.what_we_do_detail}`} key={i}>
                   <AboutItem
-                    key={i}
                     title={el.title}
                     desc={el.description}
                     icon={el.original_logo_what_we_do}
