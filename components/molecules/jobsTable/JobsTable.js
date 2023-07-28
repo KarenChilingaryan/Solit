@@ -1,4 +1,5 @@
 import { memo, useState } from "react";
+import { useRouter } from "next/router";
 import { Space, Table } from "antd";
 import { Row } from "../../atoms";
 import ModalWrapper from "../../molecules/Modal/Modal";
@@ -6,9 +7,9 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 import styles from "./JobsTable.module.scss";
 import ModalForm from "../modalForm/ModalForm";
 
-
-
 const JobsTable = ({ data, setOpenData }) => {
+  const router = useRouter();
+
   const columns = [
     {
       title: "Role",
@@ -33,19 +34,26 @@ const JobsTable = ({ data, setOpenData }) => {
     {
       title: "Apply",
       key: "apply",
-      render: (item, record) => <Space size="middle" onClick={() => setOpenData(item)}>
-        <a>Apply Now</a>
-      </Space>,
+      render: (item, record) => (
+        <Space size="middle" onClick={() => setOpenData(item)}>
+          <a>Apply Now</a>
+        </Space>
+      ),
     },
   ];
   return (
     <Row className={styles.tableWrapper}>
       <Table
+        onRow={(e) => ({
+          onClick: () =>
+            router.push(`/careers/${e.current_job_opening_detail}`),
+        })}
         columns={columns}
         dataSource={data}
         className={styles.table}
         pagination={false}
-      />;
+      />
+      ;
     </Row>
   );
 };
