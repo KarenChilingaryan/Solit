@@ -70,7 +70,7 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsFilterNameBlogApi.endpoints.blog.initiate())
     }
 
-    if (a.pathname.includes('/about') || flag) {
+    if (a.pathname.includes('/about-us') || flag) {
       await dispatch(await aboutApi.endpoints.about.initiate())
       await dispatch(await abutUsImpactApi.endpoints.about.initiate())
       await dispatch(await abutQuickFactsApi.endpoints.about.initiate())

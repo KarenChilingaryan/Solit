@@ -44,7 +44,7 @@ const Footer = () => {
         title: "COMPANY",
         data: [
           {
-            link: 'about',
+            link: 'about-us',
             name: "About Us",
           },
           {

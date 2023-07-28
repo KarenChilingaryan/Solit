@@ -5,12 +5,24 @@
   .content {
     overflow: hidden;
     .breadcrumb {
-      top: calcVW(200);
-      left: calcVW(400);
-      position: relative;
+      top: calcVW(130);
+      left: calcVW(320);
+      position: absolute;
       z-index: 1000;
       :global(.ant-breadcrumb-link) {
-        color: white !important;
+        @include font-style(calcVW(20), variables.$fw-500, normal);
+        text-decoration: revert;
+      }
+      :global(ol) {
+        li:last-of-type {
+          :global(.ant-breadcrumb-link) {
+            pointer-events: none;
+            text-decoration: none;
+          }
+        }
+      }
+      :global(.ant-breadcrumb-separator) {
+        @include font-style(calcVW(20), variables.$fw-500, normal);
       }
     }
   }

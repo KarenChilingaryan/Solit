@@ -28,7 +28,7 @@ const data = [
     dropdown: false,
     id: 4,
     name: "About us",
-    fix_url: "/about",
+    fix_url: "/about-us",
     data: [],
   },
   {
