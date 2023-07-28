@@ -44,6 +44,7 @@ const FullMenu = styled(Menu)`
 `
 const WhatWeDo = ({ data }) => {
   const [contextData, setContextData] = useState(null);
+  const [showMoreClass, setShowMoreClass] = useState('');
 
   const dispatch = useDispatch();
 
@@ -129,12 +130,14 @@ const WhatWeDo = ({ data }) => {
                   <Image src={devIcon} className={styles.contextIcon} />
                   <Col className={styles.contextTitle}>{contextData?.name_about_as_what_we_do_detail}</Col>
                 </Row>
-                <Row className={styles.context}>
+                <Row className={`${styles.context} ${styles[showMoreClass]}`}>
                   <div dangerouslySetInnerHTML={{ __html: contextData?.info_name_about_as_what_we_do_detail }} />
                 </Row>
-                <ShowMore className={styles.button}>
-                  Show more <Image src={showMore} className={styles.btnImg} />
-                </ShowMore>
+                {!showMoreClass &&
+                  <ShowMore className={styles.button} onClick={() => setShowMoreClass('showMoreClass')}>
+                    Show more <Image src={showMore} className={styles.btnImg} />
+                  </ShowMore>
+                }
               </Row>
             ),
           };

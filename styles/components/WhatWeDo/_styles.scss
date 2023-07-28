@@ -55,6 +55,9 @@
             calcVW(20),
             variables.$light-blue
           );
+          width: max-content;
+          padding: 0;
+          align-items: center;
 
           .btnImg {
             width: calcVW(18);
@@ -77,6 +80,8 @@
           gap: 20px;
         }
         .context {
+          height: calcVW(400);
+          overflow: hidden;
           @include font-style(
             // getWhatWeDoSizes(what-we-do-development-fz),
             calcVW(18),
@@ -85,6 +90,9 @@
             calcVW(30),
             #fff
           );
+        }
+        .showMoreClass {
+          height: max-content;
         }
         .contextIcon {
           width: calcVW(23);
