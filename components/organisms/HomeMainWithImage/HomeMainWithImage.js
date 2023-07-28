@@ -34,9 +34,10 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
       setBreadcrumbElements([{ name: "Main", link: '/' }, ...splitAndCapitalize(routes.asPath)])
     }
   }, [routes])
-  console.log(breadcrumbElements, 'breadcrumbElements');
+
   const footer = useFooterQuery();
   const { data } = footer;
+  
   return (
     <div className={`${styles.content} ${styles[className]}`}>
       <Breadcrumb className={styles.breadcrumb} separator=">">

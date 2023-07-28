@@ -8,13 +8,13 @@ import arrow from "../../../assets/img/icons/selectIcon.svg";
 
 import styles from "./ModalForm.module.scss";
 
-const ModalForm = ({ title, style = {}, data, onSubmit }) => {
+const ModalForm = ({ title, style = {}, data, onSubmit, fromApply = false }) => {
   const [file, setFile] = useState(null);
 
   const submitForm = (values, data) => {
     const formData = {
       ...values,
-      ...data,
+      ...(data ? data : {}),
       file_document: file,
     };
     onSubmit(formData)
@@ -52,12 +52,60 @@ const ModalForm = ({ title, style = {}, data, onSubmit }) => {
           >
             <FloatInput label="Email" placeholder="Email" name="from_email" />
           </FormItem>
+          {fromApply &&
+            <FormItem
+              name="position"
+              rules={[
+                {
+                  required: true,
+                  message: "Name is required",
+                },
+              ]}
+            >
+              <FloatInput label="Position" placeholder="Position" />
+            </FormItem>}
+          {fromApply &&
+            <FormItem
+              name="level"
+              rules={[
+                {
+                  required: true,
+                  message: "Name is required",
+                },
+              ]}
+            >
+              <FloatInput label="Level" placeholder="Level" />
+            </FormItem>}
+          {fromApply &&
+            <FormItem
+              name="link_to_linkedin"
+              rules={[
+                {
+                  required: true,
+                  message: "Name is required",
+                },
+              ]}
+            >
+              <FloatInput label="Link to LinkedIn *" placeholder="Link to LinkedIn *" />
+            </FormItem>}
+          {fromApply &&
+            <FormItem
+              name="link_to_github_or_portfolio"
+              rules={[
+                {
+                  required: true,
+                  message: "Name is required",
+                },
+              ]}
+            >
+              <FloatInput label="Link to Github/Portfolio" placeholder="Link to Github/Portfolio" />
+            </FormItem>}
 
-          <FormItem name="file_document">
+          <FormItem name={fromApply ? "file_cv" : "file_document"}>
             <FloatInput
-              label="About your project"
-              placeholder="About your project"
-              name="file_document"
+              label={fromApply ? "Upload your CV" : "About your project"}
+              placeholder={fromApply ? "Upload your CV" : "About your project"}
+              name={fromApply ? "file_cv" : "file_document"}
               multiple
               type="file"
               accept=".pdf,.doc,.docx"
@@ -69,14 +117,17 @@ const ModalForm = ({ title, style = {}, data, onSubmit }) => {
               className={styles.uploadFile}
             />
           </FormItem>
-          <FormItem name="comment">
+          {!fromApply && <FormItem name="comment">
             <FloatInput label="Comment" placeholder="Comment" name="comment" />
-          </FormItem>
-          <FormItem name="comment" name="phon_number" >
+          </FormItem>}
+          {fromApply && <FormItem name="cover_letter">
+            <FloatInput label="Cover letter" placeholder="Cover letter" name="cover_letter" />
+          </FormItem>}
+          {!fromApply && <FormItem name="comment" name="phon_number" >
             <FloatInput label="Phone number" placeholder="Phone number" name="phon_number" type="number" />
-          </FormItem>
-          
-          <FormItem
+          </FormItem>}
+
+          {!fromApply && <FormItem
             name="your_budget"
             rules={[
               {
@@ -98,7 +149,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit }) => {
             >
               <Select.Option value="demo">Demo</Select.Option>
             </Select>
-          </FormItem>
+          </FormItem>}
           <FormItem className={styles.accept}>
             <Checkbox />
             <Row className={styles.acceptText}>

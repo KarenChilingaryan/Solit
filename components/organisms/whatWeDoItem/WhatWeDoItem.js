@@ -30,7 +30,6 @@ const WhatWeDoComponent = () => {
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
   );
 
-  console.log(postsWhatWeDoApi, 'postsWhatWeDoApi');
   return (
     <div className={styles.careerPage}>
       <HomeMainWithImage firstImage={imageBG}>

@@ -5,7 +5,7 @@ import { HomeMainWithImage } from "../HomeMainWithImage";
 import Button from "../../molecules/button/Button";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import JobsTable from "../../molecules/jobsTable/JobsTable";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ContactForm from "../contactForm/ContactForm";
 import earth from "../../../assets/img/main-bg-careers.png";
 import teamMember from "../../../assets/img/teamMember.png";
@@ -15,11 +15,12 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 
 import styles from "./careers.module.scss";
 import ModalForm from "../../molecules/modalForm/ModalForm";
+import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 
 const Careers = () => {
   const [openData, setOpenData] = useState(null);
   const [data, setData] = useState([]);
-  // const router = useRouter();
+  const dispatch = useDispatch()
 
   const careersJobOpeningApi = useSelector(
     (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
@@ -79,6 +80,16 @@ const Careers = () => {
     }
   }, [postsTextCareersAboutUsApi])
 
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    const res = await dispatch(
+      await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
+    );
+  }
+
   return (
     <HomeMainWithImage firstImage={earth}>
       {/* <SeoCard details={seoData} /> */}
@@ -127,7 +138,7 @@ const Careers = () => {
         </Row>
       </Row>
       <ModalWrapper open={!!openData} width={"66vw"} setOpen={setOpenData}>
-        <ModalForm openData={openData} />
+        <ModalForm openData={openData} fromApply={true} onSubmit={onSubmit} />
       </ModalWrapper>
     </HomeMainWithImage>
   );

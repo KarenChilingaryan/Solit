@@ -211,7 +211,7 @@ const Line = () => {
 
       const { top, height } = targetElement.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const percentage = Math.round(((windowHeight - top) / height) * 100);
+      const percentage = Math.round(((windowHeight - top) / height) * 60);
       setVisiblePercentageMobile(percentage);
     }
     const handleScroll = () => {
@@ -220,7 +220,7 @@ const Line = () => {
 
       const { top, height } = targetElement.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const percentage = Math.round(((windowHeight - top) / height) * 100);
+      const percentage = Math.round(((windowHeight - top) / height) * 60);
       setVisiblePercentage(percentage);
       getForMobile()
     };
