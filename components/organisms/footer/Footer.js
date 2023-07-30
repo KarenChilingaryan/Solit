@@ -3,8 +3,8 @@ import Image from "next/image";
 import { Col, Row, Paragraph } from "../../atoms";
 import logoFooter from "../../../assets/img/bigLogo.png";
 import styles from "./Footer.module.scss";
-import { useFooterQuery } from "../../../services/footerApi";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
   const dataDefault = [
@@ -71,14 +71,17 @@ const Footer = () => {
       },
     },
   ];
-  const footer = useFooterQuery();
-  const { data } = footer;
+  
+  const footerApi = useSelector(
+    (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
+  );
 
-  const info = data && data.office ? {
-    address: data.office.address,
-    mail: data.office.mail,
-    number: data.office.number,
+  const info = footerApi && footerApi.office ? {
+    address: footerApi.office.address,
+    mail: footerApi.office.mail,
+    number: footerApi.office.number,
   } : {};
+
   return (
     <div className={styles.footerWrapper}>
       <Row className={styles.footerBlock}>
@@ -121,7 +124,7 @@ const Footer = () => {
         </Col>
         <Col className={styles.socialIconsWrapper}>
           <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} >Let’s Contact for Great</Paragraph>
-          {data && data?.contact?.map((item, index) =>
+          {footerApi && footerApi?.contact?.map((item, index) =>
             <Link href={item.link} target="_blank" key={index}>
               <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} width={300} height={300} />
             </Link>

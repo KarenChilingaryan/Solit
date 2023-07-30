@@ -44,6 +44,7 @@
     .bottomBlock {
       .blockItems {
         row-gap: calcVWM(32);
+        flex-direction: column;
       }
       .title {
         @include font-style(calcVWM(36), variables.$fw-500, calcVWM(43), #fff);

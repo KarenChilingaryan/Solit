@@ -24,6 +24,7 @@ import { postsFilterNameBlogApi } from "../../services/postsFilterNameBlogApi";
 import { postsTextCareersAboutUsApi } from "../../services/postsTextCareersAboutUsApi";
 import { postsTextCareersColourfulApi } from "../../services/postsTextCareersColourfulApi";
 import { postsTextMainAboutUsApi } from "../../services/postsTextMainAboutUsApi";
+import { footerApi } from "../../services/footerApi";
 
 export async function getServerSideProps(context) {
   const res = await axios.get(`https://jsonplaceholder.typicode.com/users/`);
@@ -60,6 +61,7 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsTextMainAboutUsApi.endpoints.mainAbout.initiate())
       await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate())
       await dispatch(await postPortfolioApi.endpoints.posts.initiate())
+      await dispatch(await footerApi.endpoints.footer.initiate())
     }
 
     // if (a.pathname.includes('/portfolio') && flag || !a.pathname.includes('/portfolio') && !flag) {

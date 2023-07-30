@@ -87,10 +87,6 @@ const Header = () => {
     (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
   );
 
-  console.log(footerApi, 'footerApi');
-
-
-
   const handleOutsideClick = () => {
     if (filteredData != 'none') {
       setFilteredData('none')

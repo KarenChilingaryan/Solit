@@ -7,6 +7,7 @@
     flex: none;
     max-height: getServiceCardSizes(serviceCard-card-height);
     border-radius: calcVW(16);
+    overflow: hidden;
     .title_iconWrapper {
       position: relative;
       width: 100%;
@@ -73,6 +74,7 @@
     @media (max-width: 1024px) {
       max-width: calcVWT(224);
       max-height: calcVWT(400);
+      border-radius: calcVWT(16);
       .title_iconWrapper {
         .title {
           min-height: calcVWT(90);
@@ -114,6 +116,26 @@
     .title_iconWrapper {
       .iconWrapper {
         max-height: calcVW(456);
+      }
+    }
+    @media (max-width: 1024px) {
+      max-width: calcVWT(304);
+      max-height: calcVWT(380);
+      height: calcVWT(380);
+      .title_iconWrapper {
+        .iconWrapper {
+          max-height: 100%;
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      max-width: 100%;
+      max-height: calcVWM(380);
+      height: calcVWM(380);
+      .title_iconWrapper {
+        .iconWrapper {
+          max-height: 100%;
+        }
       }
     }
   }
