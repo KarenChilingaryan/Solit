@@ -1,21 +1,21 @@
 import { memo, useState } from "react";
+import { useDispatch } from "react-redux";
+import Link from "next/link";
+import { Slider } from "antd";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import bgImage from "../../../assets/img/main-bg-discuss-stack.png";
 import { Col, Paragraph, Row, Checkbox, Form, FormItem } from "../../atoms";
-import { Slider } from "antd";
+import { emailDiscussYourProject2Api } from "../../../services/emailDiscussYourProject2Api";
 import Button from "../../molecules/button/Button";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import Industry from "../../molecules/Industry/Industry";
 import AddSpecialist from "../../molecules/AddSpecialist/AddSpecialist";
 import PricingModal from "../../molecules/pricingModal/PricingModal";
 import StackFooter from "../../molecules/stackFooter/StackFooter";
-import { emailDiscussYourProject2Api } from "../../../services/emailDiscussYourProject2Api";
+import bgImage from "../../../assets/img/main-bg-discuss-stack.png";
 
 import styles from "./DiscussProjectStack.module.scss";
-import { useDispatch } from "react-redux";
 
-const data = [1, 2, 3, 4];
 const data1 = ["Real Estate", 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55];
 
 const stacks = [
@@ -197,8 +197,12 @@ const DiscussProjectStack = () => {
             onSubmit={onSubmit}
           />
         </ModalWrapper>}
-        {liveStacks?.length && (
-          <StackFooter liveStacks={liveStacks} handleDelete={handleDelete} />
+        {!open && liveStacks?.length && (
+          <StackFooter
+            liveStacks={liveStacks}
+            handleDelete={handleDelete}
+            onClick={() => submitForm(form.getFieldsValue())}
+          />
         )}
         <div className={styles.content}>
           <HomeMain
@@ -213,14 +217,18 @@ const DiscussProjectStack = () => {
               className={styles.form}
               onValuesChange={handleFormValuesChange}
             >
-              <FormItem name="teamType" className={styles.buttons}>
-                <Button
-                  text="Mobile Application Development"
-                  grayTextBtn
-                  type="button"
-                />
-                <Button text="Team Augmentation" grayTextBtn type="button" />
-              </FormItem>
+              <div className={styles.buttons}>
+                <Link href="/discuss-project">
+                  <Button
+                    text="Mobile Application Development"
+                    grayTextBtn
+                    type="button"
+                  />
+                </Link>
+                <Link href="/discuss-project-stack">
+                  <Button text="Team Augmentation" grayTextBtn type="button" />
+                </Link>
+              </div>
               <Row className={styles.industryDetails}>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>

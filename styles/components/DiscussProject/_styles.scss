@@ -17,6 +17,7 @@
         .buttons {
           display: flex;
           gap: calcVW(16);
+          margin-top: calcVW(60);
           .grayTextBtn {
             &:focus-visible {
               outline: none;
@@ -43,9 +44,11 @@
             @media (max-width: 768px) {
             }
           }
-          .selectedButton {
-            background: variables.$light-blue;
-            @include font-style(calcVW(13), variables.$fw-700, calcVW(19), variables.$black);
+          a:first-of-type {
+            button {
+              background: variables.$light-blue;
+              @include font-style(calcVW(13), variables.$fw-700, calcVW(19), variables.$black);
+            }
           }
         }
 

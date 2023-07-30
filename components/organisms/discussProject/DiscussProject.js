@@ -1,5 +1,7 @@
 import { memo, useState } from "react";
-import { Radio, Slider } from "antd";
+import { Slider } from "antd";
+import Link from "next/link";
+import { useDispatch } from "react-redux";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import bgImage from "../../../assets/img/main-bg-discuss.png";
@@ -9,10 +11,9 @@ import Industry from "../../molecules/Industry/Industry";
 import StackFooter from "../../molecules/stackFooter/StackFooter";
 import PricingModal from "../../molecules/pricingModal/PricingModal";
 import ModalWrapper from "../../molecules/Modal/Modal";
+import { emailDiscussYourProject1Api } from "../../../services/emailDiscussYourProject1Api";
 
 import styles from "./DiscussProject.module.scss";
-import { emailDiscussYourProject1Api } from "../../../services/emailDiscussYourProject1Api";
-import { useDispatch } from "react-redux";
 
 const data = ["Android", "iOS", "Cross-platform"];
 const data1 = ["idea", "MVP", "Prototype/Specification"];
@@ -25,14 +26,10 @@ const DiscussProject = () => {
   const [form] = Form.useForm();
   const [liveStacks, setLiveStacks] = useState([]);
   const [open, setOpen] = useState(false);
-  const [submitDisabled, setSubmitDisabled] = useState(false);
   const [selectedValue, setSelectedValue] = useState("none");
   const [modalFormData, setModalFormData] = useState(null);
 
   const dispatch = useDispatch();
-  const handleRadioChange = (e) => {
-    setSelectedValue(e.target.value);
-  };
 
   const submitForm = (values) => {
     const formData = {
@@ -214,10 +211,11 @@ const DiscussProject = () => {
           />
         </ModalWrapper>
         }
-        {liveStacks?.length && (
+        {!open && liveStacks?.length && (
           <StackFooter
             liveStacks={liveStacks}
             handleDelete={(item) => handleDelete(item)}
+            onClick={() => submitForm(form.getFieldsValue())}
           />
         )}
         <div className={styles.content}>
@@ -233,34 +231,18 @@ const DiscussProject = () => {
               className={styles.form}
               onValuesChange={handleFormValuesChange}
             >
-              <FormItem name="applicationStack">
-                <Radio.Group
-                  buttonStyle="solid"
-                  defaultValue={"none"}
-                  value={selectedValue}
-                  onChange={handleRadioChange}
-                  className={styles.buttons}
-                >
-                  <Radio.Button
-                    className={`${styles.grayTextBtn} ${selectedValue === "Mobile Application Development"
-                      ? styles.selectedButton
-                      : ""
-                      }`}
-                    value="Mobile Application Development"
-                  >
-                    Mobile Application Development
-                  </Radio.Button>
-                  <Radio.Button
-                    className={`${styles.grayTextBtn} ${selectedValue === "Team Augmentation"
-                      ? styles.selectedButton
-                      : ""
-                      }`}
-                    value="Team Augmentation"
-                  >
-                    Team Augmentation
-                  </Radio.Button>
-                </Radio.Group>
-              </FormItem>
+              <div className={styles.buttons}>
+                <Link href="/discuss-project">
+                  <Button
+                    text="Mobile Application Development"
+                    grayTextBtn
+                    type="button"
+                  />
+                </Link>
+                <Link href="/discuss-project-stack">
+                  <Button text="Team Augmentation" grayTextBtn type="button" />
+                </Link>
+              </div>
               <Row className={styles.industryDetails}>
                 <Row className={styles.industries}>
                   <Paragraph className={styles.title}>
@@ -394,7 +376,6 @@ const DiscussProject = () => {
                   text="Get Pricing"
                   transparentOpposite
                   type="submit"
-                  disabled={submitDisabled}
                 />
               </Row>
             </Form>

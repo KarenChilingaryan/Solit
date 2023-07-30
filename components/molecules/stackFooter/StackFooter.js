@@ -1,11 +1,12 @@
 import { memo } from "react";
-import { Col, Row, Paragraph } from "../../atoms";
 import Image from "next/image";
+import Button from "../button/Button";
+import { Col, Row, Paragraph } from "../../atoms";
 import close from "../../../assets/img/icons/closeIcon.svg";
 
 import styles from "./StackFooter.module.scss";
 
-const StackFooter = ({ liveStacks = [], handleDelete }) => {
+const StackFooter = ({ liveStacks = [], handleDelete, onClick }) => {
   return (
     <Row className={styles.footer}>
       <Row className={styles.footerContent}>
@@ -26,6 +27,7 @@ const StackFooter = ({ liveStacks = [], handleDelete }) => {
           ))}
         </Row>
       </Row>
+      <Button lightBlue text="Proceed" onClick={onClick} />
     </Row>
   );
 };
