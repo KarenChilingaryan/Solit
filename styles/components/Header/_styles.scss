@@ -18,6 +18,10 @@
       width: getHeaderSizes(header-logo-width);
       height: getHeaderSizes(header-logo-height);
     }
+    .pricing {
+      margin-right: calcVW(-340);
+      margin-left: calcVW(260);
+    }
     .menuWrapper {
       display: flex;
       .socialIconsWrapper {
@@ -97,9 +101,6 @@
     .buttonWrapper {
       margin-left: getHeaderSizes(header-button-wrapper-ml);
     }
-    .pricing {
-      display: none;
-    }
     .menuImage {
       display: none;
     }
@@ -134,6 +135,12 @@
       .menuWrapper:first-of-type {
         width: calcVWT(490);
         justify-content: space-between;
+      }
+
+      .pricing {
+        margin-right: calcVWT(-168);
+        margin-top: calcVWT(-5);
+        margin-left: calcVWT(78);
       }
       .menuWrapper {
         transition: height 0.3s ease;
@@ -185,6 +192,9 @@
       position: relative;
       transition: height 0.3s ease;
       background: rgba(0, 0, 0, 0.5);
+      .pricing {
+        margin: 0;
+      }
       .menuWrapper:first-of-type {
         transition: height 0.3s ease;
         justify-content: space-between;

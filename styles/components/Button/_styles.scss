@@ -370,7 +370,7 @@
     background: variables.$transparent;
     @include font-style(
       getButtonSizes(button-text-bold-blue-fz),
-      variables.$fw-500,
+      variables.$fw-700,
       getButtonSizes(button-text-bold-blue-lh),
       variables.$light-blue !important
     );
@@ -385,7 +385,7 @@
       border: 1px solid variables.$light-blue;
       @include font-style(
         getButtonSizes(button-text-bold-blue-fz),
-        variables.$fw-500,
+        variables.$fw-700,
         getButtonSizes(button-text-bold-blue-lh),
         variables.$white !important
       );
@@ -398,6 +398,14 @@
       padding: calcVWT(8) calcVWT(32);
       @include font-style(calcVWT(13) !important, variables.$fw-700 !important, calcVWT(16) !important);
       border-radius: calcVWT(8);
+    }
+    @media (max-width: 576px) {
+      padding: calcVWM(8) calcVWM(32);
+      @include font-style(calcVWM(13) !important, variables.$fw-500 !important, calcVWM(16) !important);
+      border-radius: calcVWM(8);
+      &:hover {
+        @include font-style(calcVWM(16), variables.$fw-700, calcVWM(16), variables.$white !important);
+      }
     }
   }
 

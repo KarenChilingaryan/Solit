@@ -83,6 +83,12 @@ const Header = () => {
     (state) => state?.headerApi?.queries?.["header(undefined)"]?.data
   );
 
+  const footerApi = useSelector(
+    (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
+  );
+
+  console.log(footerApi, 'footerApi');
+
 
 
   const handleOutsideClick = () => {
@@ -216,36 +222,21 @@ const Header = () => {
             </div>
             )}
           </div>
+          <Link href="/discuss-project" className={styles.pricing}>
+            <Button text="Pricing" transparentBlue />
+          </Link>
           <Col className={styles.socialIconsWrapper}>
             <Paragraph className={styles.socialIconsTitle}>Let’s Contact for Great</Paragraph>
             {/* data && data[0]?.social_link? */}
-            {[
-              { name: 'hhhhh' },
-              { name: 'hhhhh' },
-              { name: 'hhhhh' },
-              { name: 'hhhhh' },
-              { name: 'hhhhh' },
-              { name: 'hhhhh' },
-            ].map((item, index) =>
-              <Image src={linkedIn} alt="logo" className={styles.socialIcons} key={index} />
+            {footerApi && footerApi?.contact?.map((item, index) =>
+              <Link href={item.link} target="_blank" key={index}>
+                <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} width={100} height={100} />
+              </Link>
             )}
           </Col>
         </div>
         <div className={`${styles.menuWrapper} ${openMenu ? styles.closedMenu : ''}`}>
-
-          <div className={styles.pricing} onClick={() => setOpenMenu(true)} >
-            <Link
-              href={'/contact-us'}>
-              <Button text="Pricing" transparentBlue />
-            </Link>
-          </div>
           <Image src={hamburger} onClick={() => { setOpenMenu(!openMenu) }} className={styles.menuImage} />
-        </div>
-        <div className={`${styles.buttonWrapper} ${styles.buttonWrapperMobile}`} onClick={() => setOpenMenu(true)}>
-          <Link
-            href={'/contact-us'}>
-            <Button text="Pricing" transparentBlue />
-          </Link>
         </div>
       </div>
     </div>
