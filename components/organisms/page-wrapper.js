@@ -49,6 +49,7 @@ const PageWrapper = ({ children, item }) => {
   const getAllData = async (flag = true) => {
     if (a.pathname === '/' || flag) {
       await dispatch(await postsApi.endpoints.posts.initiate())
+      await dispatch(await servicesApi.endpoints.services.initiate())
       await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate())
       await dispatch(await postsMainProcessTextApi.endpoints.posts.initiate())
       await dispatch(await postsMainWhatWeDoTextApi.endpoints.posts.initiate())
@@ -59,7 +60,6 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsTextMainAboutUsApi.endpoints.mainAbout.initiate())
       await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate())
       await dispatch(await postPortfolioApi.endpoints.posts.initiate())
-      await dispatch(await servicesApi.endpoints.services.initiate())
     }
 
     // if (a.pathname.includes('/portfolio') && flag || !a.pathname.includes('/portfolio') && !flag) {
