@@ -16,7 +16,7 @@ const ServiceCard = ({ item, onClick, className, fromDetail }) => {
       <Link href={`/services/${item?.service_detail}`}>
         <Row align_items={"center"} className={styles.title_iconWrapper}>
           <Row className={styles.title}>{item?.title || "Mobile Development"}</Row>
-          <Image className={styles.iconWrapper} src={item?.webp_image_service || cardIcon} width={300} height={500} />
+          <Image className={styles.iconWrapper} src={item?.original_image_service || cardIcon} width={300} height={500} />
           <Row className={styles.description}>
             {item?.description || "It is a long established fact that a reader will be distracted by the readable content"}
           </Row>

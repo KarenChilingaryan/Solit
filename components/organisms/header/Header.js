@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -53,18 +53,43 @@ const data = [
     data: [],
   },
 ];
+
+const useOutsideClick = (ref, callback) => {
+  const handleClick = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      callback();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, [ref, callback]);
+};
+
 const Header = () => {
   const router = useRouter();
   const [openMenu, setOpenMenu] = useState(true);
   const [dropdownElements, setDropdownElements] = useState([])
+  const [filteredData, setFilteredData] = useState("none");
+  const [scrollY, setScrollY] = useState(0);
+  const [scrollYNew, setScrollYNew] = useState(0);
+  const modalRef = useRef(null);
+
   const headerData = useSelector(
     (state) => state?.headerApi?.queries?.["header(undefined)"]?.data
   );
 
-  const [filteredData, setFilteredData] = useState("none");
 
-  const [scrollY, setScrollY] = useState(0);
-  const [scrollYNew, setScrollYNew] = useState(0);
+
+  const handleOutsideClick = () => {
+    if (filteredData != 'none') {
+      setFilteredData('none')
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,6 +103,8 @@ const Header = () => {
     };
   }, []);
 
+  useOutsideClick(modalRef, handleOutsideClick);
+
   useEffect(() => {
     if (scrollYNew && !scrollY) {
       setScrollYNew(scrollY);
@@ -85,8 +112,6 @@ const Header = () => {
       setScrollYNew(scrollY);
     }
   }, [scrollY]);
-
-
 
   useEffect(() => {
     if (headerData) {
@@ -127,7 +152,9 @@ const Header = () => {
           {headerData && dropdownElements?.map((el) => <div
             key={el.id}
             onClick={() => {
-              setFilteredData(filteredData !== el.name ? el.name : 'none');
+              setTimeout(() => {
+                setFilteredData(filteredData !== el.name ? el.name : 'none');
+              }, 100)
             }}
             className={`${styles.menuItem} ${filteredData !== el.name ? styles.closedMenu : ''}`}
           >
@@ -144,7 +171,7 @@ const Header = () => {
               {el.name}
               <Image src={dropdown} />
             </Link>
-            <div className={styles.menuItemChildMainWrapper}>
+            <div className={styles.menuItemChildMainWrapper} ref={modalRef}>
               {el?.data?.map((e, idx) =>
                 <Link href={el?.fix_url + '/' + (e?.service_detail || e?.what_we_do_detail)} key={idx}>
                   <div
