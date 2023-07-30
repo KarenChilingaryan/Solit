@@ -123,7 +123,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, fromApply = false }) => 
           {fromApply && <FormItem name="cover_letter">
             <FloatInput label="Cover letter" placeholder="Cover letter" name="cover_letter" />
           </FormItem>}
-          {!fromApply && <FormItem name="comment" name="phon_number" >
+          {!fromApply && <FormItem name="phon_number" >
             <FloatInput label="Phone number" placeholder="Phone number" name="phon_number" type="number" />
           </FormItem>}
 
