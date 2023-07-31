@@ -2,13 +2,36 @@
 @import "../../base/mixins";
 
 @mixin generate-service-card-styles {
+  .moreBorder {
+    a {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    border: 1px solid #219fdb;
+    .more {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      @include font-style(calcVW(18), variables.$fw-700, calcVW(21), #219fdb);
+      @media (max-width: 1024px) {
+        @include font-style(calcVWT(18), variables.$fw-700, calcVWT(21), #219fdb);
+      }
+      @media (max-width: 576px) {
+        @include font-style(calcVWM(18), variables.$fw-700, calcVWM(21), #219fdb);
+      }
+    }
+  }
   .serviceCardWrapper {
     width: 100%;
     flex: none;
     max-height: getServiceCardSizes(serviceCard-card-height);
     border-radius: calcVW(16);
     overflow: hidden;
-    height: getServiceCardSizes(serviceCard-card-height);;
+    height: getServiceCardSizes(serviceCard-card-height);
+
     .title_iconWrapper {
       position: relative;
       width: 100%;
@@ -75,6 +98,7 @@
     @media (max-width: 1024px) {
       max-width: calcVWT(224);
       max-height: calcVWT(400);
+      height: calcVWT(400);
       border-radius: calcVWT(16);
       .title_iconWrapper {
         .title {
@@ -94,6 +118,7 @@
     @media (max-width: 576px) {
       max-width: calcVWM(163);
       max-height: calcVWM(300);
+      height: calcVWM(300);
       border-radius: calcVWM(16);
       .title_iconWrapper {
         .title {

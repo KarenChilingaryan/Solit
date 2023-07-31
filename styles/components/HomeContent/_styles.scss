@@ -9,9 +9,10 @@
             width: 100%;
             margin-top: getHomeContentSizes(services-mt);
             .services {
-                @include flex(space-between, center, null, wrap);
+                @include flex(flex-start, center, null, wrap);
                 width: 100%;
                 row-gap: getHomeContentSizes(services-rg);
+                column-gap: calcVW(76);
                 margin-top: calcVW(100);
             }
 
@@ -139,6 +140,9 @@
             margin-top: calcVWT(170);
             .servicesMain {
                 margin-top: calcVWT(150);
+                .services {
+                    column-gap: calcVWT(104);
+                }
             }
         }
         .borderedText {
@@ -193,6 +197,9 @@
             .servicesMain {
                 margin-top: calcVWM(20);
                 margin-bottom: calcVWM(80);
+                .services {
+                    column-gap: calcVWM(17);
+                }
             }
         }
         .borderedText {

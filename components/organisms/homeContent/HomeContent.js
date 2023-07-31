@@ -184,8 +184,8 @@ const HomeContent = () => {
               <BorderedText text="Services" />
             </div>
             <div className={styles.services}>
-              {servicesData?.data_list?.map((item, i) => (
-                <ServiceCard item={item} key={i} index={i}/>
+              {servicesData && [...servicesData?.data_list.slice(0, 5), ...(servicesData?.data_list.length > 5 ? ['more'] : [])]?.map((item, i) => (
+                <ServiceCard item={item} key={i} index={i} more={item == "more"} />
               ))}
             </div>
           </div>
