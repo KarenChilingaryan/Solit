@@ -185,7 +185,7 @@ const HomeContent = () => {
             </div>
             <div className={styles.services}>
               {servicesData?.data_list?.map((item, i) => (
-                <ServiceCard item={item} key={i} />
+                <ServiceCard item={item} key={i} index={i}/>
               ))}
             </div>
           </div>
@@ -227,7 +227,7 @@ const HomeContent = () => {
             <div className={styles.description}
               dangerouslySetInnerHTML={{ __html: postsMainWhatWeDoTextApi ? postsMainWhatWeDoTextApi[0].description : "" }}
             />
-            {postsWhatWeDoApi && postsWhatWeDoApi?.data_list?.map((project, i) => (
+            {postsWhatWeDoApi && [...postsWhatWeDoApi?.data_list.slice(0, 5), ...(postsWhatWeDoApi?.data_list.length > 5 ? ['more'] : [])]?.map((project, i) => (
               <WeDoCard key={i} item={project} />
             ))}
           </div>
@@ -255,7 +255,7 @@ const HomeContent = () => {
             </div>
             <Image src={ourProjectImage} className={`${styles.backImageSecond} ${styles.backImage}`} />
             <div className={styles.ourProjectsCards}>
-              {postPortfolioApi && postPortfolioApi?.data_list?.map((project, i) => (
+              {postPortfolioApi && [...postPortfolioApi?.data_list.slice(0, 7), ...(postPortfolioApi?.data_list.length > 7 ? ['more'] : [])]?.map((project, i) => (
                 <OurProjectCard
                   onClick={() => handleClick(project.id)}
                   key={i}

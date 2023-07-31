@@ -8,6 +8,7 @@
     max-height: getServiceCardSizes(serviceCard-card-height);
     border-radius: calcVW(16);
     overflow: hidden;
+    height: getServiceCardSizes(serviceCard-card-height);;
     .title_iconWrapper {
       position: relative;
       width: 100%;
