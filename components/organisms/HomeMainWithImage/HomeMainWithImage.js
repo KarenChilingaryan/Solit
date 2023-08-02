@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Paragraph } from "../../atoms";
+import rughtRow from "../../../assets/img/right-row.svg"
 
 import styles from "./HomeMainWithImage.module.scss";
 
@@ -39,6 +40,10 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
     (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
   );
 
+  const scrallToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
 
   return (
     <div className={`${styles.content} ${styles[className]}`}>
@@ -60,6 +65,12 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
             </div>
           </Link>
         )}
+      </div>
+      <div className={`${styles.socialSites} ${styles.socialSitesTop}`} onClick={scrallToTop}>
+        <div className={styles.site}>
+          <Paragraph className={styles.text}>Go To Top</Paragraph>
+          <Image src={rughtRow} className={styles.image} width={80} height={80} />
+        </div>
       </div>
       <Image
         src={firstImage}

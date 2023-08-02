@@ -55,6 +55,12 @@
       display: none;
     }
   }
+  .socialSitesTop {
+    right: calcVW(-180);
+    top: calcVW(600);
+    left: auto;
+    z-index: 1000;
+  }
   @media (max-width: 576px) {
     .content {
       padding-top: calcVWM(70);
