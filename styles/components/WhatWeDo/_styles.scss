@@ -30,10 +30,8 @@
       gap: calcVW(32);
       .title {
         @include font-style(
-          // getWhatWeDoSizes(what-we-do-development-fz),
           calcVW(36),
           variables.$fw-500,
-          // getWhatWeDoSizes(what-we-do-development-lh),
           calcVW(44),
           #fff
         );
