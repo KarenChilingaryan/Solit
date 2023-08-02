@@ -50,22 +50,21 @@ const PageWrapper = ({ children, item }) => {
   const getAllData = async (flag = true) => {
     if (a.pathname === '/' || flag) {
       await dispatch(await postsApi.endpoints.posts.initiate())
-      await dispatch(await servicesApi.endpoints.services.initiate())
-      await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate())
+      if (!a.pathname.includes('/services'))
+        await dispatch(await servicesApi.endpoints.services.initiate())
+      await dispatch(await postsTextMainAboutUsApi.endpoints.mainAbout.initiate())
       await dispatch(await postsMainProcessTextApi.endpoints.posts.initiate())
       await dispatch(await postsMainWhatWeDoTextApi.endpoints.posts.initiate())
-      await dispatch(await postsMainTechnologyApi.endpoints.posts.initiate())
-      await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate())
-      await dispatch(await postsTextCareersAboutUsApi.endpoints.careersAbout.initiate())
+      if (!a.pathname.includes('/what-we-do'))
+        await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate())
       await dispatch(await postsMainTechnologyFiltersApi.endpoints.posts.initiate())
-      await dispatch(await postsTextMainAboutUsApi.endpoints.mainAbout.initiate())
-      await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate())
-      await dispatch(await postPortfolioApi.endpoints.posts.initiate())
+      await dispatch(await postsMainTechnologyApi.endpoints.posts.initiate())
+      await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate())
+      if (!a.pathname.includes('/portfolio'))
+        await dispatch(await postPortfolioApi.endpoints.posts.initiate())
+      await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate())
       await dispatch(await footerApi.endpoints.footer.initiate())
     }
-
-    // if (a.pathname.includes('/portfolio') && flag || !a.pathname.includes('/portfolio') && !flag) {
-    // }
 
     if (a.pathname.includes('/blog') || flag) {
       await dispatch(await postsBlogApi.endpoints.blog.initiate())
@@ -74,15 +73,27 @@ const PageWrapper = ({ children, item }) => {
 
     if (a.pathname.includes('/about-us') || flag) {
       await dispatch(await aboutApi.endpoints.about.initiate())
+      await dispatch(await abutUsWhatWeDoApi.endpoints.about.initiate())
       await dispatch(await abutUsImpactApi.endpoints.about.initiate())
       await dispatch(await abutQuickFactsApi.endpoints.about.initiate())
       await dispatch(await abutUsCompanyOfExpertsApi.endpoints.about.initiate())
-      await dispatch(await abutUsWhatWeDoApi.endpoints.about.initiate())
     }
 
     if (a.pathname.includes('/careers') || flag) {
       await dispatch(await careersJobOpeningApi.endpoints.career.initiate())
       await dispatch(await postsTextCareersColourfulApi.endpoints.careersAbout.initiate())
+      await dispatch(await postsTextCareersAboutUsApi.endpoints.careersAbout.initiate())
+
+    }
+
+    if (a.pathname.includes('/services') || flag) {
+      await dispatch(await servicesApi.endpoints.services.initiate())
+    }
+    if (a.pathname.includes('/portfolio') || flag) {
+      await dispatch(await postPortfolioApi.endpoints.posts.initiate())
+    }
+    if (a.pathname.includes('/what-we-do') || flag) {
+      await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate())
     }
 
     if (!flag) {

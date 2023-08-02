@@ -65,7 +65,7 @@ const Portfolios = ({ data }) => {
         <Image className={styles.elipse} src={elipse} />
         {data && [...data]?.map((project, i) => (
           <OurProjectCard
-            onClick={() => handleClick(project.id)}
+            onClick={() => handleClick(project.project_from_portfolio)}
             key={i}
             more={project == "more"}
             component="portfolio"

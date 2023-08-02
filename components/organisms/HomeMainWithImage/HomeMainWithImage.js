@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { memo, useEffect, useState } from "react";
-import { useFooterQuery } from "../../../services/footerApi";
+import { useSelector } from "react-redux";
 import { Paragraph } from "../../atoms";
 
 import styles from "./HomeMainWithImage.module.scss";
@@ -35,16 +35,21 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
     }
   }, [routes])
 
-  const footer = useFooterQuery();
-  const { data } = footer;
-  
+  const data = useSelector(
+    (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
+  );
+
+
   return (
     <div className={`${styles.content} ${styles[className]}`}>
-      <Breadcrumb className={styles.breadcrumb} separator=">">
-        {breadcrumbElements.map((el, index) =>
-          <Breadcrumb.Item href={el.link}key={index}> {el.name}</Breadcrumb.Item>
-        )}
-      </Breadcrumb>
+      {
+        breadcrumbElements?.length > 1 &&
+        <Breadcrumb className={styles.breadcrumb} separator=">">
+          {breadcrumbElements.map((el, index) =>
+            <Breadcrumb.Item href={el.link} key={index}> {el.name}</Breadcrumb.Item>
+          )}
+        </Breadcrumb>
+      }
       <div className={styles.socialSites}>
 
         {data?.contact?.map((el, i) =>

@@ -55,7 +55,7 @@ const BlogItem = () => {
                 onClick={() => handleClick(project.blog_detail)}
                 key={i}
                 name={project.title}
-                image={project?.original_image_blog}
+                image={project?.webp_image_blog}
                 description={project.description}
                 more={project == "more"}
                 component="blogs"

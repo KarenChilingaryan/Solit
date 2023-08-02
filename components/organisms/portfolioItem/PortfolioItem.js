@@ -46,7 +46,7 @@ const PortfolioItem = () => {
         <Row className={styles.content}>
           <Row className={styles.itemDescription}>
             <Col className={styles.imageCard}>
-              <Image src={postPortfolioApiData?.original_image} width={1000} height={1900} />
+              <Image src={postPortfolioApiData?.webp_image} width={1000} height={1900} />
             </Col>
             <Col className={styles.testSection}>
               <HomeMain
