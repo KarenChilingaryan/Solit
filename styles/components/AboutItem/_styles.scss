@@ -41,6 +41,7 @@
           getAboutItemSizes(about-item-desc-lh),
           variables.$main-white
         );
+        min-height: calcVW(216);
       }
     }
     .weDoContent {
@@ -66,6 +67,7 @@
         }
         .desc {
           @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), variables.$main-white);
+          min-height: calcVWT(336);
         }
       }
     }
@@ -90,12 +92,12 @@
     width: getAboutItemSizes(about-item-width-wd);
     height: getAboutItemSizes(about-item-height-wd);
     @media (max-width: 1024px) {
-        width: calcVWT(304);
-        height: calcVWT(380);
+      width: calcVWT(304);
+      height: calcVWT(380);
     }
     @media (max-width: 576px) {
-        width: 100%;
-        height: calcVWM(332);
+      width: 100%;
+      height: calcVWM(332);
     }
   }
 }
