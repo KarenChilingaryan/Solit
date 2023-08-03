@@ -3,6 +3,40 @@
 
 @mixin generate-process-styles {
   .container {
+    .loadingPath {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      stroke: #3FC1FF; /* Set the initial color */
+      animation: colorChange 2s linear forwards;
+    }
+
+    @keyframes colorChange {
+      to {
+        stroke-dashoffset: 0;
+        stroke: #3FC1FF; /* Change to the final color */
+      }
+    }
+
+    .loadingPathRound {
+      stroke: white; /* Initial color */
+      animation: colorChangeRound 0.5s linear 0.5s forwards;
+    }
+    .loadingPathRoundFill{
+      fill: white; /* Initial color */
+      animation: colorChangeRoundFill 0.5s linear 0.5s forwards;
+    }
+
+    @keyframes colorChangeRound {
+      to {
+        stroke: #3FC1FF; /* Final color after 3-second delay */
+      }
+    }
+
+    @keyframes colorChangeRoundFill {
+      to {
+        fill: #3FC1FF; /* Final color after 3-second delay */
+      }
+    }
     .title {
       @include font-style(getProcessSizes(process-title-fz), variables.$fw-500, getProcessSizes(process-title-lh));
     }

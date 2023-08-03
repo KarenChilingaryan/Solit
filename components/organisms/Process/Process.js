@@ -13,7 +13,7 @@ const svgSizes = [
   },
   {
     type: "path",
-    A: { x: 100 + 5, y: 50 },
+    A: { x: 105, y: 50 },
     B: { x: 250, y: 50 },
   },
   {
@@ -23,7 +23,7 @@ const svgSizes = [
   },
   {
     type: "path",
-    A: { x: 250 + 5, y: 50 },
+    A: { x: 255, y: 50 },
     B: { x: 440, y: 50 },
   },
   {
@@ -197,10 +197,12 @@ const GetText = (text, A, B, fs = "8", lh = 10, anchor = "middle") => {
   ));
 };
 
+let interval = null;
 const Line = () => {
   const targetRef = useRef(null)
   const targetRefMobile = useRef(null)
   const [visiblePercentage, setVisiblePercentage] = useState(0);
+  const [changeValue, setChangeValue] = useState(0);
   const [visiblePercentageMobile, setVisiblePercentageMobile] = useState(0);
 
   useEffect(() => {
@@ -233,6 +235,7 @@ const Line = () => {
 
 
   }, []);
+  console.log(changeValue);
 
   return (
     <>
@@ -255,7 +258,10 @@ const Line = () => {
           if (el.type === "path") {
             const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
 
-            return <path key={path} d={path} stroke={color} strokeWidth="1" fill="none" />;
+            return <>
+              <path key={path} d={path} stroke="white" strokeWidth="1" fill="none" />
+              <path className={color == '#3FC1FF' && styles.loadingPath} key={path} d={path} stroke="white" strokeWidth="1" fill="none" />
+            </>
           } else if (el.type === "round") {
             return (
               <>
@@ -275,8 +281,9 @@ const Line = () => {
                   r="6"
                   stroke={color}
                   stroke-width="1"
+                  className={color == '#3FC1FF' && styles.loadingPathRound}
                 />
-                <circle cx={el.A} cy={el.B} r="4" fill={color} />
+                <circle cx={el.A} cy={el.B} r="4" fill={color} className={color == '#3FC1FF' && styles.loadingPathRoundFill} />
                 {GetText(
                   "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.",
                   el.A,
@@ -286,7 +293,10 @@ const Line = () => {
             );
           } else {
             const path = `M${el.A.x},${el.A.y} Q${el.controlPoint.x},${el.controlPoint.y} ${el.B.x},${el.B.y}`;
-            return <path key={index} d={path} stroke={color} strokeWidth="1" fill="none" />;
+            return <>
+              <path key={index} d={path} stroke="white" strokeWidth="1" fill="none" />;
+              <path className={color == '#3FC1FF' ? styles.loadingPath : styles.loadingPathBack} key={index} d={path} stroke="white" strokeWidth="1" fill="none" />;
+            </>
           }
         })}
       </svg>
