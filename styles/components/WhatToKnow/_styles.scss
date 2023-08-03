@@ -4,6 +4,7 @@
 @mixin generate-what-to-know-styles {
   .whatToKnowWrapper {
     width: 100%;
+    z-index: 100;
     @include flex(center, center);
 
     .context {

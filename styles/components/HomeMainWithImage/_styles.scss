@@ -9,6 +9,18 @@
       left: calcVW(320);
       position: absolute;
       z-index: 1000;
+      border-radius: calcVW(8);
+      overflow: hidden;
+      li {
+        background: rgba(255, 255, 255, 0.32);
+        padding: 6px 12px;
+        border-right: 2px solid black;
+      }
+      li:last-of-type {
+        background: #000;
+        border-right: 0;
+
+      }
       :global(.ant-breadcrumb-link) {
         @include font-style(calcVW(20), variables.$fw-500, normal);
         text-decoration: revert;
@@ -22,7 +34,8 @@
         }
       }
       :global(.ant-breadcrumb-separator) {
-        @include font-style(calcVW(20), variables.$fw-500, normal);
+        @include font-style(calcVW(20), variables.$fw-700, normal);
+        margin: 0 calcVW(8);
       }
     }
   }

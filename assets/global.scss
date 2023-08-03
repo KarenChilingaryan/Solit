@@ -1,18 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 * {
-  font-family: "Rubik", sans-serif;
+  font-family: Montserrat !important;
 }
 
 body {
   margin: 0;
   padding: 0;
-}
-
-
-@font-face {
-  font-family: nunito;
-  src: url(./fonts/nunito-regular.ttf);
 }
 
 .ant-carousel .slick-dots {

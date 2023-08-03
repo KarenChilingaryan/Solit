@@ -5,8 +5,8 @@
   .text {
     font-size: getBorderedTextSizes(bordered-text-fs);
     line-height: getBorderedTextSizes(bordered-text-lh);
-    -webkit-text-stroke: 1px #56ccf2;
-    text-stroke: 1px #56ccf2;
+    -webkit-text-stroke: 1px #56ccf233;
+    text-stroke: 1px #56ccf233;
     position: relative;
     color: transparent;
     @media (max-width: 1024px) {

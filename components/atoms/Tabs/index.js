@@ -5,9 +5,6 @@ const Tabs = styled(tabs)`
   .ant-tabs-nav-wrap {
     background: #fff !important;
   }
-  .ant-tabs-tab-btn {
-    font-family: Jost;
-  }
   .ant-tabs-nav {
     margin: 0 !important;
   }

@@ -189,11 +189,6 @@ const Paragraph = styled(paragraph)`
     css`
       font-size: ${props.fz};
     `}
-    ${(props) =>
-    props.ff &&
-    css`
-      font-family: ${props.ff} !important;
-    `}
   ${(props) =>
     props.mob_fz &&
     css`

@@ -54,6 +54,7 @@ const ModalWrapper = ({ children, open, width, setOpen }) => {
           width="1.25vw"
           height="1.25vw"
           alt=""
+          onClick={()=> setOpen(false)}
         />
       }
     >
