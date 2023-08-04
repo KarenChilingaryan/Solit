@@ -27,7 +27,12 @@
       padding: 0 calcVW(32);
 
       .footerTitle {
-        @include font-style(calcVW(36), variables.$fw-500, calcVW(44), variables.$black);
+        @include font-style(
+          calcVW(36),
+          variables.$fw-500,
+          calcVW(44),
+          variables.$black
+        );
       }
 
       .itemWrapper {
@@ -38,13 +43,40 @@
         padding: calcVW(5);
 
         .item {
-          @include font-style(calcVW(20), variables.$fw-500, calcVW(24), variables.$black);
+          @include font-style(
+            calcVW(20),
+            variables.$fw-500,
+            calcVW(24),
+            variables.$black
+          );
         }
 
         .icon {
           cursor: pointer;
           width: calcVW(12);
           height: calcVW(12);
+        }
+      }
+    }
+    @media (max-width: 1024px) {
+      .footerContent {
+        .footerTitle {
+          @include font-style(
+            calcVWT(36),
+            variables.$fw-500,
+            calcVWT(44),
+            variables.$black
+          );
+        }
+        .itemWrapper {
+          .item {
+            @include font-style(
+              calcVWT(20),
+              variables.$fw-500,
+              calcVWT(24),
+              variables.$black
+            );
+          }
         }
       }
     }

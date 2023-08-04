@@ -9,7 +9,6 @@
       }
     }
   }
-  
 
   .mainWrapper {
     @include flex(null, center, row);
@@ -63,7 +62,17 @@
     @include flex(null, center);
     text-align: center;
     cursor: pointer;
-    @include font-style(getIndustrySizes(name-specialist-fz), variables.$fw-500, getIndustrySizes(name-specialist-lh));
+    @include font-style(
+      getIndustrySizes(name-specialist-fz),
+      variables.$fw-500,
+      getIndustrySizes(name-specialist-lh)
+    );
+    @media (max-width: 1024px) {
+      @include font-style(calcVWT(14), variables.$fw-700, calcVWT(19));
+    }
+    @media (max-width: 576px) {
+      @include font-style(calcVWM(14), variables.$fw-700, calcVWM(19));
+    }
   }
 
   .moreWrapper {

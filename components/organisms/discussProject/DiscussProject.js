@@ -18,7 +18,23 @@ import styles from "./DiscussProject.module.scss";
 const data = ["Android", "iOS", "Cross-platform"];
 const data1 = ["idea", "MVP", "Prototype/Specification"];
 const data2 = ["Project manager", "Ui/UX Designer", "Business Analyst"];
-const data3 = ["eCommers", "Finance", "Travel & Hospitality", "Telecom", "Media & Entertainment", "Enterprice", "Real Estate", "Helthcare", "iGaming", "Logistic", "eLerning", "Retail", "Automotive", "Manufacturing", "Aviation"];
+const data3 = [
+  "eCommers",
+  "Finance",
+  "Travel & Hospitality",
+  "Telecom",
+  "Media & Entertainment",
+  "Enterprice",
+  "Real Estate",
+  "Helthcare",
+  "iGaming",
+  "Logistic",
+  "eLerning",
+  "Retail",
+  "Automotive",
+  "Manufacturing",
+  "Aviation",
+];
 
 const formatter = (value) => `${value} month`;
 
@@ -40,7 +56,7 @@ const DiscussProject = () => {
       step_five: values.duration || "",
     };
 
-    setModalFormData(formData)
+    setModalFormData(formData);
     setOpen(true);
   };
 
@@ -79,7 +95,7 @@ const DiscussProject = () => {
       data.push({
         category: "industry",
         item: consult,
-        name: consult
+        name: consult,
       });
     });
 
@@ -121,7 +137,7 @@ const DiscussProject = () => {
     }
 
     form.setFieldsValue(updatedValues, true);
-    submitForm(form.getFieldsValue())
+    submitForm(form.getFieldsValue());
   };
 
   const handleClear = (field) => {
@@ -155,18 +171,20 @@ const DiscussProject = () => {
     const currentValues = form.getFieldsValue();
     let updatedValues = {};
 
-    if (field === "applicationType" || field === "currentStage" || field === "consultation") {
+    if (
+      field === "applicationType" ||
+      field === "currentStage" ||
+      field === "consultation"
+    ) {
       const isItemSelected = currentValues[field]?.includes(item);
       updatedValues = {
         ...currentValues,
         [field]: isItemSelected
           ? currentValues[field].filter((value) => value !== item)
           : [...(currentValues[field] || []), item],
-
       };
       form.setFieldsValue(updatedValues, true);
     } else if (field === "industry") {
-
       const isItemSelected = currentValues[field]?.includes(item);
       updatedValues = {
         ...currentValues,
@@ -182,9 +200,7 @@ const DiscussProject = () => {
       };
     }
 
-
     getProjectData(updatedValues);
-
 
     setSelectedValue(updatedValues.applicationStack || "none");
   };
@@ -197,20 +213,27 @@ const DiscussProject = () => {
     const res = await dispatch(
       await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
     );
-  }
+  };
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
-        {modalFormData && <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
-          <PricingModal
-            data={liveStacks}
-            handleDelete={(item) => handleDelete(item)}
-            dataForm={modalFormData}
-            stackNames={["applicationType", "currentStage", "consultation", "industry", "duration"]}
-            onSubmit={onSubmit}
-          />
-        </ModalWrapper>
-        }
+        {modalFormData && (
+          <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
+            <PricingModal
+              data={liveStacks}
+              handleDelete={(item) => handleDelete(item)}
+              dataForm={modalFormData}
+              stackNames={[
+                "applicationType",
+                "currentStage",
+                "consultation",
+                "industry",
+                "duration",
+              ]}
+              onSubmit={onSubmit}
+            />
+          </ModalWrapper>
+        )}
         {!open && liveStacks?.length && (
           <StackFooter
             liveStacks={liveStacks}
@@ -253,13 +276,16 @@ const DiscussProject = () => {
                       {data.map((item) => (
                         <Col
                           key={item}
-                          onClick={() => handleButtonClick("applicationType", item)}
-                          className={`${styles.clickableOption} ${form.getFieldsValue().applicationType?.includes(item)
-                            ? styles.selected
-                            : ""
-
-                            }`
+                          onClick={() =>
+                            handleButtonClick("applicationType", item)
                           }
+                          className={`${styles.clickableOption} ${
+                            form
+                              .getFieldsValue()
+                              .applicationType?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry value={item} />
                         </Col>
@@ -282,11 +308,14 @@ const DiscussProject = () => {
                       {data1.map((item) => (
                         <Col
                           key={item}
-                          onClick={() => handleButtonClick("currentStage", item)}
-                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          onClick={() =>
+                            handleButtonClick("currentStage", item)
+                          }
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().currentStage?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry value={item} circle />
                         </Col>
@@ -309,11 +338,14 @@ const DiscussProject = () => {
                       {data2.map((item) => (
                         <Col
                           key={item}
-                          onClick={() => handleButtonClick("consultation", item)}
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          onClick={() =>
+                            handleButtonClick("consultation", item)
+                          }
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry value={item} fullWidth />
                         </Col>
@@ -336,10 +368,11 @@ const DiscussProject = () => {
                         <Col
                           key={item}
                           onClick={() => handleButtonClick("industry", item)}
-                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().industry?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry value={item} circle />
                         </Col>
@@ -372,11 +405,7 @@ const DiscussProject = () => {
                     onClick={() => handleClear("duration")}
                   />
                 </Row>
-                <Button
-                  text="Get Pricing"
-                  transparentOpposite
-                  type="submit"
-                />
+                <Button text="Get Pricing" transparentOpposite type="submit" />
               </Row>
             </Form>
           </Row>
