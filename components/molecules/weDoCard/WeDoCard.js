@@ -9,7 +9,7 @@ import styles from "./WeDoCard.module.scss";
 
 const WeDoCard = ({ item }) => {
   return (
-    <Link href={`/what-we-do/${item.what_we_do_detail}`}>
+    <Link href={item != 'more' ? `/what-we-do/${item.what_we_do_detail}` : '/what-we-do'}>
       <Col className={styles.weDoCardWrapper}>
         {item != 'more' ?
           <>

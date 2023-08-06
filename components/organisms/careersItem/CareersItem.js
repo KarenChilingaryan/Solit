@@ -1,8 +1,8 @@
 import { memo, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
+import ModalWrapper from "../../molecules/Modal/Modal";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { Row } from "../../atoms";
 import imageBG from "../../../assets/img/main-bg-career-detail.png";
@@ -10,11 +10,14 @@ import back from "../../../assets/img/icons/back.svg";
 import share from "../../../assets/img/icons/share.svg";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { postsCareersJobOpeningApi } from "../../../services/postsCareersJobOpeningApi";
+import ModalForm from "../../molecules/modalForm/ModalForm";
+import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 
 import styles from "./careersItem.module.scss";
 
 const CareersComponent = () => {
   const { id } = useRouter().query;
+  const [openData, setOpenData] = useState(null)
   const dispatch = useDispatch();
   const [postsCareersJobOpeningApiData, setPostsCareersJobOpeningApiData] =
     useState(null);
@@ -29,6 +32,25 @@ const CareersComponent = () => {
       getData(id);
     }
   }, [id]);
+
+  const careersJobOpeningApi = useSelector(
+    (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
+  );
+
+  const findAndSetData = () => {
+    const data = careersJobOpeningApi.data_list.find(el => el.current_job_opening_detail == id)
+    setOpenData(data)
+  }
+
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    const res = await dispatch(
+      await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
+    );
+  }
 
   return (
     <div className={styles.careerPage}>
@@ -89,10 +111,14 @@ const CareersComponent = () => {
                 title="Apply for this Position"
                 description="Please apply directly online and, if applicable, upload your materials as specified on the job posting. Fields marked with a * are required."
                 buttonText="Apply Here"
+                onClick={findAndSetData}
               />
             </Row>
           </div>
         </div>
+        <ModalWrapper open={!!openData} width={"66vw"} setOpen={setOpenData}>
+          <ModalForm openData={openData} fromApply={true} onSubmit={onSubmit} />
+        </ModalWrapper>
       </HomeMainWithImage>
     </div>
   );

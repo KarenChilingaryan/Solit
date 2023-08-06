@@ -1,11 +1,9 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import { useRouter } from "next/router";
 import { Space, Table } from "antd";
 import { Row } from "../../atoms";
-import ModalWrapper from "../../molecules/Modal/Modal";
 
 import styles from "./JobsTable.module.scss";
-import ModalForm from "../modalForm/ModalForm";
 
 const JobsTable = ({ data, setOpenData }) => {
   const router = useRouter();
@@ -45,8 +43,10 @@ const JobsTable = ({ data, setOpenData }) => {
     <Row className={styles.tableWrapper}>
       <Table
         onRow={(e) => ({
-          onClick: () =>
-            router.push(`/careers/${e.current_job_opening_detail}`),
+          onClick: (event) => {
+            if (event.target.innerText != "Apply Now")
+              router.push(`/careers/${e.current_job_opening_detail}`)
+          }
         })}
         columns={columns}
         dataSource={data}
