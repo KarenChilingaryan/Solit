@@ -13,6 +13,7 @@ import AddSpecialist from "../../molecules/AddSpecialist/AddSpecialist";
 import PricingModal from "../../molecules/pricingModal/PricingModal";
 import StackFooter from "../../molecules/stackFooter/StackFooter";
 import bgImage from "../../../assets/img/main-bg-discuss-stack.png";
+import SuccessModal from "../successModal/SuccessModal";
 
 import styles from "./DiscussProjectStack.module.scss";
 
