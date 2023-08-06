@@ -122,13 +122,13 @@ const Header = () => {
           id: 1,
           name: "Tech Stack",
           fix_url: "/what-we-do",
-          data: headerData?.tech_steck || [],
+          data: [...(headerData?.tech_steck || [] || []), { title: 'View All', what_we_do_detail: '/' }],
         },
         {
           id: 2,
           name: "Services",
           fix_url: "/services",
-          data: headerData?.service || [],
+          data: [...(headerData?.service || []), { title: 'View All', service_detail: '/' }],
         },
       ])
     }
@@ -160,8 +160,7 @@ const Header = () => {
             }}
             className={`${styles.menuItem} ${filteredData !== el.name ? styles.closedMenu : ''}`}
           >
-            <Link
-              href={`${el?.fix_url}`}
+            <div
               onClick={() => {
                 window.scrollTo({ top: 0, left: 0 })
               }}
@@ -172,7 +171,7 @@ const Header = () => {
             >
               {el.name}
               <Image src={dropdown} />
-            </Link>
+            </div>
             <div className={styles.menuItemChildMainWrapper} ref={modalRef}>
               {el?.data?.map((e, idx) =>
                 <Link href={el?.fix_url + '/' + (e?.service_detail || e?.what_we_do_detail)} key={idx}>

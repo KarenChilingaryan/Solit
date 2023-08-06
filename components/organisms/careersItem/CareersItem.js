@@ -125,7 +125,7 @@ const CareersComponent = () => {
           </div>
         </div>
         <ModalWrapper open={!!openData} width={"66vw"} setOpen={setOpenData}>
-          <ModalForm openData={openData} fromApply={true} onSubmit={onSubmit} />
+          <ModalForm openData={openData} from={'apply'} onSubmit={onSubmit} />
         </ModalWrapper>
       </HomeMainWithImage>
     </div>

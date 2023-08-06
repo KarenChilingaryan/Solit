@@ -146,7 +146,7 @@ const Careers = () => {
         </Row>
       </Row>
       <ModalWrapper open={!!openData} width={"66vw"} setOpen={setOpenData}>
-        <ModalForm data={openData} fromApply={true} onSubmit={onSubmit} />
+        <ModalForm data={openData} from={'apply'} onSubmit={onSubmit} />
       </ModalWrapper>
     </HomeMainWithImage>
   );
