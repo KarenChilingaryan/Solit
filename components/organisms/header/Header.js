@@ -161,9 +161,6 @@ const Header = () => {
             className={`${styles.menuItem} ${filteredData !== el.name ? styles.closedMenu : ''}`}
           >
             <div
-              onClick={() => {
-                window.scrollTo({ top: 0, left: 0 })
-              }}
               className={styles.menuItemTitle}
               style={{
                 borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'what-we-do' && router.pathname === "/") ? "2px solid #ffffff" : "0",
