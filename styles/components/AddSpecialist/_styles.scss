@@ -9,6 +9,12 @@
     background-color: variables.$transparent-black;
     padding: getAddSpecialistSizes(main-wrapper-padding);
     gap: getAddSpecialistSizes(main-wrapper-gap);
+    @media (max-width: 1024px) {
+      padding: calcVWT(16);
+    }
+    @media (max-width: 576px) {
+      padding: calcVWM(30);
+    }
   }
 
   .mainWrapper:hover {
@@ -64,5 +70,11 @@
       getAddSpecialistSizes(name-specialist-lh)
     );
     text-align: center;
+    @media (max-width: 1024px) {
+      @include font-style(calcVWT(14), variables.$fw-500, calcVWT(20));
+    }
+    @media (max-width: 576px) {
+      @include font-style(calcVWM(14), variables.$fw-500, calcVWM(20));
+    }
   }
 }

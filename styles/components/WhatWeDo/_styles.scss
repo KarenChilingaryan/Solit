@@ -4,8 +4,8 @@
 @mixin generate-what-we-do-styles {
   .container {
     position: relative;
-    padding: calcVW(300) 0 calcVW(100) 0;
-    margin: calcVW(200) 0;
+    padding: calcVW(100) 0 ;
+    margin: calcVW(100) 0;
     .backImage {
       position: absolute;
       top: calcVW(100);

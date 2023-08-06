@@ -36,6 +36,43 @@
         @include font-style(calcVW(20), variables.$fw-700, normal);
         margin: 0 calcVW(8);
       }
+      @media (max-width: 1024px) {
+        top: calcVWT(130);
+        left: calcVWT(24);
+        border-radius: calcVWT(8);
+
+        li {
+          padding: calcVWT(6) calcVWT(12);
+        }
+
+        :global(.ant-breadcrumb-link) {
+          @include font-style(calcVWT(20), variables.$fw-500, normal);
+          text-decoration: revert;
+        }
+
+        :global(.ant-breadcrumb-separator) {
+          @include font-style(calcVWT(20), variables.$fw-700, normal);
+          margin: 0 calcVWT(8);
+        }
+      }
+      @media (max-width: 576px) {
+        top: calcVWM(90);
+        left: calcVWM(24);
+        border-radius: calcVWM(8);
+
+        li {
+          padding: calcVWM(6) calcVWM(12);
+        }
+
+        :global(.ant-breadcrumb-link) {
+          @include font-style(calcVWM(20), variables.$fw-500, normal);
+          text-decoration: revert;
+        }
+        :global(.ant-breadcrumb-separator) {
+          @include font-style(calcVWM(20), variables.$fw-700, normal);
+          margin: 0 calcVWM(8);
+        }
+      }
     }
   }
   .portfolioItem {

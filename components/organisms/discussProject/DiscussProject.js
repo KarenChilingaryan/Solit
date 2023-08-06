@@ -12,9 +12,9 @@ import StackFooter from "../../molecules/stackFooter/StackFooter";
 import PricingModal from "../../molecules/pricingModal/PricingModal";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import { emailDiscussYourProject1Api } from "../../../services/emailDiscussYourProject1Api";
+import SuccessModal from "../successModal/SuccessModal";
 
 import styles from "./DiscussProject.module.scss";
-import SuccessModal from "../successModal/SuccessModal";
 
 const data = ["Android", "iOS", "Cross-platform"];
 const data1 = ["idea", "MVP", "Prototype/Specification"];

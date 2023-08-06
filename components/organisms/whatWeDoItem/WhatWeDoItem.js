@@ -1,15 +1,15 @@
 import { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-
-import styles from "./WhatWeDoItem.module.scss";
+import Link from "next/link";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { Paragraph, Row } from "../../atoms";
 import imageBG from "../../../assets/img/career_bg.png"
 import AboutItem from "../../molecules/aboutItem/AboutItem";
 import impactIcon from "../../../assets/img/u_adjust-circle.svg";
 import { postsWhatWeDoDetailApi } from "../../../services/postsWhatWeDoDetailApi";
-import Link from "next/link";
+
+import styles from "./WhatWeDoItem.module.scss";
 
 
 const WhatWeDoComponent = () => {

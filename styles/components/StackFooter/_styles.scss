@@ -33,52 +33,83 @@
           calcVW(44),
           variables.$black
         );
-      }
 
-      .itemWrapper {
-        display: flex;
-        align-items: center;
-        gap: calcVW(14);
-        width: max-content;
-        padding: calcVW(5);
-
-        .item {
-          @include font-style(
-            calcVW(20),
-            variables.$fw-500,
-            calcVW(24),
-            variables.$black
-          );
-        }
-
-        .icon {
-          cursor: pointer;
-          width: calcVW(12);
-          height: calcVW(12);
-        }
-      }
-    }
-    @media (max-width: 1024px) {
-      .footerContent {
-        .footerTitle {
+        @media (max-width: 1024px) {
           @include font-style(
             calcVWT(36),
             variables.$fw-500,
-            calcVWT(44),
+            calcVWT(40),
             variables.$black
           );
         }
-        .itemWrapper {
-          .item {
-            @include font-style(
-              calcVWT(20),
-              variables.$fw-500,
-              calcVWT(24),
-              variables.$black
-            );
-          }
+        @media (max-width: 576px) {
+          @include font-style(
+            calcVWM(36),
+            variables.$fw-500,
+            calcVWM(40),
+            variables.$black
+          );
         }
       }
+      .items {
+        .itemWrapper {
+          display: flex;
+          align-items: center;
+          gap: calcVW(14);
+          width: max-content;
+          padding: calcVW(5);
+
+          .item {
+            @include font-style(
+              calcVW(20),
+              variables.$fw-500,
+              calcVW(24),
+              variables.$black
+            );
+
+            @media (max-width: 1024px) {
+              @include font-style(
+                calcVWT(20),
+                variables.$fw-500,
+                calcVWT(24),
+                variables.$black
+              );
+            }
+            @media (max-width: 576px) {
+              @include font-style(
+                calcVWM(20),
+                variables.$fw-500,
+                calcVWM(24),
+                variables.$black
+              );
+            }
+          }
+
+          .icon {
+            cursor: pointer;
+            width: calcVW(12);
+            height: calcVW(12);
+
+            @media (max-width: 1024px) {
+              width: calcVWT(12);
+              height: calcVWT(12);
+            }
+            @media (max-width: 576px) {
+              width: calcVWM(12);
+              height: calcVWM(12);
+            }
+          }
+        }
+        @media (max-width: 576px) {
+          flex-direction: column;
+          gap: calcVWM(24);
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      height: unset;
+      gap: calcVWM(24);
     }
   }
 }

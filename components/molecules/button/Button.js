@@ -5,9 +5,9 @@ import cx from "classnames";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import ModalForm from "../modalForm/ModalForm";
+import SuccessModal from "../../organisms/successModal/SuccessModal";
 
 import styles from "./Button.module.scss";
-import SuccessModal from "../../organisms/successModal/SuccessModal";
 
 const Button = ({
   text,

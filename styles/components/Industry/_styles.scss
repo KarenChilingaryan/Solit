@@ -19,6 +19,16 @@
     border-radius: 16px;
     background: variables.$transparent-black;
     cursor: pointer;
+    @media (max-width: 1024px) {
+      width: calcVWT(302);
+      gap: calcVWT(16);
+      padding: calcVWT(16);
+    }
+    @media (max-width: 576px) {
+      width: calcVWM(302);
+      gap: calcVWM(16);
+      padding: calcVWM(16);
+    }
   }
 
   .mainWrapper:hover {
@@ -86,11 +96,5 @@
   }
   .moreWrapper:hover {
     border: 1px solid variables.$dodger-blue;
-  }
-  @media (max-width: 1024px) {
-    .mainWrapper {
-      width: calcVWT(277);
-      height: calcVWT(56);
-    }
   }
 }
