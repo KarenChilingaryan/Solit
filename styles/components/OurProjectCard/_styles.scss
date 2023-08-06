@@ -45,6 +45,8 @@
         width: 100%;
         align-items: center;
         background: rgba(2, 13, 28, 0.73);
+        padding: calcVW(5) calcVW(12);
+        text-align: center;
 
         .name {
           @include font-style(
@@ -87,7 +89,7 @@
           transition: 0.3s;
           padding: calcVW(16) calcVW(16);
           gap: calcVW(16);
-          height: calcVW(96);
+          height: auto;
           background: rgba(2, 13, 28, 0.73);
 
           .name {
@@ -219,7 +221,7 @@
         }
       }
       .blogItem {
-        width: calcVWT(304)
+        width: calcVWT(304);
       }
       &:hover {
         height: calcVWT(340);

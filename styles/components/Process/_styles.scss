@@ -6,35 +6,130 @@
     .loadingPath {
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
-      stroke: #3FC1FF; /* Set the initial color */
-      animation: colorChange 2s linear forwards;
+      stroke: #3fc1ff; /* Set the initial color */
+    }
+    .loadingPath1 {
+      animation: colorChange 5s linear forwards;
+    }
+
+    .loadingPath3 {
+      animation: colorChange 5s linear 0.8s forwards;
+    }
+
+    .loadingPath4 {
+      animation: colorChange 5s linear 1.8s forwards;
+    }
+
+    .loadingPath5 {
+      animation: colorChange 5s linear 2.2s forwards;
+    }
+
+    .loadingPath6 {
+      animation: colorChange 5s linear 2.4s forwards;
+    }
+
+    .loadingPath7 {
+      animation: colorChange 5s linear 2.8s forwards;
+    }
+    .loadingPath9 {
+      animation: colorChange 5s linear 3.3s forwards;
+    }
+    .loadingPath11 {
+      animation: colorChange 5s linear 3.8s forwards;
+    }
+
+    .loadingPath12 {
+      animation: colorChange 5s linear 4.8s forwards;
+    }
+
+    .loadingPath13 {
+      animation: colorChange 5s linear 5.4s forwards;
+    }
+    .loadingPath15 {
+      animation: colorChange 5s linear 5.6s forwards;
+    }
+    .loadingPath17 {
+      animation: colorChange 5s linear 6.6s forwards;
+    }
+
+    .loadingPath14 {
+      animation: colorChange1 5s linear 5.6s forwards;
+    }
+
+    @keyframes colorChange1 {
+      from {
+        stroke-dashoffset: 1000;
+        stroke: #3fc1ff; /* Change to the final color */
+      }
+      to {
+        stroke-dashoffset: 0;
+        stroke: #3fc1ff; /* Change to the final color */
+      }
     }
 
     @keyframes colorChange {
       to {
         stroke-dashoffset: 0;
-        stroke: #3FC1FF; /* Change to the final color */
+        stroke: #3fc1ff; /* Change to the final color */
       }
     }
-
     .loadingPathRound {
       stroke: white; /* Initial color */
-      animation: colorChangeRound 0.5s linear 0.5s forwards;
     }
-    .loadingPathRoundFill{
+
+    .loadingPathRound2 {
+      animation: colorChangeRound 0.1s linear 0.7s forwards;
+    }
+    .loadingPathRoundFill {
       fill: white; /* Initial color */
-      animation: colorChangeRoundFill 0.5s linear 0.5s forwards;
+    }
+    .loadingPathRoundFill2 {
+      animation: colorChangeRoundFill 0.1s linear 0.7s forwards;
+    }
+
+    .loadingPathRound8 {
+      animation: colorChangeRound 0.1s linear 3.2s forwards;
+    }
+    .loadingPathRoundFill8 {
+      animation: colorChangeRoundFill 0.1s linear 3.2s forwards;
+    }
+
+    .loadingPathRound10 {
+      animation: colorChangeRound 0.1s linear 3.7s forwards;
+    }
+    .loadingPathRoundFill10 {
+      animation: colorChangeRoundFill 0.1s linear 3.7s forwards;
+    }
+
+    .loadingPathRound16 {
+      animation: colorChangeRound 0.1s linear 6s forwards;
+    }
+    .loadingPathRoundFill16 {
+      animation: colorChangeRoundFill 0.1s linear 6s forwards;
+    }
+
+    .loadingPathRound18 {
+      animation: colorChangeRound 0.1s linear 7.2s forwards;
+    }
+    .loadingPathRoundFill18 {
+      animation: colorChangeRoundFill 0.1s linear 7.2s forwards;
+    }
+    .loadingPathRound0 {
+      animation: colorChangeRound 0.1s linear forwards;
+    }
+    .loadingPathRoundFill0 {
+      animation: colorChangeRoundFill 0.1s linear forwards;
     }
 
     @keyframes colorChangeRound {
       to {
-        stroke: #3FC1FF; /* Final color after 3-second delay */
+        stroke: #3fc1ff; /* Final color after 3-second delay */
       }
     }
 
     @keyframes colorChangeRoundFill {
       to {
-        fill: #3FC1FF; /* Final color after 3-second delay */
+        fill: #3fc1ff; /* Final color after 3-second delay */
       }
     }
     .title {

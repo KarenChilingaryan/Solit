@@ -12,6 +12,7 @@ import styles from "./HomeMainWithImage.module.scss";
 const HomeMainWithImage = ({ firstImage, className, children }) => {
   const routes = useRouter()
   const [breadcrumbElements, setBreadcrumbElements] = useState([])
+  const [hideToTop, setHideToTop] = useState(false)
 
   const splitAndCapitalize = (str) => {
     const parts = str.split("/").filter((word) => word !== "");
@@ -44,6 +45,25 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < 200) {
+        setHideToTop(true)
+      } else {
+        setHideToTop(false)
+      }
+    };
+    handleScroll()
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+
+  }, []);
+
 
   return (
     <div className={`${styles.content} ${styles[className]}`}>
@@ -56,7 +76,6 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
         </Breadcrumb>
       }
       <div className={styles.socialSites}>
-
         {data?.contact?.map((el, i) =>
           <Link href={el.link} target="_blank" key={i}>
             <div className={styles.site}>
@@ -66,12 +85,14 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
           </Link>
         )}
       </div>
-      <div className={`${styles.socialSites} ${styles.socialSitesTop}`} onClick={scrallToTop}>
-        <div className={styles.site}>
-          <Paragraph className={styles.text}>Go To Top</Paragraph>
-          <Image src={rughtRow} className={styles.image} width={80} height={80} />
+      {!hideToTop &&
+        <div className={`${styles.socialSites} ${styles.socialSitesTop}`} onClick={scrallToTop}>
+          <div className={styles.site}>
+            <Paragraph className={styles.text}>Go To Top</Paragraph>
+            <Image src={rughtRow} className={styles.image} width={80} height={80} />
+          </div>
         </div>
-      </div>
+      }
       <Image
         src={firstImage}
         style={{

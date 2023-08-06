@@ -60,11 +60,7 @@
         height: getHomeMainWithImage(sites-image-width);
       }
       .text {
-        @include font-style(
-          getHomeMainWithImage(text-fs),
-          variables.$fw-500,
-          getHomeMainWithImage(text-lh)
-        );
+        @include font-style(getHomeMainWithImage(text-fs), variables.$fw-500, getHomeMainWithImage(text-lh));
       }
     }
     @media (max-width: 1024px) {
@@ -72,6 +68,7 @@
     }
   }
   .socialSitesTop {
+    cursor: pointer;
     right: calcVW(-180);
     top: calcVW(600);
     left: auto;

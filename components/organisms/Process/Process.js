@@ -232,35 +232,34 @@ const Line = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-
-
   }, []);
-  console.log(changeValue);
 
   return (
     <>
       <svg viewBox="0 0 500 300" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
         {svgSizes.map((el, index) => {
           let color = 'white';
-          if (visiblePercentage > 0 && index < 1) {
+          if (visiblePercentage > 0) {
             color = '#3FC1FF'
-          } else if (visiblePercentage > 30 && visiblePercentage <= 55 && index < 3) {
-            color = '#3FC1FF'
-          } else if (visiblePercentage > 55 && visiblePercentage < 66 && index < 9) {
-            color = '#3FC1FF'
-          } else if (visiblePercentage >= 66 && visiblePercentage < 77 && index < 11) {
-            color = '#3FC1FF'
-          } else if (visiblePercentage >= 77 && visiblePercentage < 110 && index < 17) {
-            color = '#3FC1FF';
-          } else if (visiblePercentage >= 110) {
-            color = '#3FC1FF';
           }
+          // else if (visiblePercentage > 30) {
+          //   color = '#3FC1FF'
+          // }
+          //  else if (visiblePercentage > 55 && visiblePercentage < 66 && index < 9) {
+          //   color = '#3FC1FF'
+          // } else if (visiblePercentage >= 66 && visiblePercentage < 77 && index < 11) {
+          //   color = '#3FC1FF'
+          // } else if (visiblePercentage >= 77 && visiblePercentage < 110 && index < 17) {
+          //   color = '#3FC1FF';
+          // } else if (visiblePercentage >= 110) {
+          //   color = '#3FC1FF';
+          // }
           if (el.type === "path") {
             const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
 
             return <>
               <path key={path} d={path} stroke="white" strokeWidth="1" fill="none" />
-              <path className={color == '#3FC1FF' && styles.loadingPath} key={path} d={path} stroke="white" strokeWidth="1" fill="none" />
+              <path className={color == '#3FC1FF' && `${styles["loadingPath" + index]} ${styles.loadingPath}`} key={path} d={path} stroke="white" strokeWidth="1" fill="none" />
             </>
           } else if (el.type === "round") {
             return (
@@ -279,11 +278,11 @@ const Line = () => {
                   cx={el.A}
                   cy={el.B}
                   r="6"
-                  stroke={color}
+                  stroke={"white"}
                   stroke-width="1"
-                  className={color == '#3FC1FF' && styles.loadingPathRound}
+                  className={color == '#3FC1FF' && `${styles["loadingPathRound" + index]} ${styles.loadingPathRound}`}
                 />
-                <circle cx={el.A} cy={el.B} r="4" fill={color} className={color == '#3FC1FF' && styles.loadingPathRoundFill} />
+                <circle cx={el.A} cy={el.B} r="4" fill={'white'} className={color == '#3FC1FF' && `${styles['loadingPathRoundFill' + index]} ${styles.loadingPathRoundFill}`} />
                 {GetText(
                   "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.",
                   el.A,
@@ -295,7 +294,7 @@ const Line = () => {
             const path = `M${el.A.x},${el.A.y} Q${el.controlPoint.x},${el.controlPoint.y} ${el.B.x},${el.B.y}`;
             return <>
               <path key={index} d={path} stroke="white" strokeWidth="1" fill="none" />;
-              <path className={color == '#3FC1FF' ? styles.loadingPath : styles.loadingPathBack} key={index} d={path} stroke="white" strokeWidth="1" fill="none" />;
+              <path className={color == '#3FC1FF' ? `${styles["loadingPath" + index]} ${styles.loadingPath}` : styles.loadingPathBack} key={index} d={path} stroke="white" strokeWidth="1" fill="none" />;
             </>
           }
         })}
