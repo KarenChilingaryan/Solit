@@ -78,6 +78,7 @@ const DiscussProjectStack = () => {
   const [liveStacks, setLiveStacks] = useState([]);
   const [open, setOpen] = useState(false);
   const [modalFormData, setModalFormData] = useState(null);
+  const [openSuccess, setOpenSuccess] = useState(false)
 
   const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -180,14 +181,20 @@ const DiscussProjectStack = () => {
     for (const key in data) {
       formData.append(key, data[key]);
     }
-    const res = await dispatch(
-      await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
-    );
+    try {
+      const res = await dispatch(
+        await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
+      );
+      setOpenSuccess(true)
+    } catch {
+
+    }
   }
 
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
+        <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
           <PricingModal
             data={liveStacks}

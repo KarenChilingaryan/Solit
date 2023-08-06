@@ -7,6 +7,7 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 import ModalForm from "../modalForm/ModalForm";
 
 import styles from "./Button.module.scss";
+import SuccessModal from "../../organisms/successModal/SuccessModal";
 
 const Button = ({
   text,
@@ -29,15 +30,21 @@ const Button = ({
 }) => {
   const [open, setOpen] = useState(false)
   const dispatch = useDispatch();
+  const [openSuccess, setOpenSuccess] = useState(false)
 
   const onSubmit = async (data) => {
     const formData = new FormData();
     for (const key in data) {
       formData.append(key, data[key]);
     }
-    const res = await dispatch(
-      await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
-    );
+    try {
+      const res = await dispatch(
+        await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
+      );
+      setOpenSuccess(true)
+    } catch {
+
+    }
   }
 
   return (
@@ -76,6 +83,7 @@ const Button = ({
           <ModalForm openData={null} fromApply={true} onSubmit={onSubmit} />
         </ModalWrapper>
       }
+      <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
     </>
   );
 };

@@ -14,6 +14,7 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 import { emailDiscussYourProject1Api } from "../../../services/emailDiscussYourProject1Api";
 
 import styles from "./DiscussProject.module.scss";
+import SuccessModal from "../successModal/SuccessModal";
 
 const data = ["Android", "iOS", "Cross-platform"];
 const data1 = ["idea", "MVP", "Prototype/Specification"];
@@ -44,6 +45,7 @@ const DiscussProject = () => {
   const [open, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState("none");
   const [modalFormData, setModalFormData] = useState(null);
+  const [openSuccess, setOpenSuccess] = useState(false)
 
   const dispatch = useDispatch();
 
@@ -210,13 +212,19 @@ const DiscussProject = () => {
     for (const key in data) {
       formData.append(key, data[key]);
     }
-    const res = await dispatch(
-      await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
-    );
+    try {
+      const res = await dispatch(
+        await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
+      );
+      setOpenSuccess(true)
+    } catch {
+
+    }
   };
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
+        <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && (
           <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
             <PricingModal
@@ -279,13 +287,12 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form
+                          className={`${styles.clickableOption} ${form
                               .getFieldsValue()
                               .applicationType?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry value={item} />
                         </Col>
@@ -311,11 +318,10 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().currentStage?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry value={item} circle />
                         </Col>
@@ -341,11 +347,10 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry value={item} fullWidth />
                         </Col>
@@ -368,11 +373,10 @@ const DiscussProject = () => {
                         <Col
                           key={item}
                           onClick={() => handleButtonClick("industry", item)}
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().industry?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry value={item} circle />
                         </Col>

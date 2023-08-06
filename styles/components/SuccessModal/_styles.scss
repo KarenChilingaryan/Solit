@@ -1,0 +1,39 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-success-modal-styles {
+    .content {
+        display: flex;
+        flex-direction: column;
+        row-gap: calcVW(32);
+        .title {
+            @include font-style(calcVW(36), normal, calcVW(36), variables.$black);
+            text-align: center;
+        }
+        .description {
+            @include font-style(calcVW(24), variables.$fw-400, calcVW(32), variables.$black);
+            max-width: calcVW(613);
+            text-align: center;
+        }
+        @media (max-width: 1024px) {
+            row-gap: calcVWT(32);
+            .title {
+                @include font-style(calcVWT(36), normal, calcVWT(36), variables.$black);
+            }
+            .description {
+                @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32), variables.$black);
+                max-width: calcVWT(474);
+            }
+        }
+        @media (max-width: 576px) {
+            row-gap: calcVWM(32);
+            .title {
+                @include font-style(calcVWM(36), normal, calcVWM(36), variables.$black);
+            }
+            .description {
+                @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32), variables.$black);
+                max-width: calcVWM(311);
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$success-modal-sizes: (
+
+);
+
+@function getSucessModalSizes($property) {
+  @return map-get($success-modal-sizes, $property);
+}

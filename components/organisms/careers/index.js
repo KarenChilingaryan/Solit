@@ -16,8 +16,10 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 import styles from "./careers.module.scss";
 import ModalForm from "../../molecules/modalForm/ModalForm";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
+import SuccessModal from "../successModal/SuccessModal";
 
 const Careers = () => {
+  const [openSuccess, setOpenSuccess] = useState(false)
   const [openData, setOpenData] = useState(null);
   const [data, setData] = useState([]);
   const dispatch = useDispatch()
@@ -85,14 +87,20 @@ const Careers = () => {
     for (const key in data) {
       formData.append(key, data[key]);
     }
-    const res = await dispatch(
-      await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
-    );
+    try {
+      const res = await dispatch(
+        await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
+      );
+      setOpenSuccess(true)
+    } catch {
+
+    }
   }
 
   return (
     <HomeMainWithImage firstImage={earth}>
       {/* <SeoCard details={seoData} /> */}
+      <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
       <Row className={styles.content}>
         <Row className={styles.pageHeader}>
           <Row className={styles.title}>{postsTextCareersColourfulApi?.title}</Row>

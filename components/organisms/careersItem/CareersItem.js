@@ -11,6 +11,7 @@ import share from "../../../assets/img/icons/share.svg";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { postsCareersJobOpeningApi } from "../../../services/postsCareersJobOpeningApi";
 import ModalForm from "../../molecules/modalForm/ModalForm";
+import SuccessModal from "../../organisms/successModal/SuccessModal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 
 import styles from "./careersItem.module.scss";
@@ -18,6 +19,7 @@ import styles from "./careersItem.module.scss";
 const CareersComponent = () => {
   const { id } = useRouter().query;
   const [openData, setOpenData] = useState(null)
+  const [openSuccess, setOpenSuccess] = useState(false)
   const dispatch = useDispatch();
   const [postsCareersJobOpeningApiData, setPostsCareersJobOpeningApiData] =
     useState(null);
@@ -47,13 +49,19 @@ const CareersComponent = () => {
     for (const key in data) {
       formData.append(key, data[key]);
     }
-    const res = await dispatch(
-      await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
-    );
+    try {
+      const res = await dispatch(
+        await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
+      );
+      setOpenSuccess(true)
+    } catch {
+
+    }
   }
 
   return (
     <div className={styles.careerPage}>
+      <SuccessModal open={true} setOpen={setOpenSuccess} />
       <HomeMainWithImage firstImage={imageBG}>
         <div className={styles.content}>
           <div className={styles.bottomBlock}>
