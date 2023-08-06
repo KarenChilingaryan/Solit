@@ -61,7 +61,7 @@ const CareersComponent = () => {
 
   return (
     <div className={styles.careerPage}>
-      <SuccessModal open={true} setOpen={setOpenSuccess} />
+      <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
       <HomeMainWithImage firstImage={imageBG}>
         <div className={styles.content}>
           <div className={styles.bottomBlock}>
