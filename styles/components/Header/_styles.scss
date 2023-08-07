@@ -31,6 +31,8 @@
         display: flex;
       }
       .menuItem {
+        margin-top: calcVW(-50);
+        opacity: 0;
         position: relative;
         align-self: center;
 
@@ -98,6 +100,28 @@
           }
         }
       }
+
+      .menuItem0{
+        animation: slide 0.2s 0s linear forwards;
+      }
+      .menuItem1{
+        animation: slide 0.2s 0.05s linear forwards;
+      }
+      .menuItem2{
+        animation: slide 0.2s 0.25s linear forwards;
+      }
+      .menuItem3{
+        animation: slide 0.2s 0.45s linear forwards;
+      }
+      .menuItem4{
+        animation: slide 0.2s 0.65s linear forwards;
+      }
+      .menuItem5{
+        animation: slide 0.2s 0.85s linear forwards;
+      }
+      .menuItem6{
+        animation: slide 0.3s 1.05s linear forwards;
+      }
       .closedMenu {
         .menuItemTitle {
           img {
@@ -127,6 +151,13 @@
     padding: getHeaderSizes(header-wrapper-padding-scroll);
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(0px);
+  }
+
+  @keyframes slide {
+    100% {
+      opacity: 1;
+      margin-top: calcVW(0);
+    }
   }
 
   @media (max-width: 1024px) {
