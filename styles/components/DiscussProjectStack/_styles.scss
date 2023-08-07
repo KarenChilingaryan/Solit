@@ -141,6 +141,20 @@
 
               .month {
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
+                @media (max-width: 1024px) {
+                  @include font-style(
+                    calcVWT(14),
+                    variables.$fw-700,
+                    calcVWT(18)
+                  );
+                }
+                @media (max-width: 576px) {
+                  @include font-style(
+                    calcVWM(14),
+                    variables.$fw-700,
+                    calcVWM(18)
+                  );
+                }
               }
             }
           }

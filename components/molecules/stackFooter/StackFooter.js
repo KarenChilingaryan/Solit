@@ -13,7 +13,7 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick }) => {
         <Paragraph className={styles.footerTitle}>
           Summary of your request:
         </Paragraph>
-        <Row>
+        <Row className={styles.items}>
           {liveStacks?.map((item, i) => (
             <Col key={i} className={styles.itemWrapper}>
               <Col className={styles.item}>{item.item}</Col>
@@ -27,7 +27,9 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick }) => {
           ))}
         </Row>
       </Row>
-      <Button lightBlue text="Proceed" onClick={onClick} />
+      <Row className={styles.buttonWrapper}>
+        <Button lightBlue text="Proceed" onClick={onClick} />
+      </Row>
     </Row>
   );
 };

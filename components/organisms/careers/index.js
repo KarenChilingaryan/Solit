@@ -12,11 +12,11 @@ import teamMember from "../../../assets/img/teamMember.png";
 import worldMap from "../../../assets/img/career-world-pam.png";
 import { ReversedAboutUs } from "../reversedAboutUs";
 import ModalWrapper from "../../molecules/Modal/Modal";
-
-import styles from "./careers.module.scss";
 import ModalForm from "../../molecules/modalForm/ModalForm";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import SuccessModal from "../successModal/SuccessModal";
+
+import styles from "./careers.module.scss";
 
 const Careers = () => {
   const [openSuccess, setOpenSuccess] = useState(false)
