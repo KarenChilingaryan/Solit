@@ -42,6 +42,7 @@
             variables.$black
           );
         }
+
         @media (max-width: 576px) {
           @include font-style(
             calcVWM(36),
@@ -75,6 +76,7 @@
                 variables.$black
               );
             }
+
             @media (max-width: 576px) {
               @include font-style(
                 calcVWM(20),
@@ -94,15 +96,37 @@
               width: calcVWT(12);
               height: calcVWT(12);
             }
+
             @media (max-width: 576px) {
               width: calcVWM(12);
               height: calcVWM(12);
             }
           }
         }
+
         @media (max-width: 576px) {
           flex-direction: column;
           gap: calcVWM(24);
+        }
+      }
+    }
+    .buttonWrapper {
+      @media (max-width: 1024px) {
+      }
+      @media (max-width: 576px) {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+
+        button {
+          width: unset;
+          height: unset;
+          @include font-style(
+            calcVWM(20),
+            variables.$fw-700,
+            calcVWM(24),
+            variables.$white
+          );
         }
       }
     }

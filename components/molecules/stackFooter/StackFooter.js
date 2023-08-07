@@ -27,7 +27,9 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick }) => {
           ))}
         </Row>
       </Row>
-      <Button lightBlue text="Proceed" onClick={onClick} />
+      <Row className={styles.buttonWrapper}>
+        <Button lightBlue text="Proceed" onClick={onClick} />
+      </Row>
     </Row>
   );
 };
