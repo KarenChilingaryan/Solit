@@ -106,7 +106,7 @@
 
         @media (max-width: 576px) {
           flex-direction: column;
-          gap: calcVWM(24);
+          gap: calcVWM(8);
         }
       }
     }
@@ -121,6 +121,9 @@
         button {
           width: unset;
           height: unset;
+          padding: calcVWM(8) calcVWM(32);
+          border-radius: calcVWM(8);
+
           @include font-style(
             calcVWM(20),
             variables.$fw-700,

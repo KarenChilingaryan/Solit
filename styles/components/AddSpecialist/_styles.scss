@@ -10,10 +10,13 @@
     padding: getAddSpecialistSizes(main-wrapper-padding);
     gap: getAddSpecialistSizes(main-wrapper-gap);
     @media (max-width: 1024px) {
+      gap: calcVWT(16);
       padding: calcVWT(16);
     }
     @media (max-width: 576px) {
-      padding: calcVWM(30);
+      justify-content: start;
+      gap: calcVWM(16);
+      padding: calcVWM(16);
     }
   }
 
@@ -30,8 +33,6 @@
       width: 15px;
       padding: 0;
       height: getAddSpecialistSizes(icon-plus-height);
-      // pointer-events: none;
-      // caret-color: transparent;
 
       @include font-style(
         getAddSpecialistSizes(count-specialist-fz),
@@ -43,9 +44,30 @@
       &:focus-visible {
         border: none;
       }
+
       &:focus {
         border: none;
         box-shadow: none;
+      }
+
+      @media (max-width: 1024px) {
+        height: calcVWT(16);
+        @include font-style(
+          calcVWT(14),
+          variables.$fw-500,
+          calcVWT(20),
+          variables.$dark-turquoise
+        );
+      }
+
+      @media (max-width: 576px) {
+        height: calcVWM(16);
+        @include font-style(
+          calcVWM(14),
+          variables.$fw-500,
+          calcVWM(20),
+          variables.$dark-turquoise
+        );
       }
     }
   }
@@ -54,22 +76,41 @@
     width: getAddSpecialistSizes(icon-minus-width);
     height: getAddSpecialistSizes(icon-minus-height);
     cursor: pointer;
+
+    @media (max-width: 1024px) {
+      width: calcVWT(16);
+      height: calcVWT(16);
+    }
+    @media (max-width: 576px) {
+      width: calcVWM(16);
+      height: calcVWM(16);
+    }
   }
 
   .plusIcon {
     width: getAddSpecialistSizes(icon-plus-width);
     height: getAddSpecialistSizes(icon-plus-height);
     cursor: pointer;
+    @media (max-width: 1024px) {
+      width: calcVWT(16);
+      height: calcVWT(16);
+    }
+    @media (max-width: 576px) {
+      width: calcVWM(16);
+      height: calcVWM(16);
+    }
   }
 
   .nameSpecialist {
     @include flex(null, center);
+    margin-left: calcVW(12);
     @include font-style(
       getAddSpecialistSizes(name-specialist-fz),
       variables.$fw-500,
       getAddSpecialistSizes(name-specialist-lh)
     );
     text-align: center;
+
     @media (max-width: 1024px) {
       @include font-style(calcVWT(14), variables.$fw-500, calcVWT(20));
     }
