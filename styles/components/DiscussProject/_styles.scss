@@ -196,25 +196,6 @@
     }
     @media (max-width: 1024px) {
       width: calcVWT(880);
-      .discussProject {
-        .form {
-          .grayTextBtn {
-            @include font-style(
-              calcVWT(13),
-              variables.$fw-700,
-              calcVWT(19),
-              rgba(255, 255, 255, 0.32)
-            );
-          }
-          .industryDetails {
-            .industries {
-              .mainWrapper {
-                width: calcVWT(302);
-              }
-            }
-          }
-        }
-      }
     }
   }
 }
