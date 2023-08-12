@@ -9,6 +9,12 @@
     text-stroke: 1px #56ccf233;
     position: relative;
     color: transparent;
+
+    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+      font-size: calcVWL(228);
+      line-height: calcVWL(240);
+    }
+
     @media (max-width: 1024px) {
       @include font-style(calcVWT(128), variables.$fw-600, calcVWT(156));
       color: transparent;

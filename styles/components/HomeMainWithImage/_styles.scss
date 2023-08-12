@@ -97,7 +97,11 @@
         height: getHomeMainWithImage(sites-image-width);
       }
       .text {
-        @include font-style(getHomeMainWithImage(text-fs), variables.$fw-500, getHomeMainWithImage(text-lh));
+        @include font-style(
+          getHomeMainWithImage(text-fs),
+          variables.$fw-500,
+          getHomeMainWithImage(text-lh)
+        );
       }
     }
     @media (max-width: 1024px) {
@@ -110,6 +114,52 @@
     top: calcVW(600);
     left: auto;
     z-index: 1000;
+  }
+  
+  @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    .content {
+      .breadcrumb {
+        top: calcVWL(130);
+        left: calcVWL(320);
+        border-radius: calcVWL(8);
+        li {
+          padding: calcVWL(6) calcVWL(12);
+        }
+        :global(.ant-breadcrumb-link) {
+          @include font-style(calcVWL(20), variables.$fw-500, normal);
+        }
+
+        :global(.ant-breadcrumb-separator) {
+          @include font-style(calcVWL(20), variables.$fw-700, normal);
+          margin: 0 calcVWL(8);
+        }
+      }
+    }
+    .socialSites {
+      width: calcVWL(440);
+      left: calcVWL(-190);
+      top: calcVWL(400);
+      column-gap: calcVWL(32);
+
+      .site {
+        column-gap: calcVWL(16);
+        .image {
+          width: calcVWL(24);
+          height: calcVWL(24);
+        }
+        .text {
+          @include font-style(
+            calcVWL(29),
+            variables.$fw-500,
+            calcVWL(24)
+          );
+        }
+      }
+    }
+    .socialSitesTop {
+      right: calcVWL(-180);
+      top: calcVWL(600);
+    }
   }
   @media (max-width: 576px) {
     .content {

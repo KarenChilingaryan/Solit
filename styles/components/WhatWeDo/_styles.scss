@@ -4,7 +4,7 @@
 @mixin generate-what-we-do-styles {
   .container {
     position: relative;
-    padding: calcVW(100) 0 ;
+    padding: calcVW(100) 0;
     margin: calcVW(100) 0;
     .backImage {
       position: absolute;
@@ -29,12 +29,7 @@
       flex-direction: column;
       gap: calcVW(32);
       .title {
-        @include font-style(
-          calcVW(36),
-          variables.$fw-500,
-          calcVW(44),
-          #fff
-        );
+        @include font-style(calcVW(36), variables.$fw-500, calcVW(44), #fff);
       }
       .contextWrapper {
         display: flex;
@@ -233,6 +228,141 @@
       }
     }
   }
+  @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    .sectionWrapper {
+      gap: calcVWL(64);
+
+      .whatWeDoWrapper {
+        gap: calcVWL(32);
+        .title {
+          @include font-style(
+            calcVWL(36),
+            variables.$fw-500,
+            calcVWL(44),
+            #fff
+          );
+        }
+        .contextWrapper {
+          gap: calcVWL(30);
+
+          .button {
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-700,
+              calcVWL(20),
+              variables.$light-blue
+            );
+
+            .btnImg {
+              width: calcVWL(18);
+              height: calcVWL(20);
+            }
+          }
+          .contextTitle {
+            @include font-style(
+              calcVWL(24),
+              variables.$fw-500,
+              calcVWL(28),
+              #fff
+            );
+          }
+          .context {
+            height: calcVWL(400);
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-400,
+              calcVWL(30),
+              #fff
+            );
+          }
+          .contextIcon {
+            width: calcVWL(23);
+            height: calcVWL(33);
+          }
+        }
+
+        .tabs {
+          width: calcVWL(1280);
+
+          .contextTitle {
+            @include font-style(
+              calcVWL(14),
+              variables.$fw-500,
+              calcVWL(16),
+              #fff
+            );
+          }
+
+          :global(.ant-tabs-nav-wrap) {
+            padding-bottom: calcVWL(6);
+          }
+          :global(.ant-tabs-tab) {
+            :global(.ant-tabs-tab-btn) {
+              @include font-style(
+                calcVWL(20),
+                variables.$fw-700,
+                calcVWL(24),
+                #fff
+              );
+            }
+          }
+
+          :global(.ant-tabs-nav-list) {
+            border-radius: calcVWL(10);
+
+            &::-webkit-scrollbar {
+              width: calcVWL(8);
+              height: calcVWL(8);
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+              border-radius: calcVWL(10);
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+              border-radius: calcVWL(10);
+            }
+          }
+          :global(.ant-tabs-tab) {
+            min-width: calcVWL(256);
+            height: calcVWL(112);
+            margin-bottom: calcVWL(32);
+          }
+          :global(.ant-tabs-tab-active) {
+            :global(.ant-tabs-tab-btn) {
+              @include font-style(
+                calcVWL(20),
+                variables.$fw-700,
+                calcVWL(24),
+                #fff
+              );
+            }
+          }
+          :global(.ant-tabs-content-holder) {
+            padding: calcVWL(32);
+          }
+        }
+        .development {
+          @include font-style(
+            calcVWL(24),
+            variables.$fw-500,
+            calcVWL(29),
+            #fff
+          );
+        }
+        .description {
+          @include font-style(
+            calcVWL(18),
+            variables.$fw-300,
+            calcVWL(22),
+            #fff
+          );
+        }
+      }
+    }
+  }
   @media (max-width: 1024px) {
     .container {
       .backImage {
@@ -243,13 +373,23 @@
     .sectionWrapper {
       .whatWeDoWrapper {
         .title {
-          @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44), #fff);
+          @include font-style(
+            calcVWT(36),
+            variables.$fw-500,
+            calcVWT(44),
+            #fff
+          );
         }
 
         .description {
           padding: 0;
           margin: calcVWT(32) 0;
-          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+          @include font-style(
+            calcVWT(18),
+            variables.$fw-400,
+            calcVWT(24),
+            #fff
+          );
         }
         .tabs {
           width: 100%;
@@ -275,27 +415,52 @@
           :global(.ant-tabs-tab) {
             background-color: transparent !important;
             :global(.ant-tabs-tab-btn) {
-              @include font-style(calcVWT(20) !important, variables.$fw-700, calcVWT(24) !important, #fff);
+              @include font-style(
+                calcVWT(20) !important,
+                variables.$fw-700,
+                calcVWT(24) !important,
+                #fff
+              );
             }
           }
           :global(.ant-tabs-tab-active) {
             :global(.ant-tabs-tab-btn) {
-              @include font-style(calcVWT(20) !important, variables.$fw-700, calcVWT(24) !important, #fff);
+              @include font-style(
+                calcVWT(20) !important,
+                variables.$fw-700,
+                calcVWT(24) !important,
+                #fff
+              );
             }
           }
 
           .contextTitle {
-            @include font-style(calcVWT(14), variables.$fw-700, calcVWT(16), #fff);
+            @include font-style(
+              calcVWT(14),
+              variables.$fw-700,
+              calcVWT(16),
+              #fff
+            );
           }
           .contextIcon {
             width: calcVWT(24);
             height: calcVWT(33);
           }
           .context {
-            @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              #fff
+            );
           }
           .button {
-            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22), variables.$light-blue);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(22),
+              variables.$light-blue
+            );
 
             .btnImg {
               width: calcVWT(18);
@@ -311,13 +476,23 @@
       .whatWeDoWrapper {
         margin-bottom: calcVWM(80);
         .title {
-          @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44), #fff);
+          @include font-style(
+            calcVWM(36),
+            variables.$fw-500,
+            calcVWM(44),
+            #fff
+          );
         }
 
         .description {
           padding: 0;
           margin: calcVWM(32) 0;
-          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            calcVWM(24),
+            #fff
+          );
         }
         // .tabs {
         //   display: none;

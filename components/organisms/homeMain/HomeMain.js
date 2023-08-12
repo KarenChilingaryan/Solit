@@ -1,11 +1,11 @@
 import { memo, useState } from "react";
+import Image from "next/image";
 import { Col, Button as ShowMore  } from "../../atoms";
 import Button from "../../molecules/button/Button";
 import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
 import showMore from "../../../assets/img/u_plus-circle.svg";
 
 import styles from "./HomeMain.module.scss";
-import Image from "next/image";
 
 
 const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {

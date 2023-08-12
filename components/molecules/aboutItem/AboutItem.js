@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Col, Row } from "../../atoms";
 import Image from "next/image";
+
 import styles from "./AboutItem.module.scss";
 
 const AboutItem = ({ title, desc, icon, weDo = false, weDoWidth = false }) => {
