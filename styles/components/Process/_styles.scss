@@ -133,7 +133,11 @@
       }
     }
     .title {
-      @include font-style(getProcessSizes(process-title-fz), variables.$fw-500, getProcessSizes(process-title-lh));
+      @include font-style(
+        getProcessSizes(process-title-fz),
+        variables.$fw-500,
+        getProcessSizes(process-title-lh)
+      );
     }
     .description {
       margin-top: getProcessSizes(process-description-mt);
@@ -142,6 +146,17 @@
         variables.$fw-400,
         getProcessSizes(process-description-lh)
       );
+    }
+    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+      .title {
+        @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44));
+      }
+      .description {
+        margin-top: calcVWL(24);
+        p {
+          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+        }
+      }
     }
 
     @media (max-width: 1024px) {

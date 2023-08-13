@@ -321,6 +321,7 @@
     @include font-style(calcVW(20), variables.$fw-700, normal);
     border-radius: getButtonSizes(transparent-opposite-br);
     padding: getButtonSizes(transparent-opposite-p);
+    letter-spacing: 2;
     border: 1px solid variables.$light-blue;
     height: unset;
     cursor: pointer;
@@ -330,6 +331,11 @@
       border: 1px solid variables.$light-blue;
       @include font-style(calcVW(20), variables.$fw-700, normal);
       transition: 0.3s;
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+      @include font-style(calcVWL(20), variables.$fw-700, normal);
+      letter-spacing: 1.5px;
     }
 
     @media (max-width: 1024px) {

@@ -197,7 +197,6 @@ const GetText = (text, A, B, fs = "8", lh = 10, anchor = "middle") => {
   ));
 };
 
-let interval = null;
 const Line = () => {
   const targetRef = useRef(null)
   const targetRefMobile = useRef(null)

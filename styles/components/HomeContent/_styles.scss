@@ -89,6 +89,14 @@
         margin-bottom: getHomeContentSizes(
           what-we-do-description-mb
         ) !important;
+
+        p {
+          @include font-style(
+            getHomeContentSizes(what-we-do-description-fz),
+            variables.$fw-400,
+            getHomeContentSizes(what-we-do-description-lh)
+          );
+        }
       }
     }
 
@@ -194,6 +202,10 @@
           margin-top: calcVWL(24);
           @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
           margin-bottom: calcVWL(60) !important;
+
+          p {
+            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+          }
         }
       }
 

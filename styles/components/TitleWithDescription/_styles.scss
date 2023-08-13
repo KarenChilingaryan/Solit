@@ -22,6 +22,25 @@
   .descriptionTop {
     margin-top: calcVW(192);
   }
+  @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    .block {
+      width: calcVWL(624);
+      height: calcVWL(300);
+      padding: calcVWL(32);
+      row-gap: calcVWL(16);
+  
+      .title {
+        @include font-style(calcVWL(36), variables.$fw-400, calcVWL(38));
+        letter-spacing: 1.5px
+      }
+      .description {
+        @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+      }
+    }
+    .descriptionTop {
+      margin-top: calcVWL(192);
+    }
+  }
   @media (max-width: 1024px) {
     .block {
       width: calcVWT(384);

@@ -44,12 +44,40 @@
     .description {
       padding: 0 5px;
       text-align: center;
-      @include font-style(
-        calcVW(18),
-        variables.$fw-400,
-        normal
-        #fff
-      );
+      @include font-style(calcVW(18), variables.$fw-400, normal #fff);
+    }
+    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+      padding: calcVWL(64) calcVWL(32);
+      width: calcVWL(405);
+      height: calcVWL(332);
+      .more {
+        column-gap: calcVWL(16);
+        @include font-style(
+          calcVWL(18),
+          variables.$fw-700,
+          calcVWL(18),
+          #40a9ff
+        );
+        img {
+          width: calcVWL(16);
+          height: calcVWL(16);
+        }
+      }
+
+      .iconWrapper {
+        padding: calcVWL(16);
+
+        .icon {
+          width: calcVWL(36);
+          height: calcVWL(36);
+        }
+      }
+      .development {
+        @include font-style(calcVWL(24), variables.$fw-700, normal, #3fc1ff);
+      }
+      .description {
+        @include font-style(calcVWL(18), variables.$fw-400, normal #fff);
+      }
     }
     @media (max-width: 1024px) {
       width: calcVWT(288);
@@ -71,7 +99,12 @@
       }
       .more {
         column-gap: calcVWT(16);
-        @include font-style(calcVWT(18), variables.$fw-700, calcVWT(18), #40a9ff);
+        @include font-style(
+          calcVWT(18),
+          variables.$fw-700,
+          calcVWT(18),
+          #40a9ff
+        );
         img {
           width: calcVWT(16);
           height: calcVWT(16);
@@ -101,7 +134,12 @@
       .more {
         margin-top: calcVWM(110);
         column-gap: calcVWM(16);
-        @include font-style(calcVWM(18), variables.$fw-700, calcVWM(18), #40a9ff);
+        @include font-style(
+          calcVWM(18),
+          variables.$fw-700,
+          calcVWM(18),
+          #40a9ff
+        );
         img {
           width: calcVWM(16);
           height: calcVWM(16);
