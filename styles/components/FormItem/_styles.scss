@@ -32,6 +32,20 @@
       background: transparent;
     }
 
+    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+      .label {
+        top: calcVWL(11);
+        font-size: calcVWL(13);
+        line-height: calcVWL(20);
+      }
+
+      .asPlaceholder {
+        font-size: calcVWL(18);
+        line-height: calcVWL(24);
+        top: calcVWL(5);
+      }
+    }
+
     @media (max-width: 1024px) {
       .asPlaceholder {
         font-weight: 400;
