@@ -270,7 +270,7 @@
         .positionSection {
           height: calcVWT(54);
           .name {
-            @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(24), #fff);
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;

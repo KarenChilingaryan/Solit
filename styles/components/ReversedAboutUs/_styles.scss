@@ -35,6 +35,9 @@
         margin-bottom: calcVWT(40);
       }
     }
+    .block:last-of-type {
+      align-items: flex-start;
+    }
 
     .careers_block {
       flex-direction: column;

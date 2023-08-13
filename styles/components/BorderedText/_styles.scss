@@ -20,7 +20,7 @@
       color: transparent;
     }
     @media (max-width: 576px) {
-      @include font-style(calcVWM(58), variables.$fw-600, calcVWM(71));
+      @include font-style(calcVWM(57), variables.$fw-600, calcVWM(71));
       color: transparent;
     }
   }

@@ -87,6 +87,7 @@
       }
     }
     @media (max-width: 1024px) {
+      margin-right: calcVWT(100);
       .imgBlock {
         width: calcVWT(300);
         .imageBlock {

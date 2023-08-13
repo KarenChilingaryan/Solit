@@ -433,7 +433,7 @@
     }
 
     @media (max-width: 1024px) {
-      border-radius: calcVWT(16);
+      border-radius: calcVWT(8);
       padding: calcVWT(8) calcVWT(32);
       width: max-content !important;
 
@@ -447,6 +447,7 @@
     @media (max-width: 576px) {
       padding: calcVWM(8) calcVWM(24);
       width: max-content !important;
+      border-radius: calcVWM(8);
 
       @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), variables.$black);
 
@@ -493,7 +494,7 @@
     }
 
     @media (max-width: 1024px) {
-      border-radius: calcVWT(16);
+      border-radius: calcVWT(8);
       padding: calcVWT(8) calcVWT(32);
       width: max-content !important;
       height: max-content !important;
@@ -506,6 +507,7 @@
 
     @media (max-width: 576px) {
       padding: calcVWM(8) calcVWM(24);
+      border-radius: calcVWM(8);
       width: max-content !important;
       @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), variables.$light-blue);
       &:hover {
