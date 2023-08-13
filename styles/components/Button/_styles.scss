@@ -29,7 +29,7 @@
       );
       transition: 0.3s;
     }
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       padding: calcVWL(7) calcVWL(5);
       width: calcVWL(160);
       height: calcVWL(50);
@@ -68,7 +68,7 @@
       );
       transition: 0.3s;
     }
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       &:hover {
         @include font-style(calcVWL(23), variables.$fw-500, calcVWL(24), #fff);
       }
@@ -98,7 +98,7 @@
       @include font-style(calcVW(20), variables.$fw-700, calcVW(24), variables.$light-blue);
       transition: 0.3s;
     }
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       @include font-style(calcVWL(20), variables.$fw-700, calcVWL(24), variables.$white);
       border-radius: calcVWL(8);
       padding: calcVWL(8) calcVWL(32);
@@ -142,7 +142,7 @@
       );
     }
 
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       @include font-style(calcVWL(13), variables.$fw-700, calcVWL(19), rgba(255, 255, 255, 0.32));
       border-radius: calcVWL(8);
       padding: calcVWL(8) calcVWL(32);
@@ -198,7 +198,7 @@
       width: calcVW(20);
       height: calcVW(20);
     }
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       @include font-style(calcVWL(16), variables.$fw-500, calcVWL(19), variables.$light-blue);
       padding: calcVWL(8) calcVWL(32);
       width: calcVWL(279);
@@ -267,7 +267,7 @@
       transition: 0.3s;
     }
 
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       @include font-style(calcVWL(20), variables.$fw-700, normal);
       border-radius: calcVWL(8);
       padding: calcVWL(16) calcVWL(32);
@@ -332,7 +332,7 @@
       transition: 0.3s;
     }
 
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       @include font-style(calcVWL(16), variables.$fw-700, calcVWL(19), variables.$light-blue !important);
       border-radius: calcVWL(8);
       padding: calcVWL(8) calcVWL(32);
@@ -379,7 +379,7 @@
       transition: 0.3s;
     }
 
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       padding: calcVWL(26) calcVWL(32) calcVWL(26) calcVWL(40);
 
       @include font-style(calcVWL(16), variables.$fw-700, calcVWL(19), variables.$light-blue !important);
@@ -422,7 +422,7 @@
       transition: 0.3s;
     }
 
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       @include font-style(calcVWL(13), variables.$fw-700, calcVWL(18), variables.$black);
       border-radius: calcVWL(8);
       padding: calcVWL(8) calcVWL(32);
@@ -482,7 +482,7 @@
       transition: 0.3s;
     }
 
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       @include font-style(calcVWL(13), variables.$fw-700, calcVWL(18), rgba(255, 255, 255, 0.32));
 
       border-radius: calcVWL(8);
