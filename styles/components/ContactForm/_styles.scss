@@ -48,8 +48,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: calcVWT(406);
-      gap: calcVWT(16);
+      max-width: calcVW(406);
+      gap: calcVW(16);
       width: calcVW(410);
       position: relative;
       z-index: 1;
@@ -232,8 +232,8 @@
       }
 
       .form {
-        max-width: calcVWT(406);
-        gap: calcVWT(16);
+        max-width: calcVWL(406);
+        gap: calcVWL(16);
         width: calcVWL(410);
         .buttonWrapper {
           button {
@@ -252,7 +252,7 @@
           }
 
           .acceptText {
-            @include font-style(getContactFormSizes(text-fz), variables.$fw-400, getContactFormSizes(text-fl));
+            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
           }
         }
 
