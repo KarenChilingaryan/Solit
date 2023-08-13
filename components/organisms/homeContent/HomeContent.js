@@ -247,7 +247,7 @@ const HomeContent = () => {
             {postsWhatWeDoApi &&
               [
                 ...postsWhatWeDoApi?.data_list.slice(0, 5),
-                ...(postsWhatWeDoApi?.data_list.length > 5 ? ["more"] : []),
+                ...(postsWhatWeDoApi?.data_list.length <= 5 ? ["more"] : []),
               ]?.map((project, i) => <WeDoCard key={i} item={project} />)}
           </div>
           <div className={styles.technology}>

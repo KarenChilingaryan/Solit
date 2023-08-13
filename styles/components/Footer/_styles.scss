@@ -33,7 +33,7 @@
       &:hover {
         margin-left: calcVW(8);
         margin-right: calcVW(-8);
-        color: #3FC1FF;
+        color: #3fc1ff;
         transition: 0.3s;
       }
     }
@@ -44,6 +44,10 @@
         width: calcVW(24);
         height: calcVW(24);
         object-fit: contain;
+        &:hover {
+          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg) brightness(86%) contrast(99%);
+          transition: 0.3s;
+        }
       }
       .socialIconsTitle {
         width: 100%;
@@ -60,15 +64,10 @@
           height: calcVWL(40);
         }
       }
-  
+
       .textTitle {
         margin-bottom: calcVWL(22) !important;
-        @include font-style(
-          calcVWL(18),
-          variables.$fw-700,
-          calcVWL(22),
-          #fff
-        );
+        @include font-style(calcVWL(18), variables.$fw-700, calcVWL(22), #fff);
       }
       .text {
         margin-bottom: calcVWL(14) !important;
@@ -78,7 +77,7 @@
           margin-right: calcVWL(-8);
         }
       }
-  
+
       .socialIconsWrapper {
         .socialIcons {
           margin-right: calcVWL(26);
@@ -147,9 +146,8 @@
         width: 100%;
         position: unset;
         max-width: 100%;
-       
       }
-      .infoWrapper{
+      .infoWrapper {
         .footerLogo {
           width: calcVWM(90);
           height: calcVWM(40);
@@ -174,7 +172,7 @@
         .socialIcons {
           width: calcVWM(25);
           height: calcVWM(25);
-          margin-top: calcVW(18)
+          margin-top: calcVW(18);
         }
       }
       .textTitle {

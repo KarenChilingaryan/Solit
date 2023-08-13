@@ -144,10 +144,10 @@
   @media only screen and (max-width: 1440px) and (min-width: 1024px) {
     .content {
       width: calcVWL(1216);
-      margin: calcVWL(478) auto 0 auto;
+      margin: calcVWL(300) auto 0 auto;
 
       .servicesMain {
-        margin-top: calcVWL(400);
+        margin-top: calcVWL(200);
 
         .services {
           row-gap: calcVWL(96);
