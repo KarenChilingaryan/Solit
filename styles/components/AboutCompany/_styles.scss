@@ -17,7 +17,11 @@
         width: max-content;
       }
       .info {
-        @include font-style(getAboutCompanySizes(info-fz), variables.$fw-700, getAboutCompanySizes(info-lh));
+        @include font-style(
+          getAboutCompanySizes(info-fz),
+          variables.$fw-700,
+          getAboutCompanySizes(info-lh)
+        );
         @include flex(null, center, row);
         column-gap: getAboutCompanySizes(info-cg);
         p {
@@ -40,6 +44,29 @@
   }
   .withOutBG {
     background-color: transparent;
+  }
+  @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    .card {
+      width: calcVWL(405);
+      height: calcVWL(192);
+      padding: calcVWL(40) calcVWL(32) calcVWL(31);
+
+      .mainWrapper {
+        row-gap: calcVWL(28);
+        .image {
+          height: calcVWL(45);
+        }
+        .info {
+          @include font-style(calcVWL(48), variables.$fw-700, calcVWL(68));
+          column-gap: calcVWL(10);
+
+          .description {
+            max-width: calcVW(150);
+            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+          }
+        }
+      }
+    }
   }
   @media (max-width: 1024px) {
     .card {

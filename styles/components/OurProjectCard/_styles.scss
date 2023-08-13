@@ -253,7 +253,12 @@
             height: calcVWL(188);
           }
           .blogDescription {
-            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              #fff
+            );
           }
         }
       }
@@ -270,7 +275,12 @@
         .positionSection {
           height: calcVWT(54);
           .name {
-            @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              #fff
+            );
           }
         }
       }
@@ -283,7 +293,12 @@
         .positionSection {
           height: calcVWT(54);
           .name {
-            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(24), #fff);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(24),
+              #fff
+            );
           }
         }
       }
@@ -303,7 +318,12 @@
             height: 0;
           }
           .name {
-            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(24), #fff);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(24),
+              #fff
+            );
           }
         }
       }
@@ -363,7 +383,12 @@
             height: max-content;
             background: rgba(2, 13, 28, 0.73);
             .name {
-              @include font-style(calcVWT(18), variables.$fw-700, calcVWT(24), #fff);
+              @include font-style(
+                calcVWT(18),
+                variables.$fw-700,
+                calcVWT(24),
+                #fff
+              );
             }
             .stacks {
               height: max-content;
@@ -372,7 +397,12 @@
           .blogDescription {
             height: auto;
             overflow: hidden;
-            @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              #fff
+            );
           }
         }
       }
@@ -391,7 +421,12 @@
         .positionSection {
           height: calcVWM(30);
           .name {
-            @include font-style(calcVWM(10), variables.$fw-700, calcVWM(12), #fff);
+            @include font-style(
+              calcVWM(10),
+              variables.$fw-700,
+              calcVWM(12),
+              #fff
+            );
           }
         }
       }
@@ -405,7 +440,12 @@
         .positionSection {
           height: calcVWM(30);
           .name {
-            @include font-style(calcVWM(10), variables.$fw-700, calcVWM(12), #fff);
+            @include font-style(
+              calcVWM(10),
+              variables.$fw-700,
+              calcVWM(12),
+              #fff
+            );
           }
         }
       }
@@ -425,7 +465,12 @@
             height: 0;
           }
           .name {
-            @include font-style(calcVWM(18), variables.$fw-700, calcVWM(24), #fff);
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-700,
+              calcVWM(24),
+              #fff
+            );
           }
         }
       }
@@ -466,7 +511,12 @@
             height: max-content;
             background: rgba(2, 13, 28, 0.73);
             .name {
-              @include font-style(calcVWM(18), variables.$fw-700, calcVWM(24), #fff);
+              @include font-style(
+                calcVWM(18),
+                variables.$fw-700,
+                calcVWM(24),
+                #fff
+              );
             }
             .stacks {
               height: max-content;
@@ -475,7 +525,12 @@
           .blogDescription {
             height: auto;
             overflow: hidden;
-            @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              #fff
+            );
           }
         }
       }
@@ -496,7 +551,12 @@
           .positionSection {
             height: calcVWM(54) !important;
             .name {
-              @include font-style(calcVWM(18) !important, variables.$fw-700 !important, calcVWM(22) !important, #fff);
+              @include font-style(
+                calcVWM(18) !important,
+                variables.$fw-700 !important,
+                calcVWM(22) !important,
+                #fff
+              );
             }
           }
         }
