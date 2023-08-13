@@ -84,7 +84,11 @@
         }
 
         .acceptText {
-          @include font-style(getContactFormSizes(text-fz), variables.$fw-400, getContactFormSizes(text-fl));
+          @include font-style(
+            getContactFormSizes(text-fz),
+            variables.$fw-400,
+            getContactFormSizes(text-fl)
+          );
         }
       }
 
@@ -185,18 +189,24 @@
       }
 
       :global {
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
           background: transparent;
           border-color: none;
           box-shadow: 0 2px 0 0 rgb(207, 39, 39);
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input {
           background: transparent;
           border-color: none !important;
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
           border-color: none;
         }
 
@@ -311,7 +321,7 @@
       }
       .form {
         width: 50%;
-
+        max-width: unset;
         :global(.ant-input) {
           padding: calcVWT(12) 0px calcVWT(5) 0;
           border-bottom: 2px solid #ffffff;
@@ -319,20 +329,32 @@
             box-shadow: 0 2px 0 0 blue;
           }
         }
+
+        .suffix {
+          width: calcVWT(17);
+          height: calcVWT(19);
+        }
+
         .accept {
           .acceptText {
             font-size: calcVWT(18);
             line-height: calcVWT(24);
           }
         }
+
         :global(.ant-form-item) {
           margin-bottom: calcVWT(20);
         }
+
         :global(.ant-checkbox-inner) {
           width: calcVWT(20);
           height: calcVWT(20);
         }
-        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
+
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
           width: calcVWT(20);
           height: calcVWT(20);
         }
@@ -379,9 +401,18 @@
           }
         }
 
+        .suffix {
+          width: calcVWM(17);
+          height: calcVWM(19);
+        }
+
         .buttonWrapper {
           button {
-            @include font-style(calcVWM(13) !important, variables.$fw-700 !important, calcVWM(16) !important);
+            @include font-style(
+              calcVWM(13) !important,
+              variables.$fw-700 !important,
+              calcVWM(16) !important
+            );
             padding: calcVWM(8) calcVWM(32);
             border-radius: calcVWM(8);
             margin: 0 auto;
@@ -402,7 +433,10 @@
           height: calcVWM(15);
           margin-right: calcVWM(10);
         }
-        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
           width: calcVWM(20);
           height: calcVWM(20);
         }
