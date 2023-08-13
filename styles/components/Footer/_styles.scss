@@ -12,8 +12,8 @@
     }
     .infoWrapper {
       .footerLogo {
-        width: getFooterSizes(footer-logo-width);
-        height: getFooterSizes(footer-logo-height);
+        width: calcVW(90);
+        height: calcVW(40);
       }
     }
 
@@ -27,15 +27,22 @@
       );
     }
     .text {
+      cursor: pointer;
       margin-bottom: getFooterSizes(footer-text-mb) !important;
       @include font-style(getFooterSizes(footer-text-fz), variables.$fw-400, getFooterSizes(footer-text-lh), #fff);
+      &:hover {
+        margin-left: calcVW(8);
+        margin-right: calcVW(-8);
+        color: #3FC1FF;
+        transition: 0.3s;
+      }
     }
 
     .socialIconsWrapper {
       .socialIcons {
         margin-right: getFooterSizes(footer-social-mr);
-        width: getFooterSizes(footer-social-width);
-        height: getFooterSizes(footer-social-width);
+        width: calcVW(24);
+        height: calcVW(24);
         object-fit: contain;
       }
       .socialIconsTitle {

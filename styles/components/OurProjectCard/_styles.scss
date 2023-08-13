@@ -50,9 +50,9 @@
 
         .name {
           @include font-style(
-            getOurProjectCardSizes(project-name-fz),
+            calcVW(18),
             variables.$fw-700,
-            getOurProjectCardSizes(project-name-lh),
+            normal,
             #fff
           );
         }

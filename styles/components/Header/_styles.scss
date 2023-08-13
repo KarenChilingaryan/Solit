@@ -15,8 +15,8 @@
     width: 100%;
     z-index: 999;
     .img {
-      width: getHeaderSizes(header-logo-width);
-      height: getHeaderSizes(header-logo-height);
+      width: calcVW(90);
+      height: calcVW(40);
     }
     .pricing {
       margin-right: calcVW(-340);
@@ -31,7 +31,7 @@
         display: flex;
       }
       .menuItem {
-        margin-top: calcVW(-50);
+        margin-top: calcVW(-40);
         opacity: 0;
         position: relative;
         align-self: center;
@@ -90,6 +90,7 @@
               .disActiveElem {
                 display: none;
               }
+              transition: 0.3s;
             }
             // transition: 0.4s;
             @include font-style(
@@ -102,25 +103,25 @@
       }
 
       .menuItem0{
-        animation: slide 0.2s 0s linear forwards;
+        animation: slide 0.4s 0s linear forwards;
       }
       .menuItem1{
-        animation: slide 0.2s 0.05s linear forwards;
+        animation: slide 0.4s 0.1s linear forwards;
       }
       .menuItem2{
-        animation: slide 0.2s 0.25s linear forwards;
+        animation: slide 0.4s 0.2s linear forwards;
       }
       .menuItem3{
-        animation: slide 0.2s 0.45s linear forwards;
+        animation: slide 0.4s 0.3s linear forwards;
       }
       .menuItem4{
-        animation: slide 0.2s 0.65s linear forwards;
+        animation: slide 0.4s 0.4s linear forwards;
       }
       .menuItem5{
-        animation: slide 0.2s 0.85s linear forwards;
+        animation: slide 0.4s 0.5s linear forwards;
       }
       .menuItem6{
-        animation: slide 0.3s 1.05s linear forwards;
+        animation: slide 0.4s 0.6s linear forwards;
       }
       .closedMenu {
         .menuItemTitle {

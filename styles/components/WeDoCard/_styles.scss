@@ -38,20 +38,16 @@
       }
     }
     .development {
-      @include font-style(
-        getWeDoCardSizes(we-do-card-development-fz),
-        variables.$fw-500,
-        getWeDoCardSizes(we-do-card-development-lh),
-        #fff
-      );
+      @include font-style(calcVW(24), variables.$fw-700, normal, #3fc1ff);
+      min-height: auto;
     }
     .description {
       padding: 0 5px;
       text-align: center;
       @include font-style(
-        getWeDoCardSizes(we-do-card-description-fz),
-        variables.$fw-300,
-        getWeDoCardSizes(we-do-card-description-lh),
+        calcVW(18),
+        variables.$fw-400,
+        normal
         #fff
       );
     }

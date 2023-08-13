@@ -30,9 +30,9 @@
       z-index: 1;
 
       .title {
-        font-weight: 700;
-        font-size: calcVW(20);
-        line-height: calcVW(24);
+        font-weight: 500;
+        font-size: calcVW(36);
+        line-height: normal;
         color: #ffffff;
       }
 
@@ -55,7 +55,7 @@
       z-index: 1;
       .buttonWrapper {
         button {
-          @include font-style(getContactFormSizes(button-fz), variables.$fw-700, getContactFormSizes(button-fl), #fff);
+          @include font-style(calcVW(13), variables.$fw-700, normal, #fff);
         }
       }
 

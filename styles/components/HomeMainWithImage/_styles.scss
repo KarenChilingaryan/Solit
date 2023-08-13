@@ -103,6 +103,16 @@
           getHomeMainWithImage(text-lh)
         );
       }
+      &:hover {
+        .image {
+          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg) brightness(86%) contrast(99%);
+          transition: 0.3s;
+        }
+        .text {
+          color: variables.$light-blue !important;
+          transition: 0.3s;
+        }
+      }
     }
     @media (max-width: 1024px) {
       display: none;
