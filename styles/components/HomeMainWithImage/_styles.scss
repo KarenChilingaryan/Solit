@@ -97,11 +97,7 @@
         height: getHomeMainWithImage(sites-image-width);
       }
       .text {
-        @include font-style(
-          getHomeMainWithImage(text-fs),
-          variables.$fw-500,
-          getHomeMainWithImage(text-lh)
-        );
+        @include font-style(getHomeMainWithImage(text-fs), variables.$fw-500, getHomeMainWithImage(text-lh));
       }
       &:hover {
         .image {
@@ -125,7 +121,7 @@
     left: auto;
     z-index: 1000;
   }
-  
+
   @media only screen and (max-width: 1440px) and (min-width: 1024px) {
     .content {
       .breadcrumb {
@@ -157,17 +153,14 @@
           height: calcVWL(24);
         }
         .text {
-          @include font-style(
-            calcVWL(20),
-            variables.$fw-500,
-            calcVWL(24)
-          );
+          @include font-style(calcVWL(20), variables.$fw-500, calcVWL(24));
         }
       }
     }
     .socialSitesTop {
       right: calcVWL(-180);
       top: calcVWL(600);
+      left: auto;
     }
   }
   @media (max-width: 576px) {
