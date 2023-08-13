@@ -102,25 +102,25 @@
         }
       }
 
-      .menuItem0{
+      .menuItem0 {
         animation: slide 0.4s 0s linear forwards;
       }
-      .menuItem1{
+      .menuItem1 {
         animation: slide 0.4s 0.1s linear forwards;
       }
-      .menuItem2{
+      .menuItem2 {
         animation: slide 0.4s 0.2s linear forwards;
       }
-      .menuItem3{
+      .menuItem3 {
         animation: slide 0.4s 0.3s linear forwards;
       }
-      .menuItem4{
+      .menuItem4 {
         animation: slide 0.4s 0.4s linear forwards;
       }
-      .menuItem5{
+      .menuItem5 {
         animation: slide 0.4s 0.5s linear forwards;
       }
-      .menuItem6{
+      .menuItem6 {
         animation: slide 0.4s 0.6s linear forwards;
       }
       .closedMenu {
@@ -161,6 +161,66 @@
     }
   }
 
+  @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    .headerWrapper {
+      padding: calcVWL(20) calcVWL(100);
+      .img {
+        width: calcVWL(90);
+        height: calcVWL(40);
+      }
+      .pricing {
+        margin-right: calcVWL(-154);
+        margin-left: calcVWL(100);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .menuWrapper {
+        .menuItem {
+          margin-top: calcVWL(-40);
+          .menuItemTitle {
+            img {
+              width: calcVWL(16);
+              height: calcVWL(10);
+              margin-left: calcVWL(16);
+            }
+            cursor: pointer;
+            margin: calcVWL(16);
+            @include font-style(calcVWL(20), variables.$fw-400, calcVWL(23), variables.$main-white);
+          }
+          .menuItemChildMainWrapper {
+            width: calcVWL(648);
+            top: calcVWL(75);
+            padding: calcVWL(24);
+            border-radius: 0 0 calcVWL(16) calcVWL(16);
+
+            .menuItemChildWrapper {
+              width: calcVWL(300);
+              padding: calcVWL(16) calcVWL(16) calcVWL(13);
+              column-gap: calcVWL(16);
+              &:hover {
+                border-radius: calcVWL(8);
+              }
+              // transition: 0.4s;
+              @include font-style(calcVWL(16), variables.$fw-400, calcVWL(19));
+            }
+          }
+        }
+        .closedMenu {
+          .menuItemChildMainWrapper {
+            padding: calcVWL(0);
+          }
+        }
+      }
+      .buttonWrapper {
+        margin-left: calcVWL(16);
+      }
+    }
+
+    .headerWrapperScroll {
+      padding: calcVWL(50) calcVWL(100);
+    }
+  }
   @media (max-width: 1024px) {
     .mainWraperBlock {
       height: max-content;

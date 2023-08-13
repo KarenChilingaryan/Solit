@@ -217,6 +217,81 @@
       bottom: calcVW(-380);
       height: calcVW(1380);
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+      gap: calcVWL(96);
+      .infoSection {
+        gap: calcVWL(16);
+        .title {
+          font-size: calcVWL(36);
+        }
+
+        .info {
+          font-size: calcVWL(18);
+          line-height: calcVWL(24);
+        }
+      }
+
+      .form {
+        max-width: calcVWT(406);
+        gap: calcVWT(16);
+        width: calcVWL(410);
+        .buttonWrapper {
+          button {
+            @include font-style(calcVWL(13), variables.$fw-700, normal, #fff);
+          }
+        }
+
+        .suffix {
+          width: calcVWL(17);
+          height: calcVWL(19);
+        }
+
+        .accept {
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWL(18);
+          }
+
+          .acceptText {
+            @include font-style(getContactFormSizes(text-fz), variables.$fw-400, getContactFormSizes(text-fl));
+          }
+        }
+
+        :global(.ant-input-affix-wrapper) {
+          input[type="file"]::before {
+            padding: calcVWL(10) 0;
+          }
+        }
+
+        :global(.ant-input-suffix) {
+          bottom: calcVWL(7);
+        }
+
+        .inputSection {
+          gap: calcVWL(16);
+        }
+
+        :global(.ant-input) {
+          padding: calcVWL(12) 0px calcVWL(5) 0;
+        }
+
+        :global(.ant-form-item-label) {
+          top: calcVWL(10);
+        }
+
+        :global {
+          .ant-form-item-label > label {
+            font-size: calcVWL(16);
+          }
+        }
+      }
+      .backImage {
+        width: calcVWL(1920);
+        left: calcVWL(-320);
+        position: absolute;
+        bottom: calcVWL(-380);
+        height: calcVWL(1380);
+      }
+    }
     @media (max-width: 1024px) {
       .infoSection {
         padding: 0 calcVWT(50);
@@ -306,11 +381,7 @@
 
         .buttonWrapper {
           button {
-            @include font-style(
-              calcVWM(13) !important,
-              variables.$fw-700 !important,
-              calcVWM(16) !important,
-            );
+            @include font-style(calcVWM(13) !important, variables.$fw-700 !important, calcVWM(16) !important);
             padding: calcVWM(8) calcVWM(32);
             border-radius: calcVWM(8);
             margin: 0 auto;
