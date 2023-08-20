@@ -45,7 +45,7 @@
   .withOutBG {
     background-color: transparent;
   }
-  @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .card {
       width: calcVWL(405);
       height: calcVWL(192);
@@ -105,6 +105,7 @@
             @include font-style(calcVWM(48), variables.$fw-700, calcVWM(65));
           }
           .description {
+            max-width: calcVWM(150);
             p {
               @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
             }

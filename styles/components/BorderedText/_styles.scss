@@ -10,7 +10,7 @@
     position: relative;
     color: transparent;
 
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       font-size: calcVWL(200);
       line-height: calcVWL(214);
       text-shadow: 0 0 1px #000, 0 0 9px #000;
@@ -21,7 +21,7 @@
       color: transparent;
     }
     @media (max-width: 576px) {
-      @include font-style(calcVWM(58), variables.$fw-600, calcVWM(71));
+      @include font-style(calcVWM(57), variables.$fw-600, calcVWM(71));
       color: transparent;
     }
   }

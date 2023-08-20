@@ -46,7 +46,7 @@
       text-align: center;
       @include font-style(calcVW(18), variables.$fw-400, normal #fff);
     }
-    @media only screen and (max-width: 1440px) and (min-width: 1024px) {
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       padding: calcVWL(64) calcVWL(32);
       width: calcVWL(405);
       height: calcVWL(332);
