@@ -169,7 +169,8 @@
         color: #ffffff;
 
         &:focus {
-          box-shadow: 0 2px 0 0 blue;
+          box-shadow: 0 0 0 0 transparent;
+          border-bottom: 2px solid #1500ff;
         }
       }
 
