@@ -37,7 +37,7 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
           className={styles.button}
           onClick={() => setShowMoreClass("showMoreClass")}
         >
-          Show more <Image src={showMore} className={styles.btnImg} />
+          Show more <Image src={showMore} className={styles.btnImg}  alt=""/>
         </ShowMore>
       )}
     </Col>

@@ -68,10 +68,20 @@
     .prtfolioItem {
       max-height: max-content;
       .title {
-        @include font-style(calcVWM(36), variables.$fw-400, calcVWM(44), variables.$black);
+        @include font-style(
+          calcVWM(36),
+          variables.$fw-400,
+          calcVWM(44),
+          variables.$black
+        );
       }
       .firstSubtitle {
-        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), variables.$black);
+        @include font-style(
+          calcVWM(18),
+          variables.$fw-400,
+          calcVWM(24),
+          variables.$black
+        );
         margin-top: calcVWM(25);
       }
     }

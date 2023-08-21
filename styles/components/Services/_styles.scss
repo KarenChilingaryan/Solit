@@ -38,6 +38,20 @@
     .weKnowSection {
       margin: getServicesSizes(content-we-know-section-margin);
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(1216);
+      margin: calcVWL(478) auto 0 auto;
+
+      .services {
+        margin-top: calcVWL(124);
+        row-gap: calcVWL(96);
+
+        .serviceCard {
+          width: calcVWL(560) !important;
+          height: calcVWL(600) !important;
+        }
+      }
+    }
     @media (max-width: 1024px) {
       width: calcVWT(880);
       margin-top: calcVWT(258);
