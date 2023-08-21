@@ -41,8 +41,9 @@ const Portfolios = ({ data }) => {
             grayTextBtnTech={selectedCategory !== "All"}
             onClick={() => setSelectedCategory("All")}
           />
-          {tags?.map((el) => (
+          {tags?.map((el, index) => (
             <Button
+              key={index}
               text={el.tag_name}
               lightBlueTech={selectedCategory === el?.id}
               grayTextBtnTech={selectedCategory !== el?.id}
