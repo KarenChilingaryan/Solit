@@ -19,6 +19,20 @@
         top: calcVW(-250);
       }
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .filters {
+        gap: calcVWL(16);
+      }
+      .projects {
+        margin-top: calcVWL(120);
+        .elipse {
+          left: calcVWL(-320);
+          width: calc(100% + calcVWL(640));
+          height: calc(100% + calcVWL(640));
+          top: calcVWL(-250);
+        }
+      }
+    }
     @media (max-width: 1024px) {
       .filters {
         gap: calcVWT(16);

@@ -203,7 +203,7 @@
       padding: calcVWL(8) calcVWL(32);
       width: calcVWL(279);
       height: calcVWL(76);
-      border-radius: calcVW(16);
+      border-radius: calcVWL(16);
       &:hover {
         @include font-style(calcVWL(16), variables.$fw-500, calcVWL(19));
       }
@@ -408,6 +408,7 @@
     border: 1px solid variables.$light-blue;
     cursor: pointer;
     height: unset;
+    width: auto;
 
     &:hover {
       background: variables.$light-blue;
@@ -471,6 +472,7 @@
     border: 1px solid rgba(255, 255, 255, 0.32);
     cursor: pointer;
     height: unset;
+    width: auto;
 
     &:hover {
       background: variables.$light-blue;

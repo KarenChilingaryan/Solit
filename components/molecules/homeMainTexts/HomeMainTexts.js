@@ -1,7 +1,6 @@
 import { memo } from "react";
 import { Col, Paragraph } from "../../atoms";
 import styles from "./HomeMainTexts.module.scss";
-import Button from "../button/Button";
 
 const HomeMainTexts = ({
   title,
