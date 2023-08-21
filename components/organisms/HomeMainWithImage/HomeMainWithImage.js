@@ -65,6 +65,7 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
   }, []);
 
 
+  console.log(data?.contact, 'data?.contact?');
   return (
     <div className={`${styles.content} ${styles[className]}`}>
       {
@@ -93,15 +94,18 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
           </div>
         </div>
       }
-      <Image
-        src={firstImage}
-        style={{
-          width: "100%",
-          height: "auto",
-          position: "absolute",
-          top: 0,
-        }}
-      />
+      {
+        firstImage &&
+        <Image
+          src={firstImage}
+          style={{
+            width: "100%",
+            height: "auto",
+            position: "absolute",
+            top: 0,
+          }}
+        />
+      }
       {children}
     </div>
   );
