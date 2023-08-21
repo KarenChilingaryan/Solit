@@ -8,6 +8,7 @@
     .buttonWrapper {
       margin-top: getHomeMainSizes(home-main-button-wrapper-mt);
     }
+
     .button {
       display: flex;
       align-items: center;
@@ -24,7 +25,8 @@
         height: calcVW(24);
       }
       @media (max-width: 1024px) {
-        @include font-style(calcVWT(20), variables.$fw-700, calcVWT(24));
+        margin-top: calcVWT(24);
+        @include font-style(calcVWT(20), variables.$fw-500, calcVWT(24));
 
         .btnImg {
           margin-top: calcVWT(1);
@@ -33,7 +35,8 @@
         }
       }
       @media (max-width: 576px) {
-        @include font-style(calcVWM(20), variables.$fw-700, calcVWM(24));
+        margin-top: calcVWM(24);
+        @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24));
 
         .btnImg {
           margin-top: calcVWM(1);
