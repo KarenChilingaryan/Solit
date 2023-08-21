@@ -9,12 +9,26 @@
     .ourServices {
       margin-top: getWhatWeDoPageSizes(what-our-services-margin-top);
       @include flex(space-between, center, null, wrap);
-      row-gap:  getWhatWeDoPageSizes(what-our-services-row-gap);
+      row-gap: getWhatWeDoPageSizes(what-our-services-row-gap);
       column-gap: getWhatWeDoPageSizes(what-our-services-column-gap);
     }
-    
+
     .weKnowSection {
-      margin:getWhatWeDoPageSizes(what-we-know-section-margin);
+      margin: getWhatWeDoPageSizes(what-we-know-section-margin);
+    }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(1280);
+      margin: calcVWL(478) auto 0 auto;
+
+      .ourServices {
+        margin-top: calcVWL(98);
+        row-gap: calcVWL(64);
+        column-gap: calcVWL(32);
+      }
+
+      .weKnowSection {
+        margin: calcVWL(384) auto calcVWL(320);
+      }
     }
     @media (max-width: 1024px) {
       width: calcVWT(880);
