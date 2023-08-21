@@ -203,7 +203,7 @@
       padding: calcVWL(8) calcVWL(32);
       width: calcVWL(279);
       height: calcVWL(76);
-      border-radius: calcVW(16);
+      border-radius: calcVWL(16);
       &:hover {
         @include font-style(calcVWL(16), variables.$fw-500, calcVWL(19));
       }
