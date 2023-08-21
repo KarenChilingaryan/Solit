@@ -7,6 +7,7 @@
       display: flex;
       gap: calcVW(16);
     }
+
     .projects {
       margin-top: calcVW(120);
       position: relative;
@@ -19,6 +20,7 @@
         top: calcVW(-250);
       }
     }
+
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       .filters {
         gap: calcVWL(16);
@@ -33,11 +35,13 @@
         }
       }
     }
+
     @media (max-width: 1024px) {
       .filters {
         gap: calcVWT(16);
       }
     }
+    
     @media (max-width: 576px) {
       .projects {
         gap: calcVWM(32) !important;
