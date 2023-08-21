@@ -17,10 +17,20 @@
       align-items: center;
       @include font-style(calcVW(18), variables.$fw-700, calcVW(21), #219fdb);
       @media (max-width: 1024px) {
-        @include font-style(calcVWT(18), variables.$fw-700, calcVWT(21), #219fdb);
+        @include font-style(
+          calcVWT(18),
+          variables.$fw-700,
+          calcVWT(21),
+          #219fdb
+        );
       }
       @media (max-width: 576px) {
-        @include font-style(calcVWM(18), variables.$fw-700, calcVWM(21), #219fdb);
+        @include font-style(
+          calcVWM(18),
+          variables.$fw-700,
+          calcVWM(21),
+          #219fdb
+        );
       }
     }
   }
@@ -108,13 +118,23 @@
           height: calcVWL(90);
           padding: calcVWL(16);
 
-          @include font-style(calcVWL(24), variables.$fw-400, calcVWL(29), #fff);
+          @include font-style(
+            calcVWL(24),
+            variables.$fw-400,
+            calcVWL(29),
+            #fff
+          );
         }
       }
 
       .description {
         padding: 0 calcVWL(32);
-        @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #c3d4dc);
+        @include font-style(
+          calcVWL(18),
+          variables.$fw-400,
+          calcVWL(24),
+          #c3d4dc
+        );
       }
 
       &:hover {
@@ -129,18 +149,29 @@
       max-height: calcVWT(400);
       height: calcVWT(400);
       border-radius: calcVWT(16);
+
       .title_iconWrapper {
         .title {
-          height: max-content;
-          @include font-style(calcVWT(24), variables.$fw-500, calcVWT(29), #fff);
-          align-items: flex-start;
+          height: calcVWT(93);
+          @include font-style(
+            calcVWT(24),
+            variables.$fw-500,
+            calcVWT(29),
+            #fff
+          );
         }
       }
       &:hover {
         .description {
           padding: calcVWT(16);
           height: max-content;
-          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #c3d4dc);
+          width: 100%;
+          @include font-style(
+            calcVWT(18),
+            variables.$fw-400,
+            calcVWT(24),
+            #c3d4dc
+          );
         }
         box-shadow: 0px 42px 98px -42px #7811fe;
       }
@@ -155,13 +186,23 @@
           min-height: max-content;
           height: max-content;
           padding: calcVWM(16);
-          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            calcVWM(24),
+            #fff
+          );
         }
       }
       &:hover {
         .description {
           padding: calcVWM(8);
-          @include font-style(calcVWM(14), variables.$fw-300, calcVWM(16), #c3d4dc);
+          @include font-style(
+            calcVWM(14),
+            variables.$fw-300,
+            calcVWM(16),
+            #c3d4dc
+          );
         }
       }
     }
@@ -178,6 +219,7 @@
       max-width: calcVWT(304);
       max-height: calcVWT(380);
       height: calcVWT(380);
+
       .title_iconWrapper {
         .iconWrapper {
           max-height: 100%;
@@ -188,6 +230,7 @@
       max-width: 100%;
       max-height: calcVWM(380);
       height: calcVWM(380);
+
       .title_iconWrapper {
         .iconWrapper {
           max-height: 100%;

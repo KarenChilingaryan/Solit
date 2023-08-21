@@ -16,10 +16,30 @@
       @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
       width: max-content;
       padding: 0;
+      margin-top: calcVW(24);
 
       .btnImg {
+        margin-top: calcVW(1);
         width: calcVW(24);
         height: calcVW(24);
+      }
+      @media (max-width: 1024px) {
+        @include font-style(calcVWT(20), variables.$fw-700, calcVWT(24));
+
+        .btnImg {
+          margin-top: calcVWT(1);
+          width: calcVWT(24);
+          height: calcVWT(24);
+        }
+      }
+      @media (max-width: 576px) {
+        @include font-style(calcVWM(20), variables.$fw-700, calcVWM(24));
+
+        .btnImg {
+          margin-top: calcVWM(1);
+          width: calcVWM(24);
+          height: calcVWM(24);
+        }
       }
     }
     @media (max-width: 1024px) {
@@ -50,11 +70,13 @@
       .buttonWrapper {
         margin-top: calcVWL(24);
       }
+
       .button {
+        margin-top: calcVWL(24);
         @include font-style(calcVWL(20), variables.$fw-700, calcVWL(24));
 
         .btnImg {
-          margin-top: calcVWL(15);
+          margin-top: calcVWL(1);
           width: calcVWL(24);
           height: calcVWL(24);
         }
