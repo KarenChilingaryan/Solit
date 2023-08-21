@@ -408,6 +408,7 @@
     border: 1px solid variables.$light-blue;
     cursor: pointer;
     height: unset;
+    width: auto;
 
     &:hover {
       background: variables.$light-blue;
@@ -471,6 +472,7 @@
     border: 1px solid rgba(255, 255, 255, 0.32);
     cursor: pointer;
     height: unset;
+    width: auto;
 
     &:hover {
       background: variables.$light-blue;

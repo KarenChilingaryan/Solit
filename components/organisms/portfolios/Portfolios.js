@@ -8,6 +8,7 @@ import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import FilterButtons from "../filters/FilterButtons";
 
 import styles from "./Portfolios.module.scss";
+import Button from "../../molecules/button/Button";
 
 const tags = [
   { id: 1, tag_name: "React" },
@@ -34,18 +35,17 @@ const Portfolios = ({ data }) => {
     <Row className={styles.portfoliosWrapper}>
       <div className={styles.filtersBlock}>
         <Col className={styles.filters}>
-          <FilterButtons
-            name={"All"}
-            className={selectedCategory === "All" ? "active" : ""}
-            onClick={() => {
-              setSelectedCategory("All");
-            }}
+          <Button
+            text="All"
+            lightBlueTech={selectedCategory === "All"}
+            grayTextBtnTech={selectedCategory !== "All"}
+            onClick={() => setSelectedCategory("All")}
           />
           {tags?.map((el) => (
-            <FilterButtons
-              name={el.tag_name}
-              key={el.id}
-              className={selectedCategory === el?.id ? "active" : ""}
+            <Button
+              text={el.tag_name}
+              lightBlueTech={selectedCategory === el?.id}
+              grayTextBtnTech={selectedCategory !== el?.id}
               onClick={() => {
                 handleFilter(el?.id);
                 setSelectedCategory(el?.id);
