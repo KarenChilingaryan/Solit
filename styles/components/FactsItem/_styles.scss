@@ -9,7 +9,6 @@
     border-radius: 16px;
     width: getAboutItemSizes(facts-item-width);
     height: getAboutItemSizes(facts-item-height);
-
     padding: getAboutItemSizes(facts-item-p);
     background: transparent;
 
@@ -31,11 +30,43 @@
         variables.$light-blue
       );
     }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(296);
+      height: calcVWL(163);
+
+      padding: calcVWL(32);
+
+      .title {
+        margin: calcVWL(10) 0;
+        @include font-style(
+          calcVWL(18),
+          variables.$fw-400,
+          calcVWL(24),
+          variables.$main-white
+        );
+      }
+
+      .result {
+        @include font-style(
+          calcVWL(48),
+          variables.$fw-400,
+          calcVWL(50),
+          variables.$light-blue
+        );
+      }
+    }
+
     @media (max-width: 1024px) {
       width: calcVWT(208);
       height: calcVWT(187);
       .result {
-        @include font-style(calcVWT(48), variables.$fw-400, calcVWT(59), variables.$light-blue);
+        @include font-style(
+          calcVWT(48),
+          variables.$fw-400,
+          calcVWT(59),
+          variables.$light-blue
+        );
       }
       .title {
         @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
@@ -46,7 +77,12 @@
       width: calcVWM(155);
       height: calcVWM(155);
       .result {
-        @include font-style(calcVWM(48), variables.$fw-400, calcVWM(59), variables.$light-blue);
+        @include font-style(
+          calcVWM(48),
+          variables.$fw-400,
+          calcVWM(59),
+          variables.$light-blue
+        );
       }
       .title {
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));

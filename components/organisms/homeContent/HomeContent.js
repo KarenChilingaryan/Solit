@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { memo } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { useSelector } from "react-redux";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { Col, Paragraph } from "../../atoms";
@@ -26,10 +28,6 @@ import MapUser from "../../molecules/mapUser/MapUser";
 import Button from "../../molecules/button/Button";
 
 import styles from "./HomeContent.module.scss";
-import { useRouter } from "next/router";
-import Link from "next/link";
-
-
 
 const aboutData = [
   {
@@ -60,7 +58,6 @@ const HomeContent = () => {
     router.push(`/discuss-project`);
   };
 
-
   const handleClick = (id) => {
     router.push(`/portfolio/${id}`);
   };
@@ -78,22 +75,25 @@ const HomeContent = () => {
   );
 
   const postsMainOurProjectsApi = useSelector(
-    (state) => state?.postsMainOurProjectsApi?.queries?.["posts(undefined)"]?.data
+    (state) =>
+      state?.postsMainOurProjectsApi?.queries?.["posts(undefined)"]?.data
   );
 
   const servicesData = useSelector(
     (state) => state?.servicesApi?.queries?.["services(undefined)"]?.data
   );
 
-
   const postsMainWhatWeDoTextApi = useSelector(
-    (state) => state?.postsMainWhatWeDoTextApi?.queries?.["posts(undefined)"]?.data
+    (state) =>
+      state?.postsMainWhatWeDoTextApi?.queries?.["posts(undefined)"]?.data
   );
   const postsMainContactsTextApi = useSelector(
-    (state) => state?.postsMainContactsTextApi?.queries?.["posts(undefined)"]?.data
+    (state) =>
+      state?.postsMainContactsTextApi?.queries?.["posts(undefined)"]?.data
   );
   const postsTextMainAboutUsApi = useSelector(
-    (state) => state?.postsTextMainAboutUsApi?.queries?.["mainAbout(undefined)"]?.data
+    (state) =>
+      state?.postsTextMainAboutUsApi?.queries?.["mainAbout(undefined)"]?.data
   );
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
@@ -104,7 +104,6 @@ const HomeContent = () => {
 
   useEffect(() => {
     if (postsTextMainAboutUsApi) {
-
       const data = [
         {
           users: [
@@ -121,7 +120,7 @@ const HomeContent = () => {
           ],
           about: {
             title: "About us",
-            description: postsTextMainAboutUsApi.about_us
+            description: postsTextMainAboutUsApi.about_us,
           },
         },
         {
@@ -139,7 +138,7 @@ const HomeContent = () => {
           ],
           about: {
             title: "Our Team",
-            description: postsTextMainAboutUsApi.our_team
+            description: postsTextMainAboutUsApi.our_team,
           },
         },
         {
@@ -157,13 +156,13 @@ const HomeContent = () => {
           ],
           about: {
             title: "Our Values",
-            description: postsTextMainAboutUsApi.our_values
+            description: postsTextMainAboutUsApi.our_values,
           },
         },
       ];
-      setData(data)
+      setData(data);
     }
-  }, [postsTextMainAboutUsApi])
+  }, [postsTextMainAboutUsApi]);
 
   return (
     <HomeMainWithImage firstImage={bgImage}>
@@ -171,8 +170,8 @@ const HomeContent = () => {
         <div className={styles.content}>
           <HomeMain
             data={{
-              title: mainInfoData ? mainInfoData[0]?.title : '',
-              firstSubtitle: mainInfoData ? mainInfoData[0]?.description : '',
+              title: mainInfoData ? mainInfoData[0]?.title : "",
+              firstSubtitle: mainInfoData ? mainInfoData[0]?.description : "",
               buttonText: "Let’s talk",
             }}
             onClick={handleClickDiscuss}
@@ -184,13 +183,22 @@ const HomeContent = () => {
               <BorderedText text="Services" />
             </div>
             <div className={styles.services}>
-              {servicesData && [...servicesData?.data_list.slice(0, 5), ...(servicesData?.data_list.length > 5 ? ['more'] : [])]?.map((item, i) => (
-                <ServiceCard item={item} key={i} index={i} more={item == "more"} />
-              ))}
+              {servicesData &&
+                [
+                  ...servicesData?.data_list.slice(0, 5),
+                  ...(servicesData?.data_list.length > 5 ? ["more"] : []),
+                ]?.map((item, i) => (
+                  <ServiceCard
+                    item={item}
+                    key={i}
+                    index={i}
+                    more={item == "more"}
+                  />
+                ))}
             </div>
           </div>
           <Col className={styles.servicesMainButton}>
-            <Link href={'/discuss-project'}>
+            <Link href={"/discuss-project"}>
               <Button text="Discuss your project" transparentOpposite />
             </Link>
           </Col>
@@ -223,13 +231,24 @@ const HomeContent = () => {
               src={whatWeDoImage}
               className={`${styles.backImage} ${styles.topBackImage}`}
             />
-            <Paragraph className={styles.title}>{postsMainWhatWeDoTextApi ? postsMainWhatWeDoTextApi[0].title : ""}</Paragraph>
-            <div className={styles.description}
-              dangerouslySetInnerHTML={{ __html: postsMainWhatWeDoTextApi ? postsMainWhatWeDoTextApi[0].description : "" }}
+            <Paragraph className={styles.title}>
+              {postsMainWhatWeDoTextApi
+                ? postsMainWhatWeDoTextApi[0].title
+                : ""}
+            </Paragraph>
+            <div
+              className={styles.description}
+              dangerouslySetInnerHTML={{
+                __html: postsMainWhatWeDoTextApi
+                  ? postsMainWhatWeDoTextApi[0].description
+                  : "",
+              }}
             />
-            {postsWhatWeDoApi && [...postsWhatWeDoApi?.data_list.slice(0, 5), ...(postsWhatWeDoApi?.data_list.length > 5 ? ['more'] : [])]?.map((project, i) => (
-              <WeDoCard key={i} item={project} />
-            ))}
+            {postsWhatWeDoApi &&
+              [
+                ...postsWhatWeDoApi?.data_list.slice(0, 5),
+                ...(postsWhatWeDoApi?.data_list.length <= 5 ? ["more"] : []),
+              ]?.map((project, i) => <WeDoCard key={i} item={project} />)}
           </div>
           <div className={styles.technology}>
             <div
@@ -247,25 +266,40 @@ const HomeContent = () => {
               <BorderedText text="Our Projects" />
             </div>
             <div>
-              <Paragraph className={styles.title}>{postsMainOurProjectsApi ? postsMainOurProjectsApi[0]?.title : ''}</Paragraph>
+              <Paragraph className={styles.title}>
+                {postsMainOurProjectsApi
+                  ? postsMainOurProjectsApi[0]?.title
+                  : ""}
+              </Paragraph>
               <div
                 className={styles.description}
-                dangerouslySetInnerHTML={{ __html: postsMainOurProjectsApi ? postsMainOurProjectsApi[0]?.description : '' }}
+                dangerouslySetInnerHTML={{
+                  __html: postsMainOurProjectsApi
+                    ? postsMainOurProjectsApi[0]?.description
+                    : "",
+                }}
               />
             </div>
-            <Image src={ourProjectImage} className={`${styles.backImageSecond} ${styles.backImage}`} />
+            <Image
+              src={ourProjectImage}
+              className={`${styles.backImageSecond} ${styles.backImage}`}
+            />
             <div className={styles.ourProjectsCards}>
-              {postPortfolioApi && [...postPortfolioApi?.data_list.slice(0, 7), ...(postPortfolioApi?.data_list.length > 7 ? ['more'] : [])]?.map((project, i) => (
-                <OurProjectCard
-                  onClick={() => handleClick(project.id)}
-                  key={i}
-                  name={project.title}
-                  image={project.webp_image_portfolio}
-                  more={project == "more"}
-                  component="home"
-                  images={project?.technology_logos}
-                />
-              ))}
+              {postPortfolioApi &&
+                [
+                  ...postPortfolioApi?.data_list.slice(0, 7),
+                  ...(postPortfolioApi?.data_list.length > 7 ? ["more"] : []),
+                ]?.map((project, i) => (
+                  <OurProjectCard
+                    onClick={() => handleClick(project.id)}
+                    key={i}
+                    name={project.title}
+                    image={project.webp_image_portfolio}
+                    more={project == "more"}
+                    component="home"
+                    images={project?.technology_logos}
+                  />
+                ))}
             </div>
           </div>
           <div className={styles.aboutCompanyContent}>
@@ -297,7 +331,11 @@ const HomeContent = () => {
             >
               <BorderedText text="Contacts" />
             </div>
-            <ContactForm data={postsMainContactsTextApi ? postsMainContactsTextApi[0] : null} />
+            <ContactForm
+              data={
+                postsMainContactsTextApi ? postsMainContactsTextApi[0] : null
+              }
+            />
           </div>
           {/* <AboutItem
             title={"Our Approach"}

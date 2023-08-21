@@ -21,7 +21,7 @@
     .asPlaceholder {
       color: white;
       font-weight: 400;
-      font-size: calcVW(16);
+      font-size: calcVW(18);
       line-height: calcVW(24);
       top: calcVW(5);
     }
@@ -30,6 +30,20 @@
       top: -8px;
       font-size: 12px !important;
       background: transparent;
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .label {
+        top: calcVWL(11);
+        font-size: calcVWL(13);
+        line-height: calcVWL(20);
+      }
+
+      .asPlaceholder {
+        font-size: calcVWL(18);
+        line-height: calcVWL(24);
+        top: calcVWL(5);
+      }
     }
 
     @media (max-width: 1024px) {

@@ -15,28 +15,47 @@ const OurProjectCard = ({
   images,
   blogs = false,
   component,
-  blogItem = '',
+  blogItem = "",
   onClick,
-  description
+  description,
 }) => {
   return (
-    <Col className={`${styles.mainWrapper} ${styles['mainWrapper-' + component]}`} onClick={onClick}>
+    <Col
+      className={`${styles.mainWrapper} ${styles["mainWrapper-" + component]}`}
+      onClick={onClick}
+    >
       <Col
-        className={`${styles.imageContainer} ${more && styles.moreWrapper} ${styles[component]} ${styles[blogItem]}`}
+        className={`${styles.imageContainer} ${more && styles.moreWrapper} ${
+          styles[component]
+        } ${styles[blogItem]}`}
       >
         {!more ? (
           <>
-            <Image src={image} alt="icon" className={styles.img} width={400} height={400} />
-            <Row className={`${styles.positionSection}`} >
+            <Image
+              src={image}
+              alt="icon"
+              className={styles.img}
+              width={400}
+              height={400}
+            />
+            <Row className={`${styles.positionSection}`}>
               <Row className={styles.name}>{name} </Row>
-              <Row className={styles.stacks} >
+              <Row className={styles.stacks}>
                 {!blogs &&
                   (images || array)?.map((item, i) => (
-                    <Image src={item?.original_logo || react} className={styles.icon} key={i} width={100} height={100} />
+                    <Image
+                      src={item?.original_logo || react}
+                      className={styles.icon}
+                      key={i}
+                      width={100}
+                      height={100}
+                      alt=""
+                    />
                   ))}
                 {blogs && (
                   <Col className={styles.blogDescription}>
-                    {description || "Let’s now explore how to manage your backlog using product data and provide tips and best practices to implement in your workflow."}
+                    {description ||
+                      "Let’s now explore how to manage your backlog using product data and provide tips and best practices to implement in your workflow."}
                   </Col>
                 )}
               </Row>
@@ -44,7 +63,7 @@ const OurProjectCard = ({
           </>
         ) : (
           <Row className={styles.more}>
-            More <Image src={arrow} width={10} height={10} />
+            More <Image src={arrow} width={10} height={10} alt="" />
           </Row>
         )}
       </Col>

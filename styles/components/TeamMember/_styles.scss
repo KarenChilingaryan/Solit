@@ -8,6 +8,7 @@
     border-radius: 16px;
     width: getTeamMemberSizes(team-member-card-width);
     height: getTeamMemberSizes(team-member-card-height);
+    cursor: pointer;
 
     .img {
       width: 100%;
@@ -16,7 +17,33 @@
     }
 
     .positionSection {
-      display: none;
+      height: getTeamMemberSizes(team-member-position-height);
+      display: flex;
+      opacity: 0;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      bottom: calcVW(-30);
+      left: 0;
+      padding: getTeamMemberSizes(team-member-position-section-p);
+
+      .name {
+        @include font-style(
+          getTeamMemberSizes(team-member-name-fz),
+          variables.$fw-500,
+          getTeamMemberSizes(team-member-name-lh),
+          #fff
+        );
+      }
+
+      .position {
+        @include font-style(
+          getTeamMemberSizes(team-member-position-fz),
+          variables.$fw-300,
+          getTeamMemberSizes(team-member-position-lh),
+          #fff
+        );
+      }
     }
 
     .more {
@@ -33,32 +60,10 @@
 
     &:hover {
       .positionSection {
-        display: flex;
-        flex-direction: column;
-        height: getTeamMemberSizes(team-member-position-height);
-        width: 100%;
-        position: absolute;
+        opacity: 1;
+        transition: 0.3s;
         bottom: 0;
         left: 0;
-        padding: getTeamMemberSizes(team-member-position-section-p);
-
-        .name {
-          @include font-style(
-            getTeamMemberSizes(team-member-name-fz),
-            variables.$fw-500,
-            getTeamMemberSizes(team-member-name-lh),
-            #fff
-          );
-        }
-
-        .position {
-          @include font-style(
-            getTeamMemberSizes(team-member-position-fz),
-            variables.$fw-300,
-            getTeamMemberSizes(team-member-position-lh),
-            #fff
-          );
-        }
       }
     }
   }
@@ -89,7 +94,6 @@
     .fromCareers {
       width: calcVWM(155);
       height: calcVWM(300);
-      
     }
   }
 }

@@ -12,8 +12,8 @@
     }
     .infoWrapper {
       .footerLogo {
-        width: getFooterSizes(footer-logo-width);
-        height: getFooterSizes(footer-logo-height);
+        width: calcVW(90);
+        height: calcVW(40);
       }
     }
 
@@ -27,19 +27,63 @@
       );
     }
     .text {
+      cursor: pointer;
       margin-bottom: getFooterSizes(footer-text-mb) !important;
       @include font-style(getFooterSizes(footer-text-fz), variables.$fw-400, getFooterSizes(footer-text-lh), #fff);
+      &:hover {
+        margin-left: calcVW(8);
+        margin-right: calcVW(-8);
+        color: #3fc1ff;
+        transition: 0.3s;
+      }
     }
 
     .socialIconsWrapper {
       .socialIcons {
         margin-right: getFooterSizes(footer-social-mr);
-        width: getFooterSizes(footer-social-width);
-        height: getFooterSizes(footer-social-width);
+        width: calcVW(24);
+        height: calcVW(24);
         object-fit: contain;
+        &:hover {
+          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg) brightness(86%) contrast(99%);
+          transition: 0.3s;
+        }
       }
       .socialIconsTitle {
         width: 100%;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .footerWrapper {
+      padding: calcVWL(80);
+      .infoWrapper {
+        .footerLogo {
+          width: calcVWL(90);
+          height: calcVWL(40);
+        }
+      }
+
+      .textTitle {
+        margin-bottom: calcVWL(22) !important;
+        @include font-style(calcVWL(18), variables.$fw-700, calcVWL(22), #fff);
+      }
+      .text {
+        margin-bottom: calcVWL(14) !important;
+        @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
+        &:hover {
+          margin-left: calcVWL(8);
+          margin-right: calcVWL(-8);
+        }
+      }
+
+      .socialIconsWrapper {
+        .socialIcons {
+          margin-right: calcVWL(26);
+          width: calcVWL(24);
+          height: calcVWL(24);
+        }
       }
     }
   }
@@ -102,9 +146,8 @@
         width: 100%;
         position: unset;
         max-width: 100%;
-       
       }
-      .infoWrapper{
+      .infoWrapper {
         .footerLogo {
           width: calcVWM(90);
           height: calcVWM(40);
@@ -129,7 +172,7 @@
         .socialIcons {
           width: calcVWM(25);
           height: calcVWM(25);
-          margin-top: calcVW(18)
+          margin-top: calcVW(18);
         }
       }
       .textTitle {

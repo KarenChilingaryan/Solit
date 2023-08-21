@@ -2,248 +2,370 @@
 @import "../../base/mixins";
 
 @mixin generate-home-content-styles {
-    .content {
-        width: getHomeContentSizes(content-width);
-        margin: getHomeContentSizes(content-mt) auto 0 auto;
-        .servicesMain {
-            width: 100%;
-            margin-top: getHomeContentSizes(services-mt);
-            .services {
-                @include flex(flex-start, center, null, wrap);
-                width: 100%;
-                row-gap: getHomeContentSizes(services-rg);
-                column-gap: calcVW(76);
-                margin-top: calcVW(100);
-            }
+  .content {
+    width: getHomeContentSizes(content-width);
+    margin: getHomeContentSizes(content-mt) auto 0 auto;
+    .servicesMain {
+      width: 100%;
+      margin-top: getHomeContentSizes(services-mt);
+      .services {
+        @include flex(flex-start, center, null, wrap);
+        width: 100%;
+        row-gap: getHomeContentSizes(services-rg);
+        column-gap: calcVW(76);
+        margin-top: calcVW(100);
+      }
 
-            .borderedTextBottom {
-                margin-bottom: getHomeContentSizes(bordered-text-mb);
-            }
+      .borderedTextBottom {
+        margin-bottom: getHomeContentSizes(bordered-text-mb);
+      }
+    }
+  }
+  .borderedTextMargin {
+    margin: getHomeContentSizes(bordered-text-mtb);
+  }
+  .borderedText {
+    margin-left: getHomeContentSizes(bordered-text-ml);
+  }
+  .servicesMainButton {
+    @include flex(center, center);
+    margin-top: getHomeContentSizes(service-main-button-mt);
+  }
+  .borderedTextTestimonials {
+    margin-top: getHomeContentSizes(testimonials-mt) !important;
+  }
+  .backImage {
+    width: calcVW(1920);
+    left: calcVW(-320);
+    position: absolute;
+    top: calcVW(80);
+    height: 140%;
+    z-index: 0;
+  }
+  .backImageSecond {
+    height: 117%;
+    min-height: calcVW(1300);
+  }
+  .topBackImage {
+    top: calcVW(-300);
+    z-index: 0;
+  }
+  .afterAboutContent {
+    width: getHomeContentSizes(about-content-width);
+    margin: 0 auto;
+    .aboutContent {
+      row-gap: getHomeContentSizes(about-content-rg);
+      @include flex(space-between, center, column);
+    }
+    .borderedTextWhat {
+      margin: getHomeContentSizes(bordered-text-mtb);
+      margin-left: getHomeContentSizes(bordered-text-ml-what);
+      position: relative;
+      z-index: 1;
+    }
+
+    .projectContent {
+      @include flex(space-between, center, row, wrap);
+      row-gap: getHomeContentSizes(project-content-rg);
+      position: relative;
+      .title {
+        @include font-style(
+          getHomeContentSizes(what-we-do-title-fz),
+          variables.$fw-500,
+          getHomeContentSizes(what-we-do-title-lh)
+        );
+        position: relative;
+        z-index: 1;
+      }
+      .description {
+        margin-top: getHomeContentSizes(what-we-do-description-mt);
+        @include font-style(
+          getHomeContentSizes(what-we-do-description-fz),
+          variables.$fw-400,
+          getHomeContentSizes(what-we-do-description-lh)
+        );
+        position: relative;
+        z-index: 1;
+        margin-bottom: getHomeContentSizes(
+          what-we-do-description-mb
+        ) !important;
+
+        p {
+          @include font-style(
+            getHomeContentSizes(what-we-do-description-fz),
+            variables.$fw-400,
+            getHomeContentSizes(what-we-do-description-lh)
+          );
         }
+      }
+    }
+
+    .aboutCompanyContent {
+      @include flex(space-between, center, row, wrap);
+      margin: getHomeContentSizes(about-company-m);
+    }
+    .borderedTextProject {
+      margin-bottom: getHomeContentSizes(project-mb);
+      margin-top: getHomeContentSizes(project-mt);
+    }
+    .technology {
+      .borderedTextProject {
+        margin-top: getHomeContentSizes(technology-mt);
+        margin-bottom: getHomeContentSizes(technology-mb);
+      }
+    }
+    .mapContainer {
+      @include flex(space-between, flex-end);
+      .worldMap {
+        padding-bottom: getHomeContentSizes(world-map-pb);
+      }
+      .worldMapUser {
+        width: getHomeContentSizes(world-map-user-w);
+        position: relative;
+        z-index: 10;
+      }
+    }
+  }
+  .contactBlock {
+    position: relative;
+    padding-bottom: calcVW(380);
+    .backImage {
+      height: calcVW(1290);
+    }
+  }
+  .ourProjectsCards {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: calcVW(72);
+    column-gap: calcVW(32);
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .content {
+      width: calcVWL(1216);
+      margin: calcVWL(300) auto 0 auto;
+
+      .servicesMain {
+        margin-top: calcVWL(200);
+
+        .services {
+          row-gap: calcVWL(96);
+          column-gap: calcVWL(76);
+          margin-top: calcVWL(100);
+        }
+
+        .borderedTextBottom {
+          margin-bottom: calcVWL(-40);
+        }
+      }
     }
     .borderedTextMargin {
-        margin: getHomeContentSizes(bordered-text-mtb);
+      margin: calcVWL(140) 0 calcVWL(80);
     }
     .borderedText {
-        margin-left: getHomeContentSizes(bordered-text-ml);
+      margin-left: calcVWL(-90);
     }
     .servicesMainButton {
-        @include flex(center, center);
-        margin-top: getHomeContentSizes(service-main-button-mt);
+      margin-top: calcVWL(64);
     }
     .borderedTextTestimonials {
-        margin-top: getHomeContentSizes(testimonials-mt) !important;
+      margin-top: calcVWL(200) !important;
     }
     .backImage {
-        width: calcVW(1920);
-        left: calcVW(-320);
-        position: absolute;
-        top: calcVW(80);
-        height: 140%;
-        z-index: 0;
+      width: calcVWL(1920);
+      left: calcVWL(-320);
+      top: calcVWL(80);
     }
     .backImageSecond {
-        height: 117%;
-        min-height: calcVW(1300);
+      min-height: calcVWL(1300);
     }
     .topBackImage {
-        top: calcVW(-300);
-        z-index: 0;
+      top: calcVWL(-300);
     }
     .afterAboutContent {
-        width: getHomeContentSizes(about-content-width);
-        margin: 0 auto;
-        .aboutContent {
-            row-gap: getHomeContentSizes(about-content-rg);
-            @include flex(space-between, center, column);
-        }
-        .borderedTextWhat {
-            margin: getHomeContentSizes(bordered-text-mtb);
-            margin-left: getHomeContentSizes(bordered-text-ml-what);
-            position: relative;
-            z-index: 1;
-        }
+      width: calcVWL(1280);
+      .aboutContent {
+        row-gap: calcVWL(32);
+      }
+      .borderedTextWhat {
+        margin: calcVWL(140) 0 calcVWL(80) 0;
+        margin-left: calcVWL(-80);
+      }
 
-        .projectContent {
-            @include flex(space-between, center, row, wrap);
-            row-gap: getHomeContentSizes(project-content-rg);
-            position: relative;
-            .title {
-                @include font-style(
-                    getHomeContentSizes(what-we-do-title-fz),
-                    variables.$fw-500,
-                    getHomeContentSizes(what-we-do-title-lh)
-                );
-                position: relative;
-                z-index: 1;
-            }
-            .description {
-                margin-top: getHomeContentSizes(what-we-do-description-mt);
-                @include font-style(
-                    getHomeContentSizes(what-we-do-description-fz),
-                    variables.$fw-400,
-                    getHomeContentSizes(what-we-do-description-lh)
-                );
-                position: relative;
-                z-index: 1;
-                margin-bottom: getHomeContentSizes(what-we-do-description-mb) !important;
-            }
+      .projectContent {
+        row-gap: calcVWL(32);
+        .title {
+          @include font-style(calcVWL(36), variables.$fw-500, calcVWL(40));
         }
+        .description {
+          margin-top: calcVWL(24);
+          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+          margin-bottom: calcVWL(60) !important;
 
-        .aboutCompanyContent {
-            @include flex(space-between, center, row, wrap);
-            margin: getHomeContentSizes(about-company-m);
+          p {
+            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+          }
         }
+      }
+
+      .aboutCompanyContent {
+        margin: calcVWL(90) 0 calcVWL(130) 0;
+      }
+      .borderedTextProject {
+        margin-bottom: calcVWL(130);
+        margin-top: calcVWL(120);
+      }
+      .technology {
         .borderedTextProject {
-            margin-bottom: getHomeContentSizes(project-mb);
-            margin-top: getHomeContentSizes(project-mt);
+          margin-top: calcVWL(150);
+          margin-bottom: calcVWL(50);
         }
-        .technology {
-            .borderedTextProject {
-                margin-top: getHomeContentSizes(technology-mt);
-                margin-bottom: getHomeContentSizes(technology-mb);
-            }
+      }
+      .mapContainer {
+        .worldMap {
+          padding-bottom: calcVWL(140);
         }
-        .mapContainer {
-            @include flex(space-between, flex-end);
-            .worldMap {
-                padding-bottom: getHomeContentSizes(world-map-pb);
-            }
-            .worldMapUser {
-                width: getHomeContentSizes(world-map-user-w);
-                position: relative;
-                z-index: 10;
-            }
+        .worldMapUser {
+          width: calcVWL(740);
         }
+      }
     }
     .contactBlock {
-        position: relative;
-        padding-bottom: calcVW(380);
-        .backImage {
-            height: calcVW(1290);
-        }
+      padding-bottom: calcVWL(380);
+      .backImage {
+        height: calcVWL(1290);
+      }
     }
     .ourProjectsCards {
-        display: flex;
-        flex-wrap: wrap;
-        row-gap: calcVW(72);
-        column-gap: calcVW(32);
+      row-gap: calcVWL(72);
+      column-gap: calcVWL(32);
+    }
+  }
+  @media (max-width: 1024px) {
+    .ourProjectsCards {
+      row-gap: calcVWT(72);
+      column-gap: calcVWT(32);
+    }
+    .contactBlock {
+      padding-bottom: calcVWT(90);
+    }
+    .content {
+      width: calcVWT(880);
+      margin-top: calcVWT(255);
+      .servicesMain {
+        margin-top: calcVWT(100);
+        .services {
+          column-gap: calcVWT(104);
+        }
+      }
+    }
+    .borderedTextMargin{
+      margin-top: calcVW(150);
+    }
+    .borderedText {
+      margin-left: calcVWT(-70);
+      margin-bottom: calcVWT(30) !important;
+    }
+    .servicesMainButton {
+      display: none;
+    }
+    .afterAboutContent {
+      width: calcVWT(928);
+      .aboutContent {
+        row-gap: calcVWT(110);
+      }
+      .borderedTextWhat {
+        margin-left: calcVWT(-50);
+      }
+      .aboutCompanyContent {
+        height: max-content;
+        margin: calcVWT(90) 0 calcVWT(100) 0;
+      }
+      .mapContainer {
+        flex-direction: column;
+      }
+    }
+
+    .backImage {
+      left: calcVWT(-48);
+      width: calcVWT(1300);
+      height: 100%;
+    }
+    .topBackImage {
+      top: calcVWT(150);
+    }
+    .projectContent {
+      .title {
+        display: none;
+      }
+      .description {
+        display: none;
+      }
+    }
+    .backImageSecond {
+      top: calcVWT(270);
+      height: 107%;
+      left: -22%;
+    }
+  }
+  @media (max-width: 576px) {
+    .content {
+      width: calcVWM(343);
+      margin-top: calcVWM(40);
+      .servicesMain {
+        margin-top: calcVWM(20);
+        margin-bottom: calcVWM(80);
+        .services {
+          column-gap: calcVWM(17);
+        }
+      }
+    }
+    .contactBlock {
+      padding-bottom: calcVWM(90);
+    }
+    .borderedText {
+      margin-left: calcVWM(-15);
+    }
+    .afterAboutContent {
+      .aboutContent {
+        row-gap: calcVWM(32);
+      }
+      .aboutCompanyContent {
+        margin: calcVWT(90) 0 calcVWT(230) 0;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: calcVWM(50);
+      }
+      .mapContainer {
         width: 100%;
+        .worldMapUser {
+          width: 100%;
+        }
+      }
+      .borderedTextWhat {
+        margin-top: calcVWM(60) !important;
+      }
     }
-    @media (max-width: 1024px) {
-        .ourProjectsCards {
-            row-gap: calcVWT(72);
-            column-gap: calcVWT(32);
-        }
-        .content {
-            width: calcVWT(880);
-            margin-top: calcVWT(170);
-            .servicesMain {
-                margin-top: calcVWT(150);
-                .services {
-                    column-gap: calcVWT(104);
-                }
-            }
-        }
-        .borderedText {
-            margin-left: calcVWT(-70);
-            margin-bottom: calcVWT(30) !important;
-        }
-        .servicesMainButton {
-            display: none;
-        }
-        .afterAboutContent {
-            width: calcVWT(928);
-            .aboutContent {
-                row-gap: calcVWT(110);
-            }
-            .borderedTextWhat {
-                margin-left: calcVWT(-50);
-            }
-            .aboutCompanyContent {
-                height: max-content;
-                margin: calcVWT(90) 0 calcVWT(100) 0;
-            }
-            .mapContainer {
-                flex-direction: column;
-            }
-        }
+    .projectContent {
+      row-gap: calcVWM(16) !important;
+      margin-bottom: calcVWM(100);
+    }
+    .topBackImage {
+      height: 53%;
+      width: calcVWM(800);
+      left: calcVWM(-230);
+    }
+    .ourProjectsCards {
+      row-gap: calcVWM(32);
+      column-gap: calcVWM(13);
+    }
 
-        .backImage {
-            left: calcVWT(-48);
-            width: calcVWT(1024);
-            height: 100%;
-        }
-        .topBackImage {
-            top: calcVWT(150);
-        }
-        .projectContent {
-            .title {
-                display: none;
-            }
-            .description {
-                display: none;
-            }
-        }
-        .backImageSecond {
-            top: calcVWT(400);
-            height: 93%;
-        }
+    .backImageSecond {
+      top: calcVWM(800);
+      height: 86%;
+      width: calcVWM(700);
+      left: calcVWM(-200);
     }
-    @media (max-width: 576px) {
-        .content {
-            width: calcVWM(343);
-            margin-top: calcVWM(90);
-            .servicesMain {
-                margin-top: calcVWM(20);
-                margin-bottom: calcVWM(80);
-                .services {
-                    column-gap: calcVWM(17);
-                }
-            }
-        }
-        .borderedText {
-            margin-left: calcVWM(-15);
-        }
-        .afterAboutContent {
-            .aboutContent {
-                row-gap: calcVWM(32);
-            }
-            .aboutCompanyContent {
-                margin: calcVWT(90) 0 calcVWT(230) 0;
-                flex-direction: column;
-                align-items: flex-start;
-                row-gap: calcVWM(50);
-            }
-            .mapContainer {
-                width: 100%;
-                .worldMapUser {
-                    width: 100%;
-                }
-            }
-            .borderedTextWhat {
-                margin-top: calcVWM(150) !important;
-            }
-        }
-        .projectContent {
-            row-gap: calcVWM(16) !important;
-            margin-bottom: calcVWM(100);
-        }
-        .topBackImage {
-            height: 53%;
-            width: calcVWM(800);
-            left: calcVWM(-230);
-        }
-        .ourProjectsCards {
-            row-gap: calcVWM(32);
-            column-gap: calcVWM(13);
-        }
-
-        .backImageSecond {
-            top: calcVWM(800);
-            height: 86%;
-            width: calcVWM(700);
-            left: calcVWM(-200);
-        }
-    }
+  }
 }

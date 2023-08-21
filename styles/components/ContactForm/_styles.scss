@@ -30,9 +30,9 @@
       z-index: 1;
 
       .title {
-        font-weight: 700;
-        font-size: calcVW(20);
-        line-height: calcVW(24);
+        font-weight: 500;
+        font-size: calcVW(36);
+        line-height: normal;
         color: #ffffff;
       }
 
@@ -48,14 +48,14 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: calcVWT(406);
-      gap: calcVWT(16);
+      max-width: calcVW(406);
+      gap: calcVW(16);
       width: calcVW(410);
       position: relative;
       z-index: 1;
       .buttonWrapper {
         button {
-          @include font-style(getContactFormSizes(button-fz), variables.$fw-700, getContactFormSizes(button-fl), #fff);
+          @include font-style(calcVW(13), variables.$fw-700, normal, #fff);
         }
       }
 
@@ -84,7 +84,11 @@
         }
 
         .acceptText {
-          @include font-style(getContactFormSizes(text-fz), variables.$fw-400, getContactFormSizes(text-fl));
+          @include font-style(
+            getContactFormSizes(text-fz),
+            variables.$fw-400,
+            getContactFormSizes(text-fl)
+          );
         }
       }
 
@@ -165,7 +169,8 @@
         color: #ffffff;
 
         &:focus {
-          box-shadow: 0 2px 0 0 blue;
+          box-shadow: 0 0 0 0 transparent;
+          border-bottom: 2px solid #1500ff;
         }
       }
 
@@ -185,18 +190,24 @@
       }
 
       :global {
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
           background: transparent;
           border-color: none;
           box-shadow: 0 2px 0 0 rgb(207, 39, 39);
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input {
           background: transparent;
           border-color: none !important;
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
           border-color: none;
         }
 
@@ -217,6 +228,81 @@
       bottom: calcVW(-380);
       height: calcVW(1380);
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      gap: calcVWL(96);
+      .infoSection {
+        gap: calcVWL(16);
+        .title {
+          font-size: calcVWL(36);
+        }
+
+        .info {
+          font-size: calcVWL(18);
+          line-height: calcVWL(24);
+        }
+      }
+
+      .form {
+        max-width: calcVWL(406);
+        gap: calcVWL(16);
+        width: calcVWL(410);
+        .buttonWrapper {
+          button {
+            @include font-style(calcVWL(13), variables.$fw-700, normal, #fff);
+          }
+        }
+
+        .suffix {
+          width: calcVWL(17);
+          height: calcVWL(19);
+        }
+
+        .accept {
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWL(18);
+          }
+
+          .acceptText {
+            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
+          }
+        }
+
+        :global(.ant-input-affix-wrapper) {
+          input[type="file"]::before {
+            padding: calcVWL(10) 0;
+          }
+        }
+
+        :global(.ant-input-suffix) {
+          bottom: calcVWL(7);
+        }
+
+        .inputSection {
+          gap: calcVWL(16);
+        }
+
+        :global(.ant-input) {
+          padding: calcVWL(12) 0px calcVWL(5) 0;
+        }
+
+        :global(.ant-form-item-label) {
+          top: calcVWL(10);
+        }
+
+        :global {
+          .ant-form-item-label > label {
+            font-size: calcVWL(16);
+          }
+        }
+      }
+      .backImage {
+        width: calcVWL(1920);
+        left: calcVWL(-320);
+        position: absolute;
+        bottom: calcVWL(-380);
+        height: calcVWL(1380);
+      }
+    }
     @media (max-width: 1024px) {
       .infoSection {
         padding: 0 calcVWT(50);
@@ -236,7 +322,7 @@
       }
       .form {
         width: 50%;
-
+        max-width: unset;
         :global(.ant-input) {
           padding: calcVWT(12) 0px calcVWT(5) 0;
           border-bottom: 2px solid #ffffff;
@@ -244,20 +330,32 @@
             box-shadow: 0 2px 0 0 blue;
           }
         }
+
+        .suffix {
+          width: calcVWT(17);
+          height: calcVWT(19);
+        }
+
         .accept {
           .acceptText {
             font-size: calcVWT(18);
             line-height: calcVWT(24);
           }
         }
+
         :global(.ant-form-item) {
           margin-bottom: calcVWT(20);
         }
+
         :global(.ant-checkbox-inner) {
           width: calcVWT(20);
           height: calcVWT(20);
         }
-        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
+
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
           width: calcVWT(20);
           height: calcVWT(20);
         }
@@ -304,12 +402,17 @@
           }
         }
 
+        .suffix {
+          width: calcVWM(17);
+          height: calcVWM(19);
+        }
+
         .buttonWrapper {
           button {
             @include font-style(
               calcVWM(13) !important,
               variables.$fw-700 !important,
-              calcVWM(16) !important,
+              calcVWM(16) !important
             );
             padding: calcVWM(8) calcVWM(32);
             border-radius: calcVWM(8);
@@ -331,7 +434,10 @@
           height: calcVWM(15);
           margin-right: calcVWM(10);
         }
-        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
           width: calcVWM(20);
           height: calcVWM(20);
         }

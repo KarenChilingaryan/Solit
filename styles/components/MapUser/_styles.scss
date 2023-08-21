@@ -49,7 +49,45 @@
         @include font-style(getMapUser(position-fs), variables.$fw-500, getMapUser(position-lh));
       }
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .imgBlock {
+        width: calcVWL(320);
+        .imageBlock {
+          .flag {
+            width: calcVWL(36);
+            height: calcVWL(26);
+            top: calcVWL(10);
+            right: calcVWL(10);
+          }
+          .userImage {
+            width: calcVWL(178);
+            height: calcVWL(187);
+            border-radius: calcVWL(8);
+          }
+        }
+        .iconBlock {
+          width: calcVWL(32);
+          height: calcVWL(32);
+          border-radius: calcVWL(8);
+          .arrowIcon {
+            width: calcVWL(15);
+          }
+        }
+      }
+      .infoBlock {
+        width: calcVWL(320);
+        margin-top: calcVWL(20);
+
+        .userName {
+          @include font-style(calcVWL(24), variables.$fw-700, calcVWL(29), #219fdb);
+        }
+        .userPosition {
+          @include font-style(calcVWL(20), variables.$fw-500, calcVWL(24));
+        }
+      }
+    }
     @media (max-width: 1024px) {
+      margin-right: calcVWT(100);
       .imgBlock {
         width: calcVWT(300);
         .imageBlock {

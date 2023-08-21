@@ -21,7 +21,7 @@ const PortfolioItem = () => {
   };
 
   const dispatch = useDispatch();
-  const [postPortfolioApiData, setPostPortfolioApiData] = useState(null)
+  const [postPortfolioApiData, setPostPortfolioApiData] = useState(null);
 
   const postPortfolioApi = useSelector(
     (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
@@ -31,14 +31,16 @@ const PortfolioItem = () => {
   };
 
   const getData = async (id) => {
-    const res = await dispatch(await portfolioApi.endpoints.portfolio.initiate(id));
-    setPostPortfolioApiData(res.data)
-  }
+    const res = await dispatch(
+      await portfolioApi.endpoints.portfolio.initiate(id)
+    );
+    setPostPortfolioApiData(res.data);
+  };
   useEffect(() => {
     if (id) {
-      getData(id)
+      getData(id);
     }
-  }, [id])
+  }, [id]);
 
   return (
     <Row className={styles.profilePage}>
@@ -46,20 +48,29 @@ const PortfolioItem = () => {
         <Row className={styles.content}>
           <Row className={styles.itemDescription}>
             <Col className={styles.imageCard}>
-              <Image src={postPortfolioApiData?.webp_image} width={1000} height={1900} />
+              <Image
+                src={postPortfolioApiData?.webp_image}
+                width={1000}
+                height={1900}
+              />
             </Col>
             <Col className={styles.testSection}>
               <HomeMain
                 data={{
                   title: postPortfolioApiData?.title,
-                  firstSubtitle:
-                    postPortfolioApiData?.description
+                  firstSubtitle: postPortfolioApiData?.description,
                 }}
                 className={"prtfolioItem"}
               />
               <Row className={styles.stacks}>
                 {postPortfolioApiData?.technology_logos?.map((item, i) => (
-                  <Image src={item?.original_logo} className={styles.icon} key={i} width={400} height={200} />
+                  <Image
+                    src={item?.original_logo}
+                    className={styles.icon}
+                    key={i}
+                    width={400}
+                    height={200}
+                  />
                 ))}
               </Row>
             </Col>
@@ -72,7 +83,7 @@ const PortfolioItem = () => {
             <HomeMain
               data={{
                 title: postPortfolioApi?.data_text[0]?.title,
-                firstSubtitle: postPortfolioApi?.data_text[0]?.description
+                firstSubtitle: postPortfolioApi?.data_text[0]?.description,
               }}
               className={"prtfolioItemDesc"}
             />
@@ -82,26 +93,31 @@ const PortfolioItem = () => {
             justify={"space-between"}
             gutter={[0, "3.645838vw"]}
           >
-            {postPortfolioApi && postPortfolioApi?.data_list?.map(
-              (project, i) =>
-                i < 3 && (
-                  <OurProjectCard
-                    onClick={() => handleClick(project.id)}
-                    key={i}
-                    component="portfolio"
-                    name={project.title}
-                    image={project.webp_image_portfolio}
-                    more={project == "more"}
-                    images={project?.technology_logos}
-                  />
-                )
-            )}
+            {postPortfolioApi &&
+              postPortfolioApi?.data_list?.map(
+                (project, i) =>
+                  i < 3 && (
+                    <OurProjectCard
+                      onClick={() => handleClick(project.id)}
+                      key={i}
+                      component="portfolio"
+                      name={project.title}
+                      image={project.webp_image_portfolio}
+                      more={project == "more"}
+                      images={project?.technology_logos}
+                    />
+                  )
+              )}
           </Row>
           <Row className={styles.buttonWrapper}>
             <Button icon={arrow} text="Go Back to Portfolio" />
           </Row>
           <Row className={styles.knowMoreSection}>
-            <WhatToKnow color="#000" className={'transparentOppositeBlack'} onClick={handleClickDiscuss} />
+            <WhatToKnow
+              color="#000"
+              className={"transparentOppositeBlack"}
+              onClick={handleClickDiscuss}
+            />
           </Row>
         </Row>
       </Row>

@@ -5,111 +5,201 @@
   .container {
     overflow: hidden;
     margin-bottom: calcVW(320);
-  }
-  .content {
-    width: getAboutPageSizes(content-width);
-    margin: getAboutPageSizes(content-mt) auto 0 auto;
+    .content {
+      width: getAboutPageSizes(content-width);
+      margin: getAboutPageSizes(content-mt) auto 0 auto;
 
-    .servicesMain {
-      width: 100%;
-      margin-top: getAboutPageSizes(services-mt);
-
-      .services {
-        @include flex(space-between, center, null, wrap);
+      .servicesMain {
         width: 100%;
-        row-gap: getAboutPageSizes(services-rg);
+        margin-top: getAboutPageSizes(services-mt);
+
+        .services {
+          @include flex(space-between, center, null, wrap);
+          width: 100%;
+          row-gap: getAboutPageSizes(services-rg);
+        }
+        .borderedTextBottom {
+          margin-bottom: getAboutPageSizes(bordered-text-mb);
+        }
       }
-      .borderedTextBottom {
-        margin-bottom: getAboutPageSizes(bordered-text-mb);
-      }
-    }
-    .title {
-      @include font-style(getAboutPageSizes(title-fz), variables.$fw-500, getAboutPageSizes(title-fl), #fff);
-      position: relative;
-      margin-top: getAboutPageSizes(title-mt);
-    }
-    .impact {
-      @include flex(space-between, flex-start, null, wrap);
-      row-gap: getAboutPageSizes(impact-rg);
-      margin-top: getAboutPageSizes(impact-mt);
-      margin-bottom: getAboutPageSizes(impact-mb);
-    }
-    .descriptionBlock {
-      @include flex(null, flex-start, column);
-      row-gap: getAboutPageSizes(description-rg);
-      margin-bottom: getAboutPageSizes(description-mb);
-      padding: getAboutPageSizes(description-p);
-    }
-    .description {
-      @include font-style(getAboutPageSizes(description-fz), variables.$fw-400, getAboutPageSizes(description-fl));
-    }
-    .aboutImage {
-      width: 100%;
-      height: getAboutPageSizes(about-image-h);
-      border-radius: getAboutPageSizes(about-image-br);
-      margin-bottom: getAboutPageSizes(about-image-mb);
-    }
-    .quickFacts {
-      @include flex(space-between, center);
-      margin-top: getAboutPageSizes(quick-facts-mt);
-    }
-    .descriptionMt {
-      margin-top: getAboutPageSizes(description-mt);
-    }
-    .aboutCompanyContent {
-      @include flex(space-between, center, row, wrap);
-      margin: getAboutPageSizes(about-company-m);
-    }
-    .aboutCompanyTitle {
-      @include flex(null, center);
-      @include font-style(calcVW(36) variables.$fw-500, calcVW(44), variables.$white);
-    }
-    @media (max-width: 1024px) {
-      width: calcVWT(928);
-      margin-top: calcVWT(258);
       .title {
-        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44), #fff);
-        margin-top: calcVWT(160);
+        @include font-style(
+          getAboutPageSizes(title-fz),
+          variables.$fw-500,
+          getAboutPageSizes(title-fl),
+          #fff
+        );
+        position: relative;
+        margin-top: getAboutPageSizes(title-mt);
       }
       .impact {
-        row-gap: calcVWT(32);
-        padding: 0 calcVWT(24);
-      }
-      .description {
-        @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
-      }
-      .descriptionBlock {
-        padding: calcVWT(32) calcVWT(24);
-      }
-      .aboutImage {
-        padding: calcVWT(10);
-      }
-      .quickFacts {
-        margin-top: calcVWT(40);
-      }
-    }
-    @media (max-width: 576px) {
-      margin-top: calcVWM(90);
-      .title {
-        @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44), #fff);
-        margin-top: calcVWM(40);
-      }
-      .impact {
-        padding: 0;
+        @include flex(space-between, flex-start, null, wrap);
+        row-gap: getAboutPageSizes(impact-rg);
+        margin-top: getAboutPageSizes(impact-mt);
+        margin-bottom: getAboutPageSizes(impact-mb);
       }
       .descriptionBlock {
-        padding: calcVWM(16);
+        @include flex(null, flex-start, column);
+        row-gap: getAboutPageSizes(description-rg);
+        margin-bottom: getAboutPageSizes(description-mb);
+        padding: getAboutPageSizes(description-p);
       }
       .description {
-        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+        @include font-style(
+          getAboutPageSizes(description-fz),
+          variables.$fw-400,
+          getAboutPageSizes(description-fl)
+        );
       }
       .aboutImage {
-        height: calcVWM(230);
-        padding: 0;
+        width: 100%;
+        height: getAboutPageSizes(about-image-h);
+        border-radius: getAboutPageSizes(about-image-br);
+        margin-bottom: getAboutPageSizes(about-image-mb);
       }
       .quickFacts {
-        flex-wrap: wrap;
-        justify-content: space-between;
+        @include flex(space-between, center);
+        margin-top: getAboutPageSizes(quick-facts-mt);
+      }
+      .descriptionMt {
+        margin-top: getAboutPageSizes(description-mt);
+      }
+      .aboutCompanyContent {
+        @include flex(space-between, center, row, wrap);
+        margin: getAboutPageSizes(about-company-m);
+      }
+      .aboutCompanyTitle {
+        @include flex(null, center);
+        @include font-style(
+          calcVW(36) variables.$fw-500,
+          calcVW(44),
+          variables.$white
+        );
+      }
+
+      @media only screen and (max-width: 1440px) and (min-width: 1028px)  {
+        width: calcVWL(1280);
+        margin: calcVWL(478) auto 0 auto;
+  
+        .servicesMain {
+          width: 100%;
+          margin-top: calcVWL(400);
+  
+          .services {
+            row-gap: calcVWL(96);
+          }
+          .borderedTextBottom {
+            margin-bottom: calcVWL(-40);
+          }
+        }
+        .title {
+          @include font-style(
+            calcVWL(36),
+            variables.$fw-500,
+            calcVWL(44),
+            #fff
+          );
+          margin-top: calcVWL(150);
+        }
+        .impact {
+          row-gap: calcVWL(32);
+          margin-top: calcVWL(32);
+          margin-bottom: calcVWL(80);
+        }
+        .descriptionBlock {
+          row-gap: calcVWL(32);
+          margin-bottom: calcVWL(32);
+          padding: calcVWL(32);
+        }
+        .description {
+          @include font-style(
+            calcVWL(18),
+            variables.$fw-400,
+            calcVWL(24)
+          );
+        }
+        .aboutImage {
+          height: calcVWL(683);
+          border-radius: calcVWL(16);
+          margin-bottom: calcVWL(80);
+        }
+        .quickFacts {
+          margin-top: calcVWL(32);
+        }
+        .descriptionMt {
+          margin-top: calcVWL(32);
+        }
+        .aboutCompanyContent {
+          margin: calcVWL(90) 0;
+        }
+        .aboutCompanyTitle {
+          @include flex(null, center);
+          @include font-style(
+            calcVWL(36) variables.$fw-500,
+            calcVWL(44),
+            variables.$white
+          );
+        }
+
+      }
+
+      @media (max-width: 1024px) {
+        width: calcVWT(928);
+        margin-top: calcVWT(258);
+        .title {
+          @include font-style(
+            calcVWT(36),
+            variables.$fw-500,
+            calcVWT(44),
+            #fff
+          );
+          margin-top: calcVWT(160);
+        }
+        .impact {
+          row-gap: calcVWT(32);
+          padding: 0 calcVWT(24);
+        }
+        .description {
+          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+        }
+        .descriptionBlock {
+          padding: calcVWT(32) calcVWT(24);
+        }
+        .aboutImage {
+          padding: calcVWT(10);
+        }
+        .quickFacts {
+          margin-top: calcVWT(40);
+        }
+      }
+      @media (max-width: 576px) {
+        margin-top: calcVWM(90);
+        .title {
+          @include font-style(
+            calcVWM(36),
+            variables.$fw-500,
+            calcVWM(44),
+            #fff
+          );
+          margin-top: calcVWM(40);
+        }
+        .impact {
+          padding: 0;
+        }
+        .descriptionBlock {
+          padding: calcVWM(16);
+        }
+        .description {
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+        }
+        .aboutImage {
+          height: calcVWM(230);
+          padding: 0;
+        }
+        .quickFacts {
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
       }
     }
   }

@@ -36,9 +36,23 @@
         }
       }
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(816);
+      height: calcVWL(448);
+      .personIcon {
+        width: calcVWL(25);
+        height: calcVWL(25);
+        &:hover {
+          width: calcVWL(30);
+          height: calcVWL(30);
+          margin-left: calcVWL(-2.5);
+          margin-top: calcVWL(-2.5);
+        }
+      }
+    }
     @media (max-width: 1024px) {
-      width: calcVWT(816);
-      height: calcVWT(448);
+      width: calcVWT(928);
+      height: calcVWT(512);
       margin: 0 auto;
       .personIcon {
         width: calcVWT(25);

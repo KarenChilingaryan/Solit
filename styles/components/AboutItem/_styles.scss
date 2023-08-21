@@ -54,6 +54,43 @@
         text-align: center;
       }
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(624);
+
+      .content {
+        gap: calcVWL(35);
+        padding: calcVWL(32);
+
+        .icon {
+          width: calcVWL(53);
+          height: calcVWL(53);
+        }
+
+        .title {
+          margin: calcVWL(10) 0;
+          @include font-style(
+            calcVWL(24),
+            variables.$fw-500,
+            calcVWL(24),
+            variables.$light-blue
+          );
+        }
+
+        .desc {
+          @include font-style(
+            calcVWL(18),
+            variables.$fw-400,
+            calcVWL(24),
+            variables.$main-white
+          );
+          min-height: calcVWL(216);
+        }
+      }
+      .weDoContent {
+        gap: calcVWL(16);
+        padding: calcVWL(66) calcVWL(32) calcVWL(64);
+      }
+    }
     @media (max-width: 1024px) {
       width: calcVWT(424);
       .content {
@@ -63,10 +100,20 @@
           height: calcVWT(54);
         }
         .title {
-          @include font-style(calcVWT(20), variables.$fw-500, calcVWT(24), variables.$light-blue);
+          @include font-style(
+            calcVWT(20),
+            variables.$fw-500,
+            calcVWT(24),
+            variables.$light-blue
+          );
         }
         .desc {
-          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), variables.$main-white);
+          @include font-style(
+            calcVWT(18),
+            variables.$fw-400,
+            calcVWT(24),
+            variables.$main-white
+          );
           min-height: calcVWT(336);
         }
       }
@@ -80,10 +127,20 @@
           height: calcVWM(54);
         }
         .title {
-          @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24), variables.$light-blue);
+          @include font-style(
+            calcVWM(20),
+            variables.$fw-500,
+            calcVWM(24),
+            variables.$light-blue
+          );
         }
         .desc {
-          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), variables.$main-white);
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            calcVWM(24),
+            variables.$main-white
+          );
         }
       }
     }

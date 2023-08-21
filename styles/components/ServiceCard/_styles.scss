@@ -71,29 +71,57 @@
     }
 
     .description {
-      display: none;
-      font-size: calcVW(18);
+      height: 0;
+      overflow: hidden;
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      border-radius: 0 0 16px 16px;
+      padding: 0 calcVW(32);
+      background: transparent;
+      backdrop-filter: blur(30px);
+      text-align: center;
+      @include font-style(calcVW(18), variables.$fw-400, calcVW(24), #c3d4dc);
     }
 
     &:hover {
       .description {
-        display: flex;
-        position: absolute;
-        bottom: 0;
+        transition: 0.3s;
         padding: getServiceCardSizes(serviceCard-desc-p);
-        border-radius: 0 0 16px 16px;
-        background: transparent;
-        backdrop-filter: blur(30px);
-        height: getServiceCardSizes(serviceCard-desc-height);
-        text-align: center;
-        @include font-style(
-          getServiceCardSizes(serviceCard-desc-fz),
-          variables.$fw-300,
-          getServiceCardSizes(serviceCard-desc-lh),
-          #c3d4dc
-        );
+        height: max-content;
       }
+      transition: 0.5s;
       box-shadow: 0px 42px 98px -42px #7811fe;
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      max-height: calcVWL(600);
+      border-radius: calcVWL(16);
+      height: calcVWL(600);
+
+      .title_iconWrapper {
+        .iconWrapper {
+          border-radius: calcVWL(16);
+        }
+
+        .title {
+          height: calcVWL(90);
+          padding: calcVWL(16);
+
+          @include font-style(calcVWL(24), variables.$fw-400, calcVWL(29), #fff);
+        }
+      }
+
+      .description {
+        padding: 0 calcVWL(32);
+        @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #c3d4dc);
+      }
+
+      &:hover {
+        .description {
+          padding: calcVWL(32);
+        }
+      }
     }
 
     @media (max-width: 1024px) {
@@ -103,8 +131,9 @@
       border-radius: calcVWT(16);
       .title_iconWrapper {
         .title {
-          min-height: calcVWT(90);
+          height: max-content;
           @include font-style(calcVWT(24), variables.$fw-500, calcVWT(29), #fff);
+          align-items: flex-start;
         }
       }
       &:hover {
