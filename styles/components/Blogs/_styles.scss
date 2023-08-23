@@ -10,6 +10,11 @@
       margin: calcVW(88) 0 calcVW(320);
     }
 
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(880);
+      margin-top: calcVWL(258);
+    }
+
     @media (max-width: 1024px) {
       width: calcVWT(880);
       margin-top: calcVWT(258);

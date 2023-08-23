@@ -42,6 +42,9 @@
             &::before {
               background-color: unset;
             }
+            @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+              @include font-style(calcVWL(13), variables.$fw-700, calcVWL(19), rgba(255, 255, 255, 0.32));
+            }
             @media (max-width: 1024px) {
               @include font-style(calcVWT(13), variables.$fw-700, calcVWT(19), rgba(255, 255, 255, 0.32));
             }
@@ -112,6 +115,9 @@
 
               .month {
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
+                @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+                  @include font-style(calcVWL(14), variables.$fw-700, calcVWL(18));
+                }
                 @media (max-width: 1024px) {
                   @include font-style(calcVWT(14), variables.$fw-700, calcVWT(18));
                 }
