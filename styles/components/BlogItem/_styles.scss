@@ -8,6 +8,7 @@
     position: relative;
     z-index: 1;
   }
+  
   .bottomBlock {
     margin: getBlogItemSizes(bottom-block-m);
     color: white;
@@ -23,7 +24,7 @@
       margin: calcVW(250) 0 calcVW(32) 0 !important;
     }
     .blockItems {
-      
+
       justify-content: space-between;
     }
   }
