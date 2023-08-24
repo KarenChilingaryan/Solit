@@ -97,11 +97,16 @@
         height: getHomeMainWithImage(sites-image-width);
       }
       .text {
-        @include font-style(getHomeMainWithImage(text-fs), variables.$fw-500, getHomeMainWithImage(text-lh));
+        @include font-style(
+          getHomeMainWithImage(text-fs),
+          variables.$fw-500,
+          getHomeMainWithImage(text-lh)
+        );
       }
       &:hover {
         .image {
-          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg) brightness(86%) contrast(99%);
+          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg)
+            brightness(86%) contrast(99%);
           transition: 0.3s;
         }
         .text {
@@ -142,7 +147,7 @@
     }
     .socialSites {
       width: calcVWL(440);
-      left: calcVWL(-190);
+      left: calcVWL(-180);
       top: calcVWL(400);
       column-gap: calcVWL(32);
 
