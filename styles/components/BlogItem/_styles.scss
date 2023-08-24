@@ -8,7 +8,7 @@
     position: relative;
     z-index: 1;
   }
-  
+
   .bottomBlock {
     margin: getBlogItemSizes(bottom-block-m);
     color: white;
@@ -30,7 +30,7 @@
   }
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .content {
-      width: calcVWL(976);
+      width: calcVWL(1276);
     }
     .bottomBlock {
       .title {

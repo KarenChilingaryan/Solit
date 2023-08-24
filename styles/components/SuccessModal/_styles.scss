@@ -15,6 +15,16 @@
             max-width: calcVW(613);
             text-align: center;
         }
+        @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+            row-gap: calcVWL(32);
+            .title {
+                @include font-style(calcVWL(36), normal, calcVWL(36), variables.$black);
+            }
+            .description {
+                @include font-style(calcVWL(24), variables.$fw-400, calcVWL(32), variables.$black);
+                max-width: calcVWL(474);
+            }
+        }
         @media (max-width: 1024px) {
             row-gap: calcVWT(32);
             .title {

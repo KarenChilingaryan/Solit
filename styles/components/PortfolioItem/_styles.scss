@@ -103,7 +103,57 @@
         margin: calcVW(275) 0 calcVW(128);
       }
     }
-
+    
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .content {
+        width: calcVWL(928);
+        .itemDescription {
+          margin-top: calcVWL(100);
+          margin-bottom: calcVWL(20);
+          width: calcVWL(928);
+          height: calcVWL(560);
+          .imageCard {
+            width: calcVWL(422);
+            height: calcVWL(636);
+          }
+          .testSection {
+            width: calcVWL(473);
+            justify-content: flex-end;
+            .stacks{
+              .icon{
+                width: calcVWL(40);
+                height: calcVWL(40);
+              }
+            }
+          }
+        }
+      }
+      .whiteSection{
+        .portfoliosSection {
+          width: calcVWL(1328);
+          .text {
+            padding: 0;
+            width: calcVWL(500);
+          }
+          .buttonWrapper {
+            margin-top: calcVWL(64);
+          }
+          .buttonWrapper > button {
+            width: calcVWL(224);
+            cursor: pointer;
+            @include font-style(calcVWL(18), variables.$fw-700, calcVWL(22), variables.$light-blue);
+    
+            &:hover {
+              background: initial;
+              border: none;
+              @include font-style(calcVWL(18), variables.$fw-700, calcVWL(22), variables.$light-blue);
+              transition: none;
+            }
+          }
+        }
+      }
+    }
+    
     @media (max-width: 1024px) {
       .content {
         width: calcVWT(928);
@@ -192,7 +242,7 @@
             justify-content: flex-start;
           }
           .buttonWrapper > button {
-            width: calcVWM(224);
+            width: calcVWM(324);
             @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), variables.$light-blue);
             &:hover {
               @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), variables.$light-blue);

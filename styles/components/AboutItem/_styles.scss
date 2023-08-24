@@ -83,12 +83,12 @@
             calcVWL(24),
             variables.$main-white
           );
-          min-height: calcVWL(216);
+          min-height: calcVWL(130);
         }
       }
       .weDoContent {
-        gap: calcVWL(16);
-        padding: calcVWL(66) calcVWL(32) calcVWL(64);
+        gap: calcVWL(8);
+        padding: calcVWL(66) calcVWL(16) calcVWL(66);
       }
     }
     @media (max-width: 1024px) {
@@ -148,6 +148,10 @@
   .weDoWidth {
     width: getAboutItemSizes(about-item-width-wd);
     height: getAboutItemSizes(about-item-height-wd);
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(304);
+      height: calcVWL(380);
+    }
     @media (max-width: 1024px) {
       width: calcVWT(304);
       height: calcVWT(380);
