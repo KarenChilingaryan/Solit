@@ -79,16 +79,15 @@
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-
-      width: calcVWL(1328);
+      width: calcVWL(1280);
       .pageHeader {
-        max-width: calcVWL(840);
+        max-width: calcVWL(1220);
         margin: 0 auto;
         .title {
-          @include font-style(calcVWL(36), variables.$fw-400, calcVWL(43));
+          @include font-style(calcVWL(48), variables.$fw-400, calcVWL(58));
         }
         .subTitle {
-          @include font-style(calcVWL(32), variables.$fw-400, calcVWL(39));
+          @include font-style(calcVWL(36), variables.$fw-400, calcVWL(44));
         }
         .info {
           @include font-style(calcVWL(24), variables.$fw-400, calcVWL(32));
@@ -96,13 +95,12 @@
       }
       .secondInfo {
         .secondTitle {
-          @include font-style(calcVWL(36), variables.$fw-500, calcVWL(43));
+          @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44));
         }
         .secondDescription {
-          @include font-style(calcVWL(24), variables.$fw-400, calcVWL(32));
+          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
         }
       }
-
     }
 
     @media (max-width: 1024px) {

@@ -83,12 +83,12 @@
             calcVWL(24),
             variables.$main-white
           );
-          min-height: calcVWL(130);
+          min-height: calcVWL(216);
         }
       }
       .weDoContent {
-        gap: calcVWL(8);
-        padding: calcVWL(66) calcVWL(16) calcVWL(66);
+        gap: calcVWL(16);
+        padding: calcVWL(66) calcVWL(32) calcVWL(64);
       }
     }
     @media (max-width: 1024px) {

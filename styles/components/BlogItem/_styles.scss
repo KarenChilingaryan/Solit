@@ -30,13 +30,14 @@
   }
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .content {
-      width: calcVWL(1276);
+    width: calcVWL(1280);
+  }
+
+  .bottomBlock {
+    .title {
+      @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44), #fff);
+      margin: calcVWL(250) 0 calcVWL(32) 0 !important;
     }
-    .bottomBlock {
-      .title {
-        @include font-style(calcVWL(36), variables.$fw-500, calcVWL(43), #fff);
-        margin-bottom: calcVWL(32) !important;
-      }
     }
   }
   @media (max-width: 1024px) {

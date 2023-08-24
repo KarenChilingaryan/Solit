@@ -11,10 +11,9 @@
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      width: calcVWL(880);
-      margin-top: calcVWL(258);
+      width: calcVWL(1280);
+      margin-top: calcVWL(478);
     }
-
     @media (max-width: 1024px) {
       width: calcVWT(880);
       margin-top: calcVWT(258);
