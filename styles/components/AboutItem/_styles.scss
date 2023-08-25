@@ -52,6 +52,7 @@
 
       .desc {
         text-align: center;
+        min-height: unset;
       }
     }
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
@@ -62,8 +63,8 @@
         padding: calcVWL(32);
 
         .icon {
-          width: calcVWL(53);
-          height: calcVWL(53);
+          width: calcVWL(64);
+          height: calcVWL(64);
         }
 
         .title {
@@ -96,8 +97,8 @@
       .content {
         padding: calcVWT(32);
         .icon {
-          width: calcVWT(54);
-          height: calcVWT(54);
+          width: calcVWT(64);
+          height: calcVWT(64);
         }
         .title {
           @include font-style(
@@ -123,8 +124,8 @@
       .content {
         padding: calcVWM(32);
         .icon {
-          width: calcVWM(54);
-          height: calcVWM(54);
+          width: calcVWM(64);
+          height: calcVWM(64);
         }
         .title {
           @include font-style(
@@ -148,6 +149,7 @@
   .weDoWidth {
     width: getAboutItemSizes(about-item-width-wd);
     height: getAboutItemSizes(about-item-height-wd);
+
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       width: calcVWL(405);
       height: calcVWL(356);
