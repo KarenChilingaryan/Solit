@@ -5,7 +5,9 @@
   .portfoliosWrapper {
     .filters {
       display: flex;
+      flex-wrap: wrap;
       gap: calcVW(16);
+      width: 100%;
     }
 
     .projects {
