@@ -31,8 +31,10 @@
       width: calcVWL(1280);
     }
     .bottomBlock {
+      margin: calcVWL(256);
       .title {
         @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44), #fff);
+        margin: calcVWL(300) 0 calcVWL(32) 0 !important;
       }
     }
   }

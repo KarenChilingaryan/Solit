@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { Col, Row } from "../../atoms";
 import Image from "next/image";
+import { Col, Row } from "../../atoms";
 
 import styles from "./AboutItem.module.scss";
 

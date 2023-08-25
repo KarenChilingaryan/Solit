@@ -85,6 +85,7 @@
       }
   
       .more {
+        padding: getAboutTeamSizes(more-p);
         column-gap: calcVWL(10);
         @include font-style(
           calcVWL(16),

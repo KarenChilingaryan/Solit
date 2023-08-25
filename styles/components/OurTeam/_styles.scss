@@ -49,7 +49,7 @@
     }
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       .ourTeamTopWrapper {
-        padding: calcVWL(80 230);
+        padding: calcVWL(80) calcVWL(230);
       }
       .leftSecton {
         margin-top:  calcVWL(350);
