@@ -149,11 +149,11 @@
   .weDoWidth {
     width: getAboutItemSizes(about-item-width-wd);
     height: getAboutItemSizes(about-item-height-wd);
+
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       width: calcVWL(405);
       height: calcVWL(356);
     }
-
     @media (max-width: 1024px) {
       width: calcVWT(304);
       height: calcVWT(380);
