@@ -52,6 +52,7 @@ const PortfolioItem = () => {
                 src={postPortfolioApiData?.webp_image}
                 width={1000}
                 height={1900}
+                alt=""
               />
             </Col>
             <Col className={styles.testSection}>
@@ -70,6 +71,7 @@ const PortfolioItem = () => {
                     key={i}
                     width={400}
                     height={200}
+                    alt=""
                   />
                 ))}
               </Row>
