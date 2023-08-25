@@ -97,4 +97,26 @@
   .moreWrapper:hover {
     border: 1px solid variables.$dodger-blue;
   }
+
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .mainWrapper {
+      width: calcVWL(302);
+      height:  calcVWL(56);
+      padding: calcVWL(16);
+      gap: calcVWL(16);
+    }
+  
+    .nameSpecialist {
+      @include font-style(
+        calcVWL(14),
+        variables.$fw-500,
+        calcVWL(24)
+      );
+    }
+  
+    .moreWrapper {
+      padding: calcVWL(16);
+      gap: calcVWL(16);
+    }
+  }
 }

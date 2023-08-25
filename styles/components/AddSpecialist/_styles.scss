@@ -118,4 +118,43 @@
       @include font-style(calcVWM(14), variables.$fw-500, calcVWM(20));
     }
   }
+
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .mainWrapper {
+      padding: calcVWL(16);
+      gap: calcVWL(16);
+    }
+  
+  
+    .countSpecialist {
+      .input {
+        height: calcVWL(16);
+  
+        @include font-style(
+          calcVWL(14),
+          variables.$fw-500,
+          calcVWL(14),
+          variables.$dark-turquoise
+        );
+      }
+    }
+  
+    .minusIcon {
+      width: calcVWL(16);
+      height: calcVWL(16);
+    }
+  
+    .plusIcon {
+      width: calcVWL(16);
+      height: calcVWL(16);
+    }
+  
+    .nameSpecialist {
+      @include font-style(
+        calcVWL(14),
+        variables.$fw-500,
+        calcVWL(24)
+      );
+    }
+  }
 }

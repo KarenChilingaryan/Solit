@@ -122,5 +122,115 @@
       width: getPricingModal(right-content-width);
       padding: getPricingModal(right-content-padding);
     }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .leftContent {
+        max-width: calcVWL(678);
+        padding: calcVWL(32);
+
+        .header {
+          gap: calcVWL(16);
+
+          .bigTitle {
+            @include font-style(
+              calcVWL(36),
+              variables.$fw-500,
+              calcVWL(44),
+              variables.$black
+            );
+          }
+          .smallTitle {
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-500,
+              calcVWL(24),
+              variables.$black
+            );
+          }
+        }
+
+        .summarySection {
+          gap: calcVWL(20); 
+          padding: calcVWL(32);
+          margin-top: calcVWL(72);
+
+          .summary {
+           @include font-style(
+              calcVWL(36),
+              variables.$fw-500,
+              calcVWL(44),
+              variables.$black
+            );
+          }
+
+          .projType {
+            gap: calcVWL(30);
+
+            .itemWrapper {
+              gap: calcVWL(14);
+              padding: calcVWL(5);
+
+              .item {
+                @include font-style(
+                  calcVWL(20),
+                  variables.$fw-500,
+                  calcVWL(24),
+                  variables.$black
+                );
+              }
+
+              .icon {
+                width: calcVWL(12);
+                height: calcVWL(12);
+              }
+            }
+          }
+          .specialists {
+            gap: calcVWL(32);
+
+            .specialistsTitle {
+              @include font-style(
+                calcVWL(18),
+                variables.$fw-400,
+                calcVWL(24),
+                variables.$black
+              );
+            }
+
+            .itemWrapper {
+              gap: calcVWL(14);
+              padding: calcVWL(5);
+
+              .item {
+                @include font-style(
+                  calcVWL(14),
+                  variables.$fw-500,
+                  calcVWL(24),
+                  variables.$black
+                );
+              }
+            }
+
+            .value {
+              @include font-style(
+                calcVWL(14),
+                variables.$fw-500,
+                calcVWL(24),
+                variables.$dark-turquoise
+              );
+            }
+
+            .icon {
+              width: calcVWL(16);
+              height: calcVWL(16);
+            }
+          }
+        }
+      }
+      .rightContent {
+        width: calcVWL(474);
+        padding: calcVWL(32);
+      }
+    }
   }
 }

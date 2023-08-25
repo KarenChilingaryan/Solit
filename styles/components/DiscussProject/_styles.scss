@@ -29,14 +29,7 @@
                 variables.$black
               );
 
-              @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-                @include font-style(
-                  calcVWL(13),
-                  variables.$fw-700,
-                  calcVWL(19),
-                  variables.$black
-                );
-              }
+              
               @media (max-width: 1024px) {
                 @include font-style(
                   calcVWT(13),
@@ -66,18 +59,7 @@
                 calcVW(19),
                 variables.$gray
               );
-              @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-                text-align: start;
-                padding: calcVWL(8) calcVWL(16);
-                border-radius: calcVWL(8);
-
-                @include font-style(
-                  calcVWL(13),
-                  variables.$fw-700,
-                  calcVWL(19),
-                  variables.$gray
-                );
-              }
+              
 
               @media (max-width: 1024px) {
                 text-align: start;
@@ -111,14 +93,7 @@
                   calcVW(19),
                   variables.$black
                 );
-                @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-                  @include font-style(
-                    calcVWL(13),
-                    variables.$fw-700,
-                    calcVWL(19),
-                    variables.$black
-                  );
-                }
+                
                 @media (max-width: 1024px) {
                   @include font-style(
                     calcVWT(13),
@@ -138,9 +113,7 @@
               }
             }
           }
-          @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-            gap: calcVWL(16);
-          }
+          
           @media (max-width: 1024px) {
             gap: calcVWT(16);
           }
@@ -163,13 +136,7 @@
             .title {
               @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
 
-              @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-                @include font-style(
-                  calcVWL(20),
-                  variables.$fw-700,
-                  calcVWL(24)
-                );
-              }
+              
               @media (max-width: 1024px) {
                 @include font-style(
                   calcVWT(20),
@@ -208,13 +175,6 @@
               .month {
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
 
-                @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-                  @include font-style(
-                    calcVWL(14),
-                    variables.$fw-700,
-                    calcVWL(24)
-                  );
-                }
                 @media (max-width: 1024px) {
                   @include font-style(
                     calcVWT(14),
@@ -233,9 +193,6 @@
             }
           }
         }
-        @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-          gap: calcVWL(32);
-        }
         @media (max-width: 1024px) {
           gap: calcVWT(32);
         }
@@ -245,7 +202,75 @@
       }
     }
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      width: calcVWL(880);
+      
+    width: calcVWL(1280);
+    margin: calcVWL(478) auto 0 auto;
+
+    .discussProject {
+      margin: calcVWL(200) 0 calcVWL(320);
+
+      .form {
+        gap: calcVWL(32);
+
+        .buttons {
+          gap: calcVWL(16);
+          margin-top: calcVWL(60);
+
+          a:first-of-type {
+            button {
+              @include font-style(
+                calcVWL(13),
+                variables.$fw-700,
+                calcVWL(19),
+                variables.$black
+              );
+            }
+          }
+          a {
+            button {
+
+              @include font-style(
+                calcVWL(13),
+                variables.$fw-700,
+                calcVWL(19),
+                variables.$gray
+              );
+              
+              &:hover {
+                @include font-style(
+                  calcVWL(13),
+                  variables.$fw-700,
+                  calcVWL(19),
+                  variables.$black
+                );
+              }
+            }
+          }
+        }
+
+        .industryDetails {
+          gap: calcVWL(90);
+
+          .industries {
+            gap: calcVWL(30);
+
+            .title {
+              @include font-style(calcVWL(20), variables.$fw-700, calcVWL(24));
+            }
+
+            .checkboxes {
+              gap: calcVWL(24);
+            }
+
+            .monthsWrapper {
+              .month {
+                @include font-style(calcVWL(14), variables.$fw-500, calcVWL(24));
+              }
+            }
+          }
+        }
+      }
+    }
     }
     @media (max-width: 1024px) {
       width: calcVWT(880);

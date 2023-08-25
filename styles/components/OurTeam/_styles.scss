@@ -47,6 +47,35 @@
       text-align: center;
       padding: calcVW(100);
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .ourTeamTopWrapper {
+        padding: calcVWL(80 230);
+      }
+      .leftSecton {
+        margin-top:  calcVWL(350);
+      }
+      .leftDescription {
+        .title {
+          @include font-style(
+            calcVWL(28),
+            variables.$fw-400,
+            calcVWL(30),
+            variables.$light-blue
+          );
+        }
+        .description {
+          @include font-style(
+            calcVWL(22),
+            variables.$fw-300,
+            calcVWL(26),
+            variables.$light-blue
+          );
+      }
+    }
+      .titleWrapper {
+        padding: calcVWL(39 0 50 0) !important;
+      }
+    }
     @media (max-width: 768px) {
       .leftDescription {
         .title {

@@ -263,6 +263,61 @@
       bottom: calcVW(-380);
       height: calcVW(1380);
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+
+    gap: calcVWL(96);
+
+    .infoSection {
+      gap: calcVWL(16);
+
+      .title {
+        font-weight: 700;
+        font-size: calcVWL(20);
+        line-height: calcVWL(24);
+      }
+
+      .info {
+        font-size: calcVWL(18);
+        line-height: calcVWL(24);
+      }
+    }
+
+    .form {
+      max-width: calcVWL(410);
+      gap: calcVWL(16);
+      width: calcVWL(410);
+
+      .buttonWrapper {
+        button {
+          @include font-style(calcVWL(16), variables.$fw-700, calcVWL(24));
+        }
+      }
+
+      .suffix {
+        width: calcVWL(17);
+        height: calcVWL(19);
+      }
+
+      .accept {
+        :global(.ant-form-item-control-input-content) {
+          gap: calcVWL(18);
+        }
+
+
+        .acceptText {
+          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #000);
+        }
+      }
+
+      .inputSection {
+        .select {
+          .selectPlaceholder {
+            @include font-style(calcVWL(3), variables.$fw-400, calcVWL(6), #000);
+          }
+        }
+      }
+    }
+  }
 
     @media (max-width: 1024px) {
       .infoSection {

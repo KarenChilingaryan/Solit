@@ -139,4 +139,40 @@
       gap: calcVWM(24);
     }
   }
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .footer {
+      .footerContent {
+        .footerTitle {
+          @include font-style(
+            calcVWL(36),
+            variables.$fw-500,
+            calcVWL(44),
+            variables.$black
+          );
+        }
+        .items {
+          .itemWrapper { 
+            .item {
+              @include font-style(
+                calcVWL(20),
+                variables.$fw-500,
+                calcVWL(24),
+                variables.$black
+              );
+            }
+          }
+        }
+      }
+      .buttonWrapper {
+          button {
+            @include font-style(
+              calcVWML(20),
+              variables.$fw-700,
+              calcVWML(24),
+              variables.$white
+            );
+          }
+        }
+    }
+  }
 }

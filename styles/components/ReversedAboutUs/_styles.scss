@@ -25,6 +25,13 @@
   .blockReversed {
     flex-direction: row-reverse;
   }
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .block {
+      .users {
+        width: calcVWL(624);
+      }
+    }
+  }
   @media (max-width: 1024px) {
     .block {
       width: 100%;

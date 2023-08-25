@@ -26,6 +26,17 @@
       justify-content: space-between;
     }
   }
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .content {
+      width: calcVWL(1280);
+    }
+    .bottomBlock {
+      margin: calcVWL(256 0);
+      .title {
+        @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44), #fff);
+      }
+    }
+  }
   @media (max-width: 1024px) {
     .content {
       width: calcVWT(976);

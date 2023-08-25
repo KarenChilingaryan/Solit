@@ -35,4 +35,18 @@
     margin-bottom: calcVW(15);
     color: variables.$light-blue !important;
   }
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .square {
+      width: calcVWL(19);
+      height: calcVWL(19);
+      margin-right:calcVWL(20);
+    }
+    .title {
+      @include font-style(
+        calcVWL(40),
+        variables.$fw-400,
+        calcVWL(47)
+      );
+    }
+  }
 }

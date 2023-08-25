@@ -12,6 +12,11 @@
       align-items: center;
       justify-content: center;
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .contactUsHeader {
+        max-width: calcVWL(1220);
+      }
+    }
     @media (max-width: 1024px) {
       .contactUsHeader {
         max-width: calcVWT(880);

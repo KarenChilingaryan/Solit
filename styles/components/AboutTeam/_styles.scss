@@ -55,4 +55,48 @@
       }
     }
   }
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .aboutTeamWrapper {
+      gap: calcVWL(20);
+      width: calcVWL(624);
+      padding: calcVWL(32);
+  
+      .context {
+        @include font-style(
+          calcVWL(16),
+          variables.$fw-400,
+          calcVWL(24),
+          variables.$main-white
+        );
+      }
+  
+      .title {
+        @include font-style(
+          calcVWL(24),
+          variables.$fw-400,
+          calcVWL(29),
+          variables.$main-white
+        );
+      }
+  
+      .icon {
+        width: calcVWL(20);
+        height: calcVWL(20);
+      }
+  
+      .more {
+        column-gap: calcVWL(10);
+        @include font-style(
+          calcVWL(16),
+          variables.$fw-700,
+          calcVWL(20),
+          $main-dark-blue
+        );
+        img {
+          width: calcVWL(12);
+          height: calcVWL(12);
+        }
+      }
+    }
+  }
 }

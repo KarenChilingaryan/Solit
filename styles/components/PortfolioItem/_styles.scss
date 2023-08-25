@@ -106,20 +106,20 @@
     
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       .content {
-        width: calcVWL(928);
+        width: calcVWL(1280);
         .itemDescription {
-          margin-top: calcVWL(100);
-          margin-bottom: calcVWL(20);
-          width: calcVWL(928);
-          height: calcVWL(560);
+          gap: calcVWL(96);
+          width: calcVWL(1216);
+          height: calcVWL(672);
           .imageCard {
-            width: calcVWL(422);
-            height: calcVWL(636);
+            width: calcVWL(496);
+            height: calcVWL(746);
           }
           .testSection {
-            width: calcVWL(473);
-            justify-content: flex-end;
+            gap: calcVWL(30);
+            width: calcVWL(624);
             .stacks{
+              gap: calcVWL(40);
               .icon{
                 width: calcVWL(40);
                 height: calcVWL(40);
@@ -130,24 +130,16 @@
       }
       .whiteSection{
         .portfoliosSection {
-          width: calcVWL(1328);
+          width: calcVWL(1280);
           .text {
-            padding: 0;
-            width: calcVWL(500);
-          }
-          .buttonWrapper {
-            margin-top: calcVWL(64);
+            padding: 0 calcVWL(24);
           }
           .buttonWrapper > button {
             width: calcVWL(224);
-            cursor: pointer;
             @include font-style(calcVWL(18), variables.$fw-700, calcVWL(22), variables.$light-blue);
     
             &:hover {
-              background: initial;
-              border: none;
               @include font-style(calcVWL(18), variables.$fw-700, calcVWL(22), variables.$light-blue);
-              transition: none;
             }
           }
         }

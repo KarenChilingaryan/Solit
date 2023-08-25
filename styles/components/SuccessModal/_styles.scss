@@ -22,7 +22,7 @@
             }
             .description {
                 @include font-style(calcVWL(24), variables.$fw-400, calcVWL(32), variables.$black);
-                max-width: calcVWL(474);
+                max-width: calcVWL(613);
             }
         }
         @media (max-width: 1024px) {

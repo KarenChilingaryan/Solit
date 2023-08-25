@@ -40,6 +40,23 @@
         }
       }
     }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .table {
+      :global(.ant-table-thead) {
+        :global(.ant-table-cell) {
+          @include font-style(calcVWL(20), variables.$fw-500, calcVWL(24));
+        }
+      }
+
+      :global(.ant-table-tbody) {
+        :global(.ant-table-cell) {
+          @include font-style(calcVWL(20), variables.$fw-500, calcVWL(24));
+        }
+      }
+    }
+
+    }
     @media (max-width: 1024px) {
       .table {
         :global(.ant-table-thead) {
