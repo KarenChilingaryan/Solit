@@ -5,7 +5,7 @@
   .container {
     position: relative;
     padding: calcVW(100) 0;
-    margin: calcVW(100) 0;
+    margin: calcVW(50) 0 0;
     .backImage {
       position: absolute;
       top: calcVW(100);
@@ -59,7 +59,12 @@
         }
         .contextHeader {
           .contextTitle {
-            @include font-style(calcVW(24), variables.$fw-700, calcVW(28), #fff);
+            @include font-style(
+              calcVW(24),
+              variables.$fw-700,
+              calcVW(28),
+              #fff
+            );
           }
         }
         .contextHeader {
@@ -71,7 +76,12 @@
           height: calcVW(400);
           overflow: hidden;
           p {
-            @include font-style(calcVW(18), variables.$fw-400, calcVW(30), #fff);
+            @include font-style(
+              calcVW(18),
+              variables.$fw-400,
+              calcVW(30),
+              #fff
+            );
           }
         }
         .showMoreClass {
@@ -223,13 +233,23 @@
       .whatWeDoWrapper {
         gap: calcVWL(32);
         .title {
-          @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44), #fff);
+          @include font-style(
+            calcVWL(36),
+            variables.$fw-500,
+            calcVWL(44),
+            #fff
+          );
         }
         .contextWrapper {
           gap: calcVWL(30);
 
           .button {
-            @include font-style(calcVWL(18), variables.$fw-700, calcVWL(20), variables.$light-blue);
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-700,
+              calcVWL(20),
+              variables.$light-blue
+            );
 
             .btnImg {
               width: calcVWL(18);
@@ -238,13 +258,23 @@
           }
           .contextHeader {
             .contextTitle {
-              @include font-style(calcVWL(24), variables.$fw-700, calcVWL(28), #fff);
+              @include font-style(
+                calcVWL(24),
+                variables.$fw-700,
+                calcVWL(28),
+                #fff
+              );
             }
           }
           .context {
             height: calcVWL(400);
             p {
-              @include font-style(calcVWL(18), variables.$fw-400, calcVWL(30), #fff);
+              @include font-style(
+                calcVWL(18),
+                variables.$fw-400,
+                calcVWL(30),
+                #fff
+              );
             }
           }
           .showMoreClass {
@@ -260,7 +290,12 @@
           width: calcVWL(1280);
 
           .contextTitle {
-            @include font-style(calcVWL(14), variables.$fw-500, calcVWL(16), #fff);
+            @include font-style(
+              calcVWL(14),
+              variables.$fw-500,
+              calcVWL(16),
+              #fff
+            );
           }
 
           :global(.ant-tabs-nav-wrap) {
@@ -315,11 +350,21 @@
           }
         }
         .development {
-          @include font-style(calcVWL(24), variables.$fw-500, calcVWL(29), #fff);
+          @include font-style(
+            calcVWL(24),
+            variables.$fw-500,
+            calcVWL(29),
+            #fff
+          );
         }
         .description {
           p {
-            @include font-style(calcVWL(18), variables.$fw-300, calcVWL(22), #fff);
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-300,
+              calcVWL(22),
+              #fff
+            );
           }
         }
       }
@@ -335,14 +380,24 @@
     .sectionWrapper {
       .whatWeDoWrapper {
         .title {
-          @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44), #fff);
+          @include font-style(
+            calcVWT(36),
+            variables.$fw-500,
+            calcVWT(44),
+            #fff
+          );
         }
 
         .description {
           padding: 0;
           margin: calcVWT(32) 0;
           p {
-            @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              #fff
+            );
           }
         }
         .tabs {
@@ -389,7 +444,12 @@
           }
 
           .contextTitle {
-            @include font-style(calcVWT(14), variables.$fw-700, calcVWT(16), #fff);
+            @include font-style(
+              calcVWT(14),
+              variables.$fw-700,
+              calcVWT(16),
+              #fff
+            );
           }
           .contextIcon {
             width: calcVWT(24);
@@ -397,14 +457,24 @@
           }
           .context {
             p {
-              @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+              @include font-style(
+                calcVWT(18),
+                variables.$fw-400,
+                calcVWT(24),
+                #fff
+              );
             }
           }
           .showMoreClass {
             height: max-content;
           }
           .button {
-            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22), variables.$light-blue);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(22),
+              variables.$light-blue
+            );
 
             .btnImg {
               width: calcVWT(18);
@@ -420,14 +490,24 @@
       .whatWeDoWrapper {
         margin-bottom: calcVWM(80);
         .title {
-          @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44), #fff);
+          @include font-style(
+            calcVWM(36),
+            variables.$fw-500,
+            calcVWM(44),
+            #fff
+          );
         }
 
         .description {
           padding: 0;
           margin: calcVWM(32) 0;
           p {
-            @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              #fff
+            );
           }
         }
         // .tabs {
@@ -443,7 +523,12 @@
             padding: calcVWM(32);
 
             p {
-              @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+              @include font-style(
+                calcVWM(18),
+                variables.$fw-400,
+                calcVWM(24),
+                #fff
+              );
             }
           }
           .showMoreClass {
