@@ -75,6 +75,44 @@
     border: 1px solid variables.$light-blue;
     border-radius: 16px;
   }
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .imageContainer {
+      width: calcVWL(296);
+      height: calcVWL(300);
+  
+      .positionSection {
+        height: calcVWL(120);
+        padding: calcVWL(32);
+  
+        .name {
+          @include font-style(
+            calcVWL(24),
+            variables.$fw-500,
+            calcVWL(29),
+            #fff
+          );
+        }
+  
+        .position {
+          @include font-style(
+            calcVWL(16),
+            variables.$fw-300,
+            calcVWL(24),
+            #fff
+          );
+        }
+      }
+  
+      .more {
+        @include font-style(
+          calcVWL(16),
+          variables.$fw-700,
+          calcVWL(24),
+          #219fdb
+        );
+      }
+    }
+  }
 
   @media (max-width: 1024px) {
     .imageContainer {

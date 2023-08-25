@@ -11,6 +11,12 @@
     .buttonWrapper {
       text-align: center;
     }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      padding: calcVWL(39 300 70 300);
+      .teamItemsWrapper {
+        padding: calcVWL(25 0 70 0);
+      }
+    }
     @media (max-width: 768px) {
       padding: getTeamSizes(team-wrapper-tablet-padding);
       .teamItemsWrapper {
