@@ -64,11 +64,12 @@
           display: flex;
           position: absolute;
           flex-wrap: wrap;
-          width: calcVW(648);
+          width: calcVW(680);
           top: getHeaderSizes(header-menu-item-child-main-wrapper-top);
           background: rgba(0, 0, 0, 0.5);
           padding: calcVW(24);
           border-radius: 0 0 calcVW(16) calcVW(16);
+          column-gap: calcVW(32);
 
           .menuItemChildWrapper {
             width: calcVW(300);
@@ -196,10 +197,11 @@
             );
           }
           .menuItemChildMainWrapper {
-            width: calcVWL(648);
+            width: calcVWL(680);
             top: calcVWL(75);
             padding: calcVWL(24);
             border-radius: 0 0 calcVWL(16) calcVWL(16);
+            column-gap: calcVWL(32);
 
             .menuItemChildWrapper {
               width: calcVWL(300);
