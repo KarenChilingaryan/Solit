@@ -20,6 +20,7 @@
         background: #000;
         border-right: 0;
       }
+      
       :global(.ant-breadcrumb-link) {
         @include font-style(calcVW(20), variables.$fw-500, normal);
         text-decoration: revert;

@@ -14,7 +14,7 @@ const WeDoCard = ({ item }) => {
         {item != 'more' ?
           <>
             <Row className={styles.iconWrapper}>
-              <Image src={item?.original_logo_what_we_do || devIcon} className={styles.icon} width={40} height={40} />
+              <Image src={item?.original_logo_what_we_do || devIcon} className={styles.icon} width={40} height={40} alt=""/>
             </Row>
             <Col className={styles.development}>{item?.title || "Android Development"}</Col>
             <div className={styles.description}

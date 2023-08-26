@@ -19,6 +19,8 @@
       height: calcVW(40);
     }
     .pricing {
+      display: flex;
+      align-items: center;
       margin-right: calcVW(-340);
       margin-left: calcVW(260);
     }
@@ -96,7 +98,7 @@
             @include font-style(
               getHeaderSizes(header-menu-item-child-fz),
               variables.$fw-400,
-              getHeaderSizes(header-menu-item-child-lh)
+              normal
             );
           }
         }
@@ -186,7 +188,12 @@
             }
             cursor: pointer;
             margin: calcVWL(16);
-            @include font-style(calcVWL(20), variables.$fw-400, calcVWL(23), variables.$main-white);
+            @include font-style(
+              calcVWL(20),
+              variables.$fw-400,
+              calcVWL(23),
+              variables.$main-white
+            );
           }
           .menuItemChildMainWrapper {
             width: calcVWL(648);
@@ -196,13 +203,13 @@
 
             .menuItemChildWrapper {
               width: calcVWL(300);
-              padding: calcVWL(16) calcVWL(16) calcVWL(13);
+              padding: calcVWL(16) calcVWL(16);
               column-gap: calcVWL(16);
               &:hover {
                 border-radius: calcVWL(8);
               }
               // transition: 0.4s;
-              @include font-style(calcVWL(16), variables.$fw-400, calcVWL(19));
+              @include font-style(calcVWL(14), variables.$fw-700, normal);
             }
           }
         }
@@ -279,7 +286,12 @@
               height: calcVWT(10);
               margin-left: calcVWT(16);
             }
-            @include font-style(calcVWT(20), variables.$fw-400, calcVWT(20), variables.$main-white);
+            @include font-style(
+              calcVWT(20),
+              variables.$fw-400,
+              calcVWT(20),
+              variables.$main-white
+            );
           }
         }
         .menuSecondItemBlock {
@@ -332,7 +344,12 @@
               align-items: center;
               padding: calcVWT(16);
               transition: height 1s ease, padding 1s ease;
-              @include font-style(calcVWT(14), variables.$fw-700, calcVWT(20), variables.$main-white);
+              @include font-style(
+                calcVWT(14),
+                variables.$fw-700,
+                calcVWT(20),
+                variables.$main-white
+              );
               .activeElem {
                 display: none;
               }
@@ -380,7 +397,12 @@
           min-width: calc(100% + calcVWT(48));
           .socialIconsTitle {
             width: 100%;
-            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(21), variables.$main-white);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(21),
+              variables.$main-white
+            );
           }
           .socialIcons {
             width: calcVWT(25);
@@ -421,11 +443,21 @@
               height: calcVWM(10);
               margin-left: calcVWM(16);
             }
-            @include font-style(calcVWM(20), variables.$fw-400, calcVWM(20), variables.$main-white);
+            @include font-style(
+              calcVWM(20),
+              variables.$fw-400,
+              calcVWM(20),
+              variables.$main-white
+            );
           }
           .menuItemChildMainWrapper {
             .menuItemChildWrapper {
-              @include font-style(calcVWM(20), variables.$fw-400, calcVWM(20), variables.$main-white);
+              @include font-style(
+                calcVWM(20),
+                variables.$fw-400,
+                calcVWM(20),
+                variables.$main-white
+              );
             }
           }
         }
@@ -448,7 +480,12 @@
           max-width: calc(100% + calcVWM(48));
           min-width: calc(100% + calcVWM(48));
           .socialIconsTitle {
-            @include font-style(calcVWM(18), variables.$fw-700, calcVWM(21), variables.$main-white);
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-700,
+              calcVWM(21),
+              variables.$main-white
+            );
           }
           .socialIcons {
             width: calcVWM(25);
@@ -475,14 +512,24 @@
             width: 100%;
           }
           .menuItemTitle {
-            @include font-style(calcVWM(20), variables.$fw-400, calcVWM(20), variables.$main-white);
+            @include font-style(
+              calcVWM(20),
+              variables.$fw-400,
+              calcVWM(20),
+              variables.$main-white
+            );
           }
           .menuItemChildMainWrapper {
             position: inherit;
 
             .menuItemChildWrapper {
               height: calcVWM(64);
-              @include font-style(calcVWM(20), variables.$fw-400, calcVWM(20), variables.$main-white);
+              @include font-style(
+                calcVWM(20),
+                variables.$fw-400,
+                calcVWM(20),
+                variables.$main-white
+              );
             }
           }
         }

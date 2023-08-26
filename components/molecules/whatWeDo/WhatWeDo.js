@@ -8,9 +8,9 @@ import { postAbutUsWhatWeDoApi } from "../../../services/postAbutUsWhatWeDoApi";
 import { Button as ShowMore, Col, Row, Tabs } from "../../atoms";
 import Button from "../../molecules/button/Button";
 import ourTeamBg from "../../../assets/img/our-team_bg.png";
-import devIcon from "../../../assets/img/devIcon.svg";
+import devIcon from "../../../assets/img/mobile-android.svg";
 import showMore from "../../../assets/img/showMore.svg";
-import goRight from "../../../assets/img/goRigthArrow.svg";
+import goRight from "../../../assets/img/right-arrow.svg";
 import downOutlined from "../../../assets/img/grey-dropdown.svg";
 
 import styles from "./WhatWeDo.module.scss";
@@ -137,7 +137,7 @@ const WhatWeDo = ({ data }) => {
               // <Context icon={devIcon} context={context} title={title} />
               <Row className={styles.contextWrapper}>
                 <Row className={styles.contextHeader}>
-                  <Image src={devIcon} className={styles.contextIcon} />
+                  <Image src={devIcon} className={styles.contextIcon} alt="" />
                   <Col className={styles.contextTitle}>
                     {contextData?.name_about_as_what_we_do_detail}
                   </Col>

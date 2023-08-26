@@ -88,8 +88,8 @@
           height: max-content;
         }
         .contextIcon {
-          width: calcVW(23);
-          height: calcVW(33);
+          width: calcVW(40);
+          height: calcVW(40);
         }
       }
 
@@ -102,10 +102,10 @@
         .contextTitle {
           @include font-style(
             // getWhatWeDoSizes(what-we-do-development-fz),
-            calcVW(14),
-            variables.$fw-500,
+            calcVW(24),
+            variables.$fw-700,
             // getWhatWeDoSizes(what-we-do-development-lh),
-            calcVW(16),
+            calcVW(128),
             #fff
           );
         }
@@ -281,8 +281,8 @@
             height: max-content;
           }
           .contextIcon {
-            width: calcVWL(23);
-            height: calcVWL(33);
+            width: calcVWL(40);
+            height: calcVWL(40);
           }
         }
 
@@ -452,8 +452,8 @@
             );
           }
           .contextIcon {
-            width: calcVWT(24);
-            height: calcVWT(33);
+            width: calcVWT(40);
+            height: calcVWT(40);
           }
           .context {
             p {

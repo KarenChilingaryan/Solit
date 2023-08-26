@@ -52,6 +52,7 @@
         }
       }
     }
+
     .whiteSection {
       display: flex;
       justify-content: center;
@@ -82,14 +83,24 @@
         }
 
         .buttonWrapper > button {
-          width: calcVW(224);
+          width: calcVW(268);
           cursor: pointer;
-          @include font-style(calcVW(18), variables.$fw-700, calcVW(22), variables.$light-blue);
+          @include font-style(
+            calcVW(18),
+            variables.$fw-700,
+            calcVW(22),
+            variables.$light-blue
+          );
 
           &:hover {
             background: initial;
             border: none;
-            @include font-style(calcVW(18), variables.$fw-700, calcVW(22), variables.$light-blue);
+            @include font-style(
+              calcVW(18),
+              variables.$fw-700,
+              calcVW(22),
+              variables.$light-blue
+            );
             transition: none;
           }
         }
@@ -104,23 +115,79 @@
       }
     }
 
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .content {
+        width: calcVWL(1280);
+        .itemDescription {
+          gap: calcVWL(96);
+          width: calcVWL(1216);
+          height: calcVWL(672);
+          .imageCard {
+            width: calcVWL(496);
+            height: calcVWL(746);
+          }
+          .testSection {
+            gap: calcVWL(30);
+            width: calcVWL(624);
+            .stacks {
+              gap: calcVWL(40);
+              .icon {
+                width: calcVWL(40);
+                height: calcVWL(40);
+              }
+            }
+          }
+        }
+      }
+
+      .whiteSection {
+        .portfoliosSection {
+          width: calcVWL(1280);
+          .text {
+            padding: 0 calcVWL(24);
+          }
+          .buttonWrapper > button {
+            width: calcVWL(268);
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-700,
+              calcVWL(22),
+              variables.$light-blue
+            );
+
+            &:hover {
+              @include font-style(
+                calcVWL(18),
+                variables.$fw-700,
+                calcVWL(22),
+                variables.$light-blue
+              );
+            }
+          }
+        }
+      }
+    }
+
     @media (max-width: 1024px) {
       .content {
         width: calcVWT(928);
+
         .itemDescription {
           margin-top: calcVWT(100);
           margin-bottom: calcVWT(20);
           width: calcVWT(928);
           height: calcVWT(560);
+
           .imageCard {
             width: calcVWT(422);
             height: calcVWT(636);
           }
+
           .testSection {
             width: calcVWT(473);
             justify-content: flex-end;
-            .stacks{
-              .icon{
+            .stacks {
+              .icon {
                 width: calcVWT(40);
                 height: calcVWT(40);
               }
@@ -128,7 +195,8 @@
           }
         }
       }
-      .whiteSection{
+      
+      .whiteSection {
         .portfoliosSection {
           width: calcVWT(928);
           .text {
@@ -139,14 +207,24 @@
             margin-top: calcVWT(64);
           }
           .buttonWrapper > button {
-            width: calcVWT(224);
+            width: calcVWT(268);
             cursor: pointer;
-            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22), variables.$light-blue);
-  
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(22),
+              variables.$light-blue
+            );
+
             &:hover {
               background: initial;
               border: none;
-              @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22), variables.$light-blue);
+              @include font-style(
+                calcVWT(18),
+                variables.$fw-700,
+                calcVWT(22),
+                variables.$light-blue
+              );
               transition: none;
             }
           }
@@ -154,7 +232,11 @@
       }
     }
     @media (max-width: 576px) {
-      background-image: linear-gradient(to bottom, #060e1d calcVWM(520), white 0);
+      background-image: linear-gradient(
+        to bottom,
+        #060e1d calcVWM(520),
+        white 0
+      );
       .content {
         height: max-content;
         .itemDescription {
@@ -177,32 +259,8 @@
             }
           }
         }
-      }}
-      .whiteSection {
-        .portfoliosSection {
-          // margin-top: calcVWM(1000);
-          .projects {
-            row-gap: calcVWM(32) !important;
-          }
-          .text {
-            width: 100%;
-          }
-          .buttonWrapper {
-            margin-top: calcVWM(64);
-            justify-content: flex-start;
-          }
-          .buttonWrapper > button {
-            width: calcVWM(224);
-            @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), variables.$light-blue);
-            &:hover {
-              @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), variables.$light-blue);
-            }
-          }
-        }
-        .knowMoreSection {
-          margin-bottom: calcVWM(80);
-        }
       }
+    }
   }
 }
 //TO Do refactor Calc
