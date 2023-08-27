@@ -338,7 +338,7 @@ const HomeContent = () => {
           <div className={styles.mapContainer}>
             <div className={styles.worldMap}>
               {" "}
-              {postTestimonialsApi && (
+              {postTestimonialsApi && activeUser && (
                 <WorldMap
                   data={postTestimonialsApi}
                   setActiveUser={setActiveUser}

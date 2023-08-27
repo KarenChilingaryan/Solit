@@ -18,13 +18,14 @@ const markers = [
 ]
 
 const WorldMap = ({ data, setActiveUser, activeUser }) => {
+  console.log(activeUser, data, 'activeUser.id == data.id');
   return <div className={styles.mapImage}>
     {data.map((el, index) =>
       <div onClick={() => { setActiveUser(el) }} key={index} style={{
         position: 'absolute',
         left: `${el.x / DEFAULT_WIDTH * 100 - 2}%`,
         top: `${el.y / DEFAULT_HEIGHT * 100 - 6}%`
-      }} className={`${styles.personIcon} ${activeUser.id == data.id && styles.activeUser}`}>
+      }} className={`${styles.personIcon} ${activeUser.id == el.id && styles.activeUser}`}>
         <Image src={mapPersonActive} className={styles.active} />
         <Image src={mapPersonDisActive} className={styles.disActive} />
       </div>
