@@ -530,7 +530,8 @@
         variables.$black
       );
       border-radius: calcVWL(8);
-      padding: calcVWL(8) calcVWL(32);
+      padding: calcVWL(15) calcVWL(32);
+      height: auto;
 
       &:hover {
         @include font-style(
@@ -544,8 +545,9 @@
 
     @media (max-width: 1024px) {
       border-radius: calcVWT(8);
-      padding: calcVWT(8) calcVWT(32);
+      padding: calcVWT(15) calcVWT(32);
       width: max-content !important;
+      height: max-content !important;
 
       @include font-style(
         calcVWT(18),
@@ -565,7 +567,7 @@
     }
 
     @media (max-width: 576px) {
-      padding: calcVWM(8) calcVWM(24);
+      padding: calcVWM(16) calcVWM(24);
       width: max-content !important;
       border-radius: calcVWM(8);
 
@@ -623,8 +625,8 @@
       );
 
       border-radius: calcVWL(8);
-      padding: calcVWL(8) calcVWL(32);
-      height: calcVWL(48);
+      padding: calcVWL(15) calcVWL(32);
+      height: auto;
       &:hover {
         @include font-style(
           calcVWL(13),
@@ -636,9 +638,8 @@
     }
 
     @media (max-width: 1024px) {
-      height: calcVWT(48);
       border-radius: calcVWT(8);
-      padding: calcVWT(8) calcVWT(32);
+      padding: calcVWT(15) calcVWT(32);
       width: max-content !important;
       height: max-content !important;
       @include font-style(
@@ -654,7 +655,7 @@
     }
 
     @media (max-width: 576px) {
-      padding: calcVWM(8) calcVWM(24);
+      padding: calcVWM(16) calcVWM(24);
       border-radius: calcVWM(8);
       width: max-content !important;
       @include font-style(

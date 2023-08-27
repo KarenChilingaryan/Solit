@@ -172,15 +172,16 @@
       .languages {
         width: 100%;
         row-gap: calcVWM(90);
+        column-gap: calcVWM(16);
         margin: calcVWM(70) 0;
 
         .languageBlock {
-          width: calcVWM(50);
-          height: calcVWM(50);
+          width: calcVWM(40);
+          height: calcVWM(40);
 
           .icon {
-            width: calcVWM(50);
-            height: calcVWM(50);
+            width: calcVWM(40);
+            height: calcVWM(40);
           }
 
           &:hover {
