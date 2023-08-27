@@ -18,6 +18,7 @@ const markers = [
 ]
 
 const WorldMap = ({ data, setActiveUser, activeUser }) => {
+  console.log(activeUser, data, 'activeUser.id == data.id');
   return <div className={styles.mapImage}>
     {data.map((el, index) =>
       <div onClick={() => { setActiveUser(el) }} key={index} style={{
@@ -29,7 +30,7 @@ const WorldMap = ({ data, setActiveUser, activeUser }) => {
         <Image src={mapPersonDisActive} className={styles.disActive} alt=""/>
       </div>
     )}
-    <Image src={mapimage} />
+    <Image src={mapimage} alt=""/>
   </div>
 };
 
