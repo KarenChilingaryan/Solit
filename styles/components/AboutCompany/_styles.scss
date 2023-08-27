@@ -8,6 +8,7 @@
     height: getAboutCompanySizes(card-height);
     background-color: #00000063;
     padding: getAboutCompanySizes(card-p);
+    column-gap: calcVW(32);
     border-radius: 16px;
     .mainWrapper {
       @include flex(center, flex-start, column);
@@ -17,7 +18,11 @@
         width: max-content;
       }
       .info {
-        @include font-style(getAboutCompanySizes(info-fz), variables.$fw-700, getAboutCompanySizes(info-lh));
+        @include font-style(
+          getAboutCompanySizes(info-fz),
+          variables.$fw-700,
+          getAboutCompanySizes(info-lh)
+        );
         @include flex(null, center, row);
         column-gap: getAboutCompanySizes(info-cg);
         p {
@@ -27,11 +32,11 @@
           max-width: calcVW(150);
           @include flex(null, null, column);
           p {
-          @include font-style(
-            getAboutCompanySizes(description-fz),
-            variables.$fw-400,
-            getAboutCompanySizes(description-lh)
-          );
+            @include font-style(
+              getAboutCompanySizes(description-fz),
+              variables.$fw-400,
+              getAboutCompanySizes(description-lh)
+            );
             margin: 0;
           }
         }
@@ -48,6 +53,7 @@
       width: calcVWL(405);
       height: calcVWL(192);
       padding: calcVWL(40) calcVWL(32) calcVWL(31);
+      column-gap: calcVWL(32);
 
       .mainWrapper {
         row-gap: calcVWL(28);
@@ -60,7 +66,7 @@
 
           .description {
             max-width: calcVWL(150);
-            p{
+            p {
               @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
             }
           }
@@ -73,6 +79,7 @@
     .card {
       width: max-content;
       height: max-content;
+      column-gap: calcVWT(32);
       .mainWrapper {
         .image {
           height: calcVWT(60);
@@ -96,6 +103,7 @@
       padding: 0;
       width: 100%;
       padding: calcVWM(32);
+      gap: calcVWM(32);
       .mainWrapper {
         .image {
           height: calcVWM(50);

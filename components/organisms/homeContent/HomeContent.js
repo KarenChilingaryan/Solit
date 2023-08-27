@@ -19,14 +19,14 @@ import group1 from "../../../assets/img/Group-1.svg";
 import group2 from "../../../assets/img/Group-2.svg";
 import whatWeDoImage from "../../../assets/img/what-we-do_bg.png";
 import ourProjectImage from "../../../assets/img/our-project_bg.png";
-import services from "../../../assets/img/services.svg"
-import process from "../../../assets/img/process.svg"
-import whatWeDo from "../../../assets/img/what-we-do.svg"
-import aboutUs from "../../../assets/img/about-us.svg"
-import ourProjects from "../../../assets/img/our_projects.svg"
-import testimonials from "../../../assets/img/testimonials.svg"
-import contacts from "../../../assets/img/contacts.svg"
-import technology from "../../../assets/img/technology.svg"
+import services from "../../../assets/img/services.svg";
+import process from "../../../assets/img/process.svg";
+import whatWeDo from "../../../assets/img/what-we-do.svg";
+import aboutUs from "../../../assets/img/about-us.svg";
+import ourProjects from "../../../assets/img/our_projects.svg";
+import testimonials from "../../../assets/img/testimonials.svg";
+import contacts from "../../../assets/img/contacts.svg";
+import technology from "../../../assets/img/technology.svg";
 
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
@@ -41,8 +41,14 @@ import styles from "./HomeContent.module.scss";
 const aboutData = [
   {
     number: "4.5",
-    title: "RATING OF THE",
+    title: "RATING OF THE COMPANY",
     image: group,
+    status: "COMPANY",
+  },
+  {
+    number: "5.0",
+    title: "RATING OF THE COMPANY",
+    image: group1,
     status: "COMPANY",
   },
   {
@@ -50,12 +56,6 @@ const aboutData = [
     title: "JOB",
     image: group2,
     status: "SUCCESS",
-  },
-  {
-    number: "5.0",
-    title: "RATING OF THE",
-    image: group1,
-    status: "COMPANY",
   },
 ];
 
@@ -110,7 +110,7 @@ const HomeContent = () => {
     (state) => state?.postTestimonialsApi?.queries?.["posts(undefined)"]?.data
   );
 
-  console.log(postTestimonialsApi, 'postTestimonialsApi');
+  console.log(postTestimonialsApi, "postTestimonialsApi");
 
   useEffect(() => {
     if (postsTextMainAboutUsApi) {
@@ -176,9 +176,9 @@ const HomeContent = () => {
 
   useEffect(() => {
     if (postTestimonialsApi) {
-      setActiveUser(postTestimonialsApi[0])
+      setActiveUser(postTestimonialsApi[0]);
     }
-  }, [postTestimonialsApi])
+  }, [postTestimonialsApi]);
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -240,12 +240,12 @@ const HomeContent = () => {
           <Process />
           <div className={styles.borderedTextWhat}>
             <BorderedText img={whatWeDo} />
-
           </div>
           <div className={styles.projectContent}>
             <Image
               src={whatWeDoImage}
               className={`${styles.backImage} ${styles.topBackImage}`}
+              alt=""
             />
             <Paragraph className={styles.title}>
               {postsMainWhatWeDoTextApi
@@ -298,7 +298,7 @@ const HomeContent = () => {
             </div>
             <Image
               src={ourProjectImage}
-              className={`${styles.backImageSecond} ${styles.backImage}`}
+              className={`${styles.backImageSecond} ${styles.backImage}`} alt=""
             />
             <div className={styles.ourProjectsCards}>
               {postPortfolioApi &&
@@ -336,7 +336,16 @@ const HomeContent = () => {
             <BorderedText img={testimonials} />
           </div>
           <div className={styles.mapContainer}>
-            <div className={styles.worldMap}> {postTestimonialsApi && <WorldMap data={postTestimonialsApi} setActiveUser={setActiveUser} activeUser={activeUser}/>}</div>
+            <div className={styles.worldMap}>
+              {" "}
+              {postTestimonialsApi && (
+                <WorldMap
+                  data={postTestimonialsApi}
+                  setActiveUser={setActiveUser}
+                  activeUser={activeUser}
+                />
+              )}
+            </div>
             <div className={styles.worldMapUser}>
               {activeUser && <MapUser user={activeUser} />}
             </div>
