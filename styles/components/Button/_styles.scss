@@ -337,7 +337,7 @@
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       @include font-style(calcVWL(20), variables.$fw-700, normal);
       border-radius: calcVWL(8);
-      padding: calcVWL(16) calcVWL(32);
+      padding: calcVWL(15) calcVWL(32);
       letter-spacing: calcVWL(2);
       &:hover {
         @include font-style(calcVWL(20), variables.$fw-700, normal);
@@ -422,7 +422,7 @@
     @media (max-width: 1024px) {
       width: max-content !important;
       height: max-content !important;
-      padding: calcVWT(16) calcVWT(32);
+      padding: calcVWT(15) calcVWT(32);
 
       @include font-style(
         calcVWT(13) !important,

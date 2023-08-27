@@ -95,6 +95,9 @@
       .uploadFile {
         color: #e5e5e5;
       }
+      .uploadedFile {
+        color: #e5e5e5 !important;
+      }
 
       :global(.ant-input-affix-wrapper) {
         z-index: 0;
@@ -123,6 +126,12 @@
 
         input[type="file"] {
           z-index: 999;
+          color: transparent;
+        }
+      }
+      :global(.ant-input-affix-wrapper-status-success){
+        input[type="file"] {
+          color: white;
         }
       }
 

@@ -17,10 +17,10 @@ const markers = [
   { x: 1800, y: 250 },
 ]
 
-const WorldMap = () => {
+const WorldMap = ({ data, setActiveUser }) => {
   return <div className={styles.mapImage}>
-    {markers.map((el, index) =>
-      <div key={index} style={{
+    {data.map((el, index) =>
+      <div onClick={() => { setActiveUser(el) }} key={index} style={{
         position: 'absolute',
         left: `${el.x / DEFAULT_WIDTH * 100 - 2}%`,
         top: `${el.y / DEFAULT_HEIGHT * 100 - 6}%`

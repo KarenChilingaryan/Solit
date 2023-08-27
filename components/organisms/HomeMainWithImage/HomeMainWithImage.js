@@ -60,12 +60,8 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-
-
   }, []);
 
-
-  console.log(data?.contact, 'data?.contact?');
   return (
     <div className={`${styles.content} ${styles[className]}`}>
       {

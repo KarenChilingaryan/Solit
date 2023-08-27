@@ -113,7 +113,7 @@ const ContactForm = ({
                 setFile(e.target.files[0]);
               }}
               showUploadList={false}
-              className={styles.uploadFile}
+              className={`${styles.uploadFile} ${file && style.uploadedFile}`}
             />
           </FormItem>
           <FormItem name="accept" className={styles.accept}>

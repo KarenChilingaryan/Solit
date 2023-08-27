@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const Technology = () => {
   const [current, setCurrent] = useState(0);
-  const [filter, setFilter] = useState("back-end");
+  const [filter, setFilter] = useState("Back-End");
 
   const postsMainTechnologyApi = useSelector(
     (state) => state?.postsMainTechnologyApi?.queries?.["posts(undefined)"]?.data
@@ -17,17 +17,18 @@ const Technology = () => {
     (state) => state?.postsMainTechnologyFiltersApi?.queries?.["posts(undefined)"]?.data
   );
 
-
   const filterIcons = () => {
-    if (filter === "front-end") {
-      return postsMainTechnologyApi?.data_list?.filter((el) => el.main_technology_name.toLowerCase() === "react");
-    } else if (filter === "back-end") {
-      return postsMainTechnologyApi?.data_list?.filter((el) => el.main_technology_name.toLowerCase() !== "react");
-    }
-    return [];
+    const BE = [];
+    const FE = [];
+    postsMainTechnologyApi?.data_list?.map((el) => {
+      if (el.filter_name_main_technology.filter_name_main_technology == "Back-End") {
+        BE.push(el)
+      } else {
+        FE.push(el)
+      }
+    })
+    return [...FE, ...BE];
   };
-
-
 
   const filteredIcons = filterIcons() || [];
 
@@ -47,23 +48,23 @@ const Technology = () => {
 
           <Button
             text="Back-end"
-            lightBlueTech={filter === "back-end"}
-            grayTextBtnTech={filter !== "back-end"}
-            onClick={() => setFilter("back-end")}
+            lightBlueTech={filter === "Back-End"}
+            grayTextBtnTech={filter !== "Back-End"}
+            onClick={() => setFilter("Back-End")}
           />
 
 
           <Button
             text="Front-end"
-            lightBlueTech={filter === "front-end"}
-            grayTextBtnTech={filter !== "front-end"}
-            onClick={() => setFilter("front-end")}
+            lightBlueTech={filter === "Front-End"}
+            grayTextBtnTech={filter !== "Front-End"}
+            onClick={() => setFilter("Front-End")}
           />
         </div>
       </div>
       <div className={styles.languages}>
         {filteredIcons.map((el, i) => (
-          <div className={styles.languageBlock} key={i}>
+          <div className={`${styles.languageBlock} ${el.filter_name_main_technology.filter_name_main_technology != filter && styles.languageBlockDeActive}`} key={i}>
             <Image src={el.technology_logos_for_main.original_logo} className={styles.icon} width={50} height={50} />
             <Paragraph className={styles.name}>{el.main_technology_name}</Paragraph>
           </div>

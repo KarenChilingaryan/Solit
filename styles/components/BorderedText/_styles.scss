@@ -3,25 +3,19 @@
 
 @mixin generate-bordered-text-styles {
   .text {
-    font-size: getBorderedTextSizes(bordered-text-fs);
-    line-height: getBorderedTextSizes(bordered-text-lh);
-    -webkit-text-stroke: 1px #56ccf233;
-    text-stroke: 1px #56ccf233;
-    position: relative;
-    color: transparent;
+    height: calcVW(178);
+    width: auto;
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      font-size: calcVWL(200);
-      line-height: calcVWL(214);
+      height: calcVWL(178);
     }
 
     @media (max-width: 1024px) {
-      @include font-style(calcVWT(128), variables.$fw-600, calcVWT(156));
-      color: transparent;
+      height: calcVWT(178);
     }
+
     @media (max-width: 576px) {
-      @include font-style(calcVWM(57), variables.$fw-600, calcVWM(71));
-      color: transparent;
+      height: calcVWM(178);
     }
   }
 }

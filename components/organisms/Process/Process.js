@@ -10,6 +10,8 @@ const svgSizes = [
     type: "round",
     A: 100,
     B: 50,
+    name: "Analysis",
+    description: "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. "
   },
   {
     type: "path",
@@ -20,6 +22,8 @@ const svgSizes = [
     type: "round",
     A: 250,
     B: 50,
+    name: 'Planning',
+    description: 'Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. ',
   },
   {
     type: "path",
@@ -50,6 +54,8 @@ const svgSizes = [
     type: "round",
     A: 370,
     B: 160,
+    name: 'Design',
+    description: 'Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. ',
   },
   {
     type: "path",
@@ -60,6 +66,8 @@ const svgSizes = [
     type: "round",
     A: 250,
     B: 160,
+    name: 'Software development',
+    description: 'Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.',
   },
   {
     type: "path",
@@ -90,6 +98,8 @@ const svgSizes = [
     type: "round",
     A: 120,
     B: 270,
+    name: 'Testing & integration',
+    description: 'Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. ',
   },
   {
     type: "path",
@@ -100,6 +110,8 @@ const svgSizes = [
     type: "round",
     A: 280,
     B: 270,
+    name: 'Maintence',
+    description: 'Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.',
   },
 ];
 
@@ -265,13 +277,14 @@ const Line = () => {
               <>
                 <text
                   x={el.A}
-                  y={el.B - 10}
+                  y={el.B - 13}
                   fill={"white"}
                   textAnchor="middle"
                   dominantBaseline="baseline"
-                  fontSize="14"
+                  fontSize="10"
+                  fontWeight="600"
                 >
-                  Analysis
+                  {el.name}
                 </text>
                 <circle
                   cx={el.A}
@@ -283,9 +296,10 @@ const Line = () => {
                 />
                 <circle cx={el.A} cy={el.B} r="4" fill={'white'} className={color == '#3FC1FF' && `${styles['loadingPathRoundFill' + index]} ${styles.loadingPathRoundFill}`} />
                 {GetText(
-                  "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.",
+                  el.description,
                   el.A,
-                  el.B
+                  el.B,
+                  7
                 )}
               </>
             );
