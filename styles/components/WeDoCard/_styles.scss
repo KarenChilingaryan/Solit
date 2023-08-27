@@ -152,6 +152,8 @@
       }
 
       .description {
+        overflow: hidden;
+        max-height: calcVWM(100);
         @include font-style(calcVWM(13), variables.$fw-400, calcVWM(20), #fff);
       }
 
