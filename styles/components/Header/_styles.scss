@@ -223,7 +223,7 @@
 
           .menuItemChildMainWrapper {
             width: calcVWL(680);
-            top: calcVWL(75);
+            top: calcVWL(49);
             padding: calcVWL(24);
             border-radius: 0 0 calcVWL(16) calcVWL(16);
             column-gap: calcVWL(32);
@@ -629,7 +629,7 @@
 
         .menuItem {
           width: 100% !important;
-
+          margin: 0 !important;
           .menuItemChildMainWrapper {
             width: 100%;
           }
