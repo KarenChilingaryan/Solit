@@ -152,7 +152,8 @@
 
       .title_iconWrapper {
         .title {
-          height: calcVWT(93);
+          min-height: calcVWT(93);
+          height: max-content;
           @include font-style(
             calcVWT(24),
             variables.$fw-500,
