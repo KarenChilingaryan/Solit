@@ -4,119 +4,141 @@
 @mixin generate-technology-styles {
   .container {
     .title {
-      @include font-style(
-        getTechnologySizes(technology-title-fz),
+      @include font-style(getTechnologySizes(technology-title-fz),
         variables.$fw-500,
-        getTechnologySizes(technology-title-lh)
-      );
+        getTechnologySizes(technology-title-lh));
     }
+
     .description {
       margin-top: getTechnologySizes(technology-description-mt);
-      @include font-style(
-        getTechnologySizes(technology-description-fz),
+      @include font-style(getTechnologySizes(technology-description-fz),
         variables.$fw-400,
-        getTechnologySizes(technology-description-lh)
-      );
+        getTechnologySizes(technology-description-lh));
     }
+
     .buttons {
       @include flex(flex-start, center, row, wrap);
       column-gap: calcVW(16);
       margin: getTechnologySizes(technology-buttons-m);
     }
+
     .languages {
       @include flex(space-between, center, row, wrap);
       width: getTechnologySizes(language-w);
+
       .languageBlock {
+        transition: 0.5s;
         @include flex(center, center, column);
         width: getTechnologySizes(language-block-w);
         height: getTechnologySizes(language-block-h);
         cursor: pointer;
+
         .icon {
           width: getTechnologySizes(icon-w);
           height: getTechnologySizes(icon-w);
           object-fit: cover;
         }
+
         .name {
           display: none;
         }
+
         &:hover {
           background-color: #000000;
           border: 1px solid #3fc1ff;
           border-radius: getTechnologySizes(language-block-br);
+
           .name {
             display: block;
-            @include font-style(
-              getTechnologySizes(language-name-fz),
+            @include font-style(getTechnologySizes(language-name-fz),
               variables.$fw-600,
-              getTechnologySizes(language-name-lh)
-            );
+              getTechnologySizes(language-name-lh));
           }
         }
       }
+
+      .languageBlockDeActive {
+        .icon {
+          transition: 0.5s;
+          filter: invert(50%) sepia(0%) saturate(1581%) hue-rotate(136deg) brightness(92%) contrast(77%);
+        }
+      }
     }
+
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       .title {
         @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44));
       }
+
       .description {
         margin-top: calcVWL(24);
-        @include font-style(
-          calcVWL(18),
+        @include font-style(calcVWL(18),
           variables.$fw-400,
-          calcVWL(24)
-        );
+          calcVWL(24));
       }
+
       .buttons {
         column-gap: calcVWL(16);
         margin: calcVWL(64) 0 calcVWL(32) 0;
       }
+
       .languages {
         width: calcVWL(1040);
+
         .languageBlock {
           width: calcVWL(106);
           height: calcVWL(106);
+
           .icon {
             width: calcVWL(40);
             height: calcVWL(40);
           }
+
           &:hover {
             border-radius: calcVWL(16);
+
             .name {
-              @include font-style(
-                calcVWL(16),
+              @include font-style(calcVWL(16),
                 variables.$fw-600,
-                calcVWL(24)
-              );
+                calcVWL(24));
             }
           }
         }
       }
     }
+
     @media (max-width: 1024px) {
       .title {
         @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
       }
+
       .description {
         margin-top: calcVWT(32);
         @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
       }
+
       .buttons {
         column-gap: calcVW(0);
         justify-content: flex-start;
         column-gap: calcVWT(16);
         margin: calcVWT(72) 0 calcVWT(40) 0;
       }
+
       .languages {
         width: 100%;
+
         .languageBlock {
           width: calcVWT(106);
           height: calcVWT(106);
+
           .icon {
             width: calcVWT(40);
             height: calcVWT(40);
           }
+
           &:hover {
             border-radius: calcVWT(16);
+
             .name {
               display: block;
               @include font-style(calcVWT(14), variables.$fw-500, calcVWT(24));
@@ -125,34 +147,43 @@
         }
       }
     }
+
     @media (max-width: 576px) {
       .title {
         @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
       }
+
       .description {
         margin-top: calcVWM(32);
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
       }
+
       .buttonsParent {
         overflow: auto;
       }
+
       .buttons {
         flex-wrap: nowrap;
         min-width: max-content;
         column-gap: calcVWM(16);
         margin-top: calcVWM(60);
       }
+
       .languages {
         width: 100%;
         row-gap: calcVWM(90);
+        column-gap: calcVWM(16);
         margin: calcVWM(70) 0;
+
         .languageBlock {
-          width: calcVWM(50);
-          height: calcVWM(50);
+          width: calcVWM(40);
+          height: calcVWM(40);
+
           .icon {
-            width: calcVWM(50);
-            height: calcVWM(50);
+            width: calcVWM(40);
+            height: calcVWM(40);
           }
+
           &:hover {
             pointer-events: none;
           }

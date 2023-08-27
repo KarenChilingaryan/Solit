@@ -2,13 +2,13 @@
 @import "../../base/variables";
 
 $header-sizes: (
-  header-wrapper-padding: calcVW(24) calcVW(80),
+  header-wrapper-padding: calcVW(16) calcVW(80),
   header-wrapper-padding-scroll: calcVW(50) calcVW(100),
   header-logo-width: calcVW(112),
   header-logo-height: calcVW(50),
-  header-menu-item-margin: calcVW(16),
+  header-menu-item-margin: calcVW(15),
   header-button-wrapper-ml: calcVW(16),
-  header-menu-item-child-main-wrapper-top: calcVW(75),
+  header-menu-item-child-main-wrapper-top: calcVW(53),
   header-menu-item-child-wrapper-padding: calcVW(16) calcVW(16),
   header-menu-item-child-margin: calcVW(16),
   header-menu-item-child-fz: calcVW(14),

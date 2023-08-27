@@ -13,7 +13,13 @@ body {
   // }
   background-color: #020d1c !important;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: white !important;
 }
 
@@ -59,4 +65,23 @@ textarea::-webkit-scrollbar-thumb {
 
 .ant-dropdown-menu {
   padding: 0 !important;
+}
+
+.ant-tooltip-inner {
+  padding: calcVW(24) calcVW(30) calcVW(14) calcVW(30) !important;
+  border-radius: calcVW(16) !important;
+  width: calcVW(387);
+}
+
+.ant-tooltip-placement-top {
+  display: flex !important;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1025px) {
+  .ant-tooltip-inner {
+    padding: calcVWL(24) calcVWL(30) calcVWL(14) calcVWL(30) !important;
+    border-radius: calcVWL(16) !important;
+    width: calcVWL(387);
+  }
 }

@@ -4,6 +4,7 @@
 @mixin generate-home-main-with-image-styles {
   .content {
     overflow: hidden;
+
     .breadcrumb {
       top: calcVW(130);
       left: calcVW(320);
@@ -11,20 +12,23 @@
       z-index: 998;
       border-radius: calcVW(8);
       overflow: hidden;
+
       li {
         background: rgba(255, 255, 255, 0.32);
         padding: calcVW(6) calcVW(12);
         border-right: 2px solid black;
       }
+
       li:last-of-type {
         background: #000;
         border-right: 0;
       }
-      
+
       :global(.ant-breadcrumb-link) {
         @include font-style(calcVW(20), variables.$fw-500, normal);
         text-decoration: revert;
       }
+
       :global(ol) {
         li:last-of-type {
           :global(.ant-breadcrumb-link) {
@@ -33,10 +37,12 @@
           }
         }
       }
+
       :global(.ant-breadcrumb-separator) {
         @include font-style(calcVW(20), variables.$fw-700, normal);
         margin: 0 calcVW(8);
       }
+
       @media (max-width: 1024px) {
         top: calcVWT(130);
         left: calcVWT(24);
@@ -56,6 +62,7 @@
           margin: 0 calcVWT(8);
         }
       }
+
       @media (max-width: 576px) {
         top: calcVWM(90);
         left: calcVWM(24);
@@ -69,6 +76,7 @@
           @include font-style(calcVWM(20), variables.$fw-500, normal);
           text-decoration: revert;
         }
+
         :global(.ant-breadcrumb-separator) {
           @include font-style(calcVWM(20), variables.$fw-700, normal);
           margin: 0 calcVWM(8);
@@ -76,9 +84,11 @@
       }
     }
   }
+
   .portfolioItem {
     overflow: unset;
   }
+
   .socialSites {
     position: fixed;
     width: calcVW(440);
@@ -92,40 +102,44 @@
     .site {
       column-gap: getHomeMainWithImage(site-cg);
       @include flex(center, center);
+
       .image {
         object-fit: cover;
         width: getHomeMainWithImage(sites-image-width);
         height: getHomeMainWithImage(sites-image-width);
       }
+
       .text {
-        @include font-style(
-          getHomeMainWithImage(text-fs),
+        @include font-style(getHomeMainWithImage(text-fs),
           variables.$fw-500,
-          getHomeMainWithImage(text-lh)
-        );
+          getHomeMainWithImage(text-lh));
       }
+
       &:hover {
         .image {
-          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg)
-            brightness(86%) contrast(99%);
+          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg) brightness(86%) contrast(99%);
           transition: 0.3s;
         }
+
         .text {
           color: variables.$light-blue !important;
           transition: 0.3s;
         }
       }
     }
+
     @media (max-width: 1024px) {
       display: none;
     }
   }
+
   .socialSitesTop {
     cursor: pointer;
     right: calcVW(-180);
-    top: calcVW(600);
+    top: 60%;
     left: auto;
     z-index: 1000;
+    display: flex !important;
   }
 
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
@@ -134,18 +148,22 @@
         top: calcVWL(130);
         left: calcVWL(320);
         border-radius: calcVWL(8);
+
         li {
           padding: calcVWL(6) calcVWL(12);
         }
+
         :global(.ant-breadcrumb-link) {
           @include font-style(calcVWL(20), variables.$fw-500, normal);
         }
+
         :global(.ant-breadcrumb-separator) {
           @include font-style(calcVWL(20), variables.$fw-700, normal);
           margin: 0 calcVWL(8);
         }
       }
     }
+
     .socialSites {
       width: calcVWL(440);
       left: calcVWL(-180);
@@ -154,22 +172,50 @@
 
       .site {
         column-gap: calcVWL(16);
+
         .image {
           width: calcVWL(24);
           height: calcVWL(24);
         }
+
         .text {
           @include font-style(calcVWL(20), variables.$fw-500, calcVWL(24));
         }
       }
     }
+
     .socialSitesTop {
       right: calcVWL(-180);
-      top: calcVWL(600);
       left: auto;
     }
   }
+
+  @media (max-width: 1024px) {
+    .socialSites {
+
+      .site {
+        column-gap: calcVWT(16);
+        @include flex(center, center);
+
+        .image {
+          width: calcVWT(24);
+          height: calcVWT(24);
+        }
+
+        .text {
+          @include font-style(calcVWT(20),
+            variables.$fw-500,
+            normal);
+        }
+      }
+    }
+  }
+
   @media (max-width: 576px) {
+    .socialSites {
+      display: none !important;
+    }
+
     .content {
       padding-top: calcVWM(70);
     }

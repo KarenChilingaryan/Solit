@@ -25,6 +25,7 @@ import { postsTextCareersAboutUsApi } from "../../services/postsTextCareersAbout
 import { postsTextCareersColourfulApi } from "../../services/postsTextCareersColourfulApi";
 import { postsTextMainAboutUsApi } from "../../services/postsTextMainAboutUsApi";
 import { footerApi } from "../../services/footerApi";
+import { postTestimonialsApi } from "../../services/postTestimonialsApi";
 
 export async function getServerSideProps(context) {
   const res = await axios.get(`https://jsonplaceholder.typicode.com/users/`);
@@ -62,6 +63,7 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate())
       if (!a.pathname.includes('/portfolio'))
         await dispatch(await postPortfolioApi.endpoints.posts.initiate())
+      await dispatch(await postTestimonialsApi.endpoints.posts.initiate())
       await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate())
       await dispatch(await footerApi.endpoints.footer.initiate())
     }

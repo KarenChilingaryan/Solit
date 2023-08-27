@@ -147,7 +147,7 @@
       margin: calcVWL(300) auto 0 auto;
 
       .servicesMain {
-        margin-top: calcVWL(200);
+        margin-top: calcVWL(285);
 
         .services {
           row-gap: calcVWL(96);
@@ -246,15 +246,17 @@
     .ourProjectsCards {
       row-gap: calcVWT(72);
       column-gap: calcVWT(32);
+      width: calc(100% - calcVWT(31));
+      margin: 0 auto;
     }
     .contactBlock {
-      padding-bottom: calcVWT(90);
+      padding-bottom: calcVWT(57);
     }
     .content {
       width: calcVWT(880);
       margin-top: calcVWT(255);
       .servicesMain {
-        margin-top: calcVWT(100);
+        margin-top: calcVWT(160);
         .services {
           column-gap: calcVWT(104);
         }
@@ -264,7 +266,7 @@
       margin-top: calcVW(150);
     }
     .borderedText {
-      margin-left: calcVWT(-70);
+      margin-left: calcVWT(-60);
       margin-bottom: calcVWT(30) !important;
     }
     .servicesMainButton {
@@ -276,7 +278,7 @@
         row-gap: calcVWT(110);
       }
       .borderedTextWhat {
-        margin-left: calcVWT(-50);
+        margin-left: calcVWT(-40);
       }
       .aboutCompanyContent {
         height: max-content;
@@ -328,6 +330,7 @@
       margin-left: calcVWM(-15);
     }
     .afterAboutContent {
+      width: calcVWM(343);
       .aboutContent {
         row-gap: calcVWM(32);
       }
@@ -358,7 +361,10 @@
     }
     .ourProjectsCards {
       row-gap: calcVWM(32);
+      justify-content: space-between;
       column-gap: calcVWM(13);
+      width: 100%;
+      border-radius: calcVWM(16);
     }
 
     .backImageSecond {

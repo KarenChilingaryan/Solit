@@ -8,17 +8,25 @@
     align-items: center;
     justify-content: center;
     padding: getWeDoCardSizes(we-do-card-py) getWeDoCardSizes(we-do-card-px);
-    gap: 16px;
+    gap: calcVW(16);
     width: getWeDoCardSizes(we-do-card-width);
     height: getWeDoCardSizes(we-do-card-height);
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(16px);
     border-radius: 16px;
+
+    &:hover {
+      transition: 0.5s;
+      box-shadow: 0px 42px 98px -42px #7811fe;
+      border: 1px solid #219fdb;
+    }
+
     .more {
       display: flex;
       align-items: center;
       column-gap: calcVW(16);
       @include font-style(calcVW(18), variables.$fw-700, calcVW(18), #40a9ff);
+
       img {
         width: calcVW(16);
         height: calcVW(16);
@@ -29,7 +37,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: getWeDoCardSizes(we-do-card-icon-wrapper);
       border-radius: 50%;
 
       .icon {
@@ -37,19 +44,28 @@
         height: getWeDoCardSizes(icon-height);
       }
     }
+
     .development {
+      padding: calcVW(15) 0;
       @include font-style(calcVW(24), variables.$fw-700, normal, #3fc1ff);
       min-height: auto;
     }
+
     .description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: calcVW(115);
       padding: 0 5px;
       text-align: center;
-      @include font-style(calcVW(18), variables.$fw-400, normal #fff);
+      @include font-style(calcVW(18), variables.$fw-400, normal, #fff);
     }
+
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      padding: calcVWL(64) calcVWL(32);
+      padding: calcVWL(56) calcVWL(32);
       width: calcVWL(405);
       height: calcVWL(332);
+      gap: calcVWL(16);
+
       .more {
         column-gap: calcVWL(16);
         @include font-style(
@@ -58,6 +74,7 @@
           calcVWL(18),
           #40a9ff
         );
+
         img {
           width: calcVWL(16);
           height: calcVWL(16);
@@ -65,38 +82,47 @@
       }
 
       .iconWrapper {
-        padding: calcVWL(16);
-
         .icon {
-          width: calcVWL(36);
-          height: calcVWL(36);
+          width: calcVWL(64);
+          height: calcVWL(64);
         }
       }
+
       .development {
         @include font-style(calcVWL(24), variables.$fw-700, normal, #3fc1ff);
       }
+
       .description {
-        @include font-style(calcVWL(18), variables.$fw-400, normal #fff);
+        height: calcVWL(65);
+        @include font-style(calcVWL(18), variables.$fw-400, normal, #fff);
       }
     }
+
     @media (max-width: 1024px) {
       width: calcVWT(288);
       height: calcVWT(380);
-      padding: calcVWT(64) calcVWT(32);
+      padding: calcVWT(56) calcVWT(32);
+      gap: calcVWT(16);
       text-align: center;
+      justify-content: flex-start;
+
       .development {
         @include font-style(calcVWT(24), variables.$fw-700, calcVWT(29), #fff);
       }
+
       .description {
+        max-height: unset;
+        overflow: unset;
         @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
       }
+
       .iconWrapper {
-        padding: calcVWT(18);
         .icon {
-          width: calcVWT(27);
-          height: calcVWT(27);
+          width: calcVWT(64);
+          height: calcVWT(64);
         }
       }
+
       .more {
         column-gap: calcVWT(16);
         @include font-style(
@@ -105,6 +131,7 @@
           calcVWT(18),
           #40a9ff
         );
+
         img {
           width: calcVWT(16);
           height: calcVWT(16);
@@ -113,24 +140,30 @@
     }
 
     @media (max-width: 576px) {
+      gap: calcVWM(16);
       width: calcVWM(163);
       height: calcVWM(320);
       padding: calcVWM(32) calcVWM(16);
       text-align: center;
       justify-content: space-between;
+
       .development {
         @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), #fff);
       }
+
       .description {
+        overflow: hidden;
+        max-height: calcVWM(100);
         @include font-style(calcVWM(13), variables.$fw-400, calcVWM(20), #fff);
       }
+
       .iconWrapper {
-        padding: calcVWM(17);
         .icon {
-          width: calcVWM(26);
-          height: calcVWM(26);
+          width: calcVWM(64);
+          height: calcVWM(64);
         }
       }
+
       .more {
         margin-top: calcVWM(110);
         column-gap: calcVWM(16);
@@ -140,6 +173,7 @@
           calcVWM(18),
           #40a9ff
         );
+
         img {
           width: calcVWM(16);
           height: calcVWM(16);
