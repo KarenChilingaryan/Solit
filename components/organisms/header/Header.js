@@ -8,7 +8,7 @@ import { Col, Paragraph } from "../../atoms";
 import { useSelector } from "react-redux";
 import menuLogoWhite from "../../../assets/img/bigLogo.png";
 import hamburger from "../../../assets/img/hamburger.svg";
-import dropdown from "../../../assets/img/dropdown.svg";
+import dropdown from "../../../assets/img/angle-down.svg";
 import active_menu_element from "../../../assets/img/active-menu-element.svg";
 import menu_element from "../../../assets/img/menu-element.svg";
 import Button from "../../molecules/button/Button";
@@ -168,7 +168,7 @@ const Header = () => {
                 }}
               >
                 {el.name}
-                <Image src={dropdown} />
+                <Image src={dropdown} alt=""/>
               </div>
               <div className={styles.menuItemChildMainWrapper} ref={modalRef}>
                 {el?.data?.map((e, idx) =>
@@ -180,8 +180,8 @@ const Header = () => {
                           el.name === filteredData ? "flex" : "none",
                       }}
                     >
-                      <Image src={active_menu_element} className={styles.activeElem} />
-                      <Image src={menu_element} className={styles.disActiveElem} />
+                      <Image src={active_menu_element} className={styles.activeElem} alt=""/>
+                      <Image src={menu_element} className={styles.disActiveElem} alt=""/>
                       {e.title}
                     </div>
                   </Link>
@@ -229,7 +229,7 @@ const Header = () => {
             </Col>
           </div>
           <div className={`${styles.menuWrapper} ${openMenu ? styles.closedMenu : ''}`}>
-            <Image src={hamburger} onClick={() => { setOpenMenu(!openMenu) }} className={styles.menuImage} />
+            <Image src={hamburger} onClick={() => { setOpenMenu(!openMenu) }} className={styles.menuImage}alt="" />
           </div>
         </div>
       }

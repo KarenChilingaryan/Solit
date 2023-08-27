@@ -378,13 +378,13 @@
     @include font-style(
       getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-700,
-      getButtonSizes(button-text-bold-blue-lh),
+      normal,
       variables.$light-blue !important
     );
     border-radius: getButtonSizes(transparent-opposite-br);
     padding: getButtonSizes(button-bold-blue-padding);
     border: 1px solid variables.$light-blue;
-    height: unset;
+    height: calcVW(48);
     cursor: pointer;
 
     &:hover {
@@ -506,7 +506,7 @@
     padding: getButtonSizes(button-bold-blue-padding);
     border: 1px solid variables.$light-blue;
     cursor: pointer;
-    height: unset;
+    height: calcVW(48);
     width: auto;
 
     &:hover {
@@ -600,7 +600,7 @@
     padding: getButtonSizes(button-bold-blue-padding);
     border: 1px solid rgba(255, 255, 255, 0.32);
     cursor: pointer;
-    height: unset;
+    height: calcVW(48);
     width: auto;
 
     &:hover {
@@ -624,6 +624,7 @@
 
       border-radius: calcVWL(8);
       padding: calcVWL(8) calcVWL(32);
+      height: calcVWL(48);
       &:hover {
         @include font-style(
           calcVWL(13),
@@ -635,6 +636,7 @@
     }
 
     @media (max-width: 1024px) {
+      height: calcVWT(48);
       border-radius: calcVWT(8);
       padding: calcVWT(8) calcVWT(32);
       width: max-content !important;

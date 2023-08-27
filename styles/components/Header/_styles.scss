@@ -22,15 +22,17 @@
       display: flex;
       align-items: center;
       margin-right: calcVW(-340);
-      margin-left: calcVW(260);
+      margin-left: calcVW(314);
     }
     .menuWrapper {
       display: flex;
+      column-gap: calcVW(32);
       .socialIconsWrapper {
         display: none;
       }
       .menuSecondItemBlock {
         display: flex;
+        column-gap: calcVW(32);
       }
       .menuItem {
         margin-top: calcVW(-40);
@@ -41,18 +43,18 @@
         .menuItemTitle {
           img {
             transition: 0.3s;
-            width: calcVW(16);
-            height: calcVW(10);
-            margin-left: calcVW(16);
+            width: calcVW(24);
+            height: calcVW(24);
+            margin-left: calcVW(8);
             transform: rotate(180deg);
           }
           cursor: pointer;
-          margin: getHeaderSizes(header-menu-item-margin);
+          // margin: getHeaderSizes(header-menu-item-margin);
           // transition: 0.4s;
           @include font-style(
             getHeaderSizes(header-menu-item-fz),
-            variables.$fw-400,
-            getHeaderSizes(header-menu-item-lh),
+            variables.$fw-500,
+            normal,
             variables.$main-white
           );
           &:hover {
@@ -183,16 +185,16 @@
           margin-top: calcVWL(-40);
           .menuItemTitle {
             img {
-              width: calcVWL(16);
-              height: calcVWL(10);
-              margin-left: calcVWL(16);
+              width: calcVWL(24);
+              height: calcVWL(24);
+              margin-left: calcVWL(8);
             }
             cursor: pointer;
             margin: calcVWL(16);
             @include font-style(
               calcVWL(20),
               variables.$fw-400,
-              calcVWL(23),
+              normal,
               variables.$main-white
             );
           }
@@ -284,14 +286,14 @@
           }
           .menuItemTitle {
             img {
-              width: calcVWT(16);
-              height: calcVWT(10);
-              margin-left: calcVWT(16);
+              width: calcVWT(24);
+              height: calcVWT(24);
+              margin-left: calcVWT(8);
             }
             @include font-style(
               calcVWT(20),
               variables.$fw-400,
-              calcVWT(20),
+              normal,
               variables.$main-white
             );
           }
@@ -441,14 +443,14 @@
           }
           .menuItemTitle {
             img {
-              width: calcVWM(16);
-              height: calcVWM(10);
-              margin-left: calcVWM(16);
+              width: calcVWM(24);
+              height: calcVWM(24);
+              margin-left: calcVWM(8);
             }
             @include font-style(
               calcVWM(20),
               variables.$fw-400,
-              calcVWM(20),
+              normal,
               variables.$main-white
             );
           }
@@ -517,7 +519,7 @@
             @include font-style(
               calcVWM(20),
               variables.$fw-400,
-              calcVWM(20),
+              normal,
               variables.$main-white
             );
           }
