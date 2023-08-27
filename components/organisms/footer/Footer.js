@@ -17,7 +17,7 @@ const Footer = () => {
     },
     {
       expertise: {
-        title: "EXPERTISE",
+        title: "Expertise",
         data: [
           {
             link: 'services',
@@ -26,6 +26,10 @@ const Footer = () => {
           {
             link: '/',
             name: "Tech Stack"
+          },
+          {
+            link: 'about-us',
+            name: "About Us",
           },
           {
             link: 'portfolio',
@@ -41,12 +45,8 @@ const Footer = () => {
 
     {
       company: {
-        title: "COMPANY",
+        title: "Company",
         data: [
-          {
-            link: 'about-us',
-            name: "About Us",
-          },
           {
             link: 'terms-and-conditions',
             name: "Terms and Conditions",

@@ -248,13 +248,13 @@
       column-gap: calcVWT(32);
     }
     .contactBlock {
-      padding-bottom: calcVWT(90);
+      padding-bottom: calcVWT(57);
     }
     .content {
       width: calcVWT(880);
       margin-top: calcVWT(255);
       .servicesMain {
-        margin-top: calcVWT(100);
+        margin-top: calcVWT(160);
         .services {
           column-gap: calcVWT(104);
         }
@@ -264,7 +264,7 @@
       margin-top: calcVW(150);
     }
     .borderedText {
-      margin-left: calcVWT(-70);
+      margin-left: calcVWT(-60);
       margin-bottom: calcVWT(30) !important;
     }
     .servicesMainButton {
@@ -276,7 +276,7 @@
         row-gap: calcVWT(110);
       }
       .borderedTextWhat {
-        margin-left: calcVWT(-50);
+        margin-left: calcVWT(-40);
       }
       .aboutCompanyContent {
         height: max-content;
