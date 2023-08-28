@@ -8,110 +8,116 @@ import styles from "./Process.module.scss";
 const svgSizes = [
   {
     type: "round",
-    A: 100,
+    A: 80,
     B: 50,
-    name: "Analysis",
-    description: "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. "
+    name: "Requirement Analysis",
+    description: "Our expert team initiates the process by thoroughly understanding your project requirements, goals, and expectations. This analysis serves as the foundation for creating a tailored solution that perfectly aligns with your business needs.",
+    position: 'first'
   },
   {
     type: "path",
-    A: { x: 105, y: 50 },
+    A: { x: 85, y: 50 },
     B: { x: 250, y: 50 },
   },
   {
     type: "round",
-    A: 250,
+    A: 239,
     B: 50,
-    name: 'Planning',
-    description: 'Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. ',
+    name: 'Planning and Design',
+    description: 'With a comprehensive understanding of your project, we meticulously plan the development roadmap and craft an intuitive design that not only enhances user experience but also ensures scalability and flexibility for future expansions.',
+    position: 'right'
   },
   {
     type: "path",
-    A: { x: 255, y: 50 },
-    B: { x: 440, y: 50 },
+    A: { x: 244, y: 50 },
+    B: { x: 465, y: 50 },
   },
   {
-    A: { x: 440, y: 50 },
-    B: { x: 480, y: 90 },
-    controlPoint: { x: 480, y: 50 },
-  },
-  {
-    type: "path",
-    A: { x: 480, y: 90 },
-    B: { x: 480, y: 120 },
-  },
-  {
-    A: { x: 480, y: 120 },
-    B: { x: 440, y: 160 },
-    controlPoint: { x: 480, y: 160 },
+    A: { x: 465, y: 50 },
+    B: { x: 499, y: 90 },
+    controlPoint: { x: 499, y: 48 },
   },
   {
     type: "path",
-    A: { x: 440, y: 160 },
-    B: { x: 370, y: 160 },
+    A: { x: 499, y: 90 },
+    B: { x: 499, y: 115 },
+  },
+  {
+    A: { x: 499, y: 115 },
+    B: { x: 465, y: 148 },
+    controlPoint: { x: 499, y: 148 },
+  },
+  {
+    type: "path",
+    A: { x: 465, y: 148 },
+    B: { x: 370, y: 148 },
   },
   {
     type: "round",
-    A: 370,
-    B: 160,
-    name: 'Design',
-    description: 'Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. ',
+    A: 400,
+    B: 148,
+    name: 'Development and Coding',
+    description: 'Our seasoned developers leverage cutting-edge technologies and industry best practices to transform the approved design into a functional software solution, leaving no stone unturned in delivering a robust and high-performance product.',
+    position: 'right'
   },
   {
     type: "path",
-    A: { x: 365, y: 160 },
-    B: { x: 245, y: 160 },
+    A: { x: 395, y: 148 },
+    B: { x: 245, y: 148 },
   },
   {
     type: "round",
-    A: 250,
-    B: 160,
-    name: 'Software development',
-    description: 'Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.',
+    A: 240,
+    B: 148,
+    name: 'Testing and Quality Assurance',
+    description: 'Rigorous testing methodologies are employed to identify and eliminate any potential bugs or glitches, ensuring the final product meets the highest standards of quality, reliability, and security.',
+    position: 'left'
   },
   {
     type: "path",
-    A: { x: 250, y: 160 },
-    B: { x: 42, y: 160 },
+    A: { x: 240, y: 148 },
+    B: { x: 36, y: 148 },
   },
   {
-    A: { x: 42, y: 160 },
-    B: { x: 2, y: 200 },
-    controlPoint: { x: 2, y: 160 },
-  },
-  {
-    type: "path",
-    A: { x: 2, y: 200 },
-    B: { x: 2, y: 230 },
-  },
-  {
-    A: { x: 42, y: 270 },
-    B: { x: 2, y: 230 },
-    controlPoint: { x: 2, y: 270 },
+    A: { x: 36, y: 148 },
+    B: { x: 2, y: 180 },
+    controlPoint: { x: 2, y: 148 },
   },
   {
     type: "path",
-    A: { x: 42, y: 270 },
-    B: { x: 120, y: 270 },
+    A: { x: 2, y: 180 },
+    B: { x: 2, y: 210 },
+  },
+  {
+    A: { x: 34, y: 252 },
+    B: { x: 2, y: 210 },
+    controlPoint: { x: 2, y: 252 },
+  },
+  {
+    type: "path",
+    A: { x: 34, y: 252 },
+    B: { x: 100, y: 252 },
   },
   {
     type: "round",
-    A: 120,
-    B: 270,
-    name: 'Testing & integration',
-    description: 'Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. ',
+    A: 100,
+    B: 252,
+    name: 'Deployment and Integration',
+    description: 'Once the software is thoroughly vetted and approved, we seamlessly deploy it to your desired platform, offering full integration support to ensure a smooth transition and minimal disruption to your existing systems.',
+    position: 'left'
   },
   {
     type: "path",
-    A: { x: 125, y: 270 },
-    B: { x: 280, y: 270 },
+    A: { x: 105, y: 252 },
+    B: { x: 260, y: 252 },
   },
   {
     type: "round",
-    A: 280,
-    B: 270,
-    name: 'Maintence',
-    description: 'Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.',
+    A: 260,
+    B: 252,
+    name: 'Maintenance and Support',
+    description: 'Our commitment extends beyond deployment as we provide ongoing maintenance and support services, promptly addressing any issues that may arise and proactively updating the software to keep it at its peak performance.',
+    position: 'right'
   },
 ];
 
@@ -174,7 +180,7 @@ const svgSizesMobile = [
   },
 ];
 
-const GetText = (text, A, B, fs = "8", lh = 10, anchor = "middle") => {
+const GetText = (text, A, B, fs = "8", lh = 10, anchor = "middle", position = 'center') => {
   const [description, setDescription] = useState([]);
   useEffect(() => {
     if (text) {
@@ -183,7 +189,7 @@ const GetText = (text, A, B, fs = "8", lh = 10, anchor = "middle") => {
       let textValue = "";
       for (let i = 0; i < textArr.length; i++) {
         const element = textArr[i];
-        if (textValue.length + element.length < 25) {
+        if (textValue.length + element.length < 40) {
           textValue = `${textValue} ${element}`;
         } else {
           arr.push(textValue);
@@ -247,7 +253,7 @@ const Line = () => {
 
   return (
     <>
-      <svg viewBox="0 0 500 300" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
+      <svg viewBox="0 0 500 330" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
         {svgSizes.map((el, index) => {
           let color = 'white';
           if (visiblePercentage > 0) {
@@ -299,7 +305,10 @@ const Line = () => {
                   el.description,
                   el.A,
                   el.B,
-                  7
+                  7,
+                  10,
+                  'middle',
+                  el.position
                 )}
               </>
             );

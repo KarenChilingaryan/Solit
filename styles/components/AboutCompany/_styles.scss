@@ -90,6 +90,7 @@
             @include font-style(calcVWT(48), variables.$fw-700, calcVWT(65));
           }
           .description {
+            max-width: calcVWT(150) !important;
             p {
               @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
             }
@@ -114,7 +115,7 @@
             @include font-style(calcVWM(48), variables.$fw-700, calcVWM(65));
           }
           .description {
-            max-width: calcVWM(150);
+            max-width: calcVWM(150) !important;
             p {
               @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
             }

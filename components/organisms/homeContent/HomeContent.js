@@ -13,7 +13,11 @@ import { Process } from "../Process";
 import { WorldMap } from "../WorldMap";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
-import teamMember from "../../../assets/img/teamMember.png";
+import user1 from "../../../assets/img/user1.png";
+import user2 from "../../../assets/img/user2.png";
+import user3 from "../../../assets/img/user3.png";
+import user4 from "../../../assets/img/user4.png";
+import user5 from "../../../assets/img/user5.png";
 import group from "../../../assets/img/Group.svg";
 import group1 from "../../../assets/img/Group-1.svg";
 import group2 from "../../../assets/img/Group-2.svg";
@@ -118,14 +122,14 @@ const HomeContent = () => {
         {
           users: [
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user1,
             },
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user2,
             },
           ],
           about: {
@@ -136,14 +140,14 @@ const HomeContent = () => {
         {
           users: [
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user3,
             },
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user4,
             },
           ],
           about: {
@@ -154,14 +158,15 @@ const HomeContent = () => {
         {
           users: [
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user5,
             },
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user5,
+              more: true
             },
           ],
           about: {

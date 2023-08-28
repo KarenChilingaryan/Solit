@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import Image from "next/image";
 import { Paragraph } from "../../atoms";
 import Button from "../../molecules/button/Button";
@@ -18,17 +18,27 @@ const Technology = () => {
   );
 
   const filterIcons = () => {
-    const BE = [];
-    const FE = [];
+    const filterObject = {}
     postsMainTechnologyApi?.data_list?.map((el) => {
-      if (el.filter_name_main_technology.filter_name_main_technology == "Back-End") {
-        BE.push(el)
+      if (filterObject[el.filter_name_main_technology.filter_name_main_technology]) {
+        filterObject[el.filter_name_main_technology.filter_name_main_technology].push(el)
       } else {
-        FE.push(el)
+        filterObject[el.filter_name_main_technology.filter_name_main_technology] = [el]
       }
     })
-    return [...FE, ...BE];
+    let returnArray = [];
+    for (let i = 0; i < Object.values(filterObject).length; i++) {
+      const element = Object.values(filterObject)[i];
+      returnArray = [...returnArray, ...element]
+    }
+    return returnArray;
   };
+
+  useEffect(() => {
+    if (postsMainTechnologyFiltersApi) {
+      setFilter(postsMainTechnologyFiltersApi[0].filter_name_main_technology)
+    }
+  }, [postsMainTechnologyFiltersApi])
 
   const filteredIcons = filterIcons() || [];
 
@@ -45,21 +55,15 @@ const Technology = () => {
       />
       <div className={styles.buttonsParent}>
         <div className={styles.buttons}>
+          {postsMainTechnologyFiltersApi?.map((el) =>
 
-          <Button
-            text="Back-end"
-            lightBlueTech={filter === "Back-End"}
-            grayTextBtnTech={filter !== "Back-End"}
-            onClick={() => setFilter("Back-End")}
-          />
-
-
-          <Button
-            text="Front-end"
-            lightBlueTech={filter === "Front-End"}
-            grayTextBtnTech={filter !== "Front-End"}
-            onClick={() => setFilter("Front-End")}
-          />
+            <Button
+              text={el.filter_name_main_technology}
+              lightBlueTech={filter === el.filter_name_main_technology}
+              grayTextBtnTech={filter !== el.filter_name_main_technology}
+              onClick={() => setFilter(el.filter_name_main_technology)}
+            />
+          )}
         </div>
       </div>
       <div className={styles.languages}>

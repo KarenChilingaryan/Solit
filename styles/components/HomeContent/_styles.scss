@@ -25,6 +25,7 @@
     margin: getHomeContentSizes(bordered-text-mtb);
   }
   .borderedText {
+    position: relative;
     margin-left: getHomeContentSizes(bordered-text-ml);
   }
   .servicesMainButton {
@@ -66,7 +67,7 @@
 
     .projectContent {
       @include flex(space-between, center, row, wrap);
-      row-gap: getHomeContentSizes(project-content-rg);
+      gap: getHomeContentSizes(project-content-rg);
       position: relative;
       .title {
         @include font-style(
@@ -194,7 +195,7 @@
       }
 
       .projectContent {
-        row-gap: calcVWL(32);
+        gap: calcVWL(32);
         .title {
           @include font-style(calcVWL(36), variables.$fw-500, calcVWL(40));
         }
@@ -262,7 +263,7 @@
         }
       }
     }
-    .borderedTextMargin{
+    .borderedTextMargin {
       margin-top: calcVW(150);
     }
     .borderedText {
@@ -275,7 +276,7 @@
     .afterAboutContent {
       width: calcVWT(928);
       .aboutContent {
-        row-gap: calcVWT(110);
+        row-gap: calcVWT(152);
       }
       .borderedTextWhat {
         margin-left: calcVWT(-40);
@@ -298,6 +299,7 @@
       top: calcVWT(150);
     }
     .projectContent {
+      gap: calcVWT(32) !important;
       .title {
         display: none;
       }
