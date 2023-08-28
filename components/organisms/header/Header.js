@@ -135,6 +135,13 @@ const Header = () => {
     }
   }, [headerData])
 
+  useEffect(() => {
+    const body = document.querySelector('body')
+    if (body) {
+      body.style.overflow = !openMenu ? 'hidden' : 'auto'
+    }
+  }, [openMenu])
+
   return (
     <div className={styles.mainWraperBlock}>
       {dropdownElements?.length &&
@@ -175,7 +182,7 @@ const Header = () => {
                 {el?.data?.map((e, idx) =>
                   <Link href={el?.fix_url + '/' + (e?.service_detail || e?.what_we_do_detail)} key={idx}>
                     <div
-                    onClick={()=>setOpenMenu(true)}
+                      onClick={() => setOpenMenu(true)}
                       className={styles.menuItemChildWrapper}
                       style={{
                         display:

@@ -208,6 +208,7 @@
 
         .menuItem {
           margin-top: calcVWL(-40);
+
           .menuItemTitle {
             img {
               width: calcVWL(24);
@@ -236,6 +237,7 @@
               &:hover {
                 border-radius: calcVWL(8);
               }
+
               @include font-style(calcVWL(14),
                 variables.$fw-400,
                 normal);
@@ -249,11 +251,12 @@
           }
         }
       }
+
       .buttonWrapper {
         margin-left: getHeaderSizes(header-button-wrapper-ml);
       }
     }
-    
+
     .headerWrapperScroll {
       padding: calcVWL(50) calcVWL(100);
     }
@@ -319,6 +322,8 @@
         }
 
         .menuItem {
+          display: none;
+
           .menuItemChildMainWrapper {
             padding: 0;
 
@@ -328,14 +333,6 @@
               padding: 0;
               transition: height 1s ease, padding 1s ease;
             }
-          }
-
-          &:nth-child(5) {
-            display: none;
-          }
-
-          &:nth-child(3) {
-            display: none;
           }
 
           .menuItemTitle {
@@ -373,10 +370,11 @@
     .openHeaderWrapper {
       position: fixed;
       transition: height 0.3s ease;
-      background: rgba(0, 0, 0, 0.5);
+      background: #020D1C;
 
       .pricing {
         margin: 0;
+        display: none;
       }
 
       .menuWrapper:first-of-type {
@@ -390,22 +388,26 @@
         top: calcVWT(92);
         background: #020d1c;
         position: absolute;
+        overflow: auto;
 
         .menuItem {
           position: relative;
           z-index: 10;
           width: calcVWT(304);
           align-self: flex-start;
+          display: flex;
+          flex-direction: column;
+          row-gap: calcVWT(36);
 
           .menuItemChildMainWrapper {
             display: flex;
             flex-direction: column;
             background: transparent;
-            top: calcVWT(63);
-            height: calc(100vh - calcVWT(300));
             overflow: auto;
             display: block;
             width: calcVWT(304);
+            min-height: max-content;
+            position: unset;
 
             .menuItemChildWrapper {
               height: calcVWT(64);
@@ -630,6 +632,7 @@
         .menuItem {
           width: 100% !important;
           margin: 0 !important;
+
           .menuItemChildMainWrapper {
             width: 100%;
           }
