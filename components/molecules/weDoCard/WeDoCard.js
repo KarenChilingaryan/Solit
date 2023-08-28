@@ -14,7 +14,11 @@ const WeDoCard = ({ item }) => {
         item != "more" ? `/what-we-do/${item.what_we_do_detail}` : "/what-we-do"
       }
     >
-      <Col className={styles.weDoCardWrapper}>
+      <Col
+        className={`${styles.weDoCardWrapper} ${
+          item === "more" && styles.moreWrapper
+        }`}
+      >
         {item != "more" ? (
           <>
             <Row className={styles.iconWrapper}>

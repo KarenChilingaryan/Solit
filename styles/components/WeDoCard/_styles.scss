@@ -53,7 +53,10 @@
 
     .description {
       overflow: hidden;
-      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      white-space: pre-wrap;
       max-height: calcVW(115);
       padding: 0 5px;
       text-align: center;
@@ -104,7 +107,7 @@
       padding: calcVWT(56) calcVWT(32);
       gap: calcVWT(16);
       text-align: center;
-      justify-content: flex-start;
+      justify-content: space-between;
 
       .development {
         @include font-style(calcVWT(24), variables.$fw-700, calcVWT(29), #fff);
@@ -112,7 +115,6 @@
 
       .description {
         max-height: unset;
-        overflow: unset;
         @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
       }
 
@@ -180,5 +182,8 @@
         }
       }
     }
+  }
+  .moreWrapper {
+    justify-content: center;
   }
 }
