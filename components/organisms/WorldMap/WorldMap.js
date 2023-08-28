@@ -18,7 +18,6 @@ const markers = [
 ]
 
 const WorldMap = ({ data, setActiveUser, activeUser }) => {
-  console.log(activeUser, data, 'activeUser.id == data.id');
   return <div className={styles.mapImage}>
     {data.map((el, index) =>
       <div onClick={() => { setActiveUser(el) }} key={index} style={{

@@ -114,8 +114,6 @@ const HomeContent = () => {
     (state) => state?.postTestimonialsApi?.queries?.["posts(undefined)"]?.data
   );
 
-  console.log(postTestimonialsApi, "postTestimonialsApi");
-
   useEffect(() => {
     if (postsTextMainAboutUsApi) {
       const data = [

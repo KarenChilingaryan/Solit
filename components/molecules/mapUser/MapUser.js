@@ -16,7 +16,6 @@ const TooltipElement = (text) => {
 }
 
 const MapUser = ({ user }) => {
-  console.log(user, 'useruser');
   return (
     <div className={styles.container}>
       <div className={styles.imgBlock}>
