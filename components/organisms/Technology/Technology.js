@@ -55,7 +55,7 @@ const Technology = () => {
       />
       <div className={styles.buttonsParent}>
         <div className={styles.buttons}>
-          {postsMainTechnologyFiltersApi.map((el) =>
+          {postsMainTechnologyFiltersApi?.map((el) =>
 
             <Button
               text={el.filter_name_main_technology}

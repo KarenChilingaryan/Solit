@@ -25,6 +25,7 @@
     margin: getHomeContentSizes(bordered-text-mtb);
   }
   .borderedText {
+    position: relative;
     margin-left: getHomeContentSizes(bordered-text-ml);
   }
   .servicesMainButton {
@@ -275,7 +276,7 @@
     .afterAboutContent {
       width: calcVWT(928);
       .aboutContent {
-        row-gap: calcVWT(110);
+        row-gap: calcVWT(152);
       }
       .borderedTextWhat {
         margin-left: calcVWT(-40);
