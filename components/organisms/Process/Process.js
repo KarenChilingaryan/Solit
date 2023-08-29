@@ -12,7 +12,7 @@ const svgSizes = [
     B: 50,
     name: "Requirement Analysis",
     description: "Our expert team initiates the process by thoroughly understanding your project requirements, goals, and expectations. This analysis serves as the foundation for creating a tailored solution that perfectly aligns with your business needs.",
-    position: 'first'
+    position: 45
   },
   {
     type: "path",
@@ -25,7 +25,7 @@ const svgSizes = [
     B: 50,
     name: 'Planning and Design',
     description: 'With a comprehensive understanding of your project, we meticulously plan the development roadmap and craft an intuitive design that not only enhances user experience but also ensures scalability and flexibility for future expansions.',
-    position: 'right'
+    position: 45
   },
   {
     type: "path",
@@ -40,84 +40,84 @@ const svgSizes = [
   {
     type: "path",
     A: { x: 499, y: 90 },
-    B: { x: 499, y: 115 },
+    B: { x: 499, y: 171 },
   },
   {
-    A: { x: 499, y: 115 },
-    B: { x: 465, y: 148 },
-    controlPoint: { x: 499, y: 148 },
+    A: { x: 499, y: 171 },
+    B: { x: 465, y: 204 },
+    controlPoint: { x: 499, y: 204 },
   },
   {
     type: "path",
-    A: { x: 465, y: 148 },
-    B: { x: 370, y: 148 },
+    A: { x: 465, y: 204 },
+    B: { x: 405, y: 204 },
   },
   {
     type: "round",
     A: 400,
-    B: 148,
+    B: 204,
     name: 'Development and Coding',
     description: 'Our seasoned developers leverage cutting-edge technologies and industry best practices to transform the approved design into a functional software solution, leaving no stone unturned in delivering a robust and high-performance product.',
-    position: 'right'
+    position: 45
   },
   {
     type: "path",
-    A: { x: 395, y: 148 },
-    B: { x: 245, y: 148 },
+    A: { x: 395, y: 204 },
+    B: { x: 245, y: 204 },
   },
   {
     type: "round",
     A: 240,
-    B: 148,
+    B: 204,
     name: 'Testing and Quality Assurance',
     description: 'Rigorous testing methodologies are employed to identify and eliminate any potential bugs or glitches, ensuring the final product meets the highest standards of quality, reliability, and security.',
-    position: 'left'
+    position: 45
   },
   {
     type: "path",
-    A: { x: 240, y: 148 },
-    B: { x: 36, y: 148 },
+    A: { x: 240, y: 204 },
+    B: { x: 36, y: 204 },
   },
   {
-    A: { x: 36, y: 148 },
-    B: { x: 2, y: 180 },
-    controlPoint: { x: 2, y: 148 },
-  },
-  {
-    type: "path",
-    A: { x: 2, y: 180 },
-    B: { x: 2, y: 210 },
-  },
-  {
-    A: { x: 34, y: 252 },
-    B: { x: 2, y: 210 },
-    controlPoint: { x: 2, y: 252 },
+    A: { x: 36, y: 204 },
+    B: { x: 1, y: 236 },
+    controlPoint: { x: 1, y: 204 },
   },
   {
     type: "path",
-    A: { x: 34, y: 252 },
-    B: { x: 100, y: 252 },
+    A: { x: 1, y: 236 },
+    B: { x: 1, y: 320 },
+  },
+  {
+    A: { x: 34, y: 357 },
+    B: { x: 1, y: 320 },
+    controlPoint: { x: 1, y: 357 },
+  },
+  {
+    type: "path",
+    A: { x: 34, y: 357 },
+    B: { x: 100, y: 357 },
   },
   {
     type: "round",
     A: 100,
-    B: 252,
+    B: 357,
     name: 'Deployment and Integration',
     description: 'Once the software is thoroughly vetted and approved, we seamlessly deploy it to your desired platform, offering full integration support to ensure a smooth transition and minimal disruption to your existing systems.',
-    position: 'left'
+    position: 45
   },
   {
     type: "path",
-    A: { x: 105, y: 252 },
-    B: { x: 260, y: 252 },
+    A: { x: 105, y: 357 },
+    B: { x: 260, y: 357 },
   },
   {
     type: "round",
     A: 260,
-    B: 252,
+    B: 357,
     name: 'Maintenance and Support',
     description: 'Our commitment extends beyond deployment as we provide ongoing maintenance and support services, promptly addressing any issues that may arise and proactively updating the software to keep it at its peak performance.',
-    position: 'right'
+    position: 66
   },
 ];
 
@@ -127,60 +127,87 @@ const svgSizesMobile = [
     type: "round",
     A: 17,
     B: 50,
+    name: "Requirement Analysis",
+    description: "Our expert team initiates the process by thoroughly understanding your project requirements, goals, and expectations. This analysis serves as the foundation for creating a tailored solution that perfectly aligns with your business needs.",
+    position: 233
   },
   {
     type: "path",
     A: { x: 17, y: 60 },
-    B: { x: 17, y: 230 },
+    B: { x: 17, y: 400 },
   },
   {
     type: "round",
     A: 17,
-    B: 230,
+    B: 400,
+    name: 'Planning and Design',
+    description: 'With a comprehensive understanding of your project, we meticulously plan the development roadmap and craft an intuitive design that not only enhances user experience but also ensures scalability and flexibility for future expansions.',
+    position: 227
+
   },
   {
     type: "path",
-    A: { x: 17, y: 240 },
-    B: { x: 17, y: 410 },
-  },
-  {
-    type: "round",
-    A: 17,
-    B: 410,
-  },
-  {
-    type: "path",
-    A: { x: 17, y: 420 },
-    B: { x: 17, y: 590 },
-  },
-  {
-    type: "round",
-    A: 17,
-    B: 590,
-  },
-  {
-    type: "path",
-    A: { x: 17, y: 600 },
+    A: { x: 17, y: 410 },
     B: { x: 17, y: 770 },
   },
   {
     type: "round",
     A: 17,
     B: 770,
+    name: 'Development and',
+    secondPosition: 118,
+    secondName: 'Coding',
+    description: 'Our seasoned developers leverage cutting-edge technologies and industry best practices to transform the approved design into a functional software solution, leaving no stone unturned in delivering a robust and high-performance product.',
+    position: 204
   },
   {
     type: "path",
-    A: { x: 17, y: 780 },
-    B: { x: 17, y: 950 },
+    A: { x: 17, y: 770 },
+    B: { x: 17, y: 1190 },
   },
   {
     type: "round",
     A: 17,
-    B: 950,
+    B: 1190,
+    name: 'Testing and Quality',
+    secondPosition: 142,
+    secondName: 'Assurance',
+    description: 'Rigorous testing methodologies are employed to identify and eliminate any potential bugs or glitches, ensuring the final product meets the highest standards of quality, reliability, and security.',
+    position: 213
+  },
+  {
+    type: "path",
+    A: { x: 17, y: 1200 },
+    B: { x: 17, y: 1550 },
+  },
+  {
+    type: "round",
+    A: 17,
+    B: 1550,
+    name: 'Deployment and',
+    secondPosition: 148,
+    secondName: 'Integration',
+    description: 'Once the software is thoroughly vetted and approved, we seamlessly deploy it to your desired platform, offering full integration support to ensure a smooth transition and minimal disruption to your existing systems.',
+    position: 193
+  },
+  {
+    type: "path",
+    A: { x: 17, y: 1560 },
+    B: { x: 17, y: 1940 },
+  },
+  {
+    type: "round",
+    A: 17,
+    B: 1940,
+    name: 'Maintenance and ',
+    secondPosition: 123,
+    secondName: 'Support',
+    description: 'Our commitment extends beyond deployment as we provide ongoing maintenance and support services, promptly addressing any issues that may arise and proactively updating the software to keep it at its peak performance.',
+    position: 198
   },
 ];
 
-const GetText = (text, A, B, fs = "8", lh = 10, anchor = "middle", position = 'center') => {
+const GetText = (text, A, B, fs = 8, lh = 10, anchor = "middle", position = 0) => {
   const [description, setDescription] = useState([]);
   useEffect(() => {
     if (text) {
@@ -189,7 +216,7 @@ const GetText = (text, A, B, fs = "8", lh = 10, anchor = "middle", position = 'c
       let textValue = "";
       for (let i = 0; i < textArr.length; i++) {
         const element = textArr[i];
-        if (textValue.length + element.length < 40) {
+        if (textValue.length + element.length < 28) {
           textValue = `${textValue} ${element}`;
         } else {
           arr.push(textValue);
@@ -203,12 +230,12 @@ const GetText = (text, A, B, fs = "8", lh = 10, anchor = "middle", position = 'c
   return description?.map((el, index) => (
     <text
       key={index}
-      x={A}
-      y={B + 20 + index * lh}
+      x={A - position}
+      y={B + 20 + index * (lh + (window?.innerWidth <= 1024 ? 2 : 0))}
       fill="rgba(255, 255, 255, 0.73)"
       textAnchor={anchor}
       dominantBaseline="baseline"
-      fontSize={fs}
+      fontSize={(fs + (window?.innerWidth <= 1024 ? 2 : 0)).toString()}
     >
       {el}
     </text>
@@ -253,24 +280,12 @@ const Line = () => {
 
   return (
     <>
-      <svg viewBox="0 0 500 330" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
+      <svg viewBox="0 0 500 450" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
         {svgSizes.map((el, index) => {
           let color = 'white';
           if (visiblePercentage > 0) {
             color = '#3FC1FF'
           }
-          // else if (visiblePercentage > 30) {
-          //   color = '#3FC1FF'
-          // }
-          //  else if (visiblePercentage > 55 && visiblePercentage < 66 && index < 9) {
-          //   color = '#3FC1FF'
-          // } else if (visiblePercentage >= 66 && visiblePercentage < 77 && index < 11) {
-          //   color = '#3FC1FF'
-          // } else if (visiblePercentage >= 77 && visiblePercentage < 110 && index < 17) {
-          //   color = '#3FC1FF';
-          // } else if (visiblePercentage >= 110) {
-          //   color = '#3FC1FF';
-          // }
           if (el.type === "path") {
             const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
 
@@ -307,7 +322,7 @@ const Line = () => {
                   el.B,
                   7,
                   10,
-                  'middle',
+                  'start',
                   el.position
                 )}
               </>
@@ -321,7 +336,7 @@ const Line = () => {
           }
         })}
       </svg>
-      <svg viewBox="0 0 500 1100" width="100%" height="100%" ref={targetRefMobile} className={styles.mobileSvg}>
+      <svg viewBox="0 0 500 2350" width="100%" height="100%" ref={targetRefMobile} className={styles.mobileSvg}>
         {svgSizesMobile.map((el, index) => {
           let color = 'white';
           if (visiblePercentageMobile > 0 && index < 1) {
@@ -345,15 +360,27 @@ const Line = () => {
             return (
               <>
                 <text
-                  x={el.A + 120}
-                  y={el.B + 10}
+                  x={el.A + el.position}
+                  y={el.B + 15}
                   fill={"white"}
                   textAnchor="middle"
                   dominantBaseline="baseline"
                   fontSize="32"
+                  fontWeight={600}
                 >
-                  Analysis
+                  {el.name}
                 </text>
+                {el?.secondName && <text
+                  x={el.A + el.secondPosition}
+                  y={el.B + 55}
+                  fill={"white"}
+                  textAnchor="middle"
+                  dominantBaseline="baseline"
+                  fontWeight={600}
+                  fontSize="32"
+                >
+                  {el.secondName}
+                </text>}
                 <circle
                   cx={el.A}
                   cy={el.B}
@@ -363,12 +390,13 @@ const Line = () => {
                 />
                 <circle cx={el.A} cy={el.B} r="9" fill={color} />
                 {GetText(
-                  "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.",
+                  el.description,
                   el.A + 60,
-                  el.B + 40,
-                  "24",
-                  28,
-                  "start"
+                  el.B + (el?.secondName ? 95 : 45),
+                  22,
+                  26,
+                  "start",
+                  0
                 )}
               </>
             );

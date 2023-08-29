@@ -181,6 +181,7 @@
 
       .description {
         margin-top: getProcessSizes(process-description-mt);
+        margin-bottom: calcVWM(80);
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
       }
       .desktopSvg {
