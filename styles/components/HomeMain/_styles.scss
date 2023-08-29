@@ -47,6 +47,9 @@
     }
     @media (max-width: 1024px) {
       width: calcVWT(880);
+      .buttonWrapper {
+        margin-top: calcVWT(28);
+      }
     }
     @media (max-width: 576px) {
       margin-bottom: calcVWM(90);

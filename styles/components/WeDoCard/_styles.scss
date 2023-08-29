@@ -155,6 +155,7 @@
 
       .description {
         overflow: hidden;
+        -webkit-line-clamp: 5;
         max-height: calcVWM(100);
         @include font-style(calcVWM(13), variables.$fw-400, calcVWM(20), #fff);
       }
@@ -167,7 +168,7 @@
       }
 
       .more {
-        margin-top: calcVWM(110);
+        margin-top: calcVWM(120);
         column-gap: calcVWM(16);
         @include font-style(
           calcVWM(18),
@@ -184,6 +185,9 @@
     }
   }
   .moreWrapper {
-    justify-content: center;
+    justify-content: center ;
+    @media (max-width: 576px) {
+      justify-content: space-between;
+    }
   }
 }

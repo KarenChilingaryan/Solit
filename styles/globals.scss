@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import "./abstract/functions";
 
 * {
@@ -83,5 +83,20 @@ textarea::-webkit-scrollbar-thumb {
     padding: calcVWL(24) calcVWL(30) calcVWL(14) calcVWL(30) !important;
     border-radius: calcVWL(16) !important;
     width: calcVWL(387);
+  }
+}
+@media (max-width: 1024px) {
+  .ant-tooltip-inner {
+    padding: calcVWT(24) calcVWT(30) calcVWT(14) calcVWT(30) !important;
+    border-radius: calcVWT(16) !important;
+    width: calcVWT(378);
+  }
+}
+
+@media (max-width: 375px) {
+  .ant-tooltip-inner {
+    padding: calcVWM(24) calcVWM(26) calcVWM(26) calcVWM(26) !important;
+    border-radius: calcVWM(16) !important;
+    width: calcVWM(343);
   }
 }
