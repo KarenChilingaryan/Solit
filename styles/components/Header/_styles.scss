@@ -660,8 +660,11 @@
         }
 
         .closedMenu {
+          transition: 0.2s;
+          row-gap: 0 !important;
           .menuItemChildMainWrapper {
-
+            transition: 0.2s;
+            height: 0;
             .menuItemChildWrapper {
               transition: 0.2s;
               height: 0;

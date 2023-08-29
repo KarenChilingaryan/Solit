@@ -103,8 +103,7 @@
     }
 
     @media (max-width: 1024px) {
-      margin-right: calcVWT(100);
-
+      justify-content: flex-start;
       .imgBlock {
         width: calcVWT(300);
 

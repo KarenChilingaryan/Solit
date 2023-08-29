@@ -74,7 +74,7 @@ const Button = ({
       </button>
       {text == 'Let’s talk' &&
         <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
-          <ModalForm openData={null} from={'lets'} onSubmit={onSubmit} />
+          <ModalForm openData={null} from={'lets'} onSubmit={onSubmit} className={"fromButton"}/>
         </ModalWrapper>
       }
       <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />

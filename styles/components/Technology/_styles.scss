@@ -23,8 +23,9 @@
     }
 
     .languages {
-      @include flex(space-between, center, row, wrap);
+      @include flex(none, center, row, wrap);
       width: getTechnologySizes(language-w);
+      column-gap: calcVW(10);
 
       .languageBlock {
         transition: 0.5s;
@@ -84,6 +85,7 @@
 
       .languages {
         width: calcVWL(1040);
+        column-gap: calcVWL(10);
 
         .languageBlock {
           width: calcVWL(106);
@@ -126,6 +128,8 @@
 
       .languages {
         width: 100%;
+        column-gap: calcVWT(10);
+
 
         .languageBlock {
           width: calcVWT(106);
@@ -172,7 +176,7 @@
       .languages {
         width: 100%;
         row-gap: calcVWM(90);
-        column-gap: calcVWM(16);
+        column-gap: calcVWM(20);
         margin: calcVWM(70) 0;
 
         .languageBlock {
