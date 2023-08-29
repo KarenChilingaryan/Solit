@@ -280,7 +280,7 @@ const Line = () => {
 
   return (
     <>
-      <svg viewBox="0 0 500 450" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
+      <svg viewBox="0 0 500 470" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
         {svgSizes.map((el, index) => {
           let color = 'white';
           if (visiblePercentage > 0) {

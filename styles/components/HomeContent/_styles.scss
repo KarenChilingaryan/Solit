@@ -64,6 +64,9 @@
       position: relative;
       z-index: 1;
     }
+    .borderedTextWhatTop {
+      margin-top: 0
+    }
 
     .projectContent {
       @include flex(space-between, center, row, wrap);
