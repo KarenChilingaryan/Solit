@@ -16,6 +16,10 @@
       gap: 10px;
       align-items: center;
       @include font-style(calcVW(18), variables.$fw-700, calcVW(21), #219fdb);
+      img {
+        width: calcVW(18);
+        height: calcVW(18);
+      }
       @media (max-width: 1024px) {
         @include font-style(
           calcVWT(18),
@@ -23,6 +27,10 @@
           calcVWT(21),
           #219fdb
         );
+        img {
+          width: calcVWT(18);
+          height: calcVWT(18);
+        }
       }
       @media (max-width: 576px) {
         @include font-style(
@@ -31,6 +39,10 @@
           calcVWM(21),
           #219fdb
         );
+        img {
+          width: calcVWM(18);
+          height: calcVWM(18);
+        }
       }
     }
   }
@@ -152,7 +164,8 @@
 
       .title_iconWrapper {
         .title {
-          height: calcVWT(93);
+          min-height: calcVWT(93);
+          height: max-content;
           @include font-style(
             calcVWT(24),
             variables.$fw-500,

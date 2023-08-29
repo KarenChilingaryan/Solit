@@ -15,6 +15,9 @@
     margin: getCareersSizes(bottom-block-m);
     color: white;
     .blockItemImage {
+      h2 {
+        @include font-style(calcVW(48), variables.$fw-400, calcVW(24));
+      }
       img {
         max-width: 100%;
       }

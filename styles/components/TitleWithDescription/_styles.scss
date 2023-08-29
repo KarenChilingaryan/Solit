@@ -10,6 +10,7 @@
     row-gap: getTitleWithDescriptionSizes(block-rg);
 
     .title {
+      margin-top: calcVW(29);
       @include font-style(calcVW(36), variables.$fw-400, calcVW(38));
     }
     .description {
@@ -43,7 +44,8 @@
   }
   @media (max-width: 1024px) {
     .block {
-      width: calcVWT(384);
+      width: calcVWT(448);
+      padding: calcVWT(32);
       .title {
         @include font-style(calcVWT(24), variables.$fw-500, calcVWT(29));
       }
@@ -65,11 +67,11 @@
   @media (max-width: 576px) {
     .block {
       width: 100%;
-      padding: calcVWM(16);
+      padding: 0 calcVWM(16) calcVWM(16) calcVWM(16);
       height: max-content;
       .title {
         @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24));
-        margin-bottom: calcVWM(20) !important;
+        margin-bottom: calcVWM(14) !important;
       }
       .description {
         @include font-style(calcVWM(13), variables.$fw-400, calcVWM(20));

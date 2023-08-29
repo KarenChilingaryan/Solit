@@ -9,16 +9,22 @@ import flag from "../../../assets/img/flag.svg";
 
 import styles from "./MapUser.module.scss";
 
-const MapUser = () => {
+const TooltipElement = (text) => {
+  return <div dangerouslySetInnerHTML={{
+    __html: text,
+  }} />
+}
+
+const MapUser = ({ user }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgBlock}>
         <div className={styles.iconBlock}>
           <Image className={styles.arrowIcon} src={arrowLeft} />
         </div>
-        <Tooltip color="#219FDB" title="prompt text dchjjhdscv jc sdgcj sdcv jdsgc jbdscj sdgcj">
+        <Tooltip color="#219FDB" title={TooltipElement(user.testimonial)} overlayClassName={styles.customTooltip}>
           <div className={styles.imageBlock}>
-            <Image src={teamMember} className={styles.userImage} />
+            <Image src={user.webp_testimonial_image} width={178} height={178} className={styles.userImage} />
             <Image className={styles.flag} src={flag} />
           </div>
         </Tooltip>
@@ -27,8 +33,8 @@ const MapUser = () => {
         </div>
       </div>
       <div className={styles.infoBlock}>
-        <Paragraph className={styles.userName}>Jacob Jones</Paragraph>
-        <Paragraph className={styles.userPosition}>Microfinance Loan Officer</Paragraph>
+        <Paragraph className={styles.userName}>{user.name}</Paragraph>
+        <Paragraph className={styles.userPosition}>{user.position}</Paragraph>
       </div>
     </div>
   );

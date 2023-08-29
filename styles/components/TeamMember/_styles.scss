@@ -8,6 +8,7 @@
     border-radius: 16px;
     width: getTeamMemberSizes(team-member-card-width);
     height: getTeamMemberSizes(team-member-card-height);
+    background: rgba(0, 0, 0, 0.32);
     cursor: pointer;
 
     .img {
@@ -28,21 +29,17 @@
       padding: getTeamMemberSizes(team-member-position-section-p);
 
       .name {
-        @include font-style(
-          getTeamMemberSizes(team-member-name-fz),
+        @include font-style(getTeamMemberSizes(team-member-name-fz),
           variables.$fw-500,
           getTeamMemberSizes(team-member-name-lh),
-          #fff
-        );
+          #fff);
       }
 
       .position {
-        @include font-style(
-          getTeamMemberSizes(team-member-position-fz),
+        @include font-style(getTeamMemberSizes(team-member-position-fz),
           variables.$fw-300,
           getTeamMemberSizes(team-member-position-lh),
-          #fff
-        );
+          #fff);
       }
     }
 
@@ -50,12 +47,15 @@
       display: flex;
       gap: 10px;
       align-items: center;
-      @include font-style(
-        getTeamMemberSizes(team-member-position-fz),
+      @include font-style(getTeamMemberSizes(team-member-position-fz),
         variables.$fw-700,
         getTeamMemberSizes(team-member-position-lh),
-        #219fdb
-      );
+        #219fdb);
+
+      img {
+        width: calcVW(18);
+        height: calcVW(18);
+      }
     }
 
     &:hover {
@@ -118,17 +118,45 @@
     .imageContainer {
       width: calcVWT(208);
       height: calcVWT(220);
+
+      .more {
+        @include font-style(calcVWT(18),
+          variables.$fw-700,
+          normal,
+          #219fdb);
+
+        img {
+          width: calcVWT(16);
+          height: calcVWT(16);
+        }
+      }
     }
+
     .fromCareers {
       width: calcVWT(296);
       height: calcVWT(300);
     }
   }
+
   @media (max-width: 576px) {
     .imageContainer {
       width: calcVWM(163);
       height: calcVWM(200);
+
+      .more {
+
+        @include font-style(calcVWM(18),
+          variables.$fw-700,
+          normal,
+          #219fdb);
+
+        img {
+          width: calcVWM(16);
+          height: calcVWM(16);
+        }
+      }
     }
+
     .fromCareers {
       width: calcVWM(155);
       height: calcVWM(300);

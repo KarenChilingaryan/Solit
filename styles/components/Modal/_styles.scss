@@ -7,19 +7,23 @@
       transform: translateY(-100%);
       opacity: 0;
     }
+
     100% {
       transform: translateY(0);
       opacity: 1;
     }
   }
+
   .modalOpen {
     animation: slideInFromTop 0.4s ease-in-out;
   }
+
   @keyframes slideOutToTop {
     0% {
       transform: translateY(0);
       opacity: 1;
     }
+
     100% {
       transform: translateY(-100%);
       opacity: 0;
@@ -65,5 +69,56 @@
   .closeIcon {
     width: calcVW(24);
     height: calcVW(24);
+  }
+
+  @media (max-width: 1024px) {
+    .modal {
+      :global(.ant-modal-content) {
+        padding: calcVWT(64);
+        border-radius: calcVWT(16);
+      }
+
+      :global(.ant-modal-title) {
+        margin-bottom: calcVWT(60);
+      }
+
+      :global(.ant-modal-close) {
+        top: calcVWT(40);
+        right: calcVWT(30);
+      }
+    }
+
+    .logo {
+      width: calcVWT(100);
+      height: calcVWT(40);
+    }
+
+    .closeIcon {
+      width: calcVWT(24);
+      height: calcVWT(24);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .modalOpen {
+      width: calcVWM(343) !important;
+      max-width: calcVWM(343) !important;
+    }
+
+    .modal {
+      :global(.ant-modal-content) {
+        width: 100%;
+        padding: calcVWM(16);
+        border-radius: calcVWM(16);
+      }
+    }
+    .logo {
+      width: calcVWM(100);
+      height: calcVWM(40);
+    }
+    .closeIcon {
+      width: calcVWM(24);
+      height: calcVWM(24);
+    }
   }
 }

@@ -9,7 +9,7 @@ $tite-with-description-sizes: (
   title-lh: calcVW(29),
   description-fs: calcVW(16),
   description-lh: calcVW(24),
-  block-rg: calcVW(16),
+  block-rg: calcVW(20),
 );
 
 @function getTitleWithDescriptionSizes($property) {

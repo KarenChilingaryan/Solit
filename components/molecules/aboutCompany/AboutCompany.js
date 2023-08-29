@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { memo } from "react";
 import { Col, Paragraph } from "../../atoms";
+
 import styles from "./AboutCompany.module.scss";
+
 const AboutCompany = ({ number, title, image, status, withOutBG }) => {
   return (
     <Col className={`${styles.card} ${withOutBG ? styles.withOutBG : ''}`}>

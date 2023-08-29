@@ -9,23 +9,44 @@ import styles from "./WeDoCard.module.scss";
 
 const WeDoCard = ({ item }) => {
   return (
-    <Link href={item != 'more' ? `/what-we-do/${item.what_we_do_detail}` : '/what-we-do'}>
-      <Col className={styles.weDoCardWrapper}>
-        {item != 'more' ?
+    <Link
+      href={
+        item != "more" ? `/what-we-do/${item.what_we_do_detail}` : "/what-we-do"
+      }
+    >
+      <Col
+        className={`${styles.weDoCardWrapper} ${
+          item === "more" && styles.moreWrapper
+        }`}
+      >
+        {item != "more" ? (
           <>
             <Row className={styles.iconWrapper}>
-              <Image src={item?.original_logo_what_we_do || devIcon} className={styles.icon} width={40} height={40} />
+              <Image
+                src={item?.original_logo_what_we_do || devIcon}
+                className={styles.icon}
+                width={40}
+                height={40}
+                alt=""
+              />
             </Row>
-            <Col className={styles.development}>{item?.title || "Android Development"}</Col>
-            <div className={styles.description}
+            <Col className={styles.development}>
+              {item?.title || "Android Development"}
+            </Col>
+            <div
+              className={styles.description}
               dangerouslySetInnerHTML={{
-                __html: item?.description || " Save time routing and tagging rules, and get insights on time before release collection of"
+                __html:
+                  item?.description ||
+                  "Save time routing and tagging rules, and get insights on time before release collection of",
               }}
             />
-          </> : <Row className={styles.more}>
-            More <Image src={arrow} width={10} height={10} />
+          </>
+        ) : (
+          <Row className={styles.more}>
+            More <Image src={arrow} width={10} height={10} alt="" />
           </Row>
-        }
+        )}
       </Col>
     </Link>
   );

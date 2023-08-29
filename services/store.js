@@ -33,6 +33,7 @@ import { postsTextCareersAboutUsApi } from "./postsTextCareersAboutUsApi";
 import { footerApi } from "./footerApi";
 import { postsTextCareersColourfulApi } from "./postsTextCareersColourfulApi";
 import { postsTextMainAboutUsApi } from "./postsTextMainAboutUsApi";
+import { postTestimonialsApi } from "./postTestimonialsApi";
 
 const store = configureStore({
   reducer: {
@@ -70,6 +71,7 @@ const store = configureStore({
     [postsTextCareersColourfulApi.reducerPath]: postsTextCareersColourfulApi.reducer,
     [postsTextMainAboutUsApi.reducerPath]: postsTextMainAboutUsApi.reducer,
     [footerApi.reducerPath]: footerApi.reducer,
+    [postTestimonialsApi.reducerPath]: postTestimonialsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(postsApi.middleware),

@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import Image from "next/image";
 import { Paragraph } from "../../atoms";
 import Button from "../../molecules/button/Button";
@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const Technology = () => {
   const [current, setCurrent] = useState(0);
-  const [filter, setFilter] = useState("back-end");
+  const [filter, setFilter] = useState("Back-End");
 
   const postsMainTechnologyApi = useSelector(
     (state) => state?.postsMainTechnologyApi?.queries?.["posts(undefined)"]?.data
@@ -17,17 +17,28 @@ const Technology = () => {
     (state) => state?.postsMainTechnologyFiltersApi?.queries?.["posts(undefined)"]?.data
   );
 
-
   const filterIcons = () => {
-    if (filter === "front-end") {
-      return postsMainTechnologyApi?.data_list?.filter((el) => el.main_technology_name.toLowerCase() === "react");
-    } else if (filter === "back-end") {
-      return postsMainTechnologyApi?.data_list?.filter((el) => el.main_technology_name.toLowerCase() !== "react");
+    const filterObject = {}
+    postsMainTechnologyApi?.data_list?.map((el) => {
+      if (filterObject[el.filter_name_main_technology.filter_name_main_technology]) {
+        filterObject[el.filter_name_main_technology.filter_name_main_technology].push(el)
+      } else {
+        filterObject[el.filter_name_main_technology.filter_name_main_technology] = [el]
+      }
+    })
+    let returnArray = [];
+    for (let i = 0; i < Object.values(filterObject).length; i++) {
+      const element = Object.values(filterObject)[i];
+      returnArray = [...returnArray, ...element]
     }
-    return [];
+    return returnArray;
   };
 
-
+  useEffect(() => {
+    if (postsMainTechnologyFiltersApi) {
+      setFilter(postsMainTechnologyFiltersApi[0].filter_name_main_technology)
+    }
+  }, [postsMainTechnologyFiltersApi])
 
   const filteredIcons = filterIcons() || [];
 
@@ -44,26 +55,20 @@ const Technology = () => {
       />
       <div className={styles.buttonsParent}>
         <div className={styles.buttons}>
-
-          <Button
-            text="Back-end"
-            lightBlueTech={filter === "back-end"}
-            grayTextBtnTech={filter !== "back-end"}
-            onClick={() => setFilter("back-end")}
-          />
-
-
-          <Button
-            text="Front-end"
-            lightBlueTech={filter === "front-end"}
-            grayTextBtnTech={filter !== "front-end"}
-            onClick={() => setFilter("front-end")}
-          />
+          {postsMainTechnologyFiltersApi?.map((el, index) =>
+            <Button
+              key={index}
+              text={el.filter_name_main_technology}
+              lightBlueTech={filter === el.filter_name_main_technology}
+              grayTextBtnTech={filter !== el.filter_name_main_technology}
+              onClick={() => setFilter(el.filter_name_main_technology)}
+            />
+          )}
         </div>
       </div>
       <div className={styles.languages}>
         {filteredIcons.map((el, i) => (
-          <div className={styles.languageBlock} key={i}>
+          <div className={`${styles.languageBlock} ${el.filter_name_main_technology.filter_name_main_technology != filter && styles.languageBlockDeActive}`} key={i}>
             <Image src={el.technology_logos_for_main.original_logo} className={styles.icon} width={50} height={50} />
             <Paragraph className={styles.name}>{el.main_technology_name}</Paragraph>
           </div>

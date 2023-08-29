@@ -8,7 +8,8 @@ import { Col, Paragraph } from "../../atoms";
 import { useSelector } from "react-redux";
 import menuLogoWhite from "../../../assets/img/bigLogo.png";
 import hamburger from "../../../assets/img/hamburger.svg";
-import dropdown from "../../../assets/img/dropdown.svg";
+import close from "../../../assets/img/u_times.svg";
+import dropdown from "../../../assets/img/angle-down.svg";
 import active_menu_element from "../../../assets/img/active-menu-element.svg";
 import menu_element from "../../../assets/img/menu-element.svg";
 import Button from "../../molecules/button/Button";
@@ -134,6 +135,13 @@ const Header = () => {
     }
   }, [headerData])
 
+  useEffect(() => {
+    const body = document.querySelector('body')
+    if (body) {
+      body.style.overflow = !openMenu ? 'hidden' : 'auto'
+    }
+  }, [openMenu])
+
   return (
     <div className={styles.mainWraperBlock}>
       {dropdownElements?.length &&
@@ -168,20 +176,21 @@ const Header = () => {
                 }}
               >
                 {el.name}
-                <Image src={dropdown} />
+                <Image src={dropdown} alt="" />
               </div>
               <div className={styles.menuItemChildMainWrapper} ref={modalRef}>
                 {el?.data?.map((e, idx) =>
                   <Link href={el?.fix_url + '/' + (e?.service_detail || e?.what_we_do_detail)} key={idx}>
                     <div
+                      onClick={() => setOpenMenu(true)}
                       className={styles.menuItemChildWrapper}
                       style={{
                         display:
                           el.name === filteredData ? "flex" : "none",
                       }}
                     >
-                      <Image src={active_menu_element} className={styles.activeElem} />
-                      <Image src={menu_element} className={styles.disActiveElem} />
+                      <Image src={active_menu_element} className={styles.activeElem} alt="" />
+                      <Image src={menu_element} className={styles.disActiveElem} alt="" />
                       {e.title}
                     </div>
                   </Link>
@@ -215,9 +224,6 @@ const Header = () => {
               </div>
               )}
             </div>
-            <Link href="/discuss-project" className={styles.pricing}>
-              <Button text="Pricing" transparentBlue />
-            </Link>
             <Col className={styles.socialIconsWrapper}>
               <Paragraph className={styles.socialIconsTitle}>Let’s Contact for Great</Paragraph>
               {/* data && data[0]?.social_link? */}
@@ -228,8 +234,13 @@ const Header = () => {
               )}
             </Col>
           </div>
-          <div className={`${styles.menuWrapper} ${openMenu ? styles.closedMenu : ''}`}>
-            <Image src={hamburger} onClick={() => { setOpenMenu(!openMenu) }} className={styles.menuImage} />
+          <div className={styles.rightButtons}>
+            <Link href="/discuss-project" className={styles.pricing}>
+              <Button text="Pricing" transparentBlue />
+            </Link>
+            <div className={`${openMenu ? styles.closedMenu : ''}`}>
+              <Image src={!openMenu ? close : hamburger} onClick={() => { setOpenMenu(!openMenu) }} className={styles.menuImage} alt="" />
+            </div>
           </div>
         </div>
       }

@@ -1,11 +1,11 @@
 import { memo } from "react";
-import { Paragraph } from "../../atoms";
 
 import styles from "./BorderedText.module.scss";
+import Image from "next/image";
 
-const BorderedText = ({ text }) => {
+const BorderedText = ({ img }) => {
   return (
-    <Paragraph className={styles.text}>{text}</Paragraph>
+    <Image src={img} className={styles.text} />
   );
 };
 

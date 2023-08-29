@@ -25,6 +25,7 @@
     margin: getHomeContentSizes(bordered-text-mtb);
   }
   .borderedText {
+    position: relative;
     margin-left: getHomeContentSizes(bordered-text-ml);
   }
   .servicesMainButton {
@@ -66,7 +67,7 @@
 
     .projectContent {
       @include flex(space-between, center, row, wrap);
-      row-gap: getHomeContentSizes(project-content-rg);
+      gap: getHomeContentSizes(project-content-rg);
       position: relative;
       .title {
         @include font-style(
@@ -147,7 +148,7 @@
       margin: calcVWL(300) auto 0 auto;
 
       .servicesMain {
-        margin-top: calcVWL(200);
+        margin-top: calcVWL(285);
 
         .services {
           row-gap: calcVWL(96);
@@ -194,7 +195,7 @@
       }
 
       .projectContent {
-        row-gap: calcVWL(32);
+        gap: calcVWL(32);
         .title {
           @include font-style(calcVWL(36), variables.$fw-500, calcVWL(40));
         }
@@ -246,25 +247,27 @@
     .ourProjectsCards {
       row-gap: calcVWT(72);
       column-gap: calcVWT(32);
+      width: calc(100% - calcVWT(31));
+      margin: 0 auto;
     }
     .contactBlock {
-      padding-bottom: calcVWT(90);
+      padding-bottom: calcVWT(57);
     }
     .content {
       width: calcVWT(880);
       margin-top: calcVWT(255);
       .servicesMain {
-        margin-top: calcVWT(100);
+        margin-top: calcVWT(160);
         .services {
           column-gap: calcVWT(104);
         }
       }
     }
-    .borderedTextMargin{
+    .borderedTextMargin {
       margin-top: calcVW(150);
     }
     .borderedText {
-      margin-left: calcVWT(-70);
+      margin-left: calcVWT(-60);
       margin-bottom: calcVWT(30) !important;
     }
     .servicesMainButton {
@@ -273,10 +276,10 @@
     .afterAboutContent {
       width: calcVWT(928);
       .aboutContent {
-        row-gap: calcVWT(110);
+        row-gap: calcVWT(152);
       }
       .borderedTextWhat {
-        margin-left: calcVWT(-50);
+        margin-left: calcVWT(-40);
       }
       .aboutCompanyContent {
         height: max-content;
@@ -296,6 +299,7 @@
       top: calcVWT(150);
     }
     .projectContent {
+      gap: calcVWT(32) !important;
       .title {
         display: none;
       }
@@ -328,6 +332,7 @@
       margin-left: calcVWM(-15);
     }
     .afterAboutContent {
+      width: calcVWM(343);
       .aboutContent {
         row-gap: calcVWM(32);
       }
@@ -358,7 +363,10 @@
     }
     .ourProjectsCards {
       row-gap: calcVWM(32);
+      justify-content: space-between;
       column-gap: calcVWM(13);
+      width: 100%;
+      border-radius: calcVWM(16);
     }
 
     .backImageSecond {

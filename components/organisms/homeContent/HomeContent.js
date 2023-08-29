@@ -13,12 +13,25 @@ import { Process } from "../Process";
 import { WorldMap } from "../WorldMap";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
-import teamMember from "../../../assets/img/teamMember.png";
+import user1 from "../../../assets/img/user1.png";
+import user2 from "../../../assets/img/user2.png";
+import user3 from "../../../assets/img/user3.png";
+import user4 from "../../../assets/img/user4.png";
+import user5 from "../../../assets/img/user5.png";
 import group from "../../../assets/img/Group.svg";
 import group1 from "../../../assets/img/Group-1.svg";
 import group2 from "../../../assets/img/Group-2.svg";
 import whatWeDoImage from "../../../assets/img/what-we-do_bg.png";
 import ourProjectImage from "../../../assets/img/our-project_bg.png";
+import services from "../../../assets/img/services.svg";
+import process from "../../../assets/img/process.svg";
+import whatWeDo from "../../../assets/img/what-we-do.svg";
+import aboutUs from "../../../assets/img/about-us.svg";
+import ourProjects from "../../../assets/img/our_projects.svg";
+import testimonials from "../../../assets/img/testimonials.svg";
+import contacts from "../../../assets/img/contacts.svg";
+import technology from "../../../assets/img/technology.svg";
+
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
@@ -32,8 +45,14 @@ import styles from "./HomeContent.module.scss";
 const aboutData = [
   {
     number: "4.5",
-    title: "RATING OF THE",
+    title: "RATING OF THE COMPANY",
     image: group,
+    status: "COMPANY",
+  },
+  {
+    number: "5.0",
+    title: "RATING OF THE COMPANY",
+    image: group1,
     status: "COMPANY",
   },
   {
@@ -42,17 +61,12 @@ const aboutData = [
     image: group2,
     status: "SUCCESS",
   },
-  {
-    number: "5.0",
-    title: "RATING OF THE",
-    image: group1,
-    status: "COMPANY",
-  },
 ];
 
 const HomeContent = () => {
-  const [isSSR, setIsSSR] = useState(false);
+  const [activeUser, setActiveUser] = useState(null);
   const [data, setData] = useState([]);
+
   const router = useRouter();
   const handleClickDiscuss = () => {
     router.push(`/discuss-project`);
@@ -63,12 +77,6 @@ const HomeContent = () => {
   };
 
   const win = typeof window;
-
-  useEffect(() => {
-    if (win) {
-      setIsSSR(true);
-    }
-  }, [win]);
 
   const mainInfoData = useSelector(
     (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
@@ -102,20 +110,24 @@ const HomeContent = () => {
     (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
   );
 
+  const postTestimonialsApi = useSelector(
+    (state) => state?.postTestimonialsApi?.queries?.["posts(undefined)"]?.data
+  );
+
   useEffect(() => {
     if (postsTextMainAboutUsApi) {
       const data = [
         {
           users: [
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user1,
             },
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user2,
             },
           ],
           about: {
@@ -126,14 +138,14 @@ const HomeContent = () => {
         {
           users: [
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user3,
             },
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user4,
             },
           ],
           about: {
@@ -144,14 +156,15 @@ const HomeContent = () => {
         {
           users: [
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user5,
             },
             {
-              name: "Marvel Alina ",
-              position: "UX/UI Designer",
-              image: teamMember,
+              name: "",
+              position: "",
+              image: user5,
+              more: true
             },
           ],
           about: {
@@ -164,6 +177,11 @@ const HomeContent = () => {
     }
   }, [postsTextMainAboutUsApi]);
 
+  useEffect(() => {
+    if (postTestimonialsApi) {
+      setActiveUser(postTestimonialsApi[0]);
+    }
+  }, [postTestimonialsApi]);
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -180,7 +198,7 @@ const HomeContent = () => {
             <div
               className={`${styles.borderedText} ${styles.borderedTextBottom}`}
             >
-              <BorderedText text="Services" />
+              <BorderedText img={services} />
             </div>
             <div className={styles.services}>
               {servicesData &&
@@ -205,7 +223,7 @@ const HomeContent = () => {
           <div
             className={`${styles.borderedText} ${styles.borderedTextMargin}`}
           >
-            <BorderedText text="About us" />
+            <BorderedText img={aboutUs} />
           </div>
         </div>
         <div className={styles.afterAboutContent}>
@@ -220,16 +238,17 @@ const HomeContent = () => {
             ))}
           </div>
           <div className={styles.borderedTextWhat}>
-            <BorderedText text="Process" />
+            <BorderedText img={process} />
           </div>
           <Process />
           <div className={styles.borderedTextWhat}>
-            <BorderedText text="What we do" />
+            <BorderedText img={whatWeDo} />
           </div>
           <div className={styles.projectContent}>
             <Image
               src={whatWeDoImage}
               className={`${styles.backImage} ${styles.topBackImage}`}
+              alt=""
             />
             <Paragraph className={styles.title}>
               {postsMainWhatWeDoTextApi
@@ -254,7 +273,7 @@ const HomeContent = () => {
             <div
               className={`${styles.borderedTextWhat} ${styles.borderedTextProject}`}
             >
-              <BorderedText text="Technology" />
+              <BorderedText img={technology} />
             </div>
             <Technology />
           </div>
@@ -263,7 +282,7 @@ const HomeContent = () => {
             <div
               className={`${styles.borderedTextWhat} ${styles.borderedTextProject}`}
             >
-              <BorderedText text="Our Projects" />
+              <BorderedText img={ourProjects} />
             </div>
             <div>
               <Paragraph className={styles.title}>
@@ -282,7 +301,7 @@ const HomeContent = () => {
             </div>
             <Image
               src={ourProjectImage}
-              className={`${styles.backImageSecond} ${styles.backImage}`}
+              className={`${styles.backImageSecond} ${styles.backImage}`} alt=""
             />
             <div className={styles.ourProjectsCards}>
               {postPortfolioApi &&
@@ -317,19 +336,28 @@ const HomeContent = () => {
           <div
             className={`${styles.borderedTextWhat} ${styles.borderedTextTestimonials}`}
           >
-            <BorderedText text="Testimonials" />
+            <BorderedText img={testimonials} />
           </div>
           <div className={styles.mapContainer}>
-            <div className={styles.worldMap}>{isSSR && <WorldMap />}</div>
+            <div className={styles.worldMap}>
+              {" "}
+              {postTestimonialsApi && activeUser && (
+                <WorldMap
+                  data={postTestimonialsApi}
+                  setActiveUser={setActiveUser}
+                  activeUser={activeUser}
+                />
+              )}
+            </div>
             <div className={styles.worldMapUser}>
-              <MapUser />
+              {activeUser && <MapUser user={activeUser} />}
             </div>
           </div>
           <div className={styles.contactBlock}>
             <div
               className={`${styles.borderedTextWhat} ${styles.borderedTextTestimonials}`}
             >
-              <BorderedText text="Contacts" />
+              <BorderedText img={contacts} />
             </div>
             <ContactForm
               data={

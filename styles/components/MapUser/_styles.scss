@@ -8,8 +8,10 @@
     .imgBlock {
       @include flex(space-between, center);
       width: getMapUser(img-block-w);
+
       .imageBlock {
         position: relative;
+
         .flag {
           position: absolute;
           width: getMapUser(flag-width);
@@ -17,26 +19,31 @@
           top: getMapUser(flag-top);
           right: getMapUser(flag-right);
         }
+
         .userImage {
           width: getMapUser(user-image-width);
           height: getMapUser(user-image-height);
           border-radius: getMapUser(user-image-br);
         }
       }
+
       .iconBlock {
         width: getMapUser(icon-block-width);
         height: getMapUser(icon-block-height);
         border-radius: getMapUser(icon-block-br);
         cursor: pointer;
         @include flex(center, center, center);
+
         .arrowIcon {
           width: getMapUser(arrow-icon-width);
         }
+
         &:hover {
           background-color: #3fc1ff;
         }
       }
     }
+
     .infoBlock {
       text-align: center;
       width: getMapUser(img-block-w);
@@ -45,13 +52,16 @@
       .userName {
         @include font-style(getMapUser(name-fs), variables.$fw-700, getMapUser(name-lh), #219fdb);
       }
+
       .userPosition {
         @include font-style(getMapUser(position-fs), variables.$fw-500, getMapUser(position-lh));
       }
     }
+
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       .imgBlock {
         width: calcVWL(320);
+
         .imageBlock {
           .flag {
             width: calcVWL(36);
@@ -59,21 +69,25 @@
             top: calcVWL(10);
             right: calcVWL(10);
           }
+
           .userImage {
             width: calcVWL(178);
             height: calcVWL(187);
             border-radius: calcVWL(8);
           }
         }
+
         .iconBlock {
           width: calcVWL(32);
           height: calcVWL(32);
           border-radius: calcVWL(8);
+
           .arrowIcon {
             width: calcVWL(15);
           }
         }
       }
+
       .infoBlock {
         width: calcVWL(320);
         margin-top: calcVWL(20);
@@ -81,20 +95,25 @@
         .userName {
           @include font-style(calcVWL(24), variables.$fw-700, calcVWL(29), #219fdb);
         }
+
         .userPosition {
           @include font-style(calcVWL(20), variables.$fw-500, calcVWL(24));
         }
       }
     }
+
     @media (max-width: 1024px) {
       margin-right: calcVWT(100);
+
       .imgBlock {
         width: calcVWT(300);
+
         .imageBlock {
           .userImage {
             width: calcVWT(178);
             height: calcVWT(178);
           }
+
           .flag {
             width: calcVWT(36);
             height: auto;
@@ -102,29 +121,36 @@
             right: calcVWT(10);
           }
         }
+
         .iconBlock {
           border-radius: calcVWT(8);
           width: calcVWT(32);
           height: calcVWT(32);
+
           .arrowIcon {
             width: calcVWT(14);
           }
         }
       }
+
       .infoBlock {
         width: auto;
+
         .userName {
           @include font-style(calcVWT(24), variables.$fw-700, calcVWT(29), #219fdb);
           margin-top: calcVWT(10);
         }
+
         .userPosition {
           @include font-style(calcVWT(20), variables.$fw-500, calcVWT(24));
         }
       }
     }
+
     @media (max-width: 576px) {
       .imgBlock {
         width: 100%;
+
         .imageBlock {
           .userImage {
             width: calcVWM(157);
@@ -132,6 +158,7 @@
             object-fit: cover;
             border-radius: calcVWM(16);
           }
+
           .flag {
             width: calcVWM(32);
             height: auto;
@@ -139,21 +166,26 @@
             right: calcVWM(10);
           }
         }
+
         .iconBlock {
           border-radius: calcVWM(8);
           width: calcVWM(32);
           height: calcVWM(32);
+
           .arrowIcon {
             width: calcVWM(14);
           }
         }
       }
+
       .infoBlock {
         width: auto;
+
         .userName {
           @include font-style(calcVWM(24), variables.$fw-700, calcVWM(29), #219fdb);
           margin-top: calcVWM(10);
         }
+
         .userPosition {
           @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24));
           max-width: calcVWM(230);
