@@ -20,16 +20,16 @@ const MapUser = ({ user }) => {
     <div className={styles.container}>
       <div className={styles.imgBlock}>
         <div className={styles.iconBlock}>
-          <Image className={styles.arrowIcon} src={arrowLeft} />
+          <Image className={styles.arrowIcon} src={arrowLeft} alt=""/>
         </div>
         <Tooltip color="#219FDB" title={TooltipElement(user.testimonial)} overlayClassName={styles.customTooltip}>
           <div className={styles.imageBlock}>
-            <Image src={user.webp_testimonial_image} width={178} height={178} className={styles.userImage} />
-            <Image className={styles.flag} src={flag} />
+            <Image src={user.webp_testimonial_image} width={178} height={178} className={styles.userImage} alt=""/>
+            <Image className={styles.flag} src={flag} alt=""/>
           </div>
         </Tooltip>
         <div className={styles.iconBlock}>
-          <Image className={styles.arrowIcon} src={arrowRight} />
+          <Image className={styles.arrowIcon} src={arrowRight} alt=""/>
         </div>
       </div>
       <div className={styles.infoBlock}>
