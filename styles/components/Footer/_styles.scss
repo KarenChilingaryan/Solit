@@ -42,15 +42,16 @@
     }
 
     .text {
+      transition: 0.5s;
       cursor: pointer;
-      margin-bottom: calcVW(8) !important;
+      min-height: calcVW(32);
       @include font-style(getFooterSizes(footer-text-fz), variables.$fw-400, getFooterSizes(footer-text-lh), #fff);
+      margin: 0;
 
       &:hover {
         margin-left: calcVW(8);
         margin-right: calcVW(-8);
         color: #3fc1ff;
-        transition: 0.3s;
       }
     }
 
@@ -109,7 +110,7 @@
       }
 
       .text {
-        margin-bottom: calcVWL(8) !important;
+        min-height: calcVWL(32);
         @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
 
         &:hover {
@@ -165,8 +166,8 @@
       }
 
       .text {
-        margin-bottom: calcVWT(8) !important;
         @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+        min-height: calcVWT(32);
       }
 
       .companyWrapper {
@@ -233,6 +234,7 @@
 
       .text {
         margin-bottom: calcVWM(7) !important;
+        min-height: calcVWM(24);
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
       }
 
