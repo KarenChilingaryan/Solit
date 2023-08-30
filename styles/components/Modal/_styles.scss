@@ -45,10 +45,10 @@
     }
 
     :global(.ant-modal-content) {
-      width: max-content;
       padding: calcVW(64);
       border-radius: calcVW(16);
       margin: 0 auto;
+      width: calcVW(602);
     }
 
     :global(.ant-modal-title) {
@@ -76,6 +76,7 @@
       :global(.ant-modal-content) {
         padding: calcVWT(64);
         border-radius: calcVWT(16);
+        width: calcVWT(602);
       }
 
       :global(.ant-modal-title) {
@@ -112,10 +113,12 @@
         border-radius: calcVWM(16);
       }
     }
+
     .logo {
       width: calcVWM(100);
       height: calcVWM(40);
     }
+
     .closeIcon {
       width: calcVWM(24);
       height: calcVWM(24);

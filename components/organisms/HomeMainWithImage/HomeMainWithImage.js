@@ -74,6 +74,7 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
       }
       <div className={styles.socialSites}>
         {data?.contact?.map((el, i) =>
+          (el.name == "Telegram" || el.name == 'Linkedin' || el.name == 'Whatsapp') &&
           <Link href={el.link} target="_blank" key={i}>
             <div className={styles.site}>
               <Image src={el.logo} className={styles.image} width={80} height={80} />

@@ -20,23 +20,23 @@ const MapUser = ({ user }) => {
     <div className={styles.container}>
       <div className={styles.imgBlock}>
         <div className={styles.iconBlock}>
-          <Image className={styles.arrowIcon} src={arrowLeft} alt=""/>
+          <Image className={styles.arrowIcon} src={arrowLeft} alt="" />
         </div>
-        <Tooltip color="#219FDB" title={TooltipElement(user.testimonial)} overlayClassName={styles.customTooltip}>
+        <Tooltip color="#219FDB" title={TooltipElement(user.testimonial)} overlayClassName={styles.customTooltip} {...(window.innerWidth <= 1024 && window.innerWidth > 576 ? { visible: true, placement: 'left' } : window.innerWidth <= 576 ? { visible: true} : {})}>
           <div className={styles.imageBlock}>
-            <Image src={user.webp_testimonial_image} width={178} height={178} className={styles.userImage} alt=""/>
-            <Image className={styles.flag} src={flag} alt=""/>
+            <Image src={user.webp_testimonial_image} width={178} height={178} className={styles.userImage} alt="" />
+            <Image className={styles.flag} src={flag} alt="" />
           </div>
         </Tooltip>
         <div className={styles.iconBlock}>
-          <Image className={styles.arrowIcon} src={arrowRight} alt=""/>
+          <Image className={styles.arrowIcon} src={arrowRight} alt="" />
         </div>
       </div>
       <div className={styles.infoBlock}>
         <Paragraph className={styles.userName}>{user.name}</Paragraph>
         <Paragraph className={styles.userPosition}>{user.position}</Paragraph>
       </div>
-    </div>
+    </div >
   );
 };
 

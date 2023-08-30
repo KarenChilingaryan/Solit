@@ -88,7 +88,8 @@
             align-items: center;
             column-gap: calcVW(16);
             cursor: pointer;
-            border-bottom: 1px solid transparent;
+            border: 1px solid transparent;
+            outline: none !important;
 
             .activeElem {
               display: none;
@@ -660,8 +661,11 @@
         }
 
         .closedMenu {
+          transition: 0.2s;
+          row-gap: 0 !important;
           .menuItemChildMainWrapper {
-
+            transition: 0.2s;
+            height: 0;
             .menuItemChildWrapper {
               transition: 0.2s;
               height: 0;

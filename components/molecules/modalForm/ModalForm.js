@@ -8,7 +8,7 @@ import arrow from "../../../assets/img/icons/selectIcon.svg";
 
 import styles from "./ModalForm.module.scss";
 
-const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply' }) => {
+const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', className }) => {
   const [file, setFile] = useState(null);
 
   const submitForm = (values, data) => {
@@ -25,7 +25,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply' }) => {
       <Form onFinish={(values) => {
         submitForm(values, data)
       }} className={styles.form} >
-        <Row className={styles.inputSection}>
+        <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
             name="full_name"
             rules={[
