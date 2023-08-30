@@ -249,6 +249,8 @@
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       gap: calcVWL(96);
       .infoSection {
+        width: calcVWL(624);
+        padding: calcVWL(32);
         gap: calcVWL(16);
         .title {
           font-size: calcVWL(36);
@@ -262,7 +264,7 @@
 
       .form {
         max-width: calcVWL(406);
-        gap: calcVWL(16);
+        gap: calcVWL(32);
         width: calcVWL(410);
         .buttonWrapper {
           button {
@@ -296,11 +298,11 @@
         }
 
         .inputSection {
-          gap: calcVWL(16);
+          gap: calcVWL(32);
         }
 
         :global(.ant-input) {
-          padding: calcVWL(12) 0px calcVWL(5) 0;
+          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
         }
 
         :global(.ant-form-item-label) {
@@ -323,11 +325,13 @@
     }
     @media (max-width: 1024px) {
       .infoSection {
+        width: calcVWT(624);
+        padding: calcVWT(32);
         padding: 0 calcVWT(40);
         .title {
           font-weight: 500;
           font-size: calcVWT(36);
-          line-height: calcVWT(44);
+          line-height: normal;
           color: #ffffff;
         }
 
@@ -339,14 +343,21 @@
         }
       }
       .form {
-        width: 50%;
         max-width: unset;
+        gap: calcVWT(32);
+        width: calcVWT(410);
+
         :global(.ant-input) {
-          padding: calcVWT(12) 0px calcVWT(5) 0;
+          // padding: calcVWT(12) 0px calcVWT(5) 0;
+          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
           border-bottom: 2px solid #ffffff;
           &:focus {
             box-shadow: 0 2px 0 0 blue;
           }
+        }
+
+        .inputSection {
+          gap: calcVWT(32);
         }
 
         .suffix {
@@ -388,10 +399,12 @@
       }
       flex-direction: column;
       margin-top: calcVWM(40);
+
       .infoSection {
         padding: 0;
         width: 100%;
         max-width: 100%;
+
         .title {
           font-weight: 500;
           font-size: calcVWM(36);
@@ -406,18 +419,31 @@
           color: #ffffff;
         }
       }
+      .formWrapper {
+        width: 100%;
+        padding: unset;
+        margin-top: calcVWM(32);
+      }
       .form {
         width: 100%;
         max-width: 100%;
+        gap: calcVWM(32);
+
         :global(.ant-input-affix-wrapper) {
           height: calcVWM(35);
         }
+
         :global(.ant-input) {
-          padding: calcVWM(30) 0px calcVWM(5) 0;
+          // padding: calcVWM(30) 0px calcVWM(5) 0;
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
           border-bottom: 2px solid #ffffff;
           &:focus {
             box-shadow: 0 2px 0 0 blue;
           }
+        }
+
+        .inputSection {
+          gap: calcVWM(32);
         }
 
         .suffix {

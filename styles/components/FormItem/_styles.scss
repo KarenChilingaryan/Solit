@@ -50,6 +50,14 @@
         line-height: calcVWT(24);
         top: calcVWT(2);
       }
+      .label {
+        @include font-style(
+          calcVWT(13),
+          variables.$fw-400,
+          calcVWT(20),
+          #8296a5
+        );
+      }
     }
 
     @media (max-width: 576px) {
@@ -58,6 +66,14 @@
         font-size: calcVWM(18);
         line-height: calcVWM(24);
         top: calcVWM(2);
+      }
+      .label {
+        @include font-style(
+          calcVWM(13),
+          variables.$fw-400,
+          calcVWM(20),
+          #8296a5
+        );
       }
     }
   }
