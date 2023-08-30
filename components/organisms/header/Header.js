@@ -138,6 +138,7 @@ const Header = () => {
   useEffect(() => {
     const body = document.querySelector('body')
     if (body) {
+      console.log('stex em');
       body.style.overflow = !openMenu ? 'hidden' : 'auto'
     }
   }, [openMenu])
@@ -150,7 +151,6 @@ const Header = () => {
         >
           <Link href="/" onClick={() => {
             window.scrollTo({ top: 0, left: 0 });
-            setOpenMenu(true)
           }}>
             <Image
               src={menuLogoWhite}
@@ -182,7 +182,6 @@ const Header = () => {
                 {el?.data?.map((e, idx) =>
                   <Link href={el?.fix_url + '/' + (e?.service_detail || e?.what_we_do_detail)} key={idx}>
                     <div
-                      onClick={() => setOpenMenu(true)}
                       className={styles.menuItemChildWrapper}
                       style={{
                         display:
@@ -209,9 +208,6 @@ const Header = () => {
                 <Link
                   href={el?.fix_url === 'what-we-do' ? '#' : `${el?.fix_url}`}
                   onClick={() => {
-                    if (el?.fix_url !== 'what-we-do') {
-                      setOpenMenu(!openMenu)
-                    }
                     window.scrollTo({ top: 0, left: 0 })
                   }}
                   className={styles.menuItemTitle}
