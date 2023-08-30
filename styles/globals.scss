@@ -67,6 +67,10 @@ textarea::-webkit-scrollbar-thumb {
   padding: 0 !important;
 }
 
+.ant-tooltip {
+  z-index: 998 !important;
+}
+
 .ant-tooltip-inner {
   padding: calcVW(24) calcVW(30) calcVW(14) calcVW(30) !important;
   border-radius: calcVW(16) !important;
