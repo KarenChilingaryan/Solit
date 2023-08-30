@@ -65,7 +65,7 @@
       z-index: 1;
     }
     .borderedTextWhatTop {
-      margin-top: 0
+      margin-top: 0;
     }
 
     .projectContent {
@@ -131,6 +131,9 @@
     }
   }
   .contactBlock {
+    display: flex;
+    flex-direction: column;
+    gap: calcVW(184);
     position: relative;
     padding-bottom: calcVW(380);
     .backImage {
@@ -236,6 +239,7 @@
       }
     }
     .contactBlock {
+      gap: calcVWL(184);
       padding-bottom: calcVWL(380);
       .backImage {
         height: calcVWL(1290);
@@ -254,6 +258,7 @@
       margin: 0 auto;
     }
     .contactBlock {
+      gap: calcVWT(84);
       padding-bottom: calcVWT(57);
     }
     .content {

@@ -17,7 +17,7 @@ const ContactForm = ({
   title,
   style = {},
   data = null,
-  fromContactPage = false
+  fromContactPage = false,
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
@@ -52,89 +52,109 @@ const ContactForm = ({
 
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
-        }`}
+      className={`${styles.contactFormWrapper} ${
+        !title ? styles.withoutTitle : ""
+      }`}
       style={style}
     >
-      <Col className={styles.infoSection} style={{ ...(fromContactPage ? { paddingLeft: 0 } : {}) }}>
-        <Row className={styles.title}>{data?.title || "Got a project in mind?"}</Row>
-        <div className={styles.info}
-          dangerouslySetInnerHTML={{ __html: data?.description || "Share the details of your project – like scope, timeframes, or business challenges you would like to solve. Our team will carefully study them and then we’ll figure out the next move together." }}
-        />{
-          fromContactPage &&
-          <Image src={contactUsBgImage} className={styles.contactUsImage} />
-        }
-      </Col>
-      <Form form={form} onFinish={submitForm} className={styles.form}>
-        <Row className={styles.inputSection}>
-          <FormItem
-            name="full_name"
-            rules={[
-              {
-                required: true,
-                message: "Name is required",
-              },
-            ]}
-          >
-            <FloatInput
-              label="Full Name"
-              placeholder="Full Name"
-              name="full_name"
-            />
-          </FormItem>
-          <FormItem
-            name="from_email"
-            rules={[
-              {
-                type: "email",
-                message: "The input is not valid Email",
-              },
-              {
-                required: true,
-                message: "Email is required",
-              },
-            ]}
-          >
-            <FloatInput label="Email" placeholder="Email" name="full_name" />
-          </FormItem>
-          <FormItem name="message">
-            <FloatInput label="Message" placeholder="Message" name="message" />
-          </FormItem>
-          <FormItem name={"file_cv"}>
-            <FloatInput
-              label="About your project"
-              placeholder="About your project"
-              name="file_cv"
-              multiple
-              type="file"
-              accept=".pdf,.doc,.docx"
-              suffix={<Image className={styles.suffix} src={upload} />}
-              onChange={(e) => {
-                setFile(e.target.files[0]);
-              }}
-              showUploadList={false}
-              className={`${styles.uploadFile} ${file && style.uploadedFile}`}
-            />
-          </FormItem>
-          <FormItem name="accept" className={styles.accept}>
-            <Checkbox />
-            <Row className={styles.acceptText}>
-              I accept your Privacy Policy
-            </Row>
-          </FormItem>
+      <Col
+        className={styles.infoSection}
+        style={{ ...(fromContactPage ? { paddingLeft: 0 } : {}) }}
+      >
+        <Row className={styles.title}>
+          {data?.title || "Got a project in mind?"}
         </Row>
+        <div
+          className={styles.info}
+          dangerouslySetInnerHTML={{
+            __html:
+              data?.description ||
+              "Share the details of your project – like scope, timeframes, or business challenges you would like to solve. Our team will carefully study them and then we’ll figure out the next move together.",
+          }}
+        />
+        {fromContactPage && (
+          <Image
+            src={contactUsBgImage}
+            className={styles.contactUsImage}
+            alt=""
+          />
+        )}
+      </Col>
+      <Col className={styles.formWrapper}>
+        <Form form={form} onFinish={submitForm} className={styles.form}>
+          <Row className={styles.inputSection}>
+            <FormItem
+              name="full_name"
+              rules={[
+                {
+                  required: true,
+                  message: "Name is required",
+                },
+              ]}
+            >
+              <FloatInput
+                label="Full Name"
+                placeholder="Full Name"
+                name="full_name"
+              />
+            </FormItem>
+            <FormItem
+              name="from_email"
+              rules={[
+                {
+                  type: "email",
+                  message: "The input is not valid Email",
+                },
+                {
+                  required: true,
+                  message: "Email is required",
+                },
+              ]}
+            >
+              <FloatInput label="Email" placeholder="Email" name="full_name" />
+            </FormItem>
+            <FormItem name="message">
+              <FloatInput
+                label="Message"
+                placeholder="Message"
+                name="message"
+              />
+            </FormItem>
+            <FormItem name={"file_cv"}>
+              <FloatInput
+                label="About your project"
+                placeholder="About your project"
+                name="file_cv"
+                multiple
+                type="file"
+                accept=".pdf,.doc,.docx"
+                suffix={<Image className={styles.suffix} src={upload} />}
+                onChange={(e) => {
+                  setFile(e.target.files[0]);
+                }}
+                showUploadList={false}
+                className={`${styles.uploadFile} ${file && style.uploadedFile}`}
+              />
+            </FormItem>
+            <FormItem name="accept" className={styles.accept}>
+              <Checkbox />
+              <Row className={styles.acceptText}>
+                I accept your Privacy Policy
+              </Row>
+            </FormItem>
+          </Row>
 
-        <Col className={styles.buttonWrapper}>
-          <Button text="Send message" transparentBlue type="submit" />
-        </Col>
-      </Form>
-      {
-        !fromContactPage &&
+          <Col className={styles.buttonWrapper}>
+            <Button text="Send message" transparentBlue type="submit" />
+          </Col>
+        </Form>
+      </Col>
+      {!fromContactPage && (
         <Image
           src={contactBgImage}
           className={`${styles.backImage} ${styles.topBackImage}`}
         />
-      }
+      )}
     </Col>
   );
 };

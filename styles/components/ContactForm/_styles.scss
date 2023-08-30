@@ -6,7 +6,7 @@
 @mixin generate-contactForm-styles {
   .contactFormWrapper {
     display: flex;
-    gap: calcVW(96);
+    gap: calcVW(32);
 
     .contactUsImage {
       width: 100%;
@@ -28,28 +28,28 @@
       max-width: 50%;
       position: relative;
       z-index: 1;
+      width: calcVW(624);
+      padding: calcVW(32);
 
       .title {
-        font-weight: 500;
-        font-size: calcVW(36);
-        line-height: normal;
-        color: #ffffff;
+        @include font-style(calcVW(36), variables.$fw-500, normal);
       }
 
       .info {
-        font-weight: 400;
-        font-size: calcVW(18);
-        line-height: calcVW(24);
-        color: #ffffff;
+        @include font-style(calcVW(18), variables.$fw-500, calcVW(24));
       }
     }
-
+    .formWrapper {
+      width: 50%;
+      padding: calcVW(32);
+      margin-top: calcVW(24);
+    }
     .form {
       display: flex;
       flex-direction: column;
       justify-content: center;
       max-width: calcVW(406);
-      gap: calcVW(16);
+      gap: calcVW(32);
       width: calcVW(410);
       position: relative;
       z-index: 1;
@@ -98,11 +98,14 @@
       .uploadedFile {
         color: #e5e5e5 !important;
       }
+      :global(.ant-input-affix-wrapper-focused) {
+        border-bottom: none !important;
+      }
 
       :global(.ant-input-affix-wrapper) {
         z-index: 0;
         background: transparent;
-        border-bottom: 1px solid white;
+        border-bottom: none;
         border-top: none;
         border-left: none;
         border-right: none;
@@ -129,7 +132,7 @@
           color: transparent;
         }
       }
-      :global(.ant-input-affix-wrapper-status-success){
+      :global(.ant-input-affix-wrapper-status-success) {
         input[type="file"] {
           color: white;
         }
@@ -150,8 +153,12 @@
       .inputSection {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: calcVW(32);
         width: 100%;
+      }
+
+      .inputSection > div > div > div {
+        height: calcVW(58);
       }
 
       .filled {
@@ -168,7 +175,7 @@
 
       :global(.ant-input) {
         position: relative;
-        padding: calcVW(12) 0px calcVW(5) 0;
+        // padding: calcVW(24) 0px calcVW(20) 0;
         width: 100%;
         outline: 0;
         border: 0;
@@ -176,6 +183,8 @@
         transition: box-shadow 150ms ease-out;
         background: transparent;
         color: #ffffff;
+
+        @include font-style(calcVW(18), variables.$fw-400, calcVW(24));
 
         &:focus {
           box-shadow: 0 0 0 0 transparent;

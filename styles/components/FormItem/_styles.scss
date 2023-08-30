@@ -12,24 +12,21 @@
       left: 0;
       top: calcVW(11);
       transition: 0.2s ease all;
-      font-weight: 400;
-      font-size: calcVW(13);
-      line-height: calcVW(20);
-      color: #8296a5;
+      @include font-style(calcVW(13), variables.$fw-400, calcVW(20), #8296a5);
     }
 
     .asPlaceholder {
-      color: white;
+      color: wh rgba(255, 255, 255, 0.73);
       font-weight: 400;
       font-size: calcVW(18);
       line-height: calcVW(24);
-      top: calcVW(5);
+      top: 0;
     }
 
     .asLabel {
-      top: -8px;
-      font-size: 12px !important;
+      top: -10px;
       background: transparent;
+      @include font-style(calcVW(13), variables.$fw-400, normal, #8296a5);
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
