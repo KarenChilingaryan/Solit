@@ -52,9 +52,9 @@
       }
       .label {
         @include font-style(
-          calcVWT(13),
+          calcVWT(18),
           variables.$fw-400,
-          calcVWT(20),
+          normal,
           #8296a5
         );
       }
@@ -69,9 +69,9 @@
       }
       .label {
         @include font-style(
-          calcVWM(13),
+          calcVWM(18),
           variables.$fw-400,
-          calcVWM(20),
+          normal,
           #8296a5
         );
       }

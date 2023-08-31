@@ -6,7 +6,7 @@
 @mixin generate-contactForm-styles {
   .contactFormWrapper {
     display: flex;
-    gap: calcVW(32);
+    gap: calcVW(52);
 
     .contactUsImage {
       width: 100%;
@@ -39,11 +39,13 @@
         @include font-style(calcVW(18), variables.$fw-500, calcVW(24));
       }
     }
+
     .formWrapper {
       width: 50%;
       padding: calcVW(32);
       margin-top: calcVW(24);
     }
+
     .form {
       display: flex;
       flex-direction: column;
@@ -53,6 +55,7 @@
       width: calcVW(410);
       position: relative;
       z-index: 1;
+
       .buttonWrapper {
         button {
           @include font-style(calcVW(13), variables.$fw-700, normal, #fff);
@@ -64,12 +67,17 @@
         height: calcVW(19);
       }
 
+      :global(.ant-form-item) {
+        margin: 0 !important;
+      }
+
       .accept {
         :global(.ant-form-item-control-input-content) {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: calcVW(18);
+          margin-top: calcVW(-45);
         }
 
         :global(.ant-checkbox-inner) {
@@ -84,20 +92,25 @@
         }
 
         .acceptText {
-          @include font-style(
-            getContactFormSizes(text-fz),
+          @include font-style(getContactFormSizes(text-fz),
             variables.$fw-400,
-            getContactFormSizes(text-fl)
-          );
+            getContactFormSizes(text-fl));
         }
+      }
+
+      .recaptcha {
+        margin-top: calcVW(-29);
+        margin-bottom: calcVW(11);
       }
 
       .uploadFile {
         color: #e5e5e5;
       }
+
       .uploadedFile {
         color: #e5e5e5 !important;
       }
+
       :global(.ant-input-affix-wrapper-focused) {
         border-bottom: none !important;
       }
@@ -132,6 +145,7 @@
           color: transparent;
         }
       }
+
       :global(.ant-input-affix-wrapper-status-success) {
         input[type="file"] {
           color: white;
@@ -157,7 +171,7 @@
         width: 100%;
       }
 
-      .inputSection > div > div > div {
+      .inputSection>div>div>div {
         height: calcVW(58);
       }
 
@@ -167,6 +181,7 @@
 
       .focused {
         background-color: aqua;
+
         :global(.ant-form-item-label) {
           transform: translateY(-125%);
           // font-size: 0.75em;
@@ -208,37 +223,32 @@
       }
 
       :global {
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
           background: transparent;
           border-color: none;
           box-shadow: 0 2px 0 0 rgb(207, 39, 39);
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
           background: transparent;
           border-color: none !important;
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
           border-color: none;
         }
 
-        .ant-form-item-label > label {
+        .ant-form-item-label>label {
           font-size: 16px;
           color: #ffffff;
         }
 
-        .ant-input:focus + .ant-form-item-label > label {
+        .ant-input:focus+.ant-form-item-label>label {
           color: blue;
         }
       }
     }
+
     .backImage {
       width: calcVW(1920);
       left: calcVW(-320);
@@ -246,12 +256,15 @@
       bottom: calcVW(-380);
       height: calcVW(1380);
     }
+
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      gap: calcVWL(96);
+      gap: calcVWL(52);
+
       .infoSection {
         width: calcVWL(624);
         padding: calcVWL(32);
         gap: calcVWL(16);
+
         .title {
           font-size: calcVWL(36);
         }
@@ -266,6 +279,7 @@
         max-width: calcVWL(406);
         gap: calcVWL(32);
         width: calcVWL(410);
+
         .buttonWrapper {
           button {
             @include font-style(calcVWL(13), variables.$fw-700, normal, #fff);
@@ -280,11 +294,17 @@
         .accept {
           :global(.ant-form-item-control-input-content) {
             gap: calcVWL(18);
+            margin-top: calcVWL(-45);
           }
 
           .acceptText {
             @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
           }
+        }
+
+        .recaptcha {
+          margin-top: calcVWL(-29);
+          margin-bottom: calcVWL(15);
         }
 
         :global(.ant-input-affix-wrapper) {
@@ -310,11 +330,12 @@
         }
 
         :global {
-          .ant-form-item-label > label {
+          .ant-form-item-label>label {
             font-size: calcVWL(16);
           }
         }
       }
+
       .backImage {
         width: calcVWL(1920);
         left: calcVWL(-320);
@@ -323,11 +344,12 @@
         height: calcVWL(1380);
       }
     }
+
     @media (max-width: 1024px) {
       .infoSection {
         width: calcVWT(624);
-        padding: calcVWT(32);
-        padding: 0 calcVWT(40);
+        padding: calcVWT(28) calcVWT(34);
+
         .title {
           font-weight: 500;
           font-size: calcVWT(36);
@@ -342,6 +364,11 @@
           color: #ffffff;
         }
       }
+
+      .formWrapper {
+        padding: calcVWT(14) calcVWT(50);
+      }
+
       .form {
         max-width: unset;
         gap: calcVWT(32);
@@ -351,13 +378,26 @@
           // padding: calcVWT(12) 0px calcVWT(5) 0;
           @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
           border-bottom: 2px solid #ffffff;
+
           &:focus {
             box-shadow: 0 2px 0 0 blue;
           }
         }
 
         .inputSection {
-          gap: calcVWT(32);
+          gap: calcVWT(48);
+        }
+
+        .accept {
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWT(18);
+            margin-top: calcVWT(-45);
+          }
+        }
+
+        .recaptcha {
+          margin-top: calcVWT(-29);
+          margin-bottom: calcVWT(25);
         }
 
         .suffix {
@@ -381,22 +421,29 @@
           height: calcVWT(20);
         }
 
-        :global(
-            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
-              input[type="checkbox"]
-          ) {
+        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
           width: calcVWT(20);
           height: calcVWT(20);
         }
       }
+
+      .backImage {
+        width: calcVWT(1400);
+        left: calcVWT(-234);
+        bottom: calcVWT(-380);
+        height: auto;
+        top: calcVWT(-315);
+      }
     }
+
     @media (max-width: 576px) {
       .backImage {
         width: calcVWM(1500);
         height: calcVWM(1100);
         left: calcVWM(-580);
-        top: calcVWM(-370);
+        top: calcVWM(-123);
       }
+
       flex-direction: column;
       margin-top: calcVWM(40);
 
@@ -419,11 +466,13 @@
           color: #ffffff;
         }
       }
+
       .formWrapper {
         width: 100%;
         padding: unset;
         margin-top: calcVWM(32);
       }
+
       .form {
         width: 100%;
         max-width: 100%;
@@ -437,13 +486,19 @@
           // padding: calcVWM(30) 0px calcVWM(5) 0;
           @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
           border-bottom: 2px solid #ffffff;
+
           &:focus {
             box-shadow: 0 2px 0 0 blue;
           }
         }
 
         .inputSection {
-          gap: calcVWM(32);
+          gap: calcVWM(62);
+        }
+
+        .recaptcha {
+          margin-bottom: calcVWM(40);
+          margin-left: calcVWM(10);
         }
 
         .suffix {
@@ -453,11 +508,9 @@
 
         .buttonWrapper {
           button {
-            @include font-style(
-              calcVWM(13) !important,
+            @include font-style(calcVWM(13) !important,
               variables.$fw-700 !important,
-              calcVWM(16) !important
-            );
+              calcVWM(16) !important);
             padding: calcVWM(8) calcVWM(32);
             border-radius: calcVWM(8);
             margin: 0 auto;
@@ -470,18 +523,18 @@
             line-height: calcVWM(24);
           }
         }
+
         :global(.ant-form-item) {
           margin-bottom: calcVWM(20);
         }
+
         :global(.ant-checkbox-inner) {
           width: calcVWM(15);
           height: calcVWM(15);
           margin-right: calcVWM(10);
         }
-        :global(
-            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
-              input[type="checkbox"]
-          ) {
+
+        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
           width: calcVWM(20);
           height: calcVWM(20);
         }

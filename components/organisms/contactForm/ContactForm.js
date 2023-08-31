@@ -1,9 +1,7 @@
-import { memo, useState, useEffect } from "react";
-import { Col, Row, Input, FormItem, Form, Checkbox } from "../../atoms";
+import { memo, useRef, useState } from "react";
+import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
-import { Upload, Button as AntdButton } from "antd";
 import Button from "../../molecules/button/Button";
-import { contactUsData } from "../../../constants/contactUs";
 import { emailApi } from "../../../services/emailApi";
 import { useDispatch } from "react-redux";
 import FloatInput from "../../molecules/floatInput/FloatInput";
@@ -12,6 +10,7 @@ import contactBgImage from "../../../assets/img/contact_bg.png";
 import contactUsBgImage from "../../../assets/img/contactus-background.png";
 
 import styles from "./ContactForm.module.scss";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactForm = ({
   title,
@@ -21,6 +20,7 @@ const ContactForm = ({
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
+  const recaptchaRef = useRef(null);
 
   // const props = {
   //   name: "file",
@@ -50,11 +50,14 @@ const ContactForm = ({
     );
   };
 
+  const setRecaptcha = (value) => {
+    console.log(value, '?????????????????????');
+  }
+
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${
-        !title ? styles.withoutTitle : ""
-      }`}
+      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
+        }`}
       style={style}
     >
       <Col
@@ -81,7 +84,7 @@ const ContactForm = ({
         )}
       </Col>
       <Col className={styles.formWrapper}>
-        <Form form={form} onFinish={submitForm} className={styles.form}>
+        <Form form={form} onFinish={submitForm} className={styles.form} onFieldsChange={() => checkFormValidation(setRecaptcha, recaptchaRef.current)}>
           <Row className={styles.inputSection}>
             <FormItem
               name="full_name"
@@ -94,7 +97,7 @@ const ContactForm = ({
             >
               <FloatInput
                 label="Full Name"
-                placeholder="Full Name"
+                placeholder="Your Full Name"
                 name="full_name"
               />
             </FormItem>
@@ -112,6 +115,9 @@ const ContactForm = ({
               ]}
             >
               <FloatInput label="Email" placeholder="Email" name="full_name" />
+            </FormItem>
+            <FormItem name="phone" >
+              <FloatInput label="Phone" placeholder="Phone" name="phone" type="number" />
             </FormItem>
             <FormItem name="message">
               <FloatInput
@@ -142,6 +148,13 @@ const ContactForm = ({
                 I accept your Privacy Policy
               </Row>
             </FormItem>
+            <div className={styles.recaptcha}>
+              <ReCAPTCHA ref={recaptchaRef}
+                className={styles.recaptcha}
+                onChange={() => checkFormValidation(true, form, setDisabled, recaptchaRef.current)}
+                onExpired={() => setDisabled(true)}
+                sitekey={"7LeAbKcdAAAAAOezcfoFK-tekV_H2V0IzTy5rUn-"} />
+            </div>
           </Row>
 
           <Col className={styles.buttonWrapper}>
@@ -149,13 +162,15 @@ const ContactForm = ({
           </Col>
         </Form>
       </Col>
-      {!fromContactPage && (
-        <Image
-          src={contactBgImage}
-          className={`${styles.backImage} ${styles.topBackImage}`}
-        />
-      )}
-    </Col>
+      {
+        !fromContactPage && (
+          <Image
+            src={contactBgImage}
+            className={`${styles.backImage} ${styles.topBackImage}`}
+          />
+        )
+      }
+    </Col >
   );
 };
 
