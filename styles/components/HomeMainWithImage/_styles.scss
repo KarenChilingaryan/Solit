@@ -110,14 +110,18 @@
       }
 
       .text {
-        @include font-style(getHomeMainWithImage(text-fs),
+        white-space: nowrap;
+        @include font-style(
+          getHomeMainWithImage(text-fs),
           variables.$fw-500,
-          getHomeMainWithImage(text-lh));
+          getHomeMainWithImage(text-lh)
+        );
       }
 
       &:hover {
         .image {
-          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg) brightness(86%) contrast(99%);
+          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg)
+            brightness(86%) contrast(99%);
           transition: 0.3s;
         }
 
@@ -192,7 +196,6 @@
 
   @media (max-width: 1024px) {
     .socialSites {
-
       .site {
         column-gap: calcVWT(16);
         @include flex(center, center);
@@ -203,9 +206,7 @@
         }
 
         .text {
-          @include font-style(calcVWT(20),
-            variables.$fw-500,
-            normal);
+          @include font-style(calcVWT(20), variables.$fw-500, normal);
         }
       }
     }

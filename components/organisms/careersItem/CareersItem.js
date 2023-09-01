@@ -18,8 +18,8 @@ import styles from "./careersItem.module.scss";
 
 const CareersComponent = () => {
   const { id } = useRouter().query;
-  const [openData, setOpenData] = useState(null)
-  const [openSuccess, setOpenSuccess] = useState(false)
+  const [openData, setOpenData] = useState(null);
+  const [openSuccess, setOpenSuccess] = useState(false);
   const dispatch = useDispatch();
   const [postsCareersJobOpeningApiData, setPostsCareersJobOpeningApiData] =
     useState(null);
@@ -40,9 +40,11 @@ const CareersComponent = () => {
   );
 
   const findAndSetData = () => {
-    const data = careersJobOpeningApi.data_list.find(el => el.current_job_opening_detail == id)
-    setOpenData(data)
-  }
+    const data = careersJobOpeningApi.data_list.find(
+      (el) => el.current_job_opening_detail == id
+    );
+    setOpenData(data);
+  };
 
   const onSubmit = async (data) => {
     const formData = new FormData();
@@ -53,11 +55,9 @@ const CareersComponent = () => {
       const res = await dispatch(
         await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
       );
-      setOpenSuccess(true)
-    } catch {
-
-    }
-  }
+      setOpenSuccess(true);
+    } catch {}
+  };
 
   return (
     <div className={styles.careerPage}>
@@ -125,7 +125,7 @@ const CareersComponent = () => {
           </div>
         </div>
         <ModalWrapper open={!!openData} width={"66vw"} setOpen={setOpenData}>
-          <ModalForm openData={openData} from={'apply'} onSubmit={onSubmit} />
+          <ModalForm openData={openData} from={"apply"} onSubmit={onSubmit} />
         </ModalWrapper>
       </HomeMainWithImage>
     </div>

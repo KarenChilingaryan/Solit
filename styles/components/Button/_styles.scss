@@ -14,10 +14,12 @@
     width: getButtonSizes(button-width);
     height: getButtonSizes(button-height);
 
-    @include font-style(getButtonSizes(button-text-fz),
+    @include font-style(
+      getButtonSizes(button-text-fz),
       variables.$fw-700,
       getButtonSizes(button-text-fl),
-      #fff);
+      #fff
+    );
 
     transition: 0.3s;
     cursor: pointer;
@@ -25,10 +27,12 @@
     &:hover {
       background: #105475;
       border: 1px solid #105475;
-      @include font-style(getButtonSizes(button-hover-text-fz),
+      @include font-style(
+        getButtonSizes(button-hover-text-fz),
         variables.$fw-700,
         getButtonSizes(button-text-fl),
-        #fff);
+        #fff
+      );
       transition: 0.3s;
     }
 
@@ -51,10 +55,12 @@
       border-radius: 5px;
 
       &:hover {
-        @include font-style(getButtonSizes(button-tablet-fs),
+        @include font-style(
+          getButtonSizes(button-tablet-fs),
           variables.$fw-500,
           getButtonSizes(button-text-fl),
-          #fff);
+          #fff
+        );
       }
     }
   }
@@ -68,10 +74,12 @@
       background: variables.$main-white;
       border: 1px solid variables.$main-white;
 
-      @include font-style(getButtonSizes(button-hover-text-fz),
+      @include font-style(
+        getButtonSizes(button-hover-text-fz),
         variables.$fw-500,
         getButtonSizes(button-text-fl),
-        #fff);
+        #fff
+      );
       transition: 0.3s;
     }
 
@@ -87,20 +95,24 @@
       font-size: calcVW(45);
 
       &:hover {
-        @include font-style(calcVW(58),
+        @include font-style(
+          calcVW(58),
           variables.$fw-500,
           getButtonSizes(button-text-fl),
-          #fff);
+          #fff
+        );
       }
     }
   }
 
   .lightBlue {
     background: variables.$light-blue;
-    @include font-style(calcVW(20),
+    @include font-style(
+      calcVW(20),
       variables.$fw-700,
       calcVW(24),
-      variables.$white );
+      variables.$white
+    );
     border-radius: getButtonSizes(button-bold-blue-br);
     padding: getButtonSizes(button-bold-blue-padding);
     border: 1px solid variables.$light-blue;
@@ -110,34 +122,42 @@
       background: variables.$main-white;
 
       border: 1px solid variables.$light-blue;
-      @include font-style(calcVW(20),
+      @include font-style(
+        calcVW(20),
         variables.$fw-700,
         calcVW(24),
-        variables.$light-blue );
+        variables.$light-blue
+      );
       transition: 0.3s;
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      @include font-style(calcVWL(20),
+      @include font-style(
+        calcVWL(20),
         variables.$fw-700,
         calcVWL(24),
-        variables.$white );
+        variables.$white
+      );
       border-radius: calcVWL(8);
       padding: calcVWL(8) calcVWL(32);
 
       &:hover {
-        @include font-style(calcVWL(20),
+        @include font-style(
+          calcVWL(20),
           variables.$fw-700,
           calcVWL(24),
-          variables.$light-blue );
+          variables.$light-blue
+        );
       }
     }
 
     @media (max-width: 768px) {
       &:hover {
-        @include font-style(getButtonSizes(button-light-blue-tablet-fs),
+        @include font-style(
+          getButtonSizes(button-light-blue-tablet-fs),
           variables.$fw-500,
-          getButtonSizes(button-text-fl));
+          getButtonSizes(button-text-fl)
+        );
       }
     }
   }
@@ -145,10 +165,12 @@
   .grayTextBtn {
     width: unset;
     background: rgba(0, 0, 0, 0.32);
-    @include font-style(getButtonSizes(button-text-light-blue-fz),
+    @include font-style(
+      getButtonSizes(button-text-light-blue-fz),
       variables.$fw-700,
       getButtonSizes(button-text-bold-blue-lh),
-      rgba(255, 255, 255, 0.32));
+      rgba(255, 255, 255, 0.32)
+    );
     border-radius: getButtonSizes(button-bold-blue-br);
     padding: getButtonSizes(button-bold-blue-padding);
     border: 1px solid rgba(255, 255, 255, 0.32);
@@ -158,33 +180,41 @@
     // height: unset;
     &:hover {
       background: variables.$light-blue;
-      @include font-style(getButtonSizes(button-text-light-blue-fz),
+      @include font-style(
+        getButtonSizes(button-text-light-blue-fz),
         variables.$fw-700,
         getButtonSizes(button-text-bold-blue-lh),
-        variables.$black );
+        variables.$black
+      );
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      @include font-style(calcVWL(13),
+      @include font-style(
+        calcVWL(13),
         variables.$fw-700,
         calcVWL(19),
-        rgba(255, 255, 255, 0.32));
+        rgba(255, 255, 255, 0.32)
+      );
       border-radius: calcVWL(8);
       padding: calcVWL(8) calcVWL(32);
 
       &:hover {
-        @include font-style(calcVWL(13),
+        @include font-style(
+          calcVWL(13),
           variables.$fw-700,
           calcVWL(19),
-          variables.$black );
+          variables.$black
+        );
       }
     }
 
     @media (max-width: 768px) {
       &:hover {
-        @include font-style(getButtonSizes(button-light-blue-tablet-fs),
+        @include font-style(
+          getButtonSizes(button-light-blue-tablet-fs),
           variables.$fw-500,
-          getButtonSizes(button-text-fl));
+          getButtonSizes(button-text-fl)
+        );
       }
     }
 
@@ -203,10 +233,12 @@
     display: flex;
     gap: calcVW(10);
     background: rgba(0, 0, 0, 0.32);
-    @include font-style(getButtonSizes(button-text-bold-blue-fz),
+    @include font-style(
+      getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-700,
       getButtonSizes(button-text-bold-blue-lh),
-      variables.$light-blue );
+      variables.$light-blue
+    );
     padding: getButtonSizes(button-bold-blue-padding);
     width: getButtonSizes(button-width-bold-blue);
     height: getButtonSizes(button-bold-blue-height);
@@ -216,9 +248,11 @@
 
     &:hover {
       background: transparent;
-      @include font-style(getButtonSizes(button-text-bold-blue-fz),
+      @include font-style(
+        getButtonSizes(button-text-bold-blue-fz),
         variables.$fw-500,
-        getButtonSizes(button-text-bold-blue-lh));
+        getButtonSizes(button-text-bold-blue-lh)
+      );
       transition: 0.3s;
     }
 
@@ -228,10 +262,12 @@
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      @include font-style(calcVWL(16),
+      @include font-style(
+        calcVWL(16),
         variables.$fw-500,
         calcVWL(19),
-        variables.$light-blue );
+        variables.$light-blue
+      );
       padding: calcVWL(8) calcVWL(32);
       width: calcVWL(279);
       height: calcVWL(76);
@@ -252,16 +288,19 @@
       width: max-content;
       height: max-content;
       gap: calcVWT(10);
-      @include font-style(calcVWT(18),
+      @include font-style(
+        calcVWT(18),
         variables.$fw-700,
         calcVWT(22),
-        variables.$light-blue );
+        variables.$light-blue
+      );
 
       &:hover {
         @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22));
 
         img {
-          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0) contrast(0);
+          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0)
+            contrast(0);
         }
       }
 
@@ -276,16 +315,19 @@
 
     @media (max-width: 576px) {
       gap: calcVWM(10);
-      @include font-style(calcVWM(18),
+      @include font-style(
+        calcVWM(18),
         variables.$fw-700,
         calcVWM(22),
-        variables.$light-blue );
+        variables.$light-blue
+      );
 
       &:hover {
         @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22));
 
         img {
-          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0) contrast(0);
+          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0)
+            contrast(0);
         }
       }
 
@@ -371,10 +413,12 @@
     height: unset;
     cursor: pointer;
 
-    @include font-style(getButtonSizes(button-text-bold-blue-fz),
+    @include font-style(
+      getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-700,
       getButtonSizes(button-text-bold-blue-lh),
-      variables.$light-blue !important);
+      variables.$light-blue !important
+    );
 
     &:hover {
       background: variables.$transparent;
@@ -385,10 +429,12 @@
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       padding: calcVWL(26) calcVWL(32) calcVWL(26) calcVWL(40);
 
-      @include font-style(calcVWL(16),
+      @include font-style(
+        calcVWL(16),
         variables.$fw-700,
         calcVWL(19),
-        variables.$light-blue !important);
+        variables.$light-blue !important
+      );
     }
 
     @media (max-width: 1024px) {
@@ -404,10 +450,12 @@
 
   .lightBlueTech {
     background: variables.$light-blue;
-    @include font-style(getButtonSizes(button-text-light-blue-fz),
+    @include font-style(
+      getButtonSizes(button-text-light-blue-fz),
       variables.$fw-700,
       getButtonSizes(button-text-bold-blue-lh),
-      variables.$black );
+      variables.$black
+    );
     border-radius: getButtonSizes(button-bold-blue-br);
     padding: getButtonSizes(button-bold-blue-padding);
     border: 1px solid variables.$light-blue;
@@ -419,27 +467,33 @@
       background: variables.$light-blue;
 
       border: 1px solid variables.$light-blue;
-      @include font-style(getButtonSizes(button-text-light-blue-fz),
+      @include font-style(
+        getButtonSizes(button-text-light-blue-fz),
         variables.$fw-700,
         getButtonSizes(button-text-bold-blue-lh),
-        variables.$black );
+        variables.$black
+      );
       transition: 0.3s;
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      @include font-style(calcVWL(13),
+      @include font-style(
+        calcVWL(13),
         variables.$fw-700,
         calcVWL(18),
-        variables.$black );
+        variables.$black
+      );
       border-radius: calcVWL(8);
       padding: calcVWL(15) calcVWL(32);
       height: auto;
 
       &:hover {
-        @include font-style(calcVWL(13),
+        @include font-style(
+          calcVWL(13),
           variables.$fw-700,
           calcVWL(18),
-          variables.$black );
+          variables.$black
+        );
       }
     }
 
@@ -449,16 +503,20 @@
       width: max-content !important;
       height: max-content !important;
 
-      @include font-style(calcVWT(18),
+      @include font-style(
+        calcVWT(18),
         variables.$fw-400,
         calcVWT(24),
-        variables.$black );
+        variables.$black
+      );
 
       &:hover {
-        @include font-style(calcVWT(18),
+        @include font-style(
+          calcVWT(18),
           variables.$fw-400,
           calcVWT(24),
-          variables.$black );
+          variables.$black
+        );
       }
     }
 
@@ -467,25 +525,31 @@
       width: max-content !important;
       border-radius: calcVWM(8);
 
-      @include font-style(calcVWM(18),
+      @include font-style(
+        calcVWM(18),
         variables.$fw-400,
         calcVWM(24),
-        variables.$black );
+        variables.$black
+      );
 
       &:hover {
-        @include font-style(calcVWM(18),
+        @include font-style(
+          calcVWM(18),
           variables.$fw-400,
           calcVWM(24),
-          variables.$black );
+          variables.$black
+        );
       }
     }
   }
 
   .grayTextBtnTech {
-    @include font-style(getButtonSizes(button-text-light-blue-fz),
+    @include font-style(
+      getButtonSizes(button-text-light-blue-fz),
       variables.$fw-700,
       getButtonSizes(button-text-bold-blue-lh),
-      rgba(255, 255, 255, 0.32));
+      rgba(255, 255, 255, 0.32)
+    );
 
     background: rgba(0, 0, 0, 0.32);
     border-radius: getButtonSizes(button-bold-blue-br);
@@ -497,28 +561,34 @@
 
     &:hover {
       background: variables.$light-blue;
-      @include font-style(getButtonSizes(button-text-light-blue-fz),
+      @include font-style(
+        getButtonSizes(button-text-light-blue-fz),
         variables.$fw-700,
         getButtonSizes(button-text-bold-blue-lh),
-        variables.$black );
+        variables.$black
+      );
       transition: 0.3s;
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      @include font-style(calcVWL(13),
+      @include font-style(
+        calcVWL(13),
         variables.$fw-700,
         calcVWL(18),
-        rgba(255, 255, 255, 0.32));
+        rgba(255, 255, 255, 0.32)
+      );
 
       border-radius: calcVWL(8);
       padding: calcVWL(15) calcVWL(32);
       height: auto;
 
       &:hover {
-        @include font-style(calcVWL(13),
+        @include font-style(
+          calcVWL(13),
           variables.$fw-700,
           calcVWL(18),
-          variables.$black );
+          variables.$black
+        );
       }
     }
 
@@ -527,10 +597,12 @@
       padding: calcVWT(15) calcVWT(32);
       width: max-content !important;
       height: max-content !important;
-      @include font-style(calcVWT(18),
+      @include font-style(
+        calcVWT(18),
         variables.$fw-400,
         calcVWT(24),
-        variables.$light-blue );
+        variables.$light-blue
+      );
 
       &:hover {
         @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
@@ -541,10 +613,12 @@
       padding: calcVWM(16) calcVWM(24);
       border-radius: calcVWM(8);
       width: max-content !important;
-      @include font-style(calcVWM(18),
+      @include font-style(
+        calcVWM(18),
         variables.$fw-400,
         calcVWM(24),
-        variables.$light-blue );
+        variables.$light-blue
+      );
 
       &:hover {
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
@@ -555,10 +629,12 @@
   .transparentBlue {
     width: unset;
     background: variables.$transparent;
-    @include font-style(getButtonSizes(button-text-bold-blue-fz),
+    @include font-style(
+      getButtonSizes(button-text-bold-blue-fz),
       variables.$fw-700,
       normal,
-      variables.$light-blue !important);
+      variables.$light-blue !important
+    );
     border-radius: getButtonSizes(transparent-opposite-br);
     padding: getButtonSizes(button-bold-blue-padding);
     border: 1px solid variables.$light-blue;
@@ -568,26 +644,32 @@
     &:hover {
       background: variables.$light-blue;
       border: 1px solid variables.$light-blue;
-      @include font-style(getButtonSizes(button-text-bold-blue-fz),
+      @include font-style(
+        getButtonSizes(button-text-bold-blue-fz),
         variables.$fw-700,
         getButtonSizes(button-text-bold-blue-lh),
-        variables.$white !important);
+        variables.$white !important
+      );
       transition: 0.3s;
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      @include font-style(calcVWL(16),
+      @include font-style(
+        calcVWL(16),
         variables.$fw-700,
         calcVWL(19),
-        variables.$light-blue !important);
+        variables.$light-blue !important
+      );
       border-radius: calcVWL(8);
       padding: calcVWL(8) calcVWL(32);
 
       &:hover {
-        @include font-style(calcVWL(16),
+        @include font-style(
+          calcVWL(16),
           variables.$fw-700,
           calcVWL(19),
-          variables.$white !important);
+          variables.$white !important
+        );
       }
     }
 
@@ -596,25 +678,31 @@
       height: max-content !important;
       padding: calcVWT(15) calcVWT(32);
 
-      @include font-style(calcVWT(13) !important,
+      @include font-style(
+        calcVWT(13) !important,
         variables.$fw-700 !important,
-        calcVWT(16) !important);
+        calcVWT(16) !important
+      );
       border-radius: calcVWT(8);
     }
 
     @media (max-width: 576px) {
       padding: calcVWM(15) calcVWM(32) !important;
 
-      @include font-style(calcVWM(13) !important,
+      @include font-style(
+        calcVWM(13) !important,
         variables.$fw-500 !important,
-        calcVWM(16) !important);
+        calcVWM(16) !important
+      );
       border-radius: calcVWM(8) !important;
 
       &:hover {
-        @include font-style(calcVWM(16) !important,
+        @include font-style(
+          calcVWM(16) !important,
           variables.$fw-700 !important,
           calcVWM(16) !important,
-          variables.$white !important);
+          variables.$white !important
+        );
       }
     }
   }

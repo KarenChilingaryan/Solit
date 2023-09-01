@@ -7,34 +7,34 @@ import close from "../../../assets/img/icons/close.svg";
 
 import styles from "./Modal.module.scss";
 
-const ModalWrapper = ({ children, open, width, setOpen }) => {
-  const [visible, setVisible] = useState(false)
-  const [animationClass, setAnimationClass] = useState(false)
+const ModalWrapper = ({ children, open, width, setOpen, style }) => {
+  const [visible, setVisible] = useState(false);
+  const [animationClass, setAnimationClass] = useState(false);
 
   const handleClose = () => {
-    setAnimationClass("modalClose")
+    setAnimationClass("modalClose");
     setTimeout(() => {
-      setVisible(false)
-    }, 200)
-  }
+      setVisible(false);
+    }, 200);
+  };
 
   const handleOpen = () => {
-    setAnimationClass("modalOpen")
-    setVisible(true)
-  }
+    setAnimationClass("modalOpen");
+    setVisible(true);
+  };
   const afterClose = () => {
-    setAnimationClass("")
-  }
+    setAnimationClass("");
+  };
 
   useEffect(() => {
     if (open != visible) {
       if (open) {
-        handleOpen()
+        handleOpen();
       } else {
-        handleClose()
+        handleClose();
       }
     }
-  }, [open])
+  }, [open]);
 
   return (
     <Modal
@@ -42,7 +42,7 @@ const ModalWrapper = ({ children, open, width, setOpen }) => {
       open={visible}
       afterClose={afterClose}
       title={<Image src={logo} className={styles.logo} alt="" />}
-      className={`${styles.modal} ${styles[animationClass]}`}
+      className={`${styles.modal} ${styles[animationClass]} ${style && style}`}
       wrapClassName={styles.lll}
       footer={false}
       transitionName=""
@@ -54,7 +54,7 @@ const ModalWrapper = ({ children, open, width, setOpen }) => {
           width="1.25vw"
           height="1.25vw"
           alt=""
-          onClick={()=> setOpen(false)}
+          onClick={() => setOpen(false)}
         />
       }
     >

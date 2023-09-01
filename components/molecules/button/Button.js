@@ -6,6 +6,7 @@ import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobP
 import ModalWrapper from "../../molecules/Modal/Modal";
 import ModalForm from "../modalForm/ModalForm";
 import SuccessModal from "../../organisms/successModal/SuccessModal";
+import LetsTalkModal from "../letsTalkModal/letsTalkModal";
 
 import styles from "./Button.module.scss";
 
@@ -25,9 +26,9 @@ const Button = ({
   onClick,
   type = "button",
 }) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  const [openSuccess, setOpenSuccess] = useState(false)
+  const [openSuccess, setOpenSuccess] = useState(false);
 
   const onSubmit = async (data) => {
     const formData = new FormData();
@@ -38,11 +39,9 @@ const Button = ({
       const res = await dispatch(
         await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
       );
-      setOpenSuccess(true)
-    } catch {
-
-    }
-  }
+      setOpenSuccess(true);
+    } catch {}
+  };
 
   return (
     <>
@@ -59,24 +58,31 @@ const Button = ({
           [styles.grayTextBtnTech]: grayTextBtnTech,
         })} ${styles[classN]}`}
         type={type}
-        {...(onClick ? {
-          onClick: (e) => {
-            if (text == 'Let’s talk') {
-              setOpen(true)
-            } else {
-              onClick(e)
+        {...(onClick
+          ? {
+              onClick: (e) => {
+                if (text == "Let’s talk") {
+                  setOpen(true);
+                } else {
+                  onClick(e);
+                }
+              },
             }
-          }
-        } : {})}
+          : {})}
       >
         {text}
         {icon && <Image src={icon} alt="" />}
       </button>
-      {text == 'Let’s talk' &&
-        <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
-          <ModalForm openData={null} from={'lets'} onSubmit={onSubmit} className={"fromButton"}/>
+      {text == "Let’s talk" && (
+        <ModalWrapper open={open} width={"28vw"} setOpen={setOpen}>
+          <LetsTalkModal
+            openData={null}
+            from={"lets"}
+            onSubmit={onSubmit}
+            className={"fromButton"}
+          />
         </ModalWrapper>
-      }
+      )}
       <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
     </>
   );
