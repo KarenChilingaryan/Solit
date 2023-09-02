@@ -11,7 +11,7 @@ const FloatInput = ({
   required,
   onChange,
   showUploadList,
-  suffix, 
+  suffix,
   rest,
 }) => {
   const [focus, setFocus] = useState(false);

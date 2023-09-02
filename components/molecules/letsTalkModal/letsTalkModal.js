@@ -55,7 +55,11 @@ const ModalLetsTalkForm = ({
               },
             ]}
           >
-            <FloatInput label="Your full name" placeholder="Your full name" />
+            <FloatInput
+              label="Your full name"
+              placeholder="Your full name"
+              required={true}
+            />
           </FormItem>
           <FormItem
             name="from_email"
@@ -70,7 +74,12 @@ const ModalLetsTalkForm = ({
               },
             ]}
           >
-            <FloatInput label="Email" placeholder="Email" name="from_email" />
+            <FloatInput
+              label="Email"
+              placeholder="Email"
+              name="from_email"
+              required={true}
+            />
           </FormItem>
           {from == "apply" && (
             <FormItem
@@ -96,48 +105,6 @@ const ModalLetsTalkForm = ({
               ]}
             >
               <FloatInput label="Level" placeholder="Level" />
-            </FormItem>
-          )}
-          {from == "lets" && (
-            <FormItem
-              name="industry"
-              rules={[
-                {
-                  required: true,
-                  message: "Industry is required",
-                },
-              ]}
-            >
-              <Select
-                className={styles.select}
-                suffixIcon={<Image src={arrow} alt="" />}
-                placeholder={
-                  <span className={styles.selectPlaceholder}>Industry</span>
-                }
-              >
-                <Select.Option value="demo">Demo</Select.Option>
-              </Select>
-            </FormItem>
-          )}
-          {from == "lets" && (
-            <FormItem
-              name="service"
-              rules={[
-                {
-                  required: true,
-                  message: "Service is required",
-                },
-              ]}
-            >
-              <Select
-                className={styles.select}
-                suffixIcon={<Image src={arrow} alt="" />}
-                placeholder={
-                  <span className={styles.selectPlaceholder}>Service</span>
-                }
-              >
-                <Select.Option value="demo">Demo</Select.Option>
-              </Select>
             </FormItem>
           )}
           {from == "apply" && (
@@ -172,7 +139,17 @@ const ModalLetsTalkForm = ({
               />
             </FormItem>
           )}
-
+          {from != "apply" && (
+            <FormItem name="phon_number">
+              <FloatInput
+                label="Phone number"
+                placeholder="Phone number"
+                name="phon_number"
+                type="number"
+                required={true}
+              />
+            </FormItem>
+          )}
           <FormItem
             name={
               from == "apply"
@@ -181,9 +158,10 @@ const ModalLetsTalkForm = ({
                 ? "upload_document"
                 : "file_document"
             }
+            className={styles.uploadItem}
           >
+            <Image className={styles.prefix} src={upload} alt="" />
             <FloatInput
-            
               label={
                 from == "apply"
                   ? "Upload your CV"
@@ -232,42 +210,6 @@ const ModalLetsTalkForm = ({
                 placeholder="Cover letter"
                 name="cover_letter"
               />
-            </FormItem>
-          )}
-          {from != "apply" && (
-            <FormItem name="phon_number">
-              <FloatInput
-                label="Phone number"
-                placeholder="Phone number"
-                name="phon_number"
-                type="number"
-              />
-            </FormItem>
-          )}
-
-          {from != "apply" && (
-            <FormItem
-              name="your_budget"
-              rules={[
-                {
-                  type: "select",
-                  message: "Please select your budget",
-                },
-                {
-                  required: true,
-                  message: "Budget is required",
-                },
-              ]}
-            >
-              <Select
-                className={styles.select}
-                suffixIcon={<Image src={arrow} alt="" />}
-                placeholder={
-                  <span className={styles.selectPlaceholder}>Your budget</span>
-                }
-              >
-                <Select.Option value="demo">Demo</Select.Option>
-              </Select>
             </FormItem>
           )}
           <FormItem className={styles.accept}>

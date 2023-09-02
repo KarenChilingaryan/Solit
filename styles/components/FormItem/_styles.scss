@@ -21,12 +21,24 @@
       font-size: calcVW(18);
       line-height: calcVW(24);
       top: 0;
+      span {
+        color: red;
+      }
     }
 
     .asLabel {
-      top: -10px;
+      left: 0 !important;
+      top: -20px;
       background: transparent;
-      @include font-style(calcVW(13), variables.$fw-400, normal, #8296a5);
+      @include font-style(
+        calcVW(13),
+        variables.$fw-400,
+        normal,
+        #8296a5 !important
+      );
+      span {
+        color: red;
+      }
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
@@ -41,40 +53,54 @@
         line-height: calcVWL(24);
         top: calcVWL(5);
       }
-    }
-
-    @media (max-width: 1024px) {
-      .asPlaceholder {
-        font-weight: 400;
-        font-size: calcVWT(18);
-        line-height: calcVWT(24);
-        top: calcVWT(2);
-      }
-      .label {
+      .asLabel {
         @include font-style(
-          calcVWT(18),
+          calcVWL(13),
           variables.$fw-400,
           normal,
-          #8296a5
+          #8296a5 !important
         );
       }
     }
+  }
 
-    @media (max-width: 576px) {
-      .asPlaceholder {
-        font-weight: 400;
-        font-size: calcVWM(18);
-        line-height: calcVWM(24);
-        top: calcVWM(2);
-      }
-      .label {
-        @include font-style(
-          calcVWM(18),
-          variables.$fw-400,
-          normal,
-          #8296a5
-        );
-      }
+  @media (max-width: 1024px) {
+    .asPlaceholder {
+      font-weight: 400;
+      font-size: calcVWT(18);
+      line-height: calcVWT(24);
+      top: calcVWT(2);
+    }
+    .label {
+      @include font-style(calcVWT(18), variables.$fw-400, normal, #8296a5);
+    }
+    .asLabel {
+      @include font-style(
+        calcVWT(13),
+        variables.$fw-400,
+        normal,
+        #8296a5 !important
+      );
+    }
+  }
+
+  @media (max-width: 576px) {
+    .asPlaceholder {
+      font-weight: 400;
+      font-size: calcVWM(18);
+      line-height: calcVWM(24);
+      top: calcVWM(2);
+    }
+    .label {
+      @include font-style(calcVWM(18), variables.$fw-400, normal, #8296a5);
+    }
+    .asLabel {
+      @include font-style(
+        calcVWM(13),
+        variables.$fw-400,
+        normal,
+        #8296a5 !important
+      );
     }
   }
 }

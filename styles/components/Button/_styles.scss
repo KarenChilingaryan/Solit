@@ -706,4 +706,21 @@
       }
     }
   }
+  .modal {
+    @media (max-width: 1024px) {
+      width: 100%;
+      :global(.ant-modal-content) {
+        padding: calcVWT(64);
+        border-radius: calcVWT(16);
+        width: calcVWT(538);
+      }
+    }
+    @media (max-width: 575px) {
+      :global(.ant-modal-content) {
+        padding: calcVWM(16);
+        border-radius: calcVWM(16);
+        width: calcVWM(343);
+      }
+    }
+  }
 }

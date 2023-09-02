@@ -53,12 +53,12 @@
     }
 
     :global(.ant-modal-title) {
-      margin-bottom: calcVW(60);
+      margin-bottom: calcVW(32);
     }
 
     :global(.ant-modal-close) {
-      top: calcVW(40);
-      right: calcVW(30);
+      top: calcVW(56);
+      right: calcVW(46);
     }
   }
 
@@ -74,6 +74,7 @@
 
   @media (max-width: 1024px) {
     .modal {
+      width: 100%;
       :global(.ant-modal-content) {
         padding: calcVWT(64);
         border-radius: calcVWT(16);

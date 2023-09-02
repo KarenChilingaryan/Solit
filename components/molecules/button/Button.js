@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
 import cx from "classnames";
@@ -29,6 +29,7 @@ const Button = ({
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const [openSuccess, setOpenSuccess] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   const onSubmit = async (data) => {
     const formData = new FormData();
@@ -42,6 +43,19 @@ const Button = ({
       setOpenSuccess(true);
     } catch {}
   };
+
+  const handleResize = () => {
+    setIsTablet( window.innerWidth <= 1024 && window.innerWidth > 575); // Adjust the threshold as per your requirements
+  };
+
+  // Add event listener for window resize
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -74,7 +88,12 @@ const Button = ({
         {icon && <Image src={icon} alt="" />}
       </button>
       {text == "Let’s talk" && (
-        <ModalWrapper open={open} width={"28vw"} setOpen={setOpen}>
+        <ModalWrapper
+          open={open}
+          width={!isTablet ? "28vw" : "52vw"}
+          setOpen={setOpen}
+          style={styles.modal}
+        >
           <LetsTalkModal
             openData={null}
             from={"lets"}
