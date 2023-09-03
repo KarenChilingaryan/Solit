@@ -71,7 +71,7 @@ const Footer = () => {
       },
     },
   ];
-  
+
   const footerApi = useSelector(
     (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
   );
@@ -93,11 +93,11 @@ const Footer = () => {
             {dataDefault[1].expertise.title}
           </Paragraph>
           {dataDefault[1].expertise.data.map((el, idx) => (
-            <Link href={el.link} key={idx}>
-              <Paragraph className={styles.text} key={idx}>
+            <Paragraph className={styles.text} key={idx}>
+              <Link href={el.link} key={idx}>
                 {el.name}
-              </Paragraph>
-            </Link>
+              </Link>
+            </Paragraph>
           ))}
         </Col>
         <Col className={styles.companyWrapper}>
@@ -105,11 +105,11 @@ const Footer = () => {
             {dataDefault[2].company.title}
           </Paragraph>
           {dataDefault[2].company.data.map((el, idx) => (
-            <Link href={el.link} key={idx}>
-              <Paragraph className={styles.text} key={idx}>
+            <Paragraph className={styles.text} key={idx}>
+              <Link href={el.link} key={idx}>
                 {el.name}
-              </Paragraph>
-            </Link>
+              </Link>
+            </Paragraph>
           ))}
         </Col>
         <Col className={styles.companyInfoWraper}>

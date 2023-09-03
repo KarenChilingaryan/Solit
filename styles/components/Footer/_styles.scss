@@ -34,6 +34,7 @@
     }
 
     .textTitle {
+      padding-left: calcVW(20);
       margin-bottom: calcVW(16) !important;
       @include font-style(getFooterSizes(footer-text-title-fz),
         variables.$fw-700,
@@ -43,15 +44,24 @@
 
     .text {
       transition: 0.5s;
+      max-width: max-content;
       cursor: pointer;
       min-height: calcVW(32);
-      @include font-style(getFooterSizes(footer-text-fz), variables.$fw-400, getFooterSizes(footer-text-lh), #fff);
       margin: 0;
+      padding: 0 calcVW(20);
+      @include font-style(getFooterSizes(footer-text-fz), variables.$fw-400, getFooterSizes(footer-text-lh), #fff);
+
+      a {
+        @include font-style(getFooterSizes(footer-text-fz), variables.$fw-400, getFooterSizes(footer-text-lh), #fff);
+      }
 
       &:hover {
-        margin-left: calcVW(8);
-        margin-right: calcVW(-8);
+        padding-left: calcVW(28);
         color: #3fc1ff;
+
+        a {
+          color: #3fc1ff;
+        }
       }
     }
 
@@ -91,6 +101,7 @@
 
       .expertiseWrapper {
         width: calcVWL(216);
+        margin-left: calcVW(-20);
       }
 
       .companyWrapper {
@@ -102,6 +113,7 @@
       }
 
       .textTitle {
+        padding-left: calcVWL(20);
         margin-bottom: calcVWL(16) !important;
         @include font-style(calcVWL(18),
           variables.$fw-700,
@@ -111,11 +123,16 @@
 
       .text {
         min-height: calcVWL(32);
+        padding: 0 calcVW(20);
         @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
 
+        a {
+          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
+        }
+
         &:hover {
-          margin-left: calcVWL(8);
-          margin-right: calcVWL(-8);
+          padding-left: calcVW(28);
+
         }
       }
 
@@ -161,13 +178,27 @@
       }
 
       .textTitle {
+        padding: 0;
+
         margin-bottom: calcVWT(16) !important;
         @include font-style(calcVWT(18), variables.$fw-700, calcVWT(24), #fff);
       }
 
       .text {
+        padding: 0;
         @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+
+        a {
+          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+        }
+
         min-height: calcVWT(32);
+
+        &:hover {
+          padding: 0;
+          margin-left: calcVW(20);
+          margin-right: calcVW(-20);
+        }
       }
 
       .companyWrapper {
@@ -236,6 +267,11 @@
         margin-bottom: calcVWM(7) !important;
         min-height: calcVWM(24);
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+
+        a {
+
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+        }
       }
 
       .socialIconsWrapper {

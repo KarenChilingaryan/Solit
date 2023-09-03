@@ -223,6 +223,7 @@ const GetText = (text, A, B, fs = 8, lh = 10, anchor = "middle", position = 0) =
           textValue = element;
         }
       }
+      arr.push(textValue)
       setDescription(arr);
     }
   }, [text]);
@@ -280,7 +281,7 @@ const Line = () => {
 
   return (
     <>
-      <svg viewBox="0 0 500 470" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
+      <svg viewBox="0 0 500 490" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
         {svgSizes.map((el, index) => {
           let color = 'white';
           if (visiblePercentage > 30) {
