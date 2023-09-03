@@ -29,7 +29,6 @@ export default class MyDocument extends Document {
             property="twitter:image"
             content="https://simpl.info/webp/cherry.webp"
           />
-          <script src="https://www.google.com/recaptcha/enterprise.js?render=6Leij-8nAAAAAE-wq9JJ7Nh78mLizd49SQz64FZb"></script>
         </Head>
         <body>
           <Main />
