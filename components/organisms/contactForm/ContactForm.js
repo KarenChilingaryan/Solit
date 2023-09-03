@@ -8,9 +8,9 @@ import FloatInput from "../../molecules/floatInput/FloatInput";
 import upload from "../../../assets/img/uploadIcon.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
 import contactUsBgImage from "../../../assets/img/contactus-background.png";
+import ReCAPTCHA from "react-google-recaptcha";
 
 import styles from "./ContactForm.module.scss";
-// import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactForm = ({
   title,
@@ -56,9 +56,8 @@ const ContactForm = ({
 
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${
-        !title ? styles.withoutTitle : ""
-      }`}
+      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
+        }`}
       style={style}
     >
       <Col
@@ -162,11 +161,11 @@ const ContactForm = ({
               </Row>
             </FormItem>
             <div className={styles.recaptcha}>
-              {/* <ReCAPTCHA ref={recaptchaRef}
+              <ReCAPTCHA
                 className={styles.recaptcha}
                 onChange={() => checkFormValidation(true, form, setDisabled, recaptchaRef.current)}
                 onExpired={() => setDisabled(true)}
-                sitekey={"7LeAbKcdAAAAAOezcfoFK-tekV_H2V0IzTy5rUn-"} /> */}
+                sitekey={"6Leij-8nAAAAAE-wq9JJ7Nh78mLizd49SQz64FZb"} />
             </div>
           </Row>
 
