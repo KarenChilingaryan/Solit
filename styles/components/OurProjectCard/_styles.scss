@@ -8,7 +8,7 @@
     border-radius: calcVW(16);
 
     .imageContainer {
-      transition: all 0.3s;
+      transition: all 0.4s;
       position: relative;
       overflow: hidden;
       border-radius: calcVW(16);
@@ -17,7 +17,7 @@
       height: calcVW(320);
 
       .img {
-        transition: 0.3s;
+        transition: 0.4s;
         width: 100%;
         border-radius: calcVW(16) calcVW(16) 0 0;
         height: calcVW(244);
@@ -41,7 +41,7 @@
       }
 
       .positionSection {
-        transition: 0.3s;
+        transition: 0.4s;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -57,14 +57,14 @@
         }
 
         .stacks {
-          transition: 0.3s;
+          transition: 0.4s;
           display: flex;
           height: 0;
           overflow: hidden;
           gap: calcVW(25);
 
           .icon {
-            transition: 0.3s;
+            transition: 0.4s;
             width: calcVW(24);
             height: 0;
             object-fit: cover;
@@ -73,7 +73,7 @@
       }
 
       &:hover {
-        transition: all 0.3s;
+        transition: all 0.4s;
         height: calcVW(420);
 
         .blogsPadding {
@@ -82,13 +82,13 @@
         }
 
         .img {
-          transition: all 0.3s;
+          transition: all 0.4s;
           height: calcVW(306);
           filter: grayscale(0%);
         }
 
         .positionSection {
-          transition: 0.3s;
+          transition: 0.4s;
           height: calcVW(114);
           background: rgba(2, 13, 28, 0.73);
 
@@ -107,13 +107,13 @@
           }
 
           .stacks {
-            transition: 0.3s;
+            transition: 0.4s;
             height: calcVW(24);
             justify-content: space-between;
             gap: calcVW(25);
 
             .icon {
-              transition: 0.3s;
+              transition: 0.4s;
               width: calcVW(24);
               height: calcVW(24);
             }
