@@ -86,7 +86,11 @@
 
       .buttonWrapper {
         button {
-          @include font-style(getModalFormSizes(button-fz), variables.$fw-700, getModalFormSizes(button-fl));
+          @include font-style(
+            getModalFormSizes(button-fz),
+            variables.$fw-700,
+            getModalFormSizes(button-fl)
+          );
         }
       }
 
@@ -115,7 +119,12 @@
         }
 
         .acceptText {
-          @include font-style(getModalFormSizes(text-fz), variables.$fw-400, getModalFormSizes(text-fl), #000);
+          @include font-style(
+            getModalFormSizes(text-fz),
+            variables.$fw-400,
+            getModalFormSizes(text-fl),
+            #000
+          );
         }
       }
 
@@ -190,10 +199,9 @@
             }
           }
 
-          input[type=file] {
+          input[type="file"] {
             color: transparent;
           }
-
         }
 
         :global(.ant-input-status-success) {
@@ -234,7 +242,7 @@
         background-color: aqua;
 
         :global {
-          .ant-form-item-label>label {
+          .ant-form-item-label > label {
             font-size: calcVW(13);
             color: #ffffff;
           }
@@ -273,27 +281,33 @@
       }
 
       :global {
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
           background: transparent;
           border-color: none;
           box-shadow: 0 2px 0 0 rgb(207, 39, 39);
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input {
           background: transparent;
           border-color: none !important;
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
           border-color: none;
         }
 
-        .ant-form-item-label>label {
+        .ant-form-item-label > label {
           font-size: 16px;
           color: #ffffff;
         }
 
-        .ant-input:focus+.ant-form-item-label>label {
+        .ant-input:focus + .ant-form-item-label > label {
           color: blue;
         }
       }
@@ -339,15 +353,11 @@
         :global(.ant-input) {
           padding: calcVWT(12) 0px calcVWT(5) 0;
           border-bottom: 2px solid #ffffff;
-
-          &:focus {
-            box-shadow: 0 2px 0 0 blue;
-          }
         }
 
         .focused {
           :global {
-            .ant-form-item-label>label {
+            .ant-form-item-label > label {
               font-size: calcVWT(13);
             }
           }
@@ -374,7 +384,10 @@
           height: calcVWT(20);
         }
 
-        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
           width: calcVWT(20);
           height: calcVWT(20);
         }
@@ -426,7 +439,10 @@
           height: calcVWM(20);
         }
 
-        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
           width: calcVWM(20);
           height: calcVWM(20);
         }

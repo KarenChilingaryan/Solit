@@ -47,12 +47,12 @@
       }
 
       .asPlaceholder {
-        @include font-style(calcVWL(18) !important, variables.$fw-400, calcVWL(24));
+        @include font-style(calcVWL(18) !important, variables.$fw-400, calcVWL(24) !important);
         top: calcVWL(5);
       }
       .asLabel {
         @include font-style(
-          calcVWL(13),
+          calcVWL(13) !important,
           variables.$fw-400,
           normal,
           #8296a5 !important
@@ -63,15 +63,15 @@
 
   @media (max-width: 1024px) {
     .asPlaceholder {
-      @include font-style(calcVWT(18) !important, variables.$fw-400, calcVWT(24));
+      @include font-style(calcVWT(18) !important, variables.$fw-400, calcVWT(24) !important);
       top: calcVWT(2);
     }
     .label {
-      @include font-style(calcVWT(18), variables.$fw-400, normal, #8296a5);
+      @include font-style(calcVWT(18) !important, variables.$fw-400, normal, #8296a5);
     }
     .asLabel {
       @include font-style(
-        calcVWT(13),
+        calcVWT(13) !important,
         variables.$fw-400,
         normal,
         #8296a5 !important
@@ -81,7 +81,7 @@
 
   @media (max-width: 576px) {
     .asPlaceholder {
-      @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+      @include font-style(calcVWM(18) !important, variables.$fw-400, calcVWM(24));
       top: calcVWM(2);
     }
     .label {
@@ -89,7 +89,7 @@
     }
     .asLabel {
       @include font-style(
-        calcVWM(13),
+        calcVWM(13) !important,
         variables.$fw-400,
         normal,
         #8296a5 !important
