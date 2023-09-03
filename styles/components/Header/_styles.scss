@@ -119,6 +119,21 @@
               variables.$fw-400,
               normal);
           }
+
+          @media (min-width: 1025px) {
+            transition: 0.3s;
+
+            a {
+              overflow: hidden;
+              transition: 0.3s;
+              height: calcVW(62);
+            }
+
+            .menuItemChildWrapper {
+              overflow: hidden;
+              transition: 0.5s;
+            }
+          }
         }
       }
 
@@ -159,7 +174,17 @@
         }
 
         .menuItemChildMainWrapper {
-          padding: calcVW(0);
+          padding: 0;
+
+          @media (min-width: 1025px) {
+            transition: 0.3s;
+
+            a {
+              overflow: hidden;
+              transition: 0.3s;
+              height: 0;
+            }
+          }
         }
       }
     }
@@ -244,11 +269,34 @@
                 normal);
             }
           }
+
+          @media (min-width: 1025px) {
+            transition: 0.3s;
+
+            a {
+              height: calcVWL(62);
+            }
+
+            .menuItemChildWrapper {
+              overflow: hidden;
+              transition: 0.5s;
+            }
+          }
         }
 
         .closedMenu {
           .menuItemChildMainWrapper {
             padding: calcVW(0);
+
+            @media (min-width: 1025px) {
+              transition: 0.3s;
+
+              a {
+                overflow: hidden;
+                transition: 0.3s;
+                height: 0;
+              }
+            }
           }
         }
       }
@@ -663,9 +711,11 @@
         .closedMenu {
           transition: 0.2s;
           row-gap: 0 !important;
+
           .menuItemChildMainWrapper {
             transition: 0.2s;
             height: 0;
+
             .menuItemChildWrapper {
               transition: 0.2s;
               height: 0;
