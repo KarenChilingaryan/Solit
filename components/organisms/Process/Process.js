@@ -283,7 +283,7 @@ const Line = () => {
       <svg viewBox="0 0 500 470" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
         {svgSizes.map((el, index) => {
           let color = 'white';
-          if (visiblePercentage > 0) {
+          if (visiblePercentage > 30) {
             color = '#3FC1FF'
           }
           if (el.type === "path") {
@@ -339,23 +339,13 @@ const Line = () => {
       <svg viewBox="0 0 500 2350" width="100%" height="100%" ref={targetRefMobile} className={styles.mobileSvg}>
         {svgSizesMobile.map((el, index) => {
           let color = 'white';
-          if (visiblePercentageMobile > 0 && index < 1) {
+          if (visiblePercentage > 0) {
             color = '#3FC1FF'
-          } else if (visiblePercentageMobile > 40 && visiblePercentageMobile <= 55 && index < 3) {
-            color = '#3FC1FF'
-          } else if (visiblePercentageMobile > 55 && visiblePercentageMobile < 66 && index < 5) {
-            color = '#3FC1FF'
-          } else if (visiblePercentageMobile >= 66 && visiblePercentageMobile < 85 && index < 7) {
-            color = '#3FC1FF'
-          } else if (visiblePercentageMobile >= 85 && visiblePercentageMobile < 100 && index < 9) {
-            color = '#3FC1FF';
-          } else if (visiblePercentageMobile >= 100) {
-            color = '#3FC1FF';
           }
           if (el.type === "path") {
             const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
 
-            return <path key={index} d={path} stroke={color} strokeWidth="2" fill="none" />;
+            return <path key={index} d={path} className={color == '#3FC1FF' && `${styles["loadingPath" + index]} ${styles.loadingPath}`} stroke={color} strokeWidth="2" fill="none" />;
           } else if (el.type === "round") {
             return (
               <>
@@ -387,8 +377,9 @@ const Line = () => {
                   r="15"
                   stroke={color}
                   stroke-width="3"
+                  className={color == '#3FC1FF' && `${styles["loadingPathRound" + index]} ${styles.loadingPathRound}`}
                 />
-                <circle cx={el.A} cy={el.B} r="9" fill={color} />
+                <circle cx={el.A} cy={el.B} r="9" fill={color} className={color == '#3FC1FF' && `${styles['loadingPathRoundFill' + index]} ${styles.loadingPathRoundFill}`} />
                 {GetText(
                   el.description,
                   el.A + 60,
