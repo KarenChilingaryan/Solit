@@ -462,7 +462,7 @@
         width: calcVWM(1500);
         height: calcVWM(1100);
         left: calcVWM(-580);
-        top: calcVWM(-123);
+        top: calcVWM(-70);
       }
 
       flex-direction: column;
@@ -497,7 +497,7 @@
       .form {
         width: 100%;
         max-width: 100%;
-        gap: calcVWM(32);
+        gap: calcVWM(0);
 
         :global(.ant-input-affix-wrapper) {
           height: calcVWM(35);
