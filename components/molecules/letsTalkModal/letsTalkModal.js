@@ -75,8 +75,8 @@ const ModalLetsTalkForm = ({
             ]}
           >
             <FloatInput
-              label="Email"
-              placeholder="Email"
+              label="Your email address"
+              placeholder="Your email address"
               name="from_email"
               required={true}
             />

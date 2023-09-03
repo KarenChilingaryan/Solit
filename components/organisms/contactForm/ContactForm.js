@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
 import Button from "../../molecules/button/Button";
@@ -56,8 +56,9 @@ const ContactForm = ({
 
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
-        }`}
+      className={`${styles.contactFormWrapper} ${
+        !title ? styles.withoutTitle : ""
+      }`}
       style={style}
     >
       <Col
@@ -146,7 +147,7 @@ const ContactForm = ({
                 multiple
                 type="file"
                 accept=".pdf,.doc,.docx"
-                suffix={<Image className={styles.suffix} src={upload} />}
+                suffix={<Image className={styles.suffix} src={upload} alt="" />}
                 onChange={(e) => {
                   setFile(e.target.files[0]);
                 }}
@@ -163,9 +164,17 @@ const ContactForm = ({
             <div className={styles.recaptcha}>
               <ReCAPTCHA
                 className={styles.recaptcha}
-                onChange={() => checkFormValidation(true, form, setDisabled, recaptchaRef.current)}
+                onChange={() =>
+                  checkFormValidation(
+                    true,
+                    form,
+                    setDisabled,
+                    recaptchaRef.current
+                  )
+                }
                 onExpired={() => setDisabled(true)}
-                sitekey={"6Leij-8nAAAAAE-wq9JJ7Nh78mLizd49SQz64FZb"} />
+                sitekey={"6Leij-8nAAAAAE-wq9JJ7Nh78mLizd49SQz64FZb"}
+              />
             </div>
           </Row>
 
@@ -178,6 +187,7 @@ const ContactForm = ({
         <Image
           src={contactBgImage}
           className={`${styles.backImage} ${styles.topBackImage}`}
+          alt=""
         />
       )}
     </Col>
