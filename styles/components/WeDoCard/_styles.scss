@@ -71,12 +71,10 @@
 
       .more {
         column-gap: calcVWL(16);
-        @include font-style(
-          calcVWL(18),
+        @include font-style(calcVWL(18),
           variables.$fw-700,
           calcVWL(18),
-          #40a9ff
-        );
+          #40a9ff);
 
         img {
           width: calcVWL(16);
@@ -127,12 +125,10 @@
 
       .more {
         column-gap: calcVWT(16);
-        @include font-style(
-          calcVWT(18),
+        @include font-style(calcVWT(18),
           variables.$fw-700,
           calcVWT(18),
-          #40a9ff
-        );
+          #40a9ff);
 
         img {
           width: calcVWT(16);
@@ -157,6 +153,7 @@
         overflow: hidden;
         -webkit-line-clamp: 5;
         max-height: calcVWM(100);
+        padding: 0;
         @include font-style(calcVWM(13), variables.$fw-400, calcVWM(20), #fff);
       }
 
@@ -170,12 +167,10 @@
       .more {
         margin-top: calcVWM(120);
         column-gap: calcVWM(16);
-        @include font-style(
-          calcVWM(18),
+        @include font-style(calcVWM(18),
           variables.$fw-700,
           calcVWM(18),
-          #40a9ff
-        );
+          #40a9ff);
 
         img {
           width: calcVWM(16);
@@ -184,8 +179,10 @@
       }
     }
   }
+
   .moreWrapper {
-    justify-content: center ;
+    justify-content: center;
+
     @media (max-width: 576px) {
       justify-content: space-between;
     }
