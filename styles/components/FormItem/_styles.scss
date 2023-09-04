@@ -82,7 +82,7 @@
   @media (max-width: 576px) {
     .asPlaceholder {
       @include font-style(calcVWM(18) !important, variables.$fw-400, calcVWM(24));
-      top: calcVWM(2);
+      top: calcVWM(10) !important;
     }
     .label {
       @include font-style(calcVWM(18) !important, variables.$fw-400, normal, #8296a5 );

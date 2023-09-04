@@ -122,7 +122,7 @@ const ContactForm = ({
                 },
               ]}
             >
-              <FloatInput label="Email" placeholder="Email" name="full_name" />
+              <FloatInput label="Your email address" placeholder="Your email address" name="from_email" />
             </FormItem>
             <FormItem name="phone">
               <FloatInput
