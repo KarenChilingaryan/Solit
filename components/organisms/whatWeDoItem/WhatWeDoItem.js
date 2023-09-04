@@ -10,6 +10,7 @@ import impactIcon from "../../../assets/img/u_adjust-circle.svg";
 import { postsWhatWeDoDetailApi } from "../../../services/postsWhatWeDoDetailApi";
 
 import styles from "./WhatWeDoItem.module.scss";
+import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 
 
 const WhatWeDoComponent = () => {
@@ -41,12 +42,8 @@ const WhatWeDoComponent = () => {
             <Row className={styles.blockItems}>
               {postsWhatWeDoApi?.data_list.slice(0, 3).map((el, i) =>
                 <Link href={`/what-we-do/${el.what_we_do_detail}`} key={i}>
-                  <AboutItem
-                    title={el.title}
-                    desc={el.description}
-                    icon={el.original_logo_what_we_do}
-                    weDo
-                    weDoWidth
+                  <WeDoCard
+                    item={el}
                   />
                 </Link>
               )}

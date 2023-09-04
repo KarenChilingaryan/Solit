@@ -2,13 +2,12 @@ import { memo, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
 import cx from "classnames";
-import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import ModalWrapper from "../../molecules/Modal/Modal";
-import ModalForm from "../modalForm/ModalForm";
 import SuccessModal from "../../organisms/successModal/SuccessModal";
 import LetsTalkModal from "../letsTalkModal/letsTalkModal";
 
 import styles from "./Button.module.scss";
+import { emailLetsTalkApi } from "../../../services/emailLetsTalkApi";
 
 const Button = ({
   text,
@@ -38,14 +37,18 @@ const Button = ({
     }
     try {
       const res = await dispatch(
-        await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
+        await emailLetsTalkApi.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-    } catch {}
+      setOpen(false)
+      setTimeout(() => {
+        setOpenSuccess(false)
+      }, 3000)
+    } catch { }
   };
 
   const handleResize = () => {
-    setIsTablet( window.innerWidth <= 1024 && window.innerWidth > 575); // Adjust the threshold as per your requirements
+    setIsTablet(window.innerWidth <= 1024 && window.innerWidth > 575); // Adjust the threshold as per your requirements
   };
 
   // Add event listener for window resize
@@ -74,14 +77,14 @@ const Button = ({
         type={type}
         {...(onClick
           ? {
-              onClick: (e) => {
-                if (text == "Let’s talk") {
-                  setOpen(true);
-                } else {
-                  onClick(e);
-                }
-              },
-            }
+            onClick: (e) => {
+              if (text == "Let’s talk") {
+                setOpen(true);
+              } else {
+                onClick(e);
+              }
+            },
+          }
           : {})}
       >
         {text}

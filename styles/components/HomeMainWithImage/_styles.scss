@@ -92,7 +92,7 @@
   .socialSites {
     position: fixed;
     width: calcVW(440);
-    z-index: 1;
+    z-index: 11;
     transform: rotate(-90deg);
     left: getHomeMainWithImage(social-sites-lp);
     top: getHomeMainWithImage(social-sites-tp);

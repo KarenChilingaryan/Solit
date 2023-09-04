@@ -26,6 +26,8 @@ import { postsTextCareersColourfulApi } from "../../services/postsTextCareersCol
 import { postsTextMainAboutUsApi } from "../../services/postsTextMainAboutUsApi";
 import { footerApi } from "../../services/footerApi";
 import { postTestimonialsApi } from "../../services/postTestimonialsApi";
+import { postsPrivacyPolicyOrConditionTermsApi } from "../../services/postsPrivacyPolicyOrConditionTermsApi";
+import { postsPrivacyPolicyOrConditionPolicyApi } from "../../services/postsPrivacyPolicyOrConditionPolicyApi";
 
 export async function getServerSideProps(context) {
   const res = await axios.get(`https://jsonplaceholder.typicode.com/users/`);
@@ -66,6 +68,13 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postTestimonialsApi.endpoints.posts.initiate())
       await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate())
       await dispatch(await footerApi.endpoints.footer.initiate())
+
+      if (!a.pathname.includes('/terms-and-conditions')) {
+        await dispatch(await postsPrivacyPolicyOrConditionTermsApi.endpoints.terms.initiate())
+      }
+      if (!a.pathname.includes('/privacy-policy')) {
+        await dispatch(await postsPrivacyPolicyOrConditionPolicyApi.endpoints.policy.initiate())
+      }
     }
 
     if (a.pathname.includes('/blog') || flag) {
@@ -96,6 +105,14 @@ const PageWrapper = ({ children, item }) => {
     }
     if (a.pathname.includes('/what-we-do') || flag) {
       await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate())
+    }
+
+    if (a.pathname.includes('/terms-and-conditions') || flag) {
+      await dispatch(await postsPrivacyPolicyOrConditionTermsApi.endpoints.terms.initiate())
+
+    }
+    if (a.pathname.includes('/privacy-policy') || flag) {
+      await dispatch(await postsPrivacyPolicyOrConditionPolicyApi.endpoints.policy.initiate())
     }
 
     if (!flag) {

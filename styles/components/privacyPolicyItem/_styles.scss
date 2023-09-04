@@ -1,0 +1,56 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-privacy-policy-item-styles {
+  .content {
+    width: getPrivacyPolicySizes(content-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bottomBlock {
+    margin: getPrivacyPolicySizes(bottom-block-m);
+    color: white;
+
+    .blockItemImage {
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .title {
+      @include font-style(getPrivacyPolicySizes(title-fz),
+        variables.$fw-500,
+        getPrivacyPolicySizes(title-lh),
+        #fff);
+      margin: calcVW(250) 0 calcVW(32) 0 !important;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .content {
+      width: calcVWT(976);
+    }
+
+    .bottomBlock {
+      .title {
+        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43), #fff);
+        margin-bottom: calcVWT(32) !important;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .content {
+      width: calcVWM(343);
+    }
+
+    .bottomBlock {
+      .title {
+        @include font-style(calcVWM(36), variables.$fw-500, calcVWM(43), #fff);
+        margin-bottom: calcVWM(32) !important;
+      }
+    }
+  }
+}

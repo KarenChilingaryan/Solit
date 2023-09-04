@@ -150,6 +150,9 @@
         input[type="file"] {
           z-index: 999;
           color: transparent;
+          &:focus {
+            border-bottom: 1px solid white;
+          }
         }
       }
 
@@ -316,8 +319,8 @@
         }
 
         .recaptcha {
-          margin-top: calcVWL(-29);
-          margin-bottom: calcVWL(15);
+          margin-top: calcVWL(-8);
+          margin-bottom: calcVWL(10.4);
         }
 
         :global(.ant-input-affix-wrapper) {

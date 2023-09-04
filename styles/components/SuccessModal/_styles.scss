@@ -2,6 +2,9 @@
 @import "../../base/mixins";
 
 @mixin generate-success-modal-styles {
+    .successModal {
+        background-color: red
+    }
     .content {
         display: flex;
         flex-direction: column;
