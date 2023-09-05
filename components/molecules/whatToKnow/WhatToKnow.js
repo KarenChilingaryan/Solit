@@ -7,8 +7,8 @@ import styles from "./WhatToKnow.module.scss";
 const WhatToKnow = ({
   color = "#fff",
   title = "Want to know more?",
-  description = "For further information dont hesitate to contact us. We would be happyto provide you with more information.",
-  buttonText = 'Let’s talk',
+  description = "For further information don't hesitate to contact us. We would be happy to provide you with more information.",
+  buttonText = "Let’s talk",
   className,
   onClick,
 }) => {
@@ -25,7 +25,13 @@ const WhatToKnow = ({
             {description}
           </Row>
         )}
-        <Button text={buttonText} transparentOpposite className={styles.button} classN={className} onClick={onClick}/>
+        <Button
+          text={buttonText}
+          transparentOpposite
+          className={styles.button}
+          classN={className}
+          onClick={onClick}
+        />
       </Row>
     </Col>
   );
