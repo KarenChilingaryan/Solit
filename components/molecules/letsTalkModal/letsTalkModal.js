@@ -16,6 +16,7 @@ const ModalLetsTalkForm = ({
   className,
 }) => {
   const [file, setFile] = useState(null);
+  const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
 
   const submitForm = (values, data) => {
     const formData = {
@@ -216,7 +217,7 @@ const ModalLetsTalkForm = ({
             },
           ]}
           >
-            <Checkbox name="accept" />
+            <Checkbox name="accept" onChange={setOnChangeCheckbox} value={onChangeCheckbox} />
             <Row className={styles.acceptText}>
               I accept your Privacy Policy
             </Row>
