@@ -30,16 +30,20 @@
     }
 
     .companyInfoWraper {
+      display: flex;
+      flex-direction: column;
       width: calcVW(343);
     }
 
     .textTitle {
       padding-left: calcVW(20);
       margin-bottom: calcVW(16) !important;
-      @include font-style(getFooterSizes(footer-text-title-fz),
+      @include font-style(
+        getFooterSizes(footer-text-title-fz),
         variables.$fw-700,
         getFooterSizes(footer-text-title-lh),
-        #fff);
+        #fff
+      );
     }
 
     .text {
@@ -49,10 +53,20 @@
       min-height: calcVW(32);
       margin: 0;
       padding: 0 calcVW(20);
-      @include font-style(getFooterSizes(footer-text-fz), variables.$fw-400, getFooterSizes(footer-text-lh), #fff);
+      @include font-style(
+        getFooterSizes(footer-text-fz),
+        variables.$fw-400,
+        getFooterSizes(footer-text-lh),
+        #fff
+      );
 
       a {
-        @include font-style(getFooterSizes(footer-text-fz), variables.$fw-400, getFooterSizes(footer-text-lh), #fff);
+        @include font-style(
+          getFooterSizes(footer-text-fz),
+          variables.$fw-400,
+          getFooterSizes(footer-text-lh),
+          #fff
+        );
       }
 
       &:hover {
@@ -75,12 +89,14 @@
         object-fit: contain;
 
         &:hover {
-          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg) brightness(86%) contrast(99%);
+          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg)
+            brightness(86%) contrast(99%);
           transition: 0.3s;
         }
       }
 
       .socialIconsTitle {
+        padding: 0;
         width: 100%;
       }
     }
@@ -115,10 +131,7 @@
       .textTitle {
         padding-left: calcVWL(20);
         margin-bottom: calcVWL(16) !important;
-        @include font-style(calcVWL(18),
-          variables.$fw-700,
-          calcVWL(22),
-          #fff);
+        @include font-style(calcVWL(18), variables.$fw-700, calcVWL(22), #fff);
       }
 
       .text {
@@ -127,12 +140,16 @@
         @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
 
         a {
-          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
+          @include font-style(
+            calcVWL(18),
+            variables.$fw-400,
+            calcVWL(24),
+            #fff
+          );
         }
 
         &:hover {
           padding-left: calcVW(28);
-
         }
       }
 
@@ -189,7 +206,12 @@
         @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
 
         a {
-          @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+          @include font-style(
+            calcVWT(18),
+            variables.$fw-400,
+            calcVWT(24),
+            #fff
+          );
         }
 
         min-height: calcVWT(32);
@@ -257,7 +279,6 @@
         min-width: calcVWM(150);
       }
 
-
       .textTitle {
         margin-bottom: calcVWM(17) !important;
         @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), #fff);
@@ -269,8 +290,12 @@
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
 
         a {
-
-          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            calcVWM(24),
+            #fff
+          );
         }
       }
 
@@ -290,7 +315,6 @@
 
         .socialIconsTitle {
           margin-bottom: calcVWM(10) !important;
-
         }
       }
     }

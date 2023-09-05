@@ -23,9 +23,7 @@ const ModalLetsTalkForm = ({
     const formData = {
       ...values,
       ...(data ? data : {}),
-      [from == "apply"
-        ? "file_cv"
-        : "file_document"]: file
+      [from == "apply" ? "file_cv" : "file_document"]: file,
     };
     onSubmit(formData);
   };
@@ -155,11 +153,7 @@ const ModalLetsTalkForm = ({
             </FormItem>
           )}
           <FormItem
-            name={
-              from == "apply"
-                ? "file_cv"
-                : "file_document"
-            }
+            name={from == "apply" ? "file_cv" : "file_document"}
             className={styles.uploadItem}
           >
             <Image className={styles.prefix} src={upload} alt="" />
@@ -168,21 +162,17 @@ const ModalLetsTalkForm = ({
                 from == "apply"
                   ? "Upload your CV"
                   : from == "lets"
-                    ? "Upload document"
-                    : "About your project"
+                  ? "Upload document"
+                  : "About your project"
               }
               placeholder={
                 from == "apply"
                   ? "Upload your CV"
                   : from == "lets"
-                    ? "Upload document"
-                    : "About your project"
+                  ? "Upload document"
+                  : "About your project"
               }
-              name={
-                from == "apply"
-                  ? "file_cv"
-                  : "file_document"
-              }
+              name={"file_document"}
               multiple
               type="file"
               accept=".pdf,.doc,.docx"
@@ -191,7 +181,7 @@ const ModalLetsTalkForm = ({
                 setFile(e.target.files[0]);
               }}
               showUploadList={false}
-              className={styles.uploadFile}
+              className={`${styles.uploadFile} ${file && style.uploadedFile}`}
             />
           </FormItem>
           {from != "apply" && (
@@ -212,21 +202,28 @@ const ModalLetsTalkForm = ({
               />
             </FormItem>
           )}
-          <FormItem className={styles.accept} name="accept" rules={[
-            {
-              required: true,
-              message: "Accept is required",
-            },
-          ]}
+          <FormItem
+            className={styles.accept}
+            name="accept"
+            rules={[
+              {
+                required: true,
+                message: "Accept is required",
+              },
+            ]}
           >
-            <Checkbox name="accept" onChange={() => {
-              setOnChangeCheckbox(!onChangeCheckbox)
-              if (onChangeCheckbox) {
-                form.resetFields(['accept'])
-              } else {
-                form.setFieldValue('accept', !onChangeCheckbox)
-              }
-            }} value={onChangeCheckbox} />
+            <Checkbox
+              name="accept"
+              onChange={() => {
+                setOnChangeCheckbox(!onChangeCheckbox);
+                if (onChangeCheckbox) {
+                  form.resetFields(["accept"]);
+                } else {
+                  form.setFieldValue("accept", !onChangeCheckbox);
+                }
+              }}
+              value={onChangeCheckbox}
+            />
             <Row className={styles.acceptText}>
               I accept your Privacy Policy
             </Row>

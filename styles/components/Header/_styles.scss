@@ -76,8 +76,9 @@
           position: absolute;
           flex-wrap: wrap;
           width: calcVW(680);
+          left: calcVW(-20);
           top: getHeaderSizes(header-menu-item-child-main-wrapper-top);
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(0, 0, 0, 0.88);
           padding: calcVW(24);
           border-radius: 0 0 calcVW(16) calcVW(16);
           column-gap: calcVW(32);

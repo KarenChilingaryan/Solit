@@ -1,10 +1,10 @@
 import { memo, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Image from "next/image";
 import { Paragraph } from "../../atoms";
 import Button from "../../molecules/button/Button";
 
 import styles from "./Technology.module.scss";
-import { useSelector } from "react-redux";
 
 const Technology = () => {
   const [current, setCurrent] = useState(0);

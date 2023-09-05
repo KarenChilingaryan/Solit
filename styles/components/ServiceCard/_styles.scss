@@ -3,6 +3,7 @@
 
 @mixin generate-service-card-styles {
   .moreBorder {
+    border: 1px solid #219fdb;
     a {
       height: 100%;
       width: 100%;
@@ -10,16 +11,17 @@
       justify-content: center;
       align-items: center;
     }
-    border: 1px solid #219fdb;
     .more {
       display: flex;
       gap: 10px;
       align-items: center;
       @include font-style(calcVW(18), variables.$fw-700, calcVW(21), #219fdb);
+
       img {
         width: calcVW(18);
         height: calcVW(18);
       }
+
       @media (max-width: 1024px) {
         @include font-style(
           calcVWT(18),

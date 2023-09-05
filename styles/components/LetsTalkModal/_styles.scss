@@ -173,8 +173,13 @@
           height: calcVW(25);
         }
       }
+
+      .uploadedFile {
+        color: #000 !important;
+      }
+
       .uploadFile {
-        color: #e5e5e5;
+        color: #080606;
         position: relative;
 
         :global(.ant-input-affix-wrapper) {
@@ -278,7 +283,7 @@
 
       :global(.ant-input) {
         position: relative;
-        padding: calcVW(12) 0px calcVW(5) 0;
+        padding: 0 0px calcVW(5) 0;
         width: 100%;
         outline: 0;
         border: 0;
@@ -286,6 +291,12 @@
         transition: box-shadow 150ms ease-out;
         background: transparent;
         color: #ffffff;
+        @include font-style(
+          calcVW(18),
+          variables.$fw-400,
+          calcVW(24),
+          variables.$black
+        );
 
         &:focus {
           box-shadow: 0 2px 0 0 blue;
@@ -424,8 +435,6 @@
         :global(.ant-input) {
           padding: calcVWT(12) 0px calcVWT(5) 0;
           border-bottom: 2px solid #ffffff;
-
-     
         }
 
         .focused {

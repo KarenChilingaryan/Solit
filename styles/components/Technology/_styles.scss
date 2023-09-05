@@ -45,6 +45,7 @@
         }
 
         &:hover {
+          justify-content: space-evenly;
           background-color: #000000;
           border: 1px solid #3fc1ff;
           border-radius: getTechnologySizes(language-block-br);
@@ -54,6 +55,7 @@
             @include font-style(getTechnologySizes(language-name-fz),
               variables.$fw-600,
               getTechnologySizes(language-name-lh));
+              text-align: center;
           }
         }
       }

@@ -1,10 +1,11 @@
 import { memo } from "react";
+import Link from "next/link";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 import { Col, Row, Paragraph } from "../../atoms";
 import logoFooter from "../../../assets/img/bigLogo.png";
+
 import styles from "./Footer.module.scss";
-import Link from "next/link";
-import { useSelector } from "react-redux";
 
 const Footer = () => {
   const dataDefault = [
@@ -20,25 +21,25 @@ const Footer = () => {
         title: "Expertise",
         data: [
           {
-            link: 'services',
-            name: "Our Services"
+            link: "services",
+            name: "Our Services",
           },
           {
-            link: '/',
-            name: "Tech Stack"
+            link: "/",
+            name: "Tech Stack",
           },
           {
-            link: 'about-us',
+            link: "about-us",
             name: "About Us",
           },
           {
-            link: 'portfolio',
-            name: "Portfolio"
+            link: "portfolio",
+            name: "Portfolio",
           },
           {
-            link: 'careers',
-            name: "Careers"
-          }
+            link: "careers",
+            name: "Careers",
+          },
         ],
       },
     },
@@ -48,23 +49,23 @@ const Footer = () => {
         title: "Company",
         data: [
           {
-            link: 'terms-and-conditions',
+            link: "terms-and-conditions",
             name: "Terms and Conditions",
           },
           {
-            link: 'privacy-policy',
+            link: "privacy-policy",
             name: "Privacy Policy",
           },
           {
-            link: 'testimonials',
+            link: "testimonials",
             name: "Testimonials",
           },
           {
-            link: 'blog',
+            link: "blog",
             name: "Blog",
           },
           {
-            link: 'contact-us',
+            link: "contact-us",
             name: "Contact",
           },
         ],
@@ -76,12 +77,15 @@ const Footer = () => {
     (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
   );
 
-  const info = footerApi && footerApi.office ? {
-    address: footerApi.office.address,
-    mail: footerApi.office.mail,
-    number: footerApi.office.number,
-  } : {};
-
+  const info =
+    footerApi && footerApi.office
+      ? {
+          address: footerApi.office.address,
+          mail: footerApi.office.mail,
+          number: footerApi.office.number,
+        }
+      : {};
+  console.log(info, "______");
   return (
     <div className={styles.footerWrapper}>
       <Row className={styles.footerBlock}>
@@ -113,25 +117,38 @@ const Footer = () => {
           ))}
         </Col>
         <Col className={styles.companyInfoWraper}>
-          <Paragraph className={styles.textTitle}>
-            Office
-          </Paragraph>
-          {Object.values(info).map((el, idx) => (
-            <Paragraph className={styles.text} key={idx}>
-              {el}
-            </Paragraph>
+          <Paragraph className={styles.textTitle}>Office</Paragraph>
+          {Object.keys(info).map((el, idx) => (
+            <Link
+              href={el === "mail" ? `mailto:${info[el]}?` : `tel:${info[el]}`}
+              className={styles.text}
+              key={idx}
+            >
+              {info[el]}
+            </Link>
           ))}
         </Col>
         <Col className={styles.socialIconsWrapper}>
-          <Paragraph className={`${styles.socialIconsTitle} ${styles.textTitle}`} >Let’s Contact for Great</Paragraph>
-          {footerApi && footerApi?.contact?.map((item, index) =>
-            <Link href={item.link} target="_blank" key={index}>
-              <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} width={300} height={300} />
-            </Link>
-          )}
+          <Paragraph
+            className={`${styles.socialIconsTitle} ${styles.textTitle}`}
+          >
+            Let’s Contact for Great
+          </Paragraph>
+          {footerApi &&
+            footerApi?.contact?.map((item, index) => (
+              <Link href={item.link} target="_blank" key={index}>
+                <Image
+                  src={item.logo || linkedIn}
+                  alt="logo"
+                  className={styles.socialIcons}
+                  width={300}
+                  height={300}
+                />
+              </Link>
+            ))}
         </Col>
       </Row>
-    </div >
+    </div>
   );
 };
 
