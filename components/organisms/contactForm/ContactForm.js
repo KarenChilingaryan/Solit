@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useRef, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
 import Button from "../../molecules/button/Button";
@@ -9,8 +9,10 @@ import upload from "../../../assets/img/uploadIcon.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
 import contactUsBgImage from "../../../assets/img/contactus-background.png";
 import ReCAPTCHA from "react-google-recaptcha";
+import { checkFormValidation } from "../../../utils/hooks/checkRecaptchaValidation"
 
 import styles from "./ContactForm.module.scss";
+import SuccessModal from "../successModal/SuccessModal";
 
 const ContactForm = ({
   title,
@@ -20,6 +22,10 @@ const ContactForm = ({
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
+  const recaptchaRef = useRef()
+  const [openSuccess, setOpenSuccess] = useState(false);
+  const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
+
   // const recaptchaRef = useRef(null);
 
   // const props = {
@@ -45,9 +51,18 @@ const ContactForm = ({
     for (const key in data) {
       formData.append(key, data[key]);
     }
-    const res = await dispatch(
-      await emailApi.endpoints.email.initiate(formData)
-    );
+    try {
+      const res = await dispatch(
+        await emailApi.endpoints.email.initiate(formData)
+      );
+
+      setOpenSuccess(true);
+      setTimeout(() => {
+        setOpenSuccess(false)
+      }, 3000)
+    } catch {
+
+    }
   };
 
   const setRecaptcha = (value) => {
@@ -56,9 +71,8 @@ const ContactForm = ({
 
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${
-        !title ? styles.withoutTitle : ""
-      }`}
+      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
+        }`}
       style={style}
     >
       <Col
@@ -124,11 +138,11 @@ const ContactForm = ({
             >
               <FloatInput label="Your email address" placeholder="Your email address" name="from_email" />
             </FormItem>
-            <FormItem name="phone">
+            <FormItem name="phone_number">
               <FloatInput
                 label="Phone"
                 placeholder="Phone"
-                name="phone"
+                name="phone_number"
                 type="number"
               />
             </FormItem>
@@ -155,14 +169,27 @@ const ContactForm = ({
                 className={`${styles.uploadFile} ${file && style.uploadedFile}`}
               />
             </FormItem>
-            <FormItem name="accept" className={styles.accept}>
-              <Checkbox />
+            <FormItem name="accept" className={styles.accept} rules={[
+              {
+                required: true,
+                message: "Accept is required",
+              },
+            ]}>
+              <Checkbox name="accept" onChange={() => {
+                setOnChangeCheckbox(!onChangeCheckbox)
+                if (onChangeCheckbox) {
+                  form.resetFields(['accept'])
+                } else {
+                  form.setFieldValue('accept', !onChangeCheckbox)
+                }
+              }} value={onChangeCheckbox} />
               <Row className={styles.acceptText}>
                 I accept your Privacy Policy
               </Row>
             </FormItem>
             <div className={styles.recaptcha}>
               <ReCAPTCHA
+                ref={recaptchaRef}
                 className={styles.recaptcha}
                 onChange={() =>
                   checkFormValidation(
@@ -190,6 +217,7 @@ const ContactForm = ({
           alt=""
         />
       )}
+      <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
     </Col>
   );
 };

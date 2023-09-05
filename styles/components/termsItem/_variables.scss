@@ -1,0 +1,14 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+
+$what-we-do-sizes: (
+  content-width: calcVW(1280),
+  title-fz: calcVW(36),
+  title-lh: calcVW(44),
+  bottom-block-m: calcVW(256) 0,
+);
+
+@function getTermsSizes($property) {
+  @return map-get($what-we-do-sizes, $property);
+}

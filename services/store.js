@@ -34,6 +34,9 @@ import { footerApi } from "./footerApi";
 import { postsTextCareersColourfulApi } from "./postsTextCareersColourfulApi";
 import { postsTextMainAboutUsApi } from "./postsTextMainAboutUsApi";
 import { postTestimonialsApi } from "./postTestimonialsApi";
+import { emailLetsTalkApi } from "./emailLetsTalkApi";
+import { postsPrivacyPolicyOrConditionTermsApi } from "./postsPrivacyPolicyOrConditionTermsApi";
+import { postsPrivacyPolicyOrConditionPolicyApi } from "./postsPrivacyPolicyOrConditionPolicyApi";
 
 const store = configureStore({
   reducer: {
@@ -71,7 +74,10 @@ const store = configureStore({
     [postsTextCareersColourfulApi.reducerPath]: postsTextCareersColourfulApi.reducer,
     [postsTextMainAboutUsApi.reducerPath]: postsTextMainAboutUsApi.reducer,
     [footerApi.reducerPath]: footerApi.reducer,
+    [emailLetsTalkApi.reducerPath]: emailLetsTalkApi.reducer,
     [postTestimonialsApi.reducerPath]: postTestimonialsApi.reducer,
+    [postsPrivacyPolicyOrConditionTermsApi.reducerPath]: postsPrivacyPolicyOrConditionTermsApi.reducer,
+    [postsPrivacyPolicyOrConditionPolicyApi.reducerPath]: postsPrivacyPolicyOrConditionPolicyApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -109,7 +115,10 @@ const store = configureStore({
       postsTextCareersColourfulApi.middleware,
       postsTextMainAboutUsApi.middleware,
       footerApi.middleware,
+      emailLetsTalkApi.middleware,
       postTestimonialsApi.middleware,
+      postsPrivacyPolicyOrConditionTermsApi.middleware,
+      postsPrivacyPolicyOrConditionPolicyApi.middleware,
     ),
 });
 

@@ -4,7 +4,6 @@ import Image from "next/image";
 import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
-import arrow from "../../../assets/img/icons/selectIcon.svg";
 
 import styles from "./LetsTalkModal.module.scss";
 
@@ -16,13 +15,17 @@ const ModalLetsTalkForm = ({
   from = "apply",
   className,
 }) => {
+  const [form] = Form.useForm();
   const [file, setFile] = useState(null);
+  const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
 
   const submitForm = (values, data) => {
     const formData = {
       ...values,
       ...(data ? data : {}),
-      file_document: file,
+      [from == "apply"
+        ? "file_cv"
+        : "file_document"]: file
     };
     onSubmit(formData);
   };
@@ -40,6 +43,7 @@ const ModalLetsTalkForm = ({
       </Row>
 
       <Form
+        form={form}
         onFinish={(values) => {
           submitForm(values, data);
         }}
@@ -140,11 +144,11 @@ const ModalLetsTalkForm = ({
             </FormItem>
           )}
           {from != "apply" && (
-            <FormItem name="phon_number">
+            <FormItem name="phone_number">
               <FloatInput
                 label="Phone number"
                 placeholder="Phone number"
-                name="phon_number"
+                name="phone_number"
                 type="number"
                 required={true}
               />
@@ -154,8 +158,6 @@ const ModalLetsTalkForm = ({
             name={
               from == "apply"
                 ? "file_cv"
-                : from == "lets"
-                ? "upload_document"
                 : "file_document"
             }
             className={styles.uploadItem}
@@ -166,21 +168,19 @@ const ModalLetsTalkForm = ({
                 from == "apply"
                   ? "Upload your CV"
                   : from == "lets"
-                  ? "Upload document"
-                  : "About your project"
+                    ? "Upload document"
+                    : "About your project"
               }
               placeholder={
                 from == "apply"
                   ? "Upload your CV"
                   : from == "lets"
-                  ? "Upload document"
-                  : "About your project"
+                    ? "Upload document"
+                    : "About your project"
               }
               name={
                 from == "apply"
                   ? "file_cv"
-                  : from == "lets"
-                  ? "upload_document"
                   : "file_document"
               }
               multiple
@@ -212,8 +212,21 @@ const ModalLetsTalkForm = ({
               />
             </FormItem>
           )}
-          <FormItem className={styles.accept}>
-            <Checkbox />
+          <FormItem className={styles.accept} name="accept" rules={[
+            {
+              required: true,
+              message: "Accept is required",
+            },
+          ]}
+          >
+            <Checkbox name="accept" onChange={() => {
+              setOnChangeCheckbox(!onChangeCheckbox)
+              if (onChangeCheckbox) {
+                form.resetFields(['accept'])
+              } else {
+                form.setFieldValue('accept', !onChangeCheckbox)
+              }
+            }} value={onChangeCheckbox} />
             <Row className={styles.acceptText}>
               I accept your Privacy Policy
             </Row>

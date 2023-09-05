@@ -132,6 +132,16 @@
             .menuItemChildWrapper {
               overflow: hidden;
               transition: 0.5s;
+
+              .activeElem {
+                width: calcVW(27);
+                height: calcVW(27);
+              }
+
+              .disActiveElem {
+                width: calcVW(27);
+                height: calcVW(27);
+              }
             }
           }
         }
@@ -268,18 +278,28 @@
                 variables.$fw-400,
                 normal);
             }
-          }
 
-          @media (min-width: 1025px) {
-            transition: 0.3s;
+            @media (min-width: 1025px) {
+              transition: 0.3s;
 
-            a {
-              height: calcVWL(62);
-            }
+              a {
+                height: calcVWL(62);
+              }
 
-            .menuItemChildWrapper {
-              overflow: hidden;
-              transition: 0.5s;
+              .menuItemChildWrapper {
+                overflow: hidden;
+                transition: 0.5s;
+
+                .activeElem {
+                  width: calcVWL(27);
+                  height: calcVWL(27);
+                }
+
+                .disActiveElem {
+                  width: calcVWL(27);
+                  height: calcVWL(27);
+                }
+              }
             }
           }
         }
@@ -381,6 +401,16 @@
               overflow: hidden;
               padding: 0;
               transition: height 1s ease, padding 1s ease;
+
+              .activeElem {
+                width: calcVWT(32);
+                height: calcVWT(32);
+              }
+
+              .disActiveElem {
+                width: calcVWT(32);
+                height: calcVWT(32);
+              }
             }
           }
 
@@ -614,6 +644,16 @@
                 variables.$fw-400,
                 calcVWM(20),
                 variables.$main-white );
+
+              .activeElem {
+                width: calcVWM(32);
+                height: calcVWM(32);
+              }
+
+              .disActiveElem {
+                width: calcVWM(32);
+                height: calcVWM(32);
+              }
             }
           }
         }
@@ -698,11 +738,12 @@
             height: max-content;
 
             .menuItemChildWrapper {
+              column-gap: calcVWM(16);
               height: calcVWM(64);
               padding: calcVWM(16);
-              @include font-style(calcVWM(20),
-                variables.$fw-400,
-                calcVWM(20),
+              @include font-style(calcVWM(14),
+                variables.$fw-700,
+                normal,
                 variables.$main-white );
             }
           }
