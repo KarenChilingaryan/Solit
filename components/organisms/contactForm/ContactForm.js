@@ -25,7 +25,7 @@ const ContactForm = ({
   const recaptchaRef = useRef()
   const [openSuccess, setOpenSuccess] = useState(false);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
-  
+
   // const recaptchaRef = useRef(null);
 
   // const props = {
@@ -175,7 +175,14 @@ const ContactForm = ({
                 message: "Accept is required",
               },
             ]}>
-              <Checkbox name="accept" onChange={setOnChangeCheckbox} value={onChangeCheckbox}/>
+              <Checkbox name="accept" onChange={() => {
+                setOnChangeCheckbox(!onChangeCheckbox)
+                if (onChangeCheckbox) {
+                  form.resetFields(['accept'])
+                } else {
+                  form.setFieldValue('accept', !onChangeCheckbox)
+                }
+              }} value={onChangeCheckbox} />
               <Row className={styles.acceptText}>
                 I accept your Privacy Policy
               </Row>
