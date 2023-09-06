@@ -4,7 +4,7 @@ import { Col, Paragraph } from "../../atoms";
 
 import styles from "./AboutCompany.module.scss";
 
-const AboutCompany = ({ number, title, image, status, withOutBG }) => {
+const AboutCompany = ({ number, title, image, withOutBG }) => {
   return (
     <Col className={`${styles.card} ${withOutBG ? styles.withOutBG : ''}`}>
       <Col className={styles.mainWrapper}>
