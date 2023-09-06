@@ -63,6 +63,15 @@ const aboutData = [
   },
 ];
 
+const splitStringAtLastWord = (inputString) => {
+  const match = inputString.match(/^(.*\s)(\S+)$/);
+
+  if (match) {
+    return [match[1].trim(), match[2]];
+  } else {
+    return [inputString, ''];
+  }
+}
 const HomeContent = () => {
   const [activeUser, setActiveUser] = useState(null);
   const [data, setData] = useState([]);
@@ -112,6 +121,10 @@ const HomeContent = () => {
 
   const postTestimonialsApi = useSelector(
     (state) => state?.postTestimonialsApi?.queries?.["posts(undefined)"]?.data
+  );
+
+  const abutUsCompanyOfExpertsApi = useSelector(
+    (state) => state?.abutUsCompanyOfExpertsApi?.queries?.["about(undefined)"]?.data
   );
 
   useEffect(() => {
@@ -345,14 +358,13 @@ const HomeContent = () => {
             </div>
           </div>
           <div className={styles.aboutCompanyContent}>
-            {aboutData.map((about, i) => (
+            {abutUsCompanyOfExpertsApi?.map((about, i) => (
               <AboutCompany
-                withOutBG={true}
                 key={i}
-                number={about.number}
-                title={about.title}
-                image={about.image}
-                status={about.status}
+                number={about.rating_number}
+                title={about.rating_text}
+                image={about.original_logo_company_of_expert}
+                withOutBG={true}
               />
             ))}
           </div>
