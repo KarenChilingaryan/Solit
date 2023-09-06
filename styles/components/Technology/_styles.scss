@@ -55,7 +55,7 @@
             @include font-style(getTechnologySizes(language-name-fz),
               variables.$fw-600,
               getTechnologySizes(language-name-lh));
-              text-align: center;
+            text-align: center;
           }
         }
       }
@@ -64,6 +64,13 @@
         .icon {
           transition: 0.9s;
           filter: invert(19%) sepia(0%) saturate(91%) hue-rotate(94deg) brightness(12%) contrast(82%);
+        }
+
+        &:hover {
+          .icon {
+            transition: 0.9s;
+            filter: none;
+          }
         }
       }
     }
