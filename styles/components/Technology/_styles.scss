@@ -28,7 +28,7 @@
       column-gap: calcVW(10);
 
       .languageBlock {
-        transition: 0.5s;
+        transition: 0.9s;
         @include flex(center, center, column);
         width: getTechnologySizes(language-block-w);
         height: getTechnologySizes(language-block-h);
@@ -62,7 +62,7 @@
 
       .languageBlockDeActive {
         .icon {
-          transition: 0.5s;
+          transition: 0.9s;
           filter: invert(19%) sepia(0%) saturate(91%) hue-rotate(94deg) brightness(12%) contrast(82%);
         }
       }

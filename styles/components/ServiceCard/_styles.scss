@@ -110,12 +110,12 @@
 
     &:hover {
       .description {
-        transition: 0.5s;
+        transition: 0.9s;
         padding: getServiceCardSizes(serviceCard-desc-p);
         height: max-content;
       }
 
-      transition: 0.4s;
+      transition: 0.8s;
       box-shadow: 0px 42px 98px -42px #7811fe;
     }
 
