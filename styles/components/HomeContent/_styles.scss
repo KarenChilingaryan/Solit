@@ -197,7 +197,7 @@
       }
       .borderedTextWhat {
         margin: calcVWL(140) 0 calcVWL(80) 0;
-        margin-left: calcVWL(-80);
+        margin-left: calcVWL(-60);
       }
 
       .projectContent {
@@ -287,7 +287,7 @@
         row-gap: calcVWT(152);
       }
       .borderedTextWhat {
-        margin-left: calcVWT(-40);
+        margin-left: calcVWT(-30);
       }
       .aboutCompanyContent {
         height: max-content;
@@ -362,6 +362,7 @@
       }
       .borderedTextWhat {
         margin-top: calcVWM(60) !important;
+        margin-left: calcVWM(-15) !important;
       }
     }
     .projectContent {

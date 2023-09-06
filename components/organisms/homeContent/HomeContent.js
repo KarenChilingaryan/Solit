@@ -182,6 +182,29 @@ const HomeContent = () => {
       setActiveUser(postTestimonialsApi[0]);
     }
   }, [postTestimonialsApi]);
+
+  const changeTo = (name, active) => {
+    console.log(active);
+    for (let i = 0; i < postTestimonialsApi.length; i++) {
+      const element = postTestimonialsApi[i];
+      if (element.id == active.id && name == 'next') {
+        if (i + 1 == postTestimonialsApi.length) {
+          setActiveUser(postTestimonialsApi[0])
+        } else {
+          setActiveUser(postTestimonialsApi[i + 1])
+        }
+        break;
+      } else if (element.id == active.id && name == 'prev') {
+        if (i == 0) {
+          setActiveUser(postTestimonialsApi[postTestimonialsApi.length - 1])
+        } else {
+          setActiveUser(postTestimonialsApi[i - 1])
+        }
+        break;
+      }
+    }
+  }
+
   return (
     <HomeMainWithImage firstImage={bgImage}>
       <>
@@ -350,7 +373,7 @@ const HomeContent = () => {
               )}
             </div>
             <div className={styles.worldMapUser}>
-              {activeUser && <MapUser user={activeUser} />}
+              {activeUser && <MapUser user={activeUser} changeTo={(name) => changeTo(name, activeUser)} />}
             </div>
           </div>
           <div className={styles.contactBlock}>

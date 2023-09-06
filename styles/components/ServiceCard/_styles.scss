@@ -4,6 +4,7 @@
 @mixin generate-service-card-styles {
   .moreBorder {
     border: 1px solid #219fdb;
+
     a {
       height: 100%;
       width: 100%;
@@ -11,6 +12,7 @@
       justify-content: center;
       align-items: center;
     }
+
     .more {
       display: flex;
       gap: 10px;
@@ -23,24 +25,23 @@
       }
 
       @media (max-width: 1024px) {
-        @include font-style(
-          calcVWT(18),
+        @include font-style(calcVWT(18),
           variables.$fw-700,
           calcVWT(21),
-          #219fdb
-        );
+          #219fdb);
+
         img {
           width: calcVWT(18);
           height: calcVWT(18);
         }
       }
+
       @media (max-width: 576px) {
-        @include font-style(
-          calcVWM(18),
+        @include font-style(calcVWM(18),
           variables.$fw-700,
           calcVWM(21),
-          #219fdb
-        );
+          #219fdb);
+
         img {
           width: calcVWM(18);
           height: calcVWM(18);
@@ -48,6 +49,7 @@
       }
     }
   }
+
   .serviceCardWrapper {
     width: 100%;
     flex: none;
@@ -80,12 +82,10 @@
         padding: calcVW(16);
         text-align: center;
 
-        @include font-style(
-          getServiceCardSizes(serviceCard-title-fz),
+        @include font-style(getServiceCardSizes(serviceCard-title-fz),
           variables.$fw-400,
           getServiceCardSizes(serviceCard-title-lh),
-          #fff
-        );
+          #fff);
         cursor: pointer;
         background: transparent;
         backdrop-filter: blur(30px);
@@ -110,10 +110,11 @@
 
     &:hover {
       .description {
-        transition: 0.4s;
+        transition: 0.5s;
         padding: getServiceCardSizes(serviceCard-desc-p);
         height: max-content;
       }
+
       transition: 0.4s;
       box-shadow: 0px 42px 98px -42px #7811fe;
     }
@@ -132,23 +133,19 @@
           height: calcVWL(90);
           padding: calcVWL(16);
 
-          @include font-style(
-            calcVWL(24),
+          @include font-style(calcVWL(24),
             variables.$fw-400,
             calcVWL(29),
-            #fff
-          );
+            #fff);
         }
       }
 
       .description {
         padding: 0 calcVWL(32);
-        @include font-style(
-          calcVWL(18),
+        @include font-style(calcVWL(18),
           variables.$fw-400,
           calcVWL(24),
-          #c3d4dc
-        );
+          #c3d4dc);
       }
 
       &:hover {
@@ -168,68 +165,84 @@
         .title {
           min-height: calcVWT(93);
           height: max-content;
-          @include font-style(
-            calcVWT(24),
+          @include font-style(calcVWT(24),
             variables.$fw-500,
             calcVWT(29),
-            #fff
-          );
+            #fff);
         }
       }
+
+      .description {
+        padding: 0 calcVWT(16);
+        @include font-style(calcVWT(18),
+          variables.$fw-400,
+          calcVWT(24),
+          #c3d4dc);
+      }
+
       &:hover {
         .description {
           padding: calcVWT(16);
           height: max-content;
           width: 100%;
-          @include font-style(
-            calcVWT(18),
+          @include font-style(calcVWT(18),
             variables.$fw-400,
             calcVWT(24),
-            #c3d4dc
-          );
+            #c3d4dc);
         }
+
         box-shadow: 0px 42px 98px -42px #7811fe;
       }
     }
+
     @media (max-width: 576px) {
       max-width: calcVWM(163);
       max-height: calcVWM(300);
       height: calcVWM(300);
       border-radius: calcVWM(16);
+
       .title_iconWrapper {
         .title {
           min-height: max-content;
           height: max-content;
           padding: calcVWM(16);
-          @include font-style(
-            calcVWM(18),
+          @include font-style(calcVWM(18),
             variables.$fw-400,
             calcVWM(24),
-            #fff
-          );
+            #fff);
         }
       }
+
+      .description {
+        padding: 0 calcVWM(8);
+        @include font-style(calcVWM(14),
+          variables.$fw-300,
+          calcVWM(16),
+          #c3d4dc);
+      }
+
       &:hover {
         .description {
           padding: calcVWM(8);
-          @include font-style(
-            calcVWM(14),
+          @include font-style(calcVWM(14),
             variables.$fw-300,
             calcVWM(16),
-            #c3d4dc
-          );
+            #c3d4dc);
         }
       }
     }
   }
+
   .fromDetail {
     max-width: calcVW(405);
     max-height: calcVW(456);
+
     .title_iconWrapper {
       .iconWrapper {
         max-height: calcVW(456);
       }
     }
+
     @media (max-width: 1024px) {
       max-width: calcVWT(304);
       max-height: calcVWT(380);
@@ -241,6 +254,7 @@
         }
       }
     }
+
     @media (max-width: 576px) {
       max-width: 100%;
       max-height: calcVWM(380);

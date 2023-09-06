@@ -153,30 +153,17 @@ const ModalLetsTalkForm = ({
             </FormItem>
           )}
           <FormItem
-            name={from == "apply" ? "file_cv" : "file_document"}
+            name={"file_document"}
             className={styles.uploadItem}
           >
-            <Image className={styles.prefix} src={upload} alt="" />
             <FloatInput
-              label={
-                from == "apply"
-                  ? "Upload your CV"
-                  : from == "lets"
-                  ? "Upload document"
-                  : "About your project"
-              }
-              placeholder={
-                from == "apply"
-                  ? "Upload your CV"
-                  : from == "lets"
-                  ? "Upload document"
-                  : "About your project"
-              }
+              label={"Upload document"}
+              placeholder={"Upload document"}
               name={"file_document"}
               multiple
               type="file"
               accept=".pdf,.doc,.docx"
-              prefix={<Image className={styles.suffix} src={upload} alt="" />}
+              suffix={<Image className={styles.suffix} src={upload} alt="" />}
               onChange={(e) => {
                 setFile(e.target.files[0]);
               }}

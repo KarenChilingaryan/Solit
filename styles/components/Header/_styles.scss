@@ -10,7 +10,7 @@
     align-items: center;
     position: fixed;
     top: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(16.5px);
     width: 100%;
     z-index: 999;
@@ -551,7 +551,7 @@
           padding: calcVWT(24);
           margin-left: calcVWT(-24);
           row-gap: calcVWT(16);
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(0, 0, 0, 0.8);
           backdrop-filter: blur(16.5px);
           max-width: calc(100% + calcVWT(48));
           min-width: calc(100% + calcVWT(48));
