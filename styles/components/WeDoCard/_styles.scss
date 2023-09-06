@@ -14,13 +14,12 @@
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(16px);
     border-radius: 16px;
-    transition: border 0.5s ease-out;
+    border: 1px solid transparent;
 
     &:hover {
       transition: 0.5s;
       box-shadow: 0px 42px 98px -42px #7811fe;
-      border: calcVW(1) solid #219fdb;
-      padding: calcVW(55) calcVW(31);
+      border: 1px solid #219fdb;
     }
 
     .more {
@@ -71,10 +70,6 @@
       height: calcVWL(332);
       gap: calcVWL(16);
 
-      &:hover {
-        padding: calcVWL(55) calcVWL(31);
-      }
-
       .more {
         column-gap: calcVWL(16);
         @include font-style(calcVWL(18),
@@ -113,10 +108,6 @@
       text-align: center;
       justify-content: space-between;
 
-      &:hover {
-        padding: calcVWT(55) calcVWT(31);
-      }
-
       .development {
         @include font-style(calcVWT(24), variables.$fw-700, calcVWT(29), #fff);
       }
@@ -154,10 +145,6 @@
       padding: calcVWM(32) calcVWM(16);
       text-align: center;
       justify-content: space-between;
-
-      &:hover {
-        padding: calcVWM(31) calcVWM(15);
-      }
 
       .development {
         @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), #fff);
