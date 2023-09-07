@@ -73,6 +73,7 @@
     align-items: center;
     border: 1px solid variables.$light-blue;
     border-radius: 16px;
+    cursor: pointer;
 
     &:hover{
       transition: 0.4s;

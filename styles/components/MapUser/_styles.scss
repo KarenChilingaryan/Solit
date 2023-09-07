@@ -42,6 +42,9 @@
           background-color: #3fc1ff;
         }
       }
+      .customTooltip {
+        top: 10327px !important;
+      }
     }
 
     .infoBlock {
@@ -50,11 +53,20 @@
       margin-top: getMapUser(info-mt);
 
       .userName {
-        @include font-style(getMapUser(name-fs), variables.$fw-700, getMapUser(name-lh), #219fdb);
+        @include font-style(
+          getMapUser(name-fs),
+          variables.$fw-700,
+          getMapUser(name-lh),
+          #219fdb
+        );
       }
 
       .userPosition {
-        @include font-style(getMapUser(position-fs), variables.$fw-500, getMapUser(position-lh));
+        @include font-style(
+          getMapUser(position-fs),
+          variables.$fw-500,
+          getMapUser(position-lh)
+        );
       }
     }
 
@@ -93,7 +105,12 @@
         margin-top: calcVWL(20);
 
         .userName {
-          @include font-style(calcVWL(24), variables.$fw-700, calcVWL(29), #219fdb);
+          @include font-style(
+            calcVWL(24),
+            variables.$fw-700,
+            calcVWL(29),
+            #219fdb
+          );
         }
 
         .userPosition {
@@ -136,7 +153,12 @@
         width: auto;
 
         .userName {
-          @include font-style(calcVWT(24), variables.$fw-700, calcVWT(29), #219fdb);
+          @include font-style(
+            calcVWT(24),
+            variables.$fw-700,
+            calcVWT(29),
+            #219fdb
+          );
           margin-top: calcVWT(10);
         }
 
@@ -182,7 +204,12 @@
         width: auto;
 
         .userName {
-          @include font-style(calcVWM(24), variables.$fw-700, calcVWM(29), #219fdb);
+          @include font-style(
+            calcVWM(24),
+            variables.$fw-700,
+            calcVWM(29),
+            #219fdb
+          );
           margin-top: calcVWM(10);
         }
 

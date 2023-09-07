@@ -4,21 +4,25 @@
 @mixin generate-technology-styles {
   .container {
     .title {
-      @include font-style(getTechnologySizes(technology-title-fz),
+      @include font-style(
+        getTechnologySizes(technology-title-fz),
         variables.$fw-500,
-        getTechnologySizes(technology-title-lh));
+        getTechnologySizes(technology-title-lh)
+      );
     }
 
     .description {
       margin-top: getTechnologySizes(technology-description-mt);
-      @include font-style(getTechnologySizes(technology-description-fz),
+      @include font-style(
+        getTechnologySizes(technology-description-fz),
         variables.$fw-400,
-        getTechnologySizes(technology-description-lh));
+        getTechnologySizes(technology-description-lh)
+      );
     }
 
     .buttons {
       @include flex(flex-start, center, row, wrap);
-      column-gap: calcVW(16);
+      gap: calcVW(16);
       margin: getTechnologySizes(technology-buttons-m);
     }
 
@@ -28,7 +32,9 @@
       column-gap: calcVW(10);
 
       .languageBlock {
-        transition: 0.9s;
+        transition: 1s;
+        transform-origin: center;
+        transform-box: fill-box;
         @include flex(center, center, column);
         width: getTechnologySizes(language-block-w);
         height: getTechnologySizes(language-block-h);
@@ -52,9 +58,11 @@
 
           .name {
             display: block;
-            @include font-style(getTechnologySizes(language-name-fz),
+            @include font-style(
+              getTechnologySizes(language-name-fz),
               variables.$fw-600,
-              getTechnologySizes(language-name-lh));
+              getTechnologySizes(language-name-lh)
+            );
             text-align: center;
           }
         }
@@ -62,8 +70,9 @@
 
       .languageBlockDeActive {
         .icon {
-          transition: 0.9s;
-          filter: invert(19%) sepia(0%) saturate(91%) hue-rotate(94deg) brightness(12%) contrast(82%);
+          transition: 3s;
+          filter: invert(19%) sepia(0%) saturate(91%) hue-rotate(94deg)
+            brightness(12%) contrast(82%);
         }
 
         &:hover {
@@ -82,13 +91,11 @@
 
       .description {
         margin-top: calcVWL(24);
-        @include font-style(calcVWL(18),
-          variables.$fw-400,
-          calcVWL(24));
+        @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
       }
 
       .buttons {
-        column-gap: calcVWL(16);
+        gap: calcVWL(16);
         margin: calcVWL(64) 0 calcVWL(32) 0;
       }
 
@@ -109,9 +116,7 @@
             border-radius: calcVWL(16);
 
             .name {
-              @include font-style(calcVWL(16),
-                variables.$fw-600,
-                calcVWL(24));
+              @include font-style(calcVWL(16), variables.$fw-600, calcVWL(24));
             }
           }
         }
@@ -129,16 +134,14 @@
       }
 
       .buttons {
-        column-gap: calcVW(0);
         justify-content: flex-start;
-        column-gap: calcVWT(16);
+        gap: calcVWT(16);
         margin: calcVWT(72) 0 calcVWT(40) 0;
       }
 
       .languages {
         width: 100%;
         column-gap: calcVWT(10);
-
 
         .languageBlock {
           width: calcVWT(106);
@@ -178,7 +181,7 @@
       .buttons {
         flex-wrap: nowrap;
         min-width: max-content;
-        column-gap: calcVWM(16);
+        gap: calcVWM(16);
         margin-top: calcVWM(60);
       }
 

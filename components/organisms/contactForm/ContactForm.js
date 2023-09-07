@@ -9,7 +9,7 @@ import upload from "../../../assets/img/uploadIcon.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
 import contactUsBgImage from "../../../assets/img/contactus-background.png";
 import ReCAPTCHA from "react-google-recaptcha";
-import { checkFormValidation } from "../../../utils/hooks/checkRecaptchaValidation"
+import { checkFormValidation } from "../../../utils/hooks/checkRecaptchaValidation";
 
 import styles from "./ContactForm.module.scss";
 import SuccessModal from "../successModal/SuccessModal";
@@ -22,9 +22,10 @@ const ContactForm = ({
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
-  const recaptchaRef = useRef()
+  const recaptchaRef = useRef();
   const [openSuccess, setOpenSuccess] = useState(false);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
   // const recaptchaRef = useRef(null);
 
@@ -58,21 +59,27 @@ const ContactForm = ({
 
       setOpenSuccess(true);
       setTimeout(() => {
-        setOpenSuccess(false)
-      }, 3000)
-    } catch {
-
-    }
+        setOpenSuccess(false);
+      }, 3000);
+    } catch {}
   };
 
   const setRecaptcha = (value) => {
     console.log(value, "?????????????????????");
   };
-
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    if (!/^[^eE]*$/.test(inputValue)) {
+      // If 'e' or 'E' is detected, prevent the input change
+      return;
+    }
+    onChange(e); // Continue with the change if it's valid
+  };
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
-        }`}
+      className={`${styles.contactFormWrapper} ${
+        !title ? styles.withoutTitle : ""
+      }`}
       style={style}
     >
       <Col
@@ -136,7 +143,11 @@ const ContactForm = ({
                 },
               ]}
             >
-              <FloatInput label="Your email address" placeholder="Your email address" name="from_email" />
+              <FloatInput
+                label="Your email address"
+                placeholder="Your email address"
+                name="from_email"
+              />
             </FormItem>
             <FormItem name="phone_number">
               <FloatInput
@@ -144,6 +155,9 @@ const ContactForm = ({
                 placeholder="Phone"
                 name="phone_number"
                 type="number"
+                value={''}
+                formatter={(value) => value.replace("e", "")}
+                onChange={(e) =>handleInputChange(e)}
               />
             </FormItem>
             <FormItem name="message">
@@ -169,20 +183,28 @@ const ContactForm = ({
                 className={`${styles.uploadFile} ${file && style.uploadedFile}`}
               />
             </FormItem>
-            <FormItem name="accept" className={styles.accept} rules={[
-              {
-                required: true,
-                message: "Accept is required",
-              },
-            ]}>
-              <Checkbox name="accept" onChange={() => {
-                setOnChangeCheckbox(!onChangeCheckbox)
-                if (onChangeCheckbox) {
-                  form.resetFields(['accept'])
-                } else {
-                  form.setFieldValue('accept', !onChangeCheckbox)
-                }
-              }} value={onChangeCheckbox} />
+            <FormItem
+              name="accept"
+              className={styles.accept}
+              rules={[
+                {
+                  required: true,
+                  message: "Accept is required",
+                },
+              ]}
+            >
+              <Checkbox
+                name="accept"
+                onChange={() => {
+                  setOnChangeCheckbox(!onChangeCheckbox);
+                  if (onChangeCheckbox) {
+                    form.resetFields(["accept"]);
+                  } else {
+                    form.setFieldValue("accept", !onChangeCheckbox);
+                  }
+                }}
+                value={onChangeCheckbox}
+              />
               <Row className={styles.acceptText}>
                 I accept your Privacy Policy
               </Row>

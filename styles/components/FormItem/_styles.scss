@@ -72,7 +72,7 @@
     }
 
     .asLabel {
-      top: calcVWT(-20) !important;
+      top: calcVWT(-18) !important;
       @include font-style(calcVWT(13) !important,
         variables.$fw-400,
         normal,
@@ -91,7 +91,7 @@
     }
 
     .asLabel {
-      top: calcVWM(-20) !important;
+      top: calcVWM(-15) !important;
       @include font-style(calcVWM(13) !important,
         variables.$fw-400,
         normal,

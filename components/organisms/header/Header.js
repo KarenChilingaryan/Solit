@@ -63,10 +63,10 @@ const useOutsideClick = (ref, callback) => {
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClick);
+    document.addEventListener("click", handleClick);
 
     return () => {
-      document.removeEventListener('click', handleClick);
+      document.removeEventListener("click", handleClick);
     };
   }, [ref, callback]);
 };
@@ -74,7 +74,7 @@ const useOutsideClick = (ref, callback) => {
 const Header = () => {
   const router = useRouter();
   const [openMenu, setOpenMenu] = useState(true);
-  const [dropdownElements, setDropdownElements] = useState([])
+  const [dropdownElements, setDropdownElements] = useState([]);
   const [filteredData, setFilteredData] = useState("none");
   const [scrollY, setScrollY] = useState(0);
   const [scrollYNew, setScrollYNew] = useState(0);
@@ -89,8 +89,8 @@ const Header = () => {
   );
 
   const handleOutsideClick = () => {
-    if (filteredData != 'none') {
-      setFilteredData('none')
+    if (filteredData != "none") {
+      setFilteredData("none");
     }
   };
 
@@ -123,123 +123,187 @@ const Header = () => {
           id: 1,
           name: "Tech Stack",
           fix_url: "/what-we-do",
-          data: [...(headerData?.tech_steck || [] || []), { title: 'View All', what_we_do_detail: '/' }],
+          data: [
+            ...(headerData?.tech_steck || [] || []),
+            { title: "View All", what_we_do_detail: "/" },
+          ],
         },
         {
           id: 2,
           name: "Services",
           fix_url: "/services",
-          data: [...(headerData?.service || []), { title: 'View All', service_detail: '/' }],
+          data: [
+            ...(headerData?.service || []),
+            { title: "View All", service_detail: "/" },
+          ],
         },
-      ])
+      ]);
     }
-  }, [headerData])
+  }, [headerData]);
 
   useEffect(() => {
-    const body = document.querySelector('body')
+    const body = document.querySelector("body");
     if (body) {
-      console.log('stex em');
-      body.style.overflow = !openMenu ? 'hidden' : 'auto'
+      console.log("stex em");
+      body.style.overflow = !openMenu ? "hidden" : "auto";
     }
-  }, [openMenu])
+  }, [openMenu]);
 
   return (
     <div className={styles.mainWraperBlock}>
-      {dropdownElements?.length &&
+      {dropdownElements?.length && (
         <div
-          className={`${cx(styles.headerWrapper, !scrollYNew && styles.headerWrapperScroll)} ${!openMenu && styles.openHeaderWrapper}`}
+          className={`${cx(
+            styles.headerWrapper,
+            !scrollYNew && styles.headerWrapperScroll
+          )} ${!openMenu && styles.openHeaderWrapper}`}
         >
-          <Link href="/" onClick={() => {
-            window.scrollTo({ top: 0, left: 0 });
-          }}>
-            <Image
-              src={menuLogoWhite}
-              alt="logo"
-              className={styles.img}
-            />
+          <Link
+            href="/"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0 });
+            }}
+          >
+            <Image src={menuLogoWhite} alt="logo" className={styles.img} />
           </Link>
 
           <div className={`${styles.menuWrapper}`}>
-            {headerData && dropdownElements?.map((el, index) => <div
-              key={el.id}
-              onClick={() => {
-                setTimeout(() => {
-                  setFilteredData(filteredData !== el.name ? el.name : 'none');
-                }, 100)
-              }}
-              className={`${styles.menuItem} ${styles['menuItem' + index]} ${filteredData !== el.name ? styles.closedMenu : ''}`}
-            >
-              <div
-                className={styles.menuItemTitle}
-                style={{
-                  borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'what-we-do' && router.pathname === "/") ? "2px solid #ffffff" : "0",
-                }}
-              >
-                {el.name}
-                <Image src={dropdown} alt="" />
-              </div>
-              <div className={styles.menuItemChildMainWrapper} ref={modalRef}>
-                {el?.data?.map((e, idx) =>
-                  <Link href={el?.fix_url + '/' + (e?.service_detail || e?.what_we_do_detail)} key={idx}>
-                    <div
-                      className={styles.menuItemChildWrapper}
-                      style={{
-                        display:
-                          el.name === filteredData ? "flex" : "none",
-                      }}
-                    >
-                      <Image src={active_menu_element} className={styles.activeElem} alt="" />
-                      <Image src={menu_element} className={styles.disActiveElem} alt="" />
-                      {e.title}
-                    </div>
-                  </Link>
-                )}
-              </div>
-            </div>
-            )}
-            <div className={styles.menuSecondItemBlock}>
-              {[...data]?.map((el, index) => <div
-                key={el?.id}
-                onClick={() => {
-                  setFilteredData(filteredData !== el.name ? el.name : 'none');
-                }}
-                className={`${styles.menuItem} ${styles['menuItem' + (index + 2)]}`}
-              >
-                <Link
-                  href={el?.fix_url === 'what-we-do' ? '#' : `${el?.fix_url}`}
+            {headerData &&
+              dropdownElements?.map((el, index) => (
+                <div
+                  key={el.id}
                   onClick={() => {
-                    window.scrollTo({ top: 0, left: 0 })
+                    setOpenMenu(true)
+                    setTimeout(() => {
+                      setFilteredData(
+                        filteredData !== el.name ? el.name : "none"
+                      );
+                    }, 100);
                   }}
-                  className={styles.menuItemTitle}
-                  style={{
-                    borderBottom: el.fix_url === router.pathname || (el?.fix_url === 'what-we-do' && router.pathname === "/") ? "2px solid #ffffff" : "0",
-                  }}
+                  className={`${styles.menuItem} ${
+                    styles["menuItem" + index]
+                  } ${filteredData !== el.name ? styles.closedMenu : ""}`}
                 >
-                  {el.name}
-                </Link>
-              </div>
-              )}
+                  <div
+                    className={styles.menuItemTitle}
+                    style={{
+                      borderBottom:
+                        el.fix_url === router.pathname ||
+                        (el?.fix_url === "what-we-do" &&
+                          router.pathname === "/")
+                          ? "2px solid #ffffff"
+                          : "0",
+                    }}
+                  >
+                    {el.name}
+                    <Image src={dropdown} alt="" />
+                  </div>
+                  <div
+                    className={styles.menuItemChildMainWrapper}
+                    ref={modalRef}
+                  >
+                    {el?.data?.map((e, idx) => (
+                      <Link
+                        href={
+                          el?.fix_url +
+                          "/" +
+                          (e?.service_detail || e?.what_we_do_detail)
+                        }
+                        key={idx}
+                        onClick={() => setOpenMenu(true)}
+                      >
+                        <div
+                          className={styles.menuItemChildWrapper}
+                          style={{
+                            display: el.name === filteredData ? "flex" : "none",
+                          }}
+                        >
+                          <Image
+                            src={active_menu_element}
+                            className={styles.activeElem}
+                            alt=""
+                          />
+                          <Image
+                            src={menu_element}
+                            className={styles.disActiveElem}
+                            alt=""
+                          />
+                          {e.title}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            <div className={styles.menuSecondItemBlock}>
+              {[...data]?.map((el, index) => (
+                <div
+                  key={el?.id}
+                  onClick={() => {
+                    setFilteredData(
+                      filteredData !== el.name ? el.name : "none"
+                    );
+                  }}
+                  className={`${styles.menuItem} ${
+                    styles["menuItem" + (index + 2)]
+                  }`}
+                >
+                  <Link
+                    href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0 });
+                    }}
+                    className={styles.menuItemTitle}
+                    style={{
+                      borderBottom:
+                        el.fix_url === router.pathname ||
+                        (el?.fix_url === "what-we-do" &&
+                          router.pathname === "/")
+                          ? "2px solid #ffffff"
+                          : "0",
+                    }}
+                  >
+                    {el.name}
+                  </Link>
+                </div>
+              ))}
             </div>
             <Col className={styles.socialIconsWrapper}>
-              <Paragraph className={styles.socialIconsTitle}>Let’s Contact for Great</Paragraph>
+              <Paragraph className={styles.socialIconsTitle}>
+                Let’s Contact for Great
+              </Paragraph>
               {/* data && data[0]?.social_link? */}
-              {footerApi && footerApi?.contact?.map((item, index) =>
-                <Link href={item.link} target="_blank" key={index}>
-                  <Image src={item.logo || linkedIn} alt="logo" className={styles.socialIcons} width={100} height={100} />
-                </Link>
-              )}
+              {footerApi &&
+                footerApi?.contact?.map((item, index) => (
+                  <Link href={item.link} target="_blank" key={index}>
+                    <Image
+                      src={item.logo || linkedIn}
+                      alt="logo"
+                      className={styles.socialIcons}
+                      width={100}
+                      height={100}
+                    />
+                  </Link>
+                ))}
             </Col>
           </div>
           <div className={styles.rightButtons}>
             <Link href="/discuss-project" className={styles.pricing}>
               <Button text="Pricing" transparentBlue />
             </Link>
-            <div className={`${openMenu ? styles.closedMenu : ''}`}>
-              <Image src={!openMenu ? close : hamburger} onClick={() => { setOpenMenu(!openMenu) }} className={styles.menuImage} alt="" />
+            <div className={`${openMenu ? styles.closedMenu : ""}`}>
+              <Image
+                src={!openMenu ? close : hamburger}
+                onClick={() => {
+                  setOpenMenu(!openMenu);
+                }}
+                className={styles.menuImage}
+                alt=""
+              />
             </div>
           </div>
         </div>
-      }
+      )}
     </div>
   );
 };
