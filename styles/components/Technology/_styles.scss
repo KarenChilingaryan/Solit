@@ -32,7 +32,7 @@
       column-gap: calcVW(10);
 
       .languageBlock {
-        transition: 1s;
+        transition: 0.5s;
         transform-origin: center;
         transform-box: fill-box;
         @include flex(center, center, column);
@@ -51,7 +51,8 @@
         }
 
         &:hover {
-          justify-content: space-evenly;
+          transition: 0.8s;
+          justify-content: center;
           background-color: #000000;
           border: 1px solid #3fc1ff;
           border-radius: getTechnologySizes(language-block-br);
@@ -70,15 +71,16 @@
 
       .languageBlockDeActive {
         .icon {
-          transition: 3s;
+          transition: 2s;
           filter: invert(19%) sepia(0%) saturate(91%) hue-rotate(94deg)
             brightness(12%) contrast(82%);
         }
 
         &:hover {
           .icon {
-            transition: 0.9s;
+            transition: 1.2s;
             filter: none;
+            margin-bottom: 5px;
           }
         }
       }

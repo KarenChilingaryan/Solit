@@ -265,11 +265,11 @@
     }
 
     .backImage {
-      width: calcVW(1920);
-      left: calcVW(-320);
+      width: calcVW(2500);
+      left: calcVW(-600);
       position: absolute;
       bottom: calcVW(-380);
-      height: calcVW(1380);
+      height: calcVW(1800);
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
