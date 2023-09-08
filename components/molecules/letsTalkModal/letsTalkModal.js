@@ -27,7 +27,15 @@ const ModalLetsTalkForm = ({
     };
     onSubmit(formData);
   };
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
 
+    // Validate the input against the rules
+    if (/e|00|[^0-9]/.test(inputValue)) {
+      // If 'e', '00', or non-numeric characters are detected, prevent the input change
+      return;
+    }
+  };
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Row className={styles.textWrapper}>
@@ -149,13 +157,12 @@ const ModalLetsTalkForm = ({
                 name="phone_number"
                 type="number"
                 required={true}
+                min={0}
+                onChange={(e) => handleInputChange(e)}
               />
             </FormItem>
           )}
-          <FormItem
-            name={"file_document"}
-            className={styles.uploadItem}
-          >
+          <FormItem name={"file_document"} className={styles.uploadItem}>
             <FloatInput
               label={"Upload document"}
               placeholder={"Upload document"}
