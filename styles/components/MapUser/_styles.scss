@@ -243,6 +243,9 @@
       :global(.ant-tooltip-arrow) {
         bottom: calcVWM(-43);
       }
+      :global(.ant-tooltip-inner) {
+        height: calcVWM(333);
+      }
       height: calcVWM(314);
       top: calcVWM(9770) !important;
     }
