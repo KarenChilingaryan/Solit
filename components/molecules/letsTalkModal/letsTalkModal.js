@@ -27,15 +27,7 @@ const ModalLetsTalkForm = ({
     };
     onSubmit(formData);
   };
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value;
 
-    // Validate the input against the rules
-    if (/e|00|[^0-9]/.test(inputValue)) {
-      // If 'e', '00', or non-numeric characters are detected, prevent the input change
-      return;
-    }
-  };
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Row className={styles.textWrapper}>
@@ -91,77 +83,16 @@ const ModalLetsTalkForm = ({
               required={true}
             />
           </FormItem>
-          {from == "apply" && (
-            <FormItem
-              name="position"
-              rules={[
-                {
-                  required: true,
-                  message: "Position is required",
-                },
-              ]}
-            >
-              <FloatInput label="Position" placeholder="Position" />
-            </FormItem>
-          )}
-          {from == "apply" && (
-            <FormItem
-              name="level"
-              rules={[
-                {
-                  required: true,
-                  message: "Level is required",
-                },
-              ]}
-            >
-              <FloatInput label="Level" placeholder="Level" />
-            </FormItem>
-          )}
-          {from == "apply" && (
-            <FormItem
-              name="link_to_linkedin"
-              rules={[
-                {
-                  required: true,
-                  message: "Linkedin link is required",
-                },
-              ]}
-            >
-              <FloatInput
-                label="Link to LinkedIn *"
-                placeholder="Link to LinkedIn *"
-              />
-            </FormItem>
-          )}
-          {from == "apply" && (
-            <FormItem
-              name="link_to_github_or_portfolio"
-              rules={[
-                {
-                  required: true,
-                  message: "Github link is required",
-                },
-              ]}
-            >
-              <FloatInput
-                label="Link to Github/Portfolio"
-                placeholder="Link to Github/Portfolio"
-              />
-            </FormItem>
-          )}
-          {from != "apply" && (
-            <FormItem name="phone_number">
-              <FloatInput
-                label="Phone number"
-                placeholder="Phone number"
-                name="phone_number"
-                type="number"
-                required={true}
-                min={0}
-                onChange={(e) => handleInputChange(e)}
-              />
-            </FormItem>
-          )}
+          <FormItem name="phone_number">
+            <FloatInput
+              label="Phone number"
+              placeholder="Phone number"
+              name="phone_number"
+              type="number"
+              required={true}
+              min={0}
+            />
+          </FormItem>
           <FormItem name={"file_document"} className={styles.uploadItem}>
             <FloatInput
               label={"Upload document"}
@@ -178,24 +109,11 @@ const ModalLetsTalkForm = ({
               className={`${styles.uploadFile} ${file && style.uploadedFile}`}
             />
           </FormItem>
-          {from != "apply" && (
-            <FormItem name="comment">
-              <FloatInput
-                label="Comment"
-                placeholder="Comment"
-                name="comment"
-              />
-            </FormItem>
-          )}
-          {from == "apply" && (
-            <FormItem name="cover_letter">
-              <FloatInput
-                label="Cover letter"
-                placeholder="Cover letter"
-                name="cover_letter"
-              />
-            </FormItem>
-          )}
+
+          <FormItem name="comment">
+            <FloatInput label="Comment" placeholder="Comment" name="comment" />
+          </FormItem>
+
           <FormItem
             className={styles.accept}
             name="accept"

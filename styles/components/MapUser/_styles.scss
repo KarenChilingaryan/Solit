@@ -222,6 +222,9 @@
     }
   }
   .customTooltip {
+    p {
+      margin-bottom: 0;
+    }
     @media (min-width: 1025px) {
       :global(.ant-tooltip-arrow) {
         bottom: calcVW(-71);
@@ -235,10 +238,10 @@
     }
     @media (max-width: 576px) {
       :global(.ant-tooltip-arrow) {
-        bottom: calcVWM(-61);
+        bottom: calcVWM(-43);
       }
       height: calcVWM(314);
-      top: calcVWM(9750) !important;
+      top: calcVWM(9770) !important;
     }
   }
 }

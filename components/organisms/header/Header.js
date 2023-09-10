@@ -174,7 +174,7 @@ const Header = () => {
                   key={el.id}
                   onClick={() => {
                     if (window.innerWidth > 1024) {
-                      setOpenMenu(true)
+                      setOpenMenu(true);
                     }
                     setTimeout(() => {
                       setFilteredData(
@@ -182,16 +182,17 @@ const Header = () => {
                       );
                     }, 100);
                   }}
-                  className={`${styles.menuItem} ${styles["menuItem" + index]
-                    } ${filteredData !== el.name ? styles.closedMenu : ""}`}
+                  className={`${styles.menuItem} ${
+                    styles["menuItem" + index]
+                  } ${filteredData !== el.name ? styles.closedMenu : ""}`}
                 >
                   <div
                     className={styles.menuItemTitle}
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
-                          (el?.fix_url === "what-we-do" &&
-                            router.pathname === "/")
+                        (el?.fix_url === "what-we-do" &&
+                          router.pathname === "/")
                           ? "2px solid #ffffff"
                           : "0",
                     }}
@@ -241,13 +242,14 @@ const Header = () => {
                 <div
                   key={el?.id}
                   onClick={() => {
-                    setOpenMenu(true)
+                    setOpenMenu(true);
                     setFilteredData(
                       filteredData !== el.name ? el.name : "none"
                     );
                   }}
-                  className={`${styles.menuItem} ${styles["menuItem" + (index + 2)]
-                    }`}
+                  className={`${styles.menuItem} ${
+                    styles["menuItem" + (index + 2)]
+                  }`}
                 >
                   <Link
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
@@ -258,8 +260,8 @@ const Header = () => {
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
-                          (el?.fix_url === "what-we-do" &&
-                            router.pathname === "/")
+                        (el?.fix_url === "what-we-do" &&
+                          router.pathname === "/")
                           ? "2px solid #ffffff"
                           : "0",
                     }}

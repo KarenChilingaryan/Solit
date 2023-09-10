@@ -28,6 +28,12 @@ const FloatInput = ({
     <span className={styles.textDanger}>*</span>
   ) : null;
 
+  const handleKeyDown = (e) => {
+    if (e.key === "e" || e.key === ".") {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div
       className={styles.floatLabel}
@@ -37,6 +43,7 @@ const FloatInput = ({
       <Input
         onChange={onChange}
         type={type}
+        onKeyDown={type == "number" && handleKeyDown}
         defaultValue={value}
         showUploadList={showUploadList}
         suffix={suffix}

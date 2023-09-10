@@ -138,10 +138,9 @@ textarea::-webkit-scrollbar-thumb {
 
 @media (max-width: 576px) {
   .ant-tooltip-inner {
-    padding: calcVWM(24) calcVWM(26) calcVWM(26) calcVWM(26) !important;
+    padding: calcVWM(24) calcVWM(26) calcVWM(26) !important;
     border-radius: calcVWM(16) !important;
     width: calcVWM(343);
-    min-height: calcVWM(314) !important;
 
     p {
       font-size: calcVWM(18);
