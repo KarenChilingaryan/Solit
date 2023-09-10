@@ -226,8 +226,11 @@
       margin-bottom: 0;
     }
     @media (min-width: 1025px) {
+      :global(.ant-tooltip-inner) {
+        height: calcVW(294);
+      }
       :global(.ant-tooltip-arrow) {
-        bottom: calcVW(-71);
+        bottom: calcVW(-53);
       }
       height: calcVW(254);
       top: calcVW(10160) !important;
