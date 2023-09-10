@@ -296,7 +296,8 @@
       .mapContainer {
         flex-direction: column;
         .worldMapUser {
-          width: calcVWT(630);
+          //TO check
+          // width: calcVWT(630);
         }
       }
     }
@@ -357,7 +358,7 @@
         width: 100%;
         .worldMapUser {
           width: 100%;
-          margin-top: calcVWM(300);
+          margin-top: calcVWM(340);
         }
       }
       .borderedTextWhat {

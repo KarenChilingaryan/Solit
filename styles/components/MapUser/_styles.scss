@@ -4,6 +4,7 @@
 @mixin generate-map-user-styles {
   .container {
     @include flex(center, center, column);
+    height: calcVW(282);
 
     .imgBlock {
       @include flex(space-between, center);
@@ -68,6 +69,7 @@
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      height: calcVWL(282);
       .imgBlock {
         width: calcVWL(320);
 
@@ -117,6 +119,7 @@
     }
 
     @media (max-width: 1024px) {
+      height: calcVWT(282);
       justify-content: flex-start;
       .imgBlock {
         width: calcVWT(300);
@@ -166,6 +169,7 @@
     }
 
     @media (max-width: 576px) {
+      height: calcVWM(282);
       margin-right: unset;
       .imgBlock {
         width: 100%;
@@ -219,10 +223,22 @@
   }
   .customTooltip {
     @media (min-width: 1025px) {
+      :global(.ant-tooltip-arrow) {
+        bottom: calcVW(-71);
+      }
+      height: calcVW(254);
       top: calcVW(10160) !important;
     }
-    @media only screen and (max-width: 1025px) and (min-width: 576px) {
+    @media (max-width: 1025px) and (min-width: 576px) {
+      height: calcVWT(254);
       top: calcVWT(8261) !important;
+    }
+    @media (max-width: 576px) {
+      :global(.ant-tooltip-arrow) {
+        bottom: calcVWM(-61);
+      }
+      height: calcVWM(314);
+      top: calcVWM(9750) !important;
     }
   }
 }
