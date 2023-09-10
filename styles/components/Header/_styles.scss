@@ -408,13 +408,13 @@
               transition: height 1s ease, padding 1s ease;
 
               .activeElem {
-                width: calcVWT(32);
-                height: calcVWT(32);
+                width: calcVWT(30);
+                height: calcVWT(30);
               }
 
               .disActiveElem {
-                width: calcVWT(32);
-                height: calcVWT(32);
+                width: calcVWT(30);
+                height: calcVWT(30);
               }
             }
           }
@@ -465,7 +465,7 @@
         transition: height 0.3s ease;
         justify-content: space-between;
         align-items: flex-start;
-        padding: calcVWT(40) calcVWT(24) 0 calcVWT(24);
+        padding: calcVWT(36) calcVWT(24) 0 calcVWT(24);
         height: calc(100vh - calcVWT(88));
         width: 100%;
         left: 0;
@@ -497,7 +497,7 @@
               height: calcVWT(64);
               display: flex !important;
               width: 100%;
-              column-gap: calcVWT(16);
+              column-gap: calcVWT(17);
               align-items: center;
               padding: calcVWT(16);
               transition: height 1s ease, padding 1s ease;
@@ -517,6 +517,7 @@
               &:hover {
                 border-radius: calcVWT(8);
                 border: 1px solid variables.$main-dark-blue;
+                background: rgba(0, 0, 0, 0.32);
 
                 .activeElem {
                   display: block;
@@ -540,7 +541,7 @@
           .menuItem {
             width: 100%;
             display: block;
-            margin-left: calcVWT(68);
+            margin-left: calcVWT(65);
           }
         }
 
@@ -631,6 +632,7 @@
               width: calcVWM(24);
               height: calcVWM(24);
               margin-left: calcVWM(8);
+              filter: none !important;
             }
 
             @include font-style(calcVWM(20),
@@ -639,7 +641,8 @@
               variables.$main-white );
 
             &:hover {
-              color: variables.$light-blue !important;
+              color: variables.$white !important;
+              text-decoration: underline;
             }
           }
 
@@ -651,13 +654,13 @@
                 variables.$main-white );
 
               .activeElem {
-                width: calcVWM(32);
-                height: calcVWM(32);
+                width: calcVWM(29);
+                height: calcVWM(29);
               }
 
               .disActiveElem {
-                width: calcVWM(32);
-                height: calcVWM(32);
+                width: calcVWM(29);
+                height: calcVWM(29);
               }
             }
           }
@@ -670,15 +673,15 @@
         min-width: calc(100% + calcVWM(48));
         margin-left: calcVWM(-24);
         margin-top: calcVWM(24);
-        padding: calcVWM(40) calcVWM(24);
+        padding: calcVWM(38) calcVWM(32);
 
         .socialIconsWrapper {
           height: calcVWM(110);
           column-gap: calcVWM(32);
           width: calc(100% + calcVWM(48));
-          padding: calcVWM(24);
+          padding: calcVWM(35) calcVWM(26) 0 calcVWM(26);
           margin-left: calcVWM(-24);
-          row-gap: calcVWM(16);
+          row-gap: calcVWM(0);
           max-width: calc(100% + calcVWM(48));
           min-width: calc(100% + calcVWM(48));
           background: transparent;
@@ -700,6 +703,7 @@
 
     .openHeaderWrapper {
       flex-wrap: wrap;
+      background: rgba(0, 0, 0, 0.88);
       position: fixed;
       height: max-content;
       overflow: hidden;
@@ -717,13 +721,15 @@
       .menuWrapper:first-of-type {
         height: max-content;
         display: flex;
-        row-gap: calcVWM(32);
+        row-gap: calcVWM(34);
         height: max-content;
         flex-direction: column;
         top: calcVWM(88);
         min-height: calc(100vh - calcVWM(88));
+        padding-bottom: calcVWM(26);
 
         .menuItem {
+          row-gap: calcVWM(26);
           width: 100% !important;
           margin: 0 !important;
 
@@ -745,7 +751,8 @@
             .menuItemChildWrapper {
               column-gap: calcVWM(16);
               height: calcVWM(64);
-              padding: calcVWM(16);
+              padding: calcVWM(20);
+              border-radius: calcVWM(8) !important;
               @include font-style(calcVWM(14),
                 variables.$fw-700,
                 normal,
@@ -775,7 +782,7 @@
         }
 
         .menuSecondItemBlock {
-          row-gap: calcVWM(32);
+          row-gap: calcVWM(35);
           width: 100%;
         }
       }
