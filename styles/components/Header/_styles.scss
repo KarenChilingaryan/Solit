@@ -271,6 +271,7 @@
             column-gap: calcVWL(32);
 
             .menuItemChildWrapper {
+              max-height: calcVWL(57);
               width: calcVWL(300);
               padding: calcVWL(16);
               column-gap: calcVWL(16);
