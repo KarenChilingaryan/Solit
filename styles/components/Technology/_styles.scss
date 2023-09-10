@@ -38,6 +38,7 @@
         @include flex(center, center, column);
         width: getTechnologySizes(language-block-w);
         height: getTechnologySizes(language-block-h);
+        border-radius: getTechnologySizes(language-block-br);
         cursor: pointer;
 
         .icon {
@@ -51,7 +52,8 @@
         }
 
         &:hover {
-          transition: 0.8s;
+          transition: 1s;
+          filter: none;
           justify-content: center;
           background-color: #000000;
           border: 1px solid #3fc1ff;
@@ -65,6 +67,10 @@
               getTechnologySizes(language-name-lh)
             );
             text-align: center;
+          }
+          .icon {
+            transition: 1s;
+            margin-bottom: 5px;
           }
         }
       }
