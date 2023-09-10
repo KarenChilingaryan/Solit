@@ -20,10 +20,10 @@ const Technology = () => {
   const filterIcons = () => {
     const filterObject = {}
     postsMainTechnologyApi?.data_list?.map((el) => {
-      if (filterObject[el.filter_name_main_technology.filter_name_main_technology]) {
-        filterObject[el.filter_name_main_technology.filter_name_main_technology].push(el)
+      if (filterObject[el.filter_name_main_technology.filter_number]) {
+        filterObject[el.filter_name_main_technology.filter_number].push(el)
       } else {
-        filterObject[el.filter_name_main_technology.filter_name_main_technology] = [el]
+        filterObject[el.filter_name_main_technology.filter_number] = [el]
       }
     })
     let returnArray = [];
@@ -59,16 +59,16 @@ const Technology = () => {
             <Button
               key={index}
               text={el.filter_name_main_technology}
-              lightBlueTech={filter === el.filter_name_main_technology}
-              grayTextBtnTech={filter !== el.filter_name_main_technology}
-              onClick={() => setFilter(el.filter_name_main_technology)}
+              lightBlueTech={filter === el.filter_number}
+              grayTextBtnTech={filter !== el.filter_number}
+              onClick={() => setFilter(el.filter_number)}
             />
           )}
         </div>
       </div>
       <div className={styles.languages}>
         {filteredIcons.map((el, i) => (
-          <div className={`${styles.languageBlock} ${el.filter_name_main_technology.filter_name_main_technology != filter && styles.languageBlockDeActive}`} key={i}>
+          <div className={`${styles.languageBlock} ${el.filter_name_main_technology.filter_number != filter && styles.languageBlockDeActive}`} key={i}>
             <Image src={el.technology_logos_for_main.original_logo} className={styles.icon} width={50} height={50} />
             <Paragraph className={styles.name}>{el.main_technology_name}</Paragraph>
           </div>

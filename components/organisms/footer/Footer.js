@@ -80,12 +80,12 @@ const Footer = () => {
   const info =
     footerApi && footerApi.office
       ? {
-          address: footerApi.office.address,
-          mail: footerApi.office.mail,
-          number: footerApi.office.number,
-        }
+        address: footerApi.office.address,
+        mail: footerApi.office.mail,
+        number: footerApi.office.number,
+      }
       : {};
-  console.log(info, "______");
+
   return (
     <div className={styles.footerWrapper}>
       <Row className={styles.footerBlock}>
