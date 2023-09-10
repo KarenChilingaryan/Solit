@@ -42,9 +42,6 @@
           background-color: #3fc1ff;
         }
       }
-      .customTooltip {
-        top: 10327px !important;
-      }
     }
 
     .infoBlock {
@@ -218,6 +215,14 @@
           max-width: calcVWM(230);
         }
       }
+    }
+  }
+  .customTooltip {
+    @media (min-width: 1025px) {
+      top: calcVW(10160) !important;
+    }
+    @media only screen and (max-width: 1025px) and (min-width: 576px) {
+      top: calcVWT(8261) !important;
     }
   }
 }
