@@ -80,6 +80,14 @@ const Header = () => {
   const [scrollYNew, setScrollYNew] = useState(0);
   const modalRef = useRef(null);
 
+  const [isIOS, setIsIOS] = useState(false);
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent;
+    const isiOS = /iPad|iPhone|iPod/.test(userAgent);
+    setIsIOS(isiOS);
+  }, []);
+
   const headerData = useSelector(
     (state) => state?.headerApi?.queries?.["header(undefined)"]?.data
   );
@@ -164,7 +172,8 @@ const Header = () => {
               window.scrollTo({ top: 0, left: 0 });
             }}
             onTouchEnd={() => {
-              window.scrollTo({ top: 0, left: 0 });
+              isIOS &&
+                window.scrollTo({ top: 0, left: 0 });
             }}
           >
             <Image src={menuLogoWhite} alt="logo" className={styles.img} />
@@ -186,14 +195,16 @@ const Header = () => {
                     }, 100);
                   }}
                   onTouchEnd={() => {
-                    if (window.innerWidth > 1024) {
-                      setOpenMenu(true);
+                    if (isIOS) {
+                      if (window.innerWidth > 1024) {
+                        setOpenMenu(true);
+                      }
+                      setTimeout(() => {
+                        setFilteredData(
+                          filteredData !== el.name ? el.name : "none"
+                        );
+                      }, 100);
                     }
-                    setTimeout(() => {
-                      setFilteredData(
-                        filteredData !== el.name ? el.name : "none"
-                      );
-                    }, 100);
                   }}
                   className={`${styles.menuItem} ${styles["menuItem" + index]
                     } ${filteredData !== el.name ? styles.closedMenu : ""}`}
@@ -227,7 +238,7 @@ const Header = () => {
                         onClick={() => setTimeout(() => {
                           setOpenMenu(true)
                         }, 100)}
-                        onTouchEnd={() => setTimeout(() => {
+                        onTouchEnd={() => isIOS && setTimeout(() => {
                           setOpenMenu(true)
                         }, 100)}
                       >
@@ -267,7 +278,7 @@ const Header = () => {
                     }, 100)
                   }}
                   onTouchEnd={() => {
-                    setTimeout(() => {
+                    isIOS && setTimeout(() => {
                       setOpenMenu(true);
                       setFilteredData(
                         filteredData !== el.name ? el.name : "none"
@@ -285,7 +296,7 @@ const Header = () => {
                       }, 100)
                     }}
                     onTouchEnd={() => {
-                      setTimeout(() => {
+                      isIOS && setTimeout(() => {
                         window.scrollTo({ top: 0, left: 0 });
                       }, 100)
                     }}
@@ -334,7 +345,7 @@ const Header = () => {
                   setOpenMenu(!openMenu);
                 }}
                 onTouchEnd={() => {
-                  setOpenMenu(!openMenu);
+                  isIOS && setOpenMenu(!openMenu);
                 }}
                 className={styles.menuImage}
                 alt=""
