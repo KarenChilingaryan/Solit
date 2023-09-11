@@ -29,7 +29,7 @@ const FloatInput = ({
   ) : null;
 
   const handleKeyDown = (e) => {
-    if (e.key === "e" || e.key === ".") {
+    if (e.key === "e" || e.key === "." || e.key === ",") {
       e.preventDefault();
     }
   };
@@ -43,7 +43,7 @@ const FloatInput = ({
       <Input
         onChange={onChange}
         type={type}
-        onKeyDown={type == "number" && handleKeyDown}
+        onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => {})}
         defaultValue={value}
         showUploadList={showUploadList}
         suffix={suffix}

@@ -9,10 +9,10 @@
     .imgBlock {
       @include flex(space-between, center);
       width: getMapUser(img-block-w);
+      height: calcVW(180);
 
       .imageBlock {
         position: relative;
-
         .flag {
           position: absolute;
           width: getMapUser(flag-width);
@@ -40,7 +40,9 @@
         }
 
         &:hover {
-          background-color: #3fc1ff;
+          @media (min-width: 1025px) {
+            background-color: #3fc1ff;
+          }
         }
       }
     }
@@ -72,6 +74,7 @@
       height: calcVWL(282);
       .imgBlock {
         width: calcVWL(320);
+        height: calcVWL(180);
 
         .imageBlock {
           .flag {
@@ -123,6 +126,7 @@
       justify-content: flex-start;
       .imgBlock {
         width: calcVWT(300);
+        height: calcVWT(180);
 
         .imageBlock {
           .userImage {
@@ -173,6 +177,7 @@
       margin-right: unset;
       .imgBlock {
         width: 100%;
+        height: calcVWM(180);
 
         .imageBlock {
           .userImage {

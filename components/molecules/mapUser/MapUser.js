@@ -31,13 +31,8 @@ const MapUser = ({ user, changeTo }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgBlock}>
-        <div className={styles.iconBlock}>
-          <Image
-            className={styles.arrowIcon}
-            src={arrowLeft}
-            alt=""
-            onClick={() => changeTo("prev")}
-          />
+        <div className={styles.iconBlock} onClick={() => changeTo("prev")}>
+          <Image className={styles.arrowIcon} src={arrowLeft} alt="" />
         </div>
         {tooltip && (
           <Tooltip
@@ -70,13 +65,8 @@ const MapUser = ({ user, changeTo }) => {
             </div>
           </Tooltip>
         )}
-        <div className={styles.iconBlock}>
-          <Image
-            className={styles.arrowIcon}
-            src={arrowRight}
-            onClick={() => changeTo("next")}
-            alt=""
-          />
+        <div className={styles.iconBlock} onClick={() => changeTo("next")}>
+          <Image className={styles.arrowIcon} src={arrowRight} alt="" />
         </div>
       </div>
       <div className={styles.infoBlock}>

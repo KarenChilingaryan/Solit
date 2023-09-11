@@ -261,6 +261,11 @@
         .ant-input:focus+.ant-form-item-label>label {
           color: blue;
         }
+        .ant-input-status-error {
+          &:focus{
+            border-bottom: none;
+          }
+        }
       }
     }
 
