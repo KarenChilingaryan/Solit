@@ -217,37 +217,39 @@ const Header = () => {
                     ref={modalRef}
                   >
                     {el?.data?.map((e, idx) => (
-                      <div
+                      <Link
+                        href={
+                          el?.fix_url +
+                          "/" +
+                          (e?.service_detail || e?.what_we_do_detail)
+                        }
                         key={idx}
-                        onClick={() => {
-                          router.push(el?.fix_url +
-                            "/" +
-                            (e?.service_detail || e?.what_we_do_detail))
+                        onClick={() => setTimeout(() => {
                           setOpenMenu(true)
-                        }}
-                        onTouchEnd={() => {
-                          router.push(el?.fix_url +
-                            "/" +
-                            (e?.service_detail || e?.what_we_do_detail));
+                        }, 100)}
+                        onTouchEnd={() => setTimeout(() => {
                           setOpenMenu(true)
-                        }}
-                        className={styles.menuItemChildWrapper}
-                        style={{
-                          display: el.name === filteredData ? "flex" : "none",
-                        }}
+                        }, 100)}
                       >
-                        <Image
-                          src={active_menu_element}
-                          className={styles.activeElem}
-                          alt=""
-                        />
-                        <Image
-                          src={menu_element}
-                          className={styles.disActiveElem}
-                          alt=""
-                        />
-                        {e.title}
-                      </div>
+                        <div
+                          className={styles.menuItemChildWrapper}
+                          style={{
+                            display: el.name === filteredData ? "flex" : "none",
+                          }}
+                        >
+                          <Image
+                            src={active_menu_element}
+                            className={styles.activeElem}
+                            alt=""
+                          />
+                          <Image
+                            src={menu_element}
+                            className={styles.disActiveElem}
+                            alt=""
+                          />
+                          {e.title}
+                        </div>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -271,13 +273,17 @@ const Header = () => {
                   className={`${styles.menuItem} ${styles["menuItem" + (index + 2)]
                     }`}
                 >
-                  <div
+                  <Link
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
                     onClick={() => {
-                      window.scrollTo({ top: 0, left: 0 });
+                      setTimeout(() => {
+                        window.scrollTo({ top: 0, left: 0 });
+                      }, 100)
                     }}
                     onTouchEnd={() => {
-                      window.scrollTo({ top: 0, left: 0 });
+                      setTimeout(() => {
+                        window.scrollTo({ top: 0, left: 0 });
+                      }, 100)
                     }}
                     className={styles.menuItemTitle}
                     style={{
@@ -290,7 +296,7 @@ const Header = () => {
                     }}
                   >
                     {el.name}
-                  </div>
+                  </Link>
                 </div>
               ))}
             </div>
