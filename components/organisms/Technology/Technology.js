@@ -7,7 +7,6 @@ import Button from "../../molecules/button/Button";
 import styles from "./Technology.module.scss";
 
 const Technology = () => {
-  const [current, setCurrent] = useState(0);
   const [filter, setFilter] = useState("Back-End");
 
   const postsMainTechnologyApi = useSelector(
@@ -28,7 +27,7 @@ const Technology = () => {
     })
     let returnArray = [];
     for (let i = 0; i < Object.values(filterObject).length; i++) {
-      const element = Object.values(filterObject)[i];
+      const element = Object.values(filterObject)[i].sort((a, b) => a.filter_number - b.filter_number);
       returnArray = [...returnArray, ...element]
     }
     return returnArray;
@@ -36,7 +35,7 @@ const Technology = () => {
 
   useEffect(() => {
     if (postsMainTechnologyFiltersApi) {
-      setFilter(postsMainTechnologyFiltersApi[0].filter_name_main_technology)
+      setFilter(postsMainTechnologyFiltersApi[0].filter_number)
     }
   }, [postsMainTechnologyFiltersApi])
 
