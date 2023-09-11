@@ -109,6 +109,8 @@
     }
 
     .modal {
+      width: calcVWM(343) !important;
+      max-width: calcVWM(343) !important;
       :global(.ant-modal-content) {
         width: 100% !important;
         padding: calcVWM(16) !important;
