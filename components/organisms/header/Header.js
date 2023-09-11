@@ -217,7 +217,7 @@ const Header = () => {
                     ref={modalRef}
                   >
                     {el?.data?.map((e, idx) => (
-                      <Link
+                      <div
                         key={idx}
                         onClick={() => {
                           router.push(el?.fix_url +
@@ -231,26 +231,23 @@ const Header = () => {
                             (e?.service_detail || e?.what_we_do_detail));
                           setOpenMenu(true)
                         }}
+                        className={styles.menuItemChildWrapper}
+                        style={{
+                          display: el.name === filteredData ? "flex" : "none",
+                        }}
                       >
-                        <div
-                          className={styles.menuItemChildWrapper}
-                          style={{
-                            display: el.name === filteredData ? "flex" : "none",
-                          }}
-                        >
-                          <Image
-                            src={active_menu_element}
-                            className={styles.activeElem}
-                            alt=""
-                          />
-                          <Image
-                            src={menu_element}
-                            className={styles.disActiveElem}
-                            alt=""
-                          />
-                          {e.title}
-                        </div>
-                      </Link>
+                        <Image
+                          src={active_menu_element}
+                          className={styles.activeElem}
+                          alt=""
+                        />
+                        <Image
+                          src={menu_element}
+                          className={styles.disActiveElem}
+                          alt=""
+                        />
+                        {e.title}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -274,7 +271,7 @@ const Header = () => {
                   className={`${styles.menuItem} ${styles["menuItem" + (index + 2)]
                     }`}
                 >
-                  <Link
+                  <div
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
                     onClick={() => {
                       window.scrollTo({ top: 0, left: 0 });
@@ -293,7 +290,7 @@ const Header = () => {
                     }}
                   >
                     {el.name}
-                  </Link>
+                  </div>
                 </div>
               ))}
             </div>
