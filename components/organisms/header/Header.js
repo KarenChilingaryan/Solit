@@ -195,17 +195,16 @@ const Header = () => {
                       );
                     }, 100);
                   }}
-                  className={`${styles.menuItem} ${
-                    styles["menuItem" + index]
-                  } ${filteredData !== el.name ? styles.closedMenu : ""}`}
+                  className={`${styles.menuItem} ${styles["menuItem" + index]
+                    } ${filteredData !== el.name ? styles.closedMenu : ""}`}
                 >
                   <div
                     className={styles.menuItemTitle}
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
-                        (el?.fix_url === "what-we-do" &&
-                          router.pathname === "/")
+                          (el?.fix_url === "what-we-do" &&
+                            router.pathname === "/")
                           ? "2px solid #ffffff"
                           : "0",
                     }}
@@ -219,14 +218,19 @@ const Header = () => {
                   >
                     {el?.data?.map((e, idx) => (
                       <Link
-                        href={
-                          el?.fix_url +
-                          "/" +
-                          (e?.service_detail || e?.what_we_do_detail)
-                        }
                         key={idx}
-                        onClick={() => setOpenMenu(true)}
-                        onTouchEnd={() => setOpenMenu(true)}
+                        onClick={() => {
+                          router.push(el?.fix_url +
+                            "/" +
+                            (e?.service_detail || e?.what_we_do_detail))
+                          setOpenMenu(true)
+                        }}
+                        onTouchEnd={() => {
+                          router.push(el?.fix_url +
+                            "/" +
+                            (e?.service_detail || e?.what_we_do_detail));
+                          setOpenMenu(true)
+                        }}
                       >
                         <div
                           className={styles.menuItemChildWrapper}
@@ -267,9 +271,8 @@ const Header = () => {
                       filteredData !== el.name ? el.name : "none"
                     );
                   }}
-                  className={`${styles.menuItem} ${
-                    styles["menuItem" + (index + 2)]
-                  }`}
+                  className={`${styles.menuItem} ${styles["menuItem" + (index + 2)]
+                    }`}
                 >
                   <Link
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
@@ -283,8 +286,8 @@ const Header = () => {
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
-                        (el?.fix_url === "what-we-do" &&
-                          router.pathname === "/")
+                          (el?.fix_url === "what-we-do" &&
+                            router.pathname === "/")
                           ? "2px solid #ffffff"
                           : "0",
                     }}
