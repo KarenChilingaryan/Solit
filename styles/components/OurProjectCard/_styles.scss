@@ -29,10 +29,12 @@
         display: flex;
         gap: 10px;
         align-items: center;
-        @include font-style(getTeamMemberSizes(team-member-position-fz),
+        @include font-style(
+          getTeamMemberSizes(team-member-position-fz),
           variables.$fw-700,
           getTeamMemberSizes(team-member-position-lh),
-          #219fdb);
+          #219fdb
+        );
 
         img {
           width: calcVW(18);
@@ -93,17 +95,21 @@
           background: rgba(2, 13, 28, 0.73);
 
           .name {
-            @include font-style(getOurProjectCardSizes(project-name-hover-fz),
+            @include font-style(
+              getOurProjectCardSizes(project-name-hover-fz),
               variables.$fw-700,
               getOurProjectCardSizes(project-name-hover-lh),
-              #fff);
+              #fff
+            );
           }
 
           .blogDescription {
-            @include font-style(getOurProjectCardSizes(project-name-hover-fz),
+            @include font-style(
+              getOurProjectCardSizes(project-name-hover-fz),
               variables.$fw-500,
               getOurProjectCardSizes(project-name-hover-lh),
-              #fff);
+              #fff
+            );
           }
 
           .stacks {
@@ -193,10 +199,12 @@
 
         .more {
           gap: calcVWL(10);
-          @include font-style(getTeamMemberSizes(team-member-position-fz),
+          @include font-style(
+            getTeamMemberSizes(team-member-position-fz),
             variables.$fw-700,
             getTeamMemberSizes(team-member-position-lh),
-            #219fdb);
+            #219fdb
+          );
 
           img {
             width: calcVWL(18);
@@ -279,7 +287,12 @@
           }
 
           .blogDescription {
-            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              #fff
+            );
           }
         }
       }
@@ -292,10 +305,7 @@
       .imageContainer {
         .more {
           gap: calcVWT(10);
-          @include font-style(calcVWT(18),
-            variables.$fw-700,
-            normal,
-            #219fdb);
+          @include font-style(calcVWT(18), variables.$fw-700, normal, #219fdb);
 
           img {
             width: calcVWT(18);
@@ -322,7 +332,12 @@
           }
 
           .name {
-            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(24), #fff);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(24),
+              #fff
+            );
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -343,7 +358,12 @@
           height: calcVWT(54);
 
           .name {
-            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(24), #fff);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(24),
+              #fff
+            );
           }
         }
       }
@@ -368,7 +388,12 @@
           }
 
           .name {
-            @include font-style(calcVWT(18), variables.$fw-700, calcVWT(24), #fff);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(24),
+              #fff
+            );
           }
         }
       }
@@ -445,7 +470,12 @@
             background: rgba(2, 13, 28, 0.73);
 
             .name {
-              @include font-style(calcVWT(18), variables.$fw-700, calcVWT(24), #fff);
+              @include font-style(
+                calcVWT(18),
+                variables.$fw-700,
+                calcVWT(24),
+                #fff
+              );
             }
 
             .stacks {
@@ -456,7 +486,12 @@
           .blogDescription {
             height: auto;
             overflow: hidden;
-            @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #fff);
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              #fff
+            );
           }
         }
       }
@@ -470,10 +505,7 @@
       .imageContainer {
         .more {
           gap: calcVWM(10);
-          @include font-style(calcVWM(18),
-            variables.$fw-700,
-            normal,
-            #219fdb);
+          @include font-style(calcVWM(18), variables.$fw-700, normal, #219fdb);
 
           img {
             width: calcVWM(18);
@@ -495,7 +527,12 @@
           height: calcVWM(32);
 
           .name {
-            @include font-style(calcVWM(10), variables.$fw-700, calcVWM(12), #fff);
+            @include font-style(
+              calcVWM(10),
+              variables.$fw-700,
+              calcVWM(12),
+              #fff
+            );
           }
 
           .stacks {
@@ -521,7 +558,12 @@
           height: calcVWM(30);
 
           .name {
-            @include font-style(calcVWM(10), variables.$fw-700, calcVWM(12), #fff);
+            @include font-style(
+              calcVWM(10),
+              variables.$fw-700,
+              calcVWM(12),
+              #fff
+            );
           }
         }
       }
@@ -546,7 +588,12 @@
           }
 
           .name {
-            @include font-style(calcVWM(18), variables.$fw-700, calcVWM(24), #fff);
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-700,
+              calcVWM(24),
+              #fff
+            );
           }
         }
       }
@@ -569,7 +616,8 @@
           }
 
           .positionSection {
-            height: calcVWM(62);
+            height: calcVWM(70);
+            padding: calcVWM(7) 0;
 
             .stacks {
               column-gap: calcVWM(20);
@@ -598,7 +646,12 @@
             background: rgba(2, 13, 28, 0.73);
 
             .name {
-              @include font-style(calcVWM(18), variables.$fw-700, calcVWM(24), #fff);
+              @include font-style(
+                calcVWM(18),
+                variables.$fw-700,
+                calcVWM(24),
+                #fff
+              );
             }
 
             .stacks {
@@ -609,7 +662,12 @@
           .blogDescription {
             height: auto;
             overflow: hidden;
-            @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #fff);
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              #fff
+            );
           }
         }
       }
@@ -635,7 +693,12 @@
             height: calcVWM(54) !important;
 
             .name {
-              @include font-style(calcVWM(18) !important, variables.$fw-700 !important, calcVWM(22) !important, #fff);
+              @include font-style(
+                calcVWM(18) !important,
+                variables.$fw-700 !important,
+                calcVWM(22) !important,
+                #fff
+              );
             }
           }
         }
