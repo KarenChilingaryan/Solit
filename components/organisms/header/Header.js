@@ -163,6 +163,9 @@ const Header = () => {
             onClick={() => {
               window.scrollTo({ top: 0, left: 0 });
             }}
+            onTouchEnd={() => {
+              window.scrollTo({ top: 0, left: 0 });
+            }}
           >
             <Image src={menuLogoWhite} alt="logo" className={styles.img} />
           </Link>
@@ -173,6 +176,16 @@ const Header = () => {
                 <div
                   key={el.id}
                   onClick={() => {
+                    if (window.innerWidth > 1024) {
+                      setOpenMenu(true);
+                    }
+                    setTimeout(() => {
+                      setFilteredData(
+                        filteredData !== el.name ? el.name : "none"
+                      );
+                    }, 100);
+                  }}
+                  onTouchEnd={() => {
                     if (window.innerWidth > 1024) {
                       setOpenMenu(true);
                     }
@@ -213,6 +226,7 @@ const Header = () => {
                         }
                         key={idx}
                         onClick={() => setOpenMenu(true)}
+                        onTouchEnd={() => setOpenMenu(true)}
                       >
                         <div
                           className={styles.menuItemChildWrapper}
@@ -247,6 +261,12 @@ const Header = () => {
                       filteredData !== el.name ? el.name : "none"
                     );
                   }}
+                  onTouchEnd={() => {
+                    setOpenMenu(true);
+                    setFilteredData(
+                      filteredData !== el.name ? el.name : "none"
+                    );
+                  }}
                   className={`${styles.menuItem} ${
                     styles["menuItem" + (index + 2)]
                   }`}
@@ -254,6 +274,9 @@ const Header = () => {
                   <Link
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
                     onClick={() => {
+                      window.scrollTo({ top: 0, left: 0 });
+                    }}
+                    onTouchEnd={() => {
                       window.scrollTo({ top: 0, left: 0 });
                     }}
                     className={styles.menuItemTitle}
@@ -298,6 +321,9 @@ const Header = () => {
               <Image
                 src={!openMenu ? close : hamburger}
                 onClick={() => {
+                  setOpenMenu(!openMenu);
+                }}
+                onTouchEnd={() => {
                   setOpenMenu(!openMenu);
                 }}
                 className={styles.menuImage}
