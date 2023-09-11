@@ -619,6 +619,9 @@
             height: calcVWM(70);
             padding: calcVWM(7) 0;
 
+            .name {
+              margin: auto;
+            }
             .stacks {
               column-gap: calcVWM(20);
               flex-wrap: nowrap;
