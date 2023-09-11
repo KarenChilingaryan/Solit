@@ -210,6 +210,12 @@
 
           &:hover {
             pointer-events: none;
+            border-radius: none;
+            border: none;
+
+            .name {
+              display: none;
+            }
           }
         }
       }
