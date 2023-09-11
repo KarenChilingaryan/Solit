@@ -163,6 +163,9 @@ const Header = () => {
             onClick={() => {
               window.scrollTo({ top: 0, left: 0 });
             }}
+            onTouchEnd={() => {
+              window.scrollTo({ top: 0, left: 0 });
+            }}
           >
             <Image src={menuLogoWhite} alt="logo" className={styles.img} />
           </Link>
@@ -182,17 +185,26 @@ const Header = () => {
                       );
                     }, 100);
                   }}
-                  className={`${styles.menuItem} ${
-                    styles["menuItem" + index]
-                  } ${filteredData !== el.name ? styles.closedMenu : ""}`}
+                  onTouchEnd={() => {
+                    if (window.innerWidth > 1024) {
+                      setOpenMenu(true);
+                    }
+                    setTimeout(() => {
+                      setFilteredData(
+                        filteredData !== el.name ? el.name : "none"
+                      );
+                    }, 100);
+                  }}
+                  className={`${styles.menuItem} ${styles["menuItem" + index]
+                    } ${filteredData !== el.name ? styles.closedMenu : ""}`}
                 >
                   <div
                     className={styles.menuItemTitle}
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
-                        (el?.fix_url === "what-we-do" &&
-                          router.pathname === "/")
+                          (el?.fix_url === "what-we-do" &&
+                            router.pathname === "/")
                           ? "2px solid #ffffff"
                           : "0",
                     }}
@@ -205,34 +217,37 @@ const Header = () => {
                     ref={modalRef}
                   >
                     {el?.data?.map((e, idx) => (
-                      <Link
-                        href={
-                          el?.fix_url +
-                          "/" +
-                          (e?.service_detail || e?.what_we_do_detail)
-                        }
+                      <div
                         key={idx}
-                        onClick={() => setOpenMenu(true)}
+                        onClick={() => {
+                          router.push(el?.fix_url +
+                            "/" +
+                            (e?.service_detail || e?.what_we_do_detail))
+                          setOpenMenu(true)
+                        }}
+                        onTouchEnd={() => {
+                          router.push(el?.fix_url +
+                            "/" +
+                            (e?.service_detail || e?.what_we_do_detail));
+                          setOpenMenu(true)
+                        }}
+                        className={styles.menuItemChildWrapper}
+                        style={{
+                          display: el.name === filteredData ? "flex" : "none",
+                        }}
                       >
-                        <div
-                          className={styles.menuItemChildWrapper}
-                          style={{
-                            display: el.name === filteredData ? "flex" : "none",
-                          }}
-                        >
-                          <Image
-                            src={active_menu_element}
-                            className={styles.activeElem}
-                            alt=""
-                          />
-                          <Image
-                            src={menu_element}
-                            className={styles.disActiveElem}
-                            alt=""
-                          />
-                          {e.title}
-                        </div>
-                      </Link>
+                        <Image
+                          src={active_menu_element}
+                          className={styles.activeElem}
+                          alt=""
+                        />
+                        <Image
+                          src={menu_element}
+                          className={styles.disActiveElem}
+                          alt=""
+                        />
+                        {e.title}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -247,27 +262,35 @@ const Header = () => {
                       filteredData !== el.name ? el.name : "none"
                     );
                   }}
-                  className={`${styles.menuItem} ${
-                    styles["menuItem" + (index + 2)]
-                  }`}
+                  onTouchEnd={() => {
+                    setOpenMenu(true);
+                    setFilteredData(
+                      filteredData !== el.name ? el.name : "none"
+                    );
+                  }}
+                  className={`${styles.menuItem} ${styles["menuItem" + (index + 2)]
+                    }`}
                 >
-                  <Link
+                  <div
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
                     onClick={() => {
+                      window.scrollTo({ top: 0, left: 0 });
+                    }}
+                    onTouchEnd={() => {
                       window.scrollTo({ top: 0, left: 0 });
                     }}
                     className={styles.menuItemTitle}
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
-                        (el?.fix_url === "what-we-do" &&
-                          router.pathname === "/")
+                          (el?.fix_url === "what-we-do" &&
+                            router.pathname === "/")
                           ? "2px solid #ffffff"
                           : "0",
                     }}
                   >
                     {el.name}
-                  </Link>
+                  </div>
                 </div>
               ))}
             </div>
@@ -298,6 +321,9 @@ const Header = () => {
               <Image
                 src={!openMenu ? close : hamburger}
                 onClick={() => {
+                  setOpenMenu(!openMenu);
+                }}
+                onTouchEnd={() => {
                   setOpenMenu(!openMenu);
                 }}
                 className={styles.menuImage}
