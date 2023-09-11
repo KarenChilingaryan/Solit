@@ -15,7 +15,6 @@ import menu_element from "../../../assets/img/menu-element.svg";
 import Button from "../../molecules/button/Button";
 import linkedIn from "../../../assets/img/linkedin.png";
 
-
 import styles from "./Header.module.scss";
 
 const data = [
@@ -260,16 +259,20 @@ const Header = () => {
                 <div
                   key={el?.id}
                   onClick={() => {
-                    setOpenMenu(true);
-                    setFilteredData(
-                      filteredData !== el.name ? el.name : "none"
-                    );
+                    setTimeout(() => {
+                      setOpenMenu(true);
+                      setFilteredData(
+                        filteredData !== el.name ? el.name : "none"
+                      );
+                    }, 100)
                   }}
                   onTouchEnd={() => {
-                    setOpenMenu(true);
-                    setFilteredData(
-                      filteredData !== el.name ? el.name : "none"
-                    );
+                    setTimeout(() => {
+                      setOpenMenu(true);
+                      setFilteredData(
+                        filteredData !== el.name ? el.name : "none"
+                      );
+                    }, 100)
                   }}
                   className={`${styles.menuItem} ${styles["menuItem" + (index + 2)]
                     }`}
