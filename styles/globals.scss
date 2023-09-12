@@ -5,7 +5,6 @@
   font-family: Montserrat !important;
 }
 
-
 body {
   margin: 0;
   padding: 0;
@@ -158,10 +157,4 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
-}
-
-@media (min-width: 1025px) {
-  .ant-tooltip-content {
-    top: calcVW(175);
-  }
 }
