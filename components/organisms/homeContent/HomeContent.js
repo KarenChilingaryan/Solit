@@ -363,7 +363,7 @@ const HomeContent = () => {
                 key={i}
                 number={about.rating_number}
                 title={about.rating_text}
-                image={about.webp_icons_impact_we_make}
+                image={about.original_logo_company_of_expert}
                 withOutBG={true}
               />
             ))}
