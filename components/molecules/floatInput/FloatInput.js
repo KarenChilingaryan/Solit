@@ -33,7 +33,6 @@ const FloatInput = ({
       e.preventDefault();
     }
   };
-
   return (
     <div
       className={styles.floatLabel}
@@ -47,6 +46,7 @@ const FloatInput = ({
         defaultValue={value}
         showUploadList={showUploadList}
         suffix={suffix}
+        status={type == "file" && !value && "warning"}
         {...rest}
       />
       <label className={labelClass}>

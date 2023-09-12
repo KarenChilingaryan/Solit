@@ -5,6 +5,29 @@
   .floatLabel {
     position: relative;
 
+    :global(.ant-input-status-error) {
+      border-bottom: 1px solid rgb(207, 39, 39) !important;
+      &:focus {
+        box-shadow: 0 1px 1px -1px rgb(207, 39, 39) !important;
+      }
+    }
+
+    :global(.ant-input-affix-wrapper-status-warning) {
+      background: transparent !important;
+      border-color: transparent !important;
+      &:hover {
+        border: none;
+        border-color: transparent !important;
+        box-shadow: none !important;
+      }
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+
+    input::-webkit-file-upload-button {
+      visibility: hidden;
+    }
     input:-webkit-autofill {
       background-color: transparent;
     }

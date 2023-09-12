@@ -158,3 +158,19 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+
+input[type="file"] {
+  &::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+
+  &::before {
+    content: " "; 
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  
+}
