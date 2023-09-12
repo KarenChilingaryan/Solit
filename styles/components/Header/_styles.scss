@@ -347,7 +347,7 @@
       position: fixed;
       padding: calcVWT(24);
       height: calcVWT(96);
-      transition: height 0.3s ease;
+      transition: all 0.4s;
 
       .menuImage {
         display: block;
@@ -450,6 +450,10 @@
           overflow: hidden;
         }
       }
+    }
+
+    .headerWrapperScroll {
+      transition: all 0.4s;
     }
 
     .openHeaderWrapper {

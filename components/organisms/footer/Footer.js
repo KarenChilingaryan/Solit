@@ -57,10 +57,6 @@ const Footer = () => {
             name: "Privacy Policy",
           },
           {
-            link: "testimonials",
-            name: "Testimonials",
-          },
-          {
             link: "blog",
             name: "Blog",
           },
@@ -118,15 +114,19 @@ const Footer = () => {
         </Col>
         <Col className={styles.companyInfoWraper}>
           <Paragraph className={styles.textTitle}>Office</Paragraph>
-          {Object.keys(info).map((el, idx) => (
-            <Link
-              href={el === "mail" ? `mailto:${info[el]}?` : `tel:${info[el]}`}
-              className={styles.text}
-              key={idx}
-            >
-              {info[el]}
-            </Link>
-          ))}
+          {
+            Object.keys(info).map((el, idx) => {
+              console.log(el == "address" ? footerApi?.office?.address_link : el === "mail" ? `mailto:${info[el]}?` : `tel:${info[el]}`);
+              return <Link
+                target="_blank"
+                href={el == "address" ? footerApi?.office?.address_link : el === "mail" ? `mailto:${info[el]}?` : `tel:${info[el]}`}
+                className={styles.text}
+                key={idx}
+              >
+                {info[el]}
+              </Link>
+            })
+          }
         </Col>
         <Col className={styles.socialIconsWrapper}>
           <Paragraph

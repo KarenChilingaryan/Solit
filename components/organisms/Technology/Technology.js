@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import { Paragraph } from "../../atoms";
@@ -45,6 +45,22 @@ const Technology = () => {
 
   const filteredIcons = filterIcons() || [];
 
+  const containerRef = useRef(null);
+
+  const scrollButtonToCenter = (e) => {
+    const container = containerRef.current;
+    if (container) {
+      if (e.target) {
+        const button = e.target;
+        const containerWidth = container.clientWidth;
+        const buttonOffsetLeft = button.offsetLeft;
+        const buttonWidth = button.clientWidth;
+        const scrollLeft = buttonOffsetLeft - (containerWidth - buttonWidth) / 2;
+        container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Paragraph className={styles.title}>
@@ -60,15 +76,15 @@ const Technology = () => {
             : "",
         }}
       />
-      <div className={styles.buttonsParent}>
-        <div className={styles.buttons}>
+      <div className={styles.buttonsParent} ref={containerRef}>
+        <div className={styles.buttons} >
           {postsMainTechnologyFiltersApi?.map((el, index) => (
             <Button
               key={index}
               text={el.filter_name_main_technology}
               lightBlueTech={filter === el.filter_number}
               grayTextBtnTech={filter !== el.filter_number}
-              onClick={() => setFilter(el.filter_number)}
+              onClick={(e) => { scrollButtonToCenter(e); setFilter(el.filter_number) }}
             />
           ))}
         </div>
@@ -76,10 +92,9 @@ const Technology = () => {
       <div className={styles.languages}>
         {filteredIcons.map((el, i) => (
           <div
-            className={`${styles.languageBlock} ${
-              el.filter_name_main_technology.filter_number != filter &&
+            className={`${styles.languageBlock} ${el.filter_name_main_technology.filter_number != filter &&
               styles.languageBlockDeActive
-            }`}
+              }`}
             key={i}
           >
             <Image
