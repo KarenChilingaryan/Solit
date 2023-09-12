@@ -605,7 +605,18 @@
       );
 
       &:hover {
-        @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        background: rgba(0, 0, 0, 0.32);
+        border-radius: calcVWT(8);
+        padding: calcVWT(15) calcVWT(32);
+        width: max-content !important;
+        height: max-content !important;
+        @include font-style(
+          calcVWT(18),
+          variables.$fw-400,
+          calcVWT(24),
+          variables.$light-blue
+        );
       }
     }
 
@@ -621,7 +632,14 @@
       );
 
       &:hover {
-        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+        padding: calcVWM(16) calcVWM(24);
+        border-radius: calcVWM(8);
+        @include font-style(
+          calcVWM(18),
+          variables.$fw-400,
+          calcVWM(24),
+          variables.$light-blue
+        );
       }
     }
   }
