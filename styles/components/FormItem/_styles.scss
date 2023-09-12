@@ -5,6 +5,10 @@
   .floatLabel {
     position: relative;
 
+    input:-webkit-autofill {
+      background-color: transparent;
+    }
+
     .label {
       font-weight: normal;
       position: absolute;
@@ -29,10 +33,12 @@
       left: 0 !important;
       top: calcVW(-20);
       background: transparent;
-      @include font-style(calcVW(13),
+      @include font-style(
+        calcVW(13),
         variables.$fw-400,
         normal,
-        #8296a5 !important);
+        #8296a5 !important
+      );
 
       span {
         color: red;
@@ -47,55 +53,83 @@
       }
 
       .asPlaceholder {
-        @include font-style(calcVWL(18) !important, variables.$fw-400, calcVWL(24) !important);
+        @include font-style(
+          calcVWL(18) !important,
+          variables.$fw-400,
+          calcVWL(24) !important
+        );
         top: calcVWL(5);
       }
 
       .asLabel {
         top: calcVWL(-20);
-        @include font-style(calcVWL(13) !important,
+        @include font-style(
+          calcVWL(13) !important,
           variables.$fw-400,
           normal,
-          #8296a5 !important);
+          #8296a5 !important
+        );
       }
     }
   }
 
   @media (max-width: 1024px) {
     .asPlaceholder {
-      @include font-style(calcVWT(18) !important, variables.$fw-400, calcVWT(24) !important);
+      @include font-style(
+        calcVWT(18) !important,
+        variables.$fw-400,
+        calcVWT(24) !important
+      );
       top: calcVWT(2);
     }
 
     .label {
-      @include font-style(calcVWT(18) !important, variables.$fw-400, normal, #8296a5);
+      @include font-style(
+        calcVWT(18) !important,
+        variables.$fw-400,
+        normal,
+        #8296a5
+      );
     }
 
     .asLabel {
       top: calcVWT(-18) !important;
-      @include font-style(calcVWT(13) !important,
+      @include font-style(
+        calcVWT(13) !important,
         variables.$fw-400,
         normal,
-        #8296a5 !important);
+        #8296a5 !important
+      );
     }
   }
 
   @media (max-width: 576px) {
     .asPlaceholder {
-      @include font-style(calcVWM(18) !important, variables.$fw-400, calcVWM(24));
+      @include font-style(
+        calcVWM(18) !important,
+        variables.$fw-400,
+        calcVWM(24)
+      );
       top: calcVWM(10) !important;
     }
 
     .label {
-      @include font-style(calcVWM(18) !important, variables.$fw-400, normal, #8296a5);
+      @include font-style(
+        calcVWM(18) !important,
+        variables.$fw-400,
+        normal,
+        #8296a5
+      );
     }
 
     .asLabel {
       top: calcVWM(-15) !important;
-      @include font-style(calcVWM(13) !important,
+      @include font-style(
+        calcVWM(13) !important,
         variables.$fw-400,
         normal,
-        #8296a5 !important);
+        #8296a5 !important
+      );
     }
   }
 }
