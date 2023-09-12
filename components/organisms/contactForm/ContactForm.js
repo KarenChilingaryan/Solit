@@ -222,7 +222,7 @@ const ContactForm = ({
                   )
                 }
                 onExpired={() => setDisabled(true)}
-                sitekey="6LfotBwoAAAAAHUqmCHNsWmFbERDW_LlKz4I85ie"
+                sitekey="6LeeNh4oAAAAAMYGTBLUmsZPWy-CbCb24FzlhpFv"
               />
             </div>
           </Row>
