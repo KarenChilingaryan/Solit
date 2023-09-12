@@ -74,7 +74,7 @@
         margin-bottom: calcVWM(14) !important;
       }
       .description {
-        @include font-style(calcVWM(13), variables.$fw-400, calcVWM(20));
+        @include font-style(calcVWM(14), variables.$fw-400, calcVWM(20));
         margin-bottom: calcVWM(20) !important;
       }
     }
