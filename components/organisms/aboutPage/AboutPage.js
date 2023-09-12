@@ -102,7 +102,7 @@ const AboutPage = () => {
               className={styles.description}
             />
           </div>
-          <Image src={aboutImage} className={styles.aboutImage} alt="" />
+          <Image src={aboutImage} className={styles.aboutImage} alt="image" />
           <Paragraph className={styles.title}>Quick facts</Paragraph>
           <div className={styles.quickFacts}>
             {data.map((el, i) => (

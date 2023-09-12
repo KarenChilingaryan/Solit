@@ -27,7 +27,7 @@ const WeDoCard = ({ item }) => {
                 className={styles.icon}
                 width={40}
                 height={40}
-                alt=""
+                alt="image"
               />
             </Row>
             <Col className={styles.development}>
@@ -44,7 +44,7 @@ const WeDoCard = ({ item }) => {
           </>
         ) : (
           <Row className={styles.more}>
-            More <Image src={arrow} width={10} height={10} alt="" />
+            More <Image src={arrow} width={10} height={10} alt="image" />
           </Row>
         )}
       </Col>

@@ -11,7 +11,7 @@ export default function Custom404() {
       <Col className={styles.errorPage}>
         <Col className={styles.textSection}>
           <Paragraph className={styles.errorText}>Oops!</Paragraph>
-          <Image src={error} className={styles.errorCode}/>
+          <Image src={error} className={styles.errorCode} alt="image"/>
           <Paragraph className={styles.message}>Let’s contact!</Paragraph>
         </Col>
         <Row className={styles.buttonWrapper}>

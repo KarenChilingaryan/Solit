@@ -113,7 +113,7 @@ const Careers = () => {
           </Row>
           <Button text="Recommended" transparentOpposite />
         </Row>
-        <Image className={styles.worldMap} src={worldMap} />
+        <Image className={styles.worldMap} src={worldMap} alt="image"/>
         <div className={styles.aboutContent}>
           {data.map((row, i) => (
             <ReversedAboutUs

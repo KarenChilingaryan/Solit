@@ -49,7 +49,7 @@ const OurProjectCard = ({
                       key={i}
                       width={100}
                       height={100}
-                      alt=""
+                      alt="image"
                     />
                   ))}
                 {blogs && (
@@ -63,7 +63,7 @@ const OurProjectCard = ({
           </>
         ) : (
           <Row className={styles.more}>
-            More <Image src={arrow} width={10} height={10} alt="" />
+            More <Image src={arrow} width={10} height={10} alt="image" />
           </Row>
         )}
       </Col>

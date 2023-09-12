@@ -77,7 +77,7 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
           (el.name == "Telegram" || el.name == 'Linkedin' || el.name == 'Whatsapp') &&
           <Link href={el.link} target="_blank" key={i}>
             <div className={styles.site}>
-              <Image src={el.logo} className={styles.image} width={80} height={80} />
+              <Image src={el.logo} className={styles.image} width={80} height={80} alt="image" />
               <Paragraph className={styles.text}>{el.name}</Paragraph>
             </div>
           </Link>
@@ -87,13 +87,14 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
         <div className={`${styles.socialSites} ${styles.socialSitesTop}`} onClick={scrallToTop}>
           <div className={styles.site}>
             <Paragraph className={styles.text}>Go To Top</Paragraph>
-            <Image src={rughtRow} className={styles.image} width={80} height={80} />
+            <Image src={rughtRow} className={styles.image} width={80} height={80} alt="image" />
           </div>
         </div>
       }
       {
         firstImage &&
         <Image
+          alt="image"
           src={firstImage}
           style={{
             width: "100%",

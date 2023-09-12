@@ -41,7 +41,7 @@ const ModalWrapper = ({ children, open, width, setOpen, style }) => {
       onCancel={() => setOpen(false)}
       open={visible}
       afterClose={afterClose}
-      title={<Image src={logo} className={styles.logo} alt="" />}
+      title={<Image src={logo} className={styles.logo} alt="image" />}
       className={`${styles.modal} ${styles[animationClass]} ${style && style}`}
       wrapClassName={styles.lll}
       footer={false}
@@ -53,7 +53,7 @@ const ModalWrapper = ({ children, open, width, setOpen, style }) => {
           className={styles.closeIcon}
           width="1.25vw"
           height="1.25vw"
-          alt=""
+          alt="image"
           onClick={() => setOpen(false)}
         />
       }

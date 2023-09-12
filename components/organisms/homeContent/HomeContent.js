@@ -284,7 +284,7 @@ const HomeContent = () => {
             <Image
               src={whatWeDoImage}
               className={`${styles.backImage} ${styles.topBackImage}`}
-              alt=""
+              alt="image"
             />
             <Paragraph className={styles.title}>
               {postsMainWhatWeDoTextApi
@@ -337,7 +337,7 @@ const HomeContent = () => {
             </div>
             <Image
               src={ourProjectImage}
-              className={`${styles.backImageSecond} ${styles.backImage}`} alt=""
+              className={`${styles.backImageSecond} ${styles.backImage}`} alt="image"
             />
             <div className={styles.ourProjectsCards}>
               {postPortfolioApi &&

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const BorderedText = ({ img }) => {
   return (
-    <Image src={img} className={styles.text} />
+    <Image src={img} className={styles.text} alt="image"/>
   );
 };
 

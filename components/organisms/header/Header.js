@@ -221,7 +221,7 @@ const Header = () => {
                     }}
                   >
                     {el.name}
-                    <Image src={dropdown} alt="" />
+                    <Image src={dropdown} alt="image" />
                   </div>
                   <div
                     className={styles.menuItemChildMainWrapper}
@@ -251,12 +251,12 @@ const Header = () => {
                           <Image
                             src={active_menu_element}
                             className={styles.activeElem}
-                            alt=""
+                            alt="image"
                           />
                           <Image
                             src={menu_element}
                             className={styles.disActiveElem}
-                            alt=""
+                            alt="image"
                           />
                           {e.title}
                         </div>
@@ -348,7 +348,7 @@ const Header = () => {
                   isIOS && setOpenMenu(!openMenu);
                 }}
                 className={styles.menuImage}
-                alt=""
+                alt="image"
               />
             </div>
           </div>

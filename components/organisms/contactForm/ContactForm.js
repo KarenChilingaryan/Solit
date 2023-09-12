@@ -101,7 +101,7 @@ const ContactForm = ({
           <Image
             src={contactUsBgImage}
             className={styles.contactUsImage}
-            alt=""
+            alt="image"
           />
         )}
       </Col>
@@ -175,7 +175,7 @@ const ContactForm = ({
                 multiple
                 type="file"
                 accept=".pdf,.doc,.docx"
-                suffix={<Image className={styles.suffix} src={upload} alt="" />}
+                suffix={<Image className={styles.suffix} src={upload} alt="image" />}
                 onChange={(e) => {
                   setFile(e.target.files[0]);
                 }}
@@ -236,7 +236,7 @@ const ContactForm = ({
         <Image
           src={contactBgImage}
           className={`${styles.backImage} ${styles.topBackImage}`}
-          alt=""
+          alt="image"
         />
       )}
       <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />

@@ -63,7 +63,7 @@ const Portfolios = ({ data }) => {
         }}
 
       >
-        <Image className={styles.elipse} src={elipse} />
+        <Image className={styles.elipse} src={elipse} alt="image"/>
         {data && [...data]?.map((project, i) => (
           <OurProjectCard
             onClick={() => handleClick(project.project_from_portfolio)}

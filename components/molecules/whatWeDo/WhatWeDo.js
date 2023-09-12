@@ -105,7 +105,7 @@ const WhatWeDo = ({ data }) => {
               onClick={(e) => e.preventDefault()}
             >
               {contextData?.name_about_as_what_we_do_detail}{" "}
-              <Image src={downOutlined} />
+              <Image src={downOutlined} alt="image" />
             </a>
           </Dropdown>
           <Row className={styles.context}>
@@ -137,7 +137,7 @@ const WhatWeDo = ({ data }) => {
               // <Context icon={devIcon} context={context} title={title} />
               <Row className={styles.contextWrapper}>
                 <Row className={styles.contextHeader}>
-                  <Image src={devIcon} className={styles.contextIcon} alt="" />
+                  <Image src={devIcon} className={styles.contextIcon} alt="image" />
                   <Col className={styles.contextTitle}>
                     {contextData?.name_about_as_what_we_do_detail}
                   </Col>
@@ -154,7 +154,7 @@ const WhatWeDo = ({ data }) => {
                     className={styles.button}
                     onClick={() => setShowMoreClass("showMoreClass")}
                   >
-                    Show more <Image src={showMore} className={styles.btnImg} />
+                    Show more <Image src={showMore} className={styles.btnImg} alt="image" />
                   </ShowMore>
                 )}
               </Row>
@@ -184,7 +184,7 @@ const WhatWeDo = ({ data }) => {
           <Button text="More expertise" boldWhite icon={goRight} />
         </Link>
       </Col>
-      <Image src={ourTeamBg} className={styles.backImage} />
+      <Image src={ourTeamBg} className={styles.backImage} alt="image" />
     </div>
   );
 };

@@ -133,7 +133,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
               multiple
               type="file"
               accept=".pdf,.doc,.docx"
-              prefix={<Image className={styles.suffix} src={upload} />}
+              prefix={<Image className={styles.suffix} src={upload} alt="image" />}
               onChange={(e) => {
                 setFile(e.target.files[0]);
               }}
@@ -166,7 +166,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
           >
             <Select
               className={styles.select}
-              suffixIcon={<Image src={arrow} />}
+              suffixIcon={<Image src={arrow} alt="image" />}
               placeholder={
                 <span className={styles.selectPlaceholder}>Your budget</span>
               }

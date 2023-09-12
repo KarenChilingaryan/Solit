@@ -27,7 +27,7 @@ const ServiceCard = ({ item, onClick, className, fromDetail, index, more }) => {
               src={item?.webp_image_service || cardIcon}
               width={300}
               height={500}
-              alt=""
+              alt="image"
             />
             <Row className={styles.description}>
               {item?.description ||
@@ -36,7 +36,7 @@ const ServiceCard = ({ item, onClick, className, fromDetail, index, more }) => {
           </Row>
         ) : (
           <Row className={styles.more}>
-            More <Image src={arrow} width={10} height={10} alt="" />
+            More <Image src={arrow} width={10} height={10} alt="image" />
           </Row>
         )}
       </Link>

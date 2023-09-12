@@ -26,7 +26,7 @@ const TeamMember = ({ name, position, more, image, fromCareers }) => {
         </>
       ) : (
         <Row className={styles.more}>
-          More <Image src={arrow} width={10} height={10} />
+          More <Image src={arrow} width={10} height={10} alt="image" />
         </Row>
       )}
     </Col>

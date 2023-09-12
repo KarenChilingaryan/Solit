@@ -101,7 +101,7 @@ const ModalLetsTalkForm = ({
               multiple
               type="file"
               accept=".pdf,.doc,.docx"
-              suffix={<Image className={styles.suffix} src={upload} alt="" />}
+              suffix={<Image className={styles.suffix} src={upload} alt="image" />}
               onChange={(e) => {
                 setFile(e.target.files[0]);
               }}

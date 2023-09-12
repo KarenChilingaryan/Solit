@@ -23,8 +23,8 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
           showMoreButton && !showMoreClass
             ? "defaultShowMoreClass"
             : !showMoreButton
-            ? ""
-            : showMoreClass
+              ? ""
+              : showMoreClass
         }
       />
       {buttonText && (
@@ -37,7 +37,7 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
           className={styles.button}
           onClick={() => setShowMoreClass("showMoreClass")}
         >
-          Show more <Image src={showMore} className={styles.btnImg}  alt=""/>
+          Show more <Image src={showMore} className={styles.btnImg} alt="image" />
         </ShowMore>
       )}
     </Col>

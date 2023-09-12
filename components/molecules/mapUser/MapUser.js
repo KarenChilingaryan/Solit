@@ -32,7 +32,7 @@ const MapUser = ({ user, changeTo }) => {
     <div className={styles.container}>
       <div className={styles.imgBlock}>
         <div className={styles.iconBlock} onClick={() => changeTo("prev")}>
-          <Image className={styles.arrowIcon} src={arrowLeft} alt="" />
+          <Image className={styles.arrowIcon} src={arrowLeft} alt="image" />
         </div>
         {tooltip && (
           <Tooltip
@@ -51,13 +51,13 @@ const MapUser = ({ user, changeTo }) => {
                 width={178}
                 height={178}
                 className={styles.userImage}
-                alt=""
+                alt="image"
               />
               {user?.webp_flag && (
                 <Image
                   className={styles.flag}
                   src={user?.webp_flag}
-                  alt=""
+                  alt="image"
                   width={30}
                   height={30}
                 />
@@ -66,7 +66,7 @@ const MapUser = ({ user, changeTo }) => {
           </Tooltip>
         )}
         <div className={styles.iconBlock} onClick={() => changeTo("next")}>
-          <Image className={styles.arrowIcon} src={arrowRight} alt="" />
+          <Image className={styles.arrowIcon} src={arrowRight} alt="image" />
         </div>
       </div>
       <div className={styles.infoBlock}>

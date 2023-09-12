@@ -10,7 +10,7 @@ const AboutTeam = ({ icon, title, description, onClick }) => {
   const moreText = "More";
   return (
     <div className={styles.aboutTeamWrapper}>
-      <Image src={icon} className={styles.icon} />
+      <Image src={icon} className={styles.icon} alt="image"/>
       <Row className={styles.title}> Our React Native Developers</Row>
       <Row className={styles.context}>
         It is a long established fact that a reader will be distracted by the

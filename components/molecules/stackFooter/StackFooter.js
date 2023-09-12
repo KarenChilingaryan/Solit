@@ -21,7 +21,7 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick }) => {
                 src={close}
                 className={styles.icon}
                 onClick={() => handleDelete(item)}
-                alt=""
+                alt="image"
               />
             </Col>
           ))}

@@ -25,11 +25,11 @@ const WorldMap = ({ data, setActiveUser, activeUser }) => {
         left: `${el.x / DEFAULT_WIDTH * 100 - 2}%`,
         top: `${el.y / DEFAULT_HEIGHT * 100 - 6}%`
       }} className={`${styles.personIcon} ${activeUser?.id == el.id && styles.activeUser}`}>
-        <Image src={mapPersonActive} className={styles.active}  alt=""/>
-        <Image src={mapPersonDisActive} className={styles.disActive} alt=""/>
+        <Image src={mapPersonActive} className={styles.active} alt="image" />
+        <Image src={mapPersonDisActive} className={styles.disActive} alt="image" />
       </div>
     )}
-    <Image src={mapimage} alt=""/>
+    <Image src={mapimage} alt="image" />
   </div>
 };
 

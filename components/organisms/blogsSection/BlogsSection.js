@@ -71,7 +71,7 @@ const BlogsSection = ({ data }) => {
         justify={"space-between"}
         gutter={[0, "6vw"]}
       >
-        <Image className={styles.elipse} src={elipse} />
+        <Image className={styles.elipse} src={elipse} alt="image" />
         {data?.map((project, i) => (
           <OurProjectCard
             onClick={() => handleClick(project.blog_detail)}
