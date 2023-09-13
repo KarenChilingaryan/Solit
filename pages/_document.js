@@ -16,6 +16,7 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta name="title" content="Solit" />
+          <title>Solit</title>
           <meta name="description" content="Software development company SolIT" />
           <meta property="og:title" content="SolIT" />
           <meta property="og:description" content="Software development company SolIT" />
