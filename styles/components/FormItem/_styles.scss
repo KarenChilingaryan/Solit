@@ -25,6 +25,12 @@
       }
     }
 
+    :global(.ant-input-affix-wrapper){
+      &:focus{
+        box-shadow: none
+      }
+    }
+
     input::-webkit-file-upload-button {
       visibility: hidden;
     }
