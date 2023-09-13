@@ -29,9 +29,10 @@
         display: flex;
         gap: 10px;
         align-items: center;
-        @include font-style(getTeamMemberSizes(team-member-position-fz),
+        @include font-style(
+          getOurProjectCardSizes(team-member-position-fz),
           variables.$fw-700,
-          getTeamMemberSizes(team-member-position-lh),
+          getOurProjectCardSizes(team-member-position-lh),
           #219fdb);
 
         img {
@@ -198,9 +199,9 @@
 
         .more {
           gap: calcVWL(10);
-          @include font-style(getTeamMemberSizes(team-member-position-fz),
+          @include font-style(calcVWL(18),
             variables.$fw-700,
-            getTeamMemberSizes(team-member-position-lh),
+            normal,
             #219fdb);
 
           img {
