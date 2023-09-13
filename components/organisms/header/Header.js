@@ -157,7 +157,6 @@ const Header = () => {
     }
   }, [openMenu]);
 
-  console.log();
   return (
     <div className={styles.mainWraperBlock}>
       {dropdownElements?.length && (
