@@ -157,6 +157,7 @@ const Header = () => {
     }
   }, [openMenu]);
 
+  console.log();
   return (
     <div className={styles.mainWraperBlock}>
       {dropdownElements?.length && (
@@ -165,6 +166,7 @@ const Header = () => {
             styles.headerWrapper,
             !scrollYNew && styles.headerWrapperScroll
           )} ${!openMenu && styles.openHeaderWrapper}`}
+          style={{ ...(window.innerWidth <= 576 && !openMenu ? { height: `calc(${window.innerHeight}px + 8vw)` } : {}) }}
         >
           <Link
             href="/"
