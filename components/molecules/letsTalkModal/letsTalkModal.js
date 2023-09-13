@@ -26,6 +26,7 @@ const ModalLetsTalkForm = ({
       [from == "apply" ? "file_cv" : "file_document"]: file,
     };
     onSubmit(formData);
+    form.resetFields();
   };
 
   return (
@@ -101,7 +102,9 @@ const ModalLetsTalkForm = ({
               multiple
               type="file"
               accept=".pdf,.doc,.docx"
-              suffix={<Image className={styles.suffix} src={upload} alt="image" />}
+              suffix={
+                <Image className={styles.suffix} src={upload} alt="image" />
+              }
               onChange={(e) => {
                 setFile(e.target.files[0]);
               }}

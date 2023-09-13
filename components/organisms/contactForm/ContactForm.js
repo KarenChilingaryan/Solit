@@ -61,6 +61,7 @@ const ContactForm = ({
       setTimeout(() => {
         setOpenSuccess(false);
       }, 3000);
+      form.resetFields()
     } catch {}
   };
 
