@@ -215,8 +215,6 @@ const ContactForm = ({
                 className={styles.recaptcha}
                 onChange={() =>
                   checkFormValidation(
-                    true,
-                    form,
                     setDisabled,
                     recaptchaRef.current
                   )
