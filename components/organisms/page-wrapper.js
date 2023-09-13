@@ -66,6 +66,8 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate())
       if (!a.pathname.includes('/portfolio'))
         await dispatch(await postPortfolioApi.endpoints.posts.initiate())
+      if (!a.pathname.includes('/about-us'))
+        await dispatch(await abutUsCompanyOfExpertsApi.endpoints.about.initiate())
       await dispatch(await postTestimonialsApi.endpoints.posts.initiate())
       await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate())
 

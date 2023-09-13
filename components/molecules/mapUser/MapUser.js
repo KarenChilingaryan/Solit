@@ -4,7 +4,6 @@ import { Tooltip } from "antd";
 import { Paragraph } from "../../atoms";
 import arrowLeft from "../../../assets/img/arrowLeft.svg";
 import arrowRight from "../../../assets/img/arrowRight.svg";
-import flag from "../../../assets/img/flag.svg";
 
 import styles from "./MapUser.module.scss";
 
@@ -38,12 +37,11 @@ const MapUser = ({ user, changeTo }) => {
           <Tooltip
             color="#219FDB"
             title={TooltipElement(user.testimonial)}
-            overlayClassName={styles.customTooltip}
             {...(window.innerWidth <= 1024 && window.innerWidth > 576
               ? { visible: true, placement: "left" }
               : window.innerWidth <= 576
-              ? { visible: true }
-              : { visible: true })}
+                ? { visible: true }
+                : { visible: true })}
           >
             <div className={styles.imageBlock}>
               <Image

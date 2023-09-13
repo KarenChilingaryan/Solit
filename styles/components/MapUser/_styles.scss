@@ -13,6 +13,7 @@
 
       .imageBlock {
         position: relative;
+
         .flag {
           position: absolute;
           width: getMapUser(flag-width);
@@ -53,25 +54,22 @@
       margin-top: getMapUser(info-mt);
 
       .userName {
-        @include font-style(
-          getMapUser(name-fs),
+        @include font-style(getMapUser(name-fs),
           variables.$fw-700,
           getMapUser(name-lh),
-          #219fdb
-        );
+          #219fdb);
       }
 
       .userPosition {
-        @include font-style(
-          getMapUser(position-fs),
+        @include font-style(getMapUser(position-fs),
           variables.$fw-500,
-          getMapUser(position-lh)
-        );
+          getMapUser(position-lh));
       }
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       height: calcVWL(282);
+
       .imgBlock {
         width: calcVWL(320);
         height: calcVWL(180);
@@ -107,12 +105,10 @@
         margin-top: calcVWL(20);
 
         .userName {
-          @include font-style(
-            calcVWL(24),
+          @include font-style(calcVWL(24),
             variables.$fw-700,
             calcVWL(29),
-            #219fdb
-          );
+            #219fdb);
         }
 
         .userPosition {
@@ -124,6 +120,7 @@
     @media (max-width: 1024px) {
       height: calcVWT(282);
       justify-content: flex-start;
+
       .imgBlock {
         width: calcVWT(300);
         height: calcVWT(180);
@@ -157,12 +154,10 @@
         width: auto;
 
         .userName {
-          @include font-style(
-            calcVWT(24),
+          @include font-style(calcVWT(24),
             variables.$fw-700,
             calcVWT(29),
-            #219fdb
-          );
+            #219fdb);
           margin-top: calcVWT(10);
         }
 
@@ -175,6 +170,7 @@
     @media (max-width: 576px) {
       height: calcVWM(282);
       margin-right: unset;
+
       .imgBlock {
         width: 100%;
         height: calcVWM(180);
@@ -210,12 +206,10 @@
         width: auto;
 
         .userName {
-          @include font-style(
-            calcVWM(24),
+          @include font-style(calcVWM(24),
             variables.$fw-700,
             calcVWM(29),
-            #219fdb
-          );
+            #219fdb);
           margin-top: calcVWM(10);
         }
 
@@ -224,45 +218,6 @@
           max-width: calcVWM(230);
         }
       }
-    }
-  }
-  .customTooltip {
-    p {
-      margin-bottom: 0;
-    }
-    @media (min-width: 1440px) {
-      :global(.ant-tooltip-inner) {
-        height: calcVW(294);
-      }
-      :global(.ant-tooltip-arrow) {
-        bottom: calcVW(-53);
-      }
-      height: calcVW(254);
-      top: calcVW(10160) !important;
-    }
-    @media (min-width: 1025px) and (max-width: 1440px) {
-      height: calcVWL(254);
-      top: calcVWL(10400) !important;
-      :global(.ant-tooltip-inner) {
-        height: calcVWL(294);
-      }
-      :global(.ant-tooltip-arrow) {
-        bottom: calcVWL(-53);
-      }
-    }
-    @media (max-width: 1025px) and (min-width: 576px) {
-      height: calcVWT(254);
-      top: calcVWT(8261) !important;
-    }
-    @media (max-width: 576px) {
-      :global(.ant-tooltip-arrow) {
-        bottom: calcVWM(-43);
-      }
-      :global(.ant-tooltip-inner) {
-        height: calcVWM(333);
-      }
-      height: calcVWM(314);
-      top: calcVWM(9770) !important;
     }
   }
 }
