@@ -6,7 +6,9 @@
 @mixin generate-lets-talk-modal-styles {
   .modalFormWrapper {
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -webkit-gap: calcVW(43);
     gap: calcVW(43);
 
     .textWrapper {
@@ -612,7 +614,7 @@
         }
 
         :global(.ant-input) {
-          padding: calcVWM(5)  0;
+          padding: calcVWM(5) 0;
           border-bottom: 2px solid #ffffff;
           @include font-style(
             calcVWM(18),
