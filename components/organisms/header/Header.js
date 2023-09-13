@@ -168,15 +168,11 @@ const Header = () => {
         >
           <Link
             href="/"
-            onClick={() => {
-              window.scrollTo({ top: 0, left: 0 });
-            }}
-            onTouchEnd={() => {
-              isIOS &&
-                window.scrollTo({ top: 0, left: 0 });
-            }}
           >
-            <Image src={menuLogoWhite} alt="logo" className={styles.img} />
+            <Image src={menuLogoWhite} alt="logo" className={styles.img}
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0 });
+              }} />
           </Link>
 
           <div className={`${styles.menuWrapper}`}>
@@ -193,18 +189,6 @@ const Header = () => {
                         filteredData !== el.name ? el.name : "none"
                       );
                     }, 100);
-                  }}
-                  onTouchEnd={() => {
-                    if (isIOS) {
-                      if (window.innerWidth > 1024) {
-                        setOpenMenu(true);
-                      }
-                      setTimeout(() => {
-                        setFilteredData(
-                          filteredData !== el.name ? el.name : "none"
-                        );
-                      }, 100);
-                    }
                   }}
                   className={`${styles.menuItem} ${styles["menuItem" + index]
                     } ${filteredData !== el.name ? styles.closedMenu : ""}`}
@@ -235,18 +219,15 @@ const Header = () => {
                           (e?.service_detail || e?.what_we_do_detail)
                         }
                         key={idx}
-                        onClick={() => setTimeout(() => {
-                          setOpenMenu(true)
-                        }, 100)}
-                        onTouchEnd={() => isIOS && setTimeout(() => {
-                          setOpenMenu(true)
-                        }, 100)}
                       >
                         <div
                           className={styles.menuItemChildWrapper}
                           style={{
                             display: el.name === filteredData ? "flex" : "none",
                           }}
+                          onClick={() => setTimeout(() => {
+                            setOpenMenu(true)
+                          }, 100)}
                         >
                           <Image
                             src={active_menu_element}
@@ -275,14 +256,7 @@ const Header = () => {
                       setFilteredData(
                         filteredData !== el.name ? el.name : "none"
                       );
-                    }, 100)
-                  }}
-                  onTouchEnd={() => {
-                    isIOS && setTimeout(() => {
-                      setOpenMenu(true);
-                      setFilteredData(
-                        filteredData !== el.name ? el.name : "none"
-                      );
+                      window.scrollTo({ top: 0, left: 0 });
                     }, 100)
                   }}
                   className={`${styles.menuItem} ${styles["menuItem" + (index + 2)]
@@ -290,16 +264,6 @@ const Header = () => {
                 >
                   <Link
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
-                    onClick={() => {
-                      setTimeout(() => {
-                        window.scrollTo({ top: 0, left: 0 });
-                      }, 100)
-                    }}
-                    onTouchEnd={() => {
-                      isIOS && setTimeout(() => {
-                        window.scrollTo({ top: 0, left: 0 });
-                      }, 100)
-                    }}
                     className={styles.menuItemTitle}
                     style={{
                       borderBottom:
@@ -343,9 +307,6 @@ const Header = () => {
                 src={!openMenu ? close : hamburger}
                 onClick={() => {
                   setOpenMenu(!openMenu);
-                }}
-                onTouchEnd={() => {
-                  isIOS && setOpenMenu(!openMenu);
                 }}
                 className={styles.menuImage}
                 alt="image"
