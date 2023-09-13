@@ -16,9 +16,14 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta name="title" content="Solit" />
+          <meta name="description" content="Software development company SolIT" />
+          <meta property="og:title" content="SolIT" />
           <meta property="og:description" content="Software development company SolIT" />
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="Solit Website Url" />
+          <meta property="og:image" content="https://djnago-solit-static.s3.eu-north-1.amazonaws.com/media/images/converted_image_ZuJcRnF.png" />
+          <meta property="og:url" content="https://solit-llc.com/" />
+          <meta property="og:type" content="website" />
+          <meta property="twitter:card" content="https://djnago-solit-static.s3.eu-north-1.amazonaws.com/media/images/converted_image_ZuJcRnF.png" />
+          <meta property="twitter:url" content="https://solit-llc.com/" />
           <meta property="twitter:title" content="Solit" />
           <meta property="twitter:description" content="Software development company SolIT" />
           <meta
