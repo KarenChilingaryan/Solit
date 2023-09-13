@@ -16,7 +16,7 @@
       .image {
         height: getAboutCompanySizes(card-image-height);
         width: max-content;
-        object-fit: cover
+        object-fit: contain
       }
       .info {
         @include font-style(
