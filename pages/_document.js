@@ -17,16 +17,16 @@ export default class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta name="title" content="Solit" />
           <title>Solit</title>
-          <meta name="description" content="Software development company SolIT" />
+          <meta name="description" content="Software Development Company – Solit. Solit is your trusted and top-ranked software company with all the needed resources for custom IT development." />
           <meta property="og:title" content="SolIT" />
-          <meta property="og:description" content="Software development company SolIT" />
+          <meta property="og:description" content="Software Development Company – Solit. Solit is your trusted and top-ranked software company with all the needed resources for custom IT development." />
           <meta property="og:image" content="https://djnago-solit-static.s3.eu-north-1.amazonaws.com/media/images/converted_image_ZuJcRnF.png" />
           <meta property="og:url" content="https://solit-llc.com/" />
           <meta property="og:type" content="website" />
           <meta property="twitter:card" content="https://djnago-solit-static.s3.eu-north-1.amazonaws.com/media/images/converted_image_ZuJcRnF.png" />
           <meta property="twitter:url" content="https://solit-llc.com/" />
           <meta property="twitter:title" content="Solit" />
-          <meta property="twitter:description" content="Software development company SolIT" />
+          <meta property="twitter:description" content="Software Development Company – Solit. Solit is your trusted and top-ranked software company with all the needed resources for custom IT development." />
           <meta
             name="viewport"
             content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no"

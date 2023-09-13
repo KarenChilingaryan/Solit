@@ -80,6 +80,7 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: calcVW(16) !important;
   width: calcVW(387);
   min-height: calcVW(254) !important;
+  margin-bottom: calcVW(20);
 
   p {
     font-size: calcVW(18);
@@ -89,6 +90,11 @@ textarea::-webkit-scrollbar-thumb {
 .ant-tooltip-placement-top {
   display: flex !important;
   justify-content: center;
+  padding-bottom: 30px;
+}
+
+.ant-tooltip-arrow {
+  margin-bottom: calcVW(20);
 }
 
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
@@ -119,7 +125,7 @@ textarea::-webkit-scrollbar-thumb {
 
 @media (max-width: 1024px) and (min-width: 577px) {
   .ant-tooltip-inner {
-    margin-top: calcVWT(30);
+    margin-top: calcVWT(73);
     min-height: calcVWT(254) !important;
   }
 
