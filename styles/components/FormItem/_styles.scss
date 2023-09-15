@@ -3,10 +3,15 @@
 
 @mixin generate-form-item-styles {
   .floatLabel {
+    align-items: center;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
 
     :global(.ant-input-status-error) {
       border-bottom: 1px solid rgb(207, 39, 39) !important;
+
       &:focus {
         box-shadow: 0 1px 1px -1px rgb(207, 39, 39) !important;
       }
@@ -15,18 +20,20 @@
     :global(.ant-input-affix-wrapper-status-warning) {
       background: transparent !important;
       border-color: transparent !important;
+
       &:hover {
         border: none;
         border-color: transparent !important;
         box-shadow: none !important;
       }
+
       &:focus {
         box-shadow: none !important;
       }
     }
 
-    :global(.ant-input-affix-wrapper){
-      &:focus{
+    :global(.ant-input-affix-wrapper) {
+      &:focus {
         box-shadow: none
       }
     }
@@ -34,6 +41,7 @@
     input::-webkit-file-upload-button {
       visibility: hidden;
     }
+
     input:-webkit-autofill {
       background-color: transparent;
     }
@@ -62,12 +70,10 @@
       left: 0 !important;
       top: calcVW(-20);
       background: transparent;
-      @include font-style(
-        calcVW(13),
+      @include font-style(calcVW(13),
         variables.$fw-400,
         normal,
-        #8296a5 !important
-      );
+        #8296a5 !important);
 
       span {
         color: red;
@@ -82,83 +88,76 @@
       }
 
       .asPlaceholder {
-        @include font-style(
-          calcVWL(18) !important,
+        @include font-style(calcVWL(18) !important,
           variables.$fw-400,
-          calcVWL(24) !important
-        );
+          calcVWL(24) !important);
         top: calcVWL(5);
       }
 
       .asLabel {
         top: calcVWL(-20);
-        @include font-style(
-          calcVWL(13) !important,
+        @include font-style(calcVWL(13) !important,
           variables.$fw-400,
           normal,
-          #8296a5 !important
-        );
+          #8296a5 !important);
       }
     }
   }
 
+  .floatLabelBorder {
+    border-bottom: 1px solid variables.$white;
+  }
+
   @media (max-width: 1024px) {
+    .floatLabelBorder {
+      padding-bottom: calcVWT(10);
+    }
+
     .asPlaceholder {
-      @include font-style(
-        calcVWT(18) !important,
+      @include font-style(calcVWT(18) !important,
         variables.$fw-400,
-        calcVWT(24) !important
-      );
+        calcVWT(24) !important);
       top: calcVWT(2);
     }
 
     .label {
-      @include font-style(
-        calcVWT(18) !important,
+      @include font-style(calcVWT(18) !important,
         variables.$fw-400,
         normal,
-        #8296a5
-      );
+        #8296a5);
     }
 
     .asLabel {
       top: calcVWT(-18) !important;
-      @include font-style(
-        calcVWT(13) !important,
+      @include font-style(calcVWT(13) !important,
         variables.$fw-400,
         normal,
-        #8296a5 !important
-      );
+        #8296a5 !important);
     }
   }
 
   @media (max-width: 576px) {
+
     .asPlaceholder {
-      @include font-style(
-        calcVWM(18) !important,
+      @include font-style(calcVWM(18) !important,
         variables.$fw-400,
-        calcVWM(24)
-      );
+        calcVWM(24));
       top: calcVWM(10) !important;
     }
 
     .label {
-      @include font-style(
-        calcVWM(18) !important,
+      @include font-style(calcVWM(18) !important,
         variables.$fw-400,
         normal,
-        #8296a5
-      );
+        #8296a5);
     }
 
     .asLabel {
       top: calcVWM(-15) !important;
-      @include font-style(
-        calcVWM(13) !important,
+      @include font-style(calcVWM(13) !important,
         variables.$fw-400,
         normal,
-        #8296a5 !important
-      );
+        #8296a5 !important);
     }
   }
 }

@@ -13,14 +13,6 @@
       height: auto;
     }
 
-    :global {
-      .ant-form {
-        input[type="file"]:focus {
-          outline: none;
-        }
-      }
-    }
-
     .infoSection {
       display: flex;
       flex-direction: column;
@@ -98,15 +90,13 @@
         }
 
         .acceptText {
-          @include font-style(
-            getContactFormSizes(text-fz),
+          @include font-style(getContactFormSizes(text-fz),
             variables.$fw-400,
-            getContactFormSizes(text-fl)
-          );
+            getContactFormSizes(text-fl));
         }
       }
 
-      .accept > div > div {
+      .accept>div>div {
         height: unset !important;
       }
 
@@ -117,10 +107,6 @@
 
       .uploadFile {
         color: #e5e5e5;
-      }
-
-      .uploadedFile {
-        color: #e5e5e5 !important;
       }
 
       :global(.ant-input-affix-wrapper-focused) {
@@ -135,42 +121,6 @@
         border-left: none;
         border-right: none;
         padding: 0;
-
-        input[type="file"]::-webkit-file-upload-button {
-          visibility: hidden;
-          display: none;
-        }
-
-        input[type="file"]::before {
-          // content: " ";
-          display: inline-block;
-          background-size: cover;
-          padding: calcVWL(5) 0;
-          text-align: center;
-          cursor: pointer;
-
-          @media (max-width: 1024px) {
-            padding: calcVWT(5) 0;
-          }
-          @media (max-width: 576px) {
-            padding: calcVWM(5) 0;
-          }
-        }
-
-        input[type="file"] {
-          z-index: 999;
-          color: transparent;
-
-          &:focus {
-            border-bottom: 1px solid white;
-          }
-        }
-      }
-
-      :global(.ant-input-affix-wrapper-status-success) {
-        input[type="file"] {
-          color: white;
-        }
       }
 
       :global(.ant-input-affix-wrapper-focused) {
@@ -192,7 +142,7 @@
         width: 100%;
       }
 
-      .inputSection > div > div > div {
+      .inputSection>div>div>div {
         height: calcVW(58);
       }
 
@@ -244,39 +194,61 @@
       }
 
       :global {
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
           background: transparent;
           border-color: none;
           box-shadow: 0 2px 0 0 rgb(207, 39, 39);
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
           background: transparent;
           border-color: none !important;
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
           border-color: none;
         }
 
-        .ant-form-item-label > label {
+        .ant-form-item-label>label {
           font-size: 16px;
           color: #ffffff;
         }
 
-        .ant-input:focus + .ant-form-item-label > label {
+        .ant-input:focus+.ant-form-item-label>label {
           color: blue;
         }
+
         .ant-input-status-error {
           &:focus {
             border-bottom: none;
           }
+        }
+      }
+
+      .uploadItem {
+        .asPlaceholder {
+          padding-left: calcVW(30);
+        }
+
+        input[type="file"] {
+          width: 100%;
+          padding: calcVW(0) 0 calcVW(8) calcVW(30);
+          @include font-style(calcVW(18),
+            variables.$fw-400,
+            calcVW(24),
+            transparent !important);
+          margin: 0;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .uploadedFile {
+        input[type="file"] {
+          margin-left: calcVW(-158);
+          margin-right: calcVW(158);
+          color: variables.$white !important;
         }
       }
     }
@@ -343,12 +315,6 @@
           margin-bottom: calcVWL(10.4);
         }
 
-        :global(.ant-input-affix-wrapper) {
-          input[type="file"]::before {
-            padding: calcVWL(10) 0;
-          }
-        }
-
         :global(.ant-input-suffix) {
           bottom: calcVWL(7);
         }
@@ -357,7 +323,7 @@
           gap: calcVWL(32);
         }
 
-        .inputSection > div > div > div {
+        .inputSection>div>div>div {
           height: calcVWL(58);
         }
 
@@ -370,8 +336,32 @@
         }
 
         :global {
-          .ant-form-item-label > label {
+          .ant-form-item-label>label {
             font-size: calcVWL(16);
+          }
+        }
+
+        .uploadItem {
+          .asPlaceholder {
+            padding-left: calcVWL(30);
+          }
+
+          input[type="file"] {
+            width: 100%;
+            padding: calcVWL(0) 0 calcVWL(8) calcVWL(30);
+            @include font-style(calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              transparent !important);
+            margin: 0;
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWL(-158);
+            margin-right: calcVWL(158);
+            color: variables.$white !important;
           }
         }
       }
@@ -432,7 +422,7 @@
           gap: calcVWT(32);
         }
 
-        .inputSection > div > div > div {
+        .inputSection>div>div>div {
           height: calcVWT(58);
         }
 
@@ -474,12 +464,29 @@
           height: calcVWT(20);
         }
 
-        :global(
-            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
-              input[type="checkbox"]
-          ) {
+        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
           width: calcVWT(20);
           height: calcVWT(20);
+        }
+
+        .uploadItem {
+          input[type="file"] {
+
+            @include font-style(calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              transparent !important);
+            margin: 0;
+            height: calcVWT(26);
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWT(-144);
+            margin-right: calcVWT(144);
+            color: white !important;
+          }
         }
       }
 
@@ -541,6 +548,7 @@
         :global(.ant-input) {
           @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
           border-bottom: 1px solid #ffffff;
+          height: calcVWM(30);
 
           &:focus {
             box-shadow: none;
@@ -551,7 +559,7 @@
           gap: calcVWM(52);
         }
 
-        .inputSection > div > div > div {
+        .inputSection>div>div>div {
           height: calcVWM(58);
         }
 
@@ -568,11 +576,9 @@
 
         .buttonWrapper {
           button {
-            @include font-style(
-              calcVWM(13) !important,
+            @include font-style(calcVWM(13) !important,
               variables.$fw-700 !important,
-              calcVWM(16) !important
-            );
+              calcVWM(16) !important);
             padding: calcVWM(8) calcVWM(32);
             border-radius: calcVWM(8);
             margin: 0 auto;
@@ -584,6 +590,7 @@
             font-size: calcVWM(18);
             line-height: calcVWM(24);
           }
+
           :global(.ant-form-item-explain-connected) {
             padding-left: calcVWM(35);
           }
@@ -599,12 +606,28 @@
           margin-right: calcVWM(10);
         }
 
-        :global(
-            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
-              input[type="checkbox"]
-          ) {
+        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
           width: calcVWM(20);
           height: calcVWM(20);
+        }
+
+        .uploadItem {
+          input[type="file"] {
+            @include font-style(calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              transparent !important);
+            margin: 0;
+            height: calcVWM(26);
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWM(-126);
+            margin-right: calcVWM(126);
+            color: white !important;
+          }
         }
       }
     }

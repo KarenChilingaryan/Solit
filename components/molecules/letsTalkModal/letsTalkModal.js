@@ -94,7 +94,7 @@ const ModalLetsTalkForm = ({
               min={0}
             />
           </FormItem>
-          <FormItem name={"file_document"} className={styles.uploadItem}>
+          <FormItem name={"file_document"} className={`${styles.uploadItem}  ${file && styles.uploadedFile}`}>
             <FloatInput
               label={"Upload document"}
               placeholder={"Upload document"}
@@ -109,7 +109,7 @@ const ModalLetsTalkForm = ({
                 setFile(e.target.files[0]);
               }}
               showUploadList={false}
-              className={`${styles.uploadFile} ${file && style.uploadedFile}`}
+              className={`${styles.uploadFile}`}
             />
           </FormItem>
 

@@ -62,7 +62,7 @@ const ContactForm = ({
         setOpenSuccess(false);
       }, 3000);
       form.resetFields()
-    } catch {}
+    } catch { }
   };
 
   const setRecaptcha = (value) => {
@@ -74,13 +74,12 @@ const ContactForm = ({
       // If 'e' or 'E' is detected, prevent the input change
       return;
     }
-    onChange(e); // Continue with the change if it's valid
+    return true; // Continue with the change if it's valid
   };
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${
-        !title ? styles.withoutTitle : ""
-      }`}
+      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
+        }`}
       style={style}
     >
       <Col
@@ -158,7 +157,7 @@ const ContactForm = ({
                 type="number"
                 value={''}
                 formatter={(value) => value.replace("e", "")}
-                onChange={(e) =>handleInputChange(e)}
+                onChange={(e) => handleInputChange(e)}
               />
             </FormItem>
             <FormItem name="message">
@@ -168,20 +167,21 @@ const ContactForm = ({
                 name="message"
               />
             </FormItem>
-            <FormItem name={"file_cv"}>
+            <FormItem name={"file_cv"} className={`${styles.uploadItem}  ${file && styles.uploadedFile}`}>
               <FloatInput
+                border={true}
                 label="About your project"
                 placeholder="About your project"
                 name="file_cv"
                 multiple
                 type="file"
                 accept=".pdf,.doc,.docx"
-                suffix={<Image className={styles.suffix} src={upload} alt="image" />}
+                prefix={<Image className={styles.suffix} src={upload} alt="image" />}
                 onChange={(e) => {
                   setFile(e.target.files[0]);
                 }}
                 showUploadList={false}
-                className={`${styles.uploadFile} ${file && style.uploadedFile}`}
+                className={`${styles.uploadFile}`}
               />
             </FormItem>
             <FormItem

@@ -17,21 +17,17 @@
       gap: calcVW(16);
 
       .bigText {
-        @include font-style(
-          calcVW(36),
+        @include font-style(calcVW(36),
           variables.$fw-500,
           normal,
-          variables.$black
-        );
+          variables.$black );
       }
 
       .smallText {
-        @include font-style(
-          calcVW(18),
+        @include font-style(calcVW(18),
           variables.$fw-400,
           calcVW(24),
-          variables.$black
-        );
+          variables.$black );
       }
     }
 
@@ -44,14 +40,6 @@
 
     :global(.ant-select-dropdown) {
       background-color: aqua !important;
-    }
-
-    :global {
-      .ant-form {
-        input[type="file"]:focus {
-          outline: none;
-        }
-      }
     }
 
     .infoSection {
@@ -122,11 +110,9 @@
         justify-content: center;
 
         button {
-          @include font-style(
-            getModalFormSizes(button-fz),
+          @include font-style(getModalFormSizes(button-fz),
             variables.$fw-700,
-            getModalFormSizes(button-fl)
-          );
+            getModalFormSizes(button-fl));
         }
       }
 
@@ -162,12 +148,10 @@
         }
 
         .acceptText {
-          @include font-style(
-            getPricingModal(text-fz),
+          @include font-style(getPricingModal(text-fz),
             variables.$fw-400,
             getPricingModal(text-fl),
-            #000
-          );
+            #000);
         }
       }
 
@@ -183,10 +167,6 @@
         }
       }
 
-      .uploadedFile {
-        color: #e5e5e5 !important;
-      }
-
       :global(.ant-input-affix-wrapper) {
         z-index: 0;
         background: transparent;
@@ -196,30 +176,6 @@
         border-right: none;
         padding: 0;
         // height: calcVW(35);
-
-        input[type="file"]::-webkit-file-upload-button {
-          // margin-top: calcVW(5);
-          visibility: hidden;
-          display: none;
-        }
-
-        input[type="file"]::before {
-          content: " ";
-          display: inline-block;
-          background-size: cover;
-          width: 100%;
-          height: 100%;
-          padding: 10px 0;
-          text-align: center;
-          cursor: pointer;
-        }
-
-        input[type="file"] {
-          z-index: 999;
-          color: #000 !important;
-          margin-top: calcVW(8);
-          margin-left: calcVW(5);
-        }
       }
 
       :global(.ant-input-affix-wrapper-focused) {
@@ -256,46 +212,10 @@
             color: black;
           }
 
-          input {
-            color: black;
-            border-bottom: 1px solid #000;
-            border-radius: unset;
-
-            &:focus {
-              box-shadow: none;
-            }
-
-            &::before {
-              display: none !important;
-            }
-          }
-
-          input[type="file"] {
-            width: 100%;
-            padding: calcVW(0) 0 calcVW(8) calcVW(30);
-            @include font-style(
-              calcVW(18),
-              variables.$fw-400,
-              calcVW(24),
-              black !important
-            );
-          }
         }
 
         :global(.ant-input-status-success) {
           color: #000 !important;
-        }
-
-        :global(.ant-input-affix-wrapper-status-success) {
-          input[type="file"] {
-            color: black !important;
-          }
-        }
-      }
-
-      :global(.ant-input-affix-wrapper-status-success) {
-        input[type="file"] {
-          color: black !important;
         }
       }
 
@@ -307,7 +227,7 @@
         background-color: aqua;
 
         :global {
-          .ant-form-item-label > label {
+          .ant-form-item-label>label {
             font-size: calcVW(13);
             color: #ffffff;
           }
@@ -324,12 +244,10 @@
         transition: box-shadow 150ms ease-out;
         background: transparent;
         color: #ffffff;
-        @include font-style(
-          calcVW(18),
+        @include font-style(calcVW(18),
           variables.$fw-400,
           calcVW(24),
-          variables.$black
-        );
+          variables.$black );
 
         &:focus {
           box-shadow: 0 2px 0 0 blue;
@@ -352,33 +270,27 @@
       }
 
       :global {
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
           background: transparent;
           border-color: none;
           box-shadow: 0 2px 0 0 rgb(207, 39, 39);
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
           background: transparent;
           border-color: none !important;
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
           border-color: none;
         }
 
-        .ant-form-item-label > label {
+        .ant-form-item-label>label {
           font-size: 16px;
           color: #ffffff;
         }
 
-        .ant-input:focus + .ant-form-item-label > label {
+        .ant-input:focus+.ant-form-item-label>label {
           color: blue;
         }
       }
@@ -386,6 +298,26 @@
       .uploadItem {
         .asPlaceholder {
           padding-left: calcVW(30);
+        }
+
+        input[type="file"] {
+          width: 100%;
+          @include font-style(calcVW(18),
+            variables.$fw-400,
+            calcVW(24),
+            transparent !important);
+          margin: 0;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .uploadedFile {
+        input[type="file"] {
+          margin-left: calcVW(-120);
+          margin-right: calcVW(120);
+          color: variables.$black !important;
         }
       }
     }
@@ -403,21 +335,17 @@
         gap: calcVWT(16);
 
         .bigText {
-          @include font-style(
-            calcVWT(36),
+          @include font-style(calcVWT(36),
             variables.$fw-500,
             normal,
-            variables.$black
-          );
+            variables.$black );
         }
 
         .smallText {
-          @include font-style(
-            calcVWT(18),
+          @include font-style(calcVWT(18),
             variables.$fw-400,
             calcVWT(24),
-            variables.$black
-          );
+            variables.$black );
         }
       }
 
@@ -469,14 +397,6 @@
               margin-top: calcVWT(13);
             }
           }
-
-          :global(.ant-form-item) {
-            input[type="file"] {
-              padding: calcVWT(0) 0 calcVWT(8) calcVWT(30);
-              font-size: calcVWT(18);
-              line-height: calcVWT(24);
-            }
-          }
         }
 
         .uploadItem {
@@ -493,17 +413,15 @@
         :global(.ant-input) {
           padding: calcVWT(12) 0px calcVWT(5) 0;
           border-bottom: 2px solid #ffffff;
-          @include font-style(
-            calcVWT(18),
+          @include font-style(calcVWT(18),
             variables.$fw-400,
             calcVWT(24),
-            variables.$black
-          );
+            variables.$black );
         }
 
         .focused {
           :global {
-            .ant-form-item-label > label {
+            .ant-form-item-label>label {
               font-size: calcVWT(13);
             }
           }
@@ -543,12 +461,32 @@
           height: calcVWT(20);
         }
 
-        :global(
-            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
-              input[type="checkbox"]
-          ) {
+        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
           width: calcVWT(20);
           height: calcVWT(20);
+        }
+
+        .uploadItem {
+          .asPlaceholder {
+            padding-left: calcVWT(30);
+          }
+
+          input[type="file"] {
+            padding: 0;
+            @include font-style(calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              transparent !important);
+            margin: 0;
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWT(-120);
+            margin-right: calcVWT(120);
+            color: variables.$black !important;
+          }
         }
       }
     }
@@ -558,21 +496,17 @@
         gap: calcVWM(16);
 
         .bigText {
-          @include font-style(
-            calcVWM(36),
+          @include font-style(calcVWM(36),
             variables.$fw-500,
             normal,
-            variables.$black
-          );
+            variables.$black );
         }
 
         .smallText {
-          @include font-style(
-            calcVWM(18),
+          @include font-style(calcVWM(18),
             variables.$fw-400,
             calcVWM(24),
-            variables.$black
-          );
+            variables.$black );
         }
       }
 
@@ -596,14 +530,13 @@
         width: 100%;
         max-width: 100%;
 
-        :global(.ant-input-affix-wrapper) {
-          input[type="file"] {
-            z-index: 999;
-            color: #000 !important;
-            margin-top: calcVW(-15);
-            margin-left: calcVW(5);
-          }
+
+        .suffix {
+          width: calcVWM(18);
+          height: calcVWM(18);
         }
+
+
 
         :global(.ant-input-suffix) {
           top: 8;
@@ -616,12 +549,11 @@
         :global(.ant-input) {
           padding: calcVWM(5) 0;
           border-bottom: 2px solid #ffffff;
-          @include font-style(
-            calcVWM(18),
+          height: calcVWM(30);
+          @include font-style(calcVWM(18),
             variables.$fw-400,
             calcVWM(24),
-            variables.$black
-          );
+            variables.$black );
         }
 
         .inputSection {
@@ -639,13 +571,6 @@
             }
           }
 
-          :global(.ant-form-item) {
-            input[type="file"] {
-              padding: calcVWM(0) 0 calcVWM(8) calcVWM(30);
-              font-size: calcVWM(18);
-              line-height: calcVWM(30);
-            }
-          }
         }
 
         :global(.ant-form-item) {
@@ -693,10 +618,7 @@
           height: calcVWM(20);
         }
 
-        :global(
-            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
-              input[type="checkbox"]
-          ) {
+        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
           width: calcVWM(20);
           height: calcVWM(20);
         }
@@ -704,6 +626,29 @@
         :global(.ant-checkbox-inner) {
           width: calcVWM(20);
           height: calcVWM(20);
+        }
+
+        .uploadItem {
+          .asPlaceholder {
+            padding-left: calcVWM(30);
+          }
+
+          input[type="file"] {
+            padding: 0;
+            @include font-style(calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              transparent !important);
+            margin: 0;
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWM(-115);
+            margin-right: calcVWM(115);
+            color: variables.$black !important;
+          }
         }
       }
     }

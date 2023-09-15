@@ -12,6 +12,8 @@ const FloatInput = ({
   onChange,
   showUploadList,
   suffix,
+  prefix,
+  border,
   rest,
 }) => {
   const [focus, setFocus] = useState(false);
@@ -35,10 +37,11 @@ const FloatInput = ({
   };
   return (
     <div
-      className={styles.floatLabel}
+      className={`${styles.floatLabel} ${border && styles.floatLabelBorder}`}
       onBlur={() => setFocus(false)}
       onFocus={() => setFocus(true)}
     >
+      {type == "file" && suffix}
       {type == "file" ? (
         <input
           onChange={onChange}
@@ -52,7 +55,7 @@ const FloatInput = ({
         <Input
           onChange={onChange}
           type={type}
-          onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => {})}
+          onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => { })}
           defaultValue={value}
           showUploadList={showUploadList}
           suffix={suffix}
@@ -63,6 +66,7 @@ const FloatInput = ({
       <label className={labelClass}>
         {isOccupied ? label : placeholder} {requiredMark}
       </label>
+      {type == 'file' && prefix}
     </div>
   );
 };
