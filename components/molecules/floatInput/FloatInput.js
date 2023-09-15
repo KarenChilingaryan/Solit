@@ -39,16 +39,27 @@ const FloatInput = ({
       onBlur={() => setFocus(false)}
       onFocus={() => setFocus(true)}
     >
-      <Input
-        onChange={onChange}
-        type={type}
-        onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => {})}
-        defaultValue={value}
-        showUploadList={showUploadList}
-        suffix={suffix}
-        status={type == "file" && !value && "warning"}
-        {...rest}
-      />
+      {type == "file" ? (
+        <input
+          onChange={onChange}
+          type={type}
+          defaultValue={value}
+          showUploadList={showUploadList}
+          suffix={suffix}
+          {...rest}
+        />
+      ) : (
+        <Input
+          onChange={onChange}
+          type={type}
+          onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => {})}
+          defaultValue={value}
+          showUploadList={showUploadList}
+          suffix={suffix}
+          status={type == "file" && !value && "warning"}
+          {...rest}
+        />
+      )}
       <label className={labelClass}>
         {isOccupied ? label : placeholder} {requiredMark}
       </label>

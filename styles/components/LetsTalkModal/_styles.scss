@@ -271,13 +271,13 @@
           }
 
           input[type="file"] {
-            color: transparent;
+            width: 100%;
             padding: calcVW(0) 0 calcVW(8) calcVW(30);
             @include font-style(
               calcVW(18),
               variables.$fw-400,
               calcVW(24),
-              transparent !important
+              black !important
             );
           }
         }
