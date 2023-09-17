@@ -25,7 +25,6 @@ const ContactForm = ({
   const recaptchaRef = useRef();
   const [openSuccess, setOpenSuccess] = useState(false);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
-  const [inputValue, setInputValue] = useState("");
 
   // const recaptchaRef = useRef(null);
 
@@ -62,6 +61,7 @@ const ContactForm = ({
         setOpenSuccess(false);
       }, 3000);
       form.resetFields()
+      setFile(null)
     } catch { }
   };
 

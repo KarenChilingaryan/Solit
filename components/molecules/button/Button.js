@@ -98,6 +98,7 @@ const Button = ({
           style={styles.modal}
         >
           <LetsTalkModal
+            open={open}
             openData={null}
             from={"lets"}
             onSubmit={onSubmit}

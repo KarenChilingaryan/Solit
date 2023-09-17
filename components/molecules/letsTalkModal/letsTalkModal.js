@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox, Select } from "../../atoms";
 import Image from "next/image";
 import Button from "../button/Button";
@@ -14,6 +14,7 @@ const ModalLetsTalkForm = ({
   onSubmit,
   from = "apply",
   className,
+  open
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState(null);
@@ -26,8 +27,16 @@ const ModalLetsTalkForm = ({
       [from == "apply" ? "file_cv" : "file_document"]: file,
     };
     onSubmit(formData);
+    setFile(null)
     form.resetFields();
   };
+
+  useEffect(()=>{
+    if(!open){
+      setFile(null)
+      form.resetFields();
+    }
+  }, [open])
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
