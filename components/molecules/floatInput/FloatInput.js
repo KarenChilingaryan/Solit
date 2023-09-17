@@ -3,6 +3,8 @@ import { Input, FormItem } from "../../atoms";
 
 import styles from "./FloatInput.module.scss";
 
+const phoneValues = [8, 46, 9, 13, 32, 16, 17, 18, 20, 27, 37, 39, 38, 40, 114, 123, 45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 107]
+
 const FloatInput = ({
   label,
   value,
@@ -31,7 +33,12 @@ const FloatInput = ({
   ) : null;
 
   const handleKeyDown = (e) => {
-    if (e.key === "e" || e.key === "." || e.key === ",") {
+    if (
+      !((e.ctrlKey && (e.key === 'a' || e.key === 'A'))
+        || (e.ctrlKey && (e.key === 'c' || e.key === 'C'))
+        || (e.ctrlKey && (e.key === 'v' || e.key === 'V'))
+        || (e.ctrlKey && (e.key === 'x' || e.key === 'X')))
+      && !phoneValues.includes(e.keyCode)) {
       e.preventDefault();
     }
   };
