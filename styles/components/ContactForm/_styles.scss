@@ -603,9 +603,11 @@
         :global(.ant-checkbox-inner) {
           width: calcVWM(15);
           height: calcVWM(15);
-          margin-right: calcVWM(10);
         }
 
+        :global(.ant-checkbox){
+          margin-right: calcVWM(10);
+        }
         :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
           width: calcVWM(20);
           height: calcVWM(20);
