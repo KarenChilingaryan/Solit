@@ -16,7 +16,6 @@ import { postsMainContactsTextApi } from "./postsMainContactsTextApi";
 import { postsMainTechnologyFiltersApi } from "./postsMainTechnologyFiltersApi";
 import { postsWhatWeDoApi } from "./postsWhatWeDoApi";
 import { postPortfolioApi } from "./postPortfolioApi";
-import { emailApi } from "./emailApi";
 import { abutUsImpactApi } from "./abutUsImpactApi";
 import { abutQuickFactsApi } from "./abutQuickFactsApi";
 import { abutUsWhatWeDoApi } from "./abutUsWhatWeDoApi";
@@ -34,7 +33,6 @@ import { footerApi } from "./footerApi";
 import { postsTextCareersColourfulApi } from "./postsTextCareersColourfulApi";
 import { postsTextMainAboutUsApi } from "./postsTextMainAboutUsApi";
 import { postTestimonialsApi } from "./postTestimonialsApi";
-import { emailLetsTalkApi } from "./emailLetsTalkApi";
 import { postsPrivacyPolicyOrConditionTermsApi } from "./postsPrivacyPolicyOrConditionTermsApi";
 import { postsPrivacyPolicyOrConditionPolicyApi } from "./postsPrivacyPolicyOrConditionPolicyApi";
 
@@ -66,7 +64,6 @@ const store = configureStore({
     [serviceItemApi.reducerPath]: serviceItemApi.reducer,
     [postAbutUsWhatWeDoApi.reducerPath]: postAbutUsWhatWeDoApi.reducer,
     [headerApi.reducerPath]: headerApi.reducer,
-    [emailApi.reducerPath]: emailApi.reducer,
     [emailDiscussYourProject1Api.reducerPath]: emailDiscussYourProject1Api.reducer,
     [emailDiscussYourProject2Api.reducerPath]: emailDiscussYourProject2Api.reducer,
     [postsTextCareersAboutUsApi.reducerPath]: postsTextCareersAboutUsApi.reducer,
@@ -74,7 +71,6 @@ const store = configureStore({
     [postsTextCareersColourfulApi.reducerPath]: postsTextCareersColourfulApi.reducer,
     [postsTextMainAboutUsApi.reducerPath]: postsTextMainAboutUsApi.reducer,
     [footerApi.reducerPath]: footerApi.reducer,
-    [emailLetsTalkApi.reducerPath]: emailLetsTalkApi.reducer,
     [postTestimonialsApi.reducerPath]: postTestimonialsApi.reducer,
     [postsPrivacyPolicyOrConditionTermsApi.reducerPath]: postsPrivacyPolicyOrConditionTermsApi.reducer,
     [postsPrivacyPolicyOrConditionPolicyApi.reducerPath]: postsPrivacyPolicyOrConditionPolicyApi.reducer,
@@ -107,7 +103,6 @@ const store = configureStore({
       serviceItemApi.middleware,
       postAbutUsWhatWeDoApi.middleware,
       headerApi.middleware,
-      emailApi.middleware,
       emailDiscussYourProject1Api.middleware,
       emailDiscussYourProject1Api.middleware,
       postsTextCareersAboutUsApi.middleware,
@@ -115,7 +110,6 @@ const store = configureStore({
       postsTextCareersColourfulApi.middleware,
       postsTextMainAboutUsApi.middleware,
       footerApi.middleware,
-      emailLetsTalkApi.middleware,
       postTestimonialsApi.middleware,
       postsPrivacyPolicyOrConditionTermsApi.middleware,
       postsPrivacyPolicyOrConditionPolicyApi.middleware,
