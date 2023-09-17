@@ -193,6 +193,14 @@
 
       .uploadFile {
         color: #e5e5e5;
+
+        img {
+          display: none;
+        }
+
+        :global(img) {
+          display: none;
+        }
       }
 
       .inputSection {
@@ -307,6 +315,7 @@
             calcVW(24),
             transparent !important);
           margin: 0;
+
           &:focus {
             outline: none;
           }
