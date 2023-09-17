@@ -9,6 +9,14 @@
     justify-content: space-between;
     border-bottom: 1px solid #000;
 
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      background-color: transparent !important;
+      -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    }
+
     :global(.ant-input-status-error) {
       border-bottom: 1px solid rgb(207, 39, 39) !important;
 
@@ -34,7 +42,7 @@
 
     :global(.ant-input-affix-wrapper) {
       &:focus {
-        box-shadow: none
+        box-shadow: none;
       }
     }
 
@@ -70,10 +78,12 @@
       left: 0 !important;
       top: calcVW(-20);
       background: transparent;
-      @include font-style(calcVW(13),
+      @include font-style(
+        calcVW(13),
         variables.$fw-400,
         normal,
-        #8296a5 !important);
+        #8296a5 !important
+      );
 
       span {
         color: red;
@@ -88,18 +98,22 @@
       }
 
       .asPlaceholder {
-        @include font-style(calcVWL(18) !important,
+        @include font-style(
+          calcVWL(18) !important,
           variables.$fw-400,
-          calcVWL(24) !important);
+          calcVWL(24) !important
+        );
         top: calcVWL(5);
       }
 
       .asLabel {
         top: calcVWL(-20);
-        @include font-style(calcVWL(13) !important,
+        @include font-style(
+          calcVWL(13) !important,
           variables.$fw-400,
           normal,
-          #8296a5 !important);
+          #8296a5 !important
+        );
       }
     }
   }
@@ -114,50 +128,61 @@
     }
 
     .asPlaceholder {
-      @include font-style(calcVWT(18) !important,
+      @include font-style(
+        calcVWT(18) !important,
         variables.$fw-400,
-        calcVWT(24) !important);
+        calcVWT(24) !important
+      );
       top: calcVWT(2);
     }
 
     .label {
-      @include font-style(calcVWT(18) !important,
+      @include font-style(
+        calcVWT(18) !important,
         variables.$fw-400,
         normal,
-        #8296a5);
+        #8296a5
+      );
     }
 
     .asLabel {
       top: calcVWT(-18) !important;
-      @include font-style(calcVWT(13) !important,
+      @include font-style(
+        calcVWT(13) !important,
         variables.$fw-400,
         normal,
-        #8296a5 !important);
+        #8296a5 !important
+      );
     }
   }
 
   @media (max-width: 576px) {
-
     .asPlaceholder {
-      @include font-style(calcVWM(18) !important,
+      @include font-style(
+        calcVWM(18) !important,
         variables.$fw-400,
-        calcVWM(24));
+        calcVWM(24)
+      );
       top: calcVWM(10) !important;
     }
 
     .label {
-      @include font-style(calcVWM(18) !important,
+      @include font-style(
+        calcVWM(18) !important,
         variables.$fw-400,
         normal,
-        #8296a5);
+        #8296a5
+      );
     }
 
     .asLabel {
       top: calcVWM(-15) !important;
-      @include font-style(calcVWM(13) !important,
+      @include font-style(
+        calcVWM(13) !important,
         variables.$fw-400,
         normal,
-        #8296a5 !important);
+        #8296a5 !important
+      );
     }
   }
 }
