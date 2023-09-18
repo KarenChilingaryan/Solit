@@ -339,6 +339,157 @@
       height: calcVW(1380);
     }
 
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      -webkit-gap: calcVWL(43);
+      gap: calcVWL(43);
+
+      .textWrapper {
+        gap: calcVWL(16);
+
+        .bigText {
+          @include font-style(calcVWL(36),
+            variables.$fw-500,
+            normal,
+            variables.$black );
+        }
+
+        .smallText {
+          @include font-style(calcVWL(18),
+            variables.$fw-400,
+            calcVWL(24),
+            variables.$black );
+        }
+      }
+
+      :global(.ant-select) {
+        .ant-selectant-selectant-selectant-select {
+          width: calcVWL(20);
+          height: calcVWL(20);
+        }
+      }
+
+      .infoSection {
+        gap: calcVWL(16);
+
+        .title {
+          font-size: calcVWL(20);
+          line-height: calcVWL(24);
+        }
+
+        .info {
+          font-size: calcVWL(18);
+          line-height: calcVWL(24);
+        }
+      }
+
+      .form {
+        gap: calcVWL(16);
+        .suffix {
+          width: calcVWL(24);
+        }
+
+        .accept {
+          :global(.ant-form-item-control-input-content) {
+            gap: calcVWL(18);
+          }
+
+          :global(.ant-form-item-explain-connected) {
+            padding-left: calcVWL(65);
+          }
+
+          :global(.ant-checkbox-inner) {
+            width: calcVWL(20);
+            height: calcVWL(20);
+          }
+
+          .acceptText {
+            @include font-style(calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              #000);
+          }
+        }
+
+        .uploadItem {
+          label {
+            left: calcVWL(28);
+          }
+
+          .prefix {
+            width: calcVWL(24);
+            height: calcVWL(25);
+          }
+        }
+
+        .inputSection {
+          gap: calcVWL(32);
+
+          :global(.ant-form-item) {
+            height: calcVWL(48);
+
+            :global(.ant-form-item-row) {
+              margin-top: calcVWL(13);
+            }
+          }
+
+        }
+
+        .focused {
+          :global {
+            .ant-form-item-label>label {
+              font-size: calcVWL(13);
+            }
+          }
+        }
+
+        :global(.ant-input) {
+          padding: 0 0px calcVWL(5) 0;
+          @include font-style(calcVWL(18),
+            variables.$fw-400,
+            calcVWL(24),
+            variables.$black );
+        }
+
+        :global(.ant-form-item-label) {
+          top: 10px;
+        }
+
+
+        :global {
+          .ant-form-item-label>label {
+            font-size: 16px;
+          }
+        }
+
+        .uploadItem {
+          .asPlaceholder {
+            padding-left: calcVWL(30);
+          }
+
+          input[type="file"] {
+            @include font-style(calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              transparent !important);
+          }
+        }
+
+        .uploadedFile {
+          input[type="file"] {
+            margin-left: calcVWL(-120);
+            margin-right: calcVWL(120);
+          }
+        }
+      }
+
+      .backImage {
+        width: calcVWL(1920);
+        left: calcVWL(-320);
+        bottom: calcVWL(-380);
+        height: calcVWL(1380);
+      }
+    }
+
     @media (max-width: 1024px) {
       .textWrapper {
         gap: calcVWT(16);

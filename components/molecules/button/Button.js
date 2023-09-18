@@ -48,7 +48,7 @@ const Button = ({
   };
 
   const handleResize = () => {
-    setIsTablet(window.innerWidth <= 1024 && window.innerWidth > 575); // Adjust the threshold as per your requirements
+    setIsTablet(window.innerWidth); // Adjust the threshold as per your requirements
   };
 
   // Add event listener for window resize
@@ -93,7 +93,7 @@ const Button = ({
       {text == "Let’s talk" && (
         <ModalWrapper
           open={open}
-          width={!isTablet ? "28vw" : "52vw"}
+          width={isTablet <= 1024 && isTablet > 576 ? "52vw" : isTablet > 1024 && isTablet <= 1440 ? "37vw" : "28vw"}
           setOpen={setOpen}
           style={styles.modal}
         >
