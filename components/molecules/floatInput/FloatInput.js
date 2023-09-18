@@ -58,6 +58,7 @@ const FloatInput = ({
           defaultValue={value}
           showUploadList={showUploadList}
           suffix={suffix}
+          inputMode="text"
           {...rest}
         />
       ) : (
