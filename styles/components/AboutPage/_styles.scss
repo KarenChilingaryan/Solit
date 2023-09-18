@@ -9,6 +9,9 @@
       width: getAboutPageSizes(content-width);
       margin: getAboutPageSizes(content-mt) auto 0 auto;
 
+      .homeMain {
+        padding-left: calcVW(23);
+      }
       .servicesMain {
         width: 100%;
         margin-top: getAboutPageSizes(services-mt);
@@ -26,6 +29,7 @@
         @include font-style(getAboutPageSizes(title-fz), variables.$fw-500, getAboutPageSizes(title-fl), #fff);
         position: relative;
         margin-top: getAboutPageSizes(title-mt);
+        letter-spacing: 0.2px
       }
       .impact {
         @include flex(space-between, flex-start, null, wrap);

@@ -28,7 +28,7 @@
         margin: getAboutItemSizes(about-item-title-m);
         @include font-style(
           getAboutItemSizes(about-item-title-fz),
-          variables.$fw-500,
+          variables.$fw-700,
           getAboutItemSizes(about-item-title-lh),
           variables.$light-blue
         );
