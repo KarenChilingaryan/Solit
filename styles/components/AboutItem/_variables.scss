@@ -2,7 +2,7 @@
 @import "../../base/variables";
 
 $about-item-sizes: (
-  about-item-title-m: calcVW(10) 0,
+  about-item-title-m: calcVW(18) 0,
   about-item-title-fz: calcVW(24),
   about-item-title-lh: calcVW(24),
   about-item-desc-fz: calcVW(18),
@@ -11,7 +11,7 @@ $about-item-sizes: (
   about-item-width: calcVW(624),
   about-item-height-wd: calcVW(356),
   about-item-width-wd: calcVW(405),
-  about-item-gap: calcVW(35),
+  about-item-gap: calcVW(16),
   about-item-p: calcVW(32),
   icon-width: calcVW(64),
   icon-height: calcVW(64),

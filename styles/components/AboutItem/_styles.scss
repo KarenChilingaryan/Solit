@@ -28,7 +28,7 @@
         margin: getAboutItemSizes(about-item-title-m);
         @include font-style(
           getAboutItemSizes(about-item-title-fz),
-          variables.$fw-500,
+          variables.$fw-700,
           getAboutItemSizes(about-item-title-lh),
           variables.$light-blue
         );
@@ -122,6 +122,7 @@
     @media (max-width: 576px) {
       width: 100%;
       .content {
+        gap: calcVWM(16);
         padding: calcVWM(32);
         .icon {
           width: calcVWM(64);
@@ -131,7 +132,7 @@
           @include font-style(
             calcVWM(20),
             variables.$fw-500,
-            calcVWM(24),
+           normal,
             variables.$light-blue
           );
         }

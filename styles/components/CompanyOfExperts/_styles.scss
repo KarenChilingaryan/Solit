@@ -42,8 +42,9 @@
       }
     }
     @media (max-width: 576px) {
-      margin-top: calcVM(80) !important;
+      margin-top: calcVWM(80) !important;
       .aboutCompanyTitle {
+        margin-bottom: calcVWM(32) !important;
         @include font-style(
           calcVWM(36),
           variables.$fw-500,

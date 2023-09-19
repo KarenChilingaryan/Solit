@@ -294,6 +294,7 @@
         calcVWT(22),
         variables.$light-blue
       );
+      letter-spacing: 0.5px;
 
       &:hover {
         @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22));
@@ -305,7 +306,7 @@
       }
 
       border-radius: calcVWT(16);
-      padding: calcVWT(27) calcVWT(56);
+      padding: calcVWT(26) calcVWT(52);
 
       img {
         width: calcVWT(24);
@@ -353,6 +354,7 @@
     border: 1px solid variables.$light-blue;
     height: unset;
     cursor: pointer;
+    letter-spacing: 0.5px;
 
     &:hover {
       background: variables.$light-blue;

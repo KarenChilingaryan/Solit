@@ -30,6 +30,9 @@
         getHomeMainTextsSizes(home-main-first-text-lh)
       );
       margin-top: getHomeMainTextsSizes(home-main-first-text-mt);
+      p {
+        margin: 0;
+      }
     }
     .showMoreClass {
       height: max-content;

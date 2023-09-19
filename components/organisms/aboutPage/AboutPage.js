@@ -67,16 +67,19 @@ const AboutPage = () => {
     <HomeMainWithImage firstImage={bgImage}>
       <div className={styles.container}>
         <div className={styles.content}>
+          <div className={styles.homeMain}> 
+
           {abutUsImpactApi && (
             <HomeMain
-              data={{
+            data={{
                 title: abutUsImpactApi?.data_text[0]?.title,
                 firstSubtitle: abutUsImpactApi?.data_text[0]?.description,
                 buttonText: "Let’s talk",
               }}
               onClick={handleClick}
             />
-          )}
+            )}
+            </div>
           <Paragraph className={styles.title}>
             Making a global & local impact
           </Paragraph>

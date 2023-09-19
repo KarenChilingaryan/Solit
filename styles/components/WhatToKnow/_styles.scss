@@ -73,7 +73,8 @@
       .context {
         width: calcVWT(672);
         height: calcVWT(196);
-        justify-content: space-between;
+        gap: calcVWT(16);
+        justify-content: center;
 
         .title {
           @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
@@ -89,7 +90,7 @@
         width: 100%;
         height: max-content;
         justify-content: space-between;
-        row-gap: calcVWM(32);
+        row-gap: calcVWM(16);
         .title {
           @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
           text-align: center;
