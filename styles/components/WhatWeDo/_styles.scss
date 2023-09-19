@@ -73,7 +73,7 @@
           gap: 20px;
         }
         .context {
-          height: calcVW(400);
+          height: calcVWT(452);
           overflow: hidden;
           p {
             @include font-style(
@@ -86,6 +86,9 @@
         }
         .showMoreClass {
           height: max-content;
+        }
+        .showLessClass {
+          height: calcVWT(452);
         }
         .contextIcon {
           width: calcVW(40);
@@ -280,6 +283,9 @@
           .showMoreClass {
             height: max-content;
           }
+          .showLessClass {
+            height: calcVWT(400);
+          }
           .contextIcon {
             width: calcVWL(40);
             height: calcVWL(40);
@@ -372,6 +378,7 @@
   }
   @media (max-width: 1024px) {
     .container {
+      margin: calcVWT(50) 0 calcVWT(120);
       .backImage {
         width: calcVWT(1024);
         left: calcVWT(-48);
@@ -414,6 +421,9 @@
               display: none;
             }
           }
+          :global(.ant-tabs-content-holder) {
+            padding: calcVWT(32);
+          }
           :global(.ant-tabs-nav-list div) {
             padding: calcVWT(32);
             height: calcVWT(138);
@@ -424,6 +434,9 @@
           :global(.ant-tabs-tab) {
             background-color: transparent !important;
             :global(.ant-tabs-tab-btn) {
+              display: flex;
+              align-items: center;
+              word-break: break-word;
               @include font-style(
                 calcVWT(20) !important,
                 variables.$fw-700 !important,
@@ -445,9 +458,9 @@
 
           .contextTitle {
             @include font-style(
-              calcVWT(14),
+              calcVWT(24) !important,
               variables.$fw-700,
-              calcVWT(16),
+              normal,
               #fff
             );
           }

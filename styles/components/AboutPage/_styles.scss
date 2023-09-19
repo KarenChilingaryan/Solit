@@ -26,10 +26,15 @@
         }
       }
       .title {
-        @include font-style(getAboutPageSizes(title-fz), variables.$fw-500, getAboutPageSizes(title-fl), #fff);
+        @include font-style(
+          getAboutPageSizes(title-fz),
+          variables.$fw-500,
+          getAboutPageSizes(title-fl),
+          #fff
+        );
         position: relative;
         margin-top: getAboutPageSizes(title-mt);
-        letter-spacing: 0.2px
+        letter-spacing: 0.2px;
       }
       .impact {
         @include flex(space-between, flex-start, null, wrap);
@@ -45,7 +50,11 @@
       }
       .description {
         p {
-          @include font-style(getAboutPageSizes(description-fz), variables.$fw-400, getAboutPageSizes(description-fl));
+          @include font-style(
+            getAboutPageSizes(description-fz),
+            variables.$fw-400,
+            getAboutPageSizes(description-fl)
+          );
         }
       }
       .aboutImage {
@@ -67,7 +76,11 @@
       }
       .aboutCompanyTitle {
         @include flex(null, center);
-        @include font-style(calcVW(36) variables.$fw-500, calcVW(44), variables.$white);
+        @include font-style(
+          calcVW(36) variables.$fw-500,
+          calcVW(44),
+          variables.$white
+        );
       }
 
       @media only screen and (max-width: 1440px) and (min-width: 1025px) {
@@ -86,7 +99,12 @@
           }
         }
         .title {
-          @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44), #fff);
+          @include font-style(
+            calcVWL(36),
+            variables.$fw-500,
+            calcVWL(44),
+            #fff
+          );
           margin-top: calcVWL(150);
         }
         .impact {
@@ -120,7 +138,11 @@
         }
         .aboutCompanyTitle {
           @include flex(null, center);
-          @include font-style(calcVWL(36) variables.$fw-500, calcVWL(44), variables.$white);
+          @include font-style(
+            calcVWL(36) variables.$fw-500,
+            calcVWL(44),
+            variables.$white
+          );
         }
       }
 
@@ -128,10 +150,16 @@
         width: calcVWT(928);
         margin-top: calcVWT(258);
         .title {
-          @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44), #fff);
+          @include font-style(
+            calcVWT(36),
+            variables.$fw-500,
+            calcVWT(44),
+            #fff
+          );
           margin-top: calcVWT(160);
         }
         .impact {
+          margin-top: calcVWT(32);
           row-gap: calcVWT(32);
           padding: 0 calcVWT(24);
         }
@@ -147,19 +175,29 @@
           padding: calcVWT(10);
         }
         .quickFacts {
+          align-items: flex-start;
           margin-top: calcVWT(40);
         }
       }
       @media (max-width: 576px) {
+        padding: unset;
         margin-top: calcVWM(90);
         .title {
-          @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44), #fff);
-          margin-top: calcVWM(40);
+          @include font-style(
+            calcVWM(36),
+            variables.$fw-500,
+            calcVWM(44),
+            #fff
+          );
+          margin-top: calcVWM(36);
         }
         .impact {
+          margin-bottom: calcVWM(128);
+          margin-top: calcVWM(32);
           padding: 0;
         }
         .descriptionBlock {
+          row-gap: calcVWM(16);
           padding: calcVWM(16);
         }
         .description {
@@ -172,6 +210,7 @@
           padding: 0;
         }
         .quickFacts {
+          margin-top: calcVWM(32);
           flex-wrap: wrap;
           justify-content: space-between;
         }

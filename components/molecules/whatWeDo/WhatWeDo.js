@@ -114,6 +114,21 @@ const WhatWeDo = ({ data }) => {
                 __html: contextData?.info_name_about_as_what_we_do_detail,
               }}
             />
+            <ShowMore
+              className={styles.button}
+              onClick={() =>
+                setShowMoreClass(
+                  !showMoreClass ? "showMoreClass" : "showLessClass"
+                )
+              }
+            >
+              Show more
+              <Image
+                src={!showMoreClass ? showMore : showMore}
+                className={styles.btnImg}
+                alt="image"
+              />
+            </ShowMore>
           </Row>
         </div>
       );
@@ -137,7 +152,11 @@ const WhatWeDo = ({ data }) => {
               // <Context icon={devIcon} context={context} title={title} />
               <Row className={styles.contextWrapper}>
                 <Row className={styles.contextHeader}>
-                  <Image src={devIcon} className={styles.contextIcon} alt="image" />
+                  <Image
+                    src={devIcon}
+                    className={styles.contextIcon}
+                    alt="image"
+                  />
                   <Col className={styles.contextTitle}>
                     {contextData?.name_about_as_what_we_do_detail}
                   </Col>
@@ -149,14 +168,21 @@ const WhatWeDo = ({ data }) => {
                     }}
                   />
                 </Row>
-                {!showMoreClass && (
-                  <ShowMore
-                    className={styles.button}
-                    onClick={() => setShowMoreClass("showMoreClass")}
-                  >
-                    Show more <Image src={showMore} className={styles.btnImg} alt="image" />
-                  </ShowMore>
-                )}
+                <ShowMore
+                  className={styles.button}
+                  onClick={() =>
+                    setShowMoreClass(
+                      !showMoreClass ? "showMoreClass" : "showLessClass"
+                    )
+                  }
+                >
+                  Show more
+                  <Image
+                    src={!showMoreClass ? showMore : showMore}
+                    className={styles.btnImg}
+                    alt="image"
+                  />
+                </ShowMore>
               </Row>
             ),
           };

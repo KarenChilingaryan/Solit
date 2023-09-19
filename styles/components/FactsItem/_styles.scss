@@ -59,7 +59,10 @@
 
     @media (max-width: 1024px) {
       width: calcVWT(208);
-      height: calcVWT(187);
+      row-gap: calcVWT(16);
+      justify-content: flex-start;
+      flex-direction: column;
+      height: unset;
       .result {
         @include font-style(
           calcVWT(48),
@@ -74,13 +77,15 @@
       }
     }
     @media (max-width: 576px) {
+      padding: calcVWM(16);
+      row-gap: calcVWM(16);
       width: calcVWM(155);
       height: calcVWM(155);
       .result {
         @include font-style(
           calcVWM(48),
           variables.$fw-400,
-          calcVWM(59),
+         normal,
           variables.$light-blue
         );
       }

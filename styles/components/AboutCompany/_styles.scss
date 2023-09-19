@@ -18,13 +18,15 @@
       .image {
         height: getAboutCompanySizes(card-image-height);
         width: max-content;
-        object-fit: contain
+        object-fit: contain;
       }
 
       .info {
-        @include font-style(getAboutCompanySizes(info-fz),
+        @include font-style(
+          getAboutCompanySizes(info-fz),
           variables.$fw-700,
-          getAboutCompanySizes(info-lh));
+          getAboutCompanySizes(info-lh)
+        );
         @include flex(null, center, row);
         column-gap: getAboutCompanySizes(info-cg);
 
@@ -37,9 +39,11 @@
           @include flex(null, null, column);
 
           p {
-            @include font-style(getAboutCompanySizes(description-fz),
+            @include font-style(
+              getAboutCompanySizes(description-fz),
               variables.$fw-400,
-              getAboutCompanySizes(description-lh));
+              getAboutCompanySizes(description-lh)
+            );
             margin: 0;
           }
         }
@@ -135,6 +139,7 @@
 
       .mainWrapper {
         max-width: calcVWM(260);
+        row-gap: calcVWM(17);
 
         .image {
           height: calcVWM(45);
