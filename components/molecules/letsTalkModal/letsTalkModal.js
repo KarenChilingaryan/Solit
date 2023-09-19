@@ -6,6 +6,7 @@ import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 
 import styles from "./LetsTalkModal.module.scss";
+import { Upload } from "antd";
 
 const ModalLetsTalkForm = ({
   title,
@@ -31,12 +32,23 @@ const ModalLetsTalkForm = ({
     form.resetFields();
   };
 
-  useEffect(()=>{
-    if(!open){
+  useEffect(() => {
+    if (!open) {
       setFile(null)
       form.resetFields();
     }
   }, [open])
+
+  const props = {
+    onRemove: () => {
+      setFile(null);
+    },
+    beforeUpload: (file) => {
+      setFile(file);
+      return false;
+    },
+    fileList: file ? [file] : [],
+  };
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
@@ -104,7 +116,7 @@ const ModalLetsTalkForm = ({
             />
           </FormItem>
           <FormItem name={"file_document"} className={`${styles.uploadItem}  ${file && styles.uploadedFile}`}>
-            <FloatInput
+            {/* <FloatInput
               label={"Upload document"}
               placeholder={"Upload document"}
               name={"file_document"}
@@ -119,7 +131,14 @@ const ModalLetsTalkForm = ({
               }}
               showUploadList={false}
               className={`${styles.uploadFile}`}
-            />
+            /> */}
+            <Upload {...props} name="file_document" className={styles.uploadAntd}>
+              <FloatInput label={"Upload document"}
+                placeholder={"Upload document"}
+                name={"file_document"} type="text" disabled readOnly={true} suffix={
+                  <Image className={styles.suffix} src={upload} alt="image" />
+                } value={file?.name || ''}/>
+            </Upload>
           </FormItem>
 
           <FormItem name="comment">

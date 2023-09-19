@@ -105,6 +105,32 @@
       position: relative;
       z-index: 1;
 
+      .uploadAntd {
+        width: 100%;
+
+        :global(.ant-upload-list) {
+          display: none;
+        }
+
+        :global(.ant-upload) {
+          width: 100%;
+        }
+
+        :global(.ant-input) {
+          @include font-style(calcVW(18),
+            variables.$fw-400,
+            calcVW(24),
+            variables.$black );
+          caret-color: transparent;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width: calcVW(370);
+          margin-left: auto;
+          margin-right: 0;
+        }
+      }
+
       .buttonWrapper {
         display: flex;
         justify-content: center;
@@ -383,7 +409,18 @@
       }
 
       .form {
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              variables.$black );
+            width: calcVWL(430);
+          }
+        }
+
         gap: calcVWL(16);
+
         .suffix {
           width: calcVWL(24);
         }
@@ -540,6 +577,21 @@
           // height: calcVWT(35);
         }
 
+
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              variables.$black );
+            width: calcVWT(380);
+          }
+
+          :global(.ant-input-suffix) {
+            margin-top: calcVWT(10);
+          }
+        }
+
         .suffix {
           width: calcVWT(24);
         }
@@ -690,6 +742,19 @@
         width: 100%;
         max-width: 100%;
 
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              variables.$black );
+            width: calcVWM(280);
+          }
+
+          :global(.ant-input-affix-wrapper) {
+            height: calcVWM(30);
+          }
+        }
 
         .suffix {
           width: calcVWM(18);

@@ -70,6 +70,7 @@ const FloatInput = ({
           showUploadList={showUploadList}
           suffix={suffix}
           status={type == "file" && !value && "warning"}
+          value={value}
           {...rest}
         />
       )}
