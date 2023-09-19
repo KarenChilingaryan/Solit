@@ -108,7 +108,7 @@ const WhatWeDo = ({ data }) => {
               <Image src={downOutlined} alt="image" />
             </a>
           </Dropdown>
-          <Row className={styles.context}>
+          <Row className={`${styles.context} ${styles[showMoreClass]}`}>
             <div
               dangerouslySetInnerHTML={{
                 __html: contextData?.info_name_about_as_what_we_do_detail,
@@ -118,7 +118,7 @@ const WhatWeDo = ({ data }) => {
               className={styles.button}
               onClick={() =>
                 setShowMoreClass(
-                  !showMoreClass ? "showMoreClass" : "showLessClass"
+                  showMoreClass != 'showMoreClass' ? "showMoreClass" : "showLessClass"
                 )
               }
             >
