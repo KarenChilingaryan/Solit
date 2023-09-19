@@ -10,34 +10,36 @@
     padding: getAboutCompanySizes(card-p);
     column-gap: calcVW(32);
     border-radius: 16px;
+
     .mainWrapper {
       @include flex(center, flex-start, column);
       row-gap: getAboutCompanySizes(main-rg);
+
       .image {
         height: getAboutCompanySizes(card-image-height);
         width: max-content;
         object-fit: contain
       }
+
       .info {
-        @include font-style(
-          getAboutCompanySizes(info-fz),
+        @include font-style(getAboutCompanySizes(info-fz),
           variables.$fw-700,
-          getAboutCompanySizes(info-lh)
-        );
+          getAboutCompanySizes(info-lh));
         @include flex(null, center, row);
         column-gap: getAboutCompanySizes(info-cg);
+
         p {
           margin: 0;
         }
+
         .description {
           max-width: calcVW(150);
           @include flex(null, null, column);
+
           p {
-            @include font-style(
-              getAboutCompanySizes(description-fz),
+            @include font-style(getAboutCompanySizes(description-fz),
               variables.$fw-400,
-              getAboutCompanySizes(description-lh)
-            );
+              getAboutCompanySizes(description-lh));
             margin: 0;
           }
         }
@@ -49,6 +51,10 @@
     background-color: transparent;
   }
 
+  .withBG {
+    padding: calcVW(32);
+  }
+
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .card {
       width: calcVWL(405);
@@ -58,21 +64,28 @@
 
       .mainWrapper {
         row-gap: calcVWL(28);
+
         .image {
           height: calcVWL(45);
         }
+
         .info {
           @include font-style(calcVWL(48), variables.$fw-700, calcVWL(68));
           column-gap: calcVWL(10);
 
           .description {
             max-width: calcVWL(150);
+
             p {
               @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
             }
           }
         }
       }
+    }
+
+    .withBG {
+      padding: calcVWL(32);
     }
   }
 
@@ -81,42 +94,62 @@
       width: max-content;
       height: max-content;
       column-gap: calcVWT(32);
+
       .mainWrapper {
         .image {
-          height: calcVWT(60);
+          height: calcVWT(45);
         }
+
         .info {
           column-gap: calcVWT(10);
+
           p {
+            letter-spacing: -1px;
             @include font-style(calcVWT(48), variables.$fw-700, calcVWT(65));
           }
+
           .description {
             max-width: calcVWT(150) !important;
+
             p {
+              letter-spacing: -1px;
               @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
             }
           }
         }
       }
     }
+
+    .withBG {
+      padding: calcVWT(32);
+      width: calcVWT(288);
+    }
   }
+
   @media (max-width: 576px) {
     .card {
       padding: 0;
       width: 100%;
       padding: calcVWM(32);
       gap: calcVWM(32);
+
       .mainWrapper {
+        max-width: calcVWM(260);
+
         .image {
-          height: calcVWM(50);
+          height: calcVWM(45);
         }
+
         .info {
           column-gap: calcVWM(10);
+
           p {
             @include font-style(calcVWM(48), variables.$fw-700, calcVWM(65));
           }
+
           .description {
             max-width: calcVWM(150) !important;
+
             p {
               @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
             }
@@ -124,6 +157,7 @@
         }
       }
     }
+
     .withOutBG {
       padding: 0;
     }
