@@ -10,9 +10,10 @@ import contactBgImage from "../../../assets/img/contact_bg.png";
 import contactUsBgImage from "../../../assets/img/contactus-background.png";
 import ReCAPTCHA from "react-google-recaptcha";
 import { checkFormValidation } from "../../../utils/hooks/checkRecaptchaValidation";
+import SuccessModal from "../successModal/SuccessModal";
+import { Upload } from "antd";
 
 import styles from "./ContactForm.module.scss";
-import SuccessModal from "../successModal/SuccessModal";
 
 const ContactForm = ({
   title,
@@ -76,6 +77,18 @@ const ContactForm = ({
     }
     return true; // Continue with the change if it's valid
   };
+
+  const props = {
+    onRemove: () => {
+      setFile(null);
+    },
+    beforeUpload: (file) => {
+      setFile(file);
+      return false;
+    },
+    fileList: file ? [file] : [],
+  };
+
   return (
     <Col
       className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
@@ -168,7 +181,7 @@ const ContactForm = ({
               />
             </FormItem>
             <FormItem name={"file_cv"} className={`${styles.uploadItem}  ${file && styles.uploadedFile}`}>
-              <FloatInput
+              {/* <FloatInput
                 border={true}
                 label="About your project"
                 placeholder="About your project"
@@ -182,7 +195,15 @@ const ContactForm = ({
                 }}
                 showUploadList={false}
                 className={`${styles.uploadFile}`}
-              />
+              /> */}
+              <Upload {...props} name="file_cv" className={styles.uploadAntd}>
+                <FloatInput label={"About your project"}
+                  placeholder={"About your project"}
+                  name={"file_cv"} type="text" disabled readOnly={true}
+                  suffix={<Image className={styles.suffix} src={upload} alt="image" />}
+                  value={file?.name || ''}
+                />
+              </Upload>
             </FormItem>
             <FormItem
               name="accept"

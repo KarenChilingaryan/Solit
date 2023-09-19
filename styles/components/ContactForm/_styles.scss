@@ -48,6 +48,29 @@
       position: relative;
       z-index: 1;
 
+      .uploadAntd {
+        width: 100%;
+
+        :global(.ant-upload-list) {
+          display: none;
+        }
+
+        :global(.ant-upload) {
+          width: 100%;
+        }
+
+        :global(.ant-input) {
+          @include font-style(calcVW(18),
+            variables.$fw-400,
+            calcVW(24),
+            variables.$white );
+          caret-color: transparent;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+
       .buttonWrapper {
         button {
           @include font-style(calcVW(13), variables.$fw-700, normal, #fff);
@@ -238,6 +261,7 @@
             calcVW(24),
             transparent !important);
           margin: 0;
+
           &:focus {
             outline: none;
           }
@@ -283,6 +307,15 @@
         max-width: calcVWL(406);
         gap: calcVWL(32);
         width: calcVWL(410);
+
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              variables.$white );
+          }
+        }
 
         .buttonWrapper {
           button {
@@ -407,6 +440,15 @@
         max-width: unset;
         gap: calcVWT(32);
         width: calcVWT(384);
+
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              variables.$white );
+          }
+        }
 
         :global(.ant-input) {
           @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
@@ -541,6 +583,19 @@
         max-width: 100%;
         gap: calcVWM(0);
 
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              variables.$white );
+          }
+
+          :global(.ant-input-affix-wrapper) {
+            height: calcVWM(30);
+          }
+        }
+
         :global(.ant-input-affix-wrapper) {
           height: calcVWM(35);
         }
@@ -605,9 +660,10 @@
           height: calcVWM(15);
         }
 
-        :global(.ant-checkbox){
+        :global(.ant-checkbox) {
           margin-right: calcVWM(10);
         }
+
         :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
           width: calcVWM(20);
           height: calcVWM(20);
