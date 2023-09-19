@@ -179,7 +179,7 @@
           border: none;
           background: rgba(0, 0, 0, 0.32);
           backdrop-filter: blur(36.5px);
-          margin-bottom: calcVW(32);
+          // margin-bottom: calcVW(32);
           margin-left: 0 !important;
         }
         :global(.ant-tabs-nav-list) div:first-child {
@@ -409,12 +409,13 @@
         }
         .tabs {
           width: 100%;
-          gap: calcVWT(10);
+          //to test
+          gap: calcVWT(42);
           :global(.ant-tabs-nav-list) {
             width: 100%;
             display: flex;
             justify-content: space-between;
-            border-radius: calcVW(10);
+            border-radius: calcVWT(16);
             overflow: auto;
 
             &::-webkit-scrollbar {
@@ -423,6 +424,9 @@
           }
           :global(.ant-tabs-content-holder) {
             padding: calcVWT(32);
+          }
+          :global(.ant-tabs-content){
+            margin-top: calcVWT(10);
           }
           :global(.ant-tabs-nav-list div) {
             padding: calcVWT(32);
