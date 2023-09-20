@@ -172,7 +172,7 @@ const WhatWeDo = ({ data }) => {
                   className={styles.button}
                   onClick={() =>
                     setShowMoreClass(
-                      !showMoreClass ? "showMoreClass" : "showLessClass"
+                      showMoreClass != 'showMoreClass' ? "showMoreClass" : "showLessClass"
                     )
                   }
                 >
