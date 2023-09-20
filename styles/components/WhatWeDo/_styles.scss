@@ -5,7 +5,7 @@
   .container {
     position: relative;
     padding: calcVW(100) 0;
-    margin: calcVW(50) 0 0;
+    margin: calcVW(298) 0 calcVW(264) 0;
 
     .backImage {
       position: absolute;
@@ -24,7 +24,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: calcVW(64);
+    gap: calcVW(88);
 
     .whatWeDoWrapper {
       display: flex;
@@ -238,8 +238,12 @@
   }
 
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .container {
+      margin: calcVWL(298) 0 calcVWL(264) 0;
+    }
+
     .sectionWrapper {
-      gap: calcVWL(64);
+      gap: calcVWL(88);
 
       .whatWeDoWrapper {
         gap: calcVWL(32);
@@ -383,7 +387,7 @@
 
   @media (max-width: 1024px) {
     .container {
-      margin: calcVWT(50) 0 calcVWT(120);
+      margin: calcVWT(216) 0 calcVWT(203);
 
       .backImage {
         width: calcVWT(1024);
@@ -392,6 +396,8 @@
     }
 
     .sectionWrapper {
+      gap: calcVWT(64);
+
       .whatWeDoWrapper {
         .title {
           @include font-style(calcVWT(36),
@@ -431,9 +437,11 @@
           :global(.ant-tabs-content-holder) {
             padding: calcVWT(32);
           }
-          :global(.ant-tabs-content){
+
+          :global(.ant-tabs-content) {
             margin-top: calcVWT(10);
           }
+
           :global(.ant-tabs-nav-list div) {
             padding: calcVWT(32);
             height: calcVWT(138);
@@ -506,9 +514,16 @@
   }
 
   @media (max-width: 576px) {
+    .container {
+      margin-top: calcVWM(157);
+      margin-bottom: calcVWM(156);
+    }
+
     .sectionWrapper {
+      gap: 0;
+
       .whatWeDoWrapper {
-        margin-bottom: calcVWM(80);
+        margin-bottom: calcVWM(64);
 
         .title {
           @include font-style(calcVWM(36),

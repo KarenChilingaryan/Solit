@@ -10,7 +10,7 @@
 
     .aboutCompanyTitle {
       margin: calcVW(32) 0 !important;
-      margin-top: calcVW(80) !important;
+      margin-top: calcVW(364) !important;
       @include flex(null, center);
       @include font-style(
         getCompanyOfExpertsSizes(title-fz),
@@ -22,7 +22,7 @@
   
       .aboutCompanyTitle {
         margin: calcVWL(32) 0 !important;
-        margin-top: calcVWL(80) !important;
+        margin-top: calcVWL(364) !important;
         @include font-style(
           calcVWL(36),
           variables.$fw-500,
@@ -31,7 +31,7 @@
       }
     }
     @media (max-width: 1024px) {
-      margin-top: calcVWT(80) !important;
+      margin-top: calcVWT(56) !important;
       .aboutCompanyTitle {
         @include font-style(
           calcVWT(36),
@@ -42,7 +42,7 @@
       }
     }
     @media (max-width: 576px) {
-      margin-top: calcVWM(80) !important;
+      margin-top: calcVWM(105) !important;
       .aboutCompanyTitle {
         margin-bottom: calcVWM(32) !important;
         @include font-style(

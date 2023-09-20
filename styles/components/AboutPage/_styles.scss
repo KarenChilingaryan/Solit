@@ -40,7 +40,7 @@
         @include flex(space-between, flex-start, null, wrap);
         row-gap: getAboutPageSizes(impact-rg);
         margin-top: getAboutPageSizes(impact-mt);
-        margin-bottom: getAboutPageSizes(impact-mb);
+        margin-bottom: calcVW(234);
       }
       .descriptionBlock {
         @include flex(null, flex-start, column);
@@ -61,7 +61,7 @@
         width: 100%;
         height: getAboutPageSizes(about-image-h);
         border-radius: getAboutPageSizes(about-image-br);
-        margin-bottom: getAboutPageSizes(about-image-mb);
+        margin-bottom: calcVW(234);
       }
       .quickFacts {
         @include flex(space-between, center);
@@ -110,7 +110,7 @@
         .impact {
           row-gap: calcVWL(32);
           margin-top: calcVWL(32);
-          margin-bottom: calcVWL(80);
+          margin-bottom: calcVW(234);
         }
         .descriptionBlock {
           row-gap: calcVWL(32);
@@ -125,7 +125,7 @@
         .aboutImage {
           height: calcVWL(683);
           border-radius: calcVWL(16);
-          margin-bottom: calcVWL(80);
+          margin-bottom: calcVWL(234);
         }
         .quickFacts {
           margin-top: calcVWL(32);
@@ -162,6 +162,7 @@
           margin-top: calcVWT(32);
           row-gap: calcVWT(32);
           padding: 0 calcVWT(24);
+          margin-bottom: calcVWT(96)
         }
         .description {
           p {
@@ -173,6 +174,7 @@
         }
         .aboutImage {
           padding: calcVWT(10);
+          margin-bottom: calcVWT(88);
         }
         .quickFacts {
           align-items: flex-start;
@@ -209,6 +211,7 @@
         .aboutImage {
           height: calcVWM(230);
           padding: 0;
+          margin-bottom: calcVWM(124);
         }
         .quickFacts {
           margin-top: calcVWM(32);
@@ -220,6 +223,9 @@
     }
     @media (max-width: 1024px) {
       margin-bottom: calcVWT(192);
+    }
+    @media (max-width: 576px) {
+      margin-bottom: calcVWM(144);
     }
   }
 }
