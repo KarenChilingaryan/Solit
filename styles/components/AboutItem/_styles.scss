@@ -128,6 +128,7 @@
       width: 100%;
       height: calcVWM(356);
       .content {
+        align-items: center;
         gap: calcVWM(16);
         padding: calcVWM(64) calcVWM(32);
         .icon {
@@ -143,6 +144,7 @@
           );
         }
         .desc {
+          text-align: center;
           @include font-style(
             calcVWM(18),
             variables.$fw-400,

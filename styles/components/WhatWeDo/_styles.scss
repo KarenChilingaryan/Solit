@@ -209,6 +209,8 @@
 
         :global(.ant-tabs-nav-list) div:first-child {
           border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+
         }
 
         :global(.ant-tabs-tab-active) {
