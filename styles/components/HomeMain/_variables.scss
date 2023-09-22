@@ -4,7 +4,6 @@
 $homeMain-sizes: (
   home-main-title-width: calcVW(860),
   home-main-button-wrapper-mt: calcVW(24),
-
 );
 
 @function getHomeMainSizes($property) {

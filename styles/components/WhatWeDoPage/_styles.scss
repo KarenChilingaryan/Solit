@@ -35,10 +35,14 @@
       }
     }
     @media (max-width: 1024px) {
-      width: calcVWT(880);
+      width: calcVWT(928);
       margin-top: calcVWT(256);
+      .ourServices {
+        column-gap: calcVWT(32);
+        row-gap: calcVWT(64);
+      }
     }
-    @media (max-width: 1024px) {
+    @media (max-width: 575px) {
       width: calcVWM(343);
       margin-top: calcVWM(76);
       .ourServices {

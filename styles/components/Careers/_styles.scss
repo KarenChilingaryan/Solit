@@ -112,7 +112,7 @@
         .subTitle {
           @include font-style(calcVWM(36), variables.$fw-700, calcVWM(43));
           justify-content: center;
-          margin-top: calcVWM(30)
+          margin-top: calcVWM(30);
         }
         .info {
           @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
