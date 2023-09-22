@@ -1,14 +1,15 @@
 import { memo } from "react";
-import { Row, } from "../../atoms";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { Row } from "../../atoms";
 import bgImage from "../../../assets/img/main-bg-what-we-do.png";
 import AboutItem from "../../molecules/aboutItem/AboutItem";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
+
 import styles from "./WhatWeDo.module.scss";
-import { useSelector } from "react-redux";
-import { useRouter } from "next/router";
-import Link from "next/link";
 
 const WhatWeDo = () => {
   const router = useRouter();
@@ -35,10 +36,14 @@ const WhatWeDo = () => {
             showMoreButton={true}
             onClick={handleClick}
           />
-          
+
           <Row className={styles.ourServices}>
             {postsWhatWeDoApi?.data_list.map((el, i) => (
-              <Link href={`/what-we-do/${el.what_we_do_detail}`} key={i}>
+              <Link
+                href={`/what-we-do/${el.what_we_do_detail}`}
+                key={i}
+                className={styles.block}
+              >
                 <AboutItem
                   weDo
                   title={el.title}

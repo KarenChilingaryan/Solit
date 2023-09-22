@@ -72,8 +72,8 @@
     @media (max-width: 1024px) {
       .context {
         width: calcVWT(672);
-        height: calcVWT(196);
-        gap: calcVWT(16);
+        height: calcVWT(228);
+        gap: calcVWT(32);
         justify-content: center;
 
         .title {
@@ -90,7 +90,7 @@
         width: 100%;
         height: max-content;
         justify-content: space-between;
-        row-gap: calcVWM(16);
+        row-gap: calcVWM(32);
         .title {
           @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
           text-align: center;

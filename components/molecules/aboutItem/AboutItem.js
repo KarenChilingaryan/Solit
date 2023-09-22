@@ -12,7 +12,13 @@ const AboutItem = ({ title, desc, icon, weDo = false, weDoWidth = false }) => {
       }`}
     >
       <Row className={`${styles.content} ${weDo && styles.weDoContent}`}>
-        <Image src={icon} className={styles.icon} alt={title} width={64} height={64} />
+        <Image
+          src={icon}
+          className={styles.icon}
+          alt={title}
+          width={64}
+          height={64}
+        />
         {title && <Col className={styles.title}>{title}</Col>}
         {desc && <Col className={styles.desc}>{desc}</Col>}
       </Row>

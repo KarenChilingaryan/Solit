@@ -5,7 +5,7 @@
   .aboutItemWrapper {
     border-radius: 16px;
     width: getAboutItemSizes(about-item-width);
-    height: max-content;
+    height: 100%;
     overflow: hidden;
 
     .content {
@@ -45,6 +45,7 @@
       }
     }
     .weDoContent {
+      
       justify-content: space-between;
       align-items: center;
       gap: getAboutItemSizes(about-we-do-gap);
@@ -60,7 +61,7 @@
 
       .content {
         gap: calcVWL(35);
-        padding: calcVWL(32);
+        padding:calcVWL(64) calcVWL(32);
 
         .icon {
           width: calcVWL(64);
@@ -95,7 +96,7 @@
     @media (max-width: 1024px) {
       width: calcVWT(424);
       .content {
-        padding: calcVWT(32);
+        padding:calcVWT(64) calcVWT(32);
         .icon {
           width: calcVWT(64);
           height: calcVWT(64);
@@ -115,7 +116,7 @@
             calcVWT(24),
             variables.$main-white
           );
-          min-height: calcVWT(336);
+          // min-height: calcVWT(336);
         }
       }
     }
@@ -123,7 +124,7 @@
       width: 100%;
       .content {
         gap: calcVWM(16);
-        padding: calcVWM(32);
+        padding: calcVWM(64) calcVWM(32);
         .icon {
           width: calcVWM(64);
           height: calcVWM(64);

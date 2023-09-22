@@ -3,8 +3,12 @@
 
 @mixin generate-home-main-texts-styles {
   .contentWrapper {
-    max-height: calcVW(300);
+    max-height: calcVW(317);
     overflow: hidden;
+  }
+
+  .heightStyle {
+    max-height: unset !important;
   }
 
   .bigTextWrapper {
@@ -52,26 +56,18 @@
       }
     }
   }
-  @media only screen and (max-width: 1440px) and (min-width: 1025px)  {
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .contentWrapper {
       max-height: calcVWL(300);
     }
 
     .bigTextWrapper {
       .title {
-        @include font-style(
-          calcVWL(48),
-          variables.$fw-400,
-          calcVWL(59)
-        );
+        @include font-style(calcVWL(48), variables.$fw-400, calcVWL(59));
       }
 
       .firstSubtitle {
-        @include font-style(
-          calcVWL(24),
-          variables.$fw-300,
-          calcVWL(32)
-        );
+        @include font-style(calcVWL(24), variables.$fw-300, calcVWL(32));
         margin-top: calcVWL(24);
       }
       .defaultShowMoreClass {
@@ -86,7 +82,7 @@
   }
   @media (max-width: 576px) {
     .bigTextWrapper {
-      max-height: calcVWM(350);
+      max-height: calcVWM(352);
       .title {
         @include font-style(calcVWM(36), variables.$fw-400, calcVWM(44));
       }
@@ -114,6 +110,9 @@
         );
         margin-top: calcVWM(25);
       }
+    }
+    .defaultShowMoreClass {
+      height: calcVWM(230) !important;
     }
   }
 }

@@ -46,12 +46,13 @@
       }
     }
     @media (max-width: 1024px) {
-      width: calcVWT(880);
+      width: calcVWT(500);
       .buttonWrapper {
         margin-top: calcVWT(28);
       }
     }
     @media (max-width: 576px) {
+      width: unset;
       margin-bottom: calcVWM(40);
       .buttonWrapper {
         margin-top: calcVWM(20);
