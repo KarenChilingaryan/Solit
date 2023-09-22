@@ -91,7 +91,7 @@
         .positionSection {
           transition: 0.4s;
           height: calcVW(114);
-          background: rgba(2, 13, 28, 0.73);
+          background: rgba(2, 13, 28);
 
           .name {
             @include font-style(getOurProjectCardSizes(project-name-hover-fz),

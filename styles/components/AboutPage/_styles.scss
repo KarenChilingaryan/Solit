@@ -173,7 +173,10 @@
           padding: calcVWT(32) calcVWT(24);
         }
         .aboutImage {
-          padding: calcVWT(10);
+          margin: 0 auto;
+          height: calcVWT(595);
+          display: block;
+          width: calcVWT(896);
           margin-bottom: calcVWT(88);
         }
         .quickFacts {
@@ -184,6 +187,7 @@
       }
       @media (max-width: 576px) {
         padding: unset;
+        margin: 0 calcVWM(16);
         margin-top: calcVWM(90);
         .title {
           @include font-style(
