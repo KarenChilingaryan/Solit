@@ -421,6 +421,7 @@
           }
 
           .menuItemTitle {
+            width: max-content;
             &:hover {
               color: variables.$white;
             }
