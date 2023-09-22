@@ -100,7 +100,7 @@ const PortfolioItem = () => {
                 (project, i) =>
                   i < 3 && (
                     <OurProjectCard
-                      onClick={() => handleClick(project.id)}
+                      onClick={() => handleClick(project.project_from_portfolio)}
                       key={i}
                       component="portfolio"
                       name={project.title}

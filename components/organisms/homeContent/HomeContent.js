@@ -346,7 +346,7 @@ const HomeContent = () => {
                   ...(postPortfolioApi?.data_list.length > 7 ? ["more"] : []),
                 ]?.map((project, i) => (
                   <OurProjectCard
-                    onClick={() => handleClick(project.id)}
+                    onClick={() => handleClick(project.project_from_portfolio)}
                     key={i}
                     name={project.title}
                     image={project.webp_image_portfolio}
