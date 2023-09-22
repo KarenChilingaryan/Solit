@@ -214,13 +214,17 @@
     cursor: pointer;
 
     &:hover {
-      background: transparent;
+      background: rgba(0, 0, 0, 0.50);
       @include font-style(calcVW(18), variables.$fw-700,
         normal,
+        variables.$dodger-blue
       );
       transition: 0.3s;
+      border: 1px solid variables.$dodger-blue;
+
+
       img {
-       filter: invert(100%) sepia(0%) saturate(10%) hue-rotate(259deg) brightness(105%) contrast(105%);
+        filter: invert(63%) sepia(34%) saturate(969%) hue-rotate(166deg) brightness(100%) contrast(104%);
       }
     }
 
@@ -241,7 +245,7 @@
       gap: calcVWL(10);
 
       &:hover {
-        @include font-style(calcVWL(18), variables.$fw-500, calcVWL(18));
+        @include font-style(calcVWL(18), variables.$fw-500, calcVWL(18), variables.$dodger-blue);
       }
 
       img {
@@ -251,21 +255,19 @@
     }
 
     @media (max-width: 1024px) {
-      width: max-content;
-      height: max-content;
       gap: calcVWT(10);
       @include font-style(calcVWT(18),
         variables.$fw-700,
         calcVWT(22),
         variables.$light-blue );
       letter-spacing: 0.5px;
+      padding: calcVWT(8) calcVWT(32) !important;
+
+      width: calcVWT(279);
+      height: calcVWT(76);
 
       &:hover {
-        @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22));
-
-        img {
-          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0) contrast(0);
-        }
+        @include font-style(calcVWT(18), variables.$fw-700, calcVWT(22), variables.$dodger-blue);
       }
 
       border-radius: calcVWT(16);
@@ -284,12 +286,11 @@
         calcVWM(22),
         variables.$light-blue );
 
-      &:hover {
-        @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22));
+      width: calcVWM(279);
+      height: calcVWM(76);
 
-        img {
-          filter: invert(0) sepia(0%) saturate(0%) hue-rotate(0) brightness(0) contrast(0);
-        }
+      &:hover {
+        @include font-style(calcVWM(18), variables.$fw-700, calcVWM(22), variables.$dodger-blue);
       }
 
       border-radius: calcVWM(16);
@@ -326,7 +327,7 @@
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       @include font-style(calcVWL(20), variables.$fw-700, normal);
       border-radius: calcVWL(8);
-      padding: calcVWL(15) calcVWL(32);
+      padding: calcVWL(15) calcVWL(31);
       letter-spacing: calcVWL(2);
 
       &:hover {
@@ -337,7 +338,7 @@
     @media (max-width: 1024px) {
       width: max-content;
       height: calcVWT(56);
-      padding: calcVWT(16) calcVWT(32);
+      padding: calcVWT(16) calcVWT(31);
       @include font-style(calcVWT(20), variables.$fw-700, normal);
       letter-spacing: 0.7px;
       border-radius: calcVWT(8);
@@ -350,7 +351,7 @@
     @media (max-width: 576px) {
       width: max-content;
       height: calcVWM(56);
-      padding: calcVWM(16) calcVWM(32);
+      padding: calcVWM(16) calcVWM(31);
       @include font-style(calcVWM(20), variables.$fw-700, calcVWM(24));
       border-radius: calcVWM(8);
 

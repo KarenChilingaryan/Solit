@@ -31,6 +31,16 @@
       flex-direction: column;
       gap: calcVW(32);
 
+
+      .shadow {
+        z-index: 1;
+        bottom: calcVW(100);
+        position: absolute;
+        width: 88.5%;
+        left: 6%;
+        box-shadow: 0 0 calcVW(33) calcVW(45) #03071895;
+      }
+
       .title {
         @include font-style(calcVW(36), variables.$fw-500, calcVW(44), #fff);
       }
@@ -58,6 +68,10 @@
             width: calcVW(18);
             height: calcVW(20);
           }
+
+          .rotatebtnImg {
+            rotate: 180deg;
+          }
         }
 
         .contextHeader {
@@ -76,8 +90,9 @@
         }
 
         .context {
-          height: calcVWT(452);
+          height: calcVW(316);
           overflow: hidden;
+          position: relative;
 
           p {
             @include font-style(calcVW(18),
@@ -85,6 +100,7 @@
               calcVW(30),
               #fff);
           }
+
         }
 
         .showMoreClass {
@@ -92,8 +108,10 @@
         }
 
         .showLessClass {
-          height: calcVWT(452);
+          height: calcVW(312);
         }
+
+
 
         .contextIcon {
           width: calcVW(40);
@@ -133,7 +151,7 @@
         }
 
         :global(.ant-tabs-tab) {
-          background-color: transparent !important;
+          background-color: rgba(0, 0, 0, 0.32) !important;
 
           :global(.ant-tabs-tab-btn) {
             @include font-style(calcVW(20) !important,
@@ -153,6 +171,7 @@
           justify-content: space-between;
           border-radius: calcVW(10);
           overflow: auto;
+          padding-bottom: calcVW(36);
 
           &::-webkit-scrollbar {
             width: calcVW(8);
@@ -206,9 +225,10 @@
 
         :global(.ant-tabs-content-holder) {
           padding: calcVW(32);
-          background: rgba(0, 0, 0, 0.262);
-          backdrop-filter: blur(36.5px);
           border-radius: 16px;
+          background: rgba(0, 0, 0, 0.50);
+          backdrop-filter: blur(36.5px);
+          box-shadow: inset 0 -27px 57px 18px #03071880;
         }
 
         :global(.ant-tabs-tab-btn) {
@@ -247,6 +267,11 @@
 
       .whatWeDoWrapper {
         gap: calcVWL(32);
+
+        .shadow {
+          bottom: calcVWL(100);
+          box-shadow: 0 0 calcVWL(33) calcVWL(45) #03071895;
+        }
 
         .title {
           @include font-style(calcVWL(36),
@@ -295,7 +320,7 @@
           }
 
           .showLessClass {
-            height: calcVWT(400);
+            height: calcVWL(312);
           }
 
           .contextIcon {
@@ -329,6 +354,7 @@
 
           :global(.ant-tabs-nav-list) {
             border-radius: calcVWL(10);
+            padding-bottom: calcVWL(36);
 
             &::-webkit-scrollbar {
               width: calcVWL(8);
@@ -399,6 +425,10 @@
       gap: calcVWT(64);
 
       .whatWeDoWrapper {
+        .shadow {
+          bottom: calcVWT(93);
+        }
+
         .title {
           @include font-style(calcVWT(36),
             variables.$fw-500,
@@ -418,6 +448,12 @@
           }
         }
 
+        .contextWrapper {
+          .showLessClass {
+            height: calcVWT(430);
+          }
+        }
+
         .tabs {
           width: 100%;
           gap: calcVWT(10);
@@ -428,6 +464,7 @@
             justify-content: space-between;
             border-radius: calcVWT(16);
             overflow: auto;
+            padding-bottom: calcVWT(36);
 
             &::-webkit-scrollbar {
               display: none;
@@ -524,6 +561,11 @@
 
       .whatWeDoWrapper {
         margin-bottom: calcVWM(64);
+
+        .shadow {
+          bottom: calcVWM(125);
+          box-shadow: 0 calcVWL(16) calcVWL(33) calcVWL(69) #01050e95;
+        }
 
         .title {
           @include font-style(calcVWM(36),

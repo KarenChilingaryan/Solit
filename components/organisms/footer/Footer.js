@@ -25,7 +25,7 @@ const Footer = () => {
             name: "Our Services",
           },
           {
-            link: "/",
+            link: "/what-we-do",
             name: "Tech Stack",
           },
           {

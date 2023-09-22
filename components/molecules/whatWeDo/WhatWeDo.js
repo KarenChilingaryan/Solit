@@ -43,6 +43,7 @@ const FullMenu = styled(Menu)`
 const WhatWeDo = ({ data }) => {
   const [contextData, setContextData] = useState(null);
   const [showMoreClass, setShowMoreClass] = useState("");
+  const [windowScroll, setWindowScroll] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -170,16 +171,22 @@ const WhatWeDo = ({ data }) => {
                 </Row>
                 <ShowMore
                   className={styles.button}
-                  onClick={() =>
+                  onClick={() => {
+                    if (showMoreClass == 'showMoreClass') {
+                      window.scrollTo(0, windowScroll);
+                    } else {
+                      setWindowScroll(window.scrollY)
+                    }
                     setShowMoreClass(
                       showMoreClass != 'showMoreClass' ? "showMoreClass" : "showLessClass"
                     )
+                  }
                   }
                 >
                   Show more
                   <Image
                     src={!showMoreClass ? showMore : showMore}
-                    className={styles.btnImg}
+                    className={`${styles.btnImg} ${showMoreClass == 'showMoreClass' ? styles.rotatebtnImg : ''}`}
                     alt="image"
                   />
                 </ShowMore>
@@ -205,13 +212,17 @@ const WhatWeDo = ({ data }) => {
           />
 
           {renderTabsOrDropdown()}
+          {showMoreClass != 'showMoreClass' &&
+            <div className={styles.shadow}></div>
+          }
+
         </Col>
         <Link href={"/what-we-do"}>
           <Button text="More expertise" boldWhite icon={goRight} />
         </Link>
       </Col>
       <Image src={ourTeamBg} className={styles.backImage} alt="image" />
-    </div>
+    </div >
   );
 };
 

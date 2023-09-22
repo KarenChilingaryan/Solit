@@ -59,7 +59,7 @@
       }
       .aboutImage {
         width: 100%;
-        height: getAboutPageSizes(about-image-h);
+        object-fit: cover;
         border-radius: getAboutPageSizes(about-image-br);
         margin-bottom: calcVW(234);
       }
