@@ -3,7 +3,6 @@
 
 @mixin generate-home-main-texts-styles {
   .contentWrapper {
-    max-height: calcVW(317);
     overflow: hidden;
   }
 
@@ -40,11 +39,6 @@
       height: max-content;
     }
 
-    .defaultShowMoreClass {
-      height: calcVW(230);
-      overflow: hidden;
-    }
-
     @media (max-width: 1024px) {
       .title {
         @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
@@ -58,9 +52,6 @@
   }
 
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-    .contentWrapper {
-      max-height: calcVWL(300);
-    }
 
     .bigTextWrapper {
       .title {
@@ -70,10 +61,6 @@
       .firstSubtitle {
         @include font-style(calcVWL(24), variables.$fw-300, calcVWL(32));
         margin-top: calcVWL(24);
-      }
-
-      .defaultShowMoreClass {
-        height: calcVWL(230);
       }
     }
   }
@@ -85,6 +72,10 @@
   }
 
   @media (max-width: 576px) {
+    .contentWrapper {
+      max-height: calcVWM(200);
+    }
+
     .bigTextWrapper {
       max-height: calcVWM(352);
 
@@ -118,6 +109,7 @@
     }
 
     .defaultShowMoreClass {
+      overflow: hidden;
       height: calcVWM(230) !important;
     }
 
