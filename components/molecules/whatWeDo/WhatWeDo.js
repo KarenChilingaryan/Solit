@@ -117,10 +117,16 @@ const WhatWeDo = ({ data }) => {
             />
             <ShowMore
               className={styles.button}
-              onClick={() =>
+              onClick={() => {
+                if (showMoreClass == 'showMoreClass') {
+                  window.scrollTo(0, windowScroll);
+                } else {
+                  setWindowScroll(window.scrollY)
+                }
                 setShowMoreClass(
                   showMoreClass != 'showMoreClass' ? "showMoreClass" : "showLessClass"
                 )
+              }
               }
             >
               Show more
