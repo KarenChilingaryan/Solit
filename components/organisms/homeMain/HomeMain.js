@@ -25,8 +25,8 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
           showMoreButton && !showMoreClass && height > 230
             ? "defaultShowMoreClass"
             : !showMoreButton
-            ? ""
-            : showMoreClass
+              ? ""
+              : showMoreClass
         }
         setHeight={setHeight}
         heightStyle={heightStyle}

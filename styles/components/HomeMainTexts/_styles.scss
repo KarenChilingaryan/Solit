@@ -16,11 +16,9 @@
     position: relative;
 
     .title {
-      @include font-style(
-        getHomeMainTextsSizes(home-main-title-fz),
+      @include font-style(getHomeMainTextsSizes(home-main-title-fz),
         variables.$fw-400,
-        getHomeMainTextsSizes(home-main-title-lh)
-      );
+        getHomeMainTextsSizes(home-main-title-lh));
     }
 
     .ellipsisText {
@@ -28,19 +26,20 @@
     }
 
     .firstSubtitle {
-      @include font-style(
-        getHomeMainTextsSizes(home-main-first-text-fz),
+      @include font-style(getHomeMainTextsSizes(home-main-first-text-fz),
         variables.$fw-300,
-        getHomeMainTextsSizes(home-main-first-text-lh)
-      );
+        getHomeMainTextsSizes(home-main-first-text-lh));
       margin-top: getHomeMainTextsSizes(home-main-first-text-mt);
+
       p {
         margin: 0;
       }
     }
+
     .showMoreClass {
       height: max-content;
     }
+
     .defaultShowMoreClass {
       height: calcVW(230);
       overflow: hidden;
@@ -50,12 +49,14 @@
       .title {
         @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
       }
+
       .firstSubtitle {
         @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
         margin-top: calcVWT(25);
       }
     }
   }
+
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .contentWrapper {
       max-height: calcVWL(300);
@@ -70,49 +71,61 @@
         @include font-style(calcVWL(24), variables.$fw-300, calcVWL(32));
         margin-top: calcVWL(24);
       }
+
       .defaultShowMoreClass {
         height: calcVWL(230);
       }
     }
   }
+
   @media (max-width: 1024px) {
     .prtfolioItem {
       max-height: calcVWT(388);
     }
   }
+
   @media (max-width: 576px) {
     .bigTextWrapper {
       max-height: calcVWM(352);
+
       .title {
         @include font-style(calcVWM(36), variables.$fw-400, calcVWM(44));
       }
+
       .firstSubtitle {
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
         margin-top: calcVWM(25);
       }
     }
+
     .prtfolioItem {
       max-height: max-content;
+
       .title {
-        @include font-style(
-          calcVWM(36),
+        @include font-style(calcVWM(36),
           variables.$fw-400,
           calcVWM(44),
-          variables.$black
-        );
+          variables.$black );
       }
+
       .firstSubtitle {
-        @include font-style(
-          calcVWM(18),
+        @include font-style(calcVWM(18),
           variables.$fw-400,
           calcVWM(24),
-          variables.$black
-        );
+          variables.$black );
         margin-top: calcVWM(25);
       }
     }
+
     .defaultShowMoreClass {
       height: calcVWM(230) !important;
+    }
+
+    .defaultShowMoreClassShadow {
+      position: absolute;
+      width: 100%;
+      bottom: calcVWM(-30);
+      box-shadow: 0 0 calcVWM(40) calcVWM(80) #020D1C98;
     }
   }
 }
