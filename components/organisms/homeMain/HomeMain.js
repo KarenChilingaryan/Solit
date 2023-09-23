@@ -3,12 +3,12 @@ import Image from "next/image";
 import { Col, Button as ShowMore } from "../../atoms";
 import Button from "../../molecules/button/Button";
 import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
-import showMore from "../../../assets/img/u_plus-circle.svg";
+import showMore from "../../../assets/img/angle-down.svg";
 
 import styles from "./HomeMain.module.scss";
 
 const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
-  const [showMoreClass, setShowMoreClass] = useState("");
+  const [showMoreClass, setShowMoreClass] = useState(false);
   const [height, setHeight] = useState();
   const { title, secondSubtitle, firstSubtitle, buttonText } = data;
   const [heightStyle, setHeightStyle] = useState(false);
@@ -22,11 +22,11 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
         ellipsis
         className={className}
         showMoreClassName={
-          showMoreButton && !showMoreClass && height > 230
+          showMoreButton && !showMoreClass && height > 140
             ? "defaultShowMoreClass"
             : !showMoreButton
-              ? ""
-              : showMoreClass
+            ? ""
+            : "showMoreClass"
         }
         setHeight={setHeight}
         heightStyle={heightStyle}
@@ -36,18 +36,17 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
           <Button text={buttonText} transparentOpposite onClick={onClick} />
         </Col>
       )}
-      {showMoreButton && !showMoreClass && height > 200 && (
-        <ShowMore
-          className={styles.button}
-          onClick={() => {
-            setHeightStyle(true);
-            setShowMoreClass("showMoreClass");
-          }}
-        >
-          Show more{" "}
-          <Image src={showMore} className={styles.btnImg} alt="image" />
-        </ShowMore>
-      )}
+
+      <ShowMore
+        className={`${styles.button} ${showMoreButton && showMoreClass && styles.rotate}`}
+        onClick={() => {
+          setHeightStyle(true);
+          setShowMoreClass(!showMoreClass);
+        }}
+      >
+        Show More
+        <Image src={showMore} className={styles.btnImg} alt="image" />
+      </ShowMore>
     </Col>
   );
 };

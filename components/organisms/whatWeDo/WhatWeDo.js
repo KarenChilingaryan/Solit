@@ -46,6 +46,7 @@ const WhatWeDo = () => {
               >
                 <AboutItem
                   weDo
+                  weDoWidth
                   title={el.title}
                   desc={el.description}
                   icon={el.original_logo_what_we_do}

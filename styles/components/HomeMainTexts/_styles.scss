@@ -15,9 +15,11 @@
     position: relative;
 
     .title {
-      @include font-style(getHomeMainTextsSizes(home-main-title-fz),
+      @include font-style(
+        getHomeMainTextsSizes(home-main-title-fz),
         variables.$fw-400,
-        getHomeMainTextsSizes(home-main-title-lh));
+        getHomeMainTextsSizes(home-main-title-lh)
+      );
     }
 
     .ellipsisText {
@@ -25,9 +27,11 @@
     }
 
     .firstSubtitle {
-      @include font-style(getHomeMainTextsSizes(home-main-first-text-fz),
+      @include font-style(
+        getHomeMainTextsSizes(home-main-first-text-fz),
         variables.$fw-300,
-        getHomeMainTextsSizes(home-main-first-text-lh));
+        getHomeMainTextsSizes(home-main-first-text-lh)
+      );
       margin-top: getHomeMainTextsSizes(home-main-first-text-mt);
 
       p {
@@ -52,7 +56,6 @@
   }
 
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-
     .bigTextWrapper {
       .title {
         @include font-style(calcVWL(48), variables.$fw-400, calcVWL(59));
@@ -93,31 +96,35 @@
       max-height: max-content;
 
       .title {
-        @include font-style(calcVWM(36),
+        @include font-style(
+          calcVWM(36),
           variables.$fw-400,
           calcVWM(44),
-          variables.$black );
+          variables.$black
+        );
       }
 
       .firstSubtitle {
-        @include font-style(calcVWM(18),
+        @include font-style(
+          calcVWM(18),
           variables.$fw-400,
           calcVWM(24),
-          variables.$black );
+          variables.$black
+        );
         margin-top: calcVWM(25);
       }
     }
 
     .defaultShowMoreClass {
       overflow: hidden;
-      height: calcVWM(230) !important;
+      height: calcVWM(150) !important;
     }
 
     .defaultShowMoreClassShadow {
       position: absolute;
       width: 100%;
       bottom: calcVWM(-30);
-      box-shadow: 0 0 calcVWM(40) calcVWM(80) #020D1C;
+      box-shadow: 0 0 calcVWM(40) calcVWM(80) #020d1c;
     }
   }
 }

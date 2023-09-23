@@ -49,6 +49,13 @@
       }
     }
 
+    .rotate{
+      img{
+        transform: rotate(180deg);
+        transition: 0.5s;
+      }
+    }
+
     @media (max-width: 1024px) {
       width: calcVWT(500);
 
