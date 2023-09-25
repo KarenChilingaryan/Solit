@@ -4,15 +4,15 @@ import { Paragraph } from "../../atoms";
 
 import styles from "./Process.module.scss";
 
-
 const svgSizes = [
   {
     type: "round",
     A: 80,
     B: 50,
     name: "Requirement Analysis",
-    description: "Our expert team initiates the process by thoroughly understanding your project requirements, goals, and expectations. This analysis serves as the foundation for creating a tailored solution that perfectly aligns with your business needs.",
-    position: 45
+    description:
+      "Our expert team initiates the process by thoroughly understanding your project requirements, goals, and expectations. This analysis serves as the foundation for creating a tailored solution that perfectly aligns with your business needs.",
+    position: 45,
   },
   {
     type: "path",
@@ -23,9 +23,10 @@ const svgSizes = [
     type: "round",
     A: 239,
     B: 50,
-    name: 'Planning and Design',
-    description: 'With a comprehensive understanding of your project, we meticulously plan the development roadmap and craft an intuitive design that not only enhances user experience but also ensures scalability and flexibility for future expansions.',
-    position: 45
+    name: "Planning and Design",
+    description:
+      "With a comprehensive understanding of your project, we meticulously plan the development roadmap and craft an intuitive design that not only enhances user experience but also ensures scalability and flexibility for future expansions.",
+    position: 45,
   },
   {
     type: "path",
@@ -56,9 +57,10 @@ const svgSizes = [
     type: "round",
     A: 400,
     B: 204,
-    name: 'Development and Coding',
-    description: 'Our seasoned developers leverage cutting-edge technologies and industry best practices to transform the approved design into a functional software solution, leaving no stone unturned in delivering a robust and high-performance product.',
-    position: 45
+    name: "Development and Coding",
+    description:
+      "Our seasoned developers leverage cutting-edge technologies and industry best practices to transform the approved design into a functional software solution, leaving no stone unturned in delivering a robust and high-performance product.",
+    position: 45,
   },
   {
     type: "path",
@@ -69,9 +71,10 @@ const svgSizes = [
     type: "round",
     A: 240,
     B: 204,
-    name: 'Testing and Quality Assurance',
-    description: 'Rigorous testing methodologies are employed to identify and eliminate any potential bugs or glitches, ensuring the final product meets the highest standards of quality, reliability, and security.',
-    position: 45
+    name: "Testing and Quality Assurance",
+    description:
+      "Rigorous testing methodologies are employed to identify and eliminate any potential bugs or glitches, ensuring the final product meets the highest standards of quality, reliability, and security.",
+    position: 45,
   },
   {
     type: "path",
@@ -102,9 +105,10 @@ const svgSizes = [
     type: "round",
     A: 100,
     B: 357,
-    name: 'Deployment and Integration',
-    description: 'Once the software is thoroughly vetted and approved, we seamlessly deploy it to your desired platform, offering full integration support to ensure a smooth transition and minimal disruption to your existing systems.',
-    position: 45
+    name: "Deployment and Integration",
+    description:
+      "Once the software is thoroughly vetted and approved, we seamlessly deploy it to your desired platform, offering full integration support to ensure a smooth transition and minimal disruption to your existing systems.",
+    position: 45,
   },
   {
     type: "path",
@@ -115,12 +119,12 @@ const svgSizes = [
     type: "round",
     A: 260,
     B: 357,
-    name: 'Maintenance and Support',
-    description: 'Our commitment extends beyond deployment as we provide ongoing maintenance and support services, promptly addressing any issues that may arise and proactively updating the software to keep it at its peak performance.',
-    position: 66
+    name: "Maintenance and Support",
+    description:
+      "Our commitment extends beyond deployment as we provide ongoing maintenance and support services, promptly addressing any issues that may arise and proactively updating the software to keep it at its peak performance.",
+    position: 66,
   },
 ];
-
 
 const svgSizesMobile = [
   {
@@ -128,8 +132,9 @@ const svgSizesMobile = [
     A: 17,
     B: 50,
     name: "Requirement Analysis",
-    description: "Our expert team initiates the process by thoroughly understanding your project requirements, goals, and expectations. This analysis serves as the foundation for creating a tailored solution that perfectly aligns with your business needs.",
-    position: 233
+    description:
+      "Our expert team initiates the process by thoroughly understanding your project requirements, goals, and expectations. This analysis serves as the foundation for creating a tailored solution that perfectly aligns with your business needs.",
+    position: 233,
   },
   {
     type: "path",
@@ -140,10 +145,10 @@ const svgSizesMobile = [
     type: "round",
     A: 17,
     B: 400,
-    name: 'Planning and Design',
-    description: 'With a comprehensive understanding of your project, we meticulously plan the development roadmap and craft an intuitive design that not only enhances user experience but also ensures scalability and flexibility for future expansions.',
-    position: 227
-
+    name: "Planning and Design",
+    description:
+      "With a comprehensive understanding of your project, we meticulously plan the development roadmap and craft an intuitive design that not only enhances user experience but also ensures scalability and flexibility for future expansions.",
+    position: 227,
   },
   {
     type: "path",
@@ -154,11 +159,12 @@ const svgSizesMobile = [
     type: "round",
     A: 17,
     B: 770,
-    name: 'Development and',
+    name: "Development and",
     secondPosition: 118,
-    secondName: 'Coding',
-    description: 'Our seasoned developers leverage cutting-edge technologies and industry best practices to transform the approved design into a functional software solution, leaving no stone unturned in delivering a robust and high-performance product.',
-    position: 204
+    secondName: "Coding",
+    description:
+      "Our seasoned developers leverage cutting-edge technologies and industry best practices to transform the approved design into a functional software solution, leaving no stone unturned in delivering a robust and high-performance product.",
+    position: 204,
   },
   {
     type: "path",
@@ -169,11 +175,12 @@ const svgSizesMobile = [
     type: "round",
     A: 17,
     B: 1190,
-    name: 'Testing and Quality',
+    name: "Testing and Quality",
     secondPosition: 142,
-    secondName: 'Assurance',
-    description: 'Rigorous testing methodologies are employed to identify and eliminate any potential bugs or glitches, ensuring the final product meets the highest standards of quality, reliability, and security.',
-    position: 213
+    secondName: "Assurance",
+    description:
+      "Rigorous testing methodologies are employed to identify and eliminate any potential bugs or glitches, ensuring the final product meets the highest standards of quality, reliability, and security.",
+    position: 213,
   },
   {
     type: "path",
@@ -184,11 +191,12 @@ const svgSizesMobile = [
     type: "round",
     A: 17,
     B: 1550,
-    name: 'Deployment and',
+    name: "Deployment and",
     secondPosition: 148,
-    secondName: 'Integration',
-    description: 'Once the software is thoroughly vetted and approved, we seamlessly deploy it to your desired platform, offering full integration support to ensure a smooth transition and minimal disruption to your existing systems.',
-    position: 193
+    secondName: "Integration",
+    description:
+      "Once the software is thoroughly vetted and approved, we seamlessly deploy it to your desired platform, offering full integration support to ensure a smooth transition and minimal disruption to your existing systems.",
+    position: 193,
   },
   {
     type: "path",
@@ -199,15 +207,24 @@ const svgSizesMobile = [
     type: "round",
     A: 17,
     B: 1940,
-    name: 'Maintenance and ',
+    name: "Maintenance and ",
     secondPosition: 123,
-    secondName: 'Support',
-    description: 'Our commitment extends beyond deployment as we provide ongoing maintenance and support services, promptly addressing any issues that may arise and proactively updating the software to keep it at its peak performance.',
-    position: 198
+    secondName: "Support",
+    description:
+      "Our commitment extends beyond deployment as we provide ongoing maintenance and support services, promptly addressing any issues that may arise and proactively updating the software to keep it at its peak performance.",
+    position: 198,
   },
 ];
 
-const GetText = (text, A, B, fs = 8, lh = 10, anchor = "middle", position = 0) => {
+const GetText = (
+  text,
+  A,
+  B,
+  fs = 8,
+  lh = 10,
+  anchor = "middle",
+  position = 0
+) => {
   const [description, setDescription] = useState([]);
   useEffect(() => {
     if (text) {
@@ -223,7 +240,7 @@ const GetText = (text, A, B, fs = 8, lh = 10, anchor = "middle", position = 0) =
           textValue = element;
         }
       }
-      arr.push(textValue)
+      arr.push(textValue);
       setDescription(arr);
     }
   }, [text]);
@@ -244,15 +261,14 @@ const GetText = (text, A, B, fs = 8, lh = 10, anchor = "middle", position = 0) =
 };
 
 const Line = () => {
-  const targetRef = useRef(null)
-  const targetRefMobile = useRef(null)
+  const targetRef = useRef(null);
+  const targetRefMobile = useRef(null);
   const [visiblePercentage, setVisiblePercentage] = useState(0);
   const [changeValue, setChangeValue] = useState(0);
   const [visiblePercentageMobile, setVisiblePercentageMobile] = useState(0);
 
   useEffect(() => {
     const getForMobile = () => {
-
       const targetElement = targetRefMobile.current;
       if (!targetElement) return;
 
@@ -260,7 +276,7 @@ const Line = () => {
       const windowHeight = window.innerHeight;
       const percentage = Math.round(((windowHeight - top) / height) * 60);
       setVisiblePercentageMobile(percentage);
-    }
+    };
     const handleScroll = () => {
       const targetElement = targetRef.current;
       if (!targetElement) return;
@@ -269,31 +285,55 @@ const Line = () => {
       const windowHeight = window.innerHeight;
       const percentage = Math.round(((windowHeight - top) / height) * 60);
       setVisiblePercentage(percentage);
-      getForMobile()
+      getForMobile();
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <>
-      <svg viewBox="0 0 500 490" width="100%" height="100%" ref={targetRef} className={styles.desktopSvg}>
+      <svg
+        viewBox="0 0 500 490"
+        width="100%"
+        height="100%"
+        ref={targetRef}
+        className={styles.desktopSvg}
+      >
         {svgSizes.map((el, index) => {
-          let color = 'white';
+          let color = "white";
           if (visiblePercentage > 30) {
-            color = '#3FC1FF'
+            color = "#3FC1FF";
           }
           if (el.type === "path") {
             const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
 
-            return <>
-              <path key={path} d={path} stroke="white" strokeWidth="1" fill="none" />
-              <path className={color == '#3FC1FF' && `${styles["loadingPath" + index]} ${styles.loadingPath}`} key={path} d={path} stroke="white" strokeWidth="1" fill="none" />
-            </>
+            return (
+              <>
+                <path
+                  key={path}
+                  d={path}
+                  stroke="white"
+                  strokeWidth="1"
+                  fill="none"
+                />
+                <path
+                  className={
+                    color == "#3FC1FF" &&
+                    `${styles["loadingPath" + index]} ${styles.loadingPath}`
+                  }
+                  key={path}
+                  d={path}
+                  stroke="white"
+                  strokeWidth="1"
+                  fill="none"
+                />
+              </>
+            );
           } else if (el.type === "round") {
             return (
               <>
@@ -314,39 +354,94 @@ const Line = () => {
                   r="6"
                   stroke={"white"}
                   stroke-width="1"
-                  className={color == '#3FC1FF' && `${styles["loadingPathRound" + index]} ${styles.loadingPathRound}`}
+                  className={
+                    color == "#3FC1FF" &&
+                    `${styles["loadingPathRound" + index]} ${
+                      styles.loadingPathRound
+                    }`
+                  }
                 />
-                <circle cx={el.A} cy={el.B} r="4" fill={'white'} className={color == '#3FC1FF' && `${styles['loadingPathRoundFill' + index]} ${styles.loadingPathRoundFill}`} />
+                <circle
+                  cx={el.A}
+                  cy={el.B}
+                  r="4"
+                  fill={"white"}
+                  className={
+                    color == "#3FC1FF" &&
+                    `${styles["loadingPathRoundFill" + index]} ${
+                      styles.loadingPathRoundFill
+                    }`
+                  }
+                />
                 {GetText(
                   el.description,
                   el.A,
                   el.B,
                   7,
                   10,
-                  'start',
+                  "start",
                   el.position
                 )}
               </>
             );
           } else {
             const path = `M${el.A.x},${el.A.y} Q${el.controlPoint.x},${el.controlPoint.y} ${el.B.x},${el.B.y}`;
-            return <>
-              <path key={index} d={path} stroke="white" strokeWidth="1" fill="none" />;
-              <path className={color == '#3FC1FF' ? `${styles["loadingPath" + index]} ${styles.loadingPath}` : styles.loadingPathBack} key={index} d={path} stroke="white" strokeWidth="1" fill="none" />;
-            </>
+            return (
+              <>
+                <path
+                  key={index}
+                  d={path}
+                  stroke="white"
+                  strokeWidth="1"
+                  fill="none"
+                />
+                ;
+                <path
+                  className={
+                    color == "#3FC1FF"
+                      ? `${styles["loadingPath" + index]} ${styles.loadingPath}`
+                      : styles.loadingPathBack
+                  }
+                  key={index}
+                  d={path}
+                  stroke="white"
+                  strokeWidth="1"
+                  fill="none"
+                />
+                ;
+              </>
+            );
           }
         })}
       </svg>
-      <svg viewBox="0 0 500 2350" width="100%" height="100%" ref={targetRefMobile} className={styles.mobileSvg}>
+      <svg
+        viewBox="0 0 500 2350"
+        width="100%"
+        height="100%"
+        ref={targetRefMobile}
+        className={styles.mobileSvg}
+      >
         {svgSizesMobile.map((el, index) => {
-          let color = 'white';
+          let color = "white";
           if (visiblePercentage > 0) {
-            color = '#3FC1FF'
+            color = "#3FC1FF";
           }
           if (el.type === "path") {
             const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
 
-            return <path key={index} d={path} className={color == '#3FC1FF' && `${styles["loadingPath" + index]} ${styles.loadingPath}`} stroke={color} strokeWidth="2" fill="none" />;
+            return (
+              <path
+                key={index}
+                d={path}
+                className={
+                  color == "#3FC1FF" &&
+                  `${styles["loadingPath" + index]} ${styles.loadingPath}`
+                }
+                stroke={color}
+                strokeWidth="2"
+                fill="none"
+              />
+            );
           } else if (el.type === "round") {
             return (
               <>
@@ -361,26 +456,44 @@ const Line = () => {
                 >
                   {el.name}
                 </text>
-                {el?.secondName && <text
-                  x={el.A + el.secondPosition}
-                  y={el.B + 55}
-                  fill={"white"}
-                  textAnchor="middle"
-                  dominantBaseline="baseline"
-                  fontWeight={600}
-                  fontSize="32"
-                >
-                  {el.secondName}
-                </text>}
+                {el?.secondName && (
+                  <text
+                    x={el.A + el.secondPosition}
+                    y={el.B + 55}
+                    fill={"white"}
+                    textAnchor="middle"
+                    dominantBaseline="baseline"
+                    fontWeight={600}
+                    fontSize="32"
+                  >
+                    {el.secondName}
+                  </text>
+                )}
                 <circle
                   cx={el.A}
                   cy={el.B}
                   r="15"
                   stroke={color}
                   stroke-width="3"
-                  className={color == '#3FC1FF' && `${styles["loadingPathRound" + index]} ${styles.loadingPathRound}`}
+                  className={
+                    color == "#3FC1FF" &&
+                    `${styles["loadingPathRound" + index]} ${
+                      styles.loadingPathRound
+                    }`
+                  }
                 />
-                <circle cx={el.A} cy={el.B} r="9" fill={color} className={color == '#3FC1FF' && `${styles['loadingPathRoundFill' + index]} ${styles.loadingPathRoundFill}`} />
+                <circle
+                  cx={el.A}
+                  cy={el.B}
+                  r="9"
+                  fill={color}
+                  className={
+                    color == "#3FC1FF" &&
+                    `${styles["loadingPathRoundFill" + index]} ${
+                      styles.loadingPathRoundFill
+                    }`
+                  }
+                />
                 {GetText(
                   el.description,
                   el.A + 60,
@@ -395,22 +508,28 @@ const Line = () => {
           }
         })}
       </svg>
-
     </>
   );
 };
 
 const Process = () => {
-
   const postsMainProcessTextApi = useSelector(
-    (state) => state?.postsMainProcessTextApi?.queries?.["posts(undefined)"]?.data
+    (state) =>
+      state?.postsMainProcessTextApi?.queries?.["posts(undefined)"]?.data
   );
 
   return (
     <div className={styles.container}>
-      <Paragraph className={styles.title}>{postsMainProcessTextApi ? postsMainProcessTextApi[0].title : ""}</Paragraph>
-      <div className={styles.description}
-        dangerouslySetInnerHTML={{ __html: postsMainProcessTextApi ? postsMainProcessTextApi[0].description : "" }}
+      <Paragraph className={styles.title}>
+        {postsMainProcessTextApi ? postsMainProcessTextApi[0].title : ""}
+      </Paragraph>
+      <div
+        className={styles.description}
+        dangerouslySetInnerHTML={{
+          __html: postsMainProcessTextApi
+            ? postsMainProcessTextApi[0].description
+            : "",
+        }}
       />
       <Line />;
     </div>

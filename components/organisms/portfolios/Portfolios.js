@@ -6,9 +6,9 @@ import { Col, Row } from "../../atoms";
 import elipse from "../../../assets/img/Ellipse.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import FilterButtons from "../filters/FilterButtons";
+import Button from "../../molecules/button/Button";
 
 import styles from "./Portfolios.module.scss";
-import Button from "../../molecules/button/Button";
 
 const tags = [
   { id: 1, tag_name: "React" },
@@ -29,7 +29,7 @@ const Portfolios = ({ data }) => {
   const handleClick = (id) => {
     router.push(`/portfolio/${id}`);
   };
-
+console.log(data,'>>>>>>>');
 
   return (
     <Row className={styles.portfoliosWrapper}>
@@ -38,7 +38,7 @@ const Portfolios = ({ data }) => {
           <Button
             text="All"
             lightBlueTech={selectedCategory === "All"}
-            grayTextBtnTech={selectedCategory !== "All"}
+            transparentBlue={selectedCategory !== "All"}
             onClick={() => setSelectedCategory("All")}
           />
           {tags?.map((el, index) => (
@@ -46,7 +46,7 @@ const Portfolios = ({ data }) => {
               key={index}
               text={el.tag_name}
               lightBlueTech={selectedCategory === el?.id}
-              grayTextBtnTech={selectedCategory !== el?.id}
+              transparentBlue={selectedCategory !== el?.id}
               onClick={() => {
                 handleFilter(el?.id);
                 setSelectedCategory(el?.id);

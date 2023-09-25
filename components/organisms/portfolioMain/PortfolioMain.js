@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
 const PortfolioMain = ({ data, main = false }) => {
-  const router = useRouter()
+  const router = useRouter();
   const handleClickDiscuss = () => {
     router.push(`/discuss-project`);
   };
@@ -28,8 +28,7 @@ const PortfolioMain = ({ data, main = false }) => {
             <HomeMain
               data={{
                 title: postPortfolioApi?.data_text[0]?.title,
-                firstSubtitle:
-                  postPortfolioApi?.data_text[0]?.description
+                firstSubtitle: postPortfolioApi?.data_text[0]?.description,
               }}
             />
           </div>

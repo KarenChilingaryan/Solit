@@ -5,15 +5,19 @@
   .content {
     width: getPortfolioMainSizes(content-width);
     margin: getPortfolioMainSizes(content-mt) auto 0 auto;
+
     .contentDescription {
       margin-left: calcVW(24);
     }
+
     .portfoliosSection {
       margin-top: calcVW(88);
     }
+
     .knowMoreSection {
       margin: calcVW(384) 0;
     }
+
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       width: calcVWL(1280);
       margin: calcVWL(478) auto 0 auto;
@@ -27,8 +31,9 @@
         margin: calcVWL(384) 0;
       }
     }
+
     @media (max-width: 1024px) {
-      width: calcVWT(880);
+      width: calcVWT(928);
       .contentDescription {
         margin: 0;
       }

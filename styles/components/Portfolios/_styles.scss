@@ -4,16 +4,24 @@
 @mixin generate-portfolios-styles {
   .portfoliosWrapper {
     .filters {
+      z-index: 99;
       display: flex;
       flex-wrap: wrap;
       gap: calcVW(16);
       width: 100%;
+
+      button {
+        &:hover {
+          color: black !important;
+        }
+      }
     }
 
     .projects {
       margin-top: calcVW(120);
       position: relative;
       width: 100%;
+
       .elipse {
         position: absolute;
         left: calcVW(-320);
@@ -38,12 +46,26 @@
       }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1024px) and (min-width: 576px) {
+      .projects {
+        margin: calcVWT(64) calcVWT(24) 0;
+        row-gap: calcVWT(64) !important;
+        column-gap: calcVWT(32) !important;
+      }
       .filters {
         gap: calcVWT(16);
+        button {
+          padding: calcVWT(16) calcVWT(32) !important;
+
+          @include font-style(
+            calcVWT(13) !important,
+            variables.$fw-700 !important,
+            calcVWT(16) !important
+          );
+        }
       }
     }
-    
+
     @media (max-width: 576px) {
       .projects {
         gap: calcVWM(32) !important;
@@ -54,6 +76,16 @@
       .filters {
         min-width: max-content;
         gap: calcVWM(16) !important;
+
+        button {
+          padding: calcVWM(16) calcVWM(32) !important;
+
+          @include font-style(
+            calcVWM(13) !important,
+            variables.$fw-700 !important,
+            calcVWM(16) !important
+          );
+        }
       }
       .filtersBlock {
         max-width: 100%;
@@ -62,4 +94,3 @@
     }
   }
 }
-//TO Do refactor Calc
