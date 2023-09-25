@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -13,10 +13,12 @@ import { postsCareersJobOpeningApi } from "../../../services/postsCareersJobOpen
 import ModalForm from "../../molecules/modalForm/ModalForm";
 import SuccessModal from "../../organisms/successModal/SuccessModal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
+import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 
 import styles from "./careersItem.module.scss";
 
 const CareersComponent = () => {
+  const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
   const { id } = useRouter().query;
   const [openData, setOpenData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
@@ -58,6 +60,14 @@ const CareersComponent = () => {
       setOpenSuccess(true);
     } catch {}
   };
+
+  useEffect(() => {
+    if (postsCareersJobOpeningApiData && breadcrumbElements) {
+      const newBred = [...breadcrumbElements?.slice(0, 3)]
+      newBred[2] = { name: postsCareersJobOpeningApiData.title_for_us, link: '/' };
+      setBreadcrumbElements(newBred)
+    }
+  }, [postsCareersJobOpeningApiData])
 
   return (
     <div className={styles.careerPage}>

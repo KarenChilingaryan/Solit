@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -11,9 +11,12 @@ import { postsWhatWeDoDetailApi } from "../../../services/postsWhatWeDoDetailApi
 
 import styles from "./WhatWeDoItem.module.scss";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
+import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 
 
 const WhatWeDoComponent = () => {
+  const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
+
   const { id } = useRouter().query;
   const dispatch = useDispatch();
   const [postWhatWeDoDetail, setPostWhatWeDoDetail] = useState(null)
@@ -31,6 +34,14 @@ const WhatWeDoComponent = () => {
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
   );
 
+  useEffect(() => {
+    if (postWhatWeDoDetail && breadcrumbElements) {
+      const newBred = [...breadcrumbElements?.slice(0, 3)]
+      newBred[2] = {name: postWhatWeDoDetail.name_what_we_do_detail, link: '/'};
+      setBreadcrumbElements(newBred)
+    }
+  }, [postWhatWeDoDetail])
+
   return (
     <div className={styles.careerPage}>
       <HomeMainWithImage firstImage={imageBG}>
@@ -41,7 +52,7 @@ const WhatWeDoComponent = () => {
             <Paragraph className={styles.title}>Explore more</Paragraph>
             <Row className={styles.blockItems}>
               {postsWhatWeDoApi?.data_list.slice(0, 3).map((el, i) =>
-                <Link href={`/what-we-do/${el.what_we_do_detail}`} key={i}>
+                <Link href={`/what-we-do/${el.what_we_do_detail}/${el.slug}`} key={i}>
                   <WeDoCard
                     item={el}
                   />

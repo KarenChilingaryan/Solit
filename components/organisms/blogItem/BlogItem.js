@@ -1,13 +1,13 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import styles from "./BlogItem.module.scss";
 import { Paragraph, Row } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import imageBG from "../../../assets/img/career_bg.png"
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
-import ourPtojectImage from "../../../assets/img/unsplash_oXS1f0uZYV4.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { blogItemApi } from "../../../services/blogItemApi";
+import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 
 export const dataProject = [
   "How to manage product backlog with data-driven techniques",
@@ -16,6 +16,7 @@ export const dataProject = [
 ];
 
 const BlogItem = () => {
+  const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
   const { id } = useRouter().query
   const router = useRouter();
 
@@ -38,9 +39,18 @@ const BlogItem = () => {
       ]?.data
   );
 
-  const handleClick = (id) => {
-    router.push(`/blog/${id}`);
+  const handleClick = (id, slug) => {
+    router.push(`/blog/${id}/${slug}`);
   };
+
+
+  useEffect(() => {
+    if (blogItemData && breadcrumbElements) {
+      const newBred = [...breadcrumbElements?.slice(0, 3)]
+      newBred[2] = { name: blogItemData.name_blog_detail, link: '/' };
+      setBreadcrumbElements(newBred)
+    }
+  }, [blogItemData])
 
   return <div className={styles.careerPage}>
     <HomeMainWithImage firstImage={imageBG}>
@@ -52,7 +62,7 @@ const BlogItem = () => {
           <Row className={styles.blockItems}>
             {postsBlogApi?.data_list?.slice(0, 3)?.map((project, i) =>
               <OurProjectCard
-                onClick={() => handleClick(project.blog_detail)}
+                onClick={() => handleClick(project.blog_detail, project.slug)}
                 key={i}
                 name={project.title}
                 image={project?.webp_image_blog}

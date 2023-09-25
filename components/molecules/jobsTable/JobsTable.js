@@ -45,7 +45,7 @@ const JobsTable = ({ data, setOpenData }) => {
         onRow={(e) => ({
           onClick: (event) => {
             if (event.target.innerText != "Apply Now")
-              router.push(`/careers/${e.current_job_opening_detail}`)
+              router.push(`/careers/${e.current_job_opening_detail}/${e.slug}`)
           }
         })}
         columns={columns}

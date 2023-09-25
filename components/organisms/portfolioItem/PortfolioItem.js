@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -10,10 +10,12 @@ import Button from "../../molecules/button/Button";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import arrow from "../../../assets/img/arrow.svg";
+import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 
 import styles from "./PortfolioItem.module.scss";
 
 const PortfolioItem = () => {
+  const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
   const { id } = useRouter().query;
   const router = useRouter();
   const handleClickDiscuss = () => {
@@ -26,8 +28,8 @@ const PortfolioItem = () => {
   const postPortfolioApi = useSelector(
     (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
   );
-  const handleClick = (id) => {
-    router.push(`/portfolio/${id}`);
+  const handleClick = (id, slug) => {
+    router.push(`/portfolio/${id}/${slug}`);
   };
 
   const getData = async (id) => {
@@ -41,6 +43,14 @@ const PortfolioItem = () => {
       getData(id);
     }
   }, [id]);
+
+  useEffect(() => {
+    if (postPortfolioApiData && breadcrumbElements) {
+      const newBred = [...breadcrumbElements?.slice(0, 3)]
+      newBred[2] = { name: postPortfolioApiData.title, link: '/' };
+      setBreadcrumbElements(newBred)
+    }
+  }, [postPortfolioApiData])
 
   return (
     <Row className={styles.profilePage}>
@@ -100,7 +110,7 @@ const PortfolioItem = () => {
                 (project, i) =>
                   i < 3 && (
                     <OurProjectCard
-                      onClick={() => handleClick(project.project_from_portfolio)}
+                      onClick={() => handleClick(project.project_from_portfolio, project.slug)}
                       key={i}
                       component="portfolio"
                       name={project.title}

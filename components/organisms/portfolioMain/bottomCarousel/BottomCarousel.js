@@ -49,8 +49,8 @@ import { useRouter } from "next/router";
 
 const BottomCarousel = ({ data }) => {
   const router = useRouter();
-  const onClick = (id) => {
-    router.push(`/portfolio/${id}`)
+  const onClick = (id, slug) => {
+    router.push(`/portfolio/${id}/${slug}`);
   }
 
   return (
@@ -69,7 +69,7 @@ const BottomCarousel = ({ data }) => {
             img={el?.logo_image || img}
             title={el?.title}
             desc={el?.technologies}
-            onClick={() => onClick(el.id)}
+            onClick={() => onClick(el.id, el.slug)}
           />
         ))}
       </Carousel>
