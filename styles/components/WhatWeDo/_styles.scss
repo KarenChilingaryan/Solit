@@ -68,7 +68,6 @@
           .btnImg {
             width: calcVW(18);
             height: calcVW(20);
-            transform: rotate(180deg);
           }
 
           .rotatebtnImg {
@@ -609,7 +608,7 @@
 
         .shadow {
           bottom: calcVWM(125);
-          box-shadow: 0 calcVWL(16) calcVWL(33) calcVWL(69) #01050e95;
+          box-shadow: 0 calcVWL(16) calcVWL(170) calcVWL(270) #01050e95;
         }
 
         .title {
@@ -682,7 +681,7 @@
 
           .showMoreClass {
             height: max-content;
-            padding-bottom: calcVWM(60);
+            padding-bottom: calcVWM(50);
           }
 
           .antDropdownLink {

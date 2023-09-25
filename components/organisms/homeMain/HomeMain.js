@@ -25,8 +25,8 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
           showMoreButton && !showMoreClass && height > 140
             ? "defaultShowMoreClass"
             : !showMoreButton
-            ? ""
-            : "showMoreClass"
+              ? ""
+              : "showMoreClass"
         }
         setHeight={setHeight}
         heightStyle={heightStyle}
@@ -36,17 +36,18 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
           <Button text={buttonText} transparentOpposite onClick={onClick} />
         </Col>
       )}
-
-      <ShowMore
-        className={`${styles.button} ${showMoreButton && showMoreClass && styles.rotate}`}
-        onClick={() => {
-          setHeightStyle(true);
-          setShowMoreClass(!showMoreClass);
-        }}
-      >
-        Show More
-        <Image src={showMore} className={styles.btnImg} alt="image" />
-      </ShowMore>
+      {showMoreButton &&
+        <ShowMore
+          className={`${styles.button} ${showMoreButton && showMoreClass && styles.rotate}`}
+          onClick={() => {
+            setHeightStyle(true);
+            setShowMoreClass(!showMoreClass);
+          }}
+        >
+          Show More
+          <Image src={showMore} className={styles.btnImg} alt="image" />
+        </ShowMore>
+      }
     </Col>
   );
 };
