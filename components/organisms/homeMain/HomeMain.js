@@ -44,7 +44,7 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
             setShowMoreClass(!showMoreClass);
           }}
         >
-          Show More
+          Show  {!showMoreClass ? 'More' : 'less'}
           <Image src={showMore} className={styles.btnImg} alt="image" />
         </ShowMore>
       }
