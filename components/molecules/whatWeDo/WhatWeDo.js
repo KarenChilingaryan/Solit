@@ -129,7 +129,7 @@ const WhatWeDo = ({ data }) => {
               }
               }
             >
-              Show more
+              Show {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
               <Image
                 src={!showMoreClass ? showMore : showMore}
                 className={styles.btnImg}
@@ -189,7 +189,7 @@ const WhatWeDo = ({ data }) => {
                   }
                   }
                 >
-                  Show more
+                  Show  {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
                   <Image
                     src={!showMoreClass ? showMore : showMore}
                     className={`${styles.btnImg} ${showMoreClass == 'showMoreClass' ? styles.rotatebtnImg : ''}`}

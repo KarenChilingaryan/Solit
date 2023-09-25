@@ -76,7 +76,8 @@
       &:hover {
         transition: all 0.4s;
         height: calcVW(420);
-
+        transition: .9s;
+        box-shadow: 0 42px 98px -42px #7811fe;
         .blogsPadding {
           padding: calcVW(16) !important;
           align-items: flex-start;
@@ -123,11 +124,6 @@
       }
 
     }
-    &:hover {
-      transition: .9s;
-      box-shadow: 0 42px 98px -42px #7811fe;
-    }
-
     .home {
       width: calcVW(296);
     }
