@@ -81,8 +81,8 @@ const HomeContent = () => {
     router.push(`/discuss-project`);
   };
 
-  const handleClick = (id) => {
-    router.push(`/portfolio/${id}`);
+  const handleClick = (id, slug) => {
+    router.push(`/portfolio/${id}/${slug}`);
   };
 
   const win = typeof window;
@@ -346,7 +346,7 @@ const HomeContent = () => {
                   ...(postPortfolioApi?.data_list.length > 7 ? ["more"] : []),
                 ]?.map((project, i) => (
                   <OurProjectCard
-                    onClick={() => handleClick(project.project_from_portfolio)}
+                    onClick={() => handleClick(project.project_from_portfolio, project.slug)}
                     key={i}
                     name={project.title}
                     image={project.webp_image_portfolio}

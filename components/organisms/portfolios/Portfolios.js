@@ -26,8 +26,8 @@ const Portfolios = ({ data }) => {
     // setPortfolioData(sortedData);
   };
 
-  const handleClick = (id) => {
-    router.push(`/portfolio/${id}`);
+  const handleClick = (id, slug) => {
+    router.push(`/portfolio/${id}/${slug}`);
   };
 console.log(data,'>>>>>>>');
 
@@ -66,7 +66,7 @@ console.log(data,'>>>>>>>');
         <Image className={styles.elipse} src={elipse} alt="image"/>
         {data && [...data]?.map((project, i) => (
           <OurProjectCard
-            onClick={() => handleClick(project.project_from_portfolio)}
+            onClick={() => handleClick(project.project_from_portfolio, project.slug)}
             key={i}
             more={project == "more"}
             component="portfolio"

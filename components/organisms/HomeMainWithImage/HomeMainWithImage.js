@@ -2,17 +2,19 @@ import { Breadcrumb } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { memo, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Paragraph } from "../../atoms";
 import rughtRow from "../../../assets/img/right-row.svg"
+import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 
 import styles from "./HomeMainWithImage.module.scss";
 
 const HomeMainWithImage = ({ firstImage, className, children }) => {
   const routes = useRouter()
-  const [breadcrumbElements, setBreadcrumbElements] = useState([])
   const [hideToTop, setHideToTop] = useState(false)
+
+  const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
 
   const splitAndCapitalize = (str) => {
     const parts = str.split("/").filter((word) => word !== "");

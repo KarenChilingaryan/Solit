@@ -37,8 +37,8 @@ const BlogsSection = ({ data }) => {
     // setPortfolioData(sortedData);
   };
 
-  const handleClick = (id) => {
-    router.push(`/blog/${id}`);
+  const handleClick = (id, slug) => {
+    router.push(`/blog/${id}/${slug}`);
   };
 
   return (
@@ -74,7 +74,7 @@ const BlogsSection = ({ data }) => {
         <Image className={styles.elipse} src={elipse} alt="image" />
         {data?.map((project, i) => (
           <OurProjectCard
-            onClick={() => handleClick(project.blog_detail)}
+            onClick={() => handleClick(project.blog_detail, project.slug)}
             key={i}
             name={project.title}
             image={project?.webp_image_blog}
