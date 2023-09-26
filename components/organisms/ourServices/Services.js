@@ -13,8 +13,8 @@ const cardsData = [1, 2, 3, 4, 5];
 
 const Services = ({ data }) => {
   const router = useRouter();
-  const onClick = (id) => {
-    router.push(`/services/${id}`);
+  const onClick = (id, slug) => {
+    router.push(`/services/${id}/${slug}`);
   };
   const buttonText = "Learn more";
   return (
@@ -29,7 +29,7 @@ const Services = ({ data }) => {
             title={el.title}
             desc={el.description}
             key={el}
-            onClick={() => onClick(el?.id)}
+            onClick={() => onClick(el?.id, el?.slug)}
           />
         ))}
       </Row>

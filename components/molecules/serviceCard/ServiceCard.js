@@ -16,7 +16,7 @@ const ServiceCard = ({ item, onClick, className, fromDetail, index, more }) => {
       span={7}
       onClick={onClick}
     >
-      <Link href={more ? "/services" : `/services/${item?.service_detail}`}>
+      <Link href={more ? "/services" : `/services/${item?.service_detail}/${item.slug}`}>
         {!more ? (
           <Row align_items={"center"} className={styles.title_iconWrapper}>
             <Row className={styles.title}>

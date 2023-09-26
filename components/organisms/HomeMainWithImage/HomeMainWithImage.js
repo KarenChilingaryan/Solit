@@ -35,7 +35,8 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
 
   useEffect(() => {
     if (routes) {
-      setBreadcrumbElements([{ name: "Main", link: '/' }, ...splitAndCapitalize(routes.asPath)])
+      console.log(splitAndCapitalize(routes.asPath).slice(0,1));
+      setBreadcrumbElements([{ name: "Main", link: '/' }, ...splitAndCapitalize(routes.asPath).slice(0,1)])
     }
   }, [routes])
 
