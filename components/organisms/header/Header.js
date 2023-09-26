@@ -217,7 +217,7 @@ const Header = () => {
                         href={
                           el?.fix_url +
                           "/" +
-                          (e?.service_detail || e?.what_we_do_detail) + '/' + e.slug
+                          (e?.service_detail || e?.what_we_do_detail) + (e.slug ? ('/' + e.slug) : '')
                         }
                         key={idx}
                       >
