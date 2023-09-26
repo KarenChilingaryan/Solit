@@ -197,7 +197,6 @@ const HomeContent = () => {
   }, [postTestimonialsApi]);
 
   const changeTo = (name, active) => {
-    console.log(active);
     for (let i = 0; i < postTestimonialsApi.length; i++) {
       const element = postTestimonialsApi[i];
       if (element.id == active.id && name == 'next') {

@@ -29,7 +29,6 @@ const Portfolios = ({ data }) => {
   const handleClick = (id, slug) => {
     router.push(`/portfolio/${id}/${slug}`);
   };
-console.log(data,'>>>>>>>');
 
   return (
     <Row className={styles.portfoliosWrapper}>

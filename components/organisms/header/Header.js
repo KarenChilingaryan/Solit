@@ -154,7 +154,6 @@ const Header = () => {
   useEffect(() => {
     const body = document.querySelector("body");
     if (body) {
-      console.log("stex em");
       body.style.overflow = !openMenu ? "hidden" : "auto";
     }
   }, [openMenu]);
