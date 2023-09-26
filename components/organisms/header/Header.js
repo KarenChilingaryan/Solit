@@ -131,18 +131,20 @@ const Header = () => {
           id: 1,
           name: "Tech Stack",
           fix_url: "/what-we-do",
+
           data: [
             ...(headerData?.tech_steck || [] || []),
-            { title: "View All", what_we_do_detail: "/" },
+            { title: "View All", what_we_do_detail: "/", slug: false, },
           ],
         },
         {
           id: 2,
           name: "Services",
           fix_url: "/services",
+          slug: false,
           data: [
             ...(headerData?.service || []),
-            { title: "View All", service_detail: "/" },
+            { title: "View All", service_detail: "/", slug: false, },
           ],
         },
       ]);
@@ -217,7 +219,7 @@ const Header = () => {
                         href={
                           el?.fix_url +
                           "/" +
-                          (e?.service_detail || e?.what_we_do_detail) + (e.slug ? ('/' + e.slug) : '')
+                          (e?.service_detail || e?.what_we_do_detail) + (e.slug != false ? ('/' + e.slug) : '')
                         }
                         key={idx}
                       >
