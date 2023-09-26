@@ -15,7 +15,8 @@ import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import styles from "./PortfolioItem.module.scss";
 
 const PortfolioItem = () => {
-  const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
+  const { breadcrumbElements, setBreadcrumbElements } =
+    useContext(BreadcrumbContext);
   const { id } = useRouter().query;
   const router = useRouter();
   const handleClickDiscuss = () => {
@@ -46,11 +47,11 @@ const PortfolioItem = () => {
 
   useEffect(() => {
     if (postPortfolioApiData && breadcrumbElements) {
-      const newBred = [...breadcrumbElements?.slice(0, 3)]
-      newBred[2] = { name: postPortfolioApiData.title, link: '/' };
-      setBreadcrumbElements(newBred)
+      const newBred = [...breadcrumbElements?.slice(0, 3)];
+      newBred[2] = { name: postPortfolioApiData.title, link: "/" };
+      setBreadcrumbElements(newBred);
     }
-  }, [postPortfolioApiData])
+  }, [postPortfolioApiData]);
 
   return (
     <Row className={styles.profilePage}>
@@ -110,7 +111,12 @@ const PortfolioItem = () => {
                 (project, i) =>
                   i < 3 && (
                     <OurProjectCard
-                      onClick={() => handleClick(project.project_from_portfolio, project.slug)}
+                      onClick={() =>
+                        handleClick(
+                          project.project_from_portfolio,
+                          project.slug
+                        )
+                      }
                       key={i}
                       component="portfolio"
                       name={project.title}

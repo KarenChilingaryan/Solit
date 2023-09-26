@@ -55,6 +55,7 @@
       .filters {
         gap: calcVWT(16);
         button {
+          height: calcVWT(48) !important;
           padding: calcVWT(16) calcVWT(32) !important;
 
           @include font-style(
@@ -68,6 +69,7 @@
 
     @media (max-width: 576px) {
       .projects {
+        margin-top: calcVWM(54);
         gap: calcVWM(32) !important;
         .elipse {
           top: 0;
@@ -76,7 +78,7 @@
       .filters {
         min-width: max-content;
         gap: calcVWM(16) !important;
-
+        margin-bottom: calcVWM(15);
         button {
           padding: calcVWM(16) calcVWM(32) !important;
 

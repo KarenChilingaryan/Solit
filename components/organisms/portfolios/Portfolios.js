@@ -11,20 +11,38 @@ import Button from "../../molecules/button/Button";
 import styles from "./Portfolios.module.scss";
 
 const tags = [
-  { id: 1, tag_name: "React" },
-  { id: 16, tag_name: "Android" },
-  { id: 17, tag_name: "iOS" },
+  {
+    id: 2,
+    filter_name: "Android",
+  },
+  {
+    id: 3,
+    filter_name: "Back End",
+  },
+  {
+    id: 1,
+    filter_name: "IOS",
+  },
 ];
 
 const Portfolios = ({ data }) => {
   const router = useRouter();
+  const [portfolioData, setPortfolioData] = useState(data);
   const [selectedCategory, setSelectedCategory] = useState("All");
-
+  console.log(data, "54654");
   const handleFilter = (id) => {
-    // const data = [...portfolio];
-    // const sortedData = data?.filter((el) => el?.id === id);
-    // setPortfolioData(sortedData);
+    if (id === "All") {
+      setPortfolioData(data);
+      return;
+    }
+    const sortedData = data?.filter((el) => el?.filter_name.includes(id));
+    setPortfolioData(sortedData);
   };
+
+  // const portfolioFilters = useSelector(
+  //   (state) => state?.portfolioFilters?.queries?.["posts(undefined)"]?.data
+  // );
+  // console.log(portfolioFilters, '>>>>>>>>>>>>>>>>>>>>>');
 
   const handleClick = (id, slug) => {
     router.push(`/portfolio/${id}/${slug}`);
@@ -38,12 +56,12 @@ const Portfolios = ({ data }) => {
             text="All"
             lightBlueTech={selectedCategory === "All"}
             transparentBlue={selectedCategory !== "All"}
-            onClick={() => setSelectedCategory("All")}
+            onClick={() => handleFilter("All")}
           />
           {tags?.map((el, index) => (
             <Button
               key={index}
-              text={el.tag_name}
+              text={el.filter_name}
               lightBlueTech={selectedCategory === el?.id}
               transparentBlue={selectedCategory !== el?.id}
               onClick={() => {
@@ -58,22 +76,24 @@ const Portfolios = ({ data }) => {
         className={styles.projects}
         gutter={[0, "3.645838vw"]}
         style={{
-          columnGap: '1.645838vw'
+          columnGap: "1.645838vw",
         }}
-
       >
-        <Image className={styles.elipse} src={elipse} alt="image"/>
-        {data && [...data]?.map((project, i) => (
-          <OurProjectCard
-            onClick={() => handleClick(project.project_from_portfolio, project.slug)}
-            key={i}
-            more={project == "more"}
-            component="portfolio"
-            name={project.title}
-            image={project.webp_image_portfolio}
-            images={project?.technology_logos}
-          />
-        ))}
+        <Image className={styles.elipse} src={elipse} alt="image" />
+        {data &&
+          [...portfolioData]?.map((project, i) => (
+            <OurProjectCard
+              onClick={() =>
+                handleClick(project.project_from_portfolio, project.slug)
+              }
+              key={i}
+              more={project == "more"}
+              component="portfolio"
+              name={project.title}
+              image={project.webp_image_portfolio}
+              images={project?.technology_logos}
+            />
+          ))}
       </Row>
     </Row>
   );

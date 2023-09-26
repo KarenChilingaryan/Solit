@@ -1,4 +1,6 @@
 import { memo } from "react";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import { Row } from "../../atoms";
 import Portfolios from "../portfolios/Portfolios";
 import { HomeMainWithImage } from "../HomeMainWithImage";
@@ -7,8 +9,6 @@ import { HomeMain } from "../homeMain";
 import bgImage from "../../../assets/img/main-bg-portfolio.png";
 
 import styles from "./PortfolioMain.module.scss";
-import { useSelector } from "react-redux";
-import { useRouter } from "next/router";
 
 const PortfolioMain = ({ data, main = false }) => {
   const router = useRouter();
