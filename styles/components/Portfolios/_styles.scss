@@ -25,7 +25,8 @@
       .elipse {
         position: absolute;
         left: calcVW(-320);
-        width: calc(100% + calcVW(640));
+        width: calc(100% + calcVW(0));
+        width: 100%;
         height: calc(100% + calcVW(640));
         top: calcVW(-250);
       }
@@ -49,7 +50,7 @@
     @media (max-width: 1024px) and (min-width: 576px) {
       .projects {
         margin: calcVWT(64) calcVWT(24) 0;
-        row-gap: calcVWT(64) !important;
+        row-gap: unset !important;
         column-gap: calcVWT(32) !important;
       }
       .filters {

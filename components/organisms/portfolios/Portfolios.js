@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -13,6 +13,7 @@ import styles from "./Portfolios.module.scss";
 const Portfolios = ({ data }) => {
   const router = useRouter();
   const [portfolioData, setPortfolioData] = useState(data);
+  const containerRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
   console.log(data, "54654");
   const handleFilter = (id) => {
@@ -25,22 +26,37 @@ const Portfolios = ({ data }) => {
   };
 
   const portfolioFiltersApi = useSelector(
-    (state) => state?.portfolioFiltersApi?.queries?.["portfolioFilters(undefined)"]?.data
+    (state) =>
+      state?.portfolioFiltersApi?.queries?.["portfolioFilters(undefined)"]?.data
   );
 
   const handleClick = (id, slug) => {
     router.push(`/portfolio/${id}/${slug}`);
   };
-
+  const scrollButtonToCenter = (e) => {
+    const container = containerRef.current;
+    if (container) {
+      if (e.target) {
+        const button = e.target;
+        const containerWidth = container.clientWidth;
+        const buttonOffsetLeft = button.offsetLeft;
+        const buttonWidth = button.clientWidth;
+        const scrollLeft =
+          buttonOffsetLeft - (containerWidth - buttonWidth) / 2;
+        container.scrollTo({ left: scrollLeft, behavior: "smooth" });
+      }
+    }
+  };
   return (
     <Row className={styles.portfoliosWrapper}>
-      <div className={styles.filtersBlock}>
+      <div className={styles.filtersBlock} ref={containerRef}>
         <Col className={styles.filters}>
           <Button
             text="All"
             lightBlueTech={selectedCategory === "All"}
             transparentBlue={selectedCategory !== "All"}
-            onClick={() => {
+            onClick={(e) => {
+              scrollButtonToCenter(e);
               handleFilter("All");
               setSelectedCategory("All");
             }}
@@ -51,7 +67,8 @@ const Portfolios = ({ data }) => {
               text={el.filter_name}
               lightBlueTech={selectedCategory === el?.id}
               transparentBlue={selectedCategory !== el?.id}
-              onClick={() => {
+              onClick={(e) => {
+                scrollButtonToCenter(e);
                 handleFilter(el?.id);
                 setSelectedCategory(el?.id);
               }}
@@ -67,7 +84,8 @@ const Portfolios = ({ data }) => {
         }}
       >
         <Image className={styles.elipse} src={elipse} alt="image" />
-        {data && portfolioData &&
+        {data &&
+          portfolioData &&
           [...portfolioData]?.map((project, i) => (
             <OurProjectCard
               onClick={() =>

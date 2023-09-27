@@ -55,8 +55,9 @@ const Technology = () => {
         const containerWidth = container.clientWidth;
         const buttonOffsetLeft = button.offsetLeft;
         const buttonWidth = button.clientWidth;
-        const scrollLeft = buttonOffsetLeft - (containerWidth - buttonWidth) / 2;
-        container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        const scrollLeft =
+          buttonOffsetLeft - (containerWidth - buttonWidth) / 2;
+        container.scrollTo({ left: scrollLeft, behavior: "smooth" });
       }
     }
   };
@@ -77,14 +78,17 @@ const Technology = () => {
         }}
       />
       <div className={styles.buttonsParent} ref={containerRef}>
-        <div className={styles.buttons} >
+        <div className={styles.buttons}>
           {postsMainTechnologyFiltersApi?.map((el, index) => (
             <Button
               key={index}
               text={el.filter_name_main_technology}
               lightBlueTech={filter === el.filter_number}
               grayTextBtnTech={filter !== el.filter_number}
-              onClick={(e) => { scrollButtonToCenter(e); setFilter(el.filter_number) }}
+              onClick={(e) => {
+                scrollButtonToCenter(e);
+                setFilter(el.filter_number);
+              }}
             />
           ))}
         </div>
@@ -92,9 +96,10 @@ const Technology = () => {
       <div className={styles.languages}>
         {filteredIcons.map((el, i) => (
           <div
-            className={`${styles.languageBlock} ${el.filter_name_main_technology.filter_number != filter &&
+            className={`${styles.languageBlock} ${
+              el.filter_name_main_technology.filter_number != filter &&
               styles.languageBlockDeActive
-              }`}
+            }`}
             key={i}
           >
             <Image
