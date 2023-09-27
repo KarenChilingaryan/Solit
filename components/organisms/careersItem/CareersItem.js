@@ -85,7 +85,7 @@ const CareersComponent = () => {
             <div className={styles.backSection}>
               <div className={styles.back}>
                 <Link href="/blog">
-                  <Image src={back} alt="back" /> <span>Back to all jobs</span>
+                  <Image src={back} alt="back" /> <span>{`Back ${window.innerWidth > 576 ? 'to all jobs' : ''}`}</span>
                 </Link>
               </div>
               <div className={styles.share}>

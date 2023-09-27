@@ -55,6 +55,7 @@ const WhatWeDoComponent = () => {
                 <Link href={`/what-we-do/${el.what_we_do_detail}/${el.slug}`} key={i}>
                   <WeDoCard
                     item={el}
+                    fromDetail={true}
                   />
                 </Link>
               )}

@@ -110,6 +110,11 @@
           @include font-style(calcVWT(24), variables.$fw-500, calcVWT(32));
         }
       }
+
+      .blockItems {
+        width: calc(100% + calcVWT(48));
+        margin-left: calcVWT(-24);
+      }
     }
   }
 
@@ -123,6 +128,8 @@
 
       .blockItems {
         row-gap: calcVWM(32);
+        margin: 0;
+        width: 100%;
       }
 
       .title {

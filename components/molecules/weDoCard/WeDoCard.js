@@ -7,7 +7,7 @@ import arrow from "../../../assets/img/arrow.svg";
 
 import styles from "./WeDoCard.module.scss";
 
-const WeDoCard = ({ item }) => {
+const WeDoCard = ({ item, fromDetail }) => {
   return (
     <Link
       href={
@@ -15,7 +15,7 @@ const WeDoCard = ({ item }) => {
       }
     >
       <Col
-        className={`${styles.weDoCardWrapper} ${
+        className={`${styles.weDoCardWrapper} ${fromDetail && styles.fromDetail} ${
           item === "more" && styles.moreWrapper
         }`}
       >

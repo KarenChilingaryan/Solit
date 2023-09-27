@@ -48,39 +48,6 @@
     }
   }
 
-  @media (max-width: 1024px) {
-    .content {
-      width: calcVWT(928);
-    }
-
-    .bottomBlock {
-      margin-top: calcVWT(240);
-
-      .blockItemImage {
-        h2 {
-          @include font-style(calcVWT(48), variables.$fw-400, normal);
-        }
-
-        p {
-          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
-        }
-
-        li {
-          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
-        }
-
-        strong {
-          @include font-style(calcVWT(24), variables.$fw-500, calcVWT(32));
-        }
-      }
-
-      .title {
-        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43), #fff);
-        margin-bottom: calcVWT(32) !important;
-        margin-top: calcVWT(192) !important;
-      }
-    }
-  }
 
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .content {
@@ -152,6 +119,46 @@
     }
   }
 
+  @media (max-width: 1024px) {
+    .content {
+      width: calcVWT(928);
+    }
+
+    .bottomBlock {
+      margin-top: calcVWT(240);
+
+      .blockItemImage {
+        h2 {
+          @include font-style(calcVWT(48), variables.$fw-400, normal);
+        }
+
+        p {
+          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
+        }
+
+        li {
+          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
+        }
+
+        strong {
+          @include font-style(calcVWT(24), variables.$fw-500, calcVWT(32));
+        }
+      }
+
+      .title {
+        @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43), #fff);
+        margin-bottom: calcVWT(32) !important;
+        margin-top: calcVWT(192) !important;
+      }
+
+      .blockItems {
+        width: calc(100% + calcVWT(48));
+        margin-left: calcVWT(-24);
+      }
+    }
+  }
+
+
   @media (max-width: 576px) {
     .content {
       width: calcVWM(343);
@@ -181,6 +188,8 @@
 
       .blockItems {
         row-gap: calcVWM(32);
+        width: 100%;
+        margin-left: 0;
       }
 
       .title {

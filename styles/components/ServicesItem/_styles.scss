@@ -114,6 +114,10 @@
         margin-bottom: calcVWT(32) !important;
         margin-top: calcVWT(192) !important;
       }
+      .blockItems {
+        width: calc(100% + calcVWT(48));
+        margin-left: calcVWT(-24);
+      }
     }
   }
 
@@ -147,6 +151,8 @@
       .blockItems {
         row-gap: calcVWM(32);
         flex-direction: column;
+        margin: 0;
+        width: 100%;
       }
 
       .title {
