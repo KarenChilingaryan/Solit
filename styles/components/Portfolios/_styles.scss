@@ -3,6 +3,7 @@
 
 @mixin generate-portfolios-styles {
   .portfoliosWrapper {
+    width: 100%;
     .filters {
       z-index: 99;
       display: flex;
@@ -25,8 +26,7 @@
       .elipse {
         position: absolute;
         left: calcVW(-320);
-        width: calc(100% + calcVW(0));
-        width: 100%;
+        width: calc(100% + calcVW(640));
         height: calc(100% + calcVW(640));
         top: calcVW(-250);
       }
