@@ -23,6 +23,7 @@ const CareersComponent = () => {
   const { id } = useRouter().query;
   const [openData, setOpenData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const dispatch = useDispatch();
   const [postsCareersJobOpeningApiData, setPostsCareersJobOpeningApiData] =
     useState(null);
@@ -70,6 +71,20 @@ const CareersComponent = () => {
     }
   }, [postsCareersJobOpeningApiData])
 
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 576); // Adjust the threshold as per your requirements
+  };
+
+  // Add event listener for window resize
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className={styles.careerPage}>
       <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
@@ -85,7 +100,7 @@ const CareersComponent = () => {
             <div className={styles.backSection}>
               <div className={styles.back}>
                 <Link href="/blog">
-                  <Image src={back} alt="back" /> <span>{`Back ${window.innerWidth > 576 ? 'to all jobs' : ''}`}</span>
+                  <Image src={back} alt="back" /> <span>{`Back ${isMobile ? '' : 'to all jobs'}`}</span>
                 </Link>
               </div>
               <div className={styles.share}>
