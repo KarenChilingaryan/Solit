@@ -21,7 +21,7 @@ const Footer = () => {
         title: "Expertise",
         data: [
           {
-            link: "services",
+            link: "/services",
             name: "Our Services",
           },
           {
@@ -29,15 +29,15 @@ const Footer = () => {
             name: "Tech Stack",
           },
           {
-            link: "about-us",
+            link: "/about-us",
             name: "About Us",
           },
           {
-            link: "portfolio",
+            link: "/portfolio",
             name: "Portfolio",
           },
           {
-            link: "careers",
+            link: "/careers",
             name: "Careers",
           },
         ],
@@ -49,19 +49,19 @@ const Footer = () => {
         title: "Company",
         data: [
           {
-            link: "terms-and-conditions",
+            link: "/terms-and-conditions",
             name: "Terms and Conditions",
           },
           {
-            link: "privacy-policy",
+            link: "/privacy-policy",
             name: "Privacy Policy",
           },
           {
-            link: "blog",
+            link: "/blog",
             name: "Blog",
           },
           {
-            link: "contact-us",
+            link: "/contact-us",
             name: "Contact",
           },
         ],

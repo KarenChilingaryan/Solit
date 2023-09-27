@@ -14,6 +14,7 @@ import ModalForm from "../../molecules/modalForm/ModalForm";
 import SuccessModal from "../../organisms/successModal/SuccessModal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
+import Link from "next/link";
 
 import styles from "./careersItem.module.scss";
 
@@ -58,7 +59,7 @@ const CareersComponent = () => {
         await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
@@ -83,7 +84,9 @@ const CareersComponent = () => {
             />
             <div className={styles.backSection}>
               <div className={styles.back}>
-                <Image src={back} alt="back" /> <span>Back to all jobs</span>
+                <Link href="/blog">
+                  <Image src={back} alt="back" /> <span>Back to all jobs</span>
+                </Link>
               </div>
               <div className={styles.share}>
                 <span>Share</span>
