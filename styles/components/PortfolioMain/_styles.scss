@@ -43,6 +43,10 @@
     }
     @media (max-width: 576px) {
       width: calcVWM(343);
+
+      .portfoliosSection {
+        margin-top: calcVWM(104);
+      }
     }
   }
 }
