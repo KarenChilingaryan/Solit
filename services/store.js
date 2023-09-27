@@ -35,6 +35,7 @@ import { postsTextMainAboutUsApi } from "./postsTextMainAboutUsApi";
 import { postTestimonialsApi } from "./postTestimonialsApi";
 import { postsPrivacyPolicyOrConditionTermsApi } from "./postsPrivacyPolicyOrConditionTermsApi";
 import { postsPrivacyPolicyOrConditionPolicyApi } from "./postsPrivacyPolicyOrConditionPolicyApi";
+import { portfolioFiltersApi } from "./portfolioFiltersApi";
 
 const store = configureStore({
   reducer: {
@@ -74,6 +75,7 @@ const store = configureStore({
     [postTestimonialsApi.reducerPath]: postTestimonialsApi.reducer,
     [postsPrivacyPolicyOrConditionTermsApi.reducerPath]: postsPrivacyPolicyOrConditionTermsApi.reducer,
     [postsPrivacyPolicyOrConditionPolicyApi.reducerPath]: postsPrivacyPolicyOrConditionPolicyApi.reducer,
+    [portfolioFiltersApi.reducerPath]: portfolioFiltersApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -113,6 +115,7 @@ const store = configureStore({
       postTestimonialsApi.middleware,
       postsPrivacyPolicyOrConditionTermsApi.middleware,
       postsPrivacyPolicyOrConditionPolicyApi.middleware,
+      portfolioFiltersApi.middleware,
     ),
 });
 

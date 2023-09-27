@@ -33,7 +33,9 @@ const PortfolioMain = ({ data, main = false }) => {
             />
           </div>
           <Row className={styles.portfoliosSection}>
-            <Portfolios data={postPortfolioApi?.data_list} />
+            {postPortfolioApi?.data_list &&
+              <Portfolios data={postPortfolioApi?.data_list} />
+            }
           </Row>
           <Row className={styles.knowMoreSection}>
             <WhatToKnow onClick={handleClickDiscuss} />

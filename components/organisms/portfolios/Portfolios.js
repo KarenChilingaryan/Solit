@@ -10,21 +10,6 @@ import Button from "../../molecules/button/Button";
 
 import styles from "./Portfolios.module.scss";
 
-const tags = [
-  {
-    id: 2,
-    filter_name: "Android",
-  },
-  {
-    id: 3,
-    filter_name: "Back End",
-  },
-  {
-    id: 1,
-    filter_name: "IOS",
-  },
-];
-
 const Portfolios = ({ data }) => {
   const router = useRouter();
   const [portfolioData, setPortfolioData] = useState(data);
@@ -39,10 +24,9 @@ const Portfolios = ({ data }) => {
     setPortfolioData(sortedData);
   };
 
-  // const portfolioFilters = useSelector(
-  //   (state) => state?.portfolioFilters?.queries?.["posts(undefined)"]?.data
-  // );
-  // console.log(portfolioFilters, '>>>>>>>>>>>>>>>>>>>>>');
+  const portfolioFiltersApi = useSelector(
+    (state) => state?.portfolioFiltersApi?.queries?.["portfolioFilters(undefined)"]?.data
+  );
 
   const handleClick = (id, slug) => {
     router.push(`/portfolio/${id}/${slug}`);
@@ -56,9 +40,12 @@ const Portfolios = ({ data }) => {
             text="All"
             lightBlueTech={selectedCategory === "All"}
             transparentBlue={selectedCategory !== "All"}
-            onClick={() => handleFilter("All")}
+            onClick={() => {
+              handleFilter("All");
+              setSelectedCategory("All");
+            }}
           />
-          {tags?.map((el, index) => (
+          {portfolioFiltersApi?.map((el, index) => (
             <Button
               key={index}
               text={el.filter_name}
@@ -74,13 +61,13 @@ const Portfolios = ({ data }) => {
       </div>
       <Row
         className={styles.projects}
-        gutter={[0, "3.645838vw"]}
+        gutter={[0, "5vw"]}
         style={{
           columnGap: "1.645838vw",
         }}
       >
         <Image className={styles.elipse} src={elipse} alt="image" />
-        {data &&
+        {data && portfolioData &&
           [...portfolioData]?.map((project, i) => (
             <OurProjectCard
               onClick={() =>

@@ -67,10 +67,11 @@ const PageWrapper = ({ children, item }) => {
       );
       await dispatch(await postsMainTechnologyApi.endpoints.posts.initiate());
       await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate());
-      if (!a.pathname.includes("/portfolio"))
+      if (!a.pathname.includes("/portfolio")){
         await dispatch(await postPortfolioApi.endpoints.posts.initiate());
+        await dispatch(await portfolioFiltersApi.endpoints.portfolioFilters.initiate());
+      }
       //to do
-      // await dispatch(await portfolioFiltersApi.endpoints.portfolioFilters.initiate());
       if (!a.pathname.includes("/about-us"))
         await dispatch(
           await abutUsCompanyOfExpertsApi.endpoints.about.initiate()
@@ -120,7 +121,7 @@ const PageWrapper = ({ children, item }) => {
     }
     if (a.pathname.includes("/portfolio") || flag) {
       await dispatch(await postPortfolioApi.endpoints.posts.initiate());
-      // await dispatch(await portfolioFiltersApi.endpoints.posts.initiate());
+      await dispatch(await portfolioFiltersApi.endpoints.portfolioFilters.initiate());
     }
     if (a.pathname.includes("/what-we-do") || flag) {
       await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate());
