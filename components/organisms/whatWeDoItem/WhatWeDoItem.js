@@ -37,7 +37,7 @@ const WhatWeDoComponent = () => {
   useEffect(() => {
     if (postWhatWeDoDetail && breadcrumbElements) {
       const newBred = [...breadcrumbElements?.slice(0, 3)]
-      newBred[2] = {name: postWhatWeDoDetail.name_what_we_do_detail, link: '/'};
+      newBred[2] = {name: postWhatWeDoDetail.breadcrumb, link: '/'};
       setBreadcrumbElements(newBred)
     }
   }, [postWhatWeDoDetail])

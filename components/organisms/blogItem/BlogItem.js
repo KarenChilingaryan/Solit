@@ -47,7 +47,7 @@ const BlogItem = () => {
   useEffect(() => {
     if (blogItemData && breadcrumbElements) {
       const newBred = [...breadcrumbElements?.slice(0, 3)]
-      newBred[2] = { name: blogItemData.name_blog_detail, link: '/' };
+      newBred[2] = { name: blogItemData.breadcrumb, link: '/' };
       setBreadcrumbElements(newBred)
     }
   }, [blogItemData])

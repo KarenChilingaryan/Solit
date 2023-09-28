@@ -66,7 +66,7 @@ const CareersComponent = () => {
   useEffect(() => {
     if (postsCareersJobOpeningApiData && breadcrumbElements) {
       const newBred = [...breadcrumbElements?.slice(0, 3)]
-      newBred[2] = { name: postsCareersJobOpeningApiData.title_for_us, link: '/' };
+      newBred[2] = { name: postsCareersJobOpeningApiData.breadcrumb, link: '/' };
       setBreadcrumbElements(newBred)
     }
   }, [postsCareersJobOpeningApiData])

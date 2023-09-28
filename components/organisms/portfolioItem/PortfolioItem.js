@@ -48,7 +48,7 @@ const PortfolioItem = () => {
   useEffect(() => {
     if (postPortfolioApiData && breadcrumbElements) {
       const newBred = [...breadcrumbElements?.slice(0, 3)];
-      newBred[2] = { name: postPortfolioApiData.title, link: "/" };
+      newBred[2] = { name: postPortfolioApiData.breadcrumb, link: "/" };
       setBreadcrumbElements(newBred);
     }
   }, [postPortfolioApiData]);

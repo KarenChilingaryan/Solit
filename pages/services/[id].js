@@ -27,7 +27,7 @@ const ServiceItem = () => {
   useEffect(() => {
     if (postServiceApiData && breadcrumbElements) {
       const newBred = [...breadcrumbElements?.slice(0, 3)]
-      newBred[2] = { name: postServiceApiData.name_service_detail, link: '/' };
+      newBred[2] = { name: postServiceApiData.breadcrumb, link: '/' };
       setBreadcrumbElements(newBred)
     }
   }, [postServiceApiData])
