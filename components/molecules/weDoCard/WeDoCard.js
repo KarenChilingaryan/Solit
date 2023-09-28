@@ -11,7 +11,7 @@ const WeDoCard = ({ item, fromDetail }) => {
   return (
     <Link
       href={
-        item != "more" ? `/what-we-do/${item.what_we_do_detail}/${item.slug}` : "/what-we-do"
+        item != "more" ? `/what-we-do/${item.slug}` : "/what-we-do"
       }
     >
       <Col

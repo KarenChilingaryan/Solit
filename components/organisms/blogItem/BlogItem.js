@@ -39,8 +39,8 @@ const BlogItem = () => {
       ]?.data
   );
 
-  const handleClick = (id, slug) => {
-    router.push(`/blog/${id}/${slug}`);
+  const handleClick = (slug) => {
+    router.push(`/blog/${slug}`);
   };
 
 
@@ -62,7 +62,7 @@ const BlogItem = () => {
           <Row className={styles.blockItems}>
             {postsBlogApi?.data_list?.slice(0, 3)?.map((project, i) =>
               <OurProjectCard
-                onClick={() => handleClick(project.blog_detail, project.slug)}
+                onClick={() => handleClick(project.slug)}
                 key={i}
                 name={project.title}
                 image={project?.webp_image_blog}

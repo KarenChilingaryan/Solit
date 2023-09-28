@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { serviceItemApi } from "../../../services/servicesItemApi";
-import { Col } from "../../../components/atoms";
-import ServicesItem from "../../../components/organisms/servicesItem/ServicesItem";
+import { serviceItemApi } from "../../services/servicesItemApi";
+import { Col } from "../../components/atoms";
+import ServicesItem from "../../components/organisms/servicesItem/ServicesItem";
 
 import styles from "./serviceItem.module.scss";
-import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
+import { BreadcrumbContext } from "../../utils/hooks/contexts/bredcrumb";
 
 const ServiceItem = () => {
   const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);

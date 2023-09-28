@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { CareersComponent } from "../../../components/organisms/careersItem"
+import { CareersComponent } from "../../components/organisms/careersItem"
 
 const Careers = () => {
   return (

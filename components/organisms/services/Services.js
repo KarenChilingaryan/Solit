@@ -19,8 +19,8 @@ const Services = () => {
     (state) => state?.servicesApi?.queries?.["services(undefined)"]?.data
   );
 
-  const handleClick = (id, slug) => {
-    router.push(`services/${id}/${slug}`);
+  const handleClick = (slug) => {
+    router.push(`services/${slug}`);
   };
 
   return (
@@ -39,7 +39,7 @@ const Services = () => {
 
           <Row className={styles.services}>
             {services?.data_list?.map((item, i) => (
-              <ServiceCard item={item} key={i} className={styles.serviceCard} onClick={() => handleClick(item.service_detail, item.slug)} />
+              <ServiceCard item={item} key={i} className={styles.serviceCard} onClick={() => handleClick(item.slug)} />
             ))}
           </Row>
           <Row className={styles.weKnowSection}>

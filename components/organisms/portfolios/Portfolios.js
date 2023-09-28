@@ -30,8 +30,8 @@ const Portfolios = ({ data }) => {
       state?.portfolioFiltersApi?.queries?.["portfolioFilters(undefined)"]?.data
   );
 
-  const handleClick = (id, slug) => {
-    router.push(`/portfolio/${id}/${slug}`);
+  const handleClick = (slug) => {
+    router.push(`/portfolio/${slug}`);
   };
   const scrollButtonToCenter = (e) => {
     const container = containerRef.current;
@@ -89,7 +89,7 @@ const Portfolios = ({ data }) => {
           [...portfolioData]?.map((project, i) => (
             <OurProjectCard
               onClick={() =>
-                handleClick(project.project_from_portfolio, project.slug)
+                handleClick(project.slug)
               }
               key={i}
               more={project == "more"}

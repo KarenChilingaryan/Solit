@@ -29,8 +29,8 @@ const PortfolioItem = () => {
   const postPortfolioApi = useSelector(
     (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
   );
-  const handleClick = (id, slug) => {
-    router.push(`/portfolio/${id}/${slug}`);
+  const handleClick = (slug) => {
+    router.push(`/portfolio/${slug}`);
   };
 
   const getData = async (id) => {
@@ -113,7 +113,6 @@ const PortfolioItem = () => {
                     <OurProjectCard
                       onClick={() =>
                         handleClick(
-                          project.project_from_portfolio,
                           project.slug
                         )
                       }

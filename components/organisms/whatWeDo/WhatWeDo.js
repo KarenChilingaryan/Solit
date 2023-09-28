@@ -40,7 +40,7 @@ const WhatWeDo = () => {
           <Row className={styles.ourServices}>
             {postsWhatWeDoApi?.data_list.map((el, i) => (
               <Link
-                href={`/what-we-do/${el.what_we_do_detail}/${el.slug}`}
+                href={`/what-we-do/${el.slug}`}
                 key={i}
                 className={styles.block}
               >
