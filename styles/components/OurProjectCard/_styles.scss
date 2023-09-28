@@ -54,18 +54,22 @@
 
         .name {
           @include font-style(calcVW(18), variables.$fw-700, normal, #fff);
+
+          width: 100%;
+          justify-content: center;
         }
 
         .stacks {
-          transition: 0.4s;
+          transition: all 0.4s;
           display: flex;
           height: 0;
-          overflow: hidden;
           gap: calcVW(25);
+          width: 100%;
+          justify-content: center;
 
           .icon {
             transition: 0.4s;
-            width: calcVW(24);
+            width: 0;
             height: 0;
             object-fit: cover;
           }
@@ -75,7 +79,6 @@
       &:hover {
         transition: all 0.4s;
         height: calcVW(420);
-        transition: 0.9s;
         box-shadow: 0 42px 98px -42px #7811fe;
 
         .blogsPadding {
@@ -111,7 +114,7 @@
           .stacks {
             transition: 0.4s;
             height: calcVW(24);
-            justify-content: space-between;
+            justify-content: center;
             gap: calcVW(25);
 
             .icon {
