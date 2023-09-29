@@ -217,8 +217,7 @@
       background: rgba(0, 0, 0, 0.50);
       @include font-style(calcVW(18), variables.$fw-700,
         normal,
-        variables.$dodger-blue
-      );
+        variables.$dodger-blue );
       transition: 0.3s;
       border: 1px solid variables.$dodger-blue;
 
@@ -589,23 +588,24 @@
       border: 1px solid variables.$light-blue;
       @include font-style(getButtonSizes(button-text-bold-blue-fz),
         variables.$fw-700,
-        getButtonSizes(button-text-bold-blue-lh),
+        normal,
         variables.$white !important);
       transition: 0.3s;
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      @include font-style(calcVWL(16),
+      @include font-style(calcVWL(13),
         variables.$fw-700,
-        calcVWL(19),
+        normal,
         variables.$light-blue !important);
       border-radius: calcVWL(8);
-      padding: calcVWL(8) calcVWL(32);
+      padding: calcVWL(15) calcVWL(32);
+      height: calcVWL(48);
 
       &:hover {
-        @include font-style(calcVWL(16),
+        @include font-style(calcVWL(13),
           variables.$fw-700,
-          calcVWL(19),
+          normal,
           variables.$white !important);
       }
     }
