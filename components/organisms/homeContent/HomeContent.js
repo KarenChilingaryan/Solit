@@ -69,9 +69,9 @@ const splitStringAtLastWord = (inputString) => {
   if (match) {
     return [match[1].trim(), match[2]];
   } else {
-    return [inputString, ''];
+    return [inputString, ""];
   }
-}
+};
 const HomeContent = () => {
   const [activeUser, setActiveUser] = useState(null);
   const [data, setData] = useState([]);
@@ -124,7 +124,8 @@ const HomeContent = () => {
   );
 
   const abutUsCompanyOfExpertsApi = useSelector(
-    (state) => state?.abutUsCompanyOfExpertsApi?.queries?.["about(undefined)"]?.data
+    (state) =>
+      state?.abutUsCompanyOfExpertsApi?.queries?.["about(undefined)"]?.data
   );
 
   useEffect(() => {
@@ -177,7 +178,7 @@ const HomeContent = () => {
               name: "",
               position: "",
               image: user5,
-              more: true
+              more: true,
             },
           ],
           about: {
@@ -199,23 +200,23 @@ const HomeContent = () => {
   const changeTo = (name, active) => {
     for (let i = 0; i < postTestimonialsApi.length; i++) {
       const element = postTestimonialsApi[i];
-      if (element.id == active.id && name == 'next') {
+      if (element.id == active.id && name == "next") {
         if (i + 1 == postTestimonialsApi.length) {
-          setActiveUser(postTestimonialsApi[0])
+          setActiveUser(postTestimonialsApi[0]);
         } else {
-          setActiveUser(postTestimonialsApi[i + 1])
+          setActiveUser(postTestimonialsApi[i + 1]);
         }
         break;
-      } else if (element.id == active.id && name == 'prev') {
+      } else if (element.id == active.id && name == "prev") {
         if (i == 0) {
-          setActiveUser(postTestimonialsApi[postTestimonialsApi.length - 1])
+          setActiveUser(postTestimonialsApi[postTestimonialsApi.length - 1]);
         } else {
-          setActiveUser(postTestimonialsApi[i - 1])
+          setActiveUser(postTestimonialsApi[i - 1]);
         }
         break;
       }
     }
-  }
+  };
 
   return (
     <HomeMainWithImage firstImage={bgImage}>
@@ -276,7 +277,9 @@ const HomeContent = () => {
             <BorderedText img={process} />
           </div>
           <Process />
-          <div className={`${styles.borderedTextWhat} ${styles.borderedTextWhatTop}`}>
+          <div
+            className={`${styles.borderedTextWhat} ${styles.borderedTextWhatTop}`}
+          >
             <BorderedText img={whatWeDo} />
           </div>
           <div className={styles.projectContent}>
@@ -336,7 +339,8 @@ const HomeContent = () => {
             </div>
             <Image
               src={ourProjectImage}
-              className={`${styles.backImageSecond} ${styles.backImage}`} alt="image"
+              className={`${styles.backImageSecond} ${styles.backImage}`}
+              alt="image"
             />
             <div className={styles.ourProjectsCards}>
               {postPortfolioApi &&
@@ -384,7 +388,12 @@ const HomeContent = () => {
               )}
             </div>
             <div className={styles.worldMapUser}>
-              {activeUser && <MapUser user={activeUser} changeTo={(name) => changeTo(name, activeUser)} />}
+              {activeUser && (
+                <MapUser
+                  user={activeUser}
+                  changeTo={(name) => changeTo(name, activeUser)}
+                />
+              )}
             </div>
           </div>
           <div className={styles.contactBlock}>

@@ -25,6 +25,7 @@
           left: 0;
           width: calcVW(496);
           height: calcVW(746);
+          padding: calcVW(64);
 
           img {
             width: 100%;
@@ -195,7 +196,7 @@
           }
         }
       }
-      
+
       .whiteSection {
         .portfoliosSection {
           width: calcVWT(928);
@@ -260,7 +261,39 @@
           }
         }
       }
+
+      .whiteSection {
+        .portfoliosSection {
+          .text {
+            width: unset;
+          }
+          .buttonWrapper {
+            margin-top: calcVWM(46);
+          }
+          .buttonWrapper > button {
+            width: calcVWM(268);
+            cursor: pointer;
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-700,
+              calcVWM(22),
+              variables.$light-blue
+            );
+
+            &:hover {
+              background: initial;
+              border: none;
+              @include font-style(
+                calcVWM(18),
+                variables.$fw-700,
+                calcVWM(22),
+                variables.$light-blue
+              );
+              transition: none;
+            }
+          }
+        }
+      }
     }
   }
 }
-//TO Do refactor Calc

@@ -111,11 +111,7 @@ const PortfolioItem = () => {
                 (project, i) =>
                   i < 3 && (
                     <OurProjectCard
-                      onClick={() =>
-                        handleClick(
-                          project.slug
-                        )
-                      }
+                      onClick={() => handleClick(project.slug)}
                       key={i}
                       component="portfolio"
                       name={project.title}
