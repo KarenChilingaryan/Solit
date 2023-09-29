@@ -133,8 +133,9 @@
 
     .portfolio {
       width: calcVW(405);
-
+      
       .positionSection {
+        justify-content: center;
         transition: 0.4s;
         height: calcVW(56);
         border-radius: 0 0 calcVW(16) calcVW(16);
