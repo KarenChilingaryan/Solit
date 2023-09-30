@@ -1,44 +1,54 @@
+import { memo } from "react";
 import Head from "next/head";
-import { NextSeo } from "next-seo";
+import { NextSeo } from 'next-seo';
 
-function SeoCard({ details }) {
+function SeoCard(details) {
   return (
     <>
       <Head>
-        {details.title && <title>{details.title}</title>}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {details.keywords && (
-          <meta name="keywords" content={details.keywords} />
-        )}
-        <meta
-          name="description"
-          content={
-            details.description
-              ? details.description
-              : "Blockchain and Software Development Company., Blockchain,Web3,Software Development,Website development,DeFi,Crypto,Bitcoin,Ethereum"
-          }
-        />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="Solit" />
+        <title>Solit</title>
+
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* <!-- Basic Meta Tags --> */}
+        <meta name="description" content={details.pageDescription} />
+        <meta name="keywords" content={details.pageKeyWords} />
+        <meta name="author" content="Your Name" />
+
+        {/* <!-- Open Graph / Facebook (also used by LinkedIn) --> */}
+        <meta property="og:url" content={details.pageUrl} />
+        <meta property="og:title" content="Solit" />
+        <meta property="og:description" content={details.pageDescription} />
+        <meta property="og:image" content={details.pageImage} />
+
+        {/* <!-- Twitter --> */}
+        <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={details.pageUrl} />
+        <meta property="twitter:title" content="Solit" />
+        <meta property="twitter:description" content={details.pageDescription} />
+        <meta property="twitter:image" content={details.pageImage} />
       </Head>
       <NextSeo
         openGraph={{
-          type: details.ogType,
-          url: `url`,
-          title: details.title,
-          description: details.description
-            ? details.description
-            : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+          type: 'website',
+          url: details.pageUrl,
+          title: "Solit",
+          description: details.pageDescription,
           images: [
             {
-              url: details.ogImage
-                ? details.ogImage
-                : "%PUBLIC_URL%/metaImage.webp",
+              url: details.pageImage
             },
           ],
         }}
         twitter={{
-          handle: "@solit",
-          site: "Solit",
-          cardType: "summary_large_image",
+          //twitterName
+          handle: '@twitterName',
+          site: 'Solit',
+          cardType: 'summary_large_image',
         }}
       />
       <meta charSet="utf-8" />
@@ -46,4 +56,4 @@ function SeoCard({ details }) {
   );
 }
 
-export default SeoCard;
+export default memo(SeoCard);
