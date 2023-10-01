@@ -48,6 +48,7 @@ const WhatWeDoComponent = () => {
         <div className={styles.content}>
 
           <div className={styles.bottomBlock}>
+            <h1 className={styles.h1Title}>{postWhatWeDoDetail?.html_h1_tag}</h1>
             <div className={styles.blockItemImage} dangerouslySetInnerHTML={{ __html: postWhatWeDoDetail?.create_page || "" }} />
             <Paragraph className={styles.title}>Explore more</Paragraph>
             <Row className={styles.blockItems}>

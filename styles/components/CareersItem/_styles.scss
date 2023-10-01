@@ -10,6 +10,11 @@
   }
 
   .bottomBlock {
+
+    .h1Title {
+      @include font-style(calcVW(48), variables.$fw-400, normal);
+    }
+
     strong {
       @include font-style(calcVW(36), variables.$fw-500, calcVW(32));
     }
@@ -121,6 +126,10 @@
     }
 
     .bottomBlock {
+      .h1Title {
+        @include font-style(calcVWL(48), variables.$fw-400, normal);
+      }
+
       strong {
         @include font-style(calcVWL(36), variables.$fw-500, calcVWL(32));
       }
@@ -218,6 +227,10 @@
 
     .bottomBlock {
       margin: calcVWT(206) auto calcVWT(192) auto;
+
+      .h1Title {
+        @include font-style(calcVWT(48), variables.$fw-400, normal);
+      }
 
       .blockItemImage {
         padding: calcVWT(32) calcVWT(128) 0 calcVWT(128);
@@ -318,6 +331,10 @@
 
     .bottomBlock {
       margin: calcVWM(146) auto calcVWM(50) auto;
+
+      .h1Title {
+        @include font-style(calcVWM(48), variables.$fw-400, normal);
+      }
 
       .blockItemImage {
         padding: 0;

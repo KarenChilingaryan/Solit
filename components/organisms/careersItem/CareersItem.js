@@ -91,6 +91,7 @@ const CareersComponent = () => {
       <HomeMainWithImage firstImage={imageBG}>
         <div className={styles.content}>
           <div className={styles.bottomBlock}>
+            <h1 className={styles.h1Title}>{postsCareersJobOpeningApiData?.html_h1_tag}</h1>
             <div
               className={styles.blockItemImage}
               dangerouslySetInnerHTML={{

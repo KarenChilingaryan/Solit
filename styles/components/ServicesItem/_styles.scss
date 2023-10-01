@@ -13,6 +13,10 @@
     margin: getServicesItemSizes(bottom-block-m);
     color: white;
 
+    .h1Title {
+      @include font-style(calcVW(48), variables.$fw-400, normal);
+    }
+
     .blockItemImage {
       h2 {
         @include font-style(calcVW(48), variables.$fw-400, normal);
@@ -52,7 +56,9 @@
 
     .bottomBlock {
       margin: calcVWL(256) 0;
-
+      .h1Title {
+        @include font-style(calcVWL(48), variables.$fw-400, normal);
+      }
       .blockItemImage {
         h2 {
           @include font-style(calcVWL(48), variables.$fw-400, normal);
@@ -90,7 +96,9 @@
 
     .bottomBlock {
       margin-top: calcVWT(240);
-
+      .h1Title {
+        @include font-style(calcVWT(48), variables.$fw-400, normal);
+      }
       .blockItemImage {
         h2 {
           @include font-style(calcVWT(48), variables.$fw-400, normal);
@@ -114,6 +122,7 @@
         margin-bottom: calcVWT(32) !important;
         margin-top: calcVWT(192) !important;
       }
+
       .blockItems {
         width: calc(100% + calcVWT(48));
         margin-left: calcVWT(-24);
@@ -129,7 +138,9 @@
     .bottomBlock {
       margin-top: calcVWM(114);
       margin-bottom: calcVWM(130);
-
+      .h1Title {
+        @include font-style(calcVWM(48), variables.$fw-400, normal);
+      }
       .blockItemImage {
         h2 {
           @include font-style(calcVWM(48), variables.$fw-400, normal);
