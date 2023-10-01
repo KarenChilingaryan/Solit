@@ -1,3 +1,3 @@
 User-agent: *
-Allow: *
+Disallow: *
 Sitemap: https://solit-llc.com/sitemap.xml
