@@ -113,7 +113,7 @@ const PortfolioItem = () => {
                     <OurProjectCard
                       onClick={() => handleClick(project.slug)}
                       key={i}
-                      component="portfolio"
+                      component="portfolioItem"
                       name={project.title}
                       image={project.webp_image_portfolio}
                       more={project == "more"}
