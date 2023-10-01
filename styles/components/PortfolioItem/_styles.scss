@@ -17,7 +17,9 @@
         margin: auto auto 0 auto;
         gap: calcVW(96);
         width: calcVW(1216);
-        height: calcVW(672);
+        // height: calcVW(672);
+        //Search to do 
+        padding: calcVW(64);
 
         .imageCard {
           position: absolute;
@@ -30,6 +32,7 @@
           img {
             width: 100%;
             height: 100%;
+            border-radius: calcVW(16);
           }
         }
 
@@ -166,6 +169,9 @@
             }
           }
         }
+        .knowMoreSection {
+          margin: calcVWL(275) 0 calcVWL(128);
+        }
       }
     }
 
@@ -229,6 +235,9 @@
               transition: none;
             }
           }
+        }
+        .knowMoreSection {
+          margin: calcVWT(212) 0 calcVWT(128);
         }
       }
     }
