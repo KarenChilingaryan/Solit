@@ -56,6 +56,7 @@ const BlogItem = () => {
     <HomeMainWithImage firstImage={imageBG}>
       <div className={styles.content}>
         <div className={styles.bottomBlock}>
+          <h1 className={styles.h1Title}>{blogItemData?.html_h1_tag}</h1>
           <div className={styles.blockItemImage} dangerouslySetInnerHTML={{ __html: blogItemData?.create_page_blog_detail || "" }}>
           </div>
           <Paragraph className={styles.title}>Explore more</Paragraph>

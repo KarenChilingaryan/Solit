@@ -13,6 +13,10 @@
     margin: calcVW(400) auto;
     color: white;
 
+    .h1Title {
+      @include font-style(calcVW(48), variables.$fw-400, normal);
+    }
+
     .blockItemImage {
       h2 {
         @include font-style(calcVW(48), variables.$fw-400, normal);
@@ -53,6 +57,10 @@
     .bottomBlock {
       margin: calcVWL(400) auto;
 
+      .h1Title {
+        @include font-style(calcVWL(48), variables.$fw-400, normal);
+      }
+
       .blockItemImage {
         h2 {
           @include font-style(calcVWL(48), variables.$fw-400, normal);
@@ -85,6 +93,10 @@
 
     .bottomBlock {
       margin-top: calcVWT(240);
+
+      .h1Title {
+        @include font-style(calcVWT(48), variables.$fw-400, normal);
+      }
 
       .title {
         @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43), #fff);
@@ -125,6 +137,10 @@
 
     .bottomBlock {
       margin-top: calcVWM(114);
+
+      .h1Title {
+        @include font-style(calcVWM(48), variables.$fw-400, normal);
+      }
 
       .blockItems {
         row-gap: calcVWM(32);

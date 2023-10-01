@@ -14,6 +14,7 @@ const ServicesItem = ({ data }) => {
     <HomeMainWithImage firstImage={imageBG}>
       <div className={styles.content}>
         <div className={styles.bottomBlock}>
+          <h1 className={styles.h1Title}>{data?.html_h1_tag}</h1>
           <div className={styles.blockItemImage} dangerouslySetInnerHTML={{ __html: data?.create_page_service_detail || "" }} />
           <Paragraph className={styles.title}>Explore more</Paragraph>
           <Row className={styles.blockItems}>
