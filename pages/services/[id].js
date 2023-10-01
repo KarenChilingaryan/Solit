@@ -2,13 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { serviceItemApi } from "../../services/servicesItemApi";
-import { Col } from "../../components/atoms";
+import { Col, SeoCard } from "../../components/atoms";
 import ServicesItem from "../../components/organisms/servicesItem/ServicesItem";
+import { BreadcrumbContext } from "../../utils/hooks/contexts/bredcrumb";
+import { websiteUrl } from "../../utils/hooks/constants/pageUrl";
 
 import styles from "./serviceItem.module.scss";
-import { BreadcrumbContext } from "../../utils/hooks/contexts/bredcrumb";
 
 const ServiceItem = () => {
+  const router = useRouter()
   const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
   const { id } = useRouter().query;
   const dispatch = useDispatch();
@@ -33,6 +35,14 @@ const ServiceItem = () => {
   }, [postServiceApiData])
   return (
     <Col className={styles.portfolioItemWrapper}>
+      <SeoCard details={
+        {
+          pageDescription: postServiceApiData?.meta_description,
+          pageKeyWords: postServiceApiData?.meta_keywords,
+          pageUrl: websiteUrl + router.asPath,
+          title: postServiceApiData?.meta_title,
+        }
+      } />
       <ServicesItem data={postServiceApiData} />
     </Col>
   );

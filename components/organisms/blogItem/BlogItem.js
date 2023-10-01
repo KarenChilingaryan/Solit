@@ -1,6 +1,5 @@
 import { memo, useContext, useEffect, useState } from "react";
-import styles from "./BlogItem.module.scss";
-import { Paragraph, Row } from "../../atoms";
+import { Paragraph, Row, SeoCard } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import imageBG from "../../../assets/img/career_bg.png"
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
@@ -8,6 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { blogItemApi } from "../../../services/blogItemApi";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
+import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
+
+import styles from "./BlogItem.module.scss";
 
 export const dataProject = [
   "How to manage product backlog with data-driven techniques",
@@ -53,6 +55,14 @@ const BlogItem = () => {
   }, [blogItemData])
 
   return <div className={styles.careerPage}>
+    <SeoCard details={
+      {
+        pageDescription: blogItemData?.meta_description,
+        pageKeyWords: blogItemData?.meta_keywords,
+        pageUrl: websiteUrl + router.asPath,
+        title: blogItemData?.meta_title,
+      }
+    } />
     <HomeMainWithImage firstImage={imageBG}>
       <div className={styles.content}>
         <div className={styles.bottomBlock}>

@@ -2,7 +2,7 @@ import { memo } from "react";
 import Head from "next/head";
 import { NextSeo } from 'next-seo';
 
-function SeoCard(details) {
+function SeoCard({ details }) {
   return (
     <>
       <Head>
@@ -19,37 +19,39 @@ function SeoCard(details) {
         <meta name="author" content="Your Name" />
 
         {/* <!-- Open Graph / Facebook (also used by LinkedIn) --> */}
+        <meta property="og:type" content="website" />
         <meta property="og:url" content={details.pageUrl} />
-        <meta property="og:title" content="Solit" />
+        <meta property="og:title" content={details.title} />
         <meta property="og:description" content={details.pageDescription} />
-        <meta property="og:image" content={details.pageImage} />
+        <meta property="og:image" content={"https://djnago-solit-static.s3.eu-north-1.amazonaws.com/media/images/converted_image_ZuJcRnF.png"} />
+        {/* <meta property="og:image" content={details.pageImage} /> */}
 
         {/* <!-- Twitter --> */}
-        <meta property="og:type" content="website" />
-        <meta property="twitter:card" content="summary_large_image" />
+        {/* <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={details.pageUrl} />
         <meta property="twitter:title" content="Solit" />
         <meta property="twitter:description" content={details.pageDescription} />
-        <meta property="twitter:image" content={details.pageImage} />
+        <meta property="twitter:image" content={details.pageImage} /> */}
       </Head>
       <NextSeo
         openGraph={{
           type: 'website',
           url: details.pageUrl,
-          title: "Solit",
+          title: details.title,
           description: details.pageDescription,
           images: [
             {
-              url: details.pageImage
+              url: "https://djnago-solit-static.s3.eu-north-1.amazonaws.com/media/images/converted_image_ZuJcRnF.png"
+              // url: details.pageImage
             },
           ],
         }}
-        twitter={{
-          //twitterName
-          handle: '@twitterName',
-          site: 'Solit',
-          cardType: 'summary_large_image',
-        }}
+      // twitter={{
+      //   //twitterName
+      //   handle: '@twitterName',
+      //   site: 'Solit',
+      //   cardType: 'summary_large_image',
+      // }}
       />
       <meta charSet="utf-8" />
     </>
