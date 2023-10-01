@@ -16,6 +16,7 @@ import { CompanyOfExperts } from "../CompanyOfExperts";
 import styles from "./AboutPage.module.scss";
 
 const AboutPage = () => {
+  const [title, setTitle] = useState('')
   const [data, setData] = useState([]);
   const router = useRouter();
 
@@ -64,22 +65,23 @@ const AboutPage = () => {
   }, [abutQuickFactsApi]);
 
   return (
-    <HomeMainWithImage firstImage={bgImage}>
+    <HomeMainWithImage firstImage={bgImage} setTitle={setTitle} seoName="about_as">
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.homeMain}> 
+          <div className={styles.homeMain}>
 
-          {abutUsImpactApi && (
-            <HomeMain
-            data={{
-                title: abutUsImpactApi?.data_text[0]?.title,
-                firstSubtitle: abutUsImpactApi?.data_text[0]?.description,
-                buttonText: "Let’s talk",
-              }}
-              onClick={handleClick}
-            />
+            {abutUsImpactApi && (
+              <HomeMain
+                h1={true}
+                data={{
+                  title: title,
+                  firstSubtitle: abutUsImpactApi?.data_text[0]?.description,
+                  buttonText: "Let’s talk",
+                }}
+                onClick={handleClick}
+              />
             )}
-            </div>
+          </div>
           <Paragraph className={styles.title}>
             Making a global & local impact
           </Paragraph>

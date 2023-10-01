@@ -3,16 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { memo, useContext, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Paragraph } from "../../atoms";
+import { useDispatch, useSelector } from "react-redux";
+import { Paragraph, SeoCard } from "../../atoms";
 import rughtRow from "../../../assets/img/right-row.svg"
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 
 import styles from "./HomeMainWithImage.module.scss";
+import { postsSeoFieldsApi } from "../../../services/postsSeoFieldsApi";
+import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
-const HomeMainWithImage = ({ firstImage, className, children }) => {
+const HomeMainWithImage = ({ firstImage, className, children, seoName = '', setTitle }) => {
   const routes = useRouter()
   const [hideToTop, setHideToTop] = useState(false)
+  const [seoData, setSeoData] = useState(null)
+  const dispatch = useDispatch()
 
   const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
 
@@ -35,7 +39,7 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
 
   useEffect(() => {
     if (routes) {
-      setBreadcrumbElements([{ name: "Main", link: '/' }, ...splitAndCapitalize(routes.asPath).slice(0,1)])
+      setBreadcrumbElements([{ name: "Main", link: '/' }, ...splitAndCapitalize(routes.asPath).slice(0, 1)])
     }
   }, [routes])
 
@@ -64,8 +68,33 @@ const HomeMainWithImage = ({ firstImage, className, children }) => {
     };
   }, []);
 
+  const getSeoData = async () => {
+    const res = await dispatch(await postsSeoFieldsApi.endpoints.seoData.initiate(seoName));
+    const data = res?.data ? res?.data[0] : null;
+    if(data){
+      setSeoData(data)
+      setTitle(data.html_h1_tag)
+    }
+  }
+
+  useEffect(() => {
+    if (seoName) {
+      getSeoData()
+    }
+  }, [seoName])
+
   return (
     <div className={`${styles.content} ${styles[className]}`}>
+      {seoData &&
+        <SeoCard details={
+          {
+            pageDescription: seoData?.meta_description,
+            pageKeyWords: seoData?.meta_keywords,
+            pageUrl: websiteUrl + routes.asPath,
+            title: seoData?.meta_title,
+          }
+        } />
+      }
       {
         breadcrumbElements?.length > 1 &&
         <Breadcrumb className={styles.breadcrumb} separator=">">

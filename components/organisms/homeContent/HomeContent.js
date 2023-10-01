@@ -75,6 +75,7 @@ const splitStringAtLastWord = (inputString) => {
 const HomeContent = () => {
   const [activeUser, setActiveUser] = useState(null);
   const [data, setData] = useState([]);
+  const [title, setTitle] = useState('');
 
   const router = useRouter();
   const handleClickDiscuss = () => {
@@ -219,12 +220,13 @@ const HomeContent = () => {
   };
 
   return (
-    <HomeMainWithImage firstImage={bgImage}>
+    <HomeMainWithImage firstImage={bgImage} seoName="main" setTitle={setTitle}>
       <>
         <div className={styles.content}>
           <HomeMain
+            h1={true}
             data={{
-              title: mainInfoData ? mainInfoData[0]?.title : "",
+              title: title,
               firstSubtitle: mainInfoData ? mainInfoData[0]?.description : "",
               buttonText: "Let’s talk",
             }}

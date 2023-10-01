@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { useSelector } from "react-redux";
 import ContactForm from "../contactForm/ContactForm";
 import { HomeMainWithImage } from "../HomeMainWithImage";
@@ -6,11 +6,13 @@ import { HomeMainWithImage } from "../HomeMainWithImage";
 import styles from "./ContactUses.module.scss";
 
 const ContactUses = () => {
+  const [title, setTitle] = useState('');
+
   return (
-    <HomeMainWithImage>
+    <HomeMainWithImage setTitle={setTitle} seoName="contact_us">
       <div className={styles.contactUsMainWrapper}>
         <div className={styles.contactUsHeader}>
-          <ContactForm data={{ title: 'Contact with us', description: "Share the details of your project – like scope, timeframes, or business challenges you'd like to solve. Our team will carefully study them and then we’ll figure out the next move together." }} fromContactPage={true} />
+          <ContactForm h1={true} data={{ title, description: "Share the details of your project – like scope, timeframes, or business challenges you'd like to solve. Our team will carefully study them and then we’ll figure out the next move together." }} fromContactPage={true} />
         </div>
       </div>
     </HomeMainWithImage>

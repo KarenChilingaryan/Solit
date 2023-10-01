@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { useRouter } from "next/router";
 import { Col, Row } from "../../atoms";
 import earth from "../../../assets/img/main-bg-blogs.png";
@@ -11,6 +11,7 @@ import Portfolios from "../portfolios/Portfolios";
 import styles from "./Blogs.module.scss";
 
 const Blogs = () => {
+  const [title, setTitle] = useState('')
   // const router = useRouter();
   const postsBlogApi = useSelector(
     (state) =>
@@ -24,19 +25,20 @@ const Blogs = () => {
   // const handleClick = (e) => {
   //   router.push(`blog/${e}`);
   // };
-  
+
   return (
-    <HomeMainWithImage firstImage={earth}>
+    <HomeMainWithImage firstImage={earth} setTitle={setTitle} seoName="blog">
       <Row className={styles.content}>
         <HomeMain
+          h1={true}
           data={{
-            title: postsBlogApi?.data_text[0].title,
+            title: title,
             firstSubtitle:
               postsBlogApi?.data_text[0].description
           }}
         />
         <Row className={styles.blogsSection}>
-          <BlogsSection data={postsBlogApi?.data_list}/>
+          <BlogsSection data={postsBlogApi?.data_list} />
         </Row>
       </Row>
     </HomeMainWithImage>
