@@ -82,7 +82,7 @@ const HomeContent = () => {
   };
 
   const handleClick = (slug) => {
-    router.push(`/portfolio/${slug}`);
+    router.push(`/portfolio/${slug ? slug : ''}`);
   };
 
   const win = typeof window;

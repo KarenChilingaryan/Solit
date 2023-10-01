@@ -16,17 +16,17 @@
         justify-content: flex-end;
         margin: auto auto 0 auto;
         gap: calcVW(96);
-        width: calcVW(1216);
-        // height: calcVW(672);
+        width: calcVW(1280);
+        min-height: calcVW(700);
         //Search to do 
-        padding: calcVW(64);
+        padding: calcVW(64) 0;
 
         .imageCard {
           position: absolute;
           top: 0;
           left: 0;
-          width: calcVW(496);
-          height: calcVW(746);
+          width: calcVW(624);
+          height: calcVW(883);
           padding: calcVW(64);
 
           img {
@@ -42,6 +42,7 @@
           justify-content: center;
           gap: calcVW(30);
           width: calcVW(624);
+
 
           .stacks {
             display: flex;
