@@ -2,7 +2,7 @@ import { memo, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Col, Row } from "../../atoms";
+import { Col, Row, SeoCard } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { HomeMain } from "../homeMain";
 import { portfolioApi } from "../../../services/portfolioApi";
@@ -11,6 +11,7 @@ import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import arrow from "../../../assets/img/arrow.svg";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
+import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
 import styles from "./PortfolioItem.module.scss";
 
@@ -55,6 +56,16 @@ const PortfolioItem = () => {
 
   return (
     <Row className={styles.profilePage}>
+      <SeoCard
+        details={
+          {
+            pageDescription: postPortfolioApiData?.meta_description,
+            pageKeyWords: postPortfolioApiData?.meta_keywords,
+            pageUrl: websiteUrl + router.asPath,
+            title: postPortfolioApiData?.meta_title,
+          }
+        }
+      />
       <HomeMainWithImage className={"portfolioItem"}>
         <Row className={styles.content}>
           <Row className={styles.itemDescription}>
@@ -70,6 +81,7 @@ const PortfolioItem = () => {
             </Col>
             <Col className={styles.testSection}>
               <HomeMain
+                h1={true}
                 data={{
                   title: postPortfolioApiData?.title,
                   firstSubtitle: postPortfolioApiData?.description,

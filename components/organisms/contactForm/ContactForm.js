@@ -20,6 +20,7 @@ const ContactForm = ({
   style = {},
   data = null,
   fromContactPage = false,
+  h1 = false
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
@@ -99,9 +100,12 @@ const ContactForm = ({
         className={styles.infoSection}
         style={{ ...(fromContactPage ? { paddingLeft: 0 } : {}) }}
       >
-        <Row className={styles.title}>
-          {data?.title || "Got a project in mind?"}
-        </Row>
+        {h1 ?
+          <h1 className={styles.title} style={{margin: 0}}>{data?.title}</h1> :
+          <Row className={styles.title}>
+            {data?.title || "Got a project in mind?"}
+          </Row>
+        }
         <div
           className={styles.info}
           dangerouslySetInnerHTML={{

@@ -222,7 +222,7 @@ const DiscussProject = () => {
     }
   };
   return (
-    <HomeMainWithImage firstImage={bgImage}>
+    <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_1">
       <>
         <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && (
@@ -251,6 +251,7 @@ const DiscussProject = () => {
         )}
         <div className={styles.content}>
           <HomeMain
+            h1={true}
             data={{
               title: "Get fast response for a fast solution",
             }}
@@ -288,10 +289,10 @@ const DiscussProject = () => {
                             handleButtonClick("applicationType", item)
                           }
                           className={`${styles.clickableOption} ${form
-                              .getFieldsValue()
-                              .applicationType?.includes(item)
-                              ? styles.selected
-                              : ""
+                            .getFieldsValue()
+                            .applicationType?.includes(item)
+                            ? styles.selected
+                            : ""
                             }`}
                         >
                           <Industry value={item} />
@@ -319,8 +320,8 @@ const DiscussProject = () => {
                             handleButtonClick("currentStage", item)
                           }
                           className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
-                              ? styles.selected
-                              : ""
+                            ? styles.selected
+                            : ""
                             }`}
                         >
                           <Industry value={item} circle />
@@ -348,8 +349,8 @@ const DiscussProject = () => {
                             handleButtonClick("consultation", item)
                           }
                           className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                              ? styles.selected
-                              : ""
+                            ? styles.selected
+                            : ""
                             }`}
                         >
                           <Industry value={item} fullWidth />
@@ -374,8 +375,8 @@ const DiscussProject = () => {
                           key={item}
                           onClick={() => handleButtonClick("industry", item)}
                           className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
-                              ? styles.selected
-                              : ""
+                            ? styles.selected
+                            : ""
                             }`}
                         >
                           <Industry value={item} circle />

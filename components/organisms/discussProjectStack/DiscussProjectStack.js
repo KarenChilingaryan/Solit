@@ -193,7 +193,7 @@ const DiscussProjectStack = () => {
   }
 
   return (
-    <HomeMainWithImage firstImage={bgImage}>
+    <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_2">
       <>
         <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>

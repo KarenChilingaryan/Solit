@@ -20,15 +20,16 @@ const WhatWeDo = () => {
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
   );
-  const handleClick = (id) => {
+  const handleClick = () => {
     router.push(`/discuss-project`);
   };
 
   return (
-    <HomeMainWithImage firstImage={bgImage}>
+    <HomeMainWithImage firstImage={bgImage} seoName="what_we_do">
       <>
         <Row className={styles.whatWeDoMainWrapper}>
           <HomeMain
+            h1={true}
             data={{
               title: postsWhatWeDoApi?.data_text[0].title,
               firstSubtitle: postsWhatWeDoApi?.data_text[0].description,
