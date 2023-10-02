@@ -19,7 +19,6 @@ import SuccessModal from "../successModal/SuccessModal";
 import styles from "./careers.module.scss";
 
 const Careers = () => {
-  const [title, setTitle] = useState('')
   const [openSuccess, setOpenSuccess] = useState(false)
   const [openData, setOpenData] = useState(null);
   const [data, setData] = useState([]);
@@ -99,11 +98,11 @@ const Careers = () => {
   }
 
   return (
-    <HomeMainWithImage firstImage={earth} setTitle={setTitle} seoName="careers">
+    <HomeMainWithImage firstImage={earth} seoName="careers">
       <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
       <Row className={styles.content}>
         <Row className={styles.pageHeader}>
-          <h1 className={styles.title} style={{ margin: 0 }}>{title}</h1>
+          <h1 className={styles.title} style={{ margin: 0 }}>{postsTextCareersColourfulApi?.title}</h1>
           <Row className={styles.subTitle}>
             <Col>{postsTextCareersColourfulApi?.default_text?.replace(postsTextCareersColourfulApi.painted_text, '')}</Col>
             <Col>{postsTextCareersColourfulApi?.painted_text}</Col>

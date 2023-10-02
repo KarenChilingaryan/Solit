@@ -71,7 +71,6 @@ const stacks1 = [
 const formatter = (value) => `${value} month`;
 
 const DiscussProjectStack = () => {
-  const [title, setTitle] = useState('')
   const [form] = Form.useForm();
   const [projectStacks, setProjectStacks] = useState({
     developers: [],
@@ -194,7 +193,7 @@ const DiscussProjectStack = () => {
   }
 
   return (
-    <HomeMainWithImage firstImage={bgImage} setTitle={setTitle} seoName="discuss_your_project_2">
+    <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_2">
       <>
         <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
@@ -216,7 +215,7 @@ const DiscussProjectStack = () => {
         <div className={styles.content}>
           <HomeMain
             data={{
-              title,
+              title: "Get fast response for a fast solution",
             }}
           />
           <Row className={styles.discussProject}>

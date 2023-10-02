@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
@@ -12,7 +12,6 @@ import { HomeMainWithImage } from "../HomeMainWithImage";
 import styles from "./WhatWeDo.module.scss";
 
 const WhatWeDo = () => {
-  const [title, setTitle] = useState('')
   const router = useRouter();
   const handleClickDiscuss = () => {
     router.push(`/discuss-project`);
@@ -21,18 +20,18 @@ const WhatWeDo = () => {
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
   );
-  const handleClick = (id) => {
+  const handleClick = () => {
     router.push(`/discuss-project`);
   };
 
   return (
-    <HomeMainWithImage firstImage={bgImage} setTitle={setTitle} seoName="what_we_do">
+    <HomeMainWithImage firstImage={bgImage} seoName="what_we_do">
       <>
         <Row className={styles.whatWeDoMainWrapper}>
           <HomeMain
             h1={true}
             data={{
-              title: title,
+              title: postsWhatWeDoApi?.data_text[0].title,
               firstSubtitle: postsWhatWeDoApi?.data_text[0].description,
             }}
             showMoreButton={true}

@@ -16,7 +16,6 @@ import { CompanyOfExperts } from "../CompanyOfExperts";
 import styles from "./AboutPage.module.scss";
 
 const AboutPage = () => {
-  const [title, setTitle] = useState('')
   const [data, setData] = useState([]);
   const router = useRouter();
 
@@ -65,7 +64,7 @@ const AboutPage = () => {
   }, [abutQuickFactsApi]);
 
   return (
-    <HomeMainWithImage firstImage={bgImage} setTitle={setTitle} seoName="about_as">
+    <HomeMainWithImage firstImage={bgImage} seoName="about_as">
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.homeMain}>
@@ -74,7 +73,7 @@ const AboutPage = () => {
               <HomeMain
                 h1={true}
                 data={{
-                  title: title,
+                  title: abutUsImpactApi?.data_text[0]?.title,
                   firstSubtitle: abutUsImpactApi?.data_text[0]?.description,
                   buttonText: "Let’s talk",
                 }}

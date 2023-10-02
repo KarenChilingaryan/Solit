@@ -12,7 +12,7 @@ import styles from "./HomeMainWithImage.module.scss";
 import { postsSeoFieldsApi } from "../../../services/postsSeoFieldsApi";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
-const HomeMainWithImage = ({ firstImage, className, children, seoName = '', setTitle }) => {
+const HomeMainWithImage = ({ firstImage, className, children, seoName = ''}) => {
   const routes = useRouter()
   const [hideToTop, setHideToTop] = useState(false)
   const [seoData, setSeoData] = useState(null)
@@ -73,7 +73,6 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '', setT
     const data = res?.data ? res?.data[0] : null;
     if(data){
       setSeoData(data)
-      setTitle(data.html_h1_tag)
     }
   }
 

@@ -40,7 +40,6 @@ const data3 = [
 const formatter = (value) => `${value} month`;
 
 const DiscussProject = () => {
-  const [title, setTitle] = useState('')
   const [form] = Form.useForm();
   const [liveStacks, setLiveStacks] = useState([]);
   const [open, setOpen] = useState(false);
@@ -223,7 +222,7 @@ const DiscussProject = () => {
     }
   };
   return (
-    <HomeMainWithImage firstImage={bgImage} setTitle={setTitle} seoName="discuss_your_project_1">
+    <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_1">
       <>
         <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && (
@@ -254,7 +253,7 @@ const DiscussProject = () => {
           <HomeMain
             h1={true}
             data={{
-              title,
+              title: "Get fast response for a fast solution",
             }}
           />
           <Row className={styles.discussProject}>

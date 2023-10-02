@@ -79,6 +79,7 @@ const PortfolioItem = () => {
             </Col>
             <Col className={styles.testSection}>
               <HomeMain
+                h1={true}
                 data={{
                   title: postPortfolioApiData?.title,
                   firstSubtitle: postPortfolioApiData?.description,

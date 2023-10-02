@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { Row } from "../../atoms";
@@ -11,7 +11,6 @@ import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 import styles from "./Services.module.scss";
 
 const Services = () => {
-  const [title, setTitle] = useState('')
   const router = useRouter();
   const handleClickDiscuss = () => {
     router.push(`/discuss-project`);
@@ -25,13 +24,13 @@ const Services = () => {
   };
 
   return (
-    <HomeMainWithImage firstImage={bgImage} setTitle={setTitle} seoName="services">
+    <HomeMainWithImage firstImage={bgImage} seoName="services">
       <>
         <Row className={styles.content}>
           <HomeMain
             h1={true}
             data={{
-              title: title,
+              title: services?.data_text[0]?.title,
               firstSubtitle:
                 services?.data_text[0]?.description
             }}
