@@ -68,12 +68,6 @@
     }
   }
 
-  @media (max-width: 1024px) {
-    .prtfolioItem {
-      max-height: calcVWT(388);
-    }
-  }
-
   @media (max-width: 576px) {
     .contentWrapper {
       max-height: calcVWM(200);

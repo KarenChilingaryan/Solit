@@ -59,12 +59,14 @@ const PortfolioItem = () => {
         <Row className={styles.content}>
           <Row className={styles.itemDescription}>
             <Col className={styles.imageCard}>
-              <Image
-                src={postPortfolioApiData?.webp_image}
-                width={1000}
-                height={1900}
-                alt="image"
-              />
+              {postPortfolioApiData?.webp_image && (
+                <Image
+                  src={postPortfolioApiData?.webp_image}
+                  width={1000}
+                  height={1900}
+                  alt="image"
+                />
+              )}
             </Col>
             <Col className={styles.testSection}>
               <HomeMain

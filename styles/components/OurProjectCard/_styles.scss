@@ -151,7 +151,7 @@
       &:hover {
         .positionSection {
           background: rgba(2, 13, 28, 0.73);
-          justify-content: center;
+          justify-content: space-between;
           row-gap: calcVW(10);
         }
       }
@@ -928,6 +928,22 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  .moreCard {
+    @media (max-width: 1024px) {
+      &:hover {
+        overflow: unset;
+      }
+    }
+    @media (max-width: 576px) {
+      overflow: unset;
+      &:hover {
+        .moreWrapper {
+          height: calcVWM(300);
         }
       }
     }

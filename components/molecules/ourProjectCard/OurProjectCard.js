@@ -21,7 +21,7 @@ const OurProjectCard = ({
 }) => {
   return (
     <Col
-      className={`${styles.mainWrapper} ${styles["mainWrapper-" + component]}`}
+      className={`${styles.mainWrapper} ${styles["mainWrapper-" + component]} ${more && styles.moreCard}`}
       onClick={onClick}
     >
       <Col
