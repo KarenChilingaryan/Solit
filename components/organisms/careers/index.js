@@ -98,12 +98,11 @@ const Careers = () => {
   }
 
   return (
-    <HomeMainWithImage firstImage={earth}>
-      {/* <SeoCard details={seoData} /> */}
+    <HomeMainWithImage firstImage={earth} seoName="careers">
       <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
       <Row className={styles.content}>
         <Row className={styles.pageHeader}>
-          <Row className={styles.title}>{postsTextCareersColourfulApi?.title}</Row>
+          <h1 className={styles.title} style={{ margin: 0 }}>{postsTextCareersColourfulApi?.title}</h1>
           <Row className={styles.subTitle}>
             <Col>{postsTextCareersColourfulApi?.default_text?.replace(postsTextCareersColourfulApi.painted_text, '')}</Col>
             <Col>{postsTextCareersColourfulApi?.painted_text}</Col>
@@ -113,7 +112,7 @@ const Careers = () => {
           </Row>
           <Button text="Recommended" transparentOpposite />
         </Row>
-        <Image className={styles.worldMap} src={worldMap} alt="image"/>
+        <Image className={styles.worldMap} src={worldMap} alt="image" />
         <div className={styles.aboutContent}>
           {data.map((row, i) => (
             <ReversedAboutUs

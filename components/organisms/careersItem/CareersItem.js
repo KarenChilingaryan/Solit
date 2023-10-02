@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import { Row } from "../../atoms";
+import { Row, SeoCard } from "../../atoms";
 import imageBG from "../../../assets/img/main-bg-career-detail.png";
 import back from "../../../assets/img/icons/back.svg";
 import share from "../../../assets/img/icons/share.svg";
@@ -17,10 +17,12 @@ import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import Link from "next/link";
 
 import styles from "./careersItem.module.scss";
+import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
 const CareersComponent = () => {
   const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
-  const { id } = useRouter().query;
+  const router = useRouter()
+  const { id } = router.query;
   const [openData, setOpenData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -87,6 +89,16 @@ const CareersComponent = () => {
 
   return (
     <div className={styles.careerPage}>
+      <SeoCard
+        details={
+          {
+            pageDescription: postsCareersJobOpeningApiData?.meta_description,
+            pageKeyWords: postsCareersJobOpeningApiData?.meta_keywords,
+            pageUrl: websiteUrl + router.asPath,
+            title: postsCareersJobOpeningApiData?.meta_title,
+          }
+        }
+      />
       <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
       <HomeMainWithImage firstImage={imageBG}>
         <div className={styles.content}>

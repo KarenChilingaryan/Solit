@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import { Paragraph, Row } from "../../atoms";
+import { Paragraph, Row, SeoCard } from "../../atoms";
 import imageBG from "../../../assets/img/career_bg.png"
 import AboutItem from "../../molecules/aboutItem/AboutItem";
 import impactIcon from "../../../assets/img/u_adjust-circle.svg";
@@ -12,12 +12,14 @@ import { postsWhatWeDoDetailApi } from "../../../services/postsWhatWeDoDetailApi
 import styles from "./WhatWeDoItem.module.scss";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
+import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
 
 const WhatWeDoComponent = () => {
   const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
 
-  const { id } = useRouter().query;
+  const router = useRouter()
+  const { id } = router.query;
   const dispatch = useDispatch();
   const [postWhatWeDoDetail, setPostWhatWeDoDetail] = useState(null)
   const getData = async (id) => {
@@ -37,13 +39,23 @@ const WhatWeDoComponent = () => {
   useEffect(() => {
     if (postWhatWeDoDetail && breadcrumbElements) {
       const newBred = [...breadcrumbElements?.slice(0, 3)]
-      newBred[2] = {name: postWhatWeDoDetail.breadcrumb, link: '/'};
+      newBred[2] = { name: postWhatWeDoDetail.breadcrumb, link: '/' };
       setBreadcrumbElements(newBred)
     }
   }, [postWhatWeDoDetail])
 
   return (
     <div className={styles.careerPage}>
+      <SeoCard
+        details={
+          {
+            pageDescription: postWhatWeDoDetail?.meta_description,
+            pageKeyWords: postWhatWeDoDetail?.meta_keywords,
+            pageUrl: websiteUrl + router.asPath,
+            title: postWhatWeDoDetail?.meta_title,
+          }
+        }
+      />
       <HomeMainWithImage firstImage={imageBG}>
         <div className={styles.content}>
 

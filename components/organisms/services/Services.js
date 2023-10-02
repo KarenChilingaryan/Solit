@@ -24,10 +24,11 @@ const Services = () => {
   };
 
   return (
-    <HomeMainWithImage firstImage={bgImage}>
+    <HomeMainWithImage firstImage={bgImage} seoName="services">
       <>
         <Row className={styles.content}>
           <HomeMain
+            h1={true}
             data={{
               title: services?.data_text[0]?.title,
               firstSubtitle:

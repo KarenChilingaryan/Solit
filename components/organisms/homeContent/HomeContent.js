@@ -18,9 +18,6 @@ import user2 from "../../../assets/img/user2.png";
 import user3 from "../../../assets/img/user3.png";
 import user4 from "../../../assets/img/user4.png";
 import user5 from "../../../assets/img/user5.png";
-import group from "../../../assets/img/Group.svg";
-import group1 from "../../../assets/img/Group-1.svg";
-import group2 from "../../../assets/img/Group-2.svg";
 import whatWeDoImage from "../../../assets/img/what-we-do_bg.png";
 import ourProjectImage from "../../../assets/img/our-project_bg.png";
 import services from "../../../assets/img/services.svg";
@@ -31,7 +28,6 @@ import ourProjects from "../../../assets/img/our_projects.svg";
 import testimonials from "../../../assets/img/testimonials.svg";
 import contacts from "../../../assets/img/contacts.svg";
 import technology from "../../../assets/img/technology.svg";
-
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
@@ -42,36 +38,6 @@ import Button from "../../molecules/button/Button";
 
 import styles from "./HomeContent.module.scss";
 
-const aboutData = [
-  {
-    number: "4.5",
-    title: "RATING OF THE COMPANY",
-    image: group,
-    status: "COMPANY",
-  },
-  {
-    number: "5.0",
-    title: "RATING OF THE COMPANY",
-    image: group1,
-    status: "COMPANY",
-  },
-  {
-    number: "100%",
-    title: "JOB",
-    image: group2,
-    status: "SUCCESS",
-  },
-];
-
-const splitStringAtLastWord = (inputString) => {
-  const match = inputString.match(/^(.*\s)(\S+)$/);
-
-  if (match) {
-    return [match[1].trim(), match[2]];
-  } else {
-    return [inputString, ""];
-  }
-};
 const HomeContent = () => {
   const [activeUser, setActiveUser] = useState(null);
   const [data, setData] = useState([]);
@@ -219,10 +185,11 @@ const HomeContent = () => {
   };
 
   return (
-    <HomeMainWithImage firstImage={bgImage}>
+    <HomeMainWithImage firstImage={bgImage} seoName="main">
       <>
         <div className={styles.content}>
           <HomeMain
+            h1={true}
             data={{
               title: mainInfoData ? mainInfoData[0]?.title : "",
               firstSubtitle: mainInfoData ? mainInfoData[0]?.description : "",

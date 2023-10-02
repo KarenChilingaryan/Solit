@@ -7,7 +7,7 @@ import showMore from "../../../assets/img/angle-down.svg";
 
 import styles from "./HomeMain.module.scss";
 
-const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
+const HomeMain = ({ data, className, onClick, showMoreButton = false, h1 }) => {
   const [showMoreClass, setShowMoreClass] = useState(false);
   const [height, setHeight] = useState();
   const { title, secondSubtitle, firstSubtitle, buttonText } = data;
@@ -16,6 +16,7 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false }) => {
   return (
     <Col className={`${styles.MainWrapper} ${styles[className + "Block"]}`}>
       <HomeMainTexts
+        h1={h1}
         title={title}
         secondSubtitle={secondSubtitle}
         firstSubtitle={firstSubtitle}
