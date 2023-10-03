@@ -18,7 +18,7 @@
         gap: calcVW(96);
         width: calcVW(1280);
         min-height: calcVW(700);
-        //Search to do 
+        //Search to do
         padding: calcVW(64) 0;
 
         .imageCard {
@@ -42,7 +42,6 @@
           justify-content: center;
           gap: calcVW(30);
           width: calcVW(624);
-
 
           .stacks {
             display: flex;
@@ -250,14 +249,22 @@
       );
       .content {
         height: max-content;
+
         .itemDescription {
+          gap: CalcVWM(32);
           justify-content: center;
           height: max-content;
           width: 100%;
+
           .imageCard {
+            padding: calcVWM(64) 0;
             position: inherit;
             width: calcVWM(343);
             height: max-content;
+
+            img {
+              border-radius: calcVWM(16);
+            }
           }
           .testSection {
             width: 100%;
