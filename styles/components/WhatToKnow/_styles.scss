@@ -11,13 +11,13 @@
       @include flex(center, center, column);
       gap: getWhatToKnowSizes(what-to-know-context-gap);
       width: getWhatToKnowSizes(what-to-know-context-width);
-      height: getWhatToKnowSizes(what-to-know-context-height);
+      // height: getWhatToKnowSizes(what-to-know-context-height);
 
       .title {
         @include font-style(
           getWhatToKnowSizes(what-to-know-title-fz),
-          variables.$fw-400,
-          getWhatToKnowSizes(what-to-know-title-lh)
+          variables.$fw-500,
+          calcVW(58)
         );
       }
 
@@ -77,7 +77,7 @@
         justify-content: center;
 
         .title {
-          @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));
+          @include font-style(calcVWT(36), variables.$fw-500, calcVWT(60));
         }
 
         .description {
