@@ -58,31 +58,16 @@ const PortfolioItem = () => {
     }
   }, [postPortfolioApiData]);
 
-  function generateRandomNumbers(maximum) {
-    if (isNaN(maximum) || maximum === 0) {
-      return [];
-    }
-    const randomNumbers = [];
+  const getRandomValuesFromArray = (arr, numberOfValues) => {
+    const copyArr = [...arr];
 
-    if (maximum <= 3) {
-      for (let i = 1; i <= maximum; i++) {
-        randomNumbers.push(i);
-      }
-    } else {
-      for (let i = 0; i < 3; i++) {
-        randomNumbers.push(Math.floor(Math.random() * (maximum + 1)));
-      }
+    for (let i = copyArr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copyArr[i], copyArr[j]] = [copyArr[j], copyArr[i]];
     }
-    console.log(randomNumbers);
-    return randomNumbers;
+
+    return copyArr.slice(0, numberOfValues);
   }
-
-  useEffect(() => {
-    const randomNum = generateRandomNumbers(
-      postPortfolioApi?.data_list?.length
-    );
-    setRandomArray(randomNum);
-  }, [postPortfolioApi?.data_list?.length]);
 
   return (
     <Row className={styles.profilePage}>
@@ -149,19 +134,17 @@ const PortfolioItem = () => {
             gutter={[0, "3.645838vw"]}
           >
             {postPortfolioApi &&
-              postPortfolioApi?.data_list?.map(
+              getRandomValuesFromArray(postPortfolioApi?.data_list, 3)?.map(
                 (project, i) =>
-                  randomArray?.includes(i) && (
-                    <OurProjectCard
-                      onClick={() => handleClick(project.slug)}
-                      key={i}
-                      component="portfolioItem"
-                      name={project.title}
-                      image={project.webp_image_portfolio}
-                      more={project == "more"}
-                      images={project?.technology_logos}
-                    />
-                  )
+                  <OurProjectCard
+                    onClick={() => handleClick(project.slug)}
+                    key={i}
+                    component="portfolioItem"
+                    name={project.title}
+                    image={project.webp_image_portfolio}
+                    more={project == "more"}
+                    images={project?.technology_logos}
+                  />
               )}
           </Row>
           <Row className={styles.buttonWrapper}>
