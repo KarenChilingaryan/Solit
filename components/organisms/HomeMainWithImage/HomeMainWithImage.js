@@ -114,7 +114,7 @@ const HomeMainWithImage = ({
   useEffect(() => {
     const lastBreadcrumb = document.getElementById("last-breadcrumb");
     if (lastBreadcrumb) {
-      lastBreadcrumb.scrollIntoView({ behavior: "smooth", block: "end" });
+      lastBreadcrumb.scrollIntoView({ behavior: "smooth", block: "end", inline: 'end' });
     }
   }, [breadcrumbElements]);
 
