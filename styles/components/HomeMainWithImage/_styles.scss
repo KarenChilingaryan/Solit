@@ -25,6 +25,9 @@
         background: rgba(255, 255, 255, 0.32);
         padding: calcVW(6) calcVW(12);
         border-right: 2px solid black;
+        display: flex;
+        align-items: center;
+        height: calcVW(32);
 
         a {
           white-space: nowrap;
@@ -38,7 +41,6 @@
 
       :global(.ant-breadcrumb-link) {
         @include font-style(calcVW(20), variables.$fw-500, normal);
-        text-decoration: revert;
       }
 
       :global(ol) {
@@ -61,14 +63,13 @@
         border-radius: calcVWT(8);
 
         li {
-          padding: calcVWT(6) calcVWT(12);
+          padding: calcVWT(3.1) calcVWT(12);
           white-space: pre;
-          height: max-content;
+          height: calcVWT(32);
         }
 
         :global(.ant-breadcrumb-link) {
           @include font-style(calcVWT(20), variables.$fw-500, normal);
-          text-decoration: revert;
         }
 
         :global(.ant-breadcrumb-separator) {
@@ -85,11 +86,13 @@
         li {
           padding: calcVWM(3) calcVWM(8);
           height: calcVWM(32);
+          align-items: center;
+          display: flex;
         }
 
         :global(.ant-breadcrumb-link) {
           @include font-style(calcVWM(20), variables.$fw-500, normal);
-          text-decoration: revert;
+          text-decoration: none;
         }
 
         :global(.ant-breadcrumb-separator) {
@@ -126,17 +129,14 @@
 
       .text {
         white-space: nowrap;
-        @include font-style(
-          getHomeMainWithImage(text-fs),
+        @include font-style(getHomeMainWithImage(text-fs),
           variables.$fw-500,
-          getHomeMainWithImage(text-lh)
-        );
+          getHomeMainWithImage(text-lh));
       }
 
       &:hover {
         .image {
-          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg)
-            brightness(86%) contrast(99%);
+          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg) brightness(86%) contrast(99%);
           transition: 0.3s;
         }
 
@@ -234,12 +234,16 @@
 
     .content {
       padding-top: calcVWM(70);
-      // .breadcrumb {
-      //   top: calcVWM(154);
-      //   ol::-webkit-scrollbar {
-      //     display: none;
-      //   }
-      // }
+
+      .breadcrumb {
+        border-radius: calcVWM(8);
+        max-width: 100%;
+        left: calcVWM(16);
+
+        :global(ant-breadcrumb-link) {
+          text-decoration: none;
+        }
+      }
     }
   }
 }

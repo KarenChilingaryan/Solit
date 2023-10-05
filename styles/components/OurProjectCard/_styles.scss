@@ -140,18 +140,19 @@
     .portfolio,
     .portfolioItem {
       width: calcVW(405);
-
       .positionSection {
-        justify-content: center;
         transition: 0.4s;
         height: calcVW(56);
+        row-gap: calcVW(0);
+        justify-content: center;
         border-radius: 0 0 calcVW(16) calcVW(16);
       }
 
       &:hover {
         .positionSection {
+          transition: 0.4s;
           background: rgba(2, 13, 28, 0.73);
-          justify-content: space-between;
+          justify-content: center;
           row-gap: calcVW(10);
         }
       }
