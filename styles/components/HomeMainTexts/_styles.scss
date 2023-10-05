@@ -77,7 +77,7 @@
       max-height: max-content;
 
       .title {
-        @include font-style(calcVWM(36), variables.$fw-400, calcVWM(44), black !important) ;
+        @include font-style(calcVWM(36), variables.$fw-400, calcVWM(44));
       }
 
       .firstSubtitle {

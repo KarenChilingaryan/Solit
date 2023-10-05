@@ -234,12 +234,12 @@
 
     .content {
       padding-top: calcVWM(70);
-      .breadcrumb {
-        top: calcVWM(154);
-        ol::-webkit-scrollbar {
-          display: none;
-        }
-      }
+      // .breadcrumb {
+      //   top: calcVWM(154);
+      //   ol::-webkit-scrollbar {
+      //     display: none;
+      //   }
+      // }
     }
   }
 }
