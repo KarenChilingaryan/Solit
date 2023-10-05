@@ -30,6 +30,9 @@ const PortfolioItem = () => {
   const postPortfolioApi = useSelector(
     (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
   );
+
+  const [randomArray, setRandomArray] = useState([]);
+
   const handleClick = (slug) => {
     router.push(`/portfolio/${slug}`);
   };
@@ -40,6 +43,7 @@ const PortfolioItem = () => {
     );
     setPostPortfolioApiData(res.data);
   };
+
   useEffect(() => {
     if (id) {
       getData(id);
@@ -54,17 +58,41 @@ const PortfolioItem = () => {
     }
   }, [postPortfolioApiData]);
 
+  function generateRandomNumbers(maximum) {
+    if (isNaN(maximum) || maximum === 0) {
+      return [];
+    }
+    const randomNumbers = [];
+
+    if (maximum <= 3) {
+      for (let i = 1; i <= maximum; i++) {
+        randomNumbers.push(i);
+      }
+    } else {
+      for (let i = 0; i < 3; i++) {
+        randomNumbers.push(Math.floor(Math.random() * (maximum + 1)));
+      }
+    }
+    console.log(randomNumbers);
+    return randomNumbers;
+  }
+
+  useEffect(() => {
+    const randomNum = generateRandomNumbers(
+      postPortfolioApi?.data_list?.length
+    );
+    setRandomArray(randomNum);
+  }, [postPortfolioApi?.data_list?.length]);
+
   return (
     <Row className={styles.profilePage}>
       <SeoCard
-        details={
-          {
-            pageDescription: postPortfolioApiData?.meta_description,
-            pageKeyWords: postPortfolioApiData?.meta_keywords,
-            pageUrl: websiteUrl + router.asPath,
-            title: postPortfolioApiData?.meta_title,
-          }
-        }
+        details={{
+          pageDescription: postPortfolioApiData?.meta_description,
+          pageKeyWords: postPortfolioApiData?.meta_keywords,
+          pageUrl: websiteUrl + router.asPath,
+          title: postPortfolioApiData?.meta_title,
+        }}
       />
       <HomeMainWithImage className={"portfolioItem"}>
         <Row className={styles.content}>
@@ -123,7 +151,7 @@ const PortfolioItem = () => {
             {postPortfolioApi &&
               postPortfolioApi?.data_list?.map(
                 (project, i) =>
-                  i < 3 && (
+                  randomArray?.includes(i) && (
                     <OurProjectCard
                       onClick={() => handleClick(project.slug)}
                       key={i}
