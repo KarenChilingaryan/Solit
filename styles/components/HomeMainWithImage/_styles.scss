@@ -243,6 +243,9 @@
         :global(ant-breadcrumb-link) {
           text-decoration: none;
         }
+        ol::-webkit-scrollbar {
+          display: none;
+        }
       }
     }
   }
