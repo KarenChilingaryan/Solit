@@ -17,54 +17,52 @@ import SuccessModal from "../successModal/SuccessModal";
 
 import styles from "./DiscussProjectStack.module.scss";
 
-const data1 = ["Real Estate", 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55];
+const data1 = [
+  "eCommerce",
+  "Finance",
+  "Travel & Hospitality",
+  "Telecom",
+  "Media & Entertainment",
+  "Enterprise",
+  "Real Estate",
+  "Healthcare",
+  "iGaming",
+  "Logistic",
+  "eLearning",
+  "Retail",
+  "Automotive",
+  "Manufacturing",
+  "Aviation",
+  "Other",
+];
 
 const stacks = [
   {
-    name: "Front end",
-    data: ["React.js", "ewewe", "trtrtr", "ytytyty", "uiuiuiu"],
+    name: "Mobile",
+    data: [
+      "Android native",
+      "iOS native",
+      "React native",
+      "Flutter",
+      "Xamarin",
+      "Ionic",
+    ],
   },
   {
     name: "Backend",
-    data: ["zxzxz", "cvcvcvc", "bnbnbn", "nmnmnmnm", "vxvxvx", "vccvcvc"],
-  },
-  {
-    name: "Database",
-    data: ["field1", "field2", "field3 field3", "field4"],
-  },
-  {
-    name: "Mobile",
-    data: [
-      "tttt",
-      "tttt2",
-      "ttttt3",
-      "tttt4",
-      "tttt5",
-      "ttttt6",
-      "ttttt7",
-      "ttttt8",
-    ],
+    data: ["Python", "Node.js", "Java", "PHP"],
   },
 ];
 
 const stacks1 = [
   {
-    data: ["UI/UX Designer", "bbb", "cccc", "dddd", "ffff"],
+    data: ["Project manager", "UI/UX designer"],
   },
   {
-    data: ["qqq", "iOS Native", "wwww", "eeee", "rrrr", "tttt"],
+    data: ["Business analyst", "DevOps engineer"],
   },
   {
-    data: [
-      "zzzz",
-      " Android Native",
-      "ccc",
-      "bbb",
-      "nnnn",
-      "mmmmm",
-      "ppp",
-      "oooo",
-    ],
+    data: ["QA automation engineer"],
   },
 ];
 
@@ -79,7 +77,7 @@ const DiscussProjectStack = () => {
   const [liveStacks, setLiveStacks] = useState([]);
   const [open, setOpen] = useState(false);
   const [modalFormData, setModalFormData] = useState(null);
-  const [openSuccess, setOpenSuccess] = useState(false)
+  const [openSuccess, setOpenSuccess] = useState(false);
 
   const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -161,14 +159,18 @@ const DiscussProjectStack = () => {
 
     form.setFieldsValue(data);
     getProjectData(data);
-    submitForm(form.getFieldsValue())
+    submitForm(form.getFieldsValue());
   };
-
 
   const submitForm = (values) => {
     const formData = {
-      step_one: values.developers?.map((dev) => `${dev.name}-${dev.count}`).join(" ") || "",
-      step_two: values.specialists?.map((spec) => `${spec.name}-${spec.count}`).join(" ") || "",
+      step_one:
+        values.developers?.map((dev) => `${dev.name}-${dev.count}`).join(" ") ||
+        "",
+      step_two:
+        values.specialists
+          ?.map((spec) => `${spec.name}-${spec.count}`)
+          .join(" ") || "",
       step_three: values.industry?.join(", ") || "",
       step_for: values.duration || "",
     };
@@ -186,25 +188,25 @@ const DiscussProjectStack = () => {
       const res = await dispatch(
         await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
       );
-      setOpenSuccess(true)
-    } catch {
-
-    }
-  }
+      setOpenSuccess(true);
+    } catch {}
+  };
 
   return (
     <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_2">
       <>
         <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
-        {modalFormData && <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
-          <PricingModal
-            data={liveStacks}
-            handleDelete={(item) => handleDelete(item)}
-            dataForm={modalFormData}
-            stackNames={["industry", "duration", "specialists", "developers"]}
-            onSubmit={onSubmit}
-          />
-        </ModalWrapper>}
+        {modalFormData && (
+          <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
+            <PricingModal
+              data={liveStacks}
+              handleDelete={(item) => handleDelete(item)}
+              dataForm={modalFormData}
+              stackNames={["industry", "duration", "specialists", "developers"]}
+              onSubmit={onSubmit}
+            />
+          </ModalWrapper>
+        )}
         {!open && liveStacks?.length && (
           <StackFooter
             liveStacks={liveStacks}

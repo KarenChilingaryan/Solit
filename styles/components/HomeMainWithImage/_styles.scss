@@ -13,10 +13,22 @@
       border-radius: calcVW(8);
       overflow: hidden;
 
+      ol {
+        @media (max-width: 576px) {
+          flex-wrap: nowrap;
+          overflow-x: scroll;
+          width: calcVWM(335);
+        }
+      }
+
       li {
         background: rgba(255, 255, 255, 0.32);
         padding: calcVW(6) calcVW(12);
         border-right: 2px solid black;
+
+        a {
+          white-space: nowrap;
+        }
       }
 
       li:last-of-type {
@@ -50,6 +62,8 @@
 
         li {
           padding: calcVWT(6) calcVWT(12);
+          white-space: pre;
+          height: max-content;
         }
 
         :global(.ant-breadcrumb-link) {
@@ -69,7 +83,8 @@
         border-radius: calcVWM(8);
 
         li {
-          padding: calcVWM(6) calcVWM(12);
+          padding: calcVWM(3) calcVWM(8);
+          height: calcVWM(32);
         }
 
         :global(.ant-breadcrumb-link) {
@@ -219,6 +234,12 @@
 
     .content {
       padding-top: calcVWM(70);
+      .breadcrumb {
+        top: calcVWM(154);
+        ol::-webkit-scrollbar {
+          display: none;
+        }
+      }
     }
   }
 }
