@@ -592,13 +592,14 @@
       padding: calcVWM(24) calcVWM(16);
 
       .rightButtons {
+        column-gap: calcVWM(32);
         img {
           width: calcVWM(24);
           height: calcVWM(24);
         }
 
         .pricing {
-          display: none;
+          display: flex;
         }
 
         .menuWrapper {
@@ -718,7 +719,7 @@
 
       .rightButtons {
         position: absolute;
-        top: calcVWM(32);
+        top: calcVWM(22);
         right: calcVWM(16);
 
       }

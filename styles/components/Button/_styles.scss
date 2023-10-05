@@ -630,7 +630,7 @@
       border-radius: calcVWM(8) !important;
 
       &:hover {
-        @include font-style(calcVWM(16) !important,
+        @include font-style(calcVWM(13) !important,
           variables.$fw-700 !important,
           calcVWM(16) !important,
           variables.$white !important);
