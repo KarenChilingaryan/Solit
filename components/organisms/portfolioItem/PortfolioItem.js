@@ -148,7 +148,7 @@ const PortfolioItem = () => {
               )}
           </Row>
           <Row className={styles.buttonWrapper}>
-            <Button icon={arrow} text="Go Back to Portfolio" />
+            <Button icon={arrow} text="Go Back to Portfolio" onClick={() => handleClick('')} />
           </Row>
           <Row className={styles.knowMoreSection}>
             <WhatToKnow
