@@ -375,8 +375,31 @@
         }
       }
 
-      .portfolio,
       .portfolioItem {
+        width: calcVWT(288);
+        height: calcVWT(300);
+
+        .img {
+          height: calcVWT(246);
+          border-radius: calcVWT(16) calcVWT(16) 0 0;
+        }
+
+        .positionSection {
+          height: calcVWT(54);
+          border-radius: 0 0 calcVWT(16) calcVWT(16);
+
+          .name {
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-700,
+              calcVWT(24),
+              #fff
+            );
+          }
+        }
+      }
+
+      .portfolio {
         width: calcVWT(272);
         height: calcVWT(300);
 

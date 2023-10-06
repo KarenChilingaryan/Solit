@@ -85,7 +85,7 @@
           display: flex;
           justify-content: center;
           width: 100%;
-          margin-top: calcVW(133);
+          margin-top: calcVW(110);
         }
 
         .buttonWrapper>button {
@@ -222,7 +222,7 @@
           }
 
           .buttonWrapper {
-            margin-top: calcVWT(64);
+            margin-top: calcVWT(35);
           }
 
           .buttonWrapper>button {
@@ -232,7 +232,9 @@
             @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(22),
-              variables.$light-blue );
+              variables.$light-blue
+            );
+            letter-spacing: 0.7px;
 
             &:hover {
               background: initial;
@@ -295,12 +297,14 @@
 
       .whiteSection {
         .portfoliosSection {
+          width: calcVWM(343);
           .text {
             width: unset;
           }
 
           .buttonWrapper {
-            margin-top: calcVWM(46);
+            margin-top: calcVWM(40);
+            justify-content: flex-start;
           }
 
           .buttonWrapper>button {
@@ -321,6 +325,9 @@
               transition: none;
             }
           }
+        }
+        .knowMoreSection{
+          margin: calcVWM(60) 0 calcVWM(64);
         }
       }
     }
