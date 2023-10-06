@@ -109,13 +109,17 @@
 
   .socialSites {
     position: fixed;
-    width: calcVW(440);
     z-index: 11;
     transform: rotate(-90deg);
     left: getHomeMainWithImage(social-sites-lp);
     top: getHomeMainWithImage(social-sites-tp);
-    @include flex(flex-start, center);
-    column-gap: getHomeMainWithImage(social-sites-cg);
+    width: calcVW(440);
+
+    .socialSitesValues {
+      width: max-content;
+      column-gap: getHomeMainWithImage(social-sites-cg);
+      @include flex(flex-start, center);
+    }
 
     .site {
       column-gap: getHomeMainWithImage(site-cg);
@@ -129,9 +133,10 @@
 
       .text {
         white-space: nowrap;
-        @include font-style(getHomeMainWithImage(text-fs),
-          variables.$fw-500,
-          getHomeMainWithImage(text-lh));
+        font-size: getHomeMainWithImage(text-fs);
+        font-weight: variables.$fw-500;
+        font-size: getHomeMainWithImage(text-lh);
+        
       }
 
       &:hover {
@@ -187,7 +192,10 @@
       width: calcVWL(440);
       left: calcVWL(-180);
       top: calcVWL(400);
-      column-gap: calcVWL(32);
+
+      .socialSitesValues {
+        column-gap: calcVWL(32);
+      }
 
       .site {
         column-gap: calcVWL(16);
@@ -243,6 +251,7 @@
         :global(ant-breadcrumb-link) {
           text-decoration: none;
         }
+
         ol::-webkit-scrollbar {
           display: none;
         }
