@@ -15,24 +15,24 @@
         display: flex;
         justify-content: flex-end;
         margin: auto auto 0 auto;
-        gap: calcVWL(96);
-        width: calcVWL(1280);
-        min-height: calcVWL(700);
+        gap: calcVW(96);
+        width: calcVW(1280);
+        min-height: calcVW(700);
         //Search to do
-        padding: calcVWL(64) 0;
+        padding: calcVW(64) 0;
 
         .imageCard {
           position: absolute;
           top: 0;
           left: 0;
-          width: calcVWL(624);
-          height: calcVWL(874);
-          padding: calcVWL(64);
+          width: calcVW(624);
+          height: calcVW(874);
+          padding: calcVW(64);
 
           img {
             width: 100%;
             height: 100%;
-            border-radius: calcVWL(16);
+            border-radius: calcVW(16);
             box-shadow: 0px 22px 116px -60px #7811fe;
           }
         }
@@ -41,16 +41,16 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          gap: calcVWL(30);
-          width: calcVWL(624);
+          gap: calcVW(30);
+          width: calcVW(624);
 
           .stacks {
             display: flex;
-            gap: calcVWL(40);
+            gap: calcVW(40);
 
             .icon {
-              width: calcVWL(40);
-              height: calcVWL(40);
+              width: calcVW(40);
+              height: calcVW(40);
               object-fit: cover;
             }
           }
@@ -66,10 +66,10 @@
 
       .portfoliosSection {
         width: getPortfolioMainSizes(content-width);
-        margin-top: calcVWL(205);
+        margin-top: calcVW(205);
 
         .text {
-          padding: 0 calcVWL(24);
+          padding: 0 calcVW(24);
         }
 
         .text>div>div>div {
@@ -78,30 +78,30 @@
 
         .projects {
           width: 100%;
-          margin-top: calcVWL(120);
+          margin-top: calcVW(120);
         }
 
         .buttonWrapper {
           display: flex;
           justify-content: center;
           width: 100%;
-          margin-top: calcVWL(133);
+          margin-top: calcVW(133);
         }
 
         .buttonWrapper>button {
-          width: calcVWL(268);
+          width: calcVW(268);
           cursor: pointer;
-          @include font-style(calcVWL(18),
+          @include font-style(calcVW(18),
             variables.$fw-700,
-            calcVWL(22),
+            calcVW(22),
             variables.$light-blue );
 
           &:hover {
             background: initial;
             border: none;
-            @include font-style(calcVWL(18),
+            @include font-style(calcVW(18),
               variables.$fw-700,
-              calcVWL(22),
+              calcVW(22),
               variables.$light-blue );
             transition: none;
           }
@@ -113,7 +113,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-        margin: calcVWL(256) 0 calcVWL(128);
+        margin: calcVW(256) 0 calcVW(128);
       }
     }
 
