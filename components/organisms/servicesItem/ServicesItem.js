@@ -1,10 +1,11 @@
 import { memo } from "react";
-import styles from "./ServicesItem.module.scss";
 import { Paragraph, Row } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import imageBG from "../../../assets/img/career_bg.png"
 import { useSelector } from "react-redux";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
+
+import styles from "./ServicesItem.module.scss";
 
 const ServicesItem = ({ data }) => {
   const servicesData = useSelector(

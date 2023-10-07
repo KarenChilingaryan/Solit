@@ -5,15 +5,12 @@ import Link from "next/link";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { Paragraph, Row, SeoCard } from "../../atoms";
 import imageBG from "../../../assets/img/career_bg.png"
-import AboutItem from "../../molecules/aboutItem/AboutItem";
-import impactIcon from "../../../assets/img/u_adjust-circle.svg";
 import { postsWhatWeDoDetailApi } from "../../../services/postsWhatWeDoDetailApi";
-
-import styles from "./WhatWeDoItem.module.scss";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
+import styles from "./WhatWeDoItem.module.scss";
 
 const WhatWeDoComponent = () => {
   const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);

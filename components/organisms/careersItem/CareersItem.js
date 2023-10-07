@@ -2,6 +2,7 @@ import { memo, useEffect, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { Row, SeoCard } from "../../atoms";
@@ -14,10 +15,9 @@ import ModalForm from "../../molecules/modalForm/ModalForm";
 import SuccessModal from "../../organisms/successModal/SuccessModal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
-import Link from "next/link";
+import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
 import styles from "./careersItem.module.scss";
-import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
 const CareersComponent = () => {
   const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);

@@ -139,23 +139,23 @@
       margin-top: calcVWM(114);
       margin-bottom: calcVWM(130);
       .h1Title {
-        @include font-style(calcVWM(48), variables.$fw-400, normal);
+        @include font-style(calcVWM(36), variables.$fw-400, normal);
       }
       .blockItemImage {
         h2 {
-          @include font-style(calcVWM(48), variables.$fw-400, normal);
+          @include font-style(calcVWM(36), variables.$fw-400, normal);
         }
 
         p {
-          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(32));
         }
 
         li {
-          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(32));
         }
 
         strong {
-          @include font-style(calcVWM(24), variables.$fw-500, calcVWM(32));
+          @include font-style(calcVWM(18), variables.$fw-500, calcVWM(32));
         }
       }
 

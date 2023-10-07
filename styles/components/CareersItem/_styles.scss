@@ -333,7 +333,7 @@
       margin: calcVWM(146) auto calcVWM(50) auto;
 
       .h1Title {
-        @include font-style(calcVWM(48), variables.$fw-400, normal);
+        @include font-style(calcVWM(36), variables.$fw-400, normal);
       }
 
       .blockItemImage {
@@ -352,24 +352,24 @@
 
       .blockItemImage {
         h2 {
-          @include font-style(calcVWM(48), variables.$fw-400, normal);
+          @include font-style(calcVWM(36), variables.$fw-400, normal);
         }
 
         p {
-          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(32));
         }
 
         li {
-          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(32));
         }
 
         strong {
-          @include font-style(calcVWM(24), variables.$fw-500, calcVWM(32));
+          @include font-style(calcVWM(18), variables.$fw-500, calcVWM(32));
         }
       }
 
       .backSection {
-        padding: calcVWM(24);
+        padding: calcVWM(18);
 
         .back {
           a {
@@ -380,8 +380,8 @@
             }
 
             img {
-              width: calcVWM(24);
-              height: calcVWM(24);
+              width: calcVWM(18);
+              height: calcVWM(18);
             }
           }
         }
@@ -397,8 +397,8 @@
           }
 
           img {
-            width: calcVWM(24);
-            height: calcVWM(24);
+            width: calcVWM(18);
+            height: calcVWM(18);
           }
         }
       }
@@ -409,12 +409,12 @@
         margin-top: calcVWM(50);
 
         span {
-          @include font-style(calcVWM(24), variables.$fw-500, calcVWM(32), variables.$main-dark-blue);
+          @include font-style(calcVWM(18), variables.$fw-500, calcVWM(32), variables.$main-dark-blue);
           min-width: calcVWM(190);
         }
 
         li {
-          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(32));
         }
 
         p {
