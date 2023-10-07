@@ -422,6 +422,7 @@
 
           .menuItemTitle {
             width: max-content;
+
             &:hover {
               color: variables.$white;
             }
@@ -593,13 +594,14 @@
 
       .rightButtons {
         column-gap: calcVWM(32);
+
         img {
           width: calcVWM(24);
           height: calcVWM(24);
         }
 
         .pricing {
-          display: flex;
+          display: none;
         }
 
         .menuWrapper {
@@ -709,6 +711,7 @@
     }
 
     .openHeaderWrapper {
+
       flex-wrap: wrap;
       background: rgba(0, 0, 0, 1);
       position: fixed;
@@ -719,7 +722,7 @@
 
       .rightButtons {
         position: absolute;
-        top: calcVWM(22);
+        top: calcVWM(34);
         right: calcVWM(16);
 
       }
@@ -734,6 +737,17 @@
         top: calcVWM(88);
         min-height: calc(100vh - calcVWM(88));
         padding-bottom: calcVWM(26);
+
+        .pricing {
+          display: flex;
+          width: 100% !important;
+
+          button {
+            width: 100% !important;
+            font-weight: 700 !important;
+          }
+        }
+
 
         .menuItem {
           row-gap: calcVWM(26);

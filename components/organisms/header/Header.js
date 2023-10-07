@@ -166,7 +166,7 @@ const Header = () => {
             styles.headerWrapper,
             !scrollYNew && styles.headerWrapperScroll
           )} ${!openMenu && styles.openHeaderWrapper}`}
-          style={{ ...(window.innerWidth <= 576 && !openMenu ? { height: `calc(${window.innerHeight}px + 8vw)` } : {}) }}
+          style={{ ...(window.innerWidth <= 576 && !openMenu ? { height: `calc(${window.innerHeight}px + 6vw)` } : {}) }}
         >
           <Link
             href="/"
@@ -178,6 +178,9 @@ const Header = () => {
           </Link>
 
           <div className={`${styles.menuWrapper}`}>
+            <Link href="/discuss-project" className={styles.pricing}>
+              <Button text="Pricing" transparentBlue  onClick={() => setOpenMenu(true)}/>
+            </Link>
             {headerData &&
               dropdownElements?.map((el, index) => (
                 <div
