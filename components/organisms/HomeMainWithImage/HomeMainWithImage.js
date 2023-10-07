@@ -20,9 +20,11 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
     percent0: 0,
     percent1: 0,
     percent2: 0,
+    percent4: 0
   })
 
   const socialRef = useRef(null)
+  const goToTop = useRef(null)
   const refContent = useRef(null)
   const dispatch = useDispatch();
 
@@ -71,6 +73,11 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
       } else {
         setHideToTop(false);
       }
+      const goToTopElement = goToTop.current;
+      if (!goToTopElement) return;
+
+      const { top: goToTopTop, height: goToTopHeight } = goToTopElement.getBoundingClientRect();
+
       const targetElementContent = refContent.current;
       if (!targetElementContent) return;
 
@@ -98,10 +105,14 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
         const element22 = parentElem[1]?.clientWidth - element21;
         const element23 = top + window?.scrollY + height - element22 - parentElem[0]?.clientWidth - parentElem[1]?.clientWidth;
         const percent2 = ((element23 - heightContent) / element21) * 100 - 50
+
+        // console.log(goToTopTop + window?.scrollY + goToTopHeight - heightContent);
+        const percent4 = ((goToTopTop + window?.scrollY + goToTopHeight - heightContent) / goToTop.current.children[0].children[0].clientWidth) * 100;
         setPercents({
           percent0,
           percent1,
-          percent2
+          percent2,
+          percent4
         })
       }
     };
@@ -227,10 +238,33 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
           <div
             className={`${styles.socialSites} ${styles.socialSitesTop}`}
             onClick={scrallToTop}
+            ref={goToTop}
           >
             <div className={styles.site}>
-              <Paragraph className={styles.text}>Go To Top</Paragraph>
+              <Paragraph className={styles.text}
+                style={
+                  {
+                    ...(
+                      percents['percent4'] ?
+                        {
+                          backgroundImage: `linear-gradient(to right, black ${percents['percent4']}%, white ${percents['percent4']}%)`,
+                          backgroundClip: 'text',
+                          '-webkit-background-clip': 'text',
+                          color: 'transparent',
+                        }
+                        : {
+                          color: 'white'
+                        }
+                    )
+                  }
+                }
+              >Go To Top</Paragraph>
               <Image
+                style={{
+                  ...(percents["percent4"] && percents["percent4"] - 125 > 0) ? {
+                    filter: 'invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)'
+                  } : {}
+                }}
                 src={rughtRow}
                 className={styles.image}
                 width={80}
