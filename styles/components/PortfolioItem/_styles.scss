@@ -19,7 +19,7 @@
         width: calcVW(1280);
         min-height: calcVW(700);
         //Search to do
-        padding: calcVW(64) 0;
+        padding: calcVW(16) 0 calcVW(64) 0;
 
         .imageCard {
           position: absolute;
@@ -40,7 +40,7 @@
         .testSection {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: end;
           gap: calcVW(30);
           width: calcVW(624);
 
@@ -123,8 +123,9 @@
 
         .itemDescription {
           gap: calcVWL(96);
-          width: calcVWL(1216);
-          height: calcVWL(672);
+          width: calcVWL(1280);
+          min-height: calcVWL(700);
+          padding: calcVWL(32) 0 calcVWL(64) 0;
 
           .imageCard {
             width: calcVWL(624);
@@ -188,7 +189,7 @@
           margin-top: calcVWT(100);
           margin-bottom: calcVWT(20);
           width: calcVWT(928);
-          padding: calcVWT(64) 0;
+          padding: calcVWT(0) 0 calcVWT(32) 0;
 
           .imageCard {
             width: calcVWT(422);
@@ -284,8 +285,7 @@
             width: 100%;
 
             .stacks {
-              justify-content: space-between;
-
+              gap: calcVWM(32);
               .icon {
                 width: calcVWM(40);
                 height: calcVWM(40);
