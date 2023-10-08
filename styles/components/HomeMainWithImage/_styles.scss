@@ -141,7 +141,7 @@
 
       &:hover {
         .image {
-          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg) brightness(86%) contrast(99%);
+          filter: invert(62%) sepia(10%) saturate(6446%) hue-rotate(169deg) brightness(86%) contrast(99%) !important;
           transition: 0.3s;
         }
 

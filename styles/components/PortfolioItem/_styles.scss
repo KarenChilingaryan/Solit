@@ -182,6 +182,7 @@
 
     @media (max-width: 1024px) {
       .content {
+        min-height: calcVWT(682);
         width: calcVWT(928);
         margin-top: calcVWT(135);
 
@@ -262,6 +263,7 @@
 
       .content {
         height: max-content;
+        min-height: auto;
         margin-top: calcVWM(0);
 
         .itemDescription {
