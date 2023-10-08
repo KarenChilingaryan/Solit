@@ -564,6 +564,7 @@
     }
 
     @media (max-width: 576px) {
+      margin-bottom: calcVWM(24);
       .backImage {
         width: calcVWM(1500);
         height: calcVWM(1100);

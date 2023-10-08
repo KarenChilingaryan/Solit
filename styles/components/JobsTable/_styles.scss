@@ -24,7 +24,7 @@
           border-bottom: none;
           @include font-style(calcVW(20), variables.$fw-500, calcVW(24));
         }
-        
+
         :global(.ant-table-row):nth-child(2n + 1) {
           background: #ffffff14;
         }
@@ -61,7 +61,7 @@
           :global(.ant-table-cell) {
             @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24));
           }
-          :global(.ant-table-cell){
+          :global(.ant-table-cell) {
             display: none;
           }
           :global(.ant-table-cell):last-of-type {
@@ -74,10 +74,11 @@
         }
         :global(.ant-table-tbody) {
           :global(.ant-table-cell) {
+            max-width: calcVWM(186);
             border-bottom: none;
             @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24));
           }
-          :global(.ant-table-cell){
+          :global(.ant-table-cell) {
             display: none;
           }
           :global(.ant-table-cell):last-of-type {
@@ -86,6 +87,9 @@
           }
           :global(.ant-table-cell):first-of-type {
             display: table-cell;
+          }
+          :global(.ant-table-row) {
+            height: calcVWM(96) !important;
           }
         }
       }

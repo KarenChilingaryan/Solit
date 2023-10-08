@@ -100,10 +100,15 @@
           @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
         }
       }
+      .weKnowSection {
+        margin: calcVWT(64) 0;
+      }
     }
     @media (max-width: 576px) {
       width: calcVWM(343);
       .pageHeader {
+        display: flex;
+        gap: calcVWM(32);
         max-width: calcVWM(840);
         margin: 0 auto;
         .title {
@@ -112,14 +117,17 @@
         .subTitle {
           @include font-style(calcVWM(36), variables.$fw-700, calcVWM(43));
           justify-content: center;
-          margin-top: calcVWM(30);
         }
         .info {
           @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
-          margin: calcVWM(32) 0;
         }
       }
+
+      .pageHeader > div {
+        margin: 0;
+      }
       .secondInfo {
+        margin: calcVWM(128) 0 calcVWM(32);
         .secondTitle {
           @include font-style(calcVWM(36), variables.$fw-500, calcVWM(43));
         }
@@ -127,6 +135,15 @@
           @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
           margin-top: calcVWM(32);
         }
+      }
+      .weKnowSection {
+        margin: calcVWM(64) 0;
+      }
+      .contactUsWrapper {
+        margin: calcVWM(64) 0 0;
+      }
+      .worldMap {
+        margin: calcVWM(104) 0 calcVWM(96);
       }
     }
   }
