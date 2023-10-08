@@ -100,6 +100,9 @@
           @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
         }
       }
+      .jobTable{
+        width: 100%;
+      }
       .weKnowSection {
         margin: calcVWT(64) 0;
       }

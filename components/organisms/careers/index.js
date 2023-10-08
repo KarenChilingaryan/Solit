@@ -129,7 +129,7 @@ const Careers = () => {
           <div className={styles.secondTitle}>{careersJobOpeningApi?.data_text[0].title}</div>
           <div className={styles.secondDescription} dangerouslySetInnerHTML={{ __html: careersJobOpeningApi?.data_text[0].description || "" }} />
         </div>
-        <Row>
+        <Row className={styles.jobTable}>
           <JobsTable data={careersJobOpeningApi?.data_list} setOpenData={setOpenData} />
         </Row>
         <Row className={styles.weKnowSection}>
