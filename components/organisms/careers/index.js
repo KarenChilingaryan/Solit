@@ -110,7 +110,7 @@ const Careers = () => {
           <Row className={styles.info}>
             {postsTextCareersColourfulApi?.description}
           </Row>
-          <Button text="Recommended" transparentOpposite />
+          {/* <Button text="Recommended" transparentOpposite /> */}
         </Row>
         <Image className={styles.worldMap} src={worldMap} alt="image" />
         <div className={styles.aboutContent}>
