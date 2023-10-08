@@ -34,7 +34,9 @@
     .menuWrapper {
       display: flex;
       column-gap: calcVW(33);
-
+      .pricing {
+        display: none;
+      }
       .socialIconsWrapper {
         display: none;
       }
