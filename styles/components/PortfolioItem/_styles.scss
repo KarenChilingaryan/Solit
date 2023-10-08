@@ -40,7 +40,7 @@
         .testSection {
           display: flex;
           flex-direction: column;
-          justify-content: end;
+          justify-content: center;
           gap: calcVW(30);
           width: calcVW(624);
 
@@ -56,6 +56,7 @@
           }
         }
       }
+
     }
 
     .whiteSection {
@@ -131,7 +132,7 @@
             width: calcVWL(624);
             height: calcVWL(874);
             padding: calcVWL(64);
-  
+
           }
 
           .testSection {
@@ -190,7 +191,7 @@
           margin-top: calcVWT(100);
           margin-bottom: calcVWT(20);
           width: calcVWT(928);
-          padding: calcVWT(0) 0 calcVWT(32) 0;
+          padding: calcVWT(0) 0 calcVWT(32) 0 !important;
 
           .imageCard {
             width: calcVWT(422);
@@ -205,6 +206,7 @@
 
             .stacks {
               gap: calcVWT(32);
+
               .icon {
                 width: calcVWT(40);
                 height: calcVWT(40);
@@ -234,8 +236,7 @@
             @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(22),
-              variables.$light-blue
-            );
+              variables.$light-blue );
             letter-spacing: 0.7px;
 
             &:hover {
@@ -288,6 +289,7 @@
 
             .stacks {
               gap: calcVWM(32);
+
               .icon {
                 width: calcVWM(40);
                 height: calcVWM(40);
@@ -300,6 +302,7 @@
       .whiteSection {
         .portfoliosSection {
           width: calcVWM(343);
+
           .text {
             width: unset;
           }
@@ -328,7 +331,8 @@
             }
           }
         }
-        .knowMoreSection{
+
+        .knowMoreSection {
           margin: calcVWM(60) 0 calcVWM(64);
         }
       }
