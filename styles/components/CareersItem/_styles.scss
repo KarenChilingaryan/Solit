@@ -128,6 +128,7 @@
         display: flex;
         gap: calcVW(10);
         align-items: center;
+        cursor: pointer;
 
         span {
           @include font-style(calcVW(18),
@@ -174,18 +175,19 @@
     }
 
 
-  .shareButtons {
-    row-gap: calcVWL(16);
+    .shareButtons {
+      row-gap: calcVWL(16);
 
-    .title {
-      font-size: calcVWL(24);
+      .title {
+        font-size: calcVWL(24);
+      }
+
+      button {
+        padding: calcVWL(16);
+        border-radius: calcVWL(8);
+      }
     }
 
-    button {
-      padding: calcVWL(16);
-      border-radius: calcVWL(8);
-    }
-  }
     .bottomBlock {
       .h1Title {
         @include font-style(calcVWL(48), variables.$fw-400, normal);
@@ -288,11 +290,11 @@
 
     .shareButtons {
       row-gap: calcVWT(16);
-  
+
       .title {
         font-size: calcVWT(24);
       }
-  
+
       button {
         padding: calcVWT(16);
         border-radius: calcVWT(8);
@@ -405,11 +407,11 @@
 
     .shareButtons {
       row-gap: calcVWM(16);
-  
+
       .title {
         font-size: calcVWM(24);
       }
-  
+
       button {
         padding: calcVWM(16);
         border-radius: calcVWM(8);
