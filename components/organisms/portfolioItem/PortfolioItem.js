@@ -35,8 +35,8 @@ const PortfolioItem = () => {
 
   const [randomArray, setRandomArray] = useState([]);
 
-  const handleClick = (slug) => {
-    router.push(`/portfolio/${slug}`);
+  const handleClick = (page, slug) => {
+    router.push(`${page}/${slug}`);
   };
 
   const getData = async (id) => {
@@ -72,13 +72,11 @@ const PortfolioItem = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      if (itemDescription?.current) {
-        const dif = (660 / (1280 / itemDescription.current.offsetWidth) - itemDescription.current.children[1].children[0].children[0].clientHeight) * (2.3 / (1280 / itemDescription.current.offsetWidth))
-        setPadding(dif > 110 ? 110 : dif)
-      }
-    }, 2000)
-  }, [itemDescription])
+    if (postPortfolioApiData && itemDescription?.current) {
+      const dif = (660 / (1280 / itemDescription.current.offsetWidth) - itemDescription.current.children[1].children[0].children[0].clientHeight) * (2.3 / (1280 / itemDescription.current.offsetWidth))
+      setPadding(dif > 110 ? 110 : dif)
+    }
+  }, [itemDescription, postPortfolioApiData])
 
   return (
     <Row className={styles.profilePage}>
@@ -153,7 +151,7 @@ const PortfolioItem = () => {
               getRandomValuesFromArray(postPortfolioApi?.data_list, 3)?.map(
                 (project, i) =>
                   <OurProjectCard
-                    onClick={() => handleClick(project.slug)}
+                    onClick={() => handleClick('/portfolio', project.slug)}
                     key={i}
                     component="portfolioItem"
                     name={project.title}
@@ -164,7 +162,7 @@ const PortfolioItem = () => {
               )}
           </Row>
           <Row className={styles.buttonWrapper}>
-            <Button icon={arrow} text="Go Back to Portfolio" onClick={() => handleClick('')} />
+            <Button icon={arrow} text="Go Back to Portfolio" onClick={() => handleClick('/careers', '')} />
           </Row>
           <Row className={styles.knowMoreSection}>
             <WhatToKnow

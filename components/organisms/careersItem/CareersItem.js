@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import { Row, SeoCard } from "../../atoms";
+import { Paragraph, Row, SeoCard } from "../../atoms";
 import imageBG from "../../../assets/img/main-bg-career-detail.png";
 import back from "../../../assets/img/icons/back.svg";
 import share from "../../../assets/img/icons/share.svg";
@@ -16,6 +16,9 @@ import SuccessModal from "../../organisms/successModal/SuccessModal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
+import { LinkedinShareButton, TelegramShareButton, WhatsappShareButton } from "react-share";
+import { Modal } from "antd";
+import Button from "../../molecules/button/Button";
 
 import styles from "./careersItem.module.scss";
 
@@ -26,6 +29,8 @@ const CareersComponent = () => {
   const [openData, setOpenData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [openShareModal, setOpenShareModal] = useState(false);
+
   const dispatch = useDispatch();
   const [postsCareersJobOpeningApiData, setPostsCareersJobOpeningApiData] =
     useState(null);
@@ -87,8 +92,31 @@ const CareersComponent = () => {
     };
   }, []);
 
+  const socialData = useSelector(
+    (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
+  );
+
   return (
     <div className={styles.careerPage}>
+      <Modal open={openShareModal} onCancel={() => setOpenShareModal(false)} footer={<></>} className="share-careers">
+        {socialData &&
+          <div className={styles.shareButtons}>
+            <Paragraph className={styles.title}>Share this job position</Paragraph>
+            <TelegramShareButton url={socialData.contact[2].link}>
+              <Button transparentBlue text="Share on telegram" />
+            </TelegramShareButton>
+            <WhatsappShareButton url={socialData.contact[1].link}>
+              <Button transparentBlue text="Share on Whatsapp" />
+            </WhatsappShareButton>
+            <LinkedinShareButton url={socialData.contact[0].link}>
+              <Button transparentBlue text="Share on Linkedin" />
+            </LinkedinShareButton>
+            <div className={styles.shareLink}>
+              {window?.location.href}
+            </div>
+          </div>
+        }
+      </Modal>
       <SeoCard
         details={
           {
@@ -116,7 +144,7 @@ const CareersComponent = () => {
                   <Image src={back} alt="back" /> <span>{`Back ${isMobile ? '' : 'to all jobs'}`}</span>
                 </Link>
               </div>
-              <div className={styles.share}>
+              <div className={styles.share} onClick={() => setOpenShareModal(true)}>
                 <span>Share</span>
                 <Image src={share} alt="share" />
               </div>

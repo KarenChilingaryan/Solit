@@ -9,6 +9,54 @@
     z-index: 1;
   }
 
+  .shareButtons {
+    display: flex;
+    flex-direction: column;
+    row-gap: calcVW(16);
+
+    .title {
+      @include font-style(calcVW(24),
+        variables.$fw-700,
+        normal,
+        variables.$black );
+    }
+
+    button {
+      width: 100% !important;
+
+      &:nth-child(2) {
+        button {
+          background-color: #0088cc !important;
+          border-color: #0088cc !important;
+        }
+      }
+
+      &:nth-child(3) {
+        button {
+          background-color: #25D366 !important;
+          border-color: #25D366 !important;
+        }
+      }
+
+      &:nth-child(4) {
+        button {
+          background-color: #0077b5 !important;
+          border-color: #0077b5 !important;
+        }
+      }
+
+      button {
+        color: variables.$white !important
+      }
+    }
+
+    .shareLink {
+      padding: calcVW(16);
+      border-radius: calcVW(8);
+      border: 1px solid rgba(102, 108, 113, .2);
+    }
+  }
+
   .bottomBlock {
 
     .h1Title {
@@ -125,6 +173,19 @@
       width: calcVWL(1280);
     }
 
+
+  .shareButtons {
+    row-gap: calcVWL(16);
+
+    .title {
+      font-size: calcVWL(24);
+    }
+
+    button {
+      padding: calcVWL(16);
+      border-radius: calcVWL(8);
+    }
+  }
     .bottomBlock {
       .h1Title {
         @include font-style(calcVWL(48), variables.$fw-400, normal);
@@ -223,6 +284,19 @@
   @media (max-width: 1024px) {
     .content {
       width: calcVWT(928);
+    }
+
+    .shareButtons {
+      row-gap: calcVWT(16);
+  
+      .title {
+        font-size: calcVWT(24);
+      }
+  
+      button {
+        padding: calcVWT(16);
+        border-radius: calcVWT(8);
+      }
     }
 
     .bottomBlock {
@@ -327,6 +401,19 @@
   @media (max-width: 576px) {
     .content {
       width: calcVWM(343);
+    }
+
+    .shareButtons {
+      row-gap: calcVWM(16);
+  
+      .title {
+        font-size: calcVWM(24);
+      }
+  
+      button {
+        padding: calcVWM(16);
+        border-radius: calcVWM(8);
+      }
     }
 
     .bottomBlock {
