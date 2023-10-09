@@ -1,4 +1,4 @@
-import { memo, useContext, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -20,6 +20,8 @@ const PortfolioItem = () => {
     useContext(BreadcrumbContext);
   const { id } = useRouter().query;
   const router = useRouter();
+  const itemDescription = useRef(null)
+  const [padding, setPadding] = useState(1);
   const handleClickDiscuss = () => {
     router.push(`/discuss-project`);
   };
@@ -69,6 +71,15 @@ const PortfolioItem = () => {
     return copyArr.slice(0, numberOfValues);
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (itemDescription?.current) {
+        const dif = (660 / (1280 / itemDescription.current.offsetWidth) - itemDescription.current.children[1].children[0].children[0].clientHeight) * (2.3 / (1280 / itemDescription.current.offsetWidth))
+        setPadding(dif > 110 ? 110 : dif)
+      }
+    }, 2000)
+  }, [itemDescription])
+
   return (
     <Row className={styles.profilePage}>
       <SeoCard
@@ -81,7 +92,12 @@ const PortfolioItem = () => {
       />
       <HomeMainWithImage className={"portfolioItem"}>
         <Row className={styles.content}>
-          <Row className={styles.itemDescription}>
+          <Row className={styles.itemDescription}
+            style={{
+              ...(padding >= 0 ?
+                { paddingTop: padding / 32 + 'vw' } : {})
+            }}
+            ref={itemDescription}>
             <Col className={styles.imageCard}>
               {postPortfolioApiData?.webp_image && (
                 <Image
@@ -97,7 +113,7 @@ const PortfolioItem = () => {
                 h1={true}
                 data={{
                   title: postPortfolioApiData?.title,
-                  firstSubtitle: postPortfolioApiData?.description,
+                  firstSubtitle: postPortfolioApiData?.description + postPortfolioApiData?.description.slice(0, 200),
                 }}
                 className={"prtfolioItem"}
               />
