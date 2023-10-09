@@ -9,6 +9,11 @@ import { useDispatch, useSelector } from "react-redux";
 import ContactForm from "../contactForm/ContactForm";
 import earth from "../../../assets/img/main-bg-careers.png";
 import teamMember from "../../../assets/img/teamMember.png";
+import user1 from "../../../assets/img/user1.png";
+import user2 from "../../../assets/img/user2.png";
+import user3 from "../../../assets/img/user3.png";
+import user4 from "../../../assets/img/user4.png";
+import user5 from "../../../assets/img/user5.png";
 import worldMap from "../../../assets/img/career-world-pam.png";
 import { ReversedAboutUs } from "../reversedAboutUs";
 import ModalWrapper from "../../molecules/Modal/Modal";
@@ -46,12 +51,12 @@ const Careers = () => {
             {
               name: "Marvel Alina ",
               position: "UX/UI Designer",
-              image: teamMember,
+              image: user1,
             },
             {
               name: "Marvel Alina ",
               position: "UX/UI Designer",
-              image: teamMember,
+              image: user2,
             },
           ],
           about: {
@@ -64,12 +69,12 @@ const Careers = () => {
             {
               name: "Marvel Alina ",
               position: "UX/UI Designer",
-              image: teamMember,
+              image: user3,
             },
             {
               name: "Marvel Alina ",
               position: "UX/UI Designer",
-              image: teamMember,
+              image: user4,
             },
           ],
           about: {

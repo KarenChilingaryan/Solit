@@ -106,6 +106,9 @@
       .weKnowSection {
         margin: calcVWT(64) 0;
       }
+      .contactUsWrapper {
+        margin: calcVW(496) 0 0;
+      }
     }
     @media (max-width: 576px) {
       width: calcVWM(343);
@@ -130,7 +133,7 @@
         margin: 0;
       }
       .secondInfo {
-        margin: calcVWM(128) 0 calcVWM(32);
+        margin: calcVWM(128) 0 0;
         .secondTitle {
           @include font-style(calcVWM(36), variables.$fw-500, calcVWM(43));
         }

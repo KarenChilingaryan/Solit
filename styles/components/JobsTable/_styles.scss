@@ -53,6 +53,9 @@
             @include font-style(calcVWT(20), variables.$fw-500, calcVWT(24));
           }
         }
+        :global(.ant-table-cell:last-child) {
+          width: calcVWT(145) !important;
+        }
       }
     }
     @media (max-width: 576px) {
@@ -62,6 +65,7 @@
             @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24));
           }
           :global(.ant-table-cell) {
+            height: calcVWM(80) !important;
             display: none;
           }
           :global(.ant-table-cell):last-of-type {
@@ -91,6 +95,9 @@
           :global(.ant-table-row) {
             height: calcVWM(96) !important;
           }
+        }
+        :global(.ant-table-cell:last-child) {
+          width: unset !important;
         }
       }
     }
