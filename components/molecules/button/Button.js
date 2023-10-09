@@ -40,11 +40,11 @@ const Button = ({
         await emailLetsTalkApi.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-      setOpen(false)
+      setOpen(false);
       setTimeout(() => {
-        setOpenSuccess(false)
-      }, 3000)
-    } catch { }
+        setOpenSuccess(false);
+      }, 3000);
+    } catch {}
   };
 
   const handleResize = () => {
@@ -77,14 +77,14 @@ const Button = ({
         type={type}
         {...(onClick
           ? {
-            onClick: (e) => {
-              if (text == "Let’s talk") {
-                setOpen(true);
-              } else {
-                onClick(e);
-              }
-            },
-          }
+              onClick: (e) => {
+                if (text == "Let’s talk") {
+                  setOpen(true);
+                } else {
+                  onClick(e);
+                }
+              },
+            }
           : {})}
       >
         {text}
@@ -93,7 +93,13 @@ const Button = ({
       {text == "Let’s talk" && (
         <ModalWrapper
           open={open}
-          width={isTablet <= 1024 && isTablet > 576 ? "52vw" : isTablet > 1024 && isTablet <= 1440 ? "37vw" : "28vw"}
+          width={
+            isTablet <= 1024 && isTablet > 576
+              ? "52vw"
+              : isTablet > 1024 && isTablet <= 1440
+              ? "37vw"
+              : "28vw"
+          }
           setOpen={setOpen}
           style={styles.modal}
         >

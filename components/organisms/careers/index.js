@@ -20,23 +20,30 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 import ModalForm from "../../molecules/modalForm/ModalForm";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import SuccessModal from "../successModal/SuccessModal";
+import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";
+
 
 import styles from "./careers.module.scss";
 
 const Careers = () => {
-  const [openSuccess, setOpenSuccess] = useState(false)
+  const [openSuccess, setOpenSuccess] = useState(false);
   const [openData, setOpenData] = useState(null);
   const [data, setData] = useState([]);
-  const dispatch = useDispatch()
+  const [isMobile, setIsMobile] = useState(false);
+  const dispatch = useDispatch();
 
   const careersJobOpeningApi = useSelector(
     (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
   );
   const postsTextCareersAboutUsApi = useSelector(
-    (state) => state?.postsTextCareersAboutUsApi?.queries?.["careersAbout(undefined)"]?.data
+    (state) =>
+      state?.postsTextCareersAboutUsApi?.queries?.["careersAbout(undefined)"]
+        ?.data
   );
   const postsTextCareersColourfulApi = useSelector(
-    (state) => state?.postsTextCareersColourfulApi?.queries?.["careersAbout(undefined)"]?.data
+    (state) =>
+      state?.postsTextCareersColourfulApi?.queries?.["careersAbout(undefined)"]
+        ?.data
   );
 
   // const handleClick = (id) => {
@@ -44,7 +51,6 @@ const Careers = () => {
   // };
   useEffect(() => {
     if (postsTextCareersAboutUsApi) {
-
       const data = [
         {
           users: [
@@ -61,7 +67,7 @@ const Careers = () => {
           ],
           about: {
             title: "About us",
-            description: postsTextCareersAboutUsApi.about_us
+            description: postsTextCareersAboutUsApi.about_us,
           },
         },
         {
@@ -79,13 +85,13 @@ const Careers = () => {
           ],
           about: {
             title: "Our Team",
-            description: postsTextCareersAboutUsApi.our_team
+            description: postsTextCareersAboutUsApi.our_team,
           },
         },
       ];
-      setData(data)
+      setData(data);
     }
-  }, [postsTextCareersAboutUsApi])
+  }, [postsTextCareersAboutUsApi]);
 
   const onSubmit = async (data) => {
     const formData = new FormData();
@@ -96,20 +102,37 @@ const Careers = () => {
       const res = await dispatch(
         await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
       );
-      setOpenSuccess(true)
-    } catch {
+      setOpenSuccess(true);
+    } catch {}
+  };
 
-    }
-  }
+  const handleResize = () => {
+    setIsMobile(window.innerWidth); // Adjust the threshold as per your requirements
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">
       <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
       <Row className={styles.content}>
         <Row className={styles.pageHeader}>
-          <h1 className={styles.title} style={{ margin: 0 }}>{postsTextCareersColourfulApi?.title}</h1>
+          <h1 className={styles.title} style={{ margin: 0 }}>
+            {postsTextCareersColourfulApi?.title}
+          </h1>
           <Row className={styles.subTitle}>
-            <Col>{postsTextCareersColourfulApi?.default_text?.replace(postsTextCareersColourfulApi.painted_text, '')}</Col>
+            <Col>
+              {postsTextCareersColourfulApi?.default_text?.replace(
+                postsTextCareersColourfulApi.painted_text,
+                ""
+              )}
+            </Col>
             <Col>{postsTextCareersColourfulApi?.painted_text}</Col>
           </Row>
           <Row className={styles.info}>
@@ -131,11 +154,21 @@ const Careers = () => {
           ))}
         </div>
         <div className={styles.secondInfo}>
-          <div className={styles.secondTitle}>{careersJobOpeningApi?.data_text[0].title}</div>
-          <div className={styles.secondDescription} dangerouslySetInnerHTML={{ __html: careersJobOpeningApi?.data_text[0].description || "" }} />
+          <div className={styles.secondTitle}>
+            {careersJobOpeningApi?.data_text[0].title}
+          </div>
+          <div
+            className={styles.secondDescription}
+            dangerouslySetInnerHTML={{
+              __html: careersJobOpeningApi?.data_text[0].description || "",
+            }}
+          />
         </div>
         <Row className={styles.jobTable}>
-          <JobsTable data={careersJobOpeningApi?.data_list} setOpenData={setOpenData} />
+          <JobsTable
+            data={careersJobOpeningApi?.data_list}
+            setOpenData={setOpenData}
+          />
         </Row>
         <Row className={styles.weKnowSection}>
           <WhatToKnow
@@ -149,8 +182,19 @@ const Careers = () => {
           <ContactForm />
         </Row>
       </Row>
-      <ModalWrapper open={!!openData} width={"66vw"} setOpen={setOpenData}>
-        <ModalForm data={openData} from={'apply'} onSubmit={onSubmit} />
+      <ModalWrapper
+        open={!!openData}
+        width={
+          isMobile <= 1024 && isMobile > 576
+            ? "52vw"
+            : isMobile > 1024 && isMobile <= 1440
+            ? "37vw"
+            : "28vw"
+        }
+        setOpen={setOpenData}
+      >
+        <ModalApplyNowForm/>
+        {/* <ModalApplyNowForm data={openData} from={"apply"} onSubmit={onSubmit} /> */}
       </ModalWrapper>
     </HomeMainWithImage>
   );

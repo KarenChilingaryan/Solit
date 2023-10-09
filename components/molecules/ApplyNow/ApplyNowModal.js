@@ -5,10 +5,10 @@ import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 
-import styles from "./LetsTalkModal.module.scss";
+import styles from "./ApplyNowModal.module.scss";
 import { Upload } from "antd";
 
-const ModalLetsTalkForm = ({
+const ModalApplyNowForm = ({
   title,
   style = {},
   data,
@@ -86,33 +86,56 @@ const ModalLetsTalkForm = ({
             />
           </FormItem>
           <FormItem
-            name="from_email"
+            name="project_manager"
             rules={[
               {
-                type: "email",
-                message: "The input is not a valid Email",
-              },
-              {
                 required: true,
-                message: "Email is required",
+                message: "Project manager is required",
               },
             ]}
           >
             <FloatInput
-              label="Your email address"
-              placeholder="Your email address"
-              name="from_email"
+              label="Position"
+              placeholder="Project manager"
+              name="project_manager"
               required={true}
             />
           </FormItem>
-          <FormItem name="phone_number">
+          <FormItem name="level">
             <FloatInput
-              label="Phone number"
-              placeholder="Phone number"
-              name="phone_number"
+              label="Level"
+              placeholder="Level"
+              name="level"
               type="number"
               required={true}
               min={0}
+            />
+          </FormItem>
+
+          <FormItem name="Link to LinkedIn">
+            <FloatInput
+              label="Linkedin"
+              placeholder="Link to LinkedIn"
+              name="linkedin"
+              type="number"
+              required={true}
+              min={0}
+              suffix={
+                <Image className={styles.suffix} src={upload} alt="image" />
+              }
+            />
+          </FormItem>
+          <FormItem name="Portfolio">
+            <FloatInput
+              label="Portfolio"
+              placeholder="Link to Github/Portfolio"
+              name="Portfolio"
+              type="number"
+              required={true}
+              min={0}
+              suffix={
+                <Image className={styles.suffix} src={upload} alt="image" />
+              }
             />
           </FormItem>
           <FormItem
@@ -139,8 +162,12 @@ const ModalLetsTalkForm = ({
             </Upload>
           </FormItem>
 
-          <FormItem name="comment">
-            <FloatInput label="Comment" placeholder="Comment" name="comment" />
+          <FormItem name="Cover letter">
+            <FloatInput
+              label="Cover letter"
+              placeholder="Cover letter"
+              name="cover_latter"
+            />
           </FormItem>
 
           <FormItem
@@ -179,4 +206,4 @@ const ModalLetsTalkForm = ({
   );
 };
 
-export default memo(ModalLetsTalkForm);
+export default memo(ModalApplyNowForm);
