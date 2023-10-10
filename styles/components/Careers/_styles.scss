@@ -8,9 +8,11 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+
     .aboutContent {
       @include flex(space-between, center, column);
     }
+
     .pageHeader {
       display: flex;
       flex-direction: column;
@@ -41,27 +43,30 @@
         @include font-style(calcVW(24), variables.$fw-400, calcVW(32));
       }
     }
+
     .secondInfo {
       text-align: center;
       display: flex;
       flex-direction: column;
       row-gap: calcVW(32);
       margin: calcVW(320) 0 calcVW(32) 0;
+
       .secondTitle {
-        @include font-style(
-          getCareersSizes(content-second-title-fz),
+        @include font-style(getCareersSizes(content-second-title-fz),
           variables.$fw-400,
-          getCareersSizes(content-second-title-lh)
-        );
+          getCareersSizes(content-second-title-lh));
       }
+
       .secondDescription {
-        text-align: center;
-        @include font-style(
-          getWhatToKnowSizes(content-second-description-fz),
-          variables.$fw-400,
-          getWhatToKnowSizes(content-second-description-lh),
-          #fff
-        );
+        p {
+          text-align: center;
+          margin-bottom: calcVW(8);
+
+          @include font-style(calcVW(24),
+            variables.$fw-400,
+            calcVW(24),
+            #fff);
+        }
       }
     }
 
@@ -72,82 +77,116 @@
     .contactUsWrapper {
       margin: calcVW(496) 0 calcVW(424);
     }
+
     .worldMap {
       width: 100%;
       height: 100%;
       margin: calcVW(100) 0;
     }
+
     @media (max-width: 1024px) {
       width: calcVWT(928);
+
       .pageHeader {
         max-width: calcVWT(840);
         margin: 0 auto;
+
         .title {
           @include font-style(calcVWT(36), variables.$fw-400, calcVWT(43));
         }
+
         .subTitle {
           @include font-style(calcVWT(32), variables.$fw-400, calcVWT(39));
         }
+
         .info {
           @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
         }
       }
+
       .secondInfo {
         .secondTitle {
           @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43));
         }
+
         .secondDescription {
-          @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32));
+          p {
+            margin-bottom: calcVWT(8);
+            @include font-style(calcVWT(24),
+              variables.$fw-400,
+              calcVWT(24),
+              #fff);
+          }
         }
       }
-      .jobTable{
+
+      .jobTable {
         width: 100%;
       }
+
       .weKnowSection {
         margin: calcVWT(64) 0;
       }
+
       .contactUsWrapper {
         margin: calcVW(496) 0 0;
       }
     }
+
     @media (max-width: 576px) {
       width: calcVWM(343);
+
       .pageHeader {
         display: flex;
         gap: calcVWM(32);
         max-width: calcVWM(840);
         margin: 0 auto;
+
         .title {
           @include font-style(calcVWM(36), variables.$fw-400, calcVWM(43));
         }
+
         .subTitle {
           @include font-style(calcVWM(36), variables.$fw-700, calcVWM(43));
           justify-content: center;
         }
+
         .info {
           @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
         }
       }
 
-      .pageHeader > div {
+      .pageHeader>div {
         margin: 0;
       }
+
       .secondInfo {
         margin: calcVWM(128) 0 0;
+
         .secondTitle {
           @include font-style(calcVWM(36), variables.$fw-500, calcVWM(43));
         }
+
         .secondDescription {
-          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
           margin-top: calcVWM(32);
+          p {
+            margin-bottom: calcVWM(8);
+            @include font-style(calcVWM(24),
+              variables.$fw-400,
+              calcVWM(24),
+              #fff);
+          }
         }
       }
+
       .weKnowSection {
         margin: calcVWM(64) 0;
       }
+
       .contactUsWrapper {
         margin: calcVWM(64) 0 0;
       }
+
       .worldMap {
         margin: calcVWM(104) 0 calcVWM(96);
       }

@@ -6,68 +6,88 @@
     div:last-of-type {
       margin-bottom: calcVW(-192);
     }
+
+    @media (max-width: 1024px) {
+      div:last-of-type {
+        margin-bottom: calcVWT(-190);
+      }
+    }
+
     @media (max-width: 576px) {
       div:first-of-type {
         margin-top: calcVWM(-90);
       }
+
       div:last-of-type {
         margin-bottom: calcVWM(-90);
       }
     }
   }
+
   .block {
     width: 100%;
     @include flex(space-between, center);
+
     .users {
       @include flex(space-between, center);
       width: getReversedAboutUsSizes(users-width);
     }
   }
+
   .blockReversed {
     flex-direction: row-reverse;
   }
+
   @media (max-width: 1024px) {
     .block {
       width: 100%;
+
       .users {
         width: calcVWT(448);
         height: calcVWT(220);
       }
     }
+
     .block:last-of-type {
       align-items: flex-start;
     }
 
     .careers_block {
       flex-direction: column;
+
       .users {
-        height: calcVWT(400);
+        height: calcVWT(437);
         width: 100%;
         margin: 0;
         justify-content: center;
         column-gap: calcVWT(32);
       }
     }
+
     .careers_blockReversed {
       flex-direction: column-reverse;
     }
   }
+
   @media (max-width: 576px) {
     .block {
       width: 100%;
       align-items: flex-end;
       flex-direction: column;
+
       .users {
         width: 100%;
         height: calcVWM(180);
       }
     }
+
     .careers_block {
       .users {
-        height: calcVWM(428);
+        height: calcVWM(460);
         justify-content: space-between;
       }
     }
+
     .careers_blockReversed {
       flex-direction: column-reverse;
     }

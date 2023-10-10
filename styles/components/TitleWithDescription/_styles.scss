@@ -70,11 +70,11 @@
       padding: 0 calcVWM(16) calcVWM(16) calcVWM(16);
       height: max-content;
       .title {
-        @include font-style(calcVWM(20), variables.$fw-500, calcVWM(24));
+        @include font-style(calcVWM(36), variables.$fw-500, normal);
         margin-bottom: calcVWM(14) !important;
       }
       .description {
-        @include font-style(calcVWM(14), variables.$fw-400, calcVWM(20));
+        @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
         margin-bottom: calcVWM(20) !important;
       }
     }
