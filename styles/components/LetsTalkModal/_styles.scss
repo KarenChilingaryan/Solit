@@ -105,6 +105,15 @@
       position: relative;
       z-index: 1;
 
+      .inputWithIcon {
+        label {
+          left: calcVW(32);
+        }
+        input {
+          padding-left: calcVW(36);
+        }
+      }
+
       .uploadAntd {
         width: 100%;
 

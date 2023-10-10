@@ -4,7 +4,8 @@ import Image from "next/image";
 import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
-
+import linkedin from "../../../assets/img/icons/u_linkedin.svg"
+import u_link from "../../../assets/img/icons/u_link-alt.svg"
 import styles from "./ApplyNowModal.module.scss";
 import { Upload } from "antd";
 
@@ -21,15 +22,14 @@ const ModalApplyNowForm = ({
   const [file, setFile] = useState(null);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
 
-  const submitForm = (values, data) => {
+  const submitForm = (values) => {
     const formData = {
       ...values,
-      ...(data ? data : {}),
-      [from == "apply" ? "file_cv" : "file_document"]: file,
+      ["file_document"]: file,
     };
     onSubmit(formData);
-    setFile(null);
-    form.resetFields();
+    // setFile(null);
+    // form.resetFields();
   };
 
   useEffect(() => {
@@ -106,35 +106,35 @@ const ModalApplyNowForm = ({
               label="Level"
               placeholder="Level"
               name="level"
-              type="number"
+              type="text"
               required={true}
               min={0}
             />
           </FormItem>
 
-          <FormItem name="Link to LinkedIn">
+          <FormItem name="linkedin" className={styles.inputWithIcon}>
             <FloatInput
               label="Linkedin"
               placeholder="Link to LinkedIn"
               name="linkedin"
-              type="number"
+              type="text"
               required={true}
               min={0}
               suffix={
-                <Image className={styles.suffix} src={upload} alt="image" />
+                <Image className={styles.suffix} src={linkedin} alt="image" />
               }
             />
           </FormItem>
-          <FormItem name="Portfolio">
+          <FormItem name="portfolio" className={styles.inputWithIcon}>
             <FloatInput
               label="Portfolio"
               placeholder="Link to Github/Portfolio"
-              name="Portfolio"
-              type="number"
+              name="portfolio"
+              type="text"
               required={true}
               min={0}
               suffix={
-                <Image className={styles.suffix} src={upload} alt="image" />
+                <Image className={styles.suffix} src={u_link} alt="image" />
               }
             />
           </FormItem>
@@ -162,7 +162,7 @@ const ModalApplyNowForm = ({
             </Upload>
           </FormItem>
 
-          <FormItem name="Cover letter">
+          <FormItem name="cover_latter">
             <FloatInput
               label="Cover letter"
               placeholder="Cover letter"

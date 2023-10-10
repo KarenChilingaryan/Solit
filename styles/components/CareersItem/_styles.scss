@@ -165,6 +165,23 @@
       p {
         width: calcVW(840);
       }
+
+      .responsibilities {
+        margin-top: calcVW(-2);
+      }
+    }
+
+    .secondDescriptionLast {
+      margin-top: calcVW(32);
+
+      ul {
+        padding-left: calcVW(20);
+        margin-top: calcVW(32);
+      }
+
+      p {
+        margin: 0;
+      }
     }
 
   }
@@ -278,8 +295,20 @@
         p {
           width: calcVWL(840);
         }
+
+        .responsibilities {
+          margin-top: calcVWL(-2);
+        }
       }
 
+      .secondDescriptionLast {
+        margin-top: calcVWL(32);
+
+        ul {
+          padding-left: calcVWL(20);
+          margin-top: calcVWL(32);
+        }
+      }
     }
   }
 
@@ -390,12 +419,25 @@
         p {
           width: auto;
         }
+
+        .responsibilities {
+          margin-top: calcVWT(-2);
+        }
       }
 
       .blockItems {
         margin-top: calcVWT(200);
         width: calc(100% + calcVWT(48));
         margin-left: calcVWT(-24);
+      }
+
+      .secondDescriptionLast {
+        margin-top: calcVWT(32);
+
+        ul {
+          padding-left: calcVWT(20);
+          margin-top: calcVWT(32);
+        }
       }
     }
   }
@@ -509,7 +551,10 @@
         p {
           width: auto;
           padding-left: calcVWM(10);
+        }
 
+        .responsibilities {
+          margin-top: calcVWM(-2);
         }
       }
 
@@ -517,6 +562,15 @@
         margin: 0;
         margin-top: calcVWM(150);
         width: 100%;
+      }
+
+      .secondDescriptionLast {
+        margin-top: calcVWM(32);
+
+        ul {
+          padding-left: calcVWM(20);
+          margin-top: calcVWM(32);
+        }
       }
     }
   }

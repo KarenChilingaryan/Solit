@@ -140,7 +140,7 @@ const CareersComponent = () => {
             />
             <div className={styles.backSection}>
               <div className={styles.back}>
-                <Link href="/blog">
+                <Link href="/careers">
                   <Image src={back} alt="back" /> <span>{`Back ${isMobile ? '' : 'to all jobs'}`}</span>
                 </Link>
               </div>
@@ -150,7 +150,7 @@ const CareersComponent = () => {
               </div>
             </div>
             <div className={styles.info}>
-              <span>Responsibilities</span>
+              <span className={styles.responsibilities}>Responsibilities</span>
               <div
                 className={styles.secondDescription}
                 dangerouslySetInnerHTML={{
@@ -159,7 +159,7 @@ const CareersComponent = () => {
               />
             </div>
             <div className={styles.info}>
-              <span>requirements</span>
+              <span className={styles.responsibilities}>Requirements</span>
               <div
                 className={styles.secondDescription}
                 dangerouslySetInnerHTML={{
@@ -168,7 +168,7 @@ const CareersComponent = () => {
               />
             </div>
             <div className={styles.info}>
-              <span>pluses</span>
+              <span className={styles.responsibilities}>Pluses</span>
               <div
                 className={styles.secondDescription}
                 dangerouslySetInnerHTML={{
@@ -177,7 +177,7 @@ const CareersComponent = () => {
               />
             </div>
             <div
-              className={styles.secondDescription}
+              className={`${styles.secondDescription} ${styles.secondDescriptionLast}`}
               dangerouslySetInnerHTML={{
                 __html: postsCareersJobOpeningApiData?.last_part,
               }}

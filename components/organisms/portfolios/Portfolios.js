@@ -15,7 +15,6 @@ const Portfolios = ({ data }) => {
   const [portfolioData, setPortfolioData] = useState(data);
   const containerRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  console.log(data, "54654");
   const handleFilter = (id) => {
     if (id === "All") {
       setPortfolioData(data);

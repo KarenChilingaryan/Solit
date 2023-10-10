@@ -73,7 +73,7 @@ const PortfolioItem = () => {
 
   useEffect(() => {
     if (postPortfolioApiData && itemDescription?.current) {
-      const dif = (660 / (1280 / itemDescription.current.offsetWidth) - itemDescription.current.children[1].children[0].children[0].clientHeight) * (2.3 / (1280 / itemDescription.current.offsetWidth))
+      const dif = (780 / (1280 / itemDescription.current.offsetWidth) - itemDescription.current.children[1].children[0].children[0].clientHeight) * (2.3 / (1280 / itemDescription.current.offsetWidth))
       setPadding(dif > 110 ? 110 : dif)
     }
   }, [itemDescription, postPortfolioApiData])
@@ -162,7 +162,7 @@ const PortfolioItem = () => {
               )}
           </Row>
           <Row className={styles.buttonWrapper}>
-            <Button icon={arrow} text="Go Back to Portfolio" onClick={() => handleClick('/careers', '')} />
+            <Button icon={arrow} text="Go Back to Portfolio" onClick={() => handleClick('/portfolio', '')} />
           </Row>
           <Row className={styles.knowMoreSection}>
             <WhatToKnow
