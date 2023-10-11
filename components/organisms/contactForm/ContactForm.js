@@ -238,6 +238,7 @@ const ContactForm = ({
             <div className={styles.recaptcha}>
               <ReCAPTCHA
                 ref={recaptchaRef}
+                style={{ width: "400px" }}
                 className={styles.recaptcha}
                 onChange={() =>
                   checkFormValidation(

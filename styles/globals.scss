@@ -207,7 +207,8 @@ textarea::-webkit-scrollbar-thumb {
 @media (max-width: 576px) {
   iframe {
     width: calcVWM(303) !important;
-    .rc-anchor-normal{
+    :global(.rc-anchor-normal)
+      {
       margin-right: calcVWM(50) !important;
     }
   }
