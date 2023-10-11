@@ -11,18 +11,26 @@
 
     .title {
       margin-top: calcVW(29);
-      @include font-style(calcVW(36), variables.$fw-400, calcVW(38));
+      @include font-style(calcVW(36), variables.$fw-500, calcVW(38));
     }
+
+    .titleLast {
+      @include font-style(calcVW(24), variables.$fw-500, normal);
+    }
+
     .description {
       @include font-style(calcVW(18), variables.$fw-400, calcVW(24));
     }
   }
+
   .fromCareersDescription {
     @include flex(flex-start, flex-start, column);
   }
+
   .descriptionTop {
     margin-top: calcVW(192);
   }
+
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     .block {
       width: calcVWL(624);
@@ -34,32 +42,48 @@
         @include font-style(calcVWL(36), variables.$fw-400, calcVWL(38));
         letter-spacing: 1.5px;
       }
+
+      .titleLast {
+        @include font-style(calcVWL(24), variables.$fw-500, normal);
+      }
+
       .description {
         @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
       }
     }
+
     .descriptionTop {
       margin-top: calcVWL(192);
     }
   }
+
   @media (max-width: 1024px) {
     .block {
       width: calcVWT(448);
       padding: calcVWT(32);
+
       .title {
         @include font-style(calcVWT(24), variables.$fw-500, calcVWT(29));
       }
+
       .description {
         @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24));
       }
     }
+
     .careers {
       width: 100%;
       padding: 0;
       margin: calcVWT(40) 0;
       height: max-content;
+
       .title {
         @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43));
+      }
+
+      .titleLast {
+        margin-top: calcVWT(50);
+        @include font-style(calcVWT(24), variables.$fw-500, normal);
       }
     }
   }
@@ -69,19 +93,31 @@
       width: 100%;
       padding: 0 calcVWM(16) calcVWM(16) calcVWM(16);
       height: max-content;
+
       .title {
         @include font-style(calcVWM(36), variables.$fw-500, normal);
         margin-bottom: calcVWM(14) !important;
       }
+
+      .titleLast {
+        @include font-style(calcVWM(24), variables.$fw-500, normal);
+      }
+
       .description {
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
         margin-bottom: calcVWM(20) !important;
       }
     }
+
     .careers {
       padding: 0;
+
       .title {
         margin-bottom: calcVWM(10) !important;
+      }
+
+      .titleLast {
+        @include font-style(calcVWM(24), variables.$fw-500, normal);
       }
     }
   }

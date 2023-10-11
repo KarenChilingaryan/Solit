@@ -28,8 +28,8 @@ const ModalApplyNowForm = ({
       ["file_document"]: file,
     };
     onSubmit(formData);
-    // setFile(null);
-    // form.resetFields();
+    setFile(null);
+    form.resetFields();
   };
 
   useEffect(() => {
@@ -52,16 +52,6 @@ const ModalApplyNowForm = ({
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
-      <Row className={styles.textWrapper}>
-        <Row className={styles.bigText}>
-          Please, leave your contact details to proceed
-        </Row>
-        <Row className={styles.smallText}>
-          Your personal data will be processed securely and wont be available to
-          third parties.
-        </Row>
-      </Row>
-
       <Form
         form={form}
         onFinish={(values) => {
@@ -83,21 +73,42 @@ const ModalApplyNowForm = ({
               label="Your full name"
               placeholder="Your full name"
               required={true}
+              name="full_name"
             />
           </FormItem>
           <FormItem
-            name="project_manager"
+            name="from_email"
+            rules={[
+              {
+                type: "email",
+                message: "The input is not a valid Email",
+              },
+              {
+                required: true,
+                message: "Email is required",
+              },
+            ]}
+          >
+            <FloatInput
+              label="Your email address"
+              placeholder="Your email address"
+              name="from_email"
+              required={true}
+            />
+          </FormItem>
+          <FormItem
+            name="position"
             rules={[
               {
                 required: true,
-                message: "Project manager is required",
+                message: "Position is required",
               },
             ]}
           >
             <FloatInput
               label="Position"
-              placeholder="Project manager"
-              name="project_manager"
+              placeholder="Position"
+              name="position"
               required={true}
             />
           </FormItem>
@@ -112,11 +123,11 @@ const ModalApplyNowForm = ({
             />
           </FormItem>
 
-          <FormItem name="linkedin" className={styles.inputWithIcon}>
+          <FormItem name="link_to_linkedin" className={styles.inputWithIcon}>
             <FloatInput
               label="Linkedin"
               placeholder="Link to LinkedIn"
-              name="linkedin"
+              name="link_to_linkedin"
               type="text"
               required={true}
               min={0}
@@ -125,11 +136,11 @@ const ModalApplyNowForm = ({
               }
             />
           </FormItem>
-          <FormItem name="portfolio" className={styles.inputWithIcon}>
+          <FormItem name="link_to_github_or_portfolio" className={styles.inputWithIcon}>
             <FloatInput
               label="Portfolio"
               placeholder="Link to Github/Portfolio"
-              name="portfolio"
+              name="link_to_github_or_portfolio"
               type="text"
               required={true}
               min={0}
@@ -162,11 +173,11 @@ const ModalApplyNowForm = ({
             </Upload>
           </FormItem>
 
-          <FormItem name="cover_latter">
+          <FormItem name="cover_letter">
             <FloatInput
               label="Cover letter"
               placeholder="Cover letter"
-              name="cover_latter"
+              name="cover_letter"
             />
           </FormItem>
 

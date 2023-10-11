@@ -150,6 +150,7 @@ const Careers = () => {
               reversed={i % 2}
               fromCareers={true}
               className={"careers"}
+              last={i == data.length - 1}
             />
           ))}
         </div>
@@ -183,6 +184,7 @@ const Careers = () => {
         </Row>
       </Row>
       <ModalWrapper
+      classname={'modalApplyNowForm'}
         open={!!openData}
         width={
           isMobile <= 1024 && isMobile > 576

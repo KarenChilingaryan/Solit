@@ -15,30 +15,34 @@
     row-gap: calcVW(16);
 
     .title {
-      @include font-style(calcVW(24),
+      @include font-style(calcVW(18),
         variables.$fw-700,
         normal,
         variables.$black );
     }
 
+    .description {
+      font-size: calcVW(24);
+    }
+
     button {
       width: 100% !important;
 
-      &:nth-child(2) {
+      &:nth-child(3) {
         button {
           background-color: #0088cc !important;
           border-color: #0088cc !important;
         }
       }
 
-      &:nth-child(3) {
+      &:nth-child(4) {
         button {
           background-color: #25D366 !important;
           border-color: #25D366 !important;
         }
       }
 
-      &:nth-child(4) {
+      &:nth-child(5) {
         button {
           background-color: #0077b5 !important;
           border-color: #0077b5 !important;
@@ -54,6 +58,13 @@
       padding: calcVW(16);
       border-radius: calcVW(8);
       border: 1px solid rgba(102, 108, 113, .2);
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      img {
+        cursor: pointer;
+      }
     }
   }
 
@@ -196,6 +207,10 @@
       row-gap: calcVWL(16);
 
       .title {
+        font-size: calcVWL(18);
+      }
+
+      .description {
         font-size: calcVWL(24);
       }
 
@@ -321,6 +336,10 @@
       row-gap: calcVWT(16);
 
       .title {
+        font-size: calcVWT(18);
+      }
+
+      .description {
         font-size: calcVWT(24);
       }
 
@@ -451,6 +470,10 @@
       row-gap: calcVWM(16);
 
       .title {
+        font-size: calcVWM(18);
+      }
+
+      .description {
         font-size: calcVWM(24);
       }
 

@@ -53,7 +53,6 @@ const JobsTable = ({ data, setOpenData }) => {
         className={styles.table}
         pagination={false}
       />
-      ;
     </Row>
   );
 };

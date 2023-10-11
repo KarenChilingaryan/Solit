@@ -108,6 +108,7 @@
       .inputWithIcon {
         label {
           left: calcVW(32);
+          top: 0;
         }
         input {
           padding-left: calcVW(36);
@@ -203,6 +204,7 @@
       }
 
       :global(.ant-input-affix-wrapper) {
+        height: max-content;
         z-index: 0;
         background: transparent;
         border-bottom: 1px solid white;
@@ -223,7 +225,7 @@
         left: 0;
         top: 0;
         color: white;
-        bottom: 10px;
+        bottom: calcVW(10);
       }
 
       .uploadFile {
@@ -243,6 +245,7 @@
         flex-direction: column;
         gap: calcVW(32);
         width: 100%;
+        padding: calcVW(32);
 
         :global(.ant-form-item) {
           height: calcVW(48);
@@ -300,7 +303,7 @@
       :global(.ant-form-item-label) {
         position: absolute;
         left: 0;
-        top: 10px;
+        top: calcVW(10);
         color: #999;
         background-color: transparent;
         z-index: 10;
@@ -329,7 +332,7 @@
         }
 
         .ant-form-item-label>label {
-          font-size: 16px;
+          font-size: calcVW(16);
           color: #ffffff;
         }
 
@@ -418,6 +421,15 @@
       }
 
       .form {
+        .inputWithIcon {
+          label {
+            left: calcVWL(32);
+            top: calcVWT(0);
+          }
+          input {
+            padding-left: calcVWL(36);
+          }
+        }
         .uploadAntd {
           :global(.ant-input) {
             @include font-style(calcVWL(18),
@@ -497,13 +509,13 @@
         }
 
         :global(.ant-form-item-label) {
-          top: 10px;
+          top: calcVWL(10);
         }
 
 
         :global {
           .ant-form-item-label>label {
-            font-size: 16px;
+            font-size: calcVWL(16);
           }
         }
 
@@ -577,7 +589,15 @@
         width: 100%;
         width: calcVWT(410);
         max-width: calcVWT(410);
-
+        .inputWithIcon {
+          label {
+            left: calcVWT(32);
+            top: calcVWT(10);
+          }
+          input {
+            padding-left: calcVWT(36);
+          }
+        }
         .buttonWrapper {
           margin: auto;
         }
@@ -713,6 +733,7 @@
     }
 
     @media (max-width: 576px) {
+      
       .textWrapper {
         gap: calcVWM(16);
 
@@ -750,7 +771,16 @@
       .form {
         width: 100%;
         max-width: 100%;
-
+        .inputWithIcon {
+          label {
+            left: calcVWM(32);
+            // top: calcVWM(14) !important;
+            // bottom: calcVWM(14) !important;
+          }
+          input {
+            padding-left: calcVWM(36);
+          }
+        }
         .uploadAntd {
           :global(.ant-input) {
             @include font-style(calcVWM(18),

@@ -7,6 +7,8 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { Paragraph, Row, SeoCard } from "../../atoms";
 import imageBG from "../../../assets/img/main-bg-career-detail.png";
+import copyImage from "../../../assets/img/icons/copy-icon-25.png";
+
 import back from "../../../assets/img/icons/back.svg";
 import share from "../../../assets/img/icons/share.svg";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
@@ -96,22 +98,28 @@ const CareersComponent = () => {
     (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
   );
 
+  const copyText = () => {
+    navigator.clipboard.writeText(window.location.href);
+  }
+
   return (
     <div className={styles.careerPage}>
       <Modal open={openShareModal} onCancel={() => setOpenShareModal(false)} footer={<></>} className="share-careers">
         {socialData &&
           <div className={styles.shareButtons}>
             <Paragraph className={styles.title}>Share this job position</Paragraph>
+            <Paragraph className={styles.description}>{postsCareersJobOpeningApiData?.html_h1_tag}</Paragraph>
             <TelegramShareButton url={socialData.contact[2].link}>
-              <Button transparentBlue text="Share on telegram" />
+              <Button transparentBlue text="Share on telegram" icon={socialData.contact[2].logo} />
             </TelegramShareButton>
             <WhatsappShareButton url={socialData.contact[1].link}>
-              <Button transparentBlue text="Share on Whatsapp" />
+              <Button transparentBlue text="Share on Whatsapp" icon={socialData.contact[1].logo} />
             </WhatsappShareButton>
             <LinkedinShareButton url={socialData.contact[0].link}>
-              <Button transparentBlue text="Share on Linkedin" />
+              <Button transparentBlue text="Share on Linkedin" icon={socialData.contact[0].logo} />
             </LinkedinShareButton>
             <div className={styles.shareLink}>
+              <Image src={copyImage} width={20} height={20} onClick={() => { copyText() }} />
               {window?.location.href}
             </div>
           </div>

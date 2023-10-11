@@ -130,6 +130,11 @@ textarea::-webkit-scrollbar-thumb {
   }
 }
 
+.modalApplyNowForm {
+  width: calcVW(602) !important;
+}
+
+
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
   .ant-tooltip-inner {
     padding: calcVWL(24) calcVWL(30) calcVWL(14) calcVWL(30) !important;
@@ -200,6 +205,13 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 576px) {
+  iframe {
+    width: calcVWM(303) !important;
+    .rc-anchor-normal{
+      margin-right: calcVWM(50) !important;
+    }
+  }
+  
   .ant-tooltip-inner {
     padding: calcVWM(24) calcVWM(26) calcVWM(26) !important;
     border-radius: calcVWM(16) !important;
