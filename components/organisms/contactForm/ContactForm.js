@@ -252,7 +252,7 @@ const ContactForm = ({
             </FormItem>
             <div className={styles.recaptcha}>
               <ReCAPTCHA
-                size={isMobile ? "compact" : "normal"}
+                size={"normal"}
                 ref={recaptchaRef}
                 style={{ width: "400px" }}
                 className={styles.recaptcha}
