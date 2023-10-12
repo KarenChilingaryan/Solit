@@ -624,15 +624,6 @@
           margin-bottom: calcVWM(28);
           margin-left: calcVWM(10);
           margin-top: calcVWM(-9);
-
-          div {
-            max-width: 100%;
-            max-width: calcVWM(343) !important;
-            width: 100% !important;
-          }
-          :global(.rc-anchor) {
-            max-width: calcVWM(343);
-          }
         }
 
         .suffix {

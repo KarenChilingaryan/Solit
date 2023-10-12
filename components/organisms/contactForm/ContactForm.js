@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
 import Button from "../../molecules/button/Button";
@@ -89,6 +89,12 @@ const ContactForm = ({
     },
     fileList: file ? [file] : [],
   };
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      console.log(document.getElementById('rc-anchor-container'))
+    }, 6000)
+  }, [])
 
   return (
     <Col
@@ -237,6 +243,7 @@ const ContactForm = ({
             </FormItem>
             <div className={styles.recaptcha}>
               <ReCAPTCHA
+                size="normal"
                 ref={recaptchaRef}
                 style={{ width: "400px" }}
                 className={styles.recaptcha}
