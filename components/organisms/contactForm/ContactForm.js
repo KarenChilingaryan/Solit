@@ -27,6 +27,7 @@ const ContactForm = ({
   const recaptchaRef = useRef();
   const [openSuccess, setOpenSuccess] = useState(false);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // const recaptchaRef = useRef(null);
 
@@ -90,11 +91,19 @@ const ContactForm = ({
     fileList: file ? [file] : [],
   };
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      console.log(document.getElementById('rc-anchor-container'))
-    }, 6000)
-  }, [])
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 576); // Adjust the threshold as per your requirements
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  console.log(isMobile, 'isMobile');
 
   return (
     <Col
@@ -107,7 +116,7 @@ const ContactForm = ({
         style={{ ...(fromContactPage ? { paddingLeft: 0 } : {}) }}
       >
         {h1 ?
-          <h1 className={styles.title} style={{margin: 0}}>{data?.title}</h1> :
+          <h1 className={styles.title} style={{ margin: 0 }}>{data?.title}</h1> :
           <Row className={styles.title}>
             {data?.title || "Got a project in mind?"}
           </Row>
@@ -243,7 +252,7 @@ const ContactForm = ({
             </FormItem>
             <div className={styles.recaptcha}>
               <ReCAPTCHA
-                size="normal"
+                size={isMobile ? "compact" : "normal"}
                 ref={recaptchaRef}
                 style={{ width: "400px" }}
                 className={styles.recaptcha}
