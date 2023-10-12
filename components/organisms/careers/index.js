@@ -2,22 +2,18 @@ import { memo, useEffect, useState } from "react";
 import { Col, Row } from "../../atoms";
 import Image from "next/image";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import Button from "../../molecules/button/Button";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import JobsTable from "../../molecules/jobsTable/JobsTable";
 import { useDispatch, useSelector } from "react-redux";
 import ContactForm from "../contactForm/ContactForm";
 import earth from "../../../assets/img/main-bg-careers.png";
-import teamMember from "../../../assets/img/teamMember.png";
-import user1 from "../../../assets/img/user1.png";
-import user2 from "../../../assets/img/user2.png";
-import user3 from "../../../assets/img/user3.png";
-import user4 from "../../../assets/img/user4.png";
-import user5 from "../../../assets/img/user5.png";
+import user1 from "../../../assets/img/revers1.png";
+import user2 from "../../../assets/img/revers2.png";
+import user3 from "../../../assets/img/revers3.png";
+import user4 from "../../../assets/img/revers4.png";
 import worldMap from "../../../assets/img/career-world-pam.png";
 import { ReversedAboutUs } from "../reversedAboutUs";
 import ModalWrapper from "../../molecules/Modal/Modal";
-import ModalForm from "../../molecules/modalForm/ModalForm";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import SuccessModal from "../successModal/SuccessModal";
 import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";
@@ -57,12 +53,12 @@ const Careers = () => {
             {
               name: "Marvel Alina ",
               position: "UX/UI Designer",
-              image: user1,
+              image: user2,
             },
             {
               name: "Marvel Alina ",
               position: "UX/UI Designer",
-              image: user2,
+              image: user4,
             },
           ],
           about: {
@@ -75,12 +71,12 @@ const Careers = () => {
             {
               name: "Marvel Alina ",
               position: "UX/UI Designer",
-              image: user3,
+              image: user1,
             },
             {
               name: "Marvel Alina ",
               position: "UX/UI Designer",
-              image: user4,
+              image: user3,
             },
           ],
           about: {
