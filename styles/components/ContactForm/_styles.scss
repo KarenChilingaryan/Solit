@@ -126,6 +126,7 @@
       .recaptcha {
         margin-top: calcVW(-8);
         margin-bottom: calcVW(10.4);
+        max-width: 100%;
       }
 
       .uploadFile {
@@ -621,8 +622,8 @@
         }
 
         .recaptcha {
+          margin: 0 auto;          
           margin-bottom: calcVWM(28);
-          margin-left: calcVWM(10);
           margin-top: calcVWM(-9);
         }
 

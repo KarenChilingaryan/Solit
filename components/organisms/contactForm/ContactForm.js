@@ -250,11 +250,10 @@ const ContactForm = ({
                 I accept your Privacy Policy
               </Row>
             </FormItem>
-            <div className={styles.recaptcha}>
+            {/* <div className={styles.recaptcha}> */}
               <ReCAPTCHA
-                size={"normal"}
                 ref={recaptchaRef}
-                style={{ width: "400px" }}
+                style={{ width: "300px" }}
                 className={styles.recaptcha}
                 onChange={() =>
                   checkFormValidation(
@@ -265,7 +264,7 @@ const ContactForm = ({
                 onExpired={() => setDisabled(true)}
                 sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
               />
-            </div>
+            {/* </div> */}
           </Row>
 
           <Col className={styles.buttonWrapper}>

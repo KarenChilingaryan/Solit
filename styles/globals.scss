@@ -205,13 +205,6 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 576px) {
-  iframe {
-    width: calcVWM(303) !important;
-    :global(.rc-anchor-normal)
-      {
-      margin-right: calcVWM(50) !important;
-    }
-  }
   
   .ant-tooltip-inner {
     padding: calcVWM(24) calcVWM(26) calcVWM(26) !important;
