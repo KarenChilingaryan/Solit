@@ -10,11 +10,9 @@ import styles from "./ApplyNowModal.module.scss";
 import { Upload } from "antd";
 
 const ModalApplyNowForm = ({
-  title,
   style = {},
   data,
   onSubmit,
-  from = "apply",
   className,
   open,
 }) => {
@@ -49,6 +47,13 @@ const ModalApplyNowForm = ({
     },
     fileList: file ? [file] : [],
   };
+
+  useEffect(()=>{
+    if(data.position){
+      form.setFieldValue('position', data.position)
+      form.disabled
+    }
+  }, [data])
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
@@ -159,8 +164,9 @@ const ModalApplyNowForm = ({
               className={styles.uploadAntd}
             >
               <FloatInput
-                label={"Upload document"}
-                placeholder={"Upload document"}
+                required={true}
+                label={"Upload your CV"}
+                placeholder={"Upload your CV"}
                 name={"file_document"}
                 type="text"
                 disabled

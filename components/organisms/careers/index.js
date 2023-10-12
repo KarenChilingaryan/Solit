@@ -42,9 +42,6 @@ const Careers = () => {
         ?.data
   );
 
-  // const handleClick = (id) => {
-  //   router.push(`/careers/${id}`);
-  // };
   useEffect(() => {
     if (postsTextCareersAboutUsApi) {
       const data = [
@@ -99,7 +96,7 @@ const Careers = () => {
         await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-    } catch {}
+    } catch { }
   };
 
   const handleResize = () => {
@@ -179,20 +176,22 @@ const Careers = () => {
           <ContactForm />
         </Row>
       </Row>
-      <ModalWrapper
-      classname={'modalApplyNowForm'}
-        open={!!openData}
-        width={
-          isMobile <= 1024 && isMobile > 576
-            ? "52vw"
-            : isMobile > 1024 && isMobile <= 1440
-            ? "37vw"
-            : "28vw"
-        }
-        setOpen={setOpenData}
-      >
-        <ModalApplyNowForm data={openData} onSubmit={onSubmit}/>
-      </ModalWrapper>
+      {!!openData &&
+        <ModalWrapper
+          classname={'modalApplyNowForm'}
+          open={!!openData}
+          width={
+            isMobile <= 1024 && isMobile > 576
+              ? "52vw"
+              : isMobile > 1024 && isMobile <= 1440
+                ? "37vw"
+                : "28vw"
+          }
+          setOpen={setOpenData}
+        >
+          <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
+        </ModalWrapper>
+      }
     </HomeMainWithImage>
   );
 };

@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
 import Button from "../../molecules/button/Button";
@@ -27,7 +27,6 @@ const ContactForm = ({
   const recaptchaRef = useRef();
   const [openSuccess, setOpenSuccess] = useState(false);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   // const recaptchaRef = useRef(null);
 
@@ -90,20 +89,6 @@ const ContactForm = ({
     },
     fileList: file ? [file] : [],
   };
-
-  const handleResize = () => {
-    setIsMobile(window.innerWidth <= 576); // Adjust the threshold as per your requirements
-  };
-
-  useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  console.log(isMobile, 'isMobile');
 
   return (
     <Col
@@ -251,19 +236,19 @@ const ContactForm = ({
               </Row>
             </FormItem>
             {/* <div className={styles.recaptcha}> */}
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                style={{ width: "300px" }}
-                className={styles.recaptcha}
-                onChange={() =>
-                  checkFormValidation(
-                    setDisabled,
-                    recaptchaRef.current
-                  )
-                }
-                onExpired={() => setDisabled(true)}
-                sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
-              />
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              style={{ width: "300px" }}
+              className={styles.recaptcha}
+              onChange={() =>
+                checkFormValidation(
+                  setDisabled,
+                  recaptchaRef.current
+                )
+              }
+              onExpired={() => setDisabled(true)}
+              sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
+            />
             {/* </div> */}
           </Row>
 

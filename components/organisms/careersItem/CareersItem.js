@@ -13,13 +13,12 @@ import back from "../../../assets/img/icons/back.svg";
 import share from "../../../assets/img/icons/share.svg";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { postsCareersJobOpeningApi } from "../../../services/postsCareersJobOpeningApi";
-import ModalForm from "../../molecules/modalForm/ModalForm";
 import SuccessModal from "../../organisms/successModal/SuccessModal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 import { LinkedinShareButton, TelegramShareButton, WhatsappShareButton } from "react-share";
-import { Modal } from "antd";
+import { Modal, Tooltip } from "antd";
 import Button from "../../molecules/button/Button";
 
 import styles from "./careersItem.module.scss";
@@ -32,6 +31,7 @@ const CareersComponent = () => {
   const [openSuccess, setOpenSuccess] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [openShareModal, setOpenShareModal] = useState(false);
+  const [copy, setCopy] = useState('');
 
   const dispatch = useDispatch();
   const [postsCareersJobOpeningApiData, setPostsCareersJobOpeningApiData] =
@@ -49,7 +49,7 @@ const CareersComponent = () => {
   }, [id]);
 
   const findAndSetData = () => {
-    setOpenData(postsCareersJobOpeningApiData);
+    setOpenData({position: postsCareersJobOpeningApiData?.html_h1_tag});
   };
 
   const onSubmit = async (data) => {
@@ -91,8 +91,12 @@ const CareersComponent = () => {
     (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
   );
 
-  const copyText = () => {
-    navigator.clipboard.writeText(window.location.href);
+  const copyText = async () => {
+    await navigator.clipboard.writeText(window.location.href);
+    setCopy('copied!')
+    setTimeout(() => {
+      setCopy('')
+    }, 1000)
   }
 
   return (
@@ -100,8 +104,10 @@ const CareersComponent = () => {
       <Modal open={openShareModal} onCancel={() => setOpenShareModal(false)} footer={<></>} className="share-careers">
         {socialData &&
           <div className={styles.shareButtons}>
-            <Paragraph className={styles.title}>Share this job position</Paragraph>
-            <Paragraph className={styles.description}>{postsCareersJobOpeningApiData?.html_h1_tag}</Paragraph>
+            <div>
+              <Paragraph className={styles.title}>Share this job position</Paragraph>
+              <Paragraph className={styles.description}>{postsCareersJobOpeningApiData?.html_h1_tag}</Paragraph>
+            </div>
             <TelegramShareButton url={socialData.contact[2].link}>
               <Button transparentBlue text="Share on telegram" icon={socialData.contact[2].logo} />
             </TelegramShareButton>
@@ -112,6 +118,11 @@ const CareersComponent = () => {
               <Button transparentBlue text="Share on Linkedin" icon={socialData.contact[0].logo} />
             </LinkedinShareButton>
             <div className={styles.shareLink}>
+              {copy &&
+                <div className={styles.copyButtonTooltip}>
+                  {copy}
+                </div>
+              }
               <Image src={copyImage} width={20} height={20} onClick={() => { copyText() }} />
               {window?.location.href}
             </div>
