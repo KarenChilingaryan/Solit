@@ -20,7 +20,7 @@ const JobsTable = ({ data, setOpenData }) => {
       key: "department",
     },
     {
-      title: "Project",
+      title: "Level",
       dataIndex: "position",
       key: "position",
     },
