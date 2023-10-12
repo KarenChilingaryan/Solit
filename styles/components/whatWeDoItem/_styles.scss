@@ -59,7 +59,7 @@
     }
 
     .bottomBlock {
-      margin: calcVWL(256) 0;
+      margin: calcVWL(386) 0;
 
       .h1Title {
         @include font-style(calcVWL(48), variables.$fw-400, normal);
@@ -98,7 +98,7 @@
       }
 
       .bottomBlock {
-        margin-top: calcVWT(240);
+        margin-top: calcVWT(234);
 
         .h1Title {
           @include font-style(calcVWT(48), variables.$fw-400, normal);
@@ -137,7 +137,8 @@
     }
 
     .bottomBlock {
-      margin-top: calcVWT(240);
+      margin-top: calcVWT(234);
+      margin-bottom: calcVWT(128);
 
       .h1Title {
         @include font-style(calcVWT(48), variables.$fw-400, normal);
@@ -182,7 +183,7 @@
 
     .bottomBlock {
       margin-top: calcVWM(114);
-      margin-bottom: calcVWM(130);
+      margin-bottom: calcVWM(82);
 
       .h1Title {
         @include font-style(calcVWM(36), variables.$fw-400, normal);

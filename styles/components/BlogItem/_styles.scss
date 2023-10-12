@@ -10,7 +10,7 @@
   }
 
   .bottomBlock {
-    margin: calcVW(400) auto;
+    margin: calcVW(386) auto calcVW(256) auto;
     color: white;
 
     .h1Title {
@@ -55,7 +55,7 @@
     }
 
     .bottomBlock {
-      margin: calcVWL(400) auto;
+      margin: calcVWL(386) auto;
 
       .h1Title {
         @include font-style(calcVWL(48), variables.$fw-400, normal);
@@ -92,7 +92,8 @@
     }
 
     .bottomBlock {
-      margin-top: calcVWT(240);
+      margin-top: calcVWT(234);
+      margin-bottom: calcVWT(128);
 
       .h1Title {
         @include font-style(calcVWT(48), variables.$fw-400, normal);
@@ -101,6 +102,7 @@
       .title {
         @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43), #fff);
         margin-bottom: calcVWT(32) !important;
+        margin-top: calcVWT(192) !important;
       }
 
       .blockItemImage {
@@ -137,6 +139,7 @@
 
     .bottomBlock {
       margin-top: calcVWM(114);
+      margin-bottom: calcVWM(82);
 
       .h1Title {
         @include font-style(calcVWM(36), variables.$fw-400, normal);
@@ -151,6 +154,7 @@
       .title {
         @include font-style(calcVWM(36), variables.$fw-500, calcVWM(43), #fff);
         margin-bottom: calcVWM(32) !important;
+        margin-top: calcVWM(64)
       }
 
       .blockItemImage {

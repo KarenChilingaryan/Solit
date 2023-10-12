@@ -8,7 +8,7 @@ import { HomeMainWithImage } from "../HomeMainWithImage";
 import { Paragraph, Row, SeoCard } from "../../atoms";
 import imageBG from "../../../assets/img/main-bg-career-detail.png";
 import copyImage from "../../../assets/img/icons/copy-icon-25.png";
-
+import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";
 import back from "../../../assets/img/icons/back.svg";
 import share from "../../../assets/img/icons/share.svg";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
@@ -48,15 +48,8 @@ const CareersComponent = () => {
     }
   }, [id]);
 
-  const careersJobOpeningApi = useSelector(
-    (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
-  );
-
   const findAndSetData = () => {
-    const data = careersJobOpeningApi.data_list.find(
-      (el) => el.current_job_opening_detail == id
-    );
-    setOpenData(data);
+    setOpenData(postsCareersJobOpeningApiData);
   };
 
   const onSubmit = async (data) => {
@@ -201,8 +194,19 @@ const CareersComponent = () => {
             </Row>
           </div>
         </div>
-        <ModalWrapper open={!!openData} width={"66vw"} setOpen={setOpenData}>
-          <ModalForm openData={openData} from={"apply"} onSubmit={onSubmit} />
+        <ModalWrapper
+          classname={'modalApplyNowForm'}
+          open={!!openData}
+          width={
+            isMobile <= 1024 && isMobile > 576
+              ? "52vw"
+              : isMobile > 1024 && isMobile <= 1440
+                ? "37vw"
+                : "28vw"
+          }
+          setOpen={setOpenData}
+        >
+          <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
         </ModalWrapper>
       </HomeMainWithImage>
     </div>

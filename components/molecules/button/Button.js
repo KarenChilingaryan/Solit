@@ -87,8 +87,8 @@ const Button = ({
             }
           : {})}
       >
-        {icon && <Image src={icon} alt="image" width={18} height={18}/>}
         {text}
+        {icon && <Image src={icon} alt="image" width={18} height={18}/>}
       </button>
       {text == "Let’s talk" && (
         <ModalWrapper

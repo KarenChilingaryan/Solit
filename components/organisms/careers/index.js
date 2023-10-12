@@ -196,7 +196,6 @@ const Careers = () => {
         setOpen={setOpenData}
       >
         <ModalApplyNowForm data={openData} onSubmit={onSubmit}/>
-        {/* <ModalApplyNowForm data={openData} from={"apply"} onSubmit={onSubmit} /> */}
       </ModalWrapper>
     </HomeMainWithImage>
   );
