@@ -32,6 +32,10 @@
       }
     }
 
+    .infoSectionCareer {
+      width: calcVW(687);
+    }
+
     .formWrapper {
       width: 50%;
       padding: calcVW(32);
@@ -44,6 +48,7 @@
       justify-content: center;
       max-width: calcVW(406);
       gap: calcVW(32);
+      row-gap: calcVW(14);
       width: calcVW(410);
       position: relative;
       z-index: 1;
@@ -622,7 +627,7 @@
         }
 
         .recaptcha {
-          margin: 0 auto;          
+          margin: 0 auto;
           margin-bottom: calcVWM(28);
           margin-top: calcVWM(-9);
         }

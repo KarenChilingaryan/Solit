@@ -20,7 +20,8 @@ const ContactForm = ({
   style = {},
   data = null,
   fromContactPage = false,
-  h1 = false
+  h1 = false,
+  career = false
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
@@ -28,23 +29,6 @@ const ContactForm = ({
   const [openSuccess, setOpenSuccess] = useState(false);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
 
-  // const recaptchaRef = useRef(null);
-
-  // const props = {
-  //   name: "file",
-  //   accept: "application/pdf",
-  //   onRemove: (file) => {
-  //     const index = fileList.indexOf(file);
-  //     const newFileList = fileList.slice();
-  //     newFileList.splice(index, 1);
-  //     setFileList(newFileList);
-  //   },
-  //   beforeUpload(file) {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     setFile(file);
-  //   },
-  // };
   const dispatch = useDispatch();
 
   const submitForm = async (values) => {
@@ -97,7 +81,7 @@ const ContactForm = ({
       style={style}
     >
       <Col
-        className={styles.infoSection}
+        className={`${styles.infoSection} ${career && styles.infoSectionCareer}`}
         style={{ ...(fromContactPage ? { paddingLeft: 0 } : {}) }}
       >
         {h1 ?

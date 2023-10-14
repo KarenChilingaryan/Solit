@@ -136,6 +136,7 @@ textarea::-webkit-scrollbar-thumb {
 
 
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+
   .ant-tooltip-inner {
     padding: calcVWL(24) calcVWL(30) calcVWL(14) calcVWL(30) !important;
     border-radius: calcVWL(16) !important;
@@ -161,6 +162,10 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 1024px) {
+  .modalApplyNowForm {
+    width: calcVWT(602) !important;
+  }
+
   .ant-tooltip-inner {
     padding: calcVWT(24) calcVWT(30) calcVWT(14) calcVWT(30) !important;
     border-radius: calcVWT(16) !important;
@@ -205,7 +210,7 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 576px) {
-  
+
   .ant-tooltip-inner {
     padding: calcVWM(24) calcVWM(26) calcVWM(26) !important;
     border-radius: calcVWM(16) !important;
