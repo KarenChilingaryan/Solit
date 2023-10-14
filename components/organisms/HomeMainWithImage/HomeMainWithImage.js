@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { Paragraph, SeoCard } from "../../atoms";
-import rughtRow from "../../../assets/img/icons/u_arrow-up.svg";
+import rughtRowTop from "../../../assets/img/icons/u_arrow-up.svg";
+import rughtRow from "../../../assets/img/right.svg";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import { postsSeoFieldsApi } from "../../../services/postsSeoFieldsApi";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
@@ -268,7 +269,7 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
                     filter: 'invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)'
                   } : {}
                 }}
-                src={rughtRow}
+                src={rughtRowTop}
                 className={styles.image}
                 width={80}
                 height={80}
