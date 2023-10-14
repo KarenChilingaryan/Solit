@@ -49,7 +49,7 @@ const CareersComponent = () => {
   }, [id]);
 
   const findAndSetData = () => {
-    setOpenData({position: postsCareersJobOpeningApiData?.html_h1_tag});
+    setOpenData({ role: postsCareersJobOpeningApiData?.html_h1_tag });
   };
 
   const onSubmit = async (data) => {
@@ -205,20 +205,22 @@ const CareersComponent = () => {
             </Row>
           </div>
         </div>
-        <ModalWrapper
-          classname={'modalApplyNowForm'}
-          open={!!openData}
-          width={
-            isMobile <= 1024 && isMobile > 576
-              ? "52vw"
-              : isMobile > 1024 && isMobile <= 1440
-                ? "37vw"
-                : "28vw"
-          }
-          setOpen={setOpenData}
-        >
-          <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
-        </ModalWrapper>
+        {openData &&
+          <ModalWrapper
+            classname={'modalApplyNowForm'}
+            open={!!openData}
+            width={
+              isMobile <= 1024 && isMobile > 576
+                ? "52vw"
+                : isMobile > 1024 && isMobile <= 1440
+                  ? "37vw"
+                  : "28vw"
+            }
+            setOpen={setOpenData}
+          >
+            <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
+          </ModalWrapper>
+        }
       </HomeMainWithImage>
     </div>
   );

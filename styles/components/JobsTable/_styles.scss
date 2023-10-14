@@ -24,6 +24,7 @@
 
       :global(.ant-table-tbody) {
         :global(.ant-table-cell) {
+          transition: 1.5s;
           border-bottom: none;
           @include font-style(calcVW(20), variables.$fw-500, calcVW(24));
         }

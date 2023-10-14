@@ -49,9 +49,8 @@ const ModalApplyNowForm = ({
   };
 
   useEffect(()=>{
-    if(data.position){
-      form.setFieldValue('position', data.position)
-      form.disabled
+    if(data.role){
+      form.setFieldValue('position', data.role)
     }
   }, [data])
 
