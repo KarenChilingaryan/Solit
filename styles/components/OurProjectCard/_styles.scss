@@ -322,27 +322,40 @@
         .positionSection {
           padding: calcVWL(16);
           height: calcVWL(76);
-          gap: calcVWL(16);
+
+          .name {
+            height: calcVWL(44)
+          }
         }
 
         .img {
           height: calcVWL(224);
         }
 
+        .blogDescription {
+          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
+        }
+
         &:hover {
+          height: calcVWL(400);
+
           .img {
             height: calcVWL(212);
           }
 
           .positionSection {
             height: calcVWL(188);
+            background: rgba(2, 13, 28, 0.73);
+            gap: calcVWL(15);
           }
 
           .blogDescription {
-            @include font-style(calcVWL(18),
-              variables.$fw-400,
-              calcVWL(24),
-              #fff);
+            gap: calcVWL(16);
+            height: calcVWL(96);
+          }
+
+          .stacks {
+            height: calcVWL(96);
           }
         }
       }
