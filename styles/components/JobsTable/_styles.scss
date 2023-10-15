@@ -24,6 +24,7 @@
 
       :global(.ant-table-tbody) {
         :global(.ant-table-cell) {
+          transition: 1s;
           border-bottom: none;
           @include font-style(calcVW(20), variables.$fw-500, calcVW(24));
         }
@@ -34,8 +35,8 @@
 
         :global(.ant-table-row) {
           cursor: pointer;
-          -webkit-transition: all 1.5s cubic-bezier(.4, 0, .2, 1);
-          transition: all 1.5s cubic-bezier(.4, 0, .2, 1);
+          -webkit-transition: all 1s cubic-bezier(.4, 0, .2, 1);
+          transition: all 1s cubic-bezier(.4, 0, .2, 1);
           box-shadow: 0;
 
           &:hover {

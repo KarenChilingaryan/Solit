@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { Paragraph, SeoCard } from "../../atoms";
+import rughtRowTop from "../../../assets/img/icons/u_arrow-up.svg";
 import rughtRow from "../../../assets/img/right.svg";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import { postsSeoFieldsApi } from "../../../services/postsSeoFieldsApi";
@@ -22,6 +23,8 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
     percent2: 0,
     percent4: 0
   })
+
+  console.log(className, 'className');
 
   const socialRef = useRef(null)
   const goToTop = useRef(null)
@@ -207,7 +210,7 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
               <div className={styles.site}>
                 <Image src={el.logo} className={styles.image} width={80} height={80} alt="image"
                   style={{
-                    ...(percents["percent" + i] && percents["percent" + i] + 25 > 0) ? {
+                    ...(className == 'portfolioItem' && percents["percent" + i] && percents["percent" + i] + 25 > 0) ? {
                       filter: 'invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)'
                     } : {}
                   }}
@@ -215,7 +218,7 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
                 <Paragraph className={styles.text} style={
                   {
                     ...(
-                      percents['percent' + i] ?
+                      className == 'portfolioItem' && percents['percent' + i] ?
                         {
                           backgroundImage: `linear-gradient(to right, black ${percents['percent' + i]}%, white ${percents['percent' + i]}%)`,
                           backgroundClip: 'text',
@@ -245,7 +248,7 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
                 style={
                   {
                     ...(
-                      percents['percent4'] ?
+                      className == 'portfolioItem' && percents['percent4'] ?
                         {
                           backgroundImage: `linear-gradient(to right, black ${percents['percent4']}%, white ${percents['percent4']}%)`,
                           backgroundClip: 'text',
@@ -261,11 +264,12 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
               >Go To Top</Paragraph>
               <Image
                 style={{
-                  ...(percents["percent4"] && percents["percent4"] - 125 > 0) ? {
+                  transform: 'rotate(90deg)',
+                  ...(className == 'portfolioItem' && percents["percent4"] && percents["percent4"] - 125 > 0) ? {
                     filter: 'invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)'
                   } : {}
                 }}
-                src={rughtRow}
+                src={rughtRowTop}
                 className={styles.image}
                 width={80}
                 height={80}

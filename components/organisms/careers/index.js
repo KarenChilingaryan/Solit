@@ -173,7 +173,7 @@ const Careers = () => {
           />
         </Row>
         <Row className={styles.contactUsWrapper}>
-          <ContactForm />
+          <ContactForm career={true} />
         </Row>
       </Row>
       {!!openData &&
