@@ -29,12 +29,10 @@
         display: flex;
         gap: 10px;
         align-items: center;
-        @include font-style(
-          getOurProjectCardSizes(team-member-position-fz),
+        @include font-style(getOurProjectCardSizes(team-member-position-fz),
           variables.$fw-700,
           getOurProjectCardSizes(team-member-position-lh),
-          #219fdb
-        );
+          #219fdb);
 
         img {
           width: calcVW(18);
@@ -100,21 +98,17 @@
           background: rgba(2, 13, 28);
 
           .name {
-            @include font-style(
-              getOurProjectCardSizes(project-name-hover-fz),
+            @include font-style(getOurProjectCardSizes(project-name-hover-fz),
               variables.$fw-700,
               getOurProjectCardSizes(project-name-hover-lh),
-              #fff
-            );
+              #fff);
           }
 
           .blogDescription {
-            @include font-style(
-              getOurProjectCardSizes(project-name-hover-fz),
+            @include font-style(getOurProjectCardSizes(project-name-hover-fz),
               variables.$fw-500,
               getOurProjectCardSizes(project-name-hover-lh),
-              #fff
-            );
+              #fff);
             text-align: start;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -125,7 +119,6 @@
 
           .stacks {
             transition: 0.4s;
-            height: calcVW(24);
             justify-content: center;
             gap: calcVW(25);
 
@@ -146,6 +139,7 @@
     .portfolio,
     .portfolioItem {
       width: calcVW(405);
+
       .positionSection {
         transition: 0.4s;
         height: calcVW(56);
@@ -174,14 +168,25 @@
       width: calcVW(405);
 
       .positionSection {
+        transition: 0.4s;
         padding: calcVW(16);
         height: calcVW(76);
         justify-content: flex-start;
-        gap: calcVW(16);
+        gap: calcVW(0);
         align-items: flex-start;
 
         .stacks {
+          transition: 0.3s;
           height: 0;
+        }
+
+        .name {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          height: calcVW(44)
         }
       }
 
@@ -190,24 +195,36 @@
       }
 
       .blogDescription {
+        transition: 0.4s;
         height: 0;
+        @include font-style(calcVW(18), variables.$fw-400, calcVW(24), #fff);
         overflow: hidden;
+        text-align: start;
       }
 
       &:hover {
+        height: calcVW(400);
+
         .img {
           height: calcVW(212);
         }
 
         .positionSection {
+          transition: 0.4s;
           height: calcVW(188);
           background: rgba(2, 13, 28, 0.73);
+          gap: calcVW(15);
         }
 
         .blogDescription {
-          height: auto;
-          overflow: hidden;
-          @include font-style(calcVW(18), variables.$fw-400, calcVW(24), #fff);
+          transition: 0.4s;
+          gap: calcVW(16);
+          height: calcVW(96);
+        }
+
+        .stacks {
+          transition: 0.4s;
+          height: calcVW(96);
         }
       }
     }
@@ -305,29 +322,40 @@
         .positionSection {
           padding: calcVWL(16);
           height: calcVWL(76);
-          gap: calcVWL(16);
+
+          .name {
+            height: calcVWL(44)
+          }
         }
 
         .img {
           height: calcVWL(224);
         }
 
+        .blogDescription {
+          @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #fff);
+        }
+
         &:hover {
+          height: calcVWL(400);
+
           .img {
             height: calcVWL(212);
           }
 
           .positionSection {
             height: calcVWL(188);
+            background: rgba(2, 13, 28, 0.73);
+            gap: calcVWL(15);
           }
 
           .blogDescription {
-            @include font-style(
-              calcVWL(18),
-              variables.$fw-400,
-              calcVWL(24),
-              #fff
-            );
+            gap: calcVWL(16);
+            height: calcVWL(96);
+          }
+
+          .stacks {
+            height: calcVWL(96);
           }
         }
       }
@@ -367,12 +395,10 @@
           }
 
           .name {
-            @include font-style(
-              calcVWT(18),
+            @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(24),
-              #fff
-            );
+              #fff);
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -395,12 +421,10 @@
           border-radius: 0 0 calcVWT(16) calcVWT(16);
 
           .name {
-            @include font-style(
-              calcVWT(18),
+            @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(24),
-              #fff
-            );
+              #fff);
           }
         }
       }
@@ -419,12 +443,10 @@
           border-radius: 0 0 calcVWT(16) calcVWT(16);
 
           .name {
-            @include font-style(
-              calcVWT(18),
+            @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(24),
-              #fff
-            );
+              #fff);
           }
         }
       }
@@ -438,23 +460,66 @@
         }
 
         .positionSection {
+          transition: 0.4s;
           padding: calcVWT(16);
-          height: calcVWT(76);
           justify-content: flex-start;
-          gap: calcVWT(16);
+          gap: calcVWT(0);
           align-items: flex-start;
+          height: calcVWT(98);
 
           .stacks {
             height: 0;
+            overflow: hidden;
           }
 
           .name {
-            @include font-style(
-              calcVWT(18),
+            height: calcVWT(70);
+            -webkit-line-clamp: 3;
+            @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(24),
-              #fff
-            );
+              #fff);
+            text-align: start;
+          }
+        }
+
+        .blogDescription {
+          @include font-style(calcVWT(18),
+            variables.$fw-500,
+            calcVWT(24),
+            #fff);
+        }
+
+        &:hover {
+          height: calcVWT(356);
+
+          .img {
+            transition: 0.4s;
+            height: calcVWT(142);
+          }
+
+          .positionSection {
+            transition: 0.3s;
+            padding: calcVWT(16);
+            gap: calcVWT(15);
+            background: rgba(2, 13, 28, 0.73);
+            height: calcVWT(214);
+
+            .name {
+              @include font-style(calcVWT(18),
+                variables.$fw-700,
+                calcVWT(24),
+                #fff);
+            }
+
+            .stacks {
+              height: calcVWT(96);
+            }
+          }
+
+          .blogDescription {
+            height: calcVWT(96);
+            overflow: hidden;
           }
         }
       }
@@ -519,43 +584,7 @@
           }
         }
 
-        .blogs {
-          height: calcVWT(400);
-
-          .img {
-            height: calcVWT(212);
-          }
-
-          .positionSection {
-            padding: calcVWT(16);
-            height: max-content;
-            background: rgba(2, 13, 28, 0.73);
-
-            .name {
-              @include font-style(
-                calcVWT(18),
-                variables.$fw-700,
-                calcVWT(24),
-                #fff
-              );
-            }
-
-            .stacks {
-              height: max-content;
-            }
-          }
-
-          .blogDescription {
-            height: auto;
-            overflow: hidden;
-            @include font-style(
-              calcVWT(18),
-              variables.$fw-400,
-              calcVWT(24),
-              #fff
-            );
-          }
-        }
+        .blogs {}
       }
     }
 
@@ -589,12 +618,10 @@
           height: calcVWM(32);
 
           .name {
-            @include font-style(
-              calcVWM(10),
+            @include font-style(calcVWM(10),
               variables.$fw-700,
               calcVWM(12),
-              #fff
-            );
+              #fff);
           }
 
           .stacks {
@@ -621,17 +648,16 @@
           height: calcVWM(30);
 
           .name {
-            @include font-style(
-              calcVWM(10),
+            @include font-style(calcVWM(10),
               variables.$fw-700,
               calcVWM(12),
-              #fff
-            );
+              #fff);
           }
         }
       }
 
       .blogs {
+
         width: 100%;
         height: calcVWM(300);
 
@@ -640,23 +666,62 @@
         }
 
         .positionSection {
+          transition: 0.4s;
           padding: calcVWM(16);
-          height: calcVWM(76);
-          justify-content: flex-start;
-          gap: calcVWM(16);
-          align-items: flex-start;
+          gap: calcVWM(0);
+          height: calcVWM(98);
 
           .stacks {
             height: 0;
+            overflow: hidden;
           }
 
           .name {
-            @include font-style(
-              calcVWM(18),
+            height: calcVWM(70);
+            -webkit-line-clamp: 3;
+            @include font-style(calcVWM(18),
               variables.$fw-700,
-              normal,
-              #fff
-            );
+              calcVWM(24),
+              #fff);
+          }
+        }
+
+        .blogDescription {
+          @include font-style(calcVWM(18),
+            variables.$fw-500,
+            calcVWM(24),
+            #fff);
+        }
+
+        &:hover {
+          height: calcVWM(380);
+
+          .img {
+            transition: 0.4s;
+            height: calcVWM(166);
+          }
+
+          .positionSection {
+            transition: 0.3s;
+            padding: calcVWM(16);
+            gap: calcVWM(15);
+            background: rgba(2, 13, 28, 0.73);
+            height: calcVWM(214);
+
+            .name {
+              @include font-style(calcVWM(18),
+                variables.$fw-700,
+                calcVWM(24),
+                #fff);
+            }
+
+            .stacks {
+              height: calcVWM(96);
+            }
+          }
+
+          .blogDescription {
+            height: calcVWM(96);
           }
         }
       }
@@ -700,43 +765,6 @@
           }
         }
 
-        .blogs {
-          height: calcVWM(380);
-
-          .img {
-            height: calcVWM(212);
-          }
-
-          .positionSection {
-            padding: calcVWM(16);
-            height: max-content;
-            background: rgba(2, 13, 28, 0.73);
-
-            .name {
-              @include font-style(
-                calcVWM(18),
-                variables.$fw-700,
-                calcVWM(24),
-                #fff
-              );
-            }
-
-            .stacks {
-              height: max-content;
-            }
-          }
-
-          .blogDescription {
-            height: auto;
-            overflow: hidden;
-            @include font-style(
-              calcVWM(18),
-              variables.$fw-400,
-              calcVWM(24),
-              #fff
-            );
-          }
-        }
       }
     }
   }
@@ -764,6 +792,7 @@
       }
 
       &:hover {
+
         .portfolio,
         .portfolioItem {
           .img {
@@ -807,12 +836,10 @@
             height: calcVWM(54) !important;
 
             .name {
-              @include font-style(
-                calcVWM(18) !important,
+              @include font-style(calcVWM(18) !important,
                 variables.$fw-700 !important,
                 calcVWM(22) !important,
-                #fff
-              );
+                #fff);
             }
           }
         }
@@ -851,37 +878,48 @@
     }
 
     .mainWrapper-blogs {
-      height: max-content !important;
+      // height: max-content !important;
+      // // transition: 0.4s;
+      // // margin-top: calcVWT(0) !important;
+      // // margin-bottom: calcVWT(0) !important;
 
-      .imageContainer {
-        .positionSection {
-          .name {
-            justify-content: flex-start;
-            text-align: start;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-          }
-        }
+      // //   margin-top: calcVWT(-50) !important;
+      // //   margin-bottom: calcVWT(-50) !important;
+      // // &:hover {
+      // //   transition: 0.4s;
+      // //   margin-top: calcVWT(-50) !important;
+      // //   margin-bottom: calcVWT(-50) !important;
+      // // }
+      // .imageContainer {
+
+      //   &:hover {
+      //     .positionSection {
+      //       .blogDescription {
+
+      //         text-align: start;
+      //         overflow: hidden;
+      //         text-overflow: ellipsis;
+      //         display: -webkit-box;
+      //         -webkit-line-clamp: 4;
+      //         -webkit-box-orient: vertical;
+      //       }
+      //     }
+      //   }
+      // }
+
+      transition: 0.4s;
+      height: calcVWT(300);
+
+      &:hover {
+        transition: 0.4s;
+        height: calcVWT(356);
+      }
+
+      @media (max-width: 576px) {
+        height: calcVWM(300);
+
         &:hover {
-          .positionSection {
-            .blogDescription {
-              @include font-style(
-                getOurProjectCardSizes(project-name-hover-fz),
-                variables.$fw-500,
-                getOurProjectCardSizes(project-name-hover-lh),
-                #fff
-              );
-              text-align: start;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              display: -webkit-box;
-              -webkit-line-clamp: 4;
-              -webkit-box-orient: vertical;
-            }
-          }
+          height: calcVWM(380);
         }
       }
     }
@@ -908,6 +946,7 @@
       }
 
       &:hover {
+
         .portfolio,
         .portfolioItem {
           .img {
@@ -951,12 +990,10 @@
             height: calcVWM(54) !important;
 
             .name {
-              @include font-style(
-                calcVWM(18) !important,
+              @include font-style(calcVWM(18) !important,
                 variables.$fw-700 !important,
                 calcVWM(22) !important,
-                #fff
-              );
+                #fff);
             }
           }
         }
@@ -1001,8 +1038,10 @@
         overflow: unset;
       }
     }
+
     @media (max-width: 576px) {
       overflow: unset;
+
       &:hover {
         .moreWrapper {
           height: calcVWM(300);
