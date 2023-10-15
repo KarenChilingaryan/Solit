@@ -22,6 +22,8 @@
       margin-top: calcVW(106);
       position: relative;
       width: 100%;
+      gap: calcVW(32);
+      justify-content: start !important;
 
       .elipse {
         position: absolute;

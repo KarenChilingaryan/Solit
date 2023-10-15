@@ -13,22 +13,25 @@ import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
 import styles from "./HomeMainWithImage.module.scss";
 
-const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) => {
-  const routes = useRouter()
-  const [hideToTop, setHideToTop] = useState(false)
-  const [seoData, setSeoData] = useState(null)
+const HomeMainWithImage = ({
+  firstImage,
+  className,
+  children,
+  seoName = "",
+}) => {
+  const routes = useRouter();
+  const [hideToTop, setHideToTop] = useState(false);
+  const [seoData, setSeoData] = useState(null);
   const [percents, setPercents] = useState({
     percent0: 0,
     percent1: 0,
     percent2: 0,
-    percent4: 0
-  })
+    percent4: 0,
+  });
 
-  console.log(className, 'className');
-
-  const socialRef = useRef(null)
-  const goToTop = useRef(null)
-  const refContent = useRef(null)
+  const socialRef = useRef(null);
+  const goToTop = useRef(null);
+  const refContent = useRef(null);
   const dispatch = useDispatch();
 
   const { breadcrumbElements, setBreadcrumbElements } =
@@ -79,12 +82,14 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
       const goToTopElement = goToTop.current;
       if (!goToTopElement) return;
 
-      const { top: goToTopTop, height: goToTopHeight } = goToTopElement.getBoundingClientRect();
+      const { top: goToTopTop, height: goToTopHeight } =
+        goToTopElement.getBoundingClientRect();
 
       const targetElementContent = refContent.current;
       if (!targetElementContent) return;
 
-      const { height: heightContent } = targetElementContent.getBoundingClientRect();
+      const { height: heightContent } =
+        targetElementContent.getBoundingClientRect();
 
       const targetElement = socialRef.current;
       if (!targetElement) return;
@@ -93,35 +98,48 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
 
       const parentElem = socialRef.current.children;
       if (parentElem) {
-
-        const element01 = parentElem[0]?.children[0]?.children[1]?.clientWidth
+        const element01 = parentElem[0]?.children[0]?.children[1]?.clientWidth;
         const element02 = parentElem[0]?.clientWidth - element01;
         const element03 = top + window?.scrollY + height - element02;
         const percent0 = ((element03 - heightContent) / element01) * 100;
 
-        const element11 = parentElem[1]?.children[0]?.children[1]?.clientWidth
+        const element11 = parentElem[1]?.children[0]?.children[1]?.clientWidth;
         const element12 = parentElem[1]?.clientWidth - element11;
-        const element13 = top + window?.scrollY + height - element12 - parentElem[0]?.clientWidth;
-        const percent1 = ((element13 - heightContent) / element11) * 100 - 25
+        const element13 =
+          top +
+          window?.scrollY +
+          height -
+          element12 -
+          parentElem[0]?.clientWidth;
+        const percent1 = ((element13 - heightContent) / element11) * 100 - 25;
 
-        const element21 = parentElem[1]?.children[0]?.children[1]?.clientWidth
+        const element21 = parentElem[1]?.children[0]?.children[1]?.clientWidth;
         const element22 = parentElem[1]?.clientWidth - element21;
-        const element23 = top + window?.scrollY + height - element22 - parentElem[0]?.clientWidth - parentElem[1]?.clientWidth;
-        const percent2 = ((element23 - heightContent) / element21) * 100 - 50
+        const element23 =
+          top +
+          window?.scrollY +
+          height -
+          element22 -
+          parentElem[0]?.clientWidth -
+          parentElem[1]?.clientWidth;
+        const percent2 = ((element23 - heightContent) / element21) * 100 - 50;
 
         // console.log(goToTopTop + window?.scrollY + goToTopHeight - heightContent);
-        const percent4 = ((goToTopTop + window?.scrollY + goToTopHeight - heightContent) / goToTop.current.children[0].children[0].clientWidth) * 100;
+        const percent4 =
+          ((goToTopTop + window?.scrollY + goToTopHeight - heightContent) /
+            goToTop.current.children[0].children[0].clientWidth) *
+          100;
         setPercents({
           percent0,
           percent1,
           percent2,
-          percent4
-        })
+          percent4,
+        });
       }
     };
     setTimeout(() => {
       handleScroll();
-    }, 1000)
+    }, 1000);
 
     window.addEventListener("scroll", handleScroll);
 
@@ -136,7 +154,7 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
     );
     const data = res?.data ? res?.data[0] : null;
     if (data) {
-      setSeoData(data)
+      setSeoData(data);
     }
   };
 
@@ -166,22 +184,26 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
   useEffect(() => {
     const lastBreadcrumb = document.getElementById("last-breadcrumb");
     if (lastBreadcrumb) {
-      lastBreadcrumb.scrollIntoView({ behavior: "smooth", block: "end", inline: 'end' });
+      lastBreadcrumb.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "end",
+      });
     }
   }, [breadcrumbElements]);
 
   return (
     <div className={`${styles.content} ${styles[className]}`} ref={refContent}>
-      {seoData &&
-        <SeoCard details={
-          {
+      {seoData && (
+        <SeoCard
+          details={{
             pageDescription: seoData?.meta_description,
             pageKeyWords: seoData?.meta_keywords,
             pageUrl: websiteUrl + routes.asPath,
             title: seoData?.meta_title,
           }}
         />
-      }
+      )}
       {breadcrumbElements?.length > 1 && (
         <div ref={containerRef} className={styles.scrollContainer}>
           <Breadcrumb
@@ -203,98 +225,115 @@ const HomeMainWithImage = ({ firstImage, className, children, seoName = '' }) =>
       )}
       <div className={styles.socialSites}>
         <div className={styles.socialSitesValues} ref={socialRef}>
-
-          {data?.contact?.map((el, i) =>
-            (el.name == "Telegram" || el.name == 'Linkedin' || el.name == 'Whatsapp') &&
-            <Link href={el.link} target="_blank" key={i}>
-              <div className={styles.site}>
-                <Image src={el.logo} className={styles.image} width={80} height={80} alt="image"
-                  style={{
-                    ...(className == 'portfolioItem' && percents["percent" + i] && percents["percent" + i] + 25 > 0) ? {
-                      filter: 'invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)'
-                    } : {}
-                  }}
-                />
-                <Paragraph className={styles.text} style={
-                  {
-                    ...(
-                      className == 'portfolioItem' && percents['percent' + i] ?
-                        {
-                          backgroundImage: `linear-gradient(to right, black ${percents['percent' + i]}%, white ${percents['percent' + i]}%)`,
-                          backgroundClip: 'text',
-                          '-webkit-background-clip': 'text',
-                          color: 'transparent',
-                        }
-                        : {
-                          color: 'white'
-                        }
-                    )
-                  }
-                }>{el.name}</Paragraph>
-              </div>
-            </Link>
+          {data?.contact?.map(
+            (el, i) =>
+              (el.name == "Telegram" ||
+                el.name == "Linkedin" ||
+                el.name == "Whatsapp") && (
+                <Link href={el.link} target="_blank" key={i}>
+                  <div className={styles.site}>
+                    <Image
+                      src={el.logo}
+                      className={styles.image}
+                      width={80}
+                      height={80}
+                      alt="image"
+                      style={{
+                        ...(className == "portfolioItem" &&
+                        percents["percent" + i] &&
+                        percents["percent" + i] + 25 > 0
+                          ? {
+                              filter:
+                                "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                            }
+                          : {}),
+                      }}
+                    />
+                    <Paragraph
+                      className={styles.text}
+                      style={{
+                        ...(className == "portfolioItem" &&
+                        percents["percent" + i]
+                          ? {
+                              backgroundImage: `linear-gradient(to right, black ${
+                                percents["percent" + i]
+                              }%, white ${percents["percent" + i]}%)`,
+                              backgroundClip: "text",
+                              "-webkit-background-clip": "text",
+                              color: "transparent",
+                            }
+                          : {
+                              color: "white",
+                            }),
+                      }}
+                    >
+                      {el.name}
+                    </Paragraph>
+                  </div>
+                </Link>
+              )
           )}
         </div>
       </div>
-      {
-        !hideToTop && (
-          <div
-            className={`${styles.socialSites} ${styles.socialSitesTop}`}
-            onClick={scrallToTop}
-            ref={goToTop}
-          >
-            <div className={styles.site}>
-              <Paragraph className={styles.text}
-                style={
-                  {
-                    ...(
-                      className == 'portfolioItem' && percents['percent4'] ?
-                        {
-                          backgroundImage: `linear-gradient(to right, black ${percents['percent4']}%, white ${percents['percent4']}%)`,
-                          backgroundClip: 'text',
-                          '-webkit-background-clip': 'text',
-                          color: 'transparent',
-                        }
-                        : {
-                          color: 'white'
-                        }
-                    )
-                  }
-                }
-              >Go To Top</Paragraph>
-              <Image
-                style={{
-                  transform: 'rotate(90deg)',
-                  ...(className == 'portfolioItem' && percents["percent4"] && percents["percent4"] - 125 > 0) ? {
-                    filter: 'invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)'
-                  } : {}
-                }}
-                src={rughtRowTop}
-                className={styles.image}
-                width={80}
-                height={80}
-                alt="image"
-              />
-            </div>
+      {!hideToTop && (
+        <div
+          className={`${styles.socialSites} ${styles.socialSitesTop}`}
+          onClick={scrallToTop}
+          ref={goToTop}
+        >
+          <div className={styles.site}>
+            <Paragraph
+              className={styles.text}
+              style={{
+                ...(className == "portfolioItem" && percents["percent4"]
+                  ? {
+                      backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
+                      backgroundClip: "text",
+                      "-webkit-background-clip": "text",
+                      color: "transparent",
+                    }
+                  : {
+                      color: "white",
+                    }),
+              }}
+            >
+              Go To Top
+            </Paragraph>
+            <Image
+              style={{
+                transform: "rotate(90deg)",
+                ...(className == "portfolioItem" &&
+                percents["percent4"] &&
+                percents["percent4"] - 125 > 0
+                  ? {
+                      filter:
+                        "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                    }
+                  : {}),
+              }}
+              src={rughtRowTop}
+              className={styles.image}
+              width={80}
+              height={80}
+              alt="image"
+            />
           </div>
-        )
-      }
-      {
-        firstImage && (
-          <Image
-            alt="image"
-            src={firstImage}
-            style={{
-              width: "100%",
-              height: "auto",
-              position: "absolute",
-              top: 0,
-            }}
-          />
-        )
-      }
+        </div>
+      )}
+      {firstImage && (
+        <Image
+          alt="image"
+          src={firstImage}
+          style={{
+            width: "100%",
+            height: "auto",
+            position: "absolute",
+            top: 0,
+          }}
+        />
+      )}
       {children}
-    </div >
+    </div>
   );
 };
 
