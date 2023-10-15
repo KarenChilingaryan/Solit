@@ -3,7 +3,7 @@
 
 @mixin generate-home-main-with-image-styles {
   .content {
-    overflow-x: hidden;
+    overflow: hidden;
 
     .breadcrumb {
       top: calcVW(130);
