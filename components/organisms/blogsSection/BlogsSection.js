@@ -1,4 +1,4 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect,useRef } from "react";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -25,6 +25,7 @@ const BlogsSection = ({ data }) => {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [blogsData, setBlogsData] = useState(data);
+  const containerRef = useRef(null);
   const postsFilterNameBlogApi = useSelector(
     (state) => state?.postsFilterNameBlogApi?.queries?.["blog(undefined)"]?.data
   );
@@ -48,18 +49,32 @@ const BlogsSection = ({ data }) => {
     setBlogsData(data);
   }, [data]);
 
-  console.log(blogsData, "OOOOOOOOOO", data);
+  const scrollButtonToCenter = (e) => {
+    const container = containerRef.current;
+    if (container) {
+      if (e.target) {
+        const button = e.target;
+        const containerWidth = container.clientWidth;
+        const buttonOffsetLeft = button.offsetLeft;
+        const buttonWidth = button.clientWidth;
+        const scrollLeft =
+          buttonOffsetLeft - (containerWidth - buttonWidth) / 2;
+        container.scrollTo({ left: scrollLeft, behavior: "smooth" });
+      }
+    }
+  };
   return (
     <Row className={styles.portfoliosWrapper}>
-      <div className={styles.filtersBlock}>
+      <div className={styles.filtersBlock} ref={containerRef}>
         <Col className={styles.filters}>
           <Button
             {...(selectedCategory === "All"
               ? { lightBlueTech: true }
               : { transparentBlue: true })}
             text={"All"}
-            onClick={() => {
+            onClick={(e) => {
               setBlogsData(data);
+              scrollButtonToCenter(e);
               setSelectedCategory("All");
             }}
           />
@@ -70,8 +85,9 @@ const BlogsSection = ({ data }) => {
               {...(selectedCategory === el?.id
                 ? { lightBlueTech: true }
                 : { transparentBlue: true })}
-              onClick={() => {
+              onClick={(e) => {
                 handleFilter(el?.id);
+                scrollButtonToCenter(e);
                 setSelectedCategory(el?.id);
               }}
             />
