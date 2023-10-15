@@ -2,12 +2,12 @@ import { memo, useState } from "react";
 import { Col, Row } from "../../atoms";
 import elipse from "../../../assets/img/Ellipse.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
-import FilterButtons from "../filters/FilterButtons";
 
 import styles from "./BlogsSection.module.scss";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import Button from "../../molecules/button/Button";
 
 export const dataProject = [
   "How to manage product backlog with data-driven techniques",
@@ -42,19 +42,19 @@ const BlogsSection = ({ data }) => {
     <Row className={styles.portfoliosWrapper}>
       <div className={styles.filtersBlock}>
         <Col className={styles.filters}>
-          <FilterButtons
-            name={"All"}
-            className={selectedCategory === "All" ? "active" : ""}
+          <Button
+            {...(selectedCategory === "All" ? {lightBlueTech: true} : {transparentBlue: true})}
+            text={"All"}
             onClick={() => {
               // setPortfolioData(portfolio);
               setSelectedCategory("All");
             }}
           />
           {postsFilterNameBlogApi?.map((el) => (
-            <FilterButtons
-              name={el.name}
+            <Button
+              text={el.name}
               key={el.id}
-              className={selectedCategory === el?.id ? "active" : ""}
+              {...(selectedCategory === el?.id ? {lightBlueTech: true} : {transparentBlue: true})}
               onClick={() => {
                 handleFilter(el?.id);
                 setSelectedCategory(el?.id);

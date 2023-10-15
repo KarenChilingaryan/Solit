@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Col, Row } from "../../atoms";
 import elipse from "../../../assets/img/Ellipse.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
-import FilterButtons from "../filters/FilterButtons";
 import Button from "../../molecules/button/Button";
 
 import styles from "./Portfolios.module.scss";
