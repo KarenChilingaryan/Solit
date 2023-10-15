@@ -86,9 +86,7 @@ const Portfolios = ({ data }) => {
           portfolioData &&
           [...portfolioData]?.map((project, i) => (
             <OurProjectCard
-              onClick={() =>
-                handleClick(project.slug)
-              }
+              onClick={() => handleClick(project.slug)}
               key={i}
               more={project == "more"}
               component="portfolio"

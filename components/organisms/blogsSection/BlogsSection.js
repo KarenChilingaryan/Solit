@@ -1,13 +1,13 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
+import Image from "next/image";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import Button from "../../molecules/button/Button";
 import { Col, Row } from "../../atoms";
 import elipse from "../../../assets/img/Ellipse.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 
 import styles from "./BlogsSection.module.scss";
-import Image from "next/image";
-import { useSelector } from "react-redux";
-import { useRouter } from "next/router";
-import Button from "../../molecules/button/Button";
 
 export const dataProject = [
   "How to manage product backlog with data-driven techniques",
@@ -24,29 +24,42 @@ export const dataProject = [
 const BlogsSection = ({ data }) => {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [blogsData, setBlogsData] = useState(data);
   const postsFilterNameBlogApi = useSelector(
     (state) => state?.postsFilterNameBlogApi?.queries?.["blog(undefined)"]?.data
   );
 
   const handleFilter = (id) => {
-    // const data = [...portfolio];
-    // const sortedData = data?.filter((el) => el?.id === id);
-    // setPortfolioData(sortedData);
+    if (id === "All") {
+      setBlogsData(data);
+      return;
+    }
+    console.log(id, ">>>>>>");
+    const data1 = [...data];
+    const sortedData = data1?.filter((el) => el?.filter_name.includes(id));
+    setBlogsData(sortedData);
   };
 
   const handleClick = (slug) => {
     router.push(`/blog/${slug}`);
   };
 
+  useEffect(() => {
+    setBlogsData(data);
+  }, [data]);
+
+  console.log(blogsData, "OOOOOOOOOO", data);
   return (
     <Row className={styles.portfoliosWrapper}>
       <div className={styles.filtersBlock}>
         <Col className={styles.filters}>
           <Button
-            {...(selectedCategory === "All" ? {lightBlueTech: true} : {transparentBlue: true})}
+            {...(selectedCategory === "All"
+              ? { lightBlueTech: true }
+              : { transparentBlue: true })}
             text={"All"}
             onClick={() => {
-              // setPortfolioData(portfolio);
+              setBlogsData(data);
               setSelectedCategory("All");
             }}
           />
@@ -54,7 +67,9 @@ const BlogsSection = ({ data }) => {
             <Button
               text={el.name}
               key={el.id}
-              {...(selectedCategory === el?.id ? {lightBlueTech: true} : {transparentBlue: true})}
+              {...(selectedCategory === el?.id
+                ? { lightBlueTech: true }
+                : { transparentBlue: true })}
               onClick={() => {
                 handleFilter(el?.id);
                 setSelectedCategory(el?.id);
@@ -69,18 +84,20 @@ const BlogsSection = ({ data }) => {
         gutter={[0, "4.9375076vw"]}
       >
         <Image className={styles.elipse} src={elipse} alt="image" />
-        {data?.map((project, i) => (
-          <OurProjectCard
-            onClick={() => handleClick(project.slug)}
-            key={i}
-            name={project.title}
-            image={project?.webp_image_blog}
-            description={project.description}
-            more={project == "more"}
-            component="blogs"
-            blogs
-          />
-        ))}
+        {data &&
+          blogsData &&
+          blogsData?.map((project, i) => (
+            <OurProjectCard
+              onClick={() => handleClick(project.slug)}
+              key={i}
+              name={project.title}
+              image={project?.webp_image_blog}
+              description={project.description}
+              more={project == "more"}
+              component="blogs"
+              blogs
+            />
+          ))}
       </Row>
     </Row>
   );
