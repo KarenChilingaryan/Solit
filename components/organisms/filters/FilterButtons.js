@@ -6,7 +6,7 @@ const FilterButtons = ({ name, style, onClick, className, key }) => {
   const ButtonWrapper = styled(Button)`
     background: transparent;
     color: #219fdb;
-    min-width: 5.20834vw;
+    /* min-width: 5.20834vw; */
     font-weight: 700;
 
     &:hover {
@@ -35,10 +35,10 @@ const FilterButtons = ({ name, style, onClick, className, key }) => {
   return (
     <ButtonWrapper
       lh={"1.0937514vw"}
-      padding={"0.4166672vw 1.6666688vw"}
+      padding={"0.6333344vw 1.666688vw"}
       radius={"0.4166672vw"}
       border={"0.1041668vw  solid #219FDB"}
-      fz={"0.9375012vw"}
+      fz={"0.6770842vw"}
       height={"unset"}
       key={key}
       style={style}

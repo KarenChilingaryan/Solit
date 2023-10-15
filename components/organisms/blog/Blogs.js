@@ -10,10 +10,7 @@ import styles from "./Blogs.module.scss";
 
 const Blogs = () => {
   const postsBlogApi = useSelector(
-    (state) =>
-      state?.postsBlogApi?.queries?.[
-        "blog(undefined)"
-      ]?.data
+    (state) => state?.postsBlogApi?.queries?.["blog(undefined)"]?.data
   );
 
   return (
@@ -23,9 +20,9 @@ const Blogs = () => {
           h1={true}
           data={{
             title: postsBlogApi?.data_text[0].title,
-            firstSubtitle:
-              postsBlogApi?.data_text[0].description
+            firstSubtitle: postsBlogApi?.data_text[0].description,
           }}
+          className={"blog"}
         />
         <Row className={styles.blogsSection}>
           <BlogsSection data={postsBlogApi?.data_list} />

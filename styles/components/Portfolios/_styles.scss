@@ -19,7 +19,7 @@
     }
 
     .projects {
-      margin-top: calcVW(114);
+      margin-top: calcVW(106);
       position: relative;
       width: 100%;
 
@@ -70,7 +70,7 @@
 
     @media (max-width: 576px) {
       .projects {
-        margin-top: calcVWM(54);
+        margin-top: calcVWM(49);
         gap: calcVWM(32) !important;
         .elipse {
           top: 0;
@@ -91,6 +91,7 @@
         }
       }
       .filtersBlock {
+        margin: 0 0 0 calcVWM(16);
         max-width: 100%;
         overflow: scroll;
       }

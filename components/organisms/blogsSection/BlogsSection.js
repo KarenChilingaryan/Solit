@@ -25,10 +25,7 @@ const BlogsSection = ({ data }) => {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const postsFilterNameBlogApi = useSelector(
-    (state) =>
-      state?.postsFilterNameBlogApi?.queries?.[
-        "blog(undefined)"
-      ]?.data
+    (state) => state?.postsFilterNameBlogApi?.queries?.["blog(undefined)"]?.data
   );
 
   const handleFilter = (id) => {
@@ -69,12 +66,12 @@ const BlogsSection = ({ data }) => {
       <Row
         className={styles.projects}
         justify={"space-between"}
-        gutter={[0, "6vw"]}
+        gutter={[0, "4.9375076vw"]}
       >
         <Image className={styles.elipse} src={elipse} alt="image" />
         {data?.map((project, i) => (
           <OurProjectCard
-            onClick={() => handleClick( project.slug)}
+            onClick={() => handleClick(project.slug)}
             key={i}
             name={project.title}
             image={project?.webp_image_blog}
