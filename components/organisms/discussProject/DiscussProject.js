@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Slider } from "antd";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
@@ -46,10 +46,12 @@ const DiscussProject = () => {
   const [selectedValue, setSelectedValue] = useState("none");
   const [modalFormData, setModalFormData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false)
+  const [closeFooterStack, setCloseFooterStack] = useState(false)
+
 
   const dispatch = useDispatch();
 
-  const submitForm = (values) => {
+  const submitForm = (values, fromDelete = false) => {
     const formData = {
       step_one: values.applicationType?.join(" ") || "",
       step_two: values.currentStage?.join(" ") || "",
@@ -59,7 +61,9 @@ const DiscussProject = () => {
     };
 
     setModalFormData(formData);
-    setOpen(true);
+    if(!fromDelete){
+      setOpen(true);
+    }
   };
 
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -139,8 +143,14 @@ const DiscussProject = () => {
     }
 
     form.setFieldsValue(updatedValues, true);
-    submitForm(form.getFieldsValue());
+    submitForm(form.getFieldsValue(), true);
   };
+
+  useEffect(()=>{
+    if(form){
+      form.setFieldValue('duration', 1)
+    }
+  },[])
 
   const handleClear = (field) => {
     const updatedStacks = liveStacks.filter(
@@ -221,12 +231,13 @@ const DiscussProject = () => {
 
     }
   };
+
   return (
     <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_1">
       <>
         <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && (
-          <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
+          <ModalWrapper open={open} width={"66.7vw"} setOpen={setOpen}>
             <PricingModal
               data={liveStacks}
               handleDelete={(item) => handleDelete(item)}
@@ -242,11 +253,12 @@ const DiscussProject = () => {
             />
           </ModalWrapper>
         )}
-        {!open && liveStacks?.length && (
+        {!open && liveStacks?.length && !closeFooterStack && (
           <StackFooter
             liveStacks={liveStacks}
             handleDelete={(item) => handleDelete(item)}
             onClick={() => submitForm(form.getFieldsValue())}
+            onClose={() => { setCloseFooterStack(true) }}
           />
         )}
         <div className={styles.content}>
@@ -395,7 +407,7 @@ const DiscussProject = () => {
                     5. What is the expected duration of your project?
                   </Paragraph>
                   <FormItem name="duration">
-                    <Slider min={0} max={24} tooltip={{ formatter }} />
+                    <Slider min={0} defaultValue={1} max={24} tooltip={{ formatter }} />
                   </FormItem>
                   <Row className={styles.monthsWrapper}>
                     <Col className={styles.month}>1 month</Col>
