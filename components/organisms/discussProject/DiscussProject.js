@@ -61,7 +61,7 @@ const DiscussProject = () => {
     };
 
     setModalFormData(formData);
-    if(!fromDelete){
+    if (!fromDelete) {
       setOpen(true);
     }
   };
@@ -146,11 +146,11 @@ const DiscussProject = () => {
     submitForm(form.getFieldsValue(), true);
   };
 
-  useEffect(()=>{
-    if(form){
+  useEffect(() => {
+    if (form) {
       form.setFieldValue('duration', 1)
     }
-  },[])
+  }, [])
 
   const handleClear = (field) => {
     const updatedStacks = liveStacks.filter(
@@ -237,7 +237,7 @@ const DiscussProject = () => {
       <>
         <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && (
-          <ModalWrapper open={open} width={"66.7vw"} setOpen={setOpen}>
+          <ModalWrapper open={open} width={"66.7vw"} setOpen={setOpen} classname="discuss">
             <PricingModal
               data={liveStacks}
               handleDelete={(item) => handleDelete(item)}

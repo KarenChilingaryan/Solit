@@ -205,6 +205,18 @@ textarea::-webkit-scrollbar-thumb {
       width: calcVWT(520);
     }
   }
+
+  .discuss {
+    width: calcVWT(976) !important;
+
+    .ant-modal-content {
+      width: calcVWT(976) !important;
+
+      .ant-modal-title {
+        margin-bottom: calcVWT(64);
+      }
+    }
+  }
 }
 
 @media (max-width: 1024px) and (min-width: 577px) {

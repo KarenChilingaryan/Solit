@@ -41,7 +41,7 @@
 
     .title {
       @include font-style(getBlogItemSizes(title-fz), variables.$fw-500, getBlogItemSizes(title-lh), #fff);
-      margin: calcVW(250) 0 calcVW(32) 0 !important;
+      margin: calcVW(250) 0 calcVW(46) 0 !important;
     }
 
     .blockItems {
@@ -81,7 +81,7 @@
 
       .title {
         @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44), #fff);
-        margin: calcVWL(250) 0 calcVWL(32) 0 !important;
+        margin: calcVWL(250) 0 calcVWL(46) 0 !important;
       }
     }
   }
@@ -101,7 +101,7 @@
 
       .title {
         @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43), #fff);
-        margin-bottom: calcVWT(32) !important;
+        margin-bottom: calcVWT(36) !important;
         margin-top: calcVWT(192) !important;
       }
 

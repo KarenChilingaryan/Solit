@@ -4,6 +4,7 @@
 @mixin generate-portfolios-styles {
   .portfoliosWrapper {
     width: 100%;
+
     .filters {
       z-index: 99;
       display: flex;
@@ -39,9 +40,11 @@
       .filters {
         gap: calcVWL(16);
       }
+
       .projects {
         row-gap: calcVWL(64) !important;
         margin-top: calcVWL(120);
+
         .elipse {
           left: calcVWL(-320);
           width: calc(100% + calcVWL(640));
@@ -58,17 +61,17 @@
         column-gap: calcVWT(32) !important;
         row-gap: calcVWT(64) !important;
       }
+
       .filters {
         gap: calcVWT(16);
+
         button {
           height: calcVWT(48) !important;
           padding: calcVWT(16) calcVWT(32) !important;
 
-          @include font-style(
-            calcVWT(13) !important,
+          @include font-style(calcVWT(13) !important,
             variables.$fw-700 !important,
-            calcVWT(16) !important
-          );
+            calcVWT(16) !important);
         }
       }
     }
@@ -78,24 +81,26 @@
         margin-top: calcVWM(49);
         gap: calcVWM(32) !important;
         row-gap: calcVWM(16) !important;
+
         .elipse {
-          top: 0;
+          top: -25%;
         }
       }
+
       .filters {
         min-width: max-content;
         gap: calcVWM(16) !important;
         margin-bottom: calcVWM(15);
+
         button {
           padding: calcVWM(16) calcVWM(32) !important;
 
-          @include font-style(
-            calcVWM(13) !important,
+          @include font-style(calcVWM(13) !important,
             variables.$fw-700 !important,
-            calcVWM(16) !important
-          );
+            calcVWM(16) !important);
         }
       }
+
       .filtersBlock {
         margin: 0 0 0 calcVWM(16);
         max-width: 100%;

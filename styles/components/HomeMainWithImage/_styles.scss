@@ -23,13 +23,13 @@
 
       li {
         background: rgba(255, 255, 255, 0.32);
-        padding: calcVW(6) calcVW(12);
         border-right: 2px solid black;
         display: flex;
         align-items: center;
         height: calcVW(32);
 
         a {
+          padding: calcVW(6) calcVW(12);
           white-space: nowrap;
         }
       }
@@ -73,9 +73,12 @@
         border-radius: calcVWT(8);
 
         li {
-          padding: calcVWT(3.1) calcVWT(12);
           white-space: pre;
           height: calcVWT(32);
+
+          a {
+            padding: calcVWT(3.1) calcVWT(12);
+          }
         }
 
         :global(.ant-breadcrumb-link) {
@@ -94,10 +97,13 @@
         border-radius: calcVWM(8);
 
         li {
-          padding: calcVWM(3) calcVWM(8);
           height: calcVWM(32);
           align-items: center;
           display: flex;
+
+          a {
+            padding: calcVWM(3) calcVWM(8);
+          }
         }
 
         :global(.ant-breadcrumb-link) {

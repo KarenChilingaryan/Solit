@@ -8,7 +8,7 @@ import arrow from "../../../assets/img/icons/selectIcon.svg";
 
 import styles from "./ModalForm.module.scss";
 
-const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', className }) => {
+const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', className, secondCheckBox }) => {
   const [file, setFile] = useState(null);
 
   const submitForm = (values, data) => {
@@ -180,6 +180,17 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
               I accept your Privacy Policy
             </Row>
           </FormItem>
+          {
+            secondCheckBox &&
+            <FormItem className={styles.accept}>
+              <Checkbox />
+              <Row className={styles.acceptText}>
+                I want to protect my data by signing an NDA.
+              </Row>
+            </FormItem>
+          }
+
+
         </Row>
 
         <Col className={styles.buttonWrapper}>

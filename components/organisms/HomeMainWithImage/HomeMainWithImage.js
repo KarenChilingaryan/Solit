@@ -216,7 +216,6 @@ const HomeMainWithImage = ({
                 key={index}
                 id={index == breadcrumbElements.length - 1 && "last-breadcrumb"}
               >
-                {" "}
                 {el.name}
               </Breadcrumb.Item>
             ))}
@@ -240,12 +239,12 @@ const HomeMainWithImage = ({
                       alt="image"
                       style={{
                         ...(className == "portfolioItem" &&
-                        percents["percent" + i] &&
-                        percents["percent" + i] + 25 > 0
+                          percents["percent" + i] &&
+                          percents["percent" + i] + 25 > 0
                           ? {
-                              filter:
-                                "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
-                            }
+                            filter:
+                              "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                          }
                           : {}),
                       }}
                     />
@@ -253,18 +252,17 @@ const HomeMainWithImage = ({
                       className={styles.text}
                       style={{
                         ...(className == "portfolioItem" &&
-                        percents["percent" + i]
+                          percents["percent" + i]
                           ? {
-                              backgroundImage: `linear-gradient(to right, black ${
-                                percents["percent" + i]
+                            backgroundImage: `linear-gradient(to right, black ${percents["percent" + i]
                               }%, white ${percents["percent" + i]}%)`,
-                              backgroundClip: "text",
-                              "-webkit-background-clip": "text",
-                              color: "transparent",
-                            }
+                            backgroundClip: "text",
+                            "-webkit-background-clip": "text",
+                            color: "transparent",
+                          }
                           : {
-                              color: "white",
-                            }),
+                            color: "white",
+                          }),
                       }}
                     >
                       {el.name}
@@ -287,14 +285,14 @@ const HomeMainWithImage = ({
               style={{
                 ...(className == "portfolioItem" && percents["percent4"]
                   ? {
-                      backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
-                      backgroundClip: "text",
-                      "-webkit-background-clip": "text",
-                      color: "transparent",
-                    }
+                    backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
+                    backgroundClip: "text",
+                    "-webkit-background-clip": "text",
+                    color: "transparent",
+                  }
                   : {
-                      color: "white",
-                    }),
+                    color: "white",
+                  }),
               }}
             >
               Go To Top
@@ -303,12 +301,12 @@ const HomeMainWithImage = ({
               style={{
                 transform: "rotate(90deg)",
                 ...(className == "portfolioItem" &&
-                percents["percent4"] &&
-                percents["percent4"] - 125 > 0
+                  percents["percent4"] &&
+                  percents["percent4"] - 125 > 0
                   ? {
-                      filter:
-                        "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
-                    }
+                    filter:
+                      "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                  }
                   : {}),
               }}
               src={rughtRowTop}

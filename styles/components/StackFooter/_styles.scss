@@ -19,6 +19,7 @@
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
     justify-content: space-between;
+
     .closeIcon {
       position: absolute;
       top: calcVW(16);
@@ -32,32 +33,29 @@
       padding: 0 calcVW(32);
 
       .footerTitle {
-        @include font-style(
-          calcVW(36),
+        @include font-style(calcVW(36),
           variables.$fw-500,
           calcVW(44),
-          variables.$black
-        );
+          variables.$black );
 
         @media (max-width: 1024px) {
-          @include font-style(
-            calcVWT(36),
+          @include font-style(calcVWT(36),
             variables.$fw-500,
-            calcVWT(40),
-            variables.$black
-          );
+            normal,
+            variables.$black );
         }
 
         @media (max-width: 576px) {
-          @include font-style(
-            calcVWM(36),
+          @include font-style(calcVWM(32),
             variables.$fw-500,
-            calcVWM(40),
-            variables.$black
-          );
+            normal,
+            variables.$black );
         }
       }
+
       .items {
+        max-width: calcVW(1545);
+
         .itemWrapper {
           display: flex;
           align-items: center;
@@ -66,29 +64,23 @@
           padding: calcVW(5);
 
           .item {
-            @include font-style(
-              calcVW(20),
+            @include font-style(calcVW(20),
               variables.$fw-500,
-              calcVW(24),
-              variables.$black
-            );
+              normal,
+              variables.$black );
 
             @media (max-width: 1024px) {
-              @include font-style(
-                calcVWT(20),
+              @include font-style(calcVWT(20),
                 variables.$fw-500,
-                calcVWT(24),
-                variables.$black
-              );
+                normal,
+                variables.$black );
             }
 
             @media (max-width: 576px) {
-              @include font-style(
-                calcVWM(20),
+              @include font-style(calcVWM(20),
                 variables.$fw-500,
-                calcVWM(24),
-                variables.$black
-              );
+                normal,
+                variables.$black );
             }
           }
 
@@ -115,9 +107,10 @@
         }
       }
     }
+
     .buttonWrapper {
-      @media (max-width: 1024px) {
-      }
+      @media (max-width: 1024px) {}
+
       @media (max-width: 576px) {
         width: 100%;
         display: flex;
@@ -129,19 +122,55 @@
           padding: calcVWM(8) calcVWM(32);
           border-radius: calcVWM(8);
 
-          @include font-style(
-            calcVWM(20),
+          @include font-style(calcVWM(20),
             variables.$fw-700,
             calcVWM(24),
-            variables.$white
-          );
+            variables.$white );
         }
       }
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 1024px) {
+      padding: calcVWT(64);
       height: unset;
-      gap: calcVWM(24);
+
+      .footerContent {
+        gap: calcVWT(16);
+        padding-left: calcVWT(32);
+
+        .items {
+          row-gap: calcVWT(16);
+          max-width: calcVWT(650);
+        }
+      }
+
+      .closeIcon {
+        position: absolute;
+        top: calcVWT(16);
+        right: calcVWT(16);
+      }
+    }
+
+    @media (max-width: 576px) {
+      padding: calcVWM(16);
+      height: unset;
+      gap: calcVWM(16);
+
+      .footerContent {
+        gap: calcVWM(16);
+        padding: 0;
+
+        .items {
+          padding: 0;
+          gap: calcVWM(24);
+        }
+      }
+
+      .closeIcon {
+        position: absolute;
+        top: calcVWM(16);
+        right: calcVWM(16);
+      }
     }
   }
 }

@@ -74,6 +74,7 @@
             object-fit: cover;
           }
         }
+
         .blogDescription {
           text-align: start;
           overflow: hidden;
@@ -666,6 +667,7 @@
 
         .img {
           height: calcVWM(246);
+          max-height: calcVWM(198);
         }
 
         .positionSection {
