@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { Slider } from "antd";
@@ -78,6 +78,7 @@ const DiscussProjectStack = () => {
   const [open, setOpen] = useState(false);
   const [modalFormData, setModalFormData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
+  const [closeFooterStack, setCloseFooterStack] = useState(false)
 
   const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -124,8 +125,12 @@ const DiscussProjectStack = () => {
       });
     });
 
-    projectStacks?.industry?.length &&
-      data.push({ category: "industry", item: `${projectStacks.industry[0]}` });
+    if (projectStacks?.industry) {
+      for (let i = 0; i < projectStacks?.industry.length; i++) {
+        const element = projectStacks?.industry[i];
+        data.push({ category: "industry", item: `${element}` });
+      }
+    }
 
     projectStacks.duration &&
       data.push({
@@ -159,10 +164,10 @@ const DiscussProjectStack = () => {
 
     form.setFieldsValue(data);
     getProjectData(data);
-    submitForm(form.getFieldsValue());
+    submitForm(form.getFieldsValue(), true);
   };
 
-  const submitForm = (values) => {
+  const submitForm = (values, fromDelete = false) => {
     const formData = {
       step_one:
         values.developers?.map((dev) => `${dev.name}-${dev.count}`).join(" ") ||
@@ -176,7 +181,9 @@ const DiscussProjectStack = () => {
     };
 
     setModalFormData(formData);
-    setOpen(true);
+    if (!fromDelete) {
+      setOpen(true);
+    }
   };
 
   const onSubmit = async (data) => {
@@ -189,29 +196,39 @@ const DiscussProjectStack = () => {
         await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-    } catch {}
+    } catch { }
   };
+
+  useEffect(() => {
+    if (form) {
+      form.setFieldValue('duration', 1)
+    }
+  }, [])
 
   return (
     <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_2">
       <>
         <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && (
-          <ModalWrapper open={open} width={"66vw"} setOpen={setOpen}>
+          <ModalWrapper open={open} width={"66.7vw"} setOpen={setOpen}>
             <PricingModal
               data={liveStacks}
               handleDelete={(item) => handleDelete(item)}
               dataForm={modalFormData}
-              stackNames={["industry", "duration", "specialists", "developers"]}
+              stackNames={["duration", "specialists", "developers"]}
+              stackNamesSecond={[
+                "industry"
+              ]}
               onSubmit={onSubmit}
             />
           </ModalWrapper>
         )}
-        {!open && liveStacks?.length && (
+        {!open && liveStacks?.length && !closeFooterStack && (
           <StackFooter
             liveStacks={liveStacks}
             handleDelete={handleDelete}
             onClick={() => submitForm(form.getFieldsValue())}
+            onClose={() => { setCloseFooterStack(true) }}
           />
         )}
         <div className={styles.content}>
@@ -321,7 +338,7 @@ const DiscussProjectStack = () => {
                     4. What is the expected duration of your project?
                   </Paragraph>
                   <FormItem name="duration">
-                    <Slider min={0} max={24} tooltip={{ formatter }} />
+                    <Slider min={0} defaultValue={1} max={24} tooltip={{ formatter }} />
                   </FormItem>
                   <Row className={styles.monthsWrapper}>
                     <Col className={styles.month}>1 month</Col>

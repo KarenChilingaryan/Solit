@@ -50,6 +50,16 @@
           display: flex;
           gap: getPricingModal(proj-type-gap);
 
+          .specialistsTitle {
+            width: 100%;
+            @include font-style(
+              calcVW(18),
+              variables.$fw-400,
+              calcVW(24),
+              variables.$black
+            );
+          }
+
           .itemWrapper {
             @include flex(null, center);
             gap: getPricingModal(item-wrapper-gap);
@@ -75,15 +85,7 @@
         .specialists {
           @include flex(null, null, column);
           gap: getPricingModal(specialists-gap);
-
-          .specialistsTitle {
-            @include font-style(
-              getPricingModal(specialists-title-fz),
-              variables.$fw-400,
-              getPricingModal(specialists-title-lh),
-              variables.$black
-            );
-          }
+   
 
           .itemWrapper {
             @include flex(null, center);

@@ -23,6 +23,7 @@
       position: relative;
       width: 100%;
       gap: calcVW(32);
+      row-gap: calcVW(64) !important;
       justify-content: start !important;
 
       .elipse {
@@ -39,6 +40,7 @@
         gap: calcVWL(16);
       }
       .projects {
+        row-gap: calcVWL(64) !important;
         margin-top: calcVWL(120);
         .elipse {
           left: calcVWL(-320);
@@ -54,7 +56,7 @@
         margin: calcVWT(64) calcVWT(24) 0;
         // row-gap: unset !important;
         column-gap: calcVWT(32) !important;
-        row-gap: calcVWT(114) !important;
+        row-gap: calcVWT(64) !important;
       }
       .filters {
         gap: calcVWT(16);
@@ -75,6 +77,7 @@
       .projects {
         margin-top: calcVWM(49);
         gap: calcVWM(32) !important;
+        row-gap: calcVWM(16) !important;
         .elipse {
           top: 0;
         }

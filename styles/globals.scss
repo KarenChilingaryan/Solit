@@ -134,6 +134,23 @@ textarea::-webkit-scrollbar-thumb {
   width: calcVW(602) !important;
 }
 
+.ant-slider-tooltip {
+  width: max-content !important;
+  height: max-content !important;
+
+  .ant-tooltip-content {
+    width: max-content !important;
+    height: max-content !important;
+
+    .ant-tooltip-inner {
+      width: max-content !important;
+      height: max-content !important;
+      min-height: max-content !important;
+      padding: calcVW(16) !important;
+    }
+  }
+}
+
 
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
 

@@ -82,7 +82,7 @@
       width: 100%;
       position: relative;
       z-index: 1;
-      padding: calcVW(32);
+      padding: calcVW(24) 0;
 
       .buttonWrapper {
         button {
@@ -177,7 +177,7 @@
       .inputSection {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: calcVW(44);
         width: 100%;
 
         :global(.ant-form-item) {

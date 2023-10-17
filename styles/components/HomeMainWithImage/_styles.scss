@@ -37,6 +37,16 @@
       li:last-of-type {
         background: #000;
         border-right: 0;
+        border-radius: 0 calcVW(8) calcVW(8) 0;
+
+        @media (max-width : 1024px) {
+          border-radius: 0 calcVWT(8) calcVWT(8) 0;
+
+          @media (max-width: 576px) {
+            border-radius: 0 calcVWM(8) calcVWM(8) 0;
+
+          }
+        }
       }
 
       :global(.ant-breadcrumb-link) {
@@ -136,7 +146,7 @@
         font-size: getHomeMainWithImage(text-fs);
         font-weight: variables.$fw-500;
         font-size: getHomeMainWithImage(text-lh);
-        
+
       }
 
       &:hover {
