@@ -126,10 +126,18 @@
           flex-direction: column;
           gap: calcVW(70);
 
+          button {
+            margin-top: calcVW(20);
+          }
+
           .industries {
             display: flex;
             flex-direction: column;
             gap: calcVW(10);
+
+            :global(.ant-slider-horizontal) {
+              margin-top: calcVW(75);
+            }
 
             .title {
               display: flex;
@@ -155,7 +163,8 @@
             .checkboxes {
               display: flex;
               flex-wrap: wrap;
-              gap: calcVW(24);
+              column-gap: calcVW(24);
+              row-gap: calcVW(16);
 
               @media (max-width: 576px) {
                 gap: calcVWT(24);
