@@ -7,7 +7,7 @@
     margin: getDiscussProjectSizes(content-mt) auto 0 auto;
 
     .discussProject {
-      margin: calcVW(200) 0 calcVW(320);
+      margin: calcVW(65) 0 calcVW(320);
 
       .form {
         display: flex;
@@ -18,9 +18,11 @@
           display: flex;
           gap: calcVW(16);
           margin-top: calcVW(60);
+          z-index: 9999;
 
           a:first-of-type {
             button {
+              height: calcVW(48);
               background: variables.$light-blue;
               @include font-style(
                 calcVW(13),
@@ -122,14 +124,17 @@
         .industryDetails {
           display: flex;
           flex-direction: column;
-          gap: calcVW(90);
+          gap: calcVW(70);
 
           .industries {
             display: flex;
             flex-direction: column;
-            gap: calcVW(30);
+            gap: calcVW(10);
 
             .title {
+              display: flex;
+              align-items: center;
+              height: calcVW(60);
               @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
               @media (max-width: 1024px) {
                 @include font-style(

@@ -45,6 +45,8 @@
       }
     }
     :global(.ant-checkbox-inner) {
+      width: calcVW(20);
+      height: calcVW(20);
       background-color: transparent;
       border: 1px solid $main-white;
       border-color: $main-white !important;
