@@ -125,8 +125,12 @@ const DiscussProjectStack = () => {
       });
     });
 
-    projectStacks?.industry?.length &&
-      data.push({ category: "industry", item: `${projectStacks.industry[0]}` });
+    if (projectStacks?.industry) {
+      for (let i = 0; i < projectStacks?.industry.length; i++) {
+        const element = projectStacks?.industry[i];
+        data.push({ category: "industry", item: `${element}` });
+      }
+    }
 
     projectStacks.duration &&
       data.push({
@@ -211,7 +215,10 @@ const DiscussProjectStack = () => {
               data={liveStacks}
               handleDelete={(item) => handleDelete(item)}
               dataForm={modalFormData}
-              stackNames={["industry", "duration", "specialists", "developers"]}
+              stackNames={["duration", "specialists", "developers"]}
+              stackNamesSecond={[
+                "industry"
+              ]}
               onSubmit={onSubmit}
             />
           </ModalWrapper>

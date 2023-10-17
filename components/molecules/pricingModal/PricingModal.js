@@ -6,14 +6,12 @@ import ModalForm from "../modalForm/ModalForm";
 
 import styles from "./PricingModal.module.scss";
 
-
-
-
 const PricingModal = ({
   data,
   handleDelete,
   dataForm,
   stackNames = [],
+  stackNamesSecond,
   onSubmit
 }) => {
 
@@ -51,48 +49,27 @@ const PricingModal = ({
                 </Col>
               )
               ))}
-            {/* {filterDataByCategory("duration").map((item, index) => (
-              <Col key={index} className={styles.itemWrapper}>
-                <Col className={styles.item}>{item.item}</Col>
-                <Image
-                  src={close}
-                  className={styles.icon}
-                  onClick={() => handleDelete(item)}
-                  alt="i"
-                />
-              </Col>
-            ))} */}
           </Row>
-
-          {/* <Row className={styles.specialists}>
-            <Paragraph className={styles.specialistsTitle}>
-              Specialists selected for your project:
-            </Paragraph>
-
-            {filterDataByCategory("specialists").map((item, index) => (
-              <Col key={index} className={styles.itemWrapper}>
-                <Col className={styles.item}>{item.item}</Col>
-                <Image
-                  src={close}
-                  className={styles.icon}
-                  onClick={() => handleDelete(item)}
-                  alt="i"
-                />
-              </Col>
-            ))}
-
-            {filterDataByCategory("developers").map((item, index) => (
-              <Col key={index} className={styles.itemWrapper}>
-                <Col className={styles.item}>{item.item}</Col>
-                <Image
-                  src={close}
-                  className={styles.icon}
-                  onClick={() => handleDelete(item)}
-                  alt="i"
-                />
-              </Col>
-            ))}
-          </Row> */}
+          {stackNamesSecond &&
+            <Row className={styles.projType}>
+              <Paragraph className={styles.specialistsTitle}>
+                Specialists selected for your project:
+              </Paragraph>
+              {stackNamesSecond.map((name) =>
+                filterDataByCategory(name).map((item, index) => (
+                  <Col key={index} className={styles.itemWrapper}>
+                    <Col className={styles.item}>{item.item}</Col>
+                    <Image
+                      src={close}
+                      className={styles.icon}
+                      onClick={() => handleDelete(item)}
+                      alt="i"
+                    />
+                  </Col>
+                )
+                ))}
+            </Row>
+          }
         </Row>
       </Col>
       <Col className={styles.rightContent}>
