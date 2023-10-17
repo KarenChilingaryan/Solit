@@ -74,6 +74,14 @@
             object-fit: cover;
           }
         }
+        .blogDescription {
+          text-align: start;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+        }
       }
 
       &:hover {
@@ -109,12 +117,6 @@
               variables.$fw-500,
               getOurProjectCardSizes(project-name-hover-lh),
               #fff);
-            text-align: start;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
           }
 
           .stacks {
@@ -679,7 +681,7 @@
           }
 
           .name {
-            height: calcVWM(70);
+            height: calcVWM(71);
             -webkit-line-clamp: 3;
             @include font-style(calcVWM(18),
               variables.$fw-700,
@@ -891,6 +893,7 @@
 
       @media (max-width: 576px) {
         height: calcVWM(300);
+        border-radius: calcVWM(16);
 
         &:hover {
           height: calcVWM(380);
