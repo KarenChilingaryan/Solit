@@ -45,9 +45,8 @@ const DiscussProject = () => {
   const [open, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState("none");
   const [modalFormData, setModalFormData] = useState(null);
-  const [openSuccess, setOpenSuccess] = useState(false)
-  const [closeFooterStack, setCloseFooterStack] = useState(false)
-
+  const [openSuccess, setOpenSuccess] = useState(false);
+  const [closeFooterStack, setCloseFooterStack] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -61,7 +60,7 @@ const DiscussProject = () => {
     };
 
     setModalFormData(formData);
-    if(!fromDelete){
+    if (!fromDelete) {
       setOpen(true);
     }
   };
@@ -146,11 +145,11 @@ const DiscussProject = () => {
     submitForm(form.getFieldsValue(), true);
   };
 
-  useEffect(()=>{
-    if(form){
-      form.setFieldValue('duration', 1)
+  useEffect(() => {
+    if (form) {
+      form.setFieldValue("duration", 1);
     }
-  },[])
+  }, []);
 
   const handleClear = (field) => {
     const updatedStacks = liveStacks.filter(
@@ -226,10 +225,8 @@ const DiscussProject = () => {
       const res = await dispatch(
         await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
       );
-      setOpenSuccess(true)
-    } catch {
-
-    }
+      setOpenSuccess(true);
+    } catch {}
   };
 
   return (
@@ -258,7 +255,9 @@ const DiscussProject = () => {
             liveStacks={liveStacks}
             handleDelete={(item) => handleDelete(item)}
             onClick={() => submitForm(form.getFieldsValue())}
-            onClose={() => { setCloseFooterStack(true) }}
+            onClose={() => {
+              setCloseFooterStack(true);
+            }}
           />
         )}
         <div className={styles.content}>
@@ -300,12 +299,13 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${form
-                            .getFieldsValue()
-                            .applicationType?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form
+                              .getFieldsValue()
+                              .applicationType?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry value={item} />
                         </Col>
@@ -331,10 +331,11 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().currentStage?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry value={item} circle />
                         </Col>
@@ -360,10 +361,11 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry value={item} fullWidth />
                         </Col>
@@ -386,10 +388,11 @@ const DiscussProject = () => {
                         <Col
                           key={item}
                           onClick={() => handleButtonClick("industry", item)}
-                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().industry?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry value={item} circle />
                         </Col>
@@ -406,8 +409,13 @@ const DiscussProject = () => {
                   <Paragraph className={styles.title}>
                     5. What is the expected duration of your project?
                   </Paragraph>
-                  <FormItem name="duration">
-                    <Slider min={0} defaultValue={1} max={24} tooltip={{ formatter }} />
+                  <FormItem name="duration" className={styles.slider}>
+                    <Slider
+                      min={0}
+                      defaultValue={1}
+                      max={24}
+                      tooltip={{ formatter }}
+                    />
                   </FormItem>
                   <Row className={styles.monthsWrapper}>
                     <Col className={styles.month}>1 month</Col>

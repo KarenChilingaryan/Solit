@@ -121,14 +121,13 @@
           }
         }
 
+        .industryDetails > button {
+          margin-top: calcVW(-35);
+        }
         .industryDetails {
           display: flex;
           flex-direction: column;
           gap: calcVW(70);
-
-          button {
-            margin-top: calcVW(20);
-          }
 
           .industries {
             display: flex;
@@ -136,7 +135,7 @@
             gap: calcVW(10);
 
             :global(.ant-slider-horizontal) {
-              margin-top: calcVW(75);
+              margin-top: calcVW(90);
             }
 
             .title {
@@ -167,18 +166,19 @@
               row-gap: calcVW(16);
 
               @media (max-width: 576px) {
-                gap: calcVWT(24);
-              }
-
-              @media (max-width: 576px) {
                 gap: calcVWM(24);
                 flex-direction: column;
               }
             }
 
+            .slider {
+              margin-bottom: calcVW(5);
+            }
+
             .monthsWrapper {
               display: flex;
               justify-content: space-between;
+              margin-bottom: calcVW(7);
 
               .month {
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
@@ -210,6 +210,81 @@
     }
     @media (max-width: 1024px) {
       width: calcVWT(880);
+
+      .discussProject {
+        .form {
+          .industryDetails > button {
+            margin-top: calcVWT(-11);
+          }
+          .industryDetails {
+            .industries {
+              gap: calcVWT(16);
+
+              :global(.ant-slider-horizontal) {
+                margin-top: calcVWT(80);
+              }
+
+              .title {
+                height: calcVWT(60);
+              }
+
+              .slider {
+                margin-bottom: calcVW(5);
+              }
+
+              .monthsWrapper {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: calcVWT(7);
+              }
+
+              .checkboxes {
+                column-gap: calcVWT(24);
+                row-gap: calcVWT(16);
+              }
+            }
+          }
+        }
+      }
+    }
+    @media (max-width: 375px) {
+      width: calcVWT(880);
+
+      .discussProject {
+        .form {
+          .industryDetails > button {
+            margin-top: calcVWT(-11);
+          }
+          .industryDetails {
+            .industries {
+              gap: calcVWM(16);
+
+              :global(.ant-slider-horizontal) {
+                margin-top: calcVWM(80);
+              }
+
+              .title {
+                height: unset;
+              }
+
+              .slider {
+                margin-bottom: calcVW(5);
+              }
+
+              .monthsWrapper {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: calcVWM(7);
+              }
+
+              .checkboxes {
+                column-gap: calcVWM(24);
+                row-gap: calcVWM(16);
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -20,7 +20,8 @@
     background: variables.$transparent-black;
     cursor: pointer;
     @media (max-width: 1024px) {
-      width: calcVWT(302);
+      width: calcVWT(202);
+      height: calcVWT(56);
       gap: calcVWT(16);
       padding: calcVWT(16);
     }
@@ -28,6 +29,7 @@
       width: calcVWM(302);
       gap: calcVWM(16);
       padding: calcVWM(16);
+      height: calcVWM(56);
     }
   }
 
@@ -98,5 +100,22 @@
   }
   .moreWrapper:hover {
     border: 1px solid variables.$dodger-blue;
+  }
+
+  @media (max-width: 1024px) {
+    .checkbox {
+      :global(.ant-checkbox-inner) {
+        width: calcVWT(20);
+        height: calcVWT(20);
+      }
+    }
+  }
+  @media (max-width: 375px) {
+    .checkbox {
+      :global(.ant-checkbox-inner) {
+        width: calcVWM(20);
+        height: calcVWM(20);
+      }
+    }
   }
 }
