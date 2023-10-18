@@ -124,6 +124,12 @@
         }
       }
 
+      .acceptLeft {
+        :global(.ant-form-item-control-input-content) {
+          justify-content: flex-start;
+        }
+      }
+
       .uploadFile {
         color: #e5e5e5;
 
