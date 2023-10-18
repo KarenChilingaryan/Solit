@@ -234,7 +234,12 @@ const DiscussProject = () => {
       <>
         <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && (
-          <ModalWrapper open={open} width={"66.7vw"} setOpen={setOpen}>
+          <ModalWrapper
+            open={open}
+            width={"66.7vw"}
+            setOpen={setOpen}
+            classname="discuss"
+          >
             <PricingModal
               data={liveStacks}
               handleDelete={(item) => handleDelete(item)}

@@ -14,20 +14,17 @@
         gap: getPricingModal(left-content-header-gap);
 
         .bigTitle {
-          @include font-style(
-            getPricingModal(big-title-fz),
+          @include font-style(getPricingModal(big-title-fz),
             variables.$fw-500,
             getPricingModal(big-title-lh),
-            variables.$black
-          );
+            variables.$black );
         }
+
         .smallTitle {
-          @include font-style(
-            getPricingModal(small-title-fz),
+          @include font-style(getPricingModal(small-title-fz),
             variables.$fw-500,
             getPricingModal(small-title-lh),
-            variables.$black
-          );
+            variables.$black );
         }
       }
 
@@ -38,12 +35,10 @@
         margin-top: getPricingModal(summary-section-mt);
 
         .summary {
-          @include font-style(
-            getPricingModal(summary-fz),
+          @include font-style(getPricingModal(summary-fz),
             variables.$fw-500,
             getPricingModal(summary-lh),
-            variables.$black
-          );
+            variables.$black );
         }
 
         .projType {
@@ -52,12 +47,10 @@
 
           .specialistsTitle {
             width: 100%;
-            @include font-style(
-              calcVW(18),
+            @include font-style(calcVW(18),
               variables.$fw-400,
               calcVW(24),
-              variables.$black
-            );
+              variables.$black );
           }
 
           .itemWrapper {
@@ -67,12 +60,10 @@
             padding: getPricingModal(item-wrapper-padding);
 
             .item {
-              @include font-style(
-                getPricingModal(proj-type-item-fz),
+              @include font-style(getPricingModal(proj-type-item-fz),
                 variables.$fw-500,
                 getPricingModal(proj-type-item-lh),
-                variables.$black
-              );
+                variables.$black );
             }
 
             .icon {
@@ -82,10 +73,11 @@
             }
           }
         }
+
         .specialists {
           @include flex(null, null, column);
           gap: getPricingModal(specialists-gap);
-   
+
 
           .itemWrapper {
             @include flex(null, center);
@@ -94,22 +86,18 @@
             padding: getPricingModal(add-specialist-padding);
 
             .item {
-              @include font-style(
-                getPricingModal(add-specialist-item-fz),
+              @include font-style(getPricingModal(add-specialist-item-fz),
                 variables.$fw-500,
                 getPricingModal(add-specialist-item-lh),
-                variables.$black
-              );
+                variables.$black );
             }
           }
 
           .value {
-            @include font-style(
-              getPricingModal(specialists-value-fz),
+            @include font-style(getPricingModal(specialists-value-fz),
               variables.$fw-500,
               getPricingModal(specialists-value-lh),
-              variables.$dark-turquoise
-            );
+              variables.$dark-turquoise );
           }
 
           .icon {
@@ -120,9 +108,149 @@
         }
       }
     }
+
     .rightContent {
       width: getPricingModal(right-content-width);
       padding: getPricingModal(right-content-padding);
+    }
+
+    @media (max-width: 1024px) {
+      .leftContent {
+        max-width: calcVWT(373);
+        padding: 0 calcVWT(32);
+        row-gap: calcVWT(48);
+        display: flex;
+        flex-direction: column;
+
+        .header {
+          row-gap: calcVWT(16);
+
+          .bigTitle {
+            @include font-style(calcVWT(36),
+              variables.$fw-500,
+              normal,
+              variables.$black );
+          }
+
+          .smallTitle {
+            @include font-style(calcVWT(18),
+              variables.$fw-400,
+              normal,
+              variables.$black );
+          }
+        }
+
+        .summarySection {
+          padding: 0;
+          margin-top: 0;
+
+          .summary {
+            @include font-style(calcVWT(36),
+              variables.$fw-500,
+              normal,
+              variables.$black );
+          }
+
+          .projType {
+            row-gap: calcVWT(24);
+
+            .itemWrapper {
+              .item {
+                @include font-style(calcVWT(20),
+                  variables.$fw-500,
+                  normal,
+                  variables.$black );
+              }
+
+              .icon {
+                width: calcVWT(14);
+                height: calcVWT(14);
+              }
+            }
+
+            .specialistsTitle {
+              @include font-style(calcVWT(18),
+                variables.$fw-400,
+                normal,
+                variables.$black );
+            }
+          }
+        }
+      }
+
+      .rightContent {
+        width: calcVWT(474);
+        padding: 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      row-gap: calcVWM(56);
+
+      .rightContent {
+        width: 100%;
+      }
+
+      .leftContent {
+        max-width: 100%;
+        row-gap: calcVWM(48);
+
+        .header {
+          .bigTitle {
+            @include font-style(calcVWM(24),
+              variables.$fw-700,
+              normal,
+              variables.$black );
+          }
+
+          .smallTitle {
+            @include font-style(calcVWM(18),
+              variables.$fw-400,
+              normal,
+              variables.$black );
+          }
+        }
+
+        .summarySection {
+          padding: 0;
+          row-gap: calcVWM(16);
+
+          .summary {
+            @include font-style(calcVWM(24),
+              variables.$fw-700,
+              normal,
+              variables.$black );
+          }
+
+          .projType {
+            gap: calcVWM(24);
+
+            .itemWrapper {
+              gap: calcVWM(10);
+
+              .item {
+                @include font-style(calcVWM(20),
+                  variables.$fw-500,
+                  normal,
+                  variables.$black );
+              }
+
+              .icon {
+                width: calcVWM(12);
+                height: calcVWM(12);
+              }
+            }
+
+            .specialistsTitle {
+              @include font-style(calcVWM(18),
+                variables.$fw-400,
+                normal,
+                variables.$black );
+            }
+          }
+        }
+      }
     }
   }
 }

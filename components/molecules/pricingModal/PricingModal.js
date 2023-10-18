@@ -12,7 +12,8 @@ const PricingModal = ({
   dataForm,
   stackNames = [],
   stackNamesSecond,
-  onSubmit
+  onSubmit,
+  secondCheckBox
 }) => {
 
   const filterDataByCategory = (category) => {
@@ -35,26 +36,9 @@ const PricingModal = ({
           <Paragraph className={styles.summary}>
             Summary of your request:
           </Paragraph>
-          <Row className={styles.projType}>
-            {stackNames.map((name) =>
-              filterDataByCategory(name).map((item, index) => (
-                <Col key={index} className={styles.itemWrapper}>
-                  <Col className={styles.item}>{item.item}</Col>
-                  <Image
-                    src={close}
-                    className={styles.icon}
-                    onClick={() => handleDelete(item)}
-                    alt="i"
-                  />
-                </Col>
-              )
-              ))}
-          </Row>
+
           {stackNamesSecond &&
             <Row className={styles.projType}>
-              <Paragraph className={styles.specialistsTitle}>
-                Specialists selected for your project:
-              </Paragraph>
               {stackNamesSecond.map((name) =>
                 filterDataByCategory(name).map((item, index) => (
                   <Col key={index} className={styles.itemWrapper}>
@@ -70,12 +54,33 @@ const PricingModal = ({
                 ))}
             </Row>
           }
+          <Row className={styles.projType}>
+            {stackNamesSecond &&
+              <Paragraph className={styles.specialistsTitle}>
+                Specialists selected for your project:
+              </Paragraph>
+            }
+            {stackNames.map((name) =>
+              filterDataByCategory(name).map((item, index) => (
+                <Col key={index} className={styles.itemWrapper}>
+                  <Col className={styles.item}>{item.item}</Col>
+                  <Image
+                    src={close}
+                    className={styles.icon}
+                    onClick={() => handleDelete(item)}
+                    alt="i"
+                  />
+                </Col>
+              )
+              ))}
+          </Row>
         </Row>
       </Col>
       <Col className={styles.rightContent}>
         <ModalForm
           data={dataForm}
           onSubmit={onSubmit}
+          secondCheckBox={secondCheckBox}
         />
       </Col>
     </Row>

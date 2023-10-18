@@ -1,4 +1,4 @@
-import { memo, useState, useEffect,useRef } from "react";
+import { memo, useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -35,7 +35,6 @@ const BlogsSection = ({ data }) => {
       setBlogsData(data);
       return;
     }
-    console.log(id, ">>>>>>");
     const data1 = [...data];
     const sortedData = data1?.filter((el) => el?.filter_name.includes(id));
     setBlogsData(sortedData);

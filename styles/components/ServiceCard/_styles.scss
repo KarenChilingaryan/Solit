@@ -242,7 +242,16 @@
         max-height: calcVW(456);
       }
     }
-
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      max-width: calcVWL(405);
+      max-height: calcVWL(456);
+  
+      .title_iconWrapper {
+        .iconWrapper {
+          max-height: calcVWL(456);
+        }
+      }
+    }
     @media (max-width: 1024px) {
       max-width: calcVWT(304);
       max-height: calcVWT(380);

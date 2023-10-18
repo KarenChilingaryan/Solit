@@ -62,7 +62,7 @@
         .stacks {
           transition: all 0.4s;
           display: flex;
-          height: 0;
+          height: max-content;
           gap: calcVW(25);
           width: 100%;
           justify-content: center;
@@ -74,6 +74,7 @@
             object-fit: cover;
           }
         }
+
         .blogDescription {
           text-align: start;
           overflow: hidden;
@@ -535,8 +536,8 @@
 
       &:hover {
         height: calcVWT(340);
-        margin-top: calcVWT(-30);
-        margin-bottom: calcVWT(-40);
+        margin-top: calcVWT(-20);
+        margin-bottom: calcVWT(-20);
 
         .home {
           width: calcVWT(200);
@@ -666,6 +667,7 @@
 
         .img {
           height: calcVWM(246);
+          max-height: calcVWM(198);
         }
 
         .positionSection {
@@ -891,6 +893,13 @@
         height: calcVWT(356);
       }
 
+      @media (max-width: 1024px) {
+        &:hover {
+          margin-top: calcVWT(-30);
+          margin-bottom: calcVWT(-40);
+        }
+      }
+      
       @media (max-width: 576px) {
         height: calcVWM(300);
         border-radius: calcVWM(16);
