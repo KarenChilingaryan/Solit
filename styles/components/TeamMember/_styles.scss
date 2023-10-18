@@ -5,7 +5,7 @@
   .imageContainer {
     position: relative;
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: calcVW(16);
     width: getTeamMemberSizes(team-member-card-width);
     height: getTeamMemberSizes(team-member-card-height);
     background: rgba(0, 0, 0, 0.32);
@@ -44,7 +44,7 @@
 
     .more {
       display: flex;
-      gap: 10px;
+      gap: calcVW(10);
       align-items: center;
       @include font-style(calcVW(18),
         variables.$fw-700,
@@ -72,7 +72,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid variables.$light-blue;
-    border-radius: 16px;
+    border-radius: calcVW(16);
     cursor: pointer;
 
     &:hover{
@@ -80,7 +80,50 @@
       box-shadow: 0px 42px 98px -42px #7811fe;
     }
   }
-
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .imageContainer {
+      border-radius: calcVWL(16);
+      width: calcVWL(296);
+      height: calcVWL(300);
+  
+      .positionSection {
+        height: calcVWL(120);
+        bottom: calcVWL(-30);
+        padding: calcVWL(32);
+  
+        .name {
+          @include font-style(calcVWL(24),
+            variables.$fw-500,
+            calcVWL(29),
+            #fff);
+        }
+  
+        .position {
+          @include font-style(calcVWL(16),
+            variables.$fw-300,
+            calcVWL(24),
+            #fff);
+        }
+      }
+  
+      .more {
+        gap: calcVWL(10);
+        @include font-style(calcVWL(18),
+          variables.$fw-700,
+          calcVWL(24),
+          #219fdb);
+  
+        img {
+          width: calcVWL(18);
+          height: calcVWL(18);
+        }
+      }
+    }
+  
+    .moreWrapper {
+      border-radius: calcVWL(16);
+    }
+  }
   @media (max-width: 1024px) {
     .imageContainer {
       width: calcVWT(208);
