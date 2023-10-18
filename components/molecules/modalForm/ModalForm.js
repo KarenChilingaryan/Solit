@@ -9,7 +9,10 @@ import arrow from "../../../assets/img/icons/selectIcon.svg";
 import styles from "./ModalForm.module.scss";
 
 const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', className, secondCheckBox }) => {
+  const [form] = Form.useForm();
   const [file, setFile] = useState(null);
+  const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
+  const [onChangeCheckboxNDA, setOnChangeCheckboxNDA] = useState(false);
 
   const submitForm = (values, data) => {
     const formData = {
@@ -18,13 +21,14 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
       file_document: file,
     };
     onSubmit(formData)
+    form.resetFields()
   };
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Form onFinish={(values) => {
         submitForm(values, data)
-      }} className={styles.form} >
+      }} className={styles.form} form={form} >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
             name="full_name"
@@ -52,7 +56,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
           >
             <FloatInput label="Email" placeholder="Email" name="from_email" />
           </FormItem>
-          
+
           <FormItem name="phon_number" >
             <FloatInput label="Phone number" placeholder="Phone number" name="phon_number" type="number" />
           </FormItem>
@@ -72,11 +76,11 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
               className={styles.uploadFile}
             />
           </FormItem>
-           <FormItem name="comment">
+          <FormItem name="comment">
             <FloatInput label="Comment" placeholder="Comment" name="comment" />
           </FormItem>
 
-           <FormItem
+          <FormItem
             name="your_budget"
             rules={[
               {
@@ -99,16 +103,55 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
               <Select.Option value="demo">Demo</Select.Option>
             </Select>
           </FormItem>
-          <FormItem className={`${styles.accept} ${secondCheckBox && styles.acceptLeft}`}>
-            <Checkbox />
+          <FormItem className={`${styles.accept} ${secondCheckBox && styles.acceptLeft}`}
+            name="accept"
+            rules={[
+              {
+                required: true,
+                message: "Accept is required",
+              },
+            ]}
+          >
+            <Checkbox
+              name="accept"
+              onChange={() => {
+                setOnChangeCheckbox(!onChangeCheckbox);
+                if (onChangeCheckbox) {
+                  form.resetFields(["accept"]);
+                } else {
+                  form.setFieldValue("accept", !onChangeCheckbox);
+                }
+              }}
+              value={onChangeCheckbox}
+            />
             <Row className={styles.acceptText}>
               I accept your Privacy Policy
             </Row>
           </FormItem>
           {
             secondCheckBox &&
-            <FormItem className={styles.accept}>
-              <Checkbox />
+            <FormItem className={styles.accept}
+              name="acceptNDA"
+              rules={[
+                {
+                  required: true,
+                  message: "NDA is required",
+                },
+              ]}
+            >
+              <Checkbox
+
+                name="acceptNDA"
+                onChange={() => {
+                  setOnChangeCheckboxNDA(!onChangeCheckboxNDA);
+                  if (onChangeCheckboxNDA) {
+                    form.resetFields(["acceptNDA"]);
+                  } else {
+                    form.setFieldValue("acceptNDA", !onChangeCheckboxNDA);
+                  }
+                }}
+                value={onChangeCheckboxNDA}
+              />
               <Row className={styles.acceptText}>
                 I want to protect my data by signing an NDA.
               </Row>

@@ -71,6 +71,18 @@
               width: getPricingModal(proj-type-icon-width);
               height: getPricingModal(proj-type-icon-height);
             }
+
+            .iconChange {
+              width: calcVW(24);
+              height: calcVW(24);
+            }
+
+            .iconChangeValue {
+              @include font-style(calcVW(14),
+                variables.$fw-500,
+                normal,
+                variables.$light-blue );
+            }
           }
         }
 
@@ -166,6 +178,17 @@
                 width: calcVWT(14);
                 height: calcVWT(14);
               }
+
+              .iconChange {
+                width: calcVWT(24);
+                height: calcVWT(24);
+              }
+              .iconChangeValue {
+                @include font-style(calcVWT(14),
+                  variables.$fw-500,
+                  normal,
+                  variables.$light-blue );
+              }
             }
 
             .specialistsTitle {
@@ -239,6 +262,17 @@
               .icon {
                 width: calcVWM(12);
                 height: calcVWM(12);
+              }
+
+              .iconChange {
+                width: calcVWM(24);
+                height: calcVWM(24);
+              }
+              .iconChangeValue {
+                @include font-style(calcVWM(14),
+                  variables.$fw-500,
+                  normal,
+                  variables.$light-blue );
               }
             }
 

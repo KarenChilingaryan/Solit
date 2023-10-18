@@ -225,8 +225,12 @@ const DiscussProject = () => {
       const res = await dispatch(
         await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
       );
-      setOpenSuccess(true);
-    } catch {}
+      setOpenSuccess(true)
+      setModalFormData(null)
+      setOpen(false)
+    } catch {
+
+    }
   };
 
   return (

@@ -157,10 +157,31 @@ const DiscussProjectStack = () => {
         data[item.category] = [];
       }
     } else if (item.category === "industry") {
-      data[item.category] = [];
+      data[item.category] = data[item.category].filter(
+        (elem) => elem !== item.item
+      );
     } else if (item.category === "duration") {
       data[item.category] = undefined;
     }
+
+    form.setFieldsValue(data);
+    getProjectData(data);
+    submitForm(form.getFieldsValue(), true);
+  };
+  const handleChange = (category, name, value) => {
+    const data = { ...form.getFieldsValue() };
+    if (["developers", "specialists"].includes(category)) {
+      for (let i = 0; i < data[category].length; i++) {
+        if (value == 0) {
+          data[category] = data[category].filter(
+            (elem) => elem.name !== name
+          );
+        } else if (data[category][i].name == name) {
+          data[category][i].count = Number(value)
+        }
+      }
+    }
+
 
     form.setFieldsValue(data);
     getProjectData(data);
@@ -214,6 +235,7 @@ const DiscussProjectStack = () => {
             <PricingModal
               data={liveStacks}
               handleDelete={(item) => handleDelete(item)}
+              handleChange={handleChange}
               dataForm={modalFormData}
               stackNames={["specialists", "developers"]}
               stackNamesSecond={[

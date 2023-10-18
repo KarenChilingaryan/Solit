@@ -189,7 +189,6 @@
 
           input {
             color: black;
-            border-bottom: 1px solid #000;
             border-radius: unset;
 
             &:focus {
@@ -307,6 +306,19 @@
           color: blue;
         }
       }
+
+      :global(.ant-form-item-has-success) {
+        input[type="file"] {
+          color: black !important;
+          margin-left: calcVW(-102);
+          border: 0;
+
+          @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+            margin-left: calcVWL(-108);
+
+          }
+        }
+      }
     }
 
     .backImage {
@@ -340,6 +352,11 @@
         width: 100%;
         max-width: calcVWT(602);
         padding: calcVWT(32);
+
+        .suffix {
+          width: calcVWT(17);
+          height: calcVWT(19);
+        }
 
         .buttonWrapper {
           margin: auto;
@@ -396,6 +413,12 @@
             }
           }
         }
+
+        :global(.ant-form-item-has-success) {
+          input[type="file"] {
+            margin-left: calcVWT(-100);
+          }
+        }
       }
     }
 
@@ -414,6 +437,11 @@
       .form {
         width: 100%;
         max-width: 100%;
+
+        .suffix {
+          width: calcVWM(17);
+          height: calcVWM(19);
+        }
 
         :global(.ant-form-item) {
           margin-bottom: calcVWM(20);
@@ -455,6 +483,12 @@
             .selectPlaceholder {
               @include font-style(calcVWM(18), variables.$fw-400, normal, #000);
             }
+          }
+        }
+
+        :global(.ant-form-item-has-success) {
+          input[type="file"] {
+            margin-left: calcVWM(-66);
           }
         }
       }
