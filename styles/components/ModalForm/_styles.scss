@@ -98,6 +98,8 @@
       }
 
       .accept {
+        margin-top: calcVW(-24);
+
         :global(.ant-form-item-control-input-content) {
           display: flex;
           align-items: center;
@@ -115,7 +117,6 @@
             border-left: 0;
           }
         }
-
         .acceptText {
           @include font-style(getModalFormSizes(text-fz),
             variables.$fw-400,
@@ -376,6 +377,8 @@
         }
 
         .accept {
+          margin-top: calcVWT(-10);
+
           .acceptText {
             font-size: calcVWT(18);
             line-height: calcVWT(24);
@@ -453,6 +456,8 @@
         }
 
         .accept {
+          margin-top: calcVWM(4);
+
           .acceptText {
             font-size: calcVWM(18);
             line-height: calcVWM(24);

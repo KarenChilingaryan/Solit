@@ -126,6 +126,7 @@
   }
   @media (max-width: 1024px) {
     .imageContainer {
+      border-radius: calcVWT(16);
       width: calcVWT(208);
       height: calcVWT(220);
 
@@ -150,6 +151,7 @@
 
   @media (max-width: 576px) {
     .imageContainer {
+      border-radius: calcVWM(16);
       width: calcVWM(163);
       height: calcVWM(200);
 
