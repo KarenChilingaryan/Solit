@@ -18,7 +18,7 @@
           display: flex;
           gap: calcVW(16);
           margin-top: calcVW(60);
-          z-index: 1000;
+          z-index: 998;
 
           a:first-of-type {
             button {
@@ -75,7 +75,7 @@
               }
 
               @media (max-width: 576px) {
-                padding: calcVWM(8) calcVWM(16);
+                padding: calcVWM(12) calcVWM(16);
                 border-radius: calcVWM(8);
 
                 @include font-style(
@@ -181,6 +181,8 @@
               margin-bottom: calcVW(7);
 
               .month {
+                width: calcVWM(40);
+                text-align: left;
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
                 @media (max-width: 1024px) {
                   @include font-style(
@@ -247,13 +249,20 @@
         }
       }
     }
-    @media (max-width: 375px) {
-      width: calcVWT(880);
+    @media (max-width: 576px) {
+      width: calcVWM(343);
 
       .discussProject {
         .form {
+          .buttons {
+            a {
+              button {
+                height: unset !important;
+              }
+            }
+          }
           .industryDetails > button {
-            margin-top: calcVWT(-11);
+            margin-top: calcVWT(55);
           }
           .industryDetails {
             .industries {
@@ -274,7 +283,7 @@
               .monthsWrapper {
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: calcVWM(7);
+                margin-bottom: calcVWM(-1);
               }
 
               .checkboxes {

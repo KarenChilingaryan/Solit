@@ -49,8 +49,8 @@
       }
     }
 
-    .rotate{
-      img{
+    .rotate {
+      img {
         transform: rotate(180deg);
         transition: 0.5s;
       }
@@ -66,7 +66,7 @@
 
     @media (max-width: 576px) {
       width: unset;
-      margin-bottom: calcVWM(40);
+      margin-bottom: calcVWM(148);
 
       .buttonWrapper {
         margin-top: calcVWM(20);
