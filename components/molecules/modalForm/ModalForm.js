@@ -100,6 +100,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
                 <span className={styles.selectPlaceholder}>Your budget</span>
               }
             >
+              <Select.Option value="Your Budget">Your Budget</Select.Option>
               <Select.Option value="Less than $20k">Less than $20k</Select.Option>
               <Select.Option value="$20k to $50k">$20k to $50k</Select.Option>
               <Select.Option value="More than $50k">More than $50k</Select.Option>
