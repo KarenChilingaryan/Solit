@@ -233,6 +233,22 @@
                   calcVW(24),
                   variables.$dodger-blue
                 );
+                @media (max-width: 1024px) {
+                  @include font-style(
+                    calcVWT(20),
+                    variables.$fw-700,
+                    calcVWT(24),
+                    variables.$dodger-blue
+                  );
+                }
+                @media (max-width: 576px) {
+                  @include font-style(
+                    calcVWM(20),
+                    variables.$fw-700,
+                    calcVWM(24),
+                    variables.$dodger-blue
+                  );
+                }
               }
             }
 
