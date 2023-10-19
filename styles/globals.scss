@@ -151,8 +151,45 @@ textarea::-webkit-scrollbar-thumb {
   }
 }
 
+.ant-select-dropdown {
+  padding: calcVW(16) !important;
+  border-radius: calcVW(16) !important;
+}
+
+.ant-select-item-option {
+  font-size: calcVW(18) !important;
+  font-weight: 500 !important;
+  color: black !important;
+  padding: calcVW(8) calcVW(16) !important;
+}
+
+.ant-select-item-option-selected {
+  border-radius: calcVW(8) !important;
+  background-color: #3FC1FF !important;
+  color: #ffffff !important;
+}
+
+.ant-select-selection-item {
+  font-size: calcVW(18) !important;
+  font-weight: 400 !important;
+  color: black !important;
+}
 
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+  .ant-select-dropdown {
+    padding: calcVWL(16) !important;
+    border-radius: calcVWL(16) !important;
+  }
+  .ant-select-item-option {
+    font-size: calcVWL(18) !important;
+    padding: calcVWL(8) calcVWL(16) !important;
+  }
+  .ant-select-item-option-selected {
+    border-radius: calcVWL(8) !important;
+  }
+  .ant-select-selection-item {
+    font-size: calcVWL(18) !important;
+  }
 
   .ant-tooltip-inner {
     padding: calcVWL(24) calcVWL(30) calcVWL(14) calcVWL(30) !important;
@@ -179,6 +216,20 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 1024px) {
+  .ant-select-dropdown {
+    padding: calcVWT(16) !important;
+    border-radius: calcVWT(16) !important;
+  }
+  .ant-select-item-option {
+    font-size: calcVWT(18) !important;
+    padding: calcVWT(8) calcVWT(16) !important;
+  }
+  .ant-select-item-option-selected {
+    border-radius: calcVWT(8) !important;
+  }
+  .ant-select-selection-item {
+    font-size: calcVWT(18) !important;
+  }
   .modalApplyNowForm {
     width: calcVWT(602) !important;
   }
@@ -239,7 +290,20 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 576px) {
-
+  .ant-select-dropdown {
+    padding: calcVWM(16) !important;
+    border-radius: calcVWM(16) !important;
+  }
+  .ant-select-item-option {
+    font-size: calcVWM(18) !important;
+    padding: calcVWM(8) calcVWM(16) !important;
+  }
+  .ant-select-item-option-selected {
+    border-radius: calcVWM(8) !important;
+  }
+  .ant-select-selection-item {
+    font-size: calcVWM(18) !important;
+  }
   .ant-tooltip-inner {
     padding: calcVWM(24) calcVWM(26) calcVWM(26) !important;
     border-radius: calcVWM(16) !important;
