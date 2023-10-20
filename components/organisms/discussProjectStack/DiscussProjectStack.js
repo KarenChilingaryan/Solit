@@ -361,7 +361,7 @@ const DiscussProjectStack = () => {
                   <Paragraph className={styles.title}>
                     4. What is the expected duration of your project?
                   </Paragraph>
-                  <FormItem name="duration">
+                  <FormItem name="duration" className={styles.slider}>
                     <Slider min={0} defaultValue={1} max={24} tooltip={{ formatter }} />
                   </FormItem>
                   <Row className={styles.monthsWrapper}>

@@ -7,14 +7,20 @@
     margin: getDiscussProjectStackSizes(content-mt) auto 0 auto;
 
     .discussProject {
-      margin: calcVW(200) 0 calcVW(320);
+      margin: calcVW(-5) 0 calcVW(320);
+
+      .form > button {
+        margin-top: calcVW(3);
+      }
 
       .form {
+        z-index: 1;
         display: flex;
         flex-direction: column;
         gap: calcVW(32);
 
         .buttons {
+          z-index: 10;
           display: flex;
           gap: calcVW(16);
           margin-top: calcVW(60);
@@ -73,6 +79,7 @@
               );
 
               @media (max-width: 1024px) {
+                height: calcVWT(48);
                 @include font-style(
                   calcVWT(13),
                   variables.$fw-700,
@@ -82,6 +89,7 @@
               }
 
               @media (max-width: 576px) {
+                height: unset;
                 @include font-style(
                   calcVWM(13),
                   variables.$fw-700,
@@ -93,7 +101,7 @@
           }
           a {
             button {
-              height: unset;
+              height: calcVW(48);
 
               @include font-style(
                 calcVW(13),
@@ -103,6 +111,7 @@
               );
 
               @media (max-width: 1024px) {
+                height: calcVWT(48);
                 text-align: start;
                 padding: calcVWT(8) calcVWT(16);
                 border-radius: calcVWT(8);
@@ -158,12 +167,20 @@
         .industryDetails {
           display: flex;
           flex-direction: column;
-          gap: calcVW(90);
+          gap: calcVW(64);
 
           .industries {
             display: flex;
             flex-direction: column;
-            gap: calcVW(30);
+            gap: calcVW(16);
+
+            :global(.ant-form-item) {
+              margin-bottom: 0px;
+            }
+
+            :global(.ant-slider-horizontal) {
+              margin-top: calcVW(82);
+            }
 
             .title {
               display: flex;
@@ -191,7 +208,12 @@
             .checkboxes {
               display: flex;
               flex-wrap: wrap;
-              gap: calcVW(24);
+              column-gap: calcVW(24);
+              row-gap: calcVW(16);
+            }
+
+            .slider {
+              margin-bottom: calcVW(0);
             }
 
             .specialistWrapper {
@@ -285,7 +307,7 @@
           .buttons {
             a {
               button {
-                height: unset !important;
+                // height: unset !important;
               }
             }
           }

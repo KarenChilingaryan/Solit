@@ -32,6 +32,7 @@
               );
 
               @media (max-width: 1024px) {
+                height: calcVWT(48);
                 @include font-style(
                   calcVWT(13),
                   variables.$fw-700,
@@ -41,6 +42,7 @@
               }
 
               @media (max-width: 576px) {
+                height: unset;
                 @include font-style(
                   calcVWM(13),
                   variables.$fw-700,
@@ -52,7 +54,7 @@
           }
           a {
             button {
-              height: unset;
+              height: calcVW(48);
 
               @include font-style(
                 calcVW(13),
@@ -62,6 +64,7 @@
               );
 
               @media (max-width: 1024px) {
+                height: calcVWT(48);
                 text-align: start;
                 padding: calcVWT(8) calcVWT(16);
                 border-radius: calcVWT(8);
@@ -133,6 +136,10 @@
             display: flex;
             flex-direction: column;
             gap: calcVW(10);
+
+            :global(.ant-form-item) {
+              margin-bottom: 0px;
+            }
 
             :global(.ant-slider-horizontal) {
               margin-top: calcVW(90);
@@ -219,6 +226,7 @@
             margin-top: calcVWT(-11);
           }
           .industryDetails {
+            gap: calcVWT(64);
             .industries {
               gap: calcVWT(16);
 
