@@ -78,6 +78,7 @@
               }
 
               @media (max-width: 576px) {
+                height: unset;
                 padding: calcVWM(12) calcVWM(16);
                 border-radius: calcVWM(8);
 

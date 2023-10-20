@@ -4,7 +4,7 @@ import { Checkbox } from "../../atoms";
 
 import styles from "./Industry.module.scss";
 
-const Industry = ({ fullWidth = false, circle = false, value }) => {
+const Industry = ({ fullWidth = false, circle = false, value, onClick }) => {
   const [isChecked, setIsChecked] = useState(false);
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -14,7 +14,7 @@ const Industry = ({ fullWidth = false, circle = false, value }) => {
       className={`${styles.mainWrapper} ${fullWidth && styles.moreWrapper},  ${
         circle && styles.circleCheckbox
       }`}
-      onClick={handleCheckboxChange}
+      onClick={value == "Other" ? onClick : handleCheckboxChange}
     >
       <Checkbox className={styles.checkbox} checked={isChecked} value={value} />
       <span className={styles.nameSpecialist}>{value}</span>

@@ -125,6 +125,7 @@
               }
 
               @media (max-width: 576px) {
+                height: unset;
                 padding: calcVWM(12) calcVWM(16);
                 border-radius: calcVWM(8);
 
@@ -316,6 +317,11 @@
     }
     @media (max-width: 576px) {
       width: calcVWM(343);
+      .discussProject {
+        .form {
+          gap: calcVWM(32);
+        }
+      }
     }
   }
 }

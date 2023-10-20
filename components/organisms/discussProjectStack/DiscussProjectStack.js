@@ -16,6 +16,7 @@ import bgImage from "../../../assets/img/main-bg-discuss-stack.png";
 import SuccessModal from "../successModal/SuccessModal";
 
 import styles from "./DiscussProjectStack.module.scss";
+import FloatInput from "../../molecules/floatInput/FloatInput";
 
 const data1 = [
   "eCommerce",
@@ -75,10 +76,11 @@ const DiscussProjectStack = () => {
     specialists: [],
   });
   const [liveStacks, setLiveStacks] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [modalFormData, setModalFormData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
-  const [closeFooterStack, setCloseFooterStack] = useState(false)
+  const [closeFooterStack, setCloseFooterStack] = useState(false);
 
   const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -173,15 +175,12 @@ const DiscussProjectStack = () => {
     if (["developers", "specialists"].includes(category)) {
       for (let i = 0; i < data[category].length; i++) {
         if (value == 0) {
-          data[category] = data[category].filter(
-            (elem) => elem.name !== name
-          );
+          data[category] = data[category].filter((elem) => elem.name !== name);
         } else if (data[category][i].name == name) {
-          data[category][i].count = Number(value)
+          data[category][i].count = Number(value);
         }
       }
     }
-
 
     form.setFieldsValue(data);
     getProjectData(data);
@@ -217,31 +216,80 @@ const DiscussProjectStack = () => {
         await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-    } catch { }
+    } catch {}
   };
 
   useEffect(() => {
     if (form) {
-      form.setFieldValue('duration', 1)
+      form.setFieldValue("duration", 1);
     }
-  }, [])
+  }, []);
+
+  const handleAdd = () => {
+    setModalOpen(true)
+  }
 
   return (
     <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_2">
+      {modalOpen && (
+        <ModalWrapper
+          open={modalOpen}
+          // width={
+          //   isTablet <= 1024 && isTablet > 576
+          //     ? "52vw"
+          //     : isTablet > 1024 && isTablet <= 1440
+          //     ? "37vw"
+          //     : "28vw"
+          // }
+          setOpen={setModalOpen}
+          style={styles.modal}
+        >
+          <Row>
+            <Form
+              form={form}
+              onFinish={(values) => {
+                submitForm(values, data);
+              }}
+              className={styles.form}
+            >
+              <FormItem
+                name="industry"
+                rules={[
+                  {
+                    required: true,
+                    message: "industry is required",
+                  },
+                ]}
+              >
+                <FloatInput
+                  label="industry"
+                  placeholder="industry"
+                  required={true}
+                />
+              </FormItem>
+              <Col className={styles.buttonWrapper}>
+                <Button text="Add Industry" transparentBlue type="submit" />
+              </Col>
+            </Form>
+          </Row>
+        </ModalWrapper>
+      )}
       <>
         <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
         {modalFormData && (
-          <ModalWrapper open={open} width={"66.7vw"} setOpen={setOpen} classname="discuss">
+          <ModalWrapper
+            open={open}
+            width={"66.7vw"}
+            setOpen={setOpen}
+            classname="discuss"
+          >
             <PricingModal
               data={liveStacks}
               handleDelete={(item) => handleDelete(item)}
               handleChange={handleChange}
               dataForm={modalFormData}
               stackNames={["specialists", "developers"]}
-              stackNamesSecond={[
-                "industry",
-                "duration",
-              ]}
+              stackNamesSecond={["industry", "duration"]}
               onSubmit={onSubmit}
               secondCheckBox={true}
             />
@@ -252,7 +300,9 @@ const DiscussProjectStack = () => {
             liveStacks={liveStacks}
             handleDelete={handleDelete}
             onClick={() => submitForm(form.getFieldsValue())}
-            onClose={() => { setCloseFooterStack(true) }}
+            onClose={() => {
+              setCloseFooterStack(true);
+            }}
           />
         )}
         <div className={styles.content}>
@@ -347,7 +397,7 @@ const DiscussProjectStack = () => {
                   <FormItem name="industry">
                     <Checkbox.Group className={styles.checkboxes}>
                       {data1.map((item, i) => (
-                        <Industry key={i} value={item} circle />
+                        <Industry key={i} value={item} circle onClick={handleAdd}/>
                       ))}
                     </Checkbox.Group>
                   </FormItem>
@@ -362,7 +412,12 @@ const DiscussProjectStack = () => {
                     4. What is the expected duration of your project?
                   </Paragraph>
                   <FormItem name="duration" className={styles.slider}>
-                    <Slider min={0} defaultValue={1} max={24} tooltip={{ formatter }} />
+                    <Slider
+                      min={0}
+                      defaultValue={1}
+                      max={24}
+                      tooltip={{ formatter }}
+                    />
                   </FormItem>
                   <Row className={styles.monthsWrapper}>
                     <Col className={styles.month}>1 month</Col>
