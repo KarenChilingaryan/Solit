@@ -256,7 +256,10 @@ const DiscussProject = () => {
         {modalOpen && (
           <ModalWrapper
             open={modalOpen}
-            setOpen={setModalOpen}
+            setOpen={() => {
+              setModalOpen('')
+              setOtherValue('')
+            }}
             style={styles.modal}
           >
             <Row style={{

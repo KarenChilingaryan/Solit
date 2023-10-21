@@ -244,7 +244,10 @@ const DiscussProjectStack = () => {
       {modalOpen && (
         <ModalWrapper
           open={modalOpen}
-          setOpen={setModalOpen}
+          setOpen={() => {
+            setModalOpen(false)
+            setIndustryOther('')
+          }}
           style={styles.modal}
         >
           <Row style={{
