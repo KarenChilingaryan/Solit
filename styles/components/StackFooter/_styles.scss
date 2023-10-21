@@ -114,7 +114,7 @@
       @media (max-width: 576px) {
         width: 100%;
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
 
         button {
           width: unset;

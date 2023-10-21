@@ -11,12 +11,13 @@ const Industry = ({ fullWidth = false, circle = false, value, onClick }) => {
   };
   return (
     <Col
-      className={`${styles.mainWrapper} ${fullWidth && styles.moreWrapper},  ${
-        circle && styles.circleCheckbox
-      }`}
+      className={`${styles.mainWrapper} ${fullWidth && styles.moreWrapper},  ${circle && styles.circleCheckbox
+        }`}
       onClick={value == "Other" ? onClick : handleCheckboxChange}
     >
-      <Checkbox className={styles.checkbox} checked={isChecked} value={value} />
+      {value != "Other" &&
+        < Checkbox className={styles.checkbox} checked={isChecked} value={value} />
+      }
       <span className={styles.nameSpecialist}>{value}</span>
     </Col>
   );

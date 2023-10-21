@@ -2,6 +2,15 @@
 @import "../../base/mixins";
 
 @mixin generate-discuss-project-styles {
+  .form {
+    width: 100%;
+    label {
+      color: black !important; 
+    }
+    input {
+      border: 0;
+    }
+  }
   .content {
     width: getDiscussProjectSizes(content-width);
     margin: getDiscussProjectSizes(content-mt) auto 0 auto;

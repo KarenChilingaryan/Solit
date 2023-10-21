@@ -71,6 +71,7 @@ const formatter = (value) => `${value} month`;
 
 const DiscussProjectStack = () => {
   const [form] = Form.useForm();
+  const [industryOther, setIndustryOther] = useState('')
   const [projectStacks, setProjectStacks] = useState({
     developers: [],
     specialists: [],
@@ -216,7 +217,7 @@ const DiscussProjectStack = () => {
         await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
@@ -229,31 +230,30 @@ const DiscussProjectStack = () => {
     setModalOpen(true)
   }
 
+  const setValueinForm = (val) => {
+    const formData = form.getFieldsValue()?.industry || [];
+    const industry = [...formData, val];
+    form.setFieldValue('industry', industry);
+    getProjectData(form.getFieldsValue());
+    setModalOpen(false)
+    setIndustryOther('')
+  }
+
   return (
     <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_2">
       {modalOpen && (
         <ModalWrapper
           open={modalOpen}
-          // width={
-          //   isTablet <= 1024 && isTablet > 576
-          //     ? "52vw"
-          //     : isTablet > 1024 && isTablet <= 1440
-          //     ? "37vw"
-          //     : "28vw"
-          // }
           setOpen={setModalOpen}
           style={styles.modal}
         >
-          <Row>
+          <Row style={{
+            marginTop: '5vw'
+          }}>
             <Form
-              form={form}
-              onFinish={(values) => {
-                submitForm(values, data);
-              }}
               className={styles.form}
             >
               <FormItem
-                name="industry"
                 rules={[
                   {
                     required: true,
@@ -262,13 +262,19 @@ const DiscussProjectStack = () => {
                 ]}
               >
                 <FloatInput
-                  label="industry"
-                  placeholder="industry"
+                  label="Industry"
+                  placeholder="Industry"
+                  value={industryOther}
+                  onChange={(val) => setIndustryOther(val.target.value)}
                   required={true}
                 />
               </FormItem>
               <Col className={styles.buttonWrapper}>
-                <Button text="Add Industry" transparentBlue type="submit" />
+                <Button text="Add industry" transparentBlue type="submit" onClick={() => {
+                  if (industryOther) {
+                    setValueinForm(industryOther)
+                  }
+                }} />
               </Col>
             </Form>
           </Row>
@@ -397,7 +403,7 @@ const DiscussProjectStack = () => {
                   <FormItem name="industry">
                     <Checkbox.Group className={styles.checkboxes}>
                       {data1.map((item, i) => (
-                        <Industry key={i} value={item} circle onClick={handleAdd}/>
+                        <Industry key={i} value={item} circle onClick={handleAdd} />
                       ))}
                     </Checkbox.Group>
                   </FormItem>
