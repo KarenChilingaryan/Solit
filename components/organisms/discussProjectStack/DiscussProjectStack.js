@@ -315,11 +315,13 @@ const DiscussProjectStack = () => {
           />
         )}
         <div className={styles.content}>
-          <HomeMain
-            data={{
-              title: "Get fast response for a fast solution",
-            }}
-          />
+          <div className={styles.mainTitle}>
+            <HomeMain
+              data={{
+                title: "Get fast response to for a fast solution",
+              }}
+            />
+          </div>
           <Row className={styles.discussProject}>
             <Form
               form={form}

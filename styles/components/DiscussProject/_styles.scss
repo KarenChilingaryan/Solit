@@ -15,6 +15,10 @@
     width: getDiscussProjectSizes(content-width);
     margin: getDiscussProjectSizes(content-mt) auto 0 auto;
 
+    .mainTitle {
+      max-width: calcVW(850);
+      padding-left: calcVW(24);
+    }
     .discussProject {
       margin: calcVW(65) 0 calcVW(320);
 
@@ -145,7 +149,7 @@
           .industries {
             display: flex;
             flex-direction: column;
-            gap: calcVW(10);
+            gap: calcVW(15);
 
             :global(.ant-form-item) {
               margin-bottom: 0px;
@@ -195,7 +199,7 @@
             .monthsWrapper {
               display: flex;
               justify-content: space-between;
-              margin-bottom: calcVW(7);
+              margin-top: calcVW(8);
 
               .month {
                 width: calcVWM(40);
@@ -228,16 +232,22 @@
       }
     }
     @media (max-width: 1024px) {
-      width: calcVWT(880);
-
+      width: calcVWT(928);
+      margin-top: calcVWT(240);
+      .mainTitle {
+        max-width: calcVWT(850);
+        padding-left: 0;
+      }
       .discussProject {
+        margin-top: calcVWT(102);
         .form {
           .industryDetails > button {
-            margin-top: calcVWT(-11);
+            margin-top: calcVWT(-29);
           }
           .industryDetails {
             gap: calcVWT(64);
             .industries {
+              padding: 0 24px;
               gap: calcVWT(16);
 
               :global(.ant-slider-horizontal) {
@@ -249,13 +259,14 @@
               }
 
               .slider {
-                margin-bottom: calcVW(5);
+                margin-bottom: calcVWT(5);
               }
 
               .monthsWrapper {
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: calcVWT(7);
+                margin-top: calcVWT(10);
+                margin-bottom: 0;
               }
 
               .checkboxes {
@@ -269,8 +280,15 @@
     }
     @media (max-width: 576px) {
       width: calcVWM(343);
-
+      margin-top: calcVWM(82);
+      button:nth-child(1){
+        max-width: calcVWM(163) !important;
+      }
+      button:nth-child(2){
+        max-width: calcVWM(163) !important;
+      }
       .discussProject {
+        margin-top: calcVWM(-26);
         .form {
           .buttons {
             a {
@@ -280,10 +298,11 @@
             }
           }
           .industryDetails > button {
-            margin-top: calcVWT(55);
+            margin-top: calcVWT(8);
           }
           .industryDetails {
             .industries {
+              padding: 0;
               gap: calcVWM(16);
 
               :global(.ant-slider-horizontal) {
@@ -294,19 +313,16 @@
                 height: unset;
               }
 
-              .slider {
-                margin-bottom: calcVW(5);
-              }
-
               .monthsWrapper {
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: calcVWM(-1);
+                margin-bottom: calcVWM(0);
+                margin-top: calcVWM(9);
               }
 
               .checkboxes {
                 column-gap: calcVWM(24);
-                row-gap: calcVWM(16);
+                row-gap: calcVWM(0);
               }
             }
           }

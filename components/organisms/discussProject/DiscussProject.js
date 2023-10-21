@@ -329,12 +329,14 @@ const DiscussProject = () => {
           />
         )}
         <div className={styles.content}>
-          <HomeMain
-            h1={true}
-            data={{
-              title: "Get fast response for a fast solution",
-            }}
-          />
+          <div className={styles.mainTitle}>
+            <HomeMain
+              h1={true}
+              data={{
+                title: "Get fast response to for a fast solution",
+              }}
+            />
+          </div>
           <Row className={styles.discussProject}>
             <Form
               form={form}
@@ -380,7 +382,7 @@ const DiscussProject = () => {
                     </Checkbox.Group>
                   </FormItem>
                   <Button
-                    text="clear"
+                    text="Clear"
                     clear
                     onClick={() => handleClear("applicationType")}
                   />
@@ -409,7 +411,7 @@ const DiscussProject = () => {
                     </Checkbox.Group>
                   </FormItem>
                   <Button
-                    text="clear"
+                    text="Clear"
                     clear
                     onClick={() => handleClear("currentStage")}
                   />
@@ -438,7 +440,7 @@ const DiscussProject = () => {
                     </Checkbox.Group>
                   </FormItem>
                   <Button
-                    text="clear"
+                    text="Clear"
                     clear
                     onClick={() => handleClear("consultation")}
                   />
@@ -464,7 +466,7 @@ const DiscussProject = () => {
                     </Checkbox.Group>
                   </FormItem>
                   <Button
-                    text="clear"
+                    text="Clear"
                     clear
                     onClick={() => handleClear("industry")}
                   />
@@ -489,7 +491,7 @@ const DiscussProject = () => {
                     <Col className={styles.month}>2+ years</Col>
                   </Row>
                   <Button
-                    text="clear"
+                    text="Clear"
                     clear
                     onClick={() => handleClear("duration")}
                   />

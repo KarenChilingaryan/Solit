@@ -15,6 +15,10 @@
     width: getDiscussProjectStackSizes(content-width);
     margin: getDiscussProjectStackSizes(content-mt) auto 0 auto;
 
+    .mainTitle {
+      max-width: calcVW(850);
+      padding-left: calcVW(24);
+    }
     .discussProject {
       margin: calcVW(-5) 0 calcVW(320);
 
@@ -287,7 +291,8 @@
             .monthsWrapper {
               display: flex;
               justify-content: space-between;
-
+              margin-top: calcVW(12);
+              
               .month {
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
                 @media (max-width: 1024px) {
@@ -311,13 +316,55 @@
       }
     }
     @media (max-width: 1024px) {
-      width: calcVWT(880);
+      width: calcVWT(928);
+      margin-top: calcVWT(240);
+      .mainTitle {
+        max-width: calcVWT(850);
+        padding-left: 0;
+      }
       .discussProject {
+        margin-top: calcVWT(23);
+        .form > button {
+          margin-top: calcVWT(12);
+        }
         .form {
-          .buttons {
-            a {
-              button {
-                // height: unset !important;
+          gap: calcVWT(20);
+          .industryDetails > button {
+            margin-top: calcVWT(-29);
+          }
+          .industryDetails {
+            gap: calcVWT(64);
+            .industries {
+              padding: 0 24px;
+              gap: calcVWT(16);
+
+              :global(.ant-slider-horizontal) {
+                margin-top: calcVWT(80);
+              }
+
+              .title {
+                height: calcVWT(60);
+              }
+
+              .slider {
+                margin-bottom: calcVW(5);
+              }
+
+              .monthsWrapper {
+                display: flex;
+                justify-content: space-between;
+                margin-top: calcVWT(12);
+                margin-bottom: calcVWT(5);
+              }
+
+              .checkboxes {
+                column-gap: calcVWT(24);
+                row-gap: calcVWT(16);
+              }
+              .stackWrapper{
+                .stacks{
+                  row-gap: calcVWT(24);
+                }
               }
             }
           }
@@ -326,9 +373,62 @@
     }
     @media (max-width: 576px) {
       width: calcVWM(343);
+      margin-top: calcVWM(82);
+      .buttons{
+        margin-top: calcVWM(30) !important;
+        margin-bottom: calcVWM(25);
+        justify-content: space-between;
+      }
+      button:nth-child(1){
+        max-width: calcVWM(163) !important;
+      }
+      button:nth-child(2){
+        max-width: calcVWM(163) !important;
+      }
       .discussProject {
+        margin-top: calcVWM(-26);
+        .form > button {
+          margin-top: calcVWM(36);
+        }
         .form {
-          gap: calcVWM(32);
+          .buttons {
+            a {
+              button {
+                height: unset !important;
+              }
+            }
+          }
+          .industryDetails > button {
+            margin-top: calcVWT(8);
+          }
+          .industryDetails {
+            .industries {
+              padding: 0;
+              gap: calcVWM(16);
+
+              :global(.ant-slider-horizontal) {
+                margin-top: calcVWM(80);
+              }
+
+              .title {
+                height: unset;
+              }
+              .monthsWrapper {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: calcVWM(0);
+                margin-top: calcVWM(9);
+              }
+
+              .checkboxes {
+                column-gap: calcVWM(24);
+                row-gap: calcVWM(0);
+              }
+              .stackWrapper{
+                row-gap: calcVWM(52);
+              }
+            }
+          }
         }
       }
     }
