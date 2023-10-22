@@ -251,7 +251,7 @@ const DiscussProject = () => {
   }
 
   return (
-    <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_1">
+    <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_1" className="discuss">
       <>
         {modalOpen && (
           <ModalWrapper

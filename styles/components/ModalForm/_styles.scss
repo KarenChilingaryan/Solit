@@ -117,6 +117,7 @@
             border-left: 0;
           }
         }
+
         .acceptText {
           @include font-style(getModalFormSizes(text-fz),
             variables.$fw-400,
@@ -292,6 +293,11 @@
         .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
           background: transparent;
           border-color: none !important;
+          @include font-style(calcVW(18), variables.$fw-400, calcVW(24), #000);
+
+          @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #000);
+          }
         }
 
         .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
@@ -422,6 +428,11 @@
             margin-left: calcVWT(-100);
           }
         }
+        :global {
+          .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+            @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #000);
+          }
+        }
       }
     }
 
@@ -494,6 +505,11 @@
         :global(.ant-form-item-has-success) {
           input[type="file"] {
             margin-left: calcVWM(-66);
+          }
+        }
+        :global {
+          .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+            @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #000);
           }
         }
       }

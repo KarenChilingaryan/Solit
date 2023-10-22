@@ -278,6 +278,9 @@ const HomeMainWithImage = ({
           className={`${styles.socialSites} ${styles.socialSitesTop}`}
           onClick={scrallToTop}
           ref={goToTop}
+          style={{
+            ...(className == 'discuss' ? { bottom: '45%' } : {})
+          }}
         >
           <div className={styles.site}>
             <Paragraph

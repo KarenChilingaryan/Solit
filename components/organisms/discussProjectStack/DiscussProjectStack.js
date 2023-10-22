@@ -240,7 +240,7 @@ const DiscussProjectStack = () => {
   }
 
   return (
-    <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_2">
+    <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_2" className="discuss">
       {modalOpen && (
         <ModalWrapper
           open={modalOpen}
