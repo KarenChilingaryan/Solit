@@ -5,7 +5,7 @@
   .form {
     width: 100%;
     label {
-      color: black !important; 
+      color: black !important;
     }
     input {
       border: 0;
@@ -27,12 +27,7 @@
         flex-direction: column;
         gap: calcVW(32);
 
-        .buttons {
-          display: flex;
-          gap: calcVW(16);
-          margin-top: calcVW(60);
-          z-index: 998;
-
+        .currentStageDiscuss {
           a:first-of-type {
             button {
               height: calcVW(48);
@@ -65,6 +60,13 @@
               }
             }
           }
+        }
+        .buttons {
+          display: flex;
+          gap: calcVW(16);
+          margin-top: calcVW(60);
+          z-index: 998;
+
           a {
             button {
               height: calcVW(48);
@@ -281,10 +283,10 @@
     @media (max-width: 576px) {
       width: calcVWM(343);
       margin-top: calcVWM(82);
-      button:nth-child(1){
+      button:nth-child(1) {
         max-width: calcVWM(163) !important;
       }
-      button:nth-child(2){
+      button:nth-child(2) {
         max-width: calcVWM(163) !important;
       }
       .discussProject {
@@ -321,8 +323,7 @@
               }
 
               .checkboxes {
-                column-gap: calcVWM(24);
-                row-gap: calcVWM(0);
+                gap: calcVWM(16);
               }
             }
           }

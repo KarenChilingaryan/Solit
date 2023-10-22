@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { Slider } from "antd";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
@@ -13,13 +14,18 @@ import PricingModal from "../../molecules/pricingModal/PricingModal";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import { emailDiscussYourProject1Api } from "../../../services/emailDiscussYourProject1Api";
 import SuccessModal from "../successModal/SuccessModal";
-
-import styles from "./DiscussProject.module.scss";
 import FloatInput from "../../molecules/floatInput/FloatInput";
 
-const data = ["Android", "iOS", "Cross-platform", 'Other'];
-const data1 = ["idea", "MVP", "Prototype/Specification", 'Other'];
-const data2 = ["Project manager", "Ui/UX Designer", "Business Analyst", 'Other'];
+import styles from "./DiscussProject.module.scss";
+
+const data = ["Android", "iOS", "Cross-platform", "Other"];
+const data1 = ["idea", "MVP", "Prototype Specification", "Other"];
+const data2 = [
+  "Project manager",
+  "Ui/UX Designer",
+  "Business Analyst",
+  "Other",
+];
 const data3 = [
   "eCommers",
   "Finance",
@@ -36,21 +42,23 @@ const data3 = [
   "Automotive",
   "Manufacturing",
   "Aviation",
-  'Other'
+  "Other",
 ];
 
 const formatter = (value) => `${value} month`;
 
 const DiscussProject = () => {
   const [form] = Form.useForm();
+  const router = useRouter();
+  const { asPath } = router;
   const [liveStacks, setLiveStacks] = useState([]);
   const [open, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState("none");
   const [modalFormData, setModalFormData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [closeFooterStack, setCloseFooterStack] = useState(false);
-  const [modalOpen, setModalOpen] = useState('');
-  const [otherValue, setOtherValue] = useState('')
+  const [modalOpen, setModalOpen] = useState("");
+  const [otherValue, setOtherValue] = useState("");
 
   const dispatch = useDispatch();
 
@@ -229,12 +237,10 @@ const DiscussProject = () => {
       const res = await dispatch(
         await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
       );
-      setOpenSuccess(true)
-      setModalFormData(null)
-      setOpen(false)
-    } catch {
-
-    }
+      setOpenSuccess(true);
+      setModalFormData(null);
+      setOpen(false);
+    } catch {}
   };
 
   const setValueinForm = (val) => {
@@ -242,32 +248,36 @@ const DiscussProject = () => {
     const other = [...formData, val];
     form.setFieldValue(modalOpen, other);
     getProjectData(form.getFieldsValue());
-    setModalOpen('')
-    setOtherValue('')
-  }
+    setModalOpen("");
+    setOtherValue("");
+  };
 
   const handleAdd = (name) => {
-    setModalOpen(name)
-  }
+    setModalOpen(name);
+  };
 
   return (
-    <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_1" className="discuss">
+    <HomeMainWithImage
+      firstImage={bgImage}
+      seoName="discuss_your_project_1"
+      className="discuss"
+    >
       <>
         {modalOpen && (
           <ModalWrapper
             open={modalOpen}
             setOpen={() => {
-              setModalOpen('')
-              setOtherValue('')
+              setModalOpen("");
+              setOtherValue("");
             }}
             style={styles.modal}
           >
-            <Row style={{
-              marginTop: '5vw'
-            }}>
-              <Form
-                className={styles.form}
-              >
+            <Row
+              style={{
+                marginTop: "5vw",
+              }}
+            >
+              <Form className={styles.form}>
                 <FormItem
                   rules={[
                     {
@@ -285,11 +295,16 @@ const DiscussProject = () => {
                   />
                 </FormItem>
                 <Col className={styles.buttonWrapper}>
-                  <Button text="Add industry" transparentBlue type="submit" onClick={() => {
-                    if (otherValue) {
-                      setValueinForm(otherValue)
-                    }
-                  }} />
+                  <Button
+                    text="Add industry"
+                    transparentBlue
+                    type="submit"
+                    onClick={() => {
+                      if (otherValue) {
+                        setValueinForm(otherValue);
+                      }
+                    }}
+                  />
                 </Col>
               </Form>
             </Row>
@@ -344,7 +359,11 @@ const DiscussProject = () => {
               className={styles.form}
               onValuesChange={handleFormValuesChange}
             >
-              <div className={styles.buttons}>
+              <div
+                className={`${
+                  asPath == "/discuss-project" && styles.currentStageDiscuss
+                } ${styles.buttons}`}
+              >
                 <Link href="/discuss-project">
                   <Button
                     text="Mobile Application Development"
@@ -369,14 +388,18 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${form
-                            .getFieldsValue()
-                            .applicationType?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form
+                              .getFieldsValue()
+                              .applicationType?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
-                          <Industry value={item} onClick={() => handleAdd('applicationType')} />
+                          <Industry
+                            value={item}
+                            onClick={() => handleAdd("applicationType")}
+                          />
                         </Col>
                       ))}
                     </Checkbox.Group>
@@ -400,12 +423,17 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().currentStage?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
-                          <Industry value={item} circle onClick={() => handleAdd('currentStage')} />
+                          <Industry
+                            value={item}
+                            circle
+                            onClick={() => handleAdd("currentStage")}
+                          />
                         </Col>
                       ))}
                     </Checkbox.Group>
@@ -429,12 +457,17 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
-                          <Industry value={item} fullWidth onClick={() => handleAdd('consultation')} />
+                          <Industry
+                            value={item}
+                            fullWidth
+                            onClick={() => handleAdd("consultation")}
+                          />
                         </Col>
                       ))}
                     </Checkbox.Group>
@@ -455,12 +488,17 @@ const DiscussProject = () => {
                         <Col
                           key={item}
                           onClick={() => handleButtonClick("industry", item)}
-                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().industry?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
-                          <Industry value={item} circle onClick={() => handleAdd('industry')} />
+                          <Industry
+                            value={item}
+                            circle
+                            onClick={() => handleAdd("industry")}
+                          />
                         </Col>
                       ))}
                     </Checkbox.Group>

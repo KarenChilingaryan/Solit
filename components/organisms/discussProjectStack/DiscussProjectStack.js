@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { Slider } from "antd";
@@ -14,9 +15,9 @@ import PricingModal from "../../molecules/pricingModal/PricingModal";
 import StackFooter from "../../molecules/stackFooter/StackFooter";
 import bgImage from "../../../assets/img/main-bg-discuss-stack.png";
 import SuccessModal from "../successModal/SuccessModal";
+import FloatInput from "../../molecules/floatInput/FloatInput";
 
 import styles from "./DiscussProjectStack.module.scss";
-import FloatInput from "../../molecules/floatInput/FloatInput";
 
 const data1 = [
   "eCommerce",
@@ -67,11 +68,54 @@ const stacks1 = [
   },
 ];
 
-const formatter = (value) => `${value} month`;
+const formatter = (value) => {
+  if (value === 12) {
+    return "1 year";
+  } else if (value === 18) {
+    return "1.5 years";
+  } else if (value === 24) {
+    return "2+ years";
+  } else {
+    return `${value} months`;
+  }
+};
+
+const marks = {
+  1: "Value for key 1",
+  2: "Value for key 2",
+  3: "Value for key 3",
+  4: "Value for key 4",
+  5: "Value for key 5",
+  6: "Value for key 6",
+  7: "Value for key 7",
+  8: "Value for key 8",
+  9: "Value for key 9",
+  10: "Value for key 10",
+  11: "Value for key 11",
+  12: "Value for key 12",
+  13: "Value for key 13",
+  14: "Value for key 14",
+  15: "Value for key 15",
+  16: "Value for key 16",
+  17: "Value for key 17",
+  18: "Value for key 18",
+  19: "Value for key 19",
+  20: "Value for key 20",
+  21: "Value for key 21",
+  22: "Value for key 22",
+  23: "Value for key 23",
+  24: "Value for key 24",
+  // 100: {
+  //   style: { color: '#f50' },
+  //   label: <strong>100°C</strong>,
+  // },
+};
 
 const DiscussProjectStack = () => {
   const [form] = Form.useForm();
-  const [industryOther, setIndustryOther] = useState('')
+  const router = useRouter();
+  const { asPath } = router;
+  const [industryOther, setIndustryOther] = useState("");
   const [projectStacks, setProjectStacks] = useState({
     developers: [],
     specialists: [],
@@ -217,7 +261,7 @@ const DiscussProjectStack = () => {
         await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-    } catch { }
+    } catch {}
   };
 
   useEffect(() => {
@@ -227,35 +271,39 @@ const DiscussProjectStack = () => {
   }, []);
 
   const handleAdd = () => {
-    setModalOpen(true)
-  }
+    setModalOpen(true);
+  };
 
   const setValueinForm = (val) => {
     const formData = form.getFieldsValue()?.industry || [];
     const industry = [...formData, val];
-    form.setFieldValue('industry', industry);
+    form.setFieldValue("industry", industry);
     getProjectData(form.getFieldsValue());
-    setModalOpen(false)
-    setIndustryOther('')
-  }
+    setModalOpen(false);
+    setIndustryOther("");
+  };
 
   return (
-    <HomeMainWithImage firstImage={bgImage} seoName="discuss_your_project_2" className="discuss">
+    <HomeMainWithImage
+      firstImage={bgImage}
+      seoName="discuss_your_project_2"
+      className="discuss"
+    >
       {modalOpen && (
         <ModalWrapper
           open={modalOpen}
           setOpen={() => {
-            setModalOpen(false)
-            setIndustryOther('')
+            setModalOpen(false);
+            setIndustryOther("");
           }}
           style={styles.modal}
         >
-          <Row style={{
-            marginTop: '5vw'
-          }}>
-            <Form
-              className={styles.form}
-            >
+          <Row
+            style={{
+              marginTop: "5vw",
+            }}
+          >
+            <Form className={styles.form}>
               <FormItem
                 rules={[
                   {
@@ -273,11 +321,16 @@ const DiscussProjectStack = () => {
                 />
               </FormItem>
               <Col className={styles.buttonWrapper}>
-                <Button text="Add industry" transparentBlue type="submit" onClick={() => {
-                  if (industryOther) {
-                    setValueinForm(industryOther)
-                  }
-                }} />
+                <Button
+                  text="Add industry"
+                  transparentBlue
+                  type="submit"
+                  onClick={() => {
+                    if (industryOther) {
+                      setValueinForm(industryOther);
+                    }
+                  }}
+                />
               </Col>
             </Form>
           </Row>
@@ -329,7 +382,11 @@ const DiscussProjectStack = () => {
               className={styles.form}
               onValuesChange={handleFormValuesChange}
             >
-              <div className={styles.buttons}>
+              <div
+                className={`${
+                  asPath == "/discuss-project-stack" && styles.currentStageDiscuss
+                } ${styles.buttons}`}
+              >
                 <Link href="/discuss-project">
                   <Button
                     text="Mobile Application Development"
@@ -408,7 +465,12 @@ const DiscussProjectStack = () => {
                   <FormItem name="industry">
                     <Checkbox.Group className={styles.checkboxes}>
                       {data1.map((item, i) => (
-                        <Industry key={i} value={item} circle onClick={handleAdd} />
+                        <Industry
+                          key={i}
+                          value={item}
+                          circle
+                          onClick={handleAdd}
+                        />
                       ))}
                     </Checkbox.Group>
                   </FormItem>
