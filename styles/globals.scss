@@ -74,6 +74,10 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 .ant-modal-wrap {
+  div {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
   max-width: 100%;
   overflow: hidden;
   &::-webkit-scrollbar {
