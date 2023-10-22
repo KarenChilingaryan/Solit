@@ -45,7 +45,17 @@ const data3 = [
   "Other",
 ];
 
-const formatter = (value) => `${value} month`;
+const formatter = (value) => {
+  if (value === 12) {
+    return "1 year";
+  } else if (value === 18) {
+    return "1.5 years";
+  } else if (value === 24) {
+    return "2+ years";
+  } else {
+    return `${value} months`;
+  }
+};
 
 const DiscussProject = () => {
   const [form] = Form.useForm();

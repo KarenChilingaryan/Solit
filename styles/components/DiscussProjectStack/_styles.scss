@@ -298,19 +298,21 @@
               margin-top: calcVW(12);
 
               .month {
+                width: calcVWM(40);
+                text-align: left;
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
                 @media (max-width: 1024px) {
                   @include font-style(
                     calcVWT(14),
                     variables.$fw-700,
-                    calcVWT(18)
+                    calcVWT(24)
                   );
                 }
                 @media (max-width: 576px) {
                   @include font-style(
-                    calcVWM(14),
+                    calcVWM(10),
                     variables.$fw-700,
-                    calcVWM(18)
+                    calcVWM(14)
                   );
                 }
               }
@@ -424,6 +426,26 @@
                 justify-content: space-between;
                 margin-bottom: calcVWM(0);
                 margin-top: calcVWM(9);
+              }
+              .monthsWrapper div:nth-child(1) {
+                text-align: start;
+              }
+
+              .monthsWrapper div:nth-child(2) {
+                text-align: start;
+              }
+
+              .monthsWrapper div:nth-child(3) {
+                text-align: center;
+                width: calcVWM(25);
+              }
+
+              .monthsWrapper div:nth-child(4) {
+                text-align: end;
+              }
+
+              .monthsWrapper div:nth-child(5) {
+                text-align: end;
               }
 
               .checkboxes {
