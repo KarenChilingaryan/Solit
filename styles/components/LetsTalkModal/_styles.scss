@@ -110,6 +110,7 @@
           left: calcVW(32);
           top: 0;
         }
+
         input {
           padding-left: calcVW(36);
         }
@@ -136,7 +137,7 @@
           white-space: nowrap;
           text-overflow: ellipsis;
           width: calcVW(370);
-          margin-left: auto;
+          margin-left: calcVW(32);
           margin-right: 0;
         }
       }
@@ -426,10 +427,12 @@
             left: calcVWL(32);
             top: calcVWT(0);
           }
+
           input {
             padding-left: calcVWL(36);
           }
         }
+
         .uploadAntd {
           :global(.ant-input) {
             @include font-style(calcVWL(18),
@@ -437,6 +440,7 @@
               calcVWL(24),
               variables.$black );
             width: calcVWL(430);
+            margin-left: calcVWL(32);
           }
         }
 
@@ -589,15 +593,18 @@
         width: 100%;
         width: calcVWT(410);
         max-width: calcVWT(410);
+
         .inputWithIcon {
           label {
             left: calcVWT(32);
             top: calcVWT(10);
           }
+
           input {
             padding-left: calcVWT(36);
           }
         }
+
         .buttonWrapper {
           margin: auto;
         }
@@ -614,6 +621,7 @@
               calcVWT(24),
               variables.$black );
             width: calcVWT(380);
+            margin-left: calcVWT(32);
           }
 
           :global(.ant-input-suffix) {
@@ -733,7 +741,7 @@
     }
 
     @media (max-width: 576px) {
-      
+
       .textWrapper {
         gap: calcVWM(16);
 
@@ -771,16 +779,19 @@
       .form {
         width: 100%;
         max-width: 100%;
+
         .inputWithIcon {
           label {
             left: calcVWM(32);
             // top: calcVWM(14) !important;
             // bottom: calcVWM(14) !important;
           }
+
           input {
             padding-left: calcVWM(36);
           }
         }
+
         .uploadAntd {
           :global(.ant-input) {
             @include font-style(calcVWM(18),
@@ -788,6 +799,7 @@
               calcVWM(24),
               variables.$black );
             width: calcVWM(280);
+            margin-left: calcVWM(32);
           }
 
           :global(.ant-input-affix-wrapper) {

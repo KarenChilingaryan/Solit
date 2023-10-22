@@ -6,7 +6,7 @@
     @include flex(space-between);
 
     .leftContent {
-      max-width: getPricingModal(left-content-max-width);
+      width: getPricingModal(left-content-max-width);
       padding: getPricingModal(left-content-padding);
 
       .header {
@@ -128,7 +128,7 @@
 
     @media (max-width: 1024px) {
       .leftContent {
-        max-width: calcVWT(373);
+        width: calcVWT(373);
         padding: 0 calcVWT(32);
         row-gap: calcVWT(48);
         display: flex;
@@ -216,7 +216,7 @@
       }
 
       .leftContent {
-        max-width: 100%;
+        width: 100%;
         row-gap: calcVWM(48);
 
         .header {

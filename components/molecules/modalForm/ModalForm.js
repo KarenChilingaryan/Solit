@@ -7,6 +7,7 @@ import upload from "../../../assets/img/icons/uploadBlack.svg";
 import arrow from "../../../assets/img/icons/selectIcon.svg";
 
 import styles from "./ModalForm.module.scss";
+import { Upload } from "antd";
 
 const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', className, secondCheckBox }) => {
   const [form] = Form.useForm();
@@ -22,6 +23,17 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
     };
     onSubmit(formData)
     form.resetFields()
+  };
+
+    const props = {
+    onRemove: () => {
+      setFile(null);
+    },
+    beforeUpload: (file) => {
+      setFile(file);
+      return false;
+    },
+    fileList: file ? [file] : [],
   };
 
   return (
@@ -60,21 +72,28 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
           <FormItem name="phon_number" >
             <FloatInput label="Phone number" placeholder="Phone number" name="phon_number" type="number" />
           </FormItem>
-          <FormItem name={"upload_document"}>
-            <FloatInput
-              label={"Upload document"}
-              placeholder={"Upload document"}
-              name={"upload_document"}
-              multiple
-              type="file"
-              accept=".pdf,.doc,.docx"
-              prefix={<Image className={styles.suffix} src={upload} alt="image" />}
-              onChange={(e) => {
-                setFile(e.target.files[0]);
-              }}
-              showUploadList={false}
-              className={styles.uploadFile}
-            />
+          <FormItem
+            name={"upload_document"}
+            className={`${styles.uploadItem}  ${file && styles.uploadedFile}`}
+          >
+            <Upload
+              {...props}
+              name="upload_document"
+              className={styles.uploadAntd}
+            >
+              <FloatInput
+                label={"Upload document"}
+                placeholder={"Upload document"}
+                name={"upload_document"}
+                type="text"
+                disabled
+                readOnly={true}
+                suffix={
+                  <Image className={styles.suffix} src={upload} alt="image" />
+                }
+                value={file?.name || ""}
+              />
+            </Upload>
           </FormItem>
           <FormItem name="comment">
             <FloatInput label="Comment" placeholder="Comment" name="comment" />

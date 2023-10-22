@@ -84,6 +84,41 @@
       z-index: 1;
       padding: calcVW(24) 0;
 
+      :global(.ant-input-affix-wrapper){
+        padding: 0;
+        border: 0;
+        outline: none;
+        justify-content: space-between;
+        &:focus {
+          border: 0;
+        }
+      }
+      .uploadAntd {
+        width: 100%;
+
+        :global(.ant-upload-list) {
+          display: none;
+        }
+
+        :global(.ant-upload) {
+          width: 100%;
+        }
+
+        :global(.ant-input) {
+          @include font-style(calcVW(18),
+            variables.$fw-400,
+            calcVW(24),
+            variables.$black );
+          caret-color: transparent;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width: calcVW(370);
+          margin-left: 0;
+          margin-right: auto;
+        }
+      }
+
       .buttonWrapper {
         button {
           @include font-style(getModalFormSizes(button-fz),
@@ -192,6 +227,8 @@
           input {
             color: black;
             border-radius: unset;
+            outline: 0 !important;
+            border: 0;
 
             &:focus {
               box-shadow: none;
@@ -359,7 +396,19 @@
         width: 100%;
         max-width: calcVWT(602);
         padding: calcVWT(32);
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              variables.$black );
+            width: calcVWT(380);
+          }
 
+          :global(.ant-input-suffix) {
+            margin-top: calcVWT(10);
+          }
+        }
         .suffix {
           width: calcVWT(17);
           height: calcVWT(19);
@@ -452,6 +501,19 @@
         width: 100%;
         max-width: 100%;
 
+        .uploadAntd {
+          :global(.ant-input) {
+            @include font-style(calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              variables.$black );
+            width: calcVWM(280);
+          }
+
+          :global(.ant-input-affix-wrapper) {
+            height: calcVWM(30);
+          }
+        }
         .suffix {
           width: calcVWM(17);
           height: calcVWM(19);
