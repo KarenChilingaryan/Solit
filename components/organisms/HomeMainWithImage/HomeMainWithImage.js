@@ -279,7 +279,7 @@ const HomeMainWithImage = ({
           onClick={scrallToTop}
           ref={goToTop}
           style={{
-            ...(className == 'discuss' ? { bottom: '45%' } : {})
+            ...(className == 'discuss' ? { bottom: '40vw', top: 'auto' } : {})
           }}
         >
           <div className={styles.site}>
