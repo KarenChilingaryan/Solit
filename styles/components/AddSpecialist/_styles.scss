@@ -32,10 +32,11 @@
   .countSpecialist {
     @include flex(null, center);
     .input {
+      caret-color: transparent;
       background: transparent;
       text-align: center;
       border: none;
-      width: 15px;
+      width: calcVW(20);
       padding: 0;
       height: getAddSpecialistSizes(icon-plus-height);
 
@@ -56,6 +57,7 @@
       }
       @media only screen and (max-width: 1440px) and (min-width: 1025px) {
         height: calcVWL(16);
+        width: calcVWL(20);
         @include font-style(
           calcVWL(14),
           variables.$fw-500,
@@ -66,6 +68,7 @@
 
       @media (max-width: 1024px) {
         height: calcVWT(16);
+        width: calcVWT(20);
         @include font-style(
           calcVWT(14),
           variables.$fw-500,
@@ -76,6 +79,7 @@
 
       @media (max-width: 576px) {
         height: calcVWM(16);
+        width: calcVWM(20);
         @include font-style(
           calcVWM(14),
           variables.$fw-500,
