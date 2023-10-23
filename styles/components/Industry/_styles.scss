@@ -131,11 +131,12 @@
       }
     }
   }
-  @media (max-width: 375px) {
+  @media (max-width: 576px) {
     .checkbox {
       :global(.ant-checkbox-inner) {
         width: calcVWM(20);
         height: calcVWM(20);
+        border-width: 3px;
       }
     }
   }

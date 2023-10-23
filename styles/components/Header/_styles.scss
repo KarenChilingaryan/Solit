@@ -224,6 +224,7 @@
     padding: getHeaderSizes(header-wrapper-padding-scroll);
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(0px);
+    z-index: 10;
   }
 
   @keyframes slide {

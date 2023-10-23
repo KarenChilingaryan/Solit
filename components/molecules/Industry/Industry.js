@@ -16,7 +16,7 @@ const Industry = ({ fullWidth = false, circle = false, value, onClick }) => {
       onClick={value == "Other" ? onClick : handleCheckboxChange}
     >
       {value != "Other" &&
-        < Checkbox className={styles.checkbox} checked={isChecked} value={value} />
+        <Checkbox className={styles.checkbox} checked={isChecked} value={value} />
       }
       <span className={styles.nameSpecialist}>{value}</span>
     </Col>
