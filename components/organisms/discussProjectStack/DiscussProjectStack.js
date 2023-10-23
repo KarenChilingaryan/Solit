@@ -469,7 +469,7 @@ const DiscussProjectStack = () => {
                           key={i}
                           value={item}
                           circle
-                          onClick={handleAdd}
+                          onClick={() => handleAdd("industry")}
                         />
                       ))}
                     </Checkbox.Group>

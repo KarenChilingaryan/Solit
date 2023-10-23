@@ -9,6 +9,11 @@
     background-color: variables.$transparent-black;
     padding: getAddSpecialistSizes(main-wrapper-padding);
     gap: getAddSpecialistSizes(main-wrapper-gap);
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      gap: calcVWL(16);
+      padding: calcVWL(16);
+    }
     @media (max-width: 1024px) {
       gap: calcVWT(16);
       padding: calcVWT(16);
@@ -49,6 +54,15 @@
         border: none;
         box-shadow: none;
       }
+      @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+        height: calcVWL(16);
+        @include font-style(
+          calcVWL(14),
+          variables.$fw-500,
+          calcVWL(20),
+          variables.$dark-turquoise
+        );
+      }
 
       @media (max-width: 1024px) {
         height: calcVWT(16);
@@ -77,6 +91,11 @@
     height: getAddSpecialistSizes(icon-minus-height);
     cursor: pointer;
 
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(16);
+      height: calcVWL(16);
+    }
+
     @media (max-width: 1024px) {
       width: calcVWT(16);
       height: calcVWT(16);
@@ -91,6 +110,10 @@
     width: getAddSpecialistSizes(icon-plus-width);
     height: getAddSpecialistSizes(icon-plus-height);
     cursor: pointer;
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(16);
+      height: calcVWL(16);
+    }
     @media (max-width: 1024px) {
       width: calcVWT(16);
       height: calcVWT(16);
@@ -110,6 +133,10 @@
       getAddSpecialistSizes(name-specialist-lh)
     );
     text-align: center;
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      @include font-style(calcVWL(14), variables.$fw-500, calcVWL(20));
+    }
 
     @media (max-width: 1024px) {
       @include font-style(calcVWT(14), variables.$fw-500, calcVWT(20));

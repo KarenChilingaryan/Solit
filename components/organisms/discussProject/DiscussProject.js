@@ -18,14 +18,9 @@ import FloatInput from "../../molecules/floatInput/FloatInput";
 
 import styles from "./DiscussProject.module.scss";
 
-const data = ["Android", "iOS", "Cross-platform", "Other"];
-const data1 = ["idea", "MVP", "Prototype Specification", "Other"];
-const data2 = [
-  "Project manager",
-  "Ui/UX Designer",
-  "Business Analyst",
-  "Other",
-];
+const data = ["Android", "iOS", "Cross-platform"];
+const data1 = ["idea", "MVP", "Prototype Specification"];
+const data2 = ["Project manager", "Ui/UX Designer", "Business Analyst"];
 const data3 = [
   "eCommers",
   "Finance",

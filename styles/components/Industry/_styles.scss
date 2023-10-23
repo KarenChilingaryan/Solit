@@ -19,6 +19,14 @@
     border-radius: 16px;
     background: variables.$transparent-black;
     cursor: pointer;
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(202);
+      height: calcVWL(56);
+      gap: calcVWL(16);
+      padding: calcVWL(16);
+    }
+
     @media (max-width: 1024px) {
       width: calcVWT(202);
       height: calcVWT(56);
@@ -81,8 +89,12 @@
       variables.$fw-500,
       getIndustrySizes(name-specialist-lh)
     );
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      @include font-style(calcVWL(14), variables.$fw-700, calcVWL(19));
+    }
     @media (max-width: 1024px) {
-      @include font-style(calcVWT(14), variables.$fw-700, calcVWT(19));
+      @include font-style(calcVWL(14), variables.$fw-700, calcVWT(19));
     }
     @media (max-width: 576px) {
       @include font-style(calcVWM(14), variables.$fw-700, calcVWM(19));
@@ -100,6 +112,15 @@
   }
   .moreWrapper:hover {
     border: 1px solid variables.$dodger-blue;
+  }
+
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .checkbox {
+      :global(.ant-checkbox-inner) {
+        width: calcVWL(20);
+        height: calcVWL(20);
+      }
+    }
   }
 
   @media (max-width: 1024px) {
