@@ -283,6 +283,38 @@ const DiscussProjectStack = () => {
     setIndustryOther("");
   };
 
+  const handleButtonClick = (field, item) => {
+    const currentValues = form.getFieldsValue();
+    let updatedValues = {};
+
+    if (field === "industry") {
+      const isItemSelected = currentValues[field]?.includes(item);
+      updatedValues = {
+        ...currentValues,
+        [field]: isItemSelected
+          ? currentValues[field].filter((value) => value !== item)
+          : [...(currentValues[field] || []), item],
+      };
+      form.setFieldsValue(updatedValues, true);
+    } else if (field === "industry") {
+      const isItemSelected = currentValues[field]?.includes(item);
+      updatedValues = {
+        ...currentValues,
+        [field]: isItemSelected
+          ? currentValues[field].filter((value) => value !== item)
+          : [...(currentValues[field] || []), item],
+      };
+      form.setFieldsValue(updatedValues, true);
+    } else if (field === "duration") {
+      updatedValues = {
+        ...currentValues,
+        [field]: item,
+      };
+    }
+
+    getProjectData(updatedValues);
+  };
+
   return (
     <HomeMainWithImage
       firstImage={bgImage}
@@ -385,7 +417,8 @@ const DiscussProjectStack = () => {
             >
               <div
                 className={`${
-                  asPath == "/discuss-project-stack" && styles.currentStageDiscuss
+                  asPath == "/discuss-project-stack" &&
+                  styles.currentStageDiscuss
                 } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
@@ -466,12 +499,21 @@ const DiscussProjectStack = () => {
                   <FormItem name="industry">
                     <Checkbox.Group className={styles.checkboxes}>
                       {data1.map((item, i) => (
-                        <Industry
+                        <Col
                           key={i}
-                          value={item}
-                          circle
-                          onClick={() => handleAdd("industry")}
-                        />
+                          onClick={() => handleButtonClick("industry", item)}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
+                        >
+                          <Industry
+                            value={item}
+                            circle
+                            onClick={() => handleAdd("industry")}
+                          />
+                        </Col>
                       ))}
                     </Checkbox.Group>
                   </FormItem>
