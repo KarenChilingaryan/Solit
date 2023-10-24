@@ -333,7 +333,7 @@ const DiscussProjectStack = () => {
         >
           <Row
             style={{
-              marginTop: "5vw",
+              marginTop: "3vw",
             }}
           >
             <Form className={styles.form}>
