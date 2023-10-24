@@ -84,15 +84,17 @@
       z-index: 1;
       padding: calcVW(24) 0;
 
-      :global(.ant-input-affix-wrapper){
+      :global(.ant-input-affix-wrapper) {
         padding: 0;
         border: 0;
         outline: none;
         justify-content: space-between;
+
         &:focus {
           border: 0;
         }
       }
+
       .uploadAntd {
         width: 100%;
 
@@ -373,6 +375,24 @@
       height: calcVW(1380);
     }
 
+    :global(.ant-form-item-explain-error) {
+      transition: 0.1s;
+      transform: translateX(0);
+    }
+
+    .errorMesssageRight {
+      :global(.ant-form-item-explain-error) {
+        transition: 0.1s;
+        transform: translateX(5px);
+      }
+    }
+    .errorMesssageLeft {
+      :global(.ant-form-item-explain-error) {
+        transition: 0.1s;
+        transform: translateX(-5px);
+      }
+    }
+
     @media (max-width: 1024px) {
       .infoSection {
         padding: 0 calcVWT(50);
@@ -396,6 +416,7 @@
         width: 100%;
         max-width: calcVWT(602);
         padding: calcVWT(32);
+
         .uploadAntd {
           :global(.ant-input) {
             @include font-style(calcVWT(18),
@@ -409,6 +430,7 @@
             margin-top: calcVWT(10);
           }
         }
+
         .suffix {
           width: calcVWT(17);
           height: calcVWT(19);
@@ -477,6 +499,7 @@
             margin-left: calcVWT(-100);
           }
         }
+
         :global {
           .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
             @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #000);
@@ -514,6 +537,7 @@
             height: calcVWM(30);
           }
         }
+
         .suffix {
           width: calcVWM(17);
           height: calcVWM(19);
@@ -569,6 +593,7 @@
             margin-left: calcVWM(-66);
           }
         }
+
         :global {
           .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
             @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #000);

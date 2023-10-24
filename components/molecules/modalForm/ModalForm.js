@@ -14,6 +14,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
   const [file, setFile] = useState(null);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
   const [onChangeCheckboxNDA, setOnChangeCheckboxNDA] = useState(false);
+  const [errorMesssage, setErrorMesssage] = useState('');
 
   const submitForm = (values, data) => {
     const formData = {
@@ -25,7 +26,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
     form.resetFields()
   };
 
-    const props = {
+  const props = {
     onRemove: () => {
       setFile(null);
     },
@@ -38,11 +39,22 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
-      <Form onFinish={(values) => {
-        submitForm(values, data)
-      }} className={styles.form} form={form} >
+      <Form
+        onFinishFailed={() => {
+          setErrorMesssage('errorMesssageLeft');
+          setTimeout(() => {
+            setErrorMesssage('errorMesssageRight')
+            setTimeout(() => {
+              setErrorMesssage('')
+            }, 100)
+          }, 100)
+        }}
+        onFinish={(values) => {
+          submitForm(values, data)
+        }} className={styles.form} form={form} >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
+            className={`${styles[errorMesssage]}`}
             name="full_name"
             rules={[
               {
@@ -54,6 +66,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
             <FloatInput label="Your full name" placeholder="Your full name" />
           </FormItem>
           <FormItem
+            className={`${styles[errorMesssage]}`}
             name="from_email"
             rules={[
               {
@@ -100,6 +113,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
           </FormItem>
 
           <FormItem
+            className={`${styles[errorMesssage]}`}
             name="your_budget"
             rules={[
               {
@@ -126,7 +140,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
               <Select.Option value="Not sure">Not sure</Select.Option>
             </Select>
           </FormItem>
-          <FormItem className={`${styles.accept} ${secondCheckBox && styles.acceptLeft}`}
+          <FormItem className={`${styles.accept} ${secondCheckBox && styles.acceptLeft} ${styles[errorMesssage]}`}
             name="accept"
             rules={[
               {
@@ -153,7 +167,7 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
           </FormItem>
           {
             secondCheckBox &&
-            <FormItem className={styles.accept}
+            <FormItem className={`${styles.accept}  ${styles[errorMesssage]}`}
               name="acceptNDA"
               rules={[
                 {
