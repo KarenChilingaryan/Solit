@@ -4,13 +4,16 @@
 @mixin generate-discuss-project-styles {
   .form {
     width: 100%;
+
     label {
       color: black !important;
     }
+
     input {
       border: 0;
     }
   }
+
   .content {
     width: getDiscussProjectSizes(content-width);
     margin: getDiscussProjectSizes(content-mt) auto 0 auto;
@@ -19,6 +22,7 @@
       max-width: calcVW(850);
       padding-left: calcVW(24);
     }
+
     .discussProject {
       margin: calcVW(65) 0 calcVW(320);
 
@@ -32,47 +36,30 @@
             button {
               height: calcVW(48);
               background: variables.$light-blue;
-              @include font-style(
-                calcVW(13),
+              @include font-style(calcVW(13),
                 variables.$fw-700,
                 calcVW(19),
-                variables.$black
-              );
-
-              @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-                height: calcVWL(48);
-                padding: calcVWL(8) calcVWL(16);
-                border-radius: calcVWL(8);
-                @include font-style(
-                  calcVWL(13),
-                  variables.$fw-700,
-                  calcVWL(19),
-                  variables.$black
-                );
-              }
+                variables.$black );
 
               @media (max-width: 1024px) {
                 height: calcVWT(48);
-                @include font-style(
-                  calcVWT(13),
+                @include font-style(calcVWT(13),
                   variables.$fw-700,
                   calcVWT(19),
-                  variables.$black
-                );
+                  variables.$black );
               }
 
               @media (max-width: 576px) {
                 height: unset;
-                @include font-style(
-                  calcVWM(13),
+                @include font-style(calcVWM(13),
                   variables.$fw-700,
                   calcVWM(19),
-                  variables.$black
-                );
+                  variables.$black );
               }
             }
           }
         }
+
         .buttons {
           display: flex;
           gap: calcVW(16);
@@ -83,23 +70,10 @@
             button {
               height: calcVW(48);
 
-              @include font-style(
-                calcVW(13),
+              @include font-style(calcVW(13),
                 variables.$fw-700,
                 calcVW(19),
-                variables.$gray
-              );
-              @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-                height: calcVWL(48);
-                padding: calcVWL(8) calcVWL(16);
-                border-radius: calcVWL(8);
-                @include font-style(
-                  calcVWL(13),
-                  variables.$fw-700,
-                  calcVWL(19),
-                  variables.$gray
-                );
-              }
+                variables.$gray );
 
               @media (max-width: 1024px) {
                 height: calcVWT(48);
@@ -107,12 +81,10 @@
                 padding: calcVWT(8) calcVWT(16);
                 border-radius: calcVWT(8);
 
-                @include font-style(
-                  calcVWT(13),
+                @include font-style(calcVWT(13),
                   variables.$fw-700,
                   calcVWT(19),
-                  variables.$gray
-                );
+                  variables.$gray );
               }
 
               @media (max-width: 576px) {
@@ -120,40 +92,36 @@
                 padding: calcVWM(12) calcVWM(16);
                 border-radius: calcVWM(8);
 
-                @include font-style(
-                  calcVWM(13),
+                @include font-style(calcVWM(13),
                   variables.$fw-700,
                   calcVWM(19),
-                  variables.$gray
-                );
+                  variables.$gray );
               }
+
               &:hover {
                 background: variables.$light-blue;
-                @include font-style(
-                  calcVW(13),
+                @include font-style(calcVW(13),
                   variables.$fw-700,
                   calcVW(19),
-                  variables.$black
-                );
+                  variables.$black );
+
                 @media (max-width: 1024px) {
-                  @include font-style(
-                    calcVWT(13),
+                  @include font-style(calcVWT(13),
                     variables.$fw-700,
                     calcVWT(19),
-                    variables.$black
-                  );
+                    variables.$black );
                 }
+
                 @media (max-width: 576px) {
-                  @include font-style(
-                    calcVWM(13),
+                  @include font-style(calcVWM(13),
                     variables.$fw-700,
                     calcVWM(19),
-                    variables.$black
-                  );
+                    variables.$black );
                 }
               }
             }
           }
+
           @media (max-width: 1024px) {
             gap: calcVWT(16);
           }
@@ -163,9 +131,10 @@
           }
         }
 
-        .industryDetails > button {
+        .industryDetails>button {
           margin-top: calcVW(-35);
         }
+
         .industryDetails {
           display: flex;
           flex-direction: column;
@@ -189,19 +158,17 @@
               align-items: center;
               height: calcVW(60);
               @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
+
               @media (max-width: 1024px) {
-                @include font-style(
-                  calcVWT(20),
+                @include font-style(calcVWT(20),
                   variables.$fw-700,
-                  calcVWT(24)
-                );
+                  calcVWT(24));
               }
+
               @media (max-width: 576px) {
-                @include font-style(
-                  calcVWM(20),
+                @include font-style(calcVWM(20),
                   variables.$fw-700,
-                  calcVWM(24)
-                );
+                  calcVWM(24));
               }
             }
 
@@ -229,48 +196,145 @@
               .month {
                 text-align: left;
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
+
                 @media (max-width: 1024px) {
-                  @include font-style(
-                    calcVWT(14),
+                  @include font-style(calcVWT(14),
                     variables.$fw-700,
-                    calcVWT(24)
-                    );
-                  }
-                  @media (max-width: 576px) {
+                    calcVWT(24));
+                }
+
+                @media (max-width: 576px) {
                   width: calcVWM(40);
-                  @include font-style(
-                    calcVWM(10),
+                  @include font-style(calcVWM(10),
                     variables.$fw-700,
-                    calcVWM(14)
-                  );
+                    calcVWM(14));
                 }
               }
             }
           }
         }
+
         @media (max-width: 1024px) {
           gap: calcVWT(32);
         }
+
         @media (max-width: 576px) {
           gap: calcVWM(32);
         }
       }
     }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(1280);
+      margin: calcVWL(462) auto 0 auto;
+
+      .mainTitle {
+        max-width: calcVWL(850);
+        padding-left: calcVWL(24);
+      }
+
+      .discussProject {
+        margin: calcVWL(65) 0 calcVWL(320);
+
+        .form {
+          gap: calcVWL(32);
+
+          .currentStageDiscuss {
+            a:first-of-type {
+              button {
+                height: calcVWL(48);
+                @include font-style(calcVWL(13),
+                  variables.$fw-700,
+                  calcVWL(19),
+                  variables.$black );
+              }
+            }
+          }
+
+          .buttons {
+            gap: calcVWL(16);
+            margin-top: calcVWL(60);
+
+            a {
+              button {
+                height: calcVWL(48);
+
+                @include font-style(calcVWL(13),
+                  variables.$fw-700,
+                  calcVWL(19),
+                  variables.$gray );
+
+                &:hover {
+                  @include font-style(calcVWL(13),
+                    variables.$fw-700,
+                    calcVWL(19),
+                    variables.$black );
+                }
+              }
+            }
+          }
+
+          .industryDetails>button {
+            margin-top: calcVWL(-35);
+          }
+
+          .industryDetails {
+            gap: calcVWL(70);
+
+            .industries {
+              gap: calcVWL(15);
+
+              :global(.ant-slider-horizontal) {
+                margin-top: calcVWL(90);
+              }
+
+              .title {
+                height: calcVWL(60);
+                @include font-style(calcVWL(20), variables.$fw-700, calcVWL(24));
+              }
+
+              .checkboxes {
+                column-gap: calcVWL(24);
+                row-gap: calcVWL(16);
+              }
+
+              .slider {
+                margin-bottom: calcVWL(5);
+              }
+
+              .monthsWrapper {
+                margin-top: calcVWL(8);
+
+                .month {
+                  @include font-style(calcVWL(14), variables.$fw-500, calcVWL(24));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
     @media (max-width: 1024px) {
       width: calcVWT(928);
       margin-top: calcVWT(240);
+
       .mainTitle {
         max-width: calcVWT(850);
         padding-left: 0;
       }
+
       .discussProject {
         margin-top: calcVWT(102);
+
         .form {
-          .industryDetails > button {
+          .industryDetails>button {
             margin-top: calcVWT(-29);
           }
+
           .industryDetails {
             gap: calcVWT(64);
+
             .industries {
               padding: 0 24px;
               gap: calcVWT(16);
@@ -303,17 +367,22 @@
         }
       }
     }
+
     @media (max-width: 576px) {
       width: calcVWM(343);
       margin-top: calcVWM(82);
+
       button:nth-child(1) {
         max-width: calcVWM(163) !important;
       }
+
       button:nth-child(2) {
         max-width: calcVWM(163) !important;
       }
+
       .discussProject {
         margin-top: calcVWM(-26);
+
         .form {
           .buttons {
             a {
@@ -322,9 +391,11 @@
               }
             }
           }
-          .industryDetails > button {
+
+          .industryDetails>button {
             margin-top: calcVWT(8);
           }
+
           .industryDetails {
             .industries {
               padding: 0;

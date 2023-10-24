@@ -16,16 +16,9 @@
     height: getIndustrySizes(main-wrapper-height);
     padding: getIndustrySizes(main-wrapper-padding);
     gap: getIndustrySizes(main-wrapper-gap);
-    border-radius: 16px;
+    border-radius: calcVW(16);
     background: variables.$transparent-black;
     cursor: pointer;
-
-    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      width: calcVWL(202);
-      height: calcVWL(56);
-      gap: calcVWL(16);
-      padding: calcVWL(16);
-    }
 
     @media (max-width: 1024px) {
       width: calcVWT(202);
@@ -33,6 +26,7 @@
       gap: calcVWT(16);
       padding: calcVWT(16);
     }
+
     @media (max-width: 576px) {
       width: calcVWM(302);
       gap: calcVWM(16);
@@ -49,11 +43,13 @@
     :global(.ant-checkbox-input) {
       &:focus {
         border: $main-white !important;
+
         .ant-checkbox-inner {
           border-color: $main-white !important;
         }
       }
     }
+
     :global(.ant-checkbox-inner) {
       width: calcVW(20);
       height: calcVW(20);
@@ -61,19 +57,23 @@
       border: 1px solid $main-white;
       border-color: $main-white !important;
       border-radius: 5px;
+
       &:active {
         border-color: transparent !important;
         background-color: transparent !important;
         border: none !important;
       }
     }
+
     :global(.ant-checkbox-checked .ant-checkbox-inner) {
       background-color: transparent !important;
       border-color: transparent !important;
     }
+
     :global(.ant-checkbox-checked::after) {
       border: none !important;
     }
+
     :global(.ant-checkbox-checked .ant-checkbox-inner) {
       background-color: $transparent-black;
       border-color: $transparent-black;
@@ -84,18 +84,14 @@
     @include flex(null, center);
     text-align: center;
     cursor: pointer;
-    @include font-style(
-      getIndustrySizes(name-specialist-fz),
+    @include font-style(getIndustrySizes(name-specialist-fz),
       variables.$fw-500,
-      getIndustrySizes(name-specialist-lh)
-    );
+      getIndustrySizes(name-specialist-lh));
 
-    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-      @include font-style(calcVWL(14), variables.$fw-700, calcVWL(19));
-    }
     @media (max-width: 1024px) {
       @include font-style(calcVWL(14), variables.$fw-700, calcVWT(19));
     }
+
     @media (max-width: 576px) {
       @include font-style(calcVWM(14), variables.$fw-700, calcVWM(19));
     }
@@ -104,22 +100,45 @@
   .moreWrapper {
     @include flex(center, row, null);
     width: max-content;
-    border-radius: 16px;
+    border-radius: calcVW(16);
     background-color: variables.$transparent-black;
     padding: getIndustrySizes(more-wrapper-padding);
     gap: getIndustrySizes(more-wrapper-gap);
     cursor: pointer;
   }
+
   .moreWrapper:hover {
     border: 1px solid variables.$dodger-blue;
   }
 
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    .mainWrapper {
+      width: calcVWL(302);
+      height: calcVWL(56);
+      padding: calcVWL(16);
+      gap: calcVWL(16);
+      border-radius: calcVWL(16);
+    }
+
     .checkbox {
       :global(.ant-checkbox-inner) {
         width: calcVWL(20);
         height: calcVWL(20);
+        border-radius: calcVWL(5);
       }
+    }
+
+    .nameSpecialist {
+      @include font-style(calcVWL(14),
+        variables.$fw-500,
+        calcVWL(24));
+
+    }
+
+    .moreWrapper {
+      border-radius: calcVWL(16);
+      padding: calcVWL(16);
+      gap: calcVWL(16);
     }
   }
 
@@ -131,6 +150,7 @@
       }
     }
   }
+
   @media (max-width: 576px) {
     .checkbox {
       :global(.ant-checkbox-inner) {
