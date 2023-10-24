@@ -270,6 +270,7 @@ const DiscussProject = () => {
       <>
         {modalOpen && (
           <ModalWrapper
+          classname="other-modal"
             open={modalOpen}
             setOpen={() => {
               setModalOpen("");

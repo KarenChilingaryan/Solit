@@ -291,6 +291,7 @@ const DiscussProjectStack = () => {
     >
       {modalOpen && (
         <ModalWrapper
+          classname="other-modal"
           open={modalOpen}
           setOpen={() => {
             setModalOpen(false);

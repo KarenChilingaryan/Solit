@@ -196,6 +196,10 @@ textarea::-webkit-scrollbar-thumb {
   height: calcVW(8) !important;
 }
 
+.other-modal {
+  top: 30% !important;
+}
+
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
   .ant-select-dropdown {
     padding: calcVWL(16) !important;
