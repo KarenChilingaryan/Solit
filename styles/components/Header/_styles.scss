@@ -465,7 +465,8 @@
       position: fixed;
       transition: height 0.3s ease;
       background: #020D1C;
-
+      z-index: 999;
+      
       .pricing {
         margin: 0;
         display: none;
