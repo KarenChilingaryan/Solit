@@ -89,7 +89,7 @@
       getIndustrySizes(name-specialist-lh));
 
     @media (max-width: 1024px) {
-      @include font-style(calcVWL(14), variables.$fw-700, calcVWT(19));
+      @include font-style(calcVWT(14), variables.$fw-700, calcVWT(19));
     }
 
     @media (max-width: 576px) {
