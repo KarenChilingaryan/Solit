@@ -147,6 +147,7 @@
       :global(.ant-checkbox-inner) {
         width: calcVWT(20);
         height: calcVWT(20);
+        border-radius: 4px;
       }
     }
   }
@@ -156,7 +157,7 @@
       :global(.ant-checkbox-inner) {
         width: calcVWM(20);
         height: calcVWM(20);
-        border-width: 3px;
+        border-width: 1px;
       }
     }
   }
