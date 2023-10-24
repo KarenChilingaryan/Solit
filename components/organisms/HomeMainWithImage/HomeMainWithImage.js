@@ -275,12 +275,9 @@ const HomeMainWithImage = ({
       </div>
       {!hideToTop && (
         <div
-          className={`${styles.socialSites} ${styles.socialSitesTop}`}
+          className={`${styles.socialSites} ${styles.socialSitesTop} ${styles[className]}`}
           onClick={scrallToTop}
           ref={goToTop}
-          style={{
-            ...(className == 'discuss' ? { bottom: '40vw', top: 'auto' } : {})
-          }}
         >
           <div className={styles.site}>
             <Paragraph

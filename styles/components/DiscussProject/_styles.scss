@@ -24,7 +24,7 @@
     }
 
     .discussProject {
-      margin: calcVW(65) 0 calcVW(320);
+      margin: 0 0 calcVW(320);
 
       .form {
         display: flex;
@@ -63,7 +63,7 @@
         .buttons {
           display: flex;
           gap: calcVW(16);
-          margin-top: calcVW(60);
+          margin-top: calcVW(30);
           z-index: 100;
 
           a {

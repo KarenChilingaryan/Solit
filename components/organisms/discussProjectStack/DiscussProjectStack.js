@@ -261,7 +261,7 @@ const DiscussProjectStack = () => {
         await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
@@ -333,7 +333,7 @@ const DiscussProjectStack = () => {
         >
           <Row
             style={{
-              marginTop: "5vw",
+              marginTop: "3vw",
             }}
           >
             <Form className={styles.form}>
@@ -403,6 +403,7 @@ const DiscussProjectStack = () => {
         <div className={styles.content}>
           <div className={styles.mainTitle}>
             <HomeMain
+              h1={true}
               data={{
                 title: "Get fast response to for a fast solution",
               }}
@@ -416,10 +417,9 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${
-                  asPath == "/discuss-project-stack" &&
+                className={`${asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                } ${styles.buttons}`}
+                  } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -502,11 +502,10 @@ const DiscussProjectStack = () => {
                         <Col
                           key={i}
                           onClick={() => handleButtonClick("industry", item)}
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry
                             value={item}
