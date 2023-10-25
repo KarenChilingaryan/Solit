@@ -222,9 +222,10 @@
   .headerWrapperScroll {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     padding: getHeaderSizes(header-wrapper-padding-scroll);
+    padding-bottom: calcVW(25);
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(0px);
-    z-index: 10;
+    z-index: 999;
   }
 
   @keyframes slide {
@@ -337,6 +338,7 @@
 
     .headerWrapperScroll {
       padding: calcVWL(50) calcVWL(80);
+      padding-bottom: calcVWL(25);
     }
   }
 
