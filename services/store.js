@@ -108,7 +108,7 @@ const store = configureStore({
       postAbutUsWhatWeDoApi.middleware,
       headerApi.middleware,
       emailDiscussYourProject1Api.middleware,
-      emailDiscussYourProject1Api.middleware,
+      emailDiscussYourProject2Api.middleware,
       postsTextCareersAboutUsApi.middleware,
       emailApplyForJobPositionApi.middleware,
       postsTextCareersColourfulApi.middleware,
