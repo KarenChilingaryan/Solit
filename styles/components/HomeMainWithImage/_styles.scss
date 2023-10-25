@@ -175,6 +175,28 @@
     left: auto;
     z-index: 1000;
     display: flex !important;
+
+    @media (max-height: 480px) {
+      .site {
+        &:hover {
+          .image {
+            height: calcVW(30);
+            width: calcVW(30);
+            background: variables.$dark-turquoise !important;
+          }
+        }
+      }
+      .image {
+        border-radius: 50%;
+        background-color: variables.$dark-turquoise;
+        &:hover {
+          background-color: variables.$dark-turquoise;
+        }
+      }
+      .text {
+        display: none;
+      }
+    }
   }
 
   .discuss {
@@ -193,11 +215,11 @@
             padding: 0 calcVWL(8);
           }
         }
-  
+
         li:last-of-type {
           border-radius: 0 calcVWL(8) calcVWL(8) 0;
         }
-  
+
         :global(.ant-breadcrumb-link) {
           @include font-style(calcVWL(20), variables.$fw-500, normal);
         }
@@ -208,31 +230,31 @@
         }
       }
     }
-  
+
     .socialSites {
       left: calcVWL(-175);
       top: calcVWL(494);
       width: calcVWL(440);
-  
+
       .socialSitesValues {
         column-gap: calcVWL(32);
       }
-  
+
       .site {
         column-gap: calcVWL(16);
-  
+
         .image {
           width: calcVWL(24);
           height: calcVWL(24);
         }
-  
+
         .text {
           font-size: calcVWL(20);
           font-size: calcVWL(24);
         }
       }
     }
-  
+
     .socialSitesTop {
       right: calcVWL(-180);
       left: auto;
