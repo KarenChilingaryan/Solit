@@ -36,25 +36,31 @@
             button {
               height: calcVW(48);
               background: variables.$light-blue;
-              @include font-style(calcVW(13),
+              @include font-style(
+                calcVW(13),
                 variables.$fw-700,
                 calcVW(19),
-                variables.$black );
+                variables.$black
+              );
 
               @media (max-width: 1024px) {
                 height: calcVWT(48);
-                @include font-style(calcVWT(13),
+                @include font-style(
+                  calcVWT(13),
                   variables.$fw-700,
                   calcVWT(19),
-                  variables.$black );
+                  variables.$black
+                );
               }
 
               @media (max-width: 576px) {
                 height: unset;
-                @include font-style(calcVWM(13),
+                @include font-style(
+                  calcVWM(13),
                   variables.$fw-700,
                   calcVWM(19),
-                  variables.$black );
+                  variables.$black
+                );
               }
             }
           }
@@ -63,17 +69,19 @@
         .buttons {
           display: flex;
           gap: calcVW(16);
-          margin-top: calcVW(30);
+          margin-top: calcVW(25);
           z-index: 100;
 
           a {
             button {
               height: calcVW(48);
 
-              @include font-style(calcVW(13),
+              @include font-style(
+                calcVW(13),
                 variables.$fw-700,
                 calcVW(19),
-                variables.$gray );
+                variables.$gray
+              );
 
               @media (max-width: 1024px) {
                 height: calcVWT(48);
@@ -81,10 +89,12 @@
                 padding: calcVWT(8) calcVWT(16);
                 border-radius: calcVWT(8);
 
-                @include font-style(calcVWT(13),
+                @include font-style(
+                  calcVWT(13),
                   variables.$fw-700,
                   calcVWT(19),
-                  variables.$gray );
+                  variables.$gray
+                );
               }
 
               @media (max-width: 576px) {
@@ -92,37 +102,46 @@
                 padding: calcVWM(12) calcVWM(16);
                 border-radius: calcVWM(8);
 
-                @include font-style(calcVWM(13),
+                @include font-style(
+                  calcVWM(13),
                   variables.$fw-700,
                   calcVWM(19),
-                  variables.$gray );
+                  variables.$gray
+                );
               }
 
               &:hover {
                 background: variables.$light-blue;
-                @include font-style(calcVW(13),
+                @include font-style(
+                  calcVW(13),
                   variables.$fw-700,
                   calcVW(19),
-                  variables.$black );
+                  variables.$black
+                );
 
                 @media (max-width: 1024px) {
-                  @include font-style(calcVWT(13),
+                  @include font-style(
+                    calcVWT(13),
                     variables.$fw-700,
                     calcVWT(19),
-                    variables.$black );
+                    variables.$black
+                  );
                 }
 
                 @media (max-width: 576px) {
-                  @include font-style(calcVWM(13),
+                  @include font-style(
+                    calcVWM(13),
                     variables.$fw-700,
                     calcVWM(19),
-                    variables.$black );
+                    variables.$black
+                  );
                 }
               }
             }
           }
 
           @media (max-width: 1024px) {
+            margin-top: calcVWT(23);
             gap: calcVWT(16);
           }
 
@@ -131,7 +150,7 @@
           }
         }
 
-        .industryDetails>button {
+        .industryDetails > button {
           margin-top: calcVW(-35);
         }
 
@@ -160,15 +179,19 @@
               @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
 
               @media (max-width: 1024px) {
-                @include font-style(calcVWT(20),
+                @include font-style(
+                  calcVWT(20),
                   variables.$fw-700,
-                  calcVWT(24));
+                  calcVWT(24)
+                );
               }
 
               @media (max-width: 576px) {
-                @include font-style(calcVWM(20),
+                @include font-style(
+                  calcVWM(20),
                   variables.$fw-700,
-                  calcVWM(24));
+                  calcVWM(24)
+                );
               }
             }
 
@@ -198,16 +221,20 @@
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
 
                 @media (max-width: 1024px) {
-                  @include font-style(calcVWT(14),
+                  @include font-style(
+                    calcVWT(14),
                     variables.$fw-700,
-                    calcVWT(24));
+                    calcVWT(24)
+                  );
                 }
 
                 @media (max-width: 576px) {
                   width: calcVWM(40);
-                  @include font-style(calcVWM(10),
+                  @include font-style(
+                    calcVWM(10),
                     variables.$fw-700,
-                    calcVWM(14));
+                    calcVWM(14)
+                  );
                 }
               }
             }
@@ -243,10 +270,12 @@
             a:first-of-type {
               button {
                 height: calcVWL(48);
-                @include font-style(calcVWL(13),
+                @include font-style(
+                  calcVWL(13),
                   variables.$fw-700,
                   calcVWL(19),
-                  variables.$black );
+                  variables.$black
+                );
               }
             }
           }
@@ -259,22 +288,26 @@
               button {
                 height: calcVWL(48);
 
-                @include font-style(calcVWL(13),
+                @include font-style(
+                  calcVWL(13),
                   variables.$fw-700,
                   calcVWL(19),
-                  variables.$gray );
+                  variables.$gray
+                );
 
                 &:hover {
-                  @include font-style(calcVWL(13),
+                  @include font-style(
+                    calcVWL(13),
                     variables.$fw-700,
                     calcVWL(19),
-                    variables.$black );
+                    variables.$black
+                  );
                 }
               }
             }
           }
 
-          .industryDetails>button {
+          .industryDetails > button {
             margin-top: calcVWL(-35);
           }
 
@@ -290,7 +323,11 @@
 
               .title {
                 height: calcVWL(60);
-                @include font-style(calcVWL(20), variables.$fw-700, calcVWL(24));
+                @include font-style(
+                  calcVWL(20),
+                  variables.$fw-700,
+                  calcVWL(24)
+                );
               }
 
               .checkboxes {
@@ -306,7 +343,11 @@
                 margin-top: calcVWL(8);
 
                 .month {
-                  @include font-style(calcVWL(14), variables.$fw-500, calcVWL(24));
+                  @include font-style(
+                    calcVWL(14),
+                    variables.$fw-500,
+                    calcVWL(24)
+                  );
                 }
               }
             }
@@ -325,10 +366,9 @@
       }
 
       .discussProject {
-        margin-top: calcVWT(102);
 
         .form {
-          .industryDetails>button {
+          .industryDetails > button {
             margin-top: calcVWT(-29);
           }
 
@@ -385,6 +425,8 @@
 
         .form {
           .buttons {
+            margin-top: calcVWM(30) !important;
+            margin-bottom: calcVWM(25);
             a {
               button {
                 height: unset !important;
@@ -393,7 +435,7 @@
             }
           }
 
-          .industryDetails>button {
+          .industryDetails > button {
             margin-top: calcVWT(8);
           }
 

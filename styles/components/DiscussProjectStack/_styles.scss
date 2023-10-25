@@ -26,7 +26,7 @@
     .discussProject {
       margin: calcVW(-5) 0 calcVW(320);
 
-      .form>button {
+      .form > button {
         margin-top: calcVW(3);
       }
 
@@ -41,25 +41,31 @@
             button {
               height: calcVW(48);
               background: variables.$light-blue;
-              @include font-style(calcVW(13),
+              @include font-style(
+                calcVW(13),
                 variables.$fw-700,
                 calcVW(19),
-                variables.$black );
+                variables.$black
+              );
 
               @media (max-width: 1024px) {
                 height: calcVWT(48);
-                @include font-style(calcVWT(13),
+                @include font-style(
+                  calcVWT(13),
                   variables.$fw-700,
                   calcVWT(19),
-                  variables.$black );
+                  variables.$black
+                );
               }
 
               @media (max-width: 576px) {
                 height: unset;
-                @include font-style(calcVWM(13),
+                @include font-style(
+                  calcVWM(13),
                   variables.$fw-700,
                   calcVWM(19),
-                  variables.$black );
+                  variables.$black
+                );
               }
             }
           }
@@ -88,17 +94,21 @@
             border: 1px solid rgba(255, 255, 255, 0.32);
             cursor: pointer;
             height: unset;
-            @include font-style(calcVW(13),
+            @include font-style(
+              calcVW(13),
               variables.$fw-700,
               calcVW(19),
-              rgba(255, 255, 255, 0.32));
+              rgba(255, 255, 255, 0.32)
+            );
 
             &:hover {
               background: variables.$light-blue;
-              @include font-style(calcVW(13),
+              @include font-style(
+                calcVW(13),
                 variables.$fw-700,
                 calcVW(19),
-                variables.$black );
+                variables.$black
+              );
               transition: 0.3s;
             }
 
@@ -107,10 +117,12 @@
             }
 
             @media (max-width: 1024px) {
-              @include font-style(calcVWT(13),
+              @include font-style(
+                calcVWT(13),
                 variables.$fw-700,
                 calcVWT(19),
-                rgba(255, 255, 255, 0.32));
+                rgba(255, 255, 255, 0.32)
+              );
             }
           }
 
@@ -118,10 +130,12 @@
             button {
               height: calcVW(48);
 
-              @include font-style(calcVW(13),
+              @include font-style(
+                calcVW(13),
                 variables.$fw-700,
                 calcVW(19),
-                variables.$gray );
+                variables.$gray
+              );
 
               @media (max-width: 1024px) {
                 height: calcVWT(48);
@@ -129,10 +143,12 @@
                 padding: calcVWT(8) calcVWT(16);
                 border-radius: calcVWT(8);
 
-                @include font-style(calcVWT(13),
+                @include font-style(
+                  calcVWT(13),
                   variables.$fw-700,
                   calcVWT(19),
-                  variables.$gray );
+                  variables.$gray
+                );
               }
 
               @media (max-width: 576px) {
@@ -140,34 +156,45 @@
                 padding: calcVWM(12) calcVWM(16);
                 border-radius: calcVWM(8);
 
-                @include font-style(calcVWM(13),
+                @include font-style(
+                  calcVWM(13),
                   variables.$fw-700,
                   calcVWM(19),
-                  variables.$gray );
+                  variables.$gray
+                );
               }
 
               &:hover {
                 background: variables.$light-blue;
-                @include font-style(calcVW(13),
+                @include font-style(
+                  calcVW(13),
                   variables.$fw-700,
                   calcVW(19),
-                  variables.$black );
+                  variables.$black
+                );
 
                 @media (max-width: 1024px) {
-                  @include font-style(calcVWT(13),
+                  @include font-style(
+                    calcVWT(13),
                     variables.$fw-700,
                     calcVWT(19),
-                    variables.$black );
+                    variables.$black
+                  );
                 }
 
                 @media (max-width: 576px) {
-                  @include font-style(calcVWM(13),
+                  @include font-style(
+                    calcVWM(13),
                     variables.$fw-700,
                     calcVWM(19),
-                    variables.$black );
+                    variables.$black
+                  );
                 }
               }
             }
+          }
+          @media (max-width: 1024px) {
+            margin-top: calcVWT(25);
           }
         }
 
@@ -197,16 +224,20 @@
 
               @media (max-width: 1024px) {
                 height: calcVWT(60);
-                @include font-style(calcVWT(20),
+                @include font-style(
+                  calcVWT(20),
                   variables.$fw-700,
-                  calcVWT(24));
+                  calcVWT(24)
+                );
               }
 
               @media (max-width: 576px) {
                 height: unset;
-                @include font-style(calcVWM(20),
+                @include font-style(
+                  calcVWM(20),
                   variables.$fw-700,
-                  calcVWM(24));
+                  calcVWM(24)
+                );
               }
             }
 
@@ -233,10 +264,12 @@
               }
 
               .stackName {
-                @include font-style(calcVW(20),
+                @include font-style(
+                  calcVW(20),
                   variables.$fw-700,
                   calcVW(24),
-                  variables.$dodger-blue );
+                  variables.$dodger-blue
+                );
               }
             }
 
@@ -252,23 +285,29 @@
               }
 
               .stackName {
-                @include font-style(calcVW(20),
+                @include font-style(
+                  calcVW(20),
                   variables.$fw-700,
                   calcVW(24),
-                  variables.$dodger-blue );
+                  variables.$dodger-blue
+                );
 
                 @media (max-width: 1024px) {
-                  @include font-style(calcVWT(20),
+                  @include font-style(
+                    calcVWT(20),
                     variables.$fw-700,
                     calcVWT(24),
-                    variables.$dodger-blue );
+                    variables.$dodger-blue
+                  );
                 }
 
                 @media (max-width: 576px) {
-                  @include font-style(calcVWM(20),
+                  @include font-style(
+                    calcVWM(20),
                     variables.$fw-700,
                     calcVWM(24),
-                    variables.$dodger-blue );
+                    variables.$dodger-blue
+                  );
                 }
               }
             }
@@ -283,16 +322,20 @@
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
 
                 @media (max-width: 1024px) {
-                  @include font-style(calcVWT(14),
+                  @include font-style(
+                    calcVWT(14),
                     variables.$fw-700,
-                    calcVWT(24));
+                    calcVWT(24)
+                  );
                 }
 
                 @media (max-width: 576px) {
                   width: calcVWM(40);
-                  @include font-style(calcVWM(10),
+                  @include font-style(
+                    calcVWM(10),
                     variables.$fw-700,
-                    calcVWM(14));
+                    calcVWM(14)
+                  );
                 }
               }
             }
@@ -313,7 +356,7 @@
       .discussProject {
         margin: calcVWL(-5) 0 calcVWL(320);
 
-        .form>button {
+        .form > button {
           margin-top: calcVWL(3);
         }
 
@@ -324,10 +367,12 @@
             a:last-of-type {
               button {
                 height: calcVWL(48);
-                @include font-style(calcVWL(13),
+                @include font-style(
+                  calcVWL(13),
                   variables.$fw-700,
                   calcVWL(19),
-                  variables.$black );
+                  variables.$black
+                );
               }
             }
           }
@@ -339,16 +384,20 @@
             .grayTextBtn {
               border-radius: calcVWL(8);
               padding: calcVWL(8) calcVWL(32);
-              @include font-style(calcVWL(13),
+              @include font-style(
+                calcVWL(13),
                 variables.$fw-700,
                 calcVWL(19),
-                rgba(255, 255, 255, 0.32));
+                rgba(255, 255, 255, 0.32)
+              );
 
               &:hover {
-                @include font-style(calcVWL(13),
+                @include font-style(
+                  calcVWL(13),
                   variables.$fw-700,
                   calcVWL(19),
-                  variables.$black );
+                  variables.$black
+                );
               }
             }
 
@@ -356,16 +405,20 @@
               button {
                 height: calcVWL(48);
 
-                @include font-style(calcVWL(13),
+                @include font-style(
+                  calcVWL(13),
                   variables.$fw-700,
                   calcVWL(19),
-                  variables.$gray );
+                  variables.$gray
+                );
 
                 &:hover {
-                  @include font-style(calcVWL(13),
+                  @include font-style(
+                    calcVWL(13),
                     variables.$fw-700,
                     calcVWL(19),
-                    variables.$black );
+                    variables.$black
+                  );
                 }
               }
             }
@@ -383,7 +436,11 @@
 
               .title {
                 height: calcVWL(60);
-                @include font-style(calcVWL(20), variables.$fw-700, calcVWL(24));
+                @include font-style(
+                  calcVWL(20),
+                  variables.$fw-700,
+                  calcVWL(24)
+                );
               }
 
               .checkboxes {
@@ -399,10 +456,12 @@
                 }
 
                 .stackName {
-                  @include font-style(calcVWL(20),
+                  @include font-style(
+                    calcVWL(20),
                     variables.$fw-700,
                     calcVWL(24),
-                    variables.$dodger-blue );
+                    variables.$dodger-blue
+                  );
                 }
               }
 
@@ -414,10 +473,12 @@
                 }
 
                 .stackName {
-                  @include font-style(calcVWL(20),
+                  @include font-style(
+                    calcVWL(20),
                     variables.$fw-700,
                     calcVWL(24),
-                    variables.$dodger-blue );
+                    variables.$dodger-blue
+                  );
                 }
               }
 
@@ -426,7 +487,11 @@
 
                 .month {
                   text-align: left;
-                  @include font-style(calcVWL(14), variables.$fw-500, calcVWL(24));
+                  @include font-style(
+                    calcVWL(14),
+                    variables.$fw-500,
+                    calcVWL(24)
+                  );
                 }
               }
             }
@@ -445,16 +510,14 @@
       }
 
       .discussProject {
-        margin-top: calcVWT(23);
-
-        .form>button {
+        .form > button {
           margin-top: calcVWT(12);
         }
 
         .form {
           gap: calcVWT(20);
 
-          .industryDetails>button {
+          .industryDetails > button {
             margin-top: calcVWT(-29);
           }
 
@@ -524,7 +587,7 @@
       .discussProject {
         margin-top: calcVWM(-26);
 
-        .form>button {
+        .form > button {
           margin-top: calcVWM(36);
         }
 
@@ -538,7 +601,7 @@
             }
           }
 
-          .industryDetails>button {
+          .industryDetails > button {
             margin-top: calcVWT(8);
           }
 
