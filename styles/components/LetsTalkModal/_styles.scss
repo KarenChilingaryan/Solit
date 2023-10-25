@@ -368,6 +368,13 @@
           color: variables.$black !important;
         }
       }
+      :global(.ant-form-item-has-error) {
+        :global(.ant-form-item-control-input-content){
+          div {
+            border-width: 0 !important;
+          }
+        }
+      }
     }
 
     .backImage {

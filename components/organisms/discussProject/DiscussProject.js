@@ -73,7 +73,7 @@ const DiscussProject = () => {
       step_two: values.currentStage?.join(" ") || "",
       step_three: values.consultation?.join(", ") || "",
       step_for: values.industry?.join(", ") || "",
-      step_five: values.duration || "",
+      step_five: values?.duration ? values?.duration + ' month' : "",
     };
 
     setModalFormData(formData);
