@@ -93,6 +93,9 @@
         &:focus {
           border: 0;
         }
+        &:hover {
+          z-index: unset;
+        }
       }
 
       .uploadAntd {
