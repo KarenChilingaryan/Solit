@@ -107,10 +107,12 @@
         }
 
         :global(.ant-input) {
-          @include font-style(calcVW(18),
+          @include font-style(
+            calcVW(18),
             variables.$fw-400,
             calcVW(24),
-            variables.$black );
+            variables.$black
+          );
           caret-color: transparent;
           overflow: hidden;
           white-space: nowrap;
@@ -123,9 +125,11 @@
 
       .buttonWrapper {
         button {
-          @include font-style(getModalFormSizes(button-fz),
+          @include font-style(
+            getModalFormSizes(button-fz),
             variables.$fw-700,
-            getModalFormSizes(button-fl));
+            getModalFormSizes(button-fl)
+          );
         }
       }
 
@@ -156,10 +160,12 @@
         }
 
         .acceptText {
-          @include font-style(getModalFormSizes(text-fz),
+          @include font-style(
+            getModalFormSizes(text-fz),
             variables.$fw-400,
             getModalFormSizes(text-fl),
-            #000);
+            #000
+          );
         }
       }
 
@@ -284,7 +290,7 @@
         background-color: aqua;
 
         :global {
-          .ant-form-item-label>label {
+          .ant-form-item-label > label {
             font-size: calcVW(13);
             color: #ffffff;
           }
@@ -323,32 +329,43 @@
       }
 
       :global {
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
           background: transparent;
           border-color: none;
           box-shadow: 0 2px 0 0 rgb(207, 39, 39);
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input {
           background: transparent;
           border-color: none !important;
           @include font-style(calcVW(18), variables.$fw-400, calcVW(24), #000);
 
           @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-            @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24), #000);
+            @include font-style(
+              calcVWL(18),
+              variables.$fw-400,
+              calcVWL(24),
+              #000
+            );
           }
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(
+            .ant-input-borderless
+          ).ant-input:focus {
           border-color: none;
         }
 
-        .ant-form-item-label>label {
+        .ant-form-item-label > label {
           font-size: 16px;
           color: #ffffff;
         }
 
-        .ant-input:focus+.ant-form-item-label>label {
+        .ant-input:focus + .ant-form-item-label > label {
           color: blue;
         }
       }
@@ -361,7 +378,6 @@
 
           @media only screen and (max-width: 1440px) and (min-width: 1025px) {
             margin-left: calcVWL(-108);
-
           }
         }
       }
@@ -419,10 +435,12 @@
 
         .uploadAntd {
           :global(.ant-input) {
-            @include font-style(calcVWT(18),
+            @include font-style(
+              calcVWT(18),
               variables.$fw-400,
               calcVWT(24),
-              variables.$black );
+              variables.$black
+            );
             width: calcVWT(380);
           }
 
@@ -447,7 +465,7 @@
 
         .focused {
           :global {
-            .ant-form-item-label>label {
+            .ant-form-item-label > label {
               font-size: calcVWT(13);
             }
           }
@@ -481,7 +499,10 @@
           height: calcVWT(20);
         }
 
-        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
           width: calcVWT(20);
           height: calcVWT(20);
         }
@@ -501,8 +522,15 @@
         }
 
         :global {
-          .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
-            @include font-style(calcVWT(18), variables.$fw-400, calcVWT(24), #000);
+          .ant-input-status-error:not(.ant-input-disabled):not(
+              .ant-input-borderless
+            ).ant-input {
+            @include font-style(
+              calcVWT(18),
+              variables.$fw-400,
+              calcVWT(24),
+              #000
+            );
           }
         }
       }
@@ -526,16 +554,27 @@
 
         .uploadAntd {
           :global(.ant-input) {
-            @include font-style(calcVWM(18),
+            @include font-style(
+              calcVWM(18),
               variables.$fw-400,
               calcVWM(24),
-              variables.$black );
+              variables.$black
+            );
             width: calcVWM(280);
           }
 
           :global(.ant-input-affix-wrapper) {
             height: calcVWM(30);
           }
+        }
+
+        :global(.ant-input) {
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            calcVWM(24),
+            #000
+          );
         }
 
         .suffix {
@@ -570,7 +609,10 @@
           height: calcVWM(20);
         }
 
-        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
+        :global(
+            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
+              input[type="checkbox"]
+          ) {
           width: calcVWM(20);
           height: calcVWM(20);
         }
@@ -595,8 +637,15 @@
         }
 
         :global {
-          .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
-            @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), #000);
+          .ant-input-status-error:not(.ant-input-disabled):not(
+              .ant-input-borderless
+            ).ant-input {
+            @include font-style(
+              calcVWM(18),
+              variables.$fw-400,
+              calcVWM(24),
+              #000
+            );
           }
         }
       }

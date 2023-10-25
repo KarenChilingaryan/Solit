@@ -186,7 +186,7 @@ const DiscussProject = () => {
         updatedValues.industry = [];
         break;
       case "duration":
-        updatedValues.duration = undefined;
+        updatedValues.duration = 1;
         break;
       default:
         break;
@@ -270,7 +270,7 @@ const DiscussProject = () => {
       <>
         {modalOpen && (
           <ModalWrapper
-          classname="other-modal"
+            classname="other-modal"
             open={modalOpen}
             setOpen={() => {
               setModalOpen("");
