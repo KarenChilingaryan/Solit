@@ -9,12 +9,20 @@ import arrow from "../../../assets/img/icons/selectIcon.svg";
 import styles from "./ModalForm.module.scss";
 import { Upload } from "antd";
 
-const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', className, secondCheckBox }) => {
+const ModalForm = ({
+  title,
+  style = {},
+  data,
+  onSubmit,
+  from = "apply",
+  className,
+  secondCheckBox,
+}) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState(null);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
   const [onChangeCheckboxNDA, setOnChangeCheckboxNDA] = useState(false);
-  const [errorMesssage, setErrorMesssage] = useState('');
+  const [errorMesssage, setErrorMesssage] = useState("");
 
   const submitForm = (values, data) => {
     const formData = {
@@ -22,8 +30,8 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
       ...(data ? data : {}),
       file_document: file,
     };
-    onSubmit(formData)
-    form.resetFields()
+    onSubmit(formData);
+    form.resetFields();
   };
 
   const props = {
@@ -41,17 +49,20 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Form
         onFinishFailed={() => {
-          setErrorMesssage('errorMesssageLeft');
+          setErrorMesssage("errorMesssageLeft");
           setTimeout(() => {
-            setErrorMesssage('errorMesssageRight')
+            setErrorMesssage("errorMesssageRight");
             setTimeout(() => {
-              setErrorMesssage('')
-            }, 100)
-          }, 100)
+              setErrorMesssage("");
+            }, 100);
+          }, 100);
         }}
         onFinish={(values) => {
-          submitForm(values, data)
-        }} className={styles.form} form={form} >
+          submitForm(values, data);
+        }}
+        className={styles.form}
+        form={form}
+      >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
             className={`${styles[errorMesssage]}`}
@@ -82,8 +93,13 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
             <FloatInput label="Email" placeholder="Email" name="from_email" />
           </FormItem>
 
-          <FormItem name="phon_number" >
-            <FloatInput label="Phone number" placeholder="Phone number" name="phon_number" type="number" />
+          <FormItem name="phon_number">
+            <FloatInput
+              label="Phone number"
+              placeholder="Phone number"
+              name="phon_number"
+              type="number"
+            />
           </FormItem>
           <FormItem
             name={"upload_document"}
@@ -134,13 +150,20 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
               }
             >
               <Select.Option value="Your Budget">Your Budget</Select.Option>
-              <Select.Option value="Less than $20k">Less than $20k</Select.Option>
+              <Select.Option value="Less than $20k">
+                Less than $20k
+              </Select.Option>
               <Select.Option value="$20k to $50k">$20k to $50k</Select.Option>
-              <Select.Option value="More than $50k">More than $50k</Select.Option>
+              <Select.Option value="More than $50k">
+                More than $50k
+              </Select.Option>
               <Select.Option value="Not sure">Not sure</Select.Option>
             </Select>
           </FormItem>
-          <FormItem className={`${styles.accept} ${secondCheckBox && styles.acceptLeft} ${styles[errorMesssage]}`}
+          <FormItem
+            className={`${styles.accept} ${
+              secondCheckBox && styles.acceptLeft
+            } ${styles[errorMesssage]}`}
             name="accept"
             rules={[
               {
@@ -165,37 +188,33 @@ const ModalForm = ({ title, style = {}, data, onSubmit, from = 'apply', classNam
               I accept your Privacy Policy
             </Row>
           </FormItem>
-          {
-            secondCheckBox &&
-            <FormItem className={`${styles.accept}  ${styles[errorMesssage]}`}
+
+          <FormItem
+            className={`${styles.accept}  ${styles[errorMesssage]}`}
+            name="acceptNDA"
+            rules={[
+              {
+                required: false,
+                message: "NDA is required",
+              },
+            ]}
+          >
+            <Checkbox
               name="acceptNDA"
-              rules={[
-                {
-                  required: true,
-                  message: "NDA is required",
-                },
-              ]}
-            >
-              <Checkbox
-
-                name="acceptNDA"
-                onChange={() => {
-                  setOnChangeCheckboxNDA(!onChangeCheckboxNDA);
-                  if (onChangeCheckboxNDA) {
-                    form.resetFields(["acceptNDA"]);
-                  } else {
-                    form.setFieldValue("acceptNDA", !onChangeCheckboxNDA);
-                  }
-                }}
-                value={onChangeCheckboxNDA}
-              />
-              <Row className={styles.acceptText}>
-                I want to protect my data by signing an NDA.
-              </Row>
-            </FormItem>
-          }
-
-
+              onChange={() => {
+                setOnChangeCheckboxNDA(!onChangeCheckboxNDA);
+                if (onChangeCheckboxNDA) {
+                  form.resetFields(["acceptNDA"]);
+                } else {
+                  form.setFieldValue("acceptNDA", !onChangeCheckboxNDA);
+                }
+              }}
+              value={onChangeCheckboxNDA}
+            />
+            <Row className={styles.acceptText}>
+              I want to protect my data by signing an NDA.
+            </Row>
+          </FormItem>
         </Row>
 
         <Col className={styles.buttonWrapper}>
