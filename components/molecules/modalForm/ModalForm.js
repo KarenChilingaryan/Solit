@@ -74,7 +74,7 @@ const ModalForm = ({
               },
             ]}
           >
-            <FloatInput label="Your full name" placeholder="Your full name" />
+            <FloatInput label="Your full name" placeholder="Your full name" required={true} />
           </FormItem>
           <FormItem
             className={`${styles[errorMesssage]}`}
@@ -90,11 +90,19 @@ const ModalForm = ({
               },
             ]}
           >
-            <FloatInput label="Email" placeholder="Email" name="from_email" />
+            <FloatInput label="Email" placeholder="Email" name="from_email" required={true} />
           </FormItem>
 
-          <FormItem name="phon_number">
+          <FormItem name="phon_number"
+
+            rules={[
+              {
+                required: true,
+                message: "Phone number is required",
+              },
+            ]}>
             <FloatInput
+              required={true}
               label="Phone number"
               placeholder="Phone number"
               name="phon_number"
@@ -131,16 +139,6 @@ const ModalForm = ({
           <FormItem
             className={`${styles[errorMesssage]}`}
             name="your_budget"
-            rules={[
-              {
-                type: "select",
-                message: "Please select your budget",
-              },
-              {
-                required: true,
-                message: "Budget is required",
-              },
-            ]}
           >
             <Select
               className={styles.select}
@@ -161,9 +159,8 @@ const ModalForm = ({
             </Select>
           </FormItem>
           <FormItem
-            className={`${styles.accept} ${
-              secondCheckBox && styles.acceptLeft
-            } ${styles[errorMesssage]}`}
+            className={`${styles.accept} ${secondCheckBox && styles.acceptLeft
+              } ${styles[errorMesssage]}`}
             name="accept"
             rules={[
               {
@@ -173,6 +170,7 @@ const ModalForm = ({
             ]}
           >
             <Checkbox
+              required={true}
               name="accept"
               onChange={() => {
                 setOnChangeCheckbox(!onChangeCheckbox);
