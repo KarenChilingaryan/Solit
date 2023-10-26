@@ -17,38 +17,16 @@ body {
 }
 
 .ant-scrolling-effect {
-  // &::-webkit-scrollbar {
-  //   // width: 0;
-  //   // height: 0;
-  // }
-  
-  // /* Hide WebKit scrollbar track */
-  // &::-webkit-scrollbar-track {
-  //   background-color: transparent;
-  // }
-  
-  // /* Hide WebKit scrollbar thumb (the draggable part) */
-  // &::-webkit-scrollbar-thumb {
-  //   background-color: transparent;
-  // }
-  
-  // /* Hide WebKit scrollbar corner (between vertical and horizontal scrollbars) */
-  // &::-webkit-scrollbar-corner {
-  //   background-color: transparent;
-  // }
   overflow-y: scroll !important;
-  // // min-height: max-content !important;
   #__next {
-    // position: fixed;
-    // width: 100%;
     min-height: 100vh;
     height: 100vh;
     overflow: hidden;
   }
-  // .ant-tooltip-placement-top {
-  //   display: none !important;
-  //   top: 0 !important;
-  // }
+  .ant-tooltip-placement-top {
+    display: none !important;
+    top: 0 !important;
+  }
 }
 
 h1,
