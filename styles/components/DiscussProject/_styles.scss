@@ -176,6 +176,7 @@
               display: flex;
               align-items: center;
               height: calcVW(60);
+              position: relative;
               @include font-style(calcVW(20), variables.$fw-700, calcVW(24));
 
               @media (max-width: 1024px) {
@@ -261,7 +262,7 @@
       }
 
       .discussProject {
-        margin: calcVWL(65) 0 calcVWL(320);
+        margin: 0 0 calcVWL(320);
 
         .form {
           gap: calcVWL(32);
@@ -282,7 +283,7 @@
 
           .buttons {
             gap: calcVWL(16);
-            margin-top: calcVWL(60);
+            margin-top: calcVWL(25);
 
             a {
               button {

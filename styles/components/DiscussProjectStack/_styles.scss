@@ -195,6 +195,7 @@
           }
           @media (max-width: 1024px) {
             margin-top: calcVWT(25);
+            gap: calcVWT(16);
           }
         }
 
@@ -379,7 +380,7 @@
 
           .buttons {
             gap: calcVWL(16);
-            margin-top: calcVWL(60);
+            margin-top: calcVWL(30);
 
             .grayTextBtn {
               border-radius: calcVWL(8);
