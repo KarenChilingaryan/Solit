@@ -16,6 +16,41 @@ body {
   width: 100% !important;
 }
 
+.ant-scrolling-effect {
+  // &::-webkit-scrollbar {
+  //   // width: 0;
+  //   // height: 0;
+  // }
+  
+  // /* Hide WebKit scrollbar track */
+  // &::-webkit-scrollbar-track {
+  //   background-color: transparent;
+  // }
+  
+  // /* Hide WebKit scrollbar thumb (the draggable part) */
+  // &::-webkit-scrollbar-thumb {
+  //   background-color: transparent;
+  // }
+  
+  // /* Hide WebKit scrollbar corner (between vertical and horizontal scrollbars) */
+  // &::-webkit-scrollbar-corner {
+  //   background-color: transparent;
+  // }
+  overflow-y: scroll !important;
+  // // min-height: max-content !important;
+  #__next {
+    // position: fixed;
+    // width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+  }
+  // .ant-tooltip-placement-top {
+  //   display: none !important;
+  //   top: 0 !important;
+  // }
+}
+
 h1,
 h2,
 h3,
@@ -204,6 +239,13 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+  .ant-slider-handle {
+    width: calcVWL(32) !important;
+    height: calcVWL(32) !important;
+    border-width: calcVWL(8) !important;
+    top: calcVWL(-3) !important;
+  }
+  
   .ant-select-dropdown {
     padding: calcVWL(16) !important;
     border-radius: calcVWL(16) !important;

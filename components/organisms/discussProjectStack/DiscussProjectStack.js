@@ -235,14 +235,14 @@ const DiscussProjectStack = () => {
   const submitForm = (values, fromDelete = false) => {
     const formData = {
       step_one:
-        values.developers?.map((dev) => `${dev.name}-${dev.count}`).join(" ") ||
+        values.developers?.map((dev) => `${dev.name}-${dev.count}`).join(", ") ||
         "",
       step_two:
         values.specialists
           ?.map((spec) => `${spec.name}-${spec.count}`)
-          .join(" ") || "",
+          .join(", ") || "",
       step_three: values.industry?.join(", ") || "",
-      step_for: values.duration || "",
+      step_for: values?.duration ? values?.duration + ' month' : "",
     };
 
     setModalFormData(formData);

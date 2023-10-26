@@ -69,8 +69,8 @@ const DiscussProject = () => {
 
   const submitForm = (values, fromDelete = false) => {
     const formData = {
-      step_one: values.applicationType?.join(" ") || "",
-      step_two: values.currentStage?.join(" ") || "",
+      step_one: values.applicationType?.join(", ") || "",
+      step_two: values.currentStage?.join(", ") || "",
       step_three: values.consultation?.join(", ") || "",
       step_for: values.industry?.join(", ") || "",
       step_five: values?.duration ? values?.duration + ' month' : "",

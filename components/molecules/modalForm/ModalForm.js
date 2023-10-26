@@ -110,18 +110,18 @@ const ModalForm = ({
             />
           </FormItem>
           <FormItem
-            name={"upload_document"}
+            name={"file_document"}
             className={`${styles.uploadItem}  ${file && styles.uploadedFile}`}
           >
             <Upload
               {...props}
-              name="upload_document"
+              name="file_document"
               className={styles.uploadAntd}
             >
               <FloatInput
                 label={"Upload document"}
                 placeholder={"Upload document"}
-                name={"upload_document"}
+                name={"file_document"}
                 type="text"
                 disabled
                 readOnly={true}
