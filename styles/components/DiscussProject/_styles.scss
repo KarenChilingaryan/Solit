@@ -425,9 +425,10 @@
         margin-top: calcVWM(-26);
 
         .form {
+          gap: calcVWM(32);
           .buttons {
             margin-top: calcVWM(30) !important;
-            margin-bottom: calcVWM(25);
+            margin-bottom: 0;
             a {
               button {
                 height: unset !important;

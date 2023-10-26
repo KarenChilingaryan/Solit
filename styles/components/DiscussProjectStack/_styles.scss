@@ -516,7 +516,7 @@
         }
 
         .form {
-          gap: calcVWT(20);
+          gap: calcVWT(32);
 
           .industryDetails > button {
             margin-top: calcVWT(-29);
@@ -593,7 +593,9 @@
         }
 
         .form {
+          gap: calcVWM(32);
           .buttons {
+            margin-bottom: 0;
             a {
               button {
                 height: unset !important;
