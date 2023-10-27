@@ -261,6 +261,9 @@ textarea::-webkit-scrollbar-thumb {
       width: calcVWL(520);
     }
   }
+  .modalApplyNowForm {
+    width: calcVWL(602) !important;
+  }
 }
 
 @media (max-width: 1024px) {
