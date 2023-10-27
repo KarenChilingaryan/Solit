@@ -96,6 +96,10 @@ const Careers = () => {
         await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
+      setOpenData(null)
+      setTimeout(() => {
+        setOpenSuccess(false);
+      }, 3000);
     } catch { }
   };
 

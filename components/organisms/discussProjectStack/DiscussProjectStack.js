@@ -261,6 +261,10 @@ const DiscussProjectStack = () => {
         await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
+      setModalFormData(null)
+      setTimeout(() => {
+        setOpenSuccess(false);
+      }, 3000);
     } catch { }
   };
 
@@ -503,8 +507,8 @@ const DiscussProjectStack = () => {
                           key={i}
                           onClick={() => handleButtonClick("industry", item)}
                           className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                              ? styles.selected
-                              : ""
+                            ? styles.selected
+                            : ""
                             }`}
                         >
                           <Industry

@@ -41,7 +41,6 @@ const ContactForm = ({
       const res = await dispatch(
         await emailApi.endpoints.email.initiate(formData)
       );
-
       setOpenSuccess(true);
       setTimeout(() => {
         setOpenSuccess(false);

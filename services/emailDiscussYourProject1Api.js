@@ -4,9 +4,9 @@ import { HYDRATE } from "next-redux-wrapper";
 export const emailDiscussYourProject1Api = createApi({
 
   reducerPath: "emailDiscussYourProject1Api",
-  refetchOnFocus: false,
-  refetchOnMountOrArgChange: false,
-  refetchOnReconnect: false,
+  refetchOnFocus: true,
+  refetchOnMountOrArgChange: true,
+  refetchOnReconnect: true,
   tagTypes: ['Posts'],
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_APP_API,

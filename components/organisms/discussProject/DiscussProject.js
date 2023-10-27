@@ -243,9 +243,12 @@ const DiscussProject = () => {
         await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
+      setTimeout(() => {
+        setOpenSuccess(false);
+      }, 3000);
       setModalFormData(null);
       setOpen(false);
-    } catch {}
+    } catch { }
   };
 
   const setValueinForm = (val) => {
@@ -366,9 +369,8 @@ const DiscussProject = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${
-                  asPath == "/discuss-project" && styles.currentStageDiscuss
-                } ${styles.buttons}`}
+                className={`${asPath == "/discuss-project" && styles.currentStageDiscuss
+                  } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -394,13 +396,12 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form
-                              .getFieldsValue()
-                              .applicationType?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form
+                            .getFieldsValue()
+                            .applicationType?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -429,11 +430,10 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().currentStage?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -463,11 +463,10 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -494,11 +493,10 @@ const DiscussProject = () => {
                         <Col
                           key={item}
                           onClick={() => handleButtonClick("industry", item)}
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().industry?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}

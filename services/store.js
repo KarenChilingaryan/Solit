@@ -28,6 +28,7 @@ import { postsBlogApi } from "./postsBlogApi";
 import { emailApplyForJobPositionApi } from "./emailApplyForJobPositionApi";
 import { emailDiscussYourProject2Api } from "./emailDiscussYourProject2Api";
 import { emailDiscussYourProject1Api } from "./emailDiscussYourProject1Api";
+import { emailApi } from "./emailApi";
 import { postsTextCareersAboutUsApi } from "./postsTextCareersAboutUsApi";
 import { footerApi } from "./footerApi";
 import { postsTextCareersColourfulApi } from "./postsTextCareersColourfulApi";
@@ -67,6 +68,7 @@ const store = configureStore({
     [postAbutUsWhatWeDoApi.reducerPath]: postAbutUsWhatWeDoApi.reducer,
     [headerApi.reducerPath]: headerApi.reducer,
     [emailDiscussYourProject1Api.reducerPath]: emailDiscussYourProject1Api.reducer,
+    [emailApi.reducerPath]: emailApi.reducer,
     [emailDiscussYourProject2Api.reducerPath]: emailDiscussYourProject2Api.reducer,
     [postsTextCareersAboutUsApi.reducerPath]: postsTextCareersAboutUsApi.reducer,
     [emailApplyForJobPositionApi.reducerPath]: emailApplyForJobPositionApi.reducer,
@@ -119,6 +121,7 @@ const store = configureStore({
       postsPrivacyPolicyOrConditionPolicyApi.middleware,
       portfolioFiltersApi.middleware,
       postsSeoFieldsApi.middleware,
+      emailApi.middleware,
     ),
 });
 
