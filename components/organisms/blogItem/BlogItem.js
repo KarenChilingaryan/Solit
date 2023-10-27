@@ -54,6 +54,17 @@ const BlogItem = () => {
     }
   }, [blogItemData])
 
+  const getRandomValuesFromArray = (arr, numberOfValues) => {
+    const copyArr = [...arr];
+
+    for (let i = copyArr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copyArr[i], copyArr[j]] = [copyArr[j], copyArr[i]];
+    }
+
+    return copyArr.slice(0, numberOfValues);
+  }
+
   return <div className={styles.careerPage}>
     <SeoCard details={
       {
@@ -71,7 +82,7 @@ const BlogItem = () => {
           </div>
           <Paragraph className={styles.title}>Explore more</Paragraph>
           <Row className={styles.blockItems}>
-            {postsBlogApi?.data_list?.slice(0, 3)?.map((project, i) =>
+            {postsBlogApi?.data_list && getRandomValuesFromArray(postsBlogApi?.data_list, 3)?.slice(0, 3)?.map((project, i) =>
               <OurProjectCard
                 onClick={() => handleClick(project.slug)}
                 key={i}

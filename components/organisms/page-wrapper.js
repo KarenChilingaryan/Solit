@@ -67,7 +67,7 @@ const PageWrapper = ({ children, item }) => {
       );
       await dispatch(await postsMainTechnologyApi.endpoints.posts.initiate());
       await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate());
-      if (!a.pathname.includes("/portfolio")){
+      if (!a.pathname.includes("/portfolio")) {
         await dispatch(await postPortfolioApi.endpoints.posts.initiate());
         await dispatch(await portfolioFiltersApi.endpoints.portfolioFilters.initiate());
       }
@@ -76,6 +76,10 @@ const PageWrapper = ({ children, item }) => {
         await dispatch(
           await abutUsCompanyOfExpertsApi.endpoints.about.initiate()
         );
+      if (!a.pathname.includes("/blog")) {
+        await dispatch(await postsBlogApi.endpoints.blog.initiate());
+        await dispatch(await postsFilterNameBlogApi.endpoints.blog.initiate());
+      }
       await dispatch(await postTestimonialsApi.endpoints.posts.initiate());
       await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate());
 
