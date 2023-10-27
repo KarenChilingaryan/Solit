@@ -109,7 +109,7 @@
           variables.$fw-400,
           calcVWL(24) !important
         );
-        top: calcVWL(5);
+        top: calcVWL(5); 
       }
 
       .asLabel {
@@ -139,7 +139,7 @@
         variables.$fw-400,
         calcVWT(24) !important
       );
-      top: calcVWT(2);
+      top: calcVWT(10) !important;
     }
 
     .label {
