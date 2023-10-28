@@ -235,14 +235,15 @@ const DiscussProjectStack = () => {
   const submitForm = (values, fromDelete = false) => {
     const formData = {
       step_one:
-        values.developers?.map((dev) => `${dev.name}-${dev.count}`).join(", ") ||
-        "",
+        values.developers
+          ?.map((dev) => `${dev.name}-${dev.count}`)
+          .join(", ") || "",
       step_two:
         values.specialists
           ?.map((spec) => `${spec.name}-${spec.count}`)
           .join(", ") || "",
       step_three: values.industry?.join(", ") || "",
-      step_for: values?.duration ? values?.duration + ' month' : "",
+      step_for: values?.duration ? values?.duration + " month" : "",
     };
 
     setModalFormData(formData);
@@ -261,11 +262,11 @@ const DiscussProjectStack = () => {
         await emailDiscussYourProject2Api.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-      setModalFormData(null)
+      setModalFormData(null);
       setTimeout(() => {
         setOpenSuccess(false);
       }, 3000);
-    } catch { }
+    } catch {}
   };
 
   useEffect(() => {
@@ -275,6 +276,7 @@ const DiscussProjectStack = () => {
   }, []);
 
   const handleAdd = () => {
+    // setOpen(true)
     setModalOpen(true);
   };
 
@@ -348,6 +350,7 @@ const DiscussProjectStack = () => {
                     message: "industry is required",
                   },
                 ]}
+                className={styles.industryInput}
               >
                 <FloatInput
                   label="Industry"
@@ -421,9 +424,10 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project-stack" &&
+                className={`${
+                  asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -505,11 +509,15 @@ const DiscussProjectStack = () => {
                       {data1.map((item, i) => (
                         <Col
                           key={i}
-                          onClick={() => item != "Other" && handleButtonClick("industry", item)}
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          onClick={() =>
+                            item != "Other" &&
+                            handleButtonClick("industry", item)
+                          }
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}

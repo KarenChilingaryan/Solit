@@ -12,6 +12,41 @@
     input {
       border: 0;
     }
+
+    .industryInput {
+      input {
+        @include font-style(
+          calcVW(18),
+          variables.$fw-400,
+          normal,
+          variables.$black
+        );
+        padding: 0;
+        &:focus {
+          border-color: unset;
+          border-right-width: unset;
+          outline: 0;
+          box-shadow: unset;
+        }
+
+        @media (max-width: 1024px) {
+          @include font-style(
+            calcVT(18),
+            variables.$fw-400,
+            normal,
+            variables.$black
+          );
+        }
+        @media (max-width: 576px) {
+          @include font-style(
+            calcVWM(18),
+            variables.$fw-400,
+            normal,
+            variables.$black
+          );
+        }
+      }
+    }
   }
 
   .content {
@@ -367,7 +402,6 @@
       }
 
       .discussProject {
-
         .form {
           .industryDetails > button {
             margin-top: calcVWT(-29);

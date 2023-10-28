@@ -73,7 +73,7 @@ const DiscussProject = () => {
       step_two: values.currentStage?.join(", ") || "",
       step_three: values.consultation?.join(", ") || "",
       step_for: values.industry?.join(", ") || "",
-      step_five: values?.duration ? values?.duration + ' month' : "",
+      step_five: values?.duration ? values?.duration + " month" : "",
     };
 
     setModalFormData(formData);
@@ -248,7 +248,7 @@ const DiscussProject = () => {
       }, 3000);
       setModalFormData(null);
       setOpen(false);
-    } catch { }
+    } catch {}
   };
 
   const setValueinForm = (val) => {
@@ -294,6 +294,7 @@ const DiscussProject = () => {
                       message: "industry is required",
                     },
                   ]}
+                  className={styles.industryInput}
                 >
                   <FloatInput
                     label="Industry"
@@ -369,8 +370,9 @@ const DiscussProject = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project" && styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                className={`${
+                  asPath == "/discuss-project" && styles.currentStageDiscuss
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -396,12 +398,13 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${form
-                            .getFieldsValue()
-                            .applicationType?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form
+                              .getFieldsValue()
+                              .applicationType?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -430,10 +433,11 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().currentStage?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -463,10 +467,11 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -492,11 +497,15 @@ const DiscussProject = () => {
                       {data3.map((item) => (
                         <Col
                           key={item}
-                          onClick={() => item != "Other" && handleButtonClick("industry", item)}
-                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          onClick={() =>
+                            item != "Other" &&
+                            handleButtonClick("industry", item)
+                          }
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().industry?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
