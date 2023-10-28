@@ -505,7 +505,7 @@ const DiscussProjectStack = () => {
                       {data1.map((item, i) => (
                         <Col
                           key={i}
-                          onClick={() => handleButtonClick("industry", item)}
+                          onClick={() => item != "Other" && handleButtonClick("industry", item)}
                           className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
                             ? styles.selected
                             : ""

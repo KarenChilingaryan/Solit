@@ -492,7 +492,7 @@ const DiscussProject = () => {
                       {data3.map((item) => (
                         <Col
                           key={item}
-                          onClick={() => handleButtonClick("industry", item)}
+                          onClick={() => item != "Other" && handleButtonClick("industry", item)}
                           className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
                             ? styles.selected
                             : ""
