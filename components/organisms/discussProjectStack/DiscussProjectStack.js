@@ -276,7 +276,6 @@ const DiscussProjectStack = () => {
   }, []);
 
   const handleAdd = () => {
-    // setOpen(true)
     setModalOpen(true);
   };
 
@@ -397,7 +396,7 @@ const DiscussProjectStack = () => {
             />
           </ModalWrapper>
         )}
-        {!open && liveStacks?.length && !closeFooterStack && (
+        {!open && !modalOpen && liveStacks?.length && !closeFooterStack && (
           <StackFooter
             liveStacks={liveStacks}
             handleDelete={handleDelete}

@@ -343,7 +343,7 @@ const DiscussProject = () => {
             />
           </ModalWrapper>
         )}
-        {!open && liveStacks?.length && !closeFooterStack && (
+        {!open && !modalOpen && liveStacks?.length && !closeFooterStack && (
           <StackFooter
             liveStacks={liveStacks}
             handleDelete={(item) => handleDelete(item)}
