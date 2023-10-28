@@ -517,6 +517,9 @@
 
         .form {
           gap: calcVWT(32);
+          @media (max-width: 881px) {
+            gap: calcVWT(44);
+          }
 
           .industryDetails > button {
             margin-top: calcVWT(-29);
