@@ -536,6 +536,7 @@ const DiscussProjectStack = () => {
                       defaultValue={1}
                       max={24}
                       tooltip={{ formatter }}
+                      open={true}
                     />
                   </FormItem>
                   <Row className={styles.monthsWrapper}>
