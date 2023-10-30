@@ -12,7 +12,7 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
     <Row className={styles.footer}>
       <Row className={styles.footerContent}>
         <Paragraph className={styles.footerTitle}>
-          Summary of your request:
+          Summary:
         </Paragraph>
         <Row className={styles.items}>
           {liveStacks?.map((item, i) => (

@@ -24,13 +24,13 @@ const ModalForm = ({
   const [onChangeCheckboxNDA, setOnChangeCheckboxNDA] = useState(false);
   const [errorMesssage, setErrorMesssage] = useState("");
 
-  const submitForm = (values, data) => {
+  const submitForm = async (values, data) => {
     const formData = {
       ...values,
       ...(data ? data : {}),
       file_document: file,
     };
-    onSubmit(formData);
+    await onSubmit(formData);
     form.resetFields();
   };
 
@@ -74,7 +74,11 @@ const ModalForm = ({
               },
             ]}
           >
-            <FloatInput label="Your full name" placeholder="Your full name" required={true} />
+            <FloatInput
+              label="Your full name"
+              placeholder="Your full name"
+              required={true}
+            />
           </FormItem>
           <FormItem
             className={`${styles[errorMesssage]}`}
@@ -90,17 +94,23 @@ const ModalForm = ({
               },
             ]}
           >
-            <FloatInput label="Email" placeholder="Email" name="from_email" required={true} />
+            <FloatInput
+              label="Email"
+              placeholder="Email"
+              name="from_email"
+              required={true}
+            />
           </FormItem>
 
-          <FormItem name="phon_number"
-
+          <FormItem
+            name="phon_number"
             rules={[
               {
                 required: true,
                 message: "Phone number is required",
               },
-            ]}>
+            ]}
+          >
             <FloatInput
               required={true}
               label="Phone number"
@@ -136,10 +146,7 @@ const ModalForm = ({
             <FloatInput label="Comment" placeholder="Comment" name="comment" />
           </FormItem>
 
-          <FormItem
-            className={`${styles[errorMesssage]}`}
-            name="your_budget"
-          >
+          <FormItem className={`${styles[errorMesssage]}`} name="your_budget">
             <Select
               className={styles.select}
               suffixIcon={<Image src={arrow} alt="image" />}
@@ -159,8 +166,9 @@ const ModalForm = ({
             </Select>
           </FormItem>
           <FormItem
-            className={`${styles.accept} ${secondCheckBox && styles.acceptLeft
-              } ${styles[errorMesssage]}`}
+            className={`${styles.accept} ${
+              secondCheckBox && styles.acceptLeft
+            } ${styles[errorMesssage]}`}
             name="accept"
             rules={[
               {

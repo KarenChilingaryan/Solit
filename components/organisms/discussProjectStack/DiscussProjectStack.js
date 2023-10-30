@@ -266,6 +266,7 @@ const DiscussProjectStack = () => {
       setTimeout(() => {
         setOpenSuccess(false);
       }, 3000);
+      return true;
     } catch {}
   };
 

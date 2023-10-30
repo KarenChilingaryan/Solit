@@ -482,6 +482,7 @@
         height: calc(100vh - calcVWT(88));
         width: 100%;
         left: 0;
+        overflow-x: hidden;
         top: calcVWT(92);
         background: #020d1c;
         position: absolute;

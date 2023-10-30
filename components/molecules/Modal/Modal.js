@@ -7,7 +7,15 @@ import close from "../../../assets/img/icons/close.svg";
 
 import styles from "./Modal.module.scss";
 
-const ModalWrapper = ({ children, open, width, setOpen, style, classname }) => {
+const ModalWrapper = ({
+  children,
+  open,
+  width,
+  setOpen,
+  style,
+  classname,
+  ...rest
+}) => {
   const [visible, setVisible] = useState(false);
   const [animationClass, setAnimationClass] = useState(false);
 
@@ -42,7 +50,9 @@ const ModalWrapper = ({ children, open, width, setOpen, style, classname }) => {
       open={visible}
       afterClose={afterClose}
       title={<Image src={logo} className={styles.logo} alt="image" />}
-      className={`${styles.modal} ${styles[animationClass]} ${classname} ${style && style}`}
+      className={`${styles.modal} ${styles[animationClass]} ${classname} ${
+        style && style
+      }`}
       wrapClassName={styles.lll}
       footer={false}
       transitionName=""
@@ -57,6 +67,7 @@ const ModalWrapper = ({ children, open, width, setOpen, style, classname }) => {
           onClick={() => setOpen(false)}
         />
       }
+      {...rest}
     >
       {children}
     </Modal>

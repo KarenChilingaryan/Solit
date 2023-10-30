@@ -243,11 +243,12 @@ const DiscussProject = () => {
         await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-      setTimeout(() => {
-        setOpenSuccess(false);
-      }, 3000);
+      // setTimeout(() => {
+      //   setOpenSuccess(false);
+      // }, 3000);
       setModalFormData(null);
       setOpen(false);
+      return true
     } catch {}
   };
 
