@@ -33,23 +33,29 @@
       padding: 0 calcVW(32);
 
       .footerTitle {
-        @include font-style(calcVW(36),
+        @include font-style(
+          calcVW(36),
           variables.$fw-500,
           calcVW(44),
-          variables.$black );
+          variables.$black
+        );
 
         @media (max-width: 1024px) {
-          @include font-style(calcVWT(36),
-            variables.$fw-500,
-            normal,
-            variables.$black );
+          @include font-style(
+            calcVWT(20),
+            variables.$fw-700,
+            calcVWT(24),
+            variables.$black
+          );
         }
 
         @media (max-width: 576px) {
-          @include font-style(calcVWM(32),
-            variables.$fw-500,
-            normal,
-            variables.$black );
+          @include font-style(
+            calcVWM(20),
+            variables.$fw-700,
+            calcVWM(24),
+            variables.$black
+          );
         }
       }
 
@@ -64,23 +70,29 @@
           padding: calcVW(5);
 
           .item {
-            @include font-style(calcVW(20),
+            @include font-style(
+              calcVW(20),
               variables.$fw-500,
               normal,
-              variables.$black );
+              variables.$black
+            );
 
             @media (max-width: 1024px) {
-              @include font-style(calcVWT(20),
-                variables.$fw-500,
-                normal,
-                variables.$black );
+              @include font-style(
+                calcVWT(14),
+                variables.$fw-700,
+                calcVWT(19),
+                variables.$black
+              );
             }
 
             @media (max-width: 576px) {
-              @include font-style(calcVWM(20),
-                variables.$fw-500,
-                normal,
-                variables.$black );
+              @include font-style(
+                calcVWM(14),
+                variables.$fw-700,
+                calcVWM(19),
+                variables.$black
+              );
             }
           }
 
@@ -109,7 +121,8 @@
     }
 
     .buttonWrapper {
-      @media (max-width: 1024px) {}
+      @media (max-width: 1024px) {
+      }
 
       @media (max-width: 576px) {
         width: 100%;
@@ -122,10 +135,12 @@
           padding: calcVWM(8) calcVWM(32);
           border-radius: calcVWM(8);
 
-          @include font-style(calcVWM(20),
+          @include font-style(
+            calcVWM(20),
             variables.$fw-700,
             calcVWM(24),
-            variables.$white );
+            variables.$white
+          );
         }
       }
     }

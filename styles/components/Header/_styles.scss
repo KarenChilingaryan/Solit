@@ -486,7 +486,7 @@
         top: calcVWT(92);
         background: #020d1c;
         position: absolute;
-        overflow: auto;
+        overflow-y: auto;
 
         .menuItem {
           position: relative;

@@ -243,12 +243,13 @@ const DiscussProject = () => {
         await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-      // setTimeout(() => {
-      //   setOpenSuccess(false);
-      // }, 3000);
+      setTimeout(() => {
+        setOpenSuccess(false);
+      }, 3000);
       setModalFormData(null);
       setOpen(false);
-      return true
+      setLiveStacks([]);
+      return true;
     } catch {}
   };
 
@@ -533,7 +534,7 @@ const DiscussProject = () => {
                       defaultValue={1}
                       max={24}
                       tooltip={{ formatter }}
-                      open={true}
+                      // open={true}
                     />
                   </FormItem>
                   <Row className={styles.monthsWrapper}>
