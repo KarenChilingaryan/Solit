@@ -188,6 +188,14 @@
             variables.$fw-400,
             getPricingModal(text-fl),
             #000);
+            a{
+              border-bottom: 1px solid black ;
+              margin-left: calcVW(5);
+              @include font-style(getPricingModal(text-fz),
+              variables.$fw-400,
+              getPricingModal(text-fl),
+              #000);
+            }
         }
       }
 
@@ -474,6 +482,12 @@
               variables.$fw-400,
               calcVWL(24),
               #000);
+              a{
+                @include font-style(calcVWL(18),
+                variables.$fw-400,
+                calcVWL(24),
+                #000);
+              }
           }
         }
 
@@ -697,6 +711,10 @@
           .acceptText {
             font-size: calcVWT(18);
             line-height: calcVWT(24);
+            a{
+              font-size: calcVWT(18);
+              line-height: calcVWT(24);
+            }
           }
         }
 
@@ -890,6 +908,10 @@
           .acceptText {
             font-size: calcVWM(18);
             line-height: calcVWM(24);
+            a{
+              font-size: calcVWM(18);
+              line-height: calcVWM(24);
+            }
           }
         }
 

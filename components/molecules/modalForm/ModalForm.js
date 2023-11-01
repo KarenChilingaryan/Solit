@@ -191,7 +191,7 @@ const ModalForm = ({
               value={onChangeCheckbox}
             />
             <Row className={styles.acceptText}>
-              I accept your Privacy Policy
+              I accept your   <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
             </Row>
           </FormItem>
 

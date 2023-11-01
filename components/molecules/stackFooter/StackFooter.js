@@ -4,7 +4,7 @@ import Button from "../button/Button";
 import { Col, Row, Paragraph } from "../../atoms";
 import close from "../../../assets/img/icons/closeIcon.svg";
 import closeGray from "../../../assets/img/icons/close.svg";
-import down from "../../../assets/img/dropdown.svg";
+import down from "../../../assets/img/down.svg";
 
 import styles from "./StackFooter.module.scss";
 

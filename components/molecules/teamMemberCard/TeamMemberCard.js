@@ -1,12 +1,11 @@
-import Image from "next/image";
 import { memo } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
 import { Col, IconWrapper, Row } from "../../atoms";
-
-
 import arrow from "../../../assets/img/arrow.svg";
 
 import styles from "./TeamMemberCard.module.scss";
-import { useRouter } from "next/router";
+
 
 const TeamMember = ({ name, position, more, image, fromCareers }) => {
   const router = useRouter();

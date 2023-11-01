@@ -13,11 +13,11 @@ import { Process } from "../Process";
 import { WorldMap } from "../WorldMap";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
-import user1 from "../../../assets/img/user1.png";
-import user2 from "../../../assets/img/user2.png";
-import user3 from "../../../assets/img/user3.png";
-import user4 from "../../../assets/img/user4.png";
-import user5 from "../../../assets/img/user5.png";
+import user1 from "../../../assets/img/img2.png";
+import user2 from "../../../assets/img/img5.png";
+import user3 from "../../../assets/img/img3.png";
+import user4 from "../../../assets/img/img4.png";
+import user5 from "../../../assets/img/img1.png";
 import whatWeDoImage from "../../../assets/img/what-we-do_bg.png";
 import ourProjectImage from "../../../assets/img/our-project_bg.png";
 import services from "../../../assets/img/services.svg";
@@ -48,7 +48,7 @@ const HomeContent = () => {
   };
 
   const handleClick = (slug) => {
-    router.push(`/portfolio/${slug ? slug : ''}`);
+    router.push(`/portfolio/${slug ? slug : ""}`);
   };
 
   const win = typeof window;

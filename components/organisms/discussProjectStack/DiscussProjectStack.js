@@ -265,6 +265,7 @@ const DiscussProjectStack = () => {
       setModalFormData(null);
       setTimeout(() => {
         setOpenSuccess(false);
+        form.resetFields();
       }, 3000);
       return true;
     } catch {}
@@ -319,6 +320,19 @@ const DiscussProjectStack = () => {
     }
 
     getProjectData(updatedValues);
+  };
+
+  const updateDuration = (state) => {
+    const updatedValues = { ...form.getFieldsValue() };
+    updatedValues.duration = state;
+    form.setFieldsValue(updatedValues, true);
+    setLiveStacks([
+      ...liveStacks,
+      {
+        category: "duration",
+        item: `${state} months`,
+      },
+    ]);
   };
 
   return (
@@ -548,11 +562,36 @@ const DiscussProjectStack = () => {
                     />
                   </FormItem>
                   <Row className={styles.monthsWrapper}>
-                    <Col className={styles.month}>1 month</Col>
-                    <Col className={styles.month}>6 months</Col>
-                    <Col className={styles.month}>1 year</Col>
-                    <Col className={styles.month}>1.5 years</Col>
-                    <Col className={styles.month}>2+ years</Col>
+                    <Col
+                      className={styles.month}
+                      onClick={() => updateDuration(1)}
+                    >
+                      1 month
+                    </Col>
+                    <Col
+                      className={styles.month}
+                      onClick={() => updateDuration(6)}
+                    >
+                      6 months
+                    </Col>
+                    <Col
+                      className={styles.month}
+                      onClick={() => updateDuration(12)}
+                    >
+                      1 year
+                    </Col>
+                    <Col
+                      className={styles.month}
+                      onClick={() => updateDuration(18)}
+                    >
+                      1.5 years
+                    </Col>
+                    <Col
+                      className={styles.month}
+                      onClick={() => updateDuration(24)}
+                    >
+                      2+ years
+                    </Col>
                   </Row>
                   <Button
                     text="Clear"

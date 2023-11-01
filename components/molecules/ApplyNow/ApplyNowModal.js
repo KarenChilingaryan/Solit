@@ -4,18 +4,12 @@ import Image from "next/image";
 import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
-import linkedin from "../../../assets/img/icons/u_linkedin.svg"
-import u_link from "../../../assets/img/icons/u_link-alt.svg"
+import linkedin from "../../../assets/img/icons/u_linkedin.svg";
+import u_link from "../../../assets/img/icons/u_link-alt.svg";
 import styles from "./ApplyNowModal.module.scss";
 import { Upload } from "antd";
 
-const ModalApplyNowForm = ({
-  style = {},
-  data,
-  onSubmit,
-  className,
-  open,
-}) => {
+const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState(null);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
@@ -48,11 +42,11 @@ const ModalApplyNowForm = ({
     fileList: file ? [file] : [],
   };
 
-  useEffect(()=>{
-    if(data.role){
-      form.setFieldValue('position', data.role)
+  useEffect(() => {
+    if (data.role) {
+      form.setFieldValue("position", data.role);
     }
-  }, [data])
+  }, [data]);
 
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
@@ -140,7 +134,10 @@ const ModalApplyNowForm = ({
               }
             />
           </FormItem>
-          <FormItem name="link_to_github_or_portfolio" className={styles.inputWithIcon}>
+          <FormItem
+            name="link_to_github_or_portfolio"
+            className={styles.inputWithIcon}
+          >
             <FloatInput
               label="Portfolio"
               placeholder="Link to Github/Portfolio"
@@ -209,7 +206,8 @@ const ModalApplyNowForm = ({
               value={onChangeCheckbox}
             />
             <Row className={styles.acceptText}>
-              I accept your Privacy Policy
+              I accept your
+              <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
             </Row>
           </FormItem>
         </Row>
