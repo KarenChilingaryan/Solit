@@ -263,12 +263,14 @@ const DiscussProjectStack = () => {
       );
       setOpenSuccess(true);
       setModalFormData(null);
+      setLiveStacks([])
+      setOpen(false)
       setTimeout(() => {
         setOpenSuccess(false);
         form.resetFields();
       }, 3000);
       return true;
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
@@ -438,10 +440,9 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${
-                  asPath == "/discuss-project-stack" &&
+                className={`${asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                } ${styles.buttons}`}
+                  } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -527,11 +528,10 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry
                             value={item}
