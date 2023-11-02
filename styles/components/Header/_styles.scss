@@ -34,9 +34,11 @@
     .menuWrapper {
       display: flex;
       column-gap: calcVW(33);
+
       .pricing {
         display: none;
       }
+
       .socialIconsWrapper {
         display: none;
       }
@@ -125,13 +127,17 @@
             @include font-style(getHeaderSizes(header-menu-item-child-fz),
               variables.$fw-400,
               normal);
+
+            @media (min-width: 1441px) {
+              max-height: calcVW(61);
+            }
           }
 
           a {
             outline: none;
             text-decoration: none;
           }
-          
+
           @media (min-width: 1025px) {
             transition: 0.3s;
 
@@ -473,7 +479,7 @@
       transition: height 0.3s ease;
       background: #020D1C;
       z-index: 999;
-      
+
       .pricing {
         margin: 0;
         display: none;
