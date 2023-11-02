@@ -64,7 +64,8 @@ const DiscussProject = () => {
   const [closeFooterStack, setCloseFooterStack] = useState(false);
   const [modalOpen, setModalOpen] = useState("");
   const [otherValue, setOtherValue] = useState("");
-
+  const [isSSR, setIsSSR] = useState(false);
+  
   const dispatch = useDispatch();
 
   const submitForm = (values, fromDelete = false) => {
@@ -279,6 +280,13 @@ const DiscussProject = () => {
   const handleAdd = (name) => {
     setModalOpen(name);
   };
+
+
+  useEffect(()=>{
+    if (typeof window !== 'undefined') {
+      setIsSSR(true)
+    }
+  }, [])
 
   return (
     <HomeMainWithImage
@@ -547,7 +555,7 @@ const DiscussProject = () => {
                       min={0}
                       defaultValue={1}
                       max={24}
-                      tooltip={{ formatter }}
+                      tooltip={{ formatter, ...(isSSR ? {open: true} : {}) }}
                       // open={true}
                     />
                   </FormItem>

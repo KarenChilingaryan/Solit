@@ -126,6 +126,7 @@ const DiscussProjectStack = () => {
   const [modalFormData, setModalFormData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [closeFooterStack, setCloseFooterStack] = useState(false);
+  const [isSSR, setIsSSR] = useState(false);
 
   const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -336,7 +337,11 @@ const DiscussProjectStack = () => {
       },
     ]);
   };
-
+  useEffect(()=>{
+    if (typeof window !== 'undefined') {
+      setIsSSR(true)
+    }
+  }, [])
   return (
     <HomeMainWithImage
       firstImage={bgImage}
@@ -557,7 +562,7 @@ const DiscussProjectStack = () => {
                       min={0}
                       defaultValue={1}
                       max={24}
-                      tooltip={{ formatter }}
+                      tooltip={{ formatter, ...(isSSR ? {open: true} : {}) }}
                       open={true}
                     />
                   </FormItem>

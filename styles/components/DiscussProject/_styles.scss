@@ -253,6 +253,7 @@
               margin-top: calcVW(8);
 
               .month {
+                cursor: pointer;
                 text-align: left;
                 @include font-style(calcVW(14), variables.$fw-500, calcVW(24));
 
