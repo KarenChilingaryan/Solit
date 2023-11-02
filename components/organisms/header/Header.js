@@ -153,8 +153,11 @@ const Header = () => {
 
   useEffect(() => {
     const body = document.querySelector("body");
+    const next = document.getElementById("__next");
     if (body) {
       body.style.overflow = !openMenu ? "hidden" : "auto";
+      next.style.overflow = !openMenu ? "hidden" : "auto";
+      next.style.maxHeight = !openMenu ? "100vh" : "auto";
     }
   }, [openMenu]);
 
