@@ -240,7 +240,9 @@
 
         .menuItemChildMainWrapper {
           padding: 0;
-
+          a{
+            padding: 0;
+          }
           @media (min-width: 1025px) {
             transition: 0.3s;
 
