@@ -83,7 +83,7 @@
           display: flex;
           position: absolute;
           flex-wrap: wrap;
-          width: calcVW(682);
+          width: calcVW(684);
           left: calcVW(-20);
           top: getHeaderSizes(header-menu-item-child-main-wrapper-top);
           background: rgba(0, 0, 0, 0.88);
@@ -103,12 +103,15 @@
             @media only screen and (max-width: 1440px) and (min-width: 1025px) {
               border-width: calcVWL(1);
             }
+
             @media (max-width: 1024px) {
               border-width: calcVWT(1);
             }
+
             @media (max-width: 576px) {
               border-width: calcVWM(1);
             }
+
             .activeElem {
               display: none;
             }
@@ -124,12 +127,15 @@
               @media only screen and (max-width: 1440px) and (min-width: 1025px) {
                 border-width: calcVWL(1);
               }
+
               @media (max-width: 1024px) {
                 border-width: calcVWT(1);
               }
+
               @media (max-width: 576px) {
                 border-width: calcVWM(1);
               }
+
               .activeElem {
                 display: block;
               }
@@ -154,7 +160,19 @@
           a {
             outline: none;
             text-decoration: none;
-            padding: 1px 0;
+            padding: 1px calcVW(1);
+
+            @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+              padding: 1px calcVWL(1);
+            }
+
+            @media (max-width: 1024px) {
+              padding: 1px calcVWT(1);
+            }
+
+            @media (max-width: 576px) {
+              padding: 1px calcVWM(1);
+            }
           }
 
           @media (min-width: 1025px) {
@@ -298,7 +316,7 @@
           }
 
           .menuItemChildMainWrapper {
-            width: calcVWL(682);
+            width: calcVWL(684);
             top: calcVWL(49);
             padding: calcVWL(24);
             border-radius: 0 0 calcVWL(16) calcVWL(16);
@@ -566,12 +584,15 @@
                 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
                   border-width: calcVWL(1);
                 }
+
                 @media (max-width: 1024px) {
                   border-width: calcVWT(1);
                 }
+
                 @media (max-width: 576px) {
                   border-width: calcVWM(1);
                 }
+
                 .activeElem {
                   display: block;
                 }
