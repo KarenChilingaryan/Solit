@@ -192,7 +192,6 @@ const HomeMainWithImage = ({
     }
   }, [breadcrumbElements]);
 
-  console.log(className == "portfolioItem", 'className == "portfolioItem"');
   return (
     <div className={`${styles.content} ${styles[className]}`} ref={refContent}>
       {seoData && (
@@ -226,12 +225,9 @@ const HomeMainWithImage = ({
       <div className={styles.socialSites}>
         <div className={styles.socialSitesValues} ref={socialRef}>
           {data?.contact?.map(
-            (el, i) =>
-              {
-                console.log(percents["percent" + i]);
-                return (el.name == "Telegram" ||
-                el.name == "Linkedin" ||
-                el.name == "Whatsapp") && (
+            (el, i) => (el.name == "Telegram" ||
+              el.name == "Linkedin" ||
+              el.name == "Whatsapp") && (
                 <Link href={el.link} target="_blank" key={i}>
                   <div className={styles.site}>
                     <Image
@@ -272,7 +268,7 @@ const HomeMainWithImage = ({
                     </Paragraph>
                   </div>
                 </Link>
-              )}
+              )
           )}
         </div>
       </div>
