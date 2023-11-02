@@ -33,29 +33,23 @@
       padding: 0 calcVW(32);
 
       .footerTitle {
-        @include font-style(
-          calcVW(36),
+        @include font-style(calcVW(36),
           variables.$fw-500,
           calcVW(44),
-          variables.$black
-        );
+          variables.$black );
 
         @media (max-width: 1024px) {
-          @include font-style(
-            calcVWT(20),
+          @include font-style(calcVWT(20),
             variables.$fw-700,
             calcVWT(24),
-            variables.$black
-          );
+            variables.$black );
         }
 
         @media (max-width: 576px) {
-          @include font-style(
-            calcVWM(20),
+          @include font-style(calcVWM(20),
             variables.$fw-700,
             calcVWM(24),
-            variables.$black
-          );
+            variables.$black );
         }
       }
 
@@ -70,29 +64,23 @@
           padding: calcVW(5);
 
           .item {
-            @include font-style(
-              calcVW(20),
+            @include font-style(calcVW(20),
               variables.$fw-500,
               normal,
-              variables.$black
-            );
+              variables.$black );
 
             @media (max-width: 1024px) {
-              @include font-style(
-                calcVWT(14),
+              @include font-style(calcVWT(14),
                 variables.$fw-700,
                 calcVWT(19),
-                variables.$black
-              );
+                variables.$black );
             }
 
             @media (max-width: 576px) {
-              @include font-style(
-                calcVWM(14),
+              @include font-style(calcVWM(14),
                 variables.$fw-700,
                 calcVWM(19),
-                variables.$black
-              );
+                variables.$black );
             }
           }
 
@@ -109,25 +97,25 @@
             @media (max-width: 576px) {
               width: calcVWM(12);
               height: calcVWM(12);
+
             }
           }
         }
 
         @media (max-width: 576px) {
-          flex-direction: column;
           gap: calcVWM(8);
         }
       }
     }
 
     .buttonWrapper {
-      @media (max-width: 1024px) {
-      }
+      @media (max-width: 1024px) {}
 
       @media (max-width: 576px) {
         width: 100%;
         display: flex;
         justify-content: flex-end;
+        margin-top: auto;
 
         button {
           width: unset;
@@ -135,12 +123,10 @@
           padding: calcVWM(8) calcVWM(32);
           border-radius: calcVWM(8);
 
-          @include font-style(
-            calcVWM(20),
+          @include font-style(calcVWM(20),
             variables.$fw-700,
             calcVWM(24),
-            variables.$white
-          );
+            variables.$white );
         }
       }
     }
@@ -152,10 +138,25 @@
       .footerContent {
         gap: calcVWT(16);
         padding-left: calcVWT(32);
+        position: relative;
 
         .items {
           row-gap: calcVWT(16);
           max-width: calcVWT(650);
+          padding-bottom: calcVWT(35);
+        }
+
+        .scrollElement {
+          max-height: calcVWT(104);
+          overflow: auto;
+        }
+
+        .shadow {
+          box-shadow: 0 calcVWT(-10) calcVWT(20) calcVWT(13) white;
+          width: 100%;
+          height: 0;
+          position: absolute;
+          bottom: 0;
         }
       }
 
@@ -167,24 +168,50 @@
     }
 
     @media (max-width: 576px) {
+      transition: 0.3s;
       padding: calcVWM(16);
-      height: unset;
+      height: calcVWM(291);
       gap: calcVWM(16);
 
       .footerContent {
         gap: calcVWM(16);
         padding: 0;
 
+        .scrollElement {
+          max-height: calcVWM(145);
+        }
+
         .items {
           padding: 0;
-          gap: calcVWM(24);
+          gap: calcVWM(16);
+          max-width: 100%;
+          padding-bottom: calcVWM(35);
+        }
+
+        .shadow {
+          box-shadow: 0 calcVWM(-18) calcVWM(20) calcVWM(20) white;
         }
       }
 
       .closeIcon {
+        transition: 0.3s;
         position: absolute;
         top: calcVWM(16);
         right: calcVWM(16);
+        rotate: 0deg;
+      }
+    }
+  }
+
+  .transition {
+    @media (max-width: 576px) {
+      transition: 0.3s;
+      height: calcVWM(55);
+      overflow: hidden;
+
+      .closeIcon {
+        transition: 0.3s;
+        rotate: 180deg;
       }
     }
   }

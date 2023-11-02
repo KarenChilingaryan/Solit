@@ -10,6 +10,7 @@ import styles from "./StackFooter.module.scss";
 
 const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [toSmall, setToSmall] = useState(false);
 
   // Check the viewport width on component mount and resize
   useEffect(() => {
@@ -24,23 +25,31 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const onSmall = () => {
+    setToSmall(!toSmall)
+  }
+
   return (
-    <Row className={styles.footer}>
+    <Row className={`${styles.footer} ${toSmall && styles.transition}`}>
       <Row className={styles.footerContent}>
         <Paragraph className={styles.footerTitle}>Summary:</Paragraph>
-        <Row className={styles.items}>
-          {liveStacks?.map((item, i) => (
-            <Col key={i} className={styles.itemWrapper}>
-              <Col className={styles.item}>{item.item}</Col>
-              <Image
-                src={close}
-                className={styles.icon}
-                onClick={() => handleDelete(item)}
-                alt="image"
-              />
-            </Col>
-          ))}
-        </Row>
+        <div className={styles.scrollElement}>
+          <Row className={styles.items}>
+            {liveStacks?.map((item, i) => (
+              <Col key={i} className={styles.itemWrapper}>
+                <Col className={styles.item}>{item.item}</Col>
+                <Image
+                  src={close}
+                  className={styles.icon}
+                  onClick={() => handleDelete(item)}
+                  alt="image"
+                />
+              </Col>
+            ))}
+          </Row>
+        </div>
+        <div className={styles.shadow} />
       </Row>
       <Row className={styles.buttonWrapper}>
         <Button lightBlue text="Proceed" onClick={onClick} />
@@ -51,7 +60,7 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
         width="1.25vw"
         height="1.25vw"
         alt="image"
-        onClick={onClose}
+        onClick={() => !isSmallScreen ? onClose() : onSmall()}
       />
     </Row>
   );
