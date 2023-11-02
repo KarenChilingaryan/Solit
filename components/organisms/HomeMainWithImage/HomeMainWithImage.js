@@ -192,6 +192,7 @@ const HomeMainWithImage = ({
     }
   }, [breadcrumbElements]);
 
+  console.log(className == "portfolioItem", 'className == "portfolioItem"');
   return (
     <div className={`${styles.content} ${styles[className]}`} ref={refContent}>
       {seoData && (
@@ -226,7 +227,9 @@ const HomeMainWithImage = ({
         <div className={styles.socialSitesValues} ref={socialRef}>
           {data?.contact?.map(
             (el, i) =>
-              (el.name == "Telegram" ||
+              {
+                console.log(percents["percent" + i]);
+                return (el.name == "Telegram" ||
                 el.name == "Linkedin" ||
                 el.name == "Whatsapp") && (
                 <Link href={el.link} target="_blank" key={i}>
@@ -252,7 +255,7 @@ const HomeMainWithImage = ({
                       className={styles.text}
                       style={{
                         ...(className == "portfolioItem" &&
-                          percents["percent" + i]
+                          percents["percent" + i] >= 0
                           ? {
                             backgroundImage: `linear-gradient(to right, black ${percents["percent" + i]
                               }%, white ${percents["percent" + i]}%)`,
@@ -269,7 +272,7 @@ const HomeMainWithImage = ({
                     </Paragraph>
                   </div>
                 </Link>
-              )
+              )}
           )}
         </div>
       </div>
@@ -283,7 +286,7 @@ const HomeMainWithImage = ({
             <Paragraph
               className={styles.text}
               style={{
-                ...(className == "portfolioItem" && percents["percent4"]
+                ...(className == "portfolioItem" && percents["percent4"] >= 0
                   ? {
                     backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
                     backgroundClip: "text",
