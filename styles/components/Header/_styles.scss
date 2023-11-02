@@ -83,7 +83,7 @@
           display: flex;
           position: absolute;
           flex-wrap: wrap;
-          width: calcVW(680);
+          width: calcVW(682);
           left: calcVW(-20);
           top: getHeaderSizes(header-menu-item-child-main-wrapper-top);
           background: rgba(0, 0, 0, 0.88);
@@ -297,7 +297,7 @@
           }
 
           .menuItemChildMainWrapper {
-            width: calcVWL(680);
+            width: calcVWL(682);
             top: calcVWL(49);
             padding: calcVWL(24);
             border-radius: 0 0 calcVWL(16) calcVWL(16);
