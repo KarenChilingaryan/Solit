@@ -247,8 +247,11 @@
         }
 
         .more {
-          gap: calcVWL(10);
-          @include font-style(calcVWL(18), variables.$fw-700, normal, #219fdb);
+          gap: 10px;
+          @include font-style(calcVWL(18),
+            variables.$fw-700,
+            calcVWL(24),
+            #219fdb);
 
           img {
             width: calcVWL(18);
@@ -267,15 +270,12 @@
           .stacks {
             gap: calcVWL(25);
 
-            .icon {
-              width: calcVWL(24);
-            }
           }
         }
 
         &:hover {
-          min-height: calcVWL(420);
           height: calcVWL(420);
+          box-shadow: 0 42px 98px -42px #7811fe;
 
           .blogsPadding {
             padding: calcVWL(16) !important;
@@ -288,8 +288,22 @@
           .positionSection {
             height: calcVWL(114);
 
+            .name {
+              @include font-style(calcVWL(18),
+                variables.$fw-700,
+                normal,
+                #fff);
+            }
+
+            .blogDescription {
+              @include font-style(calcVWL(18),
+                variables.$fw-500,
+                normal,
+                #fff);
+            }
+
             .stacks {
-              height: calcVWL(24);
+              gap: calcVWL(25);
 
               .icon {
                 width: calcVWL(24);
@@ -310,6 +324,7 @@
 
         .positionSection {
           height: calcVWL(56);
+          row-gap: calcVWL(0);
           border-radius: 0 0 calcVWL(16) calcVWL(16);
         }
 
@@ -350,7 +365,6 @@
 
           .positionSection {
             height: calcVWL(188);
-            background: rgba(2, 13, 28, 0.73);
             gap: calcVWL(15);
           }
 
@@ -899,7 +913,7 @@
           margin-bottom: calcVWT(-40);
         }
       }
-      
+
       @media (max-width: 576px) {
         height: calcVWM(300);
         border-radius: calcVWM(16);
