@@ -71,11 +71,22 @@
 
           &:hover {
             color: variables.$light-blue;
-            transition: 0.4s;
+            border-bottom: 2px solid variables.$main-dark-blue !important;
+            transition: color 0.4s;
 
             img {
               filter: invert(69%) sepia(32%) saturate(6428%) hue-rotate(165deg) brightness(91%) contrast(86%);
             }
+          }
+        }
+
+        .menuItemTitleActive {
+          color: variables.$light-blue !important;
+          border-bottom: 2px solid variables.$main-dark-blue !important;
+          transition: color 0.4s;
+
+          img {
+            filter: invert(69%) sepia(32%) saturate(6428%) hue-rotate(165deg) brightness(91%) contrast(86%) !important;
           }
         }
 
@@ -240,9 +251,11 @@
 
         .menuItemChildMainWrapper {
           padding: 0;
-          a{
+
+          a {
             padding: 0;
           }
+
           @media (min-width: 1025px) {
             transition: 0.3s;
 

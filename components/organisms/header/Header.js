@@ -168,15 +168,15 @@ const Header = () => {
       const asPath = router.asPath.split("/");
       if (asPath.length == 3) {
         setActiveTab({
-          name: '/'+asPath[1],
+          name: '/' + asPath[1],
           slug: asPath[2]
         })
-      }else if(asPath.length == 2 && (asPath[1] == 'what-we-do' || asPath[1] == 'services')){
+      } else if (asPath.length == 2 && (asPath[1] == 'what-we-do' || asPath[1] == 'services')) {
         setActiveTab({
-          name: '/'+asPath[1],
+          name: '/' + asPath[1],
           slug: ''
         })
-      }else {
+      } else {
         setActiveTab({
           name: '',
           slug: ''
@@ -226,7 +226,7 @@ const Header = () => {
                     } ${filteredData !== el.name ? styles.closedMenu : ""}`}
                 >
                   <div
-                    className={styles.menuItemTitle}
+                    className={`${styles.menuItemTitle} ${!router.pathname?.search(el.fix_url) && styles.menuItemTitleActive}`}
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
@@ -265,13 +265,13 @@ const Header = () => {
                             src={active_menu_element}
                             className={styles.activeElem}
                             alt="image"
-                            style={{...(el?.fix_url === activeTab.name && e.slug == activeTab.slug ? {display: "block"} : {})}}
+                            style={{ ...(el?.fix_url === activeTab.name && e.slug == activeTab.slug ? { display: "block" } : {}) }}
                           />
                           <Image
                             src={menu_element}
                             className={styles.disActiveElem}
                             alt="image"
-                            style={{...(el?.fix_url === activeTab.name && e.slug == activeTab.slug ? {display: "none"} : {})}}
+                            style={{ ...(el?.fix_url === activeTab.name && e.slug == activeTab.slug ? { display: "none" } : {}) }}
                           />
                           {e.title}
                         </div>
@@ -298,7 +298,7 @@ const Header = () => {
                 >
                   <Link
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
-                    className={styles.menuItemTitle}
+                    className={`${styles.menuItemTitle} ${!router.pathname?.search(el.fix_url) && styles.menuItemTitleActive}`}
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
