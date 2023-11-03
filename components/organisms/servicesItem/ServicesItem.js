@@ -11,6 +11,18 @@ const ServicesItem = ({ data }) => {
   const servicesData = useSelector(
     (state) => state?.servicesApi?.queries?.["services(undefined)"]?.data
   );
+  
+  const getRandomValuesFromArray = (arr, numberOfValues) => {
+    const copyArr = [...arr];
+
+    for (let i = copyArr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copyArr[i], copyArr[j]] = [copyArr[j], copyArr[i]];
+    }
+
+    return copyArr.slice(0, numberOfValues);
+  }
+
   return <div className={styles.careerPage}>
     <HomeMainWithImage firstImage={imageBG}>
       <div className={styles.content}>
@@ -19,7 +31,7 @@ const ServicesItem = ({ data }) => {
           <div className={styles.blockItemImage} dangerouslySetInnerHTML={{ __html: data?.create_page_service_detail || "" }} />
           <Paragraph className={styles.title}>Explore more</Paragraph>
           <Row className={styles.blockItems}>
-            {servicesData?.data_list.slice(0, 3)?.map((item, i) =>
+            {servicesData?.data_list && getRandomValuesFromArray(servicesData?.data_list, 3)?.map((item, i) =>
               <ServiceCard
                 key={i}
                 item={item}

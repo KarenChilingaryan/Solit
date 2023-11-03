@@ -41,6 +41,19 @@ const WhatWeDoComponent = () => {
     }
   }, [postWhatWeDoDetail])
 
+
+  const getRandomValuesFromArray = (arr, numberOfValues) => {
+    const copyArr = [...arr];
+
+    for (let i = copyArr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copyArr[i], copyArr[j]] = [copyArr[j], copyArr[i]];
+    }
+
+    return copyArr.slice(0, numberOfValues);
+  }
+
+
   return (
     <div className={styles.careerPage}>
       <SeoCard
@@ -61,7 +74,7 @@ const WhatWeDoComponent = () => {
             <div className={styles.blockItemImage} dangerouslySetInnerHTML={{ __html: postWhatWeDoDetail?.create_page || "" }} />
             <Paragraph className={styles.title}>Explore more</Paragraph>
             <Row className={styles.blockItems}>
-              {postsWhatWeDoApi?.data_list.slice(0, 3).map((el, i) =>
+              {postsWhatWeDoApi?.data_list && getRandomValuesFromArray(postsWhatWeDoApi?.data_list, 3).map((el, i) =>
                 <Link href={`/what-we-do/${el.slug}`} key={i}>
                   <WeDoCard
                     item={el}
