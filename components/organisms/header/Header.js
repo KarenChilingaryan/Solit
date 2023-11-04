@@ -118,10 +118,13 @@ const Header = () => {
   useOutsideClick(modalRef, handleOutsideClick);
 
   useEffect(() => {
-    if (scrollYNew && !scrollY) {
-      setScrollYNew(scrollY);
-    } else if (!scrollYNew && scrollY) {
-      setScrollYNew(scrollY);
+    const is = document.getElementsByClassName('ant-scrolling-effect').length
+    if (!is) {
+      if (scrollYNew && !scrollY) {
+        setScrollYNew(scrollY);
+      } else if (!scrollYNew && scrollY) {
+        setScrollYNew(scrollY);
+      }
     }
   }, [scrollY]);
 

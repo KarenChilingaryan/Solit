@@ -32,6 +32,7 @@ const CareersComponent = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [openShareModal, setOpenShareModal] = useState(false);
   const [copy, setCopy] = useState('');
+  const [top, setTop] = useState(0);
 
   const dispatch = useDispatch();
   const [postsCareersJobOpeningApiData, setPostsCareersJobOpeningApiData] =
@@ -65,6 +66,7 @@ const CareersComponent = () => {
       setOpenData(null)
       setTimeout(() => {
         setOpenSuccess(false);
+        setClose()
       }, 3000);
     } catch { }
   };
@@ -101,6 +103,23 @@ const CareersComponent = () => {
     setTimeout(() => {
       setCopy('')
     }, 1000)
+  }
+
+  useEffect(() => {
+    const next = document.getElementById("__next")
+    if (!!openData) {
+      setTop(window.scrollY)
+      next.style.top = `-${window.scrollY}px`
+      next.style.width = `100%`
+      next.style.position = `fixed`;
+    }
+  }, [openData])
+
+  const setClose = () => {
+    const next = document.getElementById("__next")
+    next.style.position = `inherit`;
+    window.scrollTo(0, top);
+    setTop(0);
   }
 
   return (
@@ -143,7 +162,11 @@ const CareersComponent = () => {
           }
         }
       />
-      <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
+      <SuccessModal open={openSuccess} setOpen={
+        (e) => {
+          setClose()
+          setOpenSuccess(e)
+        }} />
       <HomeMainWithImage firstImage={imageBG}>
         <div className={styles.content}>
           <div className={styles.bottomBlock}>
@@ -220,7 +243,10 @@ const CareersComponent = () => {
                   ? "37vw"
                   : "28vw"
             }
-            setOpen={setOpenData}
+            setOpen={(e) => {
+              setClose()
+              setOpenData(e)
+            }}
           >
             <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
           </ModalWrapper>

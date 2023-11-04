@@ -105,10 +105,6 @@ const marks = {
   22: "Value for key 22",
   23: "Value for key 23",
   24: "Value for key 24",
-  // 100: {
-  //   style: { color: '#f50' },
-  //   label: <strong>100°C</strong>,
-  // },
 };
 
 const DiscussProjectStack = () => {
@@ -127,6 +123,7 @@ const DiscussProjectStack = () => {
   const [openSuccess, setOpenSuccess] = useState(false);
   const [closeFooterStack, setCloseFooterStack] = useState(false);
   const [isSSR, setIsSSR] = useState(false);
+  const [top, setTop] = useState(0);
 
   const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -268,6 +265,7 @@ const DiscussProjectStack = () => {
       setOpen(false)
       setTimeout(() => {
         setOpenSuccess(false);
+        setClose()
         form.resetFields();
       }, 3000);
       return true;
@@ -337,11 +335,30 @@ const DiscussProjectStack = () => {
       },
     ]);
   };
-  useEffect(()=>{
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsSSR(true)
     }
   }, [])
+
+
+  useEffect(() => {
+    const next = document.getElementById("__next")
+    if ((modalFormData && open) || modalOpen) {
+      setTop(window.scrollY)
+      next.style.top = `-${window.scrollY}px`
+      next.style.width = `100%`
+      next.style.position = `fixed`;
+    }
+  }, [modalFormData, open, modalOpen])
+
+  const setClose = () => {
+    const next = document.getElementById("__next")
+    next.style.position = `inherit`;
+    window.scrollTo(0, top);
+    setTop(0);
+  }
+
   return (
     <HomeMainWithImage
       firstImage={bgImage}
@@ -353,6 +370,7 @@ const DiscussProjectStack = () => {
           classname="other-modal"
           open={modalOpen}
           setOpen={() => {
+            setClose()
             setModalOpen(false);
             setIndustryOther("");
           }}
@@ -398,12 +416,18 @@ const DiscussProjectStack = () => {
         </ModalWrapper>
       )}
       <>
-        <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
+        <SuccessModal open={openSuccess} setOpen={(e) => {
+          setClose()
+          setOpenSuccess(e)
+        }} />
         {modalFormData && (
           <ModalWrapper
             open={open}
             width={"66.7vw"}
-            setOpen={setOpen}
+            setOpen={(e) => {
+              setClose()
+              setOpen(e)
+            }}
             classname="discuss"
           >
             <PricingModal
@@ -534,8 +558,8 @@ const DiscussProjectStack = () => {
                             handleButtonClick("industry", item)
                           }
                           className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                              ? styles.selected
-                              : ""
+                            ? styles.selected
+                            : ""
                             }`}
                         >
                           <Industry
@@ -562,7 +586,7 @@ const DiscussProjectStack = () => {
                       min={0}
                       defaultValue={1}
                       max={24}
-                      tooltip={{ formatter, ...(isSSR ? {open: true} : {}) }}
+                      tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
                       open={true}
                     />
                   </FormItem>

@@ -29,6 +29,7 @@ const Button = ({
   const dispatch = useDispatch();
   const [openSuccess, setOpenSuccess] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+  const [top, setTop] = useState(0);
 
   const onSubmit = async (data) => {
     const formData = new FormData();
@@ -43,8 +44,9 @@ const Button = ({
       setOpen(false);
       setTimeout(() => {
         setOpenSuccess(false);
+        setClose()
       }, 3000);
-    } catch {}
+    } catch { }
   };
 
   const handleResize = () => {
@@ -59,6 +61,28 @@ const Button = ({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    const next = document.getElementById("__next")
+    if ((text == "Let’s talk" && open) || openSuccess) {
+      setTop(window.scrollY)
+      next.style.top = `-${window.scrollY}px`
+      next.style.width = `100%`
+      next.style.position = `fixed`;
+    }
+  }, [text, open, openSuccess])
+
+
+  const setClose = () => {
+    const next = document.getElementById("__next")
+    next.style.top = `-${window.scrollY}px`
+    next.style.width = `100%`
+    next.style.position = `inherit`;
+    if (top) {
+      window.scrollTo(0, top)
+    }
+    setTop(0);
+  }
 
   return (
     <>
@@ -77,18 +101,18 @@ const Button = ({
         type={type}
         {...(onClick
           ? {
-              onClick: (e) => {
-                if (text == "Let’s talk") {
-                  setOpen(true);
-                } else {
-                  onClick(e);
-                }
-              },
-            }
+            onClick: (e) => {
+              if (text == "Let’s talk") {
+                setOpen(true);
+              } else {
+                onClick(e);
+              }
+            },
+          }
           : {})}
       >
         {text}
-        {icon && <Image src={icon} alt="image" width={18} height={18}/>}
+        {icon && <Image src={icon} alt="image" width={18} height={18} />}
       </button>
       {text == "Let’s talk" && (
         <ModalWrapper
@@ -97,22 +121,26 @@ const Button = ({
             isTablet <= 1024 && isTablet > 576
               ? "52vw"
               : isTablet > 1024 && isTablet <= 1440
-              ? "37vw"
-              : "28vw"
+                ? "37vw"
+                : "28vw"
           }
-          setOpen={setOpen}
+          setOpen={(e) => {
+            setClose()
+            setOpen(e);
+          }}
           style={styles.modal}
         >
           <LetsTalkModal
-            open={open}
-            openData={null}
             from={"lets"}
             onSubmit={onSubmit}
             className={"fromButton"}
           />
         </ModalWrapper>
       )}
-      <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
+      <SuccessModal open={openSuccess} setOpen={(e) => {
+        setOpenSuccess(e);
+        setClose();
+      }} />
     </>
   );
 };

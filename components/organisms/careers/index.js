@@ -27,6 +27,7 @@ const Careers = () => {
   const [data, setData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
   const dispatch = useDispatch();
+  const [top, setTop] = useState(0);
 
   const careersJobOpeningApi = useSelector(
     (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
@@ -99,6 +100,7 @@ const Careers = () => {
       setOpenData(null)
       setTimeout(() => {
         setOpenSuccess(false);
+        setClose()
       }, 3000);
     } catch { }
   };
@@ -115,9 +117,36 @@ const Careers = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const next = document.getElementById("__next")
+    if (!!openData) {
+      setTop(window.scrollY)
+      next.style.top = `-${window.scrollY}px`
+      next.style.width = `100%`
+      next.style.position = `fixed`;
+    }
+  }, [openData])
+
+
+  const setClose = () => {
+    const next = document.getElementById("__next")
+    next.style.top = `-${window.scrollY}px`
+    next.style.width = `100%`
+    if (next.style.position == 'fixed') {
+      next.style.position = `inherit`;
+    }
+    if (top) {
+      window.scrollTo(0, top)
+    }
+    setTop(0);
+  }
+
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">
-      <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
+      <SuccessModal open={openSuccess} setOpen={(e) => {
+        setClose()
+        setOpenSuccess(e)
+      }} />
       <Row className={styles.content}>
         <Row className={styles.pageHeader}>
           <h1 className={styles.title} style={{ margin: 0 }}>
@@ -191,7 +220,10 @@ const Careers = () => {
                 ? "37vw"
                 : "28vw"
           }
-          setOpen={setOpenData}
+          setOpen={(e) => {
+            setClose()
+            setOpenData(e)
+          }}
         >
           <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
         </ModalWrapper>

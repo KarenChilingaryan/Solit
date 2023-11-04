@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
 import Button from "../../molecules/button/Button";
@@ -29,8 +29,18 @@ const ContactForm = ({
   const recaptchaRef = useRef();
   const [openSuccess, setOpenSuccess] = useState(false);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
+  const [top, setTop] = useState(0);
 
   const dispatch = useDispatch();
+
+  const setClose = () => {
+    const next = document.getElementById("__next")
+    next.style.width = `100%`
+    next.style.position = `inherit`;
+    if (top) {
+      window.scrollTo(0, top)
+    }
+  }
 
   const submitForm = async (values) => {
     const data = { ...values, file_cv: file };
@@ -44,6 +54,7 @@ const ContactForm = ({
       );
       setOpenSuccess(true);
       setTimeout(() => {
+        setClose();
         setOpenSuccess(false);
       }, 3000);
       form.resetFields()
@@ -74,6 +85,17 @@ const ContactForm = ({
     fileList: file ? [file] : [],
   };
 
+  useEffect(() => {
+    if (openSuccess) {
+      const next = document.getElementById("__next")
+      setTop(window.scrollY)
+      next.style.top = `-${window.scrollY}px`
+      next.style.width = `100%`
+      next.style.position = `fixed`;
+    }
+  }, [openSuccess])
+
+  console.log(top, "::::::::::");
   return (
     <Col
       className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
