@@ -75,7 +75,7 @@
             transition: color 0.4s;
 
             img {
-              filter: invert(69%) sepia(32%) saturate(6428%) hue-rotate(165deg) brightness(91%) contrast(86%);
+              filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%);
             }
           }
         }
@@ -86,7 +86,7 @@
           transition: color 0.4s;
 
           img {
-            filter: invert(69%) sepia(32%) saturate(6428%) hue-rotate(165deg) brightness(91%) contrast(86%) !important;
+            filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%) !important;
           }
         }
 
@@ -732,8 +732,10 @@
               variables.$main-white );
 
             &:hover {
-              color: variables.$white !important;
-              text-decoration: underline;
+              color: variables.$light-blue !important;
+              img {
+                filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%) !important;
+              }
             }
           }
 
