@@ -791,6 +791,7 @@
 
   @media (max-width: 1024px) {
     .mainWrapper-portfolio {
+      transition: all 0.4s;
       height: calcVWT(400) !important;
       margin-top: calcVWT(0) !important;
       margin-bottom: calcVWT(0) !important;
@@ -807,7 +808,7 @@
           padding: 0 calcVWT(16);
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: space-around;
         }
       }
 
@@ -855,6 +856,15 @@
             border-radius: 0 0 calcVWT(16) calcVWT(16);
             height: calcVWM(54) !important;
 
+            .stacks {
+              height: 0;
+
+              .icon {
+                transition: all 0.4s;
+                height: 0 !important;
+              }
+            }
+
             .name {
               @include font-style(calcVWM(18) !important,
                 variables.$fw-700 !important,
@@ -876,7 +886,6 @@
             }
 
             .positionSection {
-              padding: calcVWM(10) 0;
               height: calcVWM(94) !important;
 
               .stacks {
@@ -884,9 +893,10 @@
                 flex-wrap: nowrap !important;
                 min-width: max-content !important;
                 margin: 0 auto !important;
-                height: max-content !important;
+                height: calcVWM(22) !important;
 
                 .icon {
+                  transition: all 0.4s;
                   width: calcVWM(22) !important;
                   height: calcVWM(22) !important;
                 }
