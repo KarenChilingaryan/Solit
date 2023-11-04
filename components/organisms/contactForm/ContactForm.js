@@ -8,6 +8,7 @@ import FloatInput from "../../molecules/floatInput/FloatInput";
 import upload from "../../../assets/img/uploadIcon.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
 import contactUsBgImage from "../../../assets/img/contactus-background.png";
+import close from "../../../assets/img/icons/close.svg";
 import ReCAPTCHA from "react-google-recaptcha";
 import { checkFormValidation } from "../../../utils/hooks/checkRecaptchaValidation";
 import SuccessModal from "../successModal/SuccessModal";
@@ -168,29 +169,19 @@ const ContactForm = ({
               />
             </FormItem>
             <FormItem name={"file_cv"} className={`${styles.uploadItem}  ${file && styles.uploadedFile}`}>
-              {/* <FloatInput
-                border={true}
-                label="About your project"
-                placeholder="About your project"
-                name="file_cv"
-                multiple
-                type="file"
-                accept=".pdf,.doc,.docx"
-                prefix={<Image className={styles.suffix} src={upload} alt="image" />}
-                onChange={(e) => {
-                  setFile(e.target.files[0]);
-                }}
-                showUploadList={false}
-                className={`${styles.uploadFile}`}
-              /> */}
               <Upload {...props} name="file_cv" className={styles.uploadAntd}>
                 <FloatInput label={"About your project"}
                   placeholder={"About your project"}
                   name={"file_cv"} type="text" disabled readOnly={true}
-                  suffix={<Image className={styles.suffix} src={upload} alt="image" />}
+                  suffix={file ? null : <Image className={styles.suffix} src={upload} alt="image" />}
                   value={file?.name || ''}
                 />
               </Upload>
+              {file &&
+                <div className={styles.removeFile}>
+                  <Image src={close} width={16} height={16} onClick={() => setFile(null)} />
+                </div>
+              }
             </FormItem>
             <FormItem
               name="accept"

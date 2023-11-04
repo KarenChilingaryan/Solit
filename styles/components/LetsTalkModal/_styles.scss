@@ -188,18 +188,21 @@
             variables.$fw-400,
             getPricingModal(text-fl),
             #000);
-            a{
-              border-bottom: 1px solid black ;
-              margin-left: calcVW(5);
-              @include font-style(getPricingModal(text-fz),
+
+          a {
+            border-bottom: 1px solid black;
+            margin-left: calcVW(5);
+            @include font-style(getPricingModal(text-fz),
               variables.$fw-400,
               getPricingModal(text-fl),
               #000);
-            }
+          }
         }
       }
 
       .uploadItem {
+        position: relative;
+
         label {
           left: calcVW(28);
         }
@@ -208,6 +211,20 @@
           position: absolute;
           width: calcVW(24);
           height: calcVW(25);
+        }
+
+        .removeFile {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: max-content;
+          cursor: pointer;
+          padding-left: 10px;
+          background: white;
+          img {
+            width: calcVW(24);
+            height: calcVW(24);
+          }
         }
       }
 
@@ -375,8 +392,9 @@
           color: variables.$black !important;
         }
       }
+
       :global(.ant-form-item-has-error) {
-        :global(.ant-form-item-control-input-content){
+        :global(.ant-form-item-control-input-content) {
           div {
             border-width: 0 !important;
           }
@@ -482,12 +500,13 @@
               variables.$fw-400,
               calcVWL(24),
               #000);
-              a{
-                @include font-style(calcVWL(18),
+
+            a {
+              @include font-style(calcVWL(18),
                 variables.$fw-400,
                 calcVWL(24),
                 #000);
-              }
+            }
           }
         }
 
@@ -499,6 +518,14 @@
           .prefix {
             width: calcVWL(24);
             height: calcVWL(25);
+          }
+
+          .removeFile {
+
+            img {
+              width: calcVWL(24);
+              height: calcVWL(24);
+            }
           }
         }
 
@@ -675,6 +702,15 @@
             width: calcVWT(24);
             height: calcVWT(25);
           }
+
+          .removeFile {
+            top: calcVWT(15);
+
+            img {
+              width: calcVWT(24);
+              height: calcVWT(24);
+            }
+          }
         }
 
         :global(.ant-input) {
@@ -711,7 +747,8 @@
           .acceptText {
             font-size: calcVWT(18);
             line-height: calcVWT(24);
-            a{
+
+            a {
               font-size: calcVWT(18);
               line-height: calcVWT(24);
             }
@@ -889,6 +926,13 @@
             width: calcVWM(15);
             height: calcVWM(15);
           }
+
+          .removeFile {
+            img {
+              width: calcVWM(20);
+              height: calcVWM(20);
+            }
+          }
         }
 
         .accept {
@@ -908,7 +952,8 @@
           .acceptText {
             font-size: calcVWM(18);
             line-height: calcVWM(24);
-            a{
+
+            a {
               font-size: calcVWM(18);
               line-height: calcVWM(24);
             }

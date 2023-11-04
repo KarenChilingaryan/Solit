@@ -274,6 +274,7 @@
       }
 
       .uploadItem {
+        position: relative;
         .asPlaceholder {
           padding-left: calcVW(30);
         }
@@ -291,6 +292,20 @@
 
           &:focus {
             outline: none;
+          }
+        }
+        .removeFile {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: max-content;
+          cursor: pointer;
+          padding-left: 10px;
+          background: white;
+          img {
+            width: calcVW(20);
+            height: calcVW(20);
+            filter: brightness(0) invert(1);
           }
         }
       }
@@ -422,6 +437,12 @@
               transparent !important
             );
             margin: 0;
+          }
+          .removeFile {
+            img {
+              width: calcVWL(20);
+              height: calcVWL(20);
+            }
           }
         }
 
@@ -567,6 +588,13 @@
             );
             margin: 0;
             height: calcVWT(26);
+          }
+          .removeFile {
+            top: calcVWT(10);
+            img {
+              width: calcVWT(20);
+              height: calcVWT(20);
+            }
           }
         }
 
@@ -740,6 +768,12 @@
             );
             margin: 0;
             height: calcVWM(26);
+          }
+          .removeFile {
+            img {
+              width: calcVWM(20);
+              height: calcVWM(20);
+            }
           }
         }
 

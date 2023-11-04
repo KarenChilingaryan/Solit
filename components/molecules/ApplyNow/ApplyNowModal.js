@@ -1,13 +1,15 @@
 import { memo, useEffect, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox, Select } from "../../atoms";
+import { Upload } from "antd";
 import Image from "next/image";
 import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 import linkedin from "../../../assets/img/icons/u_linkedin.svg";
 import u_link from "../../../assets/img/icons/u_link-alt.svg";
+import close from "../../../assets/img/icons/close.svg";
+
 import styles from "./ApplyNowModal.module.scss";
-import { Upload } from "antd";
 
 const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
   const [form] = Form.useForm();
@@ -173,6 +175,11 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
                 value={file?.name || ""}
               />
             </Upload>
+            {file &&
+              <div className={styles.removeFile}>
+                <Image src={close} width={16} height={16} onClick={() => setFile(null)} />
+              </div>
+            }
           </FormItem>
 
           <FormItem name="cover_letter">

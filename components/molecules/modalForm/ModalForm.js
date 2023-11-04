@@ -5,6 +5,7 @@ import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 import arrow from "../../../assets/img/icons/selectIcon.svg";
+import close from "../../../assets/img/icons/close.svg";
 
 import styles from "./ModalForm.module.scss";
 import { Upload } from "antd";
@@ -136,11 +137,16 @@ const ModalForm = ({
                 disabled
                 readOnly={true}
                 suffix={
-                  <Image className={styles.suffix} src={upload} alt="image" />
+                  file ? null : <Image className={styles.suffix} src={upload} alt="image" />
                 }
                 value={file?.name || ""}
               />
             </Upload>
+            {file &&
+              <div className={styles.removeFile}>
+                <Image src={close} width={16} height={16} onClick={() => setFile(null)} />
+              </div>
+            }
           </FormItem>
           <FormItem name="comment">
             <FloatInput label="Comment" placeholder="Comment" name="comment" />
@@ -166,9 +172,8 @@ const ModalForm = ({
             </Select>
           </FormItem>
           <FormItem
-            className={`${styles.accept} ${
-              secondCheckBox && styles.acceptLeft
-            } ${styles[errorMesssage]}`}
+            className={`${styles.accept} ${secondCheckBox && styles.acceptLeft
+              } ${styles[errorMesssage]}`}
             name="accept"
             rules={[
               {

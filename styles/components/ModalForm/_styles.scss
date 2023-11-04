@@ -84,6 +84,39 @@
       z-index: 1;
       padding: calcVW(24) 0;
 
+      .uploadItem {
+        position: relative;
+
+        .removeFile {
+          position: absolute;
+          right: 0;
+          top: calcVW(10);
+          width: max-content;
+          cursor: pointer;
+          padding-left: 10px;
+          background: white;
+
+          img {
+            width: calcVW(20);
+            height: calcVW(20);
+          }
+        }
+
+      }
+
+      @media screen and (max-width: 1440px) and (min-width: 1025px) {
+        .uploadItem {
+          top: calcVWL(10);
+
+          .removeFile {
+            img {
+              width: calcVWL(20);
+              height: calcVWL(20);
+            }
+          }
+        }
+      }
+
       :global(.ant-input-affix-wrapper) {
         padding: 0;
         border: 0;
@@ -111,12 +144,10 @@
         }
 
         :global(.ant-input) {
-          @include font-style(
-            calcVW(18),
+          @include font-style(calcVW(18),
             variables.$fw-400,
             calcVW(24),
-            variables.$black
-          );
+            variables.$black );
           caret-color: transparent;
           overflow: hidden;
           white-space: nowrap;
@@ -129,11 +160,9 @@
 
       .buttonWrapper {
         button {
-          @include font-style(
-            getModalFormSizes(button-fz),
+          @include font-style(getModalFormSizes(button-fz),
             variables.$fw-700,
-            getModalFormSizes(button-fl)
-          );
+            getModalFormSizes(button-fl));
         }
       }
 
@@ -164,21 +193,18 @@
         }
 
         .acceptText {
-          @include font-style(
-            getModalFormSizes(text-fz),
+          @include font-style(getModalFormSizes(text-fz),
             variables.$fw-400,
             getModalFormSizes(text-fl),
-            #000
-          );
+            #000);
+
           a {
             border-bottom: 1px solid black;
             margin-left: calcVW(5);
-            @include font-style(
-              getPricingModal(text-fz),
+            @include font-style(getPricingModal(text-fz),
               variables.$fw-400,
               getPricingModal(text-fl),
-              #000
-            );
+              #000);
           }
         }
       }
@@ -251,12 +277,10 @@
             border-radius: unset;
             outline: 0 !important;
             border: 0;
-            @include font-style(
-              calcVW(18),
+            @include font-style(calcVW(18),
               variables.$fw-400,
               calcVW(24),
-              variables.$black
-            );
+              variables.$black );
 
             @media only screen and (max-width: 1440px) and (min-width: 1025px) {
               font-size: calcVWL(18);
@@ -265,9 +289,11 @@
             @media (max-width: 1024px) {
               font-size: calcVWT(18);
             }
+
             @media (max-width: 576px) {
               font-size: calcVWM(18);
             }
+
             &:focus {
               box-shadow: none !important;
             }
@@ -324,7 +350,7 @@
         background-color: aqua;
 
         :global {
-          .ant-form-item-label > label {
+          .ant-form-item-label>label {
             font-size: calcVW(13);
             color: #ffffff;
           }
@@ -363,43 +389,35 @@
       }
 
       :global {
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
           background: transparent;
           border-color: none;
           box-shadow: 0 2px 0 0 rgb(207, 39, 39);
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
           background: transparent;
           border-color: none !important;
           @include font-style(calcVW(18), variables.$fw-400, calcVW(24), #000);
 
           @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-            @include font-style(
-              calcVWL(18),
+            @include font-style(calcVWL(18),
               variables.$fw-400,
               calcVWL(24),
-              #000
-            );
+              #000);
           }
         }
 
-        .ant-input-status-error:not(.ant-input-disabled):not(
-            .ant-input-borderless
-          ).ant-input:focus {
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus {
           border-color: none;
         }
 
-        .ant-form-item-label > label {
+        .ant-form-item-label>label {
           font-size: 16px;
           color: #ffffff;
         }
 
-        .ant-input:focus + .ant-form-item-label > label {
+        .ant-input:focus+.ant-form-item-label>label {
           color: blue;
         }
       }
@@ -476,14 +494,23 @@
         max-width: calcVWT(602);
         padding: calcVWT(32);
 
+        .uploadItem {
+          .removeFile {
+            top: calcVWT(10);
+
+            img {
+              width: calcVWT(20);
+              height: calcVWT(20);
+            }
+          }
+        }
+
         .uploadAntd {
           :global(.ant-input) {
-            @include font-style(
-              calcVWT(18),
+            @include font-style(calcVWT(18),
               variables.$fw-400,
               calcVWT(24),
-              variables.$black
-            );
+              variables.$black );
             width: calcVWT(380);
           }
 
@@ -508,7 +535,7 @@
 
         .focused {
           :global {
-            .ant-form-item-label > label {
+            .ant-form-item-label>label {
               font-size: calcVWT(13);
             }
           }
@@ -520,6 +547,7 @@
           .acceptText {
             font-size: calcVWT(18);
             line-height: calcVWT(24);
+
             a {
               margin-left: calcVWT(5);
               font-size: calcVWT(18);
@@ -547,10 +575,7 @@
           height: calcVWT(20);
         }
 
-        :global(
-            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
-              input[type="checkbox"]
-          ) {
+        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
           width: calcVWT(20);
           height: calcVWT(20);
         }
@@ -570,15 +595,11 @@
         }
 
         :global {
-          .ant-input-status-error:not(.ant-input-disabled):not(
-              .ant-input-borderless
-            ).ant-input {
-            @include font-style(
-              calcVWT(18),
+          .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+            @include font-style(calcVWT(18),
               variables.$fw-400,
               calcVWT(24),
-              #000
-            );
+              #000);
           }
         }
       }
@@ -600,14 +621,24 @@
         width: 100%;
         max-width: 100%;
 
+        .uploadItem {
+          .removeFile {
+            top: auto;
+            bottom: calcVWM(5);
+
+            img {
+              width: calcVWM(20);
+              height: calcVWM(20);
+            }
+          }
+        }
+
         .uploadAntd {
           :global(.ant-input) {
-            @include font-style(
-              calcVWM(18),
+            @include font-style(calcVWM(18),
               variables.$fw-400,
               calcVWM(24),
-              variables.$black
-            );
+              variables.$black );
             width: calcVWM(280);
           }
 
@@ -617,12 +648,10 @@
         }
 
         :global(.ant-input) {
-          @include font-style(
-            calcVWM(18),
+          @include font-style(calcVWM(18),
             variables.$fw-400,
             calcVWM(24),
-            #000
-          );
+            #000);
         }
 
         .suffix {
@@ -645,6 +674,7 @@
           .acceptText {
             font-size: calcVWM(18);
             line-height: calcVWM(24);
+
             a {
               margin-left: calcVWM(5);
               font-size: calcVWM(18);
@@ -662,10 +692,7 @@
           height: calcVWM(20);
         }
 
-        :global(
-            .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item
-              input[type="checkbox"]
-          ) {
+        :global(.ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item input[type="checkbox"]) {
           width: calcVWM(20);
           height: calcVWM(20);
         }
@@ -690,15 +717,11 @@
         }
 
         :global {
-          .ant-input-status-error:not(.ant-input-disabled):not(
-              .ant-input-borderless
-            ).ant-input {
-            @include font-style(
-              calcVWM(18),
+          .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+            @include font-style(calcVWM(18),
               variables.$fw-400,
               calcVWM(24),
-              #000
-            );
+              #000);
           }
         }
       }
