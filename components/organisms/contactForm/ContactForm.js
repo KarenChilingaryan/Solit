@@ -95,7 +95,6 @@ const ContactForm = ({
     }
   }, [openSuccess])
 
-  console.log(top, "::::::::::");
   return (
     <Col
       className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
