@@ -106,7 +106,15 @@ const ModalLetsTalkForm = ({
               required={true}
             />
           </FormItem>
-          <FormItem name="phone_number">
+          <FormItem
+            name="phone_number"
+            rules={[
+              {
+                required: true,
+                message: "Phone number is required",
+              },
+            ]}
+          >
             <FloatInput
               label="Phone number"
               placeholder="Phone number"
