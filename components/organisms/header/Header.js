@@ -161,7 +161,7 @@ const Header = () => {
     if (body) {
       body.style.overflow = !openMenu ? "hidden" : "auto";
       next.style.overflow = !openMenu ? "hidden" : "auto";
-      next.style.maxHeight = !openMenu ? "100vh" : "auto";
+      next.style.maxHeight = !openMenu ? "100vh" : "initial";
     }
   }, [openMenu]);
 
@@ -217,7 +217,7 @@ const Header = () => {
                   key={el.id}
                   onClick={() => {
                     if (window.innerWidth > 1024) {
-                      setOpenMenu(true);
+                                            setOpenMenu(true);
                     }
                     setTimeout(() => {
                       setFilteredData(
@@ -261,7 +261,7 @@ const Header = () => {
                             display: el.name === filteredData ? "flex" : "none",
                           }}
                           onClick={() => setTimeout(() => {
-                            setOpenMenu(true)
+                                                        setOpenMenu(true)
                           }, 100)}
                         >
                           <Image
@@ -289,7 +289,7 @@ const Header = () => {
                   key={el?.id}
                   onClick={() => {
                     setTimeout(() => {
-                      setOpenMenu(true);
+                                            setOpenMenu(true);
                       setFilteredData(
                         filteredData !== el.name ? el.name : "none"
                       );
