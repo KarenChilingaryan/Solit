@@ -104,6 +104,7 @@ const ModalForm = ({
           </FormItem>
 
           <FormItem
+            className={`${styles[errorMesssage]}`}
             name="phon_number"
             rules={[
               {

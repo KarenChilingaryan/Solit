@@ -161,7 +161,7 @@ const Header = () => {
     if (body) {
       body.style.overflow = !openMenu ? "hidden" : "auto";
       next.style.overflow = !openMenu ? "hidden" : "auto";
-      next.style.maxHeight = !openMenu ? "100vh" : "auto";
+      next.style.maxHeight = !openMenu ? "100vh" : "initial";
     }
   }, [openMenu]);
 
