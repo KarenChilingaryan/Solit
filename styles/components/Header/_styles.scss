@@ -772,11 +772,15 @@
 
             &:hover {
               color: variables.$light-blue !important;
+              span {
+                color: variables.$light-blue !important;
+              }
               img {
                 filter: invert(54%) sepia(89%) saturate(1267%)
                   hue-rotate(166deg) brightness(90%) contrast(89%) !important;
               }
             }
+            //**8
           }
 
           .menuItemChildMainWrapper {
