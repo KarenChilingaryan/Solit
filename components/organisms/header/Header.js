@@ -78,7 +78,7 @@ const Header = () => {
   const [filteredData, setFilteredData] = useState("none");
   const [scrollY, setScrollY] = useState(0);
   const [scrollYNew, setScrollYNew] = useState(0);
-  const [activeTab, setActiveTab] = useState({ name: '', slug: '' });
+  const [activeTab, setActiveTab] = useState({ name: "", slug: "" });
   const modalRef = useRef(null);
 
   const [isIOS, setIsIOS] = useState(false);
@@ -118,7 +118,7 @@ const Header = () => {
   useOutsideClick(modalRef, handleOutsideClick);
 
   useEffect(() => {
-    const is = document.getElementsByClassName('ant-scrolling-effect').length
+    const is = document.getElementsByClassName("ant-scrolling-effect").length;
     if (!is) {
       if (scrollYNew && !scrollY) {
         setScrollYNew(scrollY);
@@ -138,7 +138,7 @@ const Header = () => {
 
           data: [
             ...(headerData?.tech_steck || [] || []),
-            { title: "View All", what_we_do_detail: "/", slug: false, },
+            { title: "View All", what_we_do_detail: "/", slug: false },
           ],
         },
         {
@@ -148,7 +148,7 @@ const Header = () => {
           slug: false,
           data: [
             ...(headerData?.service || []),
-            { title: "View All", service_detail: "/", slug: false, },
+            { title: "View All", service_detail: "/", slug: false },
           ],
         },
       ]);
@@ -165,28 +165,30 @@ const Header = () => {
     }
   }, [openMenu]);
 
-
   useEffect(() => {
     if (router) {
       const asPath = router.asPath.split("/");
       if (asPath.length == 3) {
         setActiveTab({
-          name: '/' + asPath[1],
-          slug: asPath[2]
-        })
-      } else if (asPath.length == 2 && (asPath[1] == 'what-we-do' || asPath[1] == 'services')) {
+          name: "/" + asPath[1],
+          slug: asPath[2],
+        });
+      } else if (
+        asPath.length == 2 &&
+        (asPath[1] == "what-we-do" || asPath[1] == "services")
+      ) {
         setActiveTab({
-          name: '/' + asPath[1],
-          slug: ''
-        })
+          name: "/" + asPath[1],
+          slug: "",
+        });
       } else {
         setActiveTab({
-          name: '',
-          slug: ''
-        })
+          name: "",
+          slug: "",
+        });
       }
     }
-  }, [router])
+  }, [router]);
 
   return (
     <div className={styles.mainWraperBlock}>
@@ -196,20 +198,30 @@ const Header = () => {
             styles.headerWrapper,
             !scrollYNew && styles.headerWrapperScroll
           )} ${!openMenu && styles.openHeaderWrapper}`}
-          style={{ ...(window.innerWidth <= 576 && !openMenu ? { height: `calc(${window.innerHeight}px + 6vw)` } : {}) }}
+          style={{
+            ...(window.innerWidth <= 576 && !openMenu
+              ? { height: `calc(${window.innerHeight}px + 6vw)` }
+              : {}),
+          }}
         >
-          <Link
-            href="/"
-          >
-            <Image src={menuLogoWhite} alt="logo" className={styles.img}
+          <Link href="/">
+            <Image
+              src={menuLogoWhite}
+              alt="logo"
+              className={styles.img}
               onClick={() => {
                 window.scrollTo({ top: 0, left: 0 });
-              }} />
+              }}
+            />
           </Link>
 
           <div className={`${styles.menuWrapper}`}>
             <Link href="/discuss-project" className={styles.pricing}>
-              <Button text="Pricing" transparentBlue onClick={() => setOpenMenu(true)} />
+              <Button
+                text="Pricing"
+                transparentBlue
+                onClick={() => setOpenMenu(true)}
+              />
             </Link>
             {headerData &&
               dropdownElements?.map((el, index) => (
@@ -217,7 +229,7 @@ const Header = () => {
                   key={el.id}
                   onClick={() => {
                     if (window.innerWidth > 1024) {
-                                            setOpenMenu(true);
+                      setOpenMenu(true);
                     }
                     setTimeout(() => {
                       setFilteredData(
@@ -225,21 +237,25 @@ const Header = () => {
                       );
                     }, 100);
                   }}
-                  className={`${styles.menuItem} ${styles["menuItem" + index]
-                    } ${filteredData !== el.name ? styles.closedMenu : ""}`}
+                  className={`${styles.menuItem} ${
+                    styles["menuItem" + index]
+                  } ${filteredData !== el.name ? styles.closedMenu : ""}`}
                 >
                   <div
-                    className={`${styles.menuItemTitle} ${!router.pathname?.search(el.fix_url) && styles.menuItemTitleActive}`}
+                    className={`${styles.menuItemTitle} ${
+                      !router.pathname?.search(el.fix_url) &&
+                      styles.menuItemTitleActiveDrop
+                    }`}
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
-                          (el?.fix_url === "what-we-do" &&
-                            router.pathname === "/")
+                        (el?.fix_url === "what-we-do" &&
+                          router.pathname === "/")
                           ? "2px solid #ffffff"
                           : "0",
                     }}
                   >
-                    {el.name}
+                    <span>{el.name}</span>
                     <Image src={dropdown} alt="image" />
                   </div>
                   <div
@@ -248,11 +264,7 @@ const Header = () => {
                   >
                     {el?.data?.map((e, idx) => (
                       <Link
-                        href={
-                          el?.fix_url +
-                          "/" +
-                          (e?.slug || '')
-                        }
+                        href={el?.fix_url + "/" + (e?.slug || "")}
                         key={idx}
                       >
                         <div
@@ -260,21 +272,33 @@ const Header = () => {
                           style={{
                             display: el.name === filteredData ? "flex" : "none",
                           }}
-                          onClick={() => setTimeout(() => {
-                                                        setOpenMenu(true)
-                          }, 100)}
+                          onClick={() =>
+                            setTimeout(() => {
+                              setOpenMenu(true);
+                            }, 100)
+                          }
                         >
                           <Image
                             src={active_menu_element}
                             className={styles.activeElem}
                             alt="image"
-                            style={{ ...(el?.fix_url === activeTab.name && e.slug == activeTab.slug ? { display: "block" } : {}) }}
+                            style={{
+                              ...(el?.fix_url === activeTab.name &&
+                              e.slug == activeTab.slug
+                                ? { display: "block" }
+                                : {}),
+                            }}
                           />
                           <Image
                             src={menu_element}
                             className={styles.disActiveElem}
                             alt="image"
-                            style={{ ...(el?.fix_url === activeTab.name && e.slug == activeTab.slug ? { display: "none" } : {}) }}
+                            style={{
+                              ...(el?.fix_url === activeTab.name &&
+                              e.slug == activeTab.slug
+                                ? { display: "none" }
+                                : {}),
+                            }}
                           />
                           {e.title}
                         </div>
@@ -289,24 +313,28 @@ const Header = () => {
                   key={el?.id}
                   onClick={() => {
                     setTimeout(() => {
-                                            setOpenMenu(true);
+                      setOpenMenu(true);
                       setFilteredData(
                         filteredData !== el.name ? el.name : "none"
                       );
                       window.scrollTo({ top: 0, left: 0 });
-                    }, 100)
+                    }, 100);
                   }}
-                  className={`${styles.menuItem} ${styles["menuItem" + (index + 2)]
-                    }`}
+                  className={`${styles.menuItem} ${
+                    styles["menuItem" + (index + 2)]
+                  }`}
                 >
                   <Link
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
-                    className={`${styles.menuItemTitle} ${!router.pathname?.search(el.fix_url) && styles.menuItemTitleActive}`}
+                    className={`${styles.menuItemTitle} ${
+                      !router.pathname?.search(el.fix_url) &&
+                      styles.menuItemTitleActive
+                    }`}
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
-                          (el?.fix_url === "what-we-do" &&
-                            router.pathname === "/")
+                        (el?.fix_url === "what-we-do" &&
+                          router.pathname === "/")
                           ? "2px solid #ffffff"
                           : "0",
                     }}

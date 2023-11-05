@@ -64,30 +64,57 @@
           }
 
           cursor: pointer;
-          @include font-style(getHeaderSizes(header-menu-item-fz),
+          @include font-style(
+            getHeaderSizes(header-menu-item-fz),
             variables.$fw-500,
             normal,
-            variables.$main-white );
+            variables.$main-white
+          );
 
           &:hover {
             color: variables.$light-blue;
-            border-bottom: 2px solid variables.$main-dark-blue !important;
             transition: color 0.4s;
 
             img {
-              filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%);
+              filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg)
+                brightness(90%) contrast(89%);
             }
           }
         }
 
         .menuItemTitleActive {
-          color: variables.$light-blue !important;
-          border-bottom: 2px solid variables.$main-dark-blue !important;
+          color: variables.$white !important;
+          border-bottom: 2px solid variables.$white !important;
           transition: color 0.4s;
 
           img {
-            filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%) !important;
+            filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg)
+              brightness(90%) contrast(89%) !important;
           }
+
+          &:hover {
+            color: variables.$light-blue !important;
+            border-bottom: none !important;
+          }
+        }
+
+        .menuItemTitleActiveDrop {
+          span {
+            color: variables.$white !important;
+            border-bottom: 2px solid variables.$white !important;
+            transition: color 0.4s;
+          }
+          &:hover {
+            span {
+              color: variables.$light-blue !important;
+              border-bottom: none !important;
+              // transition: color 0.4s;
+            }
+          }
+
+          // img {
+          //   filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%) !important;
+          // }
         }
 
         .menuItemChildMainWrapper {
@@ -160,9 +187,11 @@
             }
 
             // transition: 0.4s;
-            @include font-style(getHeaderSizes(header-menu-item-child-fz),
+            @include font-style(
+              getHeaderSizes(header-menu-item-child-fz),
               variables.$fw-400,
-              normal);
+              normal
+            );
 
             @media (min-width: 1441px) {
               max-height: calcVW(62);
@@ -325,10 +354,12 @@
               margin-left: calcVWL(8);
             }
 
-            @include font-style(calcVWL(20),
+            @include font-style(
+              calcVWL(20),
               variables.$fw-500,
               normal,
-              variables.$main-white );
+              variables.$main-white
+            );
           }
 
           .menuItemChildMainWrapper {
@@ -348,9 +379,7 @@
                 border-radius: calcVWL(8);
               }
 
-              @include font-style(calcVWL(14),
-                variables.$fw-400,
-                normal);
+              @include font-style(calcVWL(14), variables.$fw-400, normal);
             }
 
             @media (min-width: 1025px) {
@@ -451,7 +480,6 @@
 
         .menuSecondItemBlock {
           column-gap: calcVWT(33);
-
         }
 
         .buttonWrapper {
@@ -493,17 +521,21 @@
             width: max-content;
 
             &:hover {
-              color: variables.$white;
+              span {
+                color: variables.$white;
+              }
             }
 
             img {
-              display: none
+              display: none;
             }
 
-            @include font-style(calcVWT(20),
+            @include font-style(
+              calcVWT(20),
               variables.$fw-400,
               normal,
-              variables.$main-white );
+              variables.$main-white
+            );
           }
         }
 
@@ -530,7 +562,7 @@
     .openHeaderWrapper {
       position: fixed;
       transition: height 0.3s ease;
-      background: #020D1C;
+      background: #020d1c;
       z-index: 999;
 
       .pricing {
@@ -579,10 +611,12 @@
               align-items: center;
               padding: calcVWT(16);
               transition: height 1s ease, padding 1s ease;
-              @include font-style(calcVWT(14),
+              @include font-style(
+                calcVWT(14),
                 variables.$fw-700,
                 calcVWT(20),
-                variables.$main-white );
+                variables.$main-white
+              );
 
               .activeElem {
                 display: none;
@@ -654,10 +688,12 @@
           .socialIconsTitle {
             letter-spacing: calcVWT(0.5);
             width: 100%;
-            @include font-style(calcVWT(18),
+            @include font-style(
+              calcVWT(18),
               variables.$fw-700,
               calcVWT(21),
-              variables.$main-white );
+              variables.$main-white
+            );
           }
 
           .socialIcons {
@@ -727,25 +763,30 @@
               filter: none !important;
             }
 
-            @include font-style(calcVWM(20),
+            @include font-style(
+              calcVWM(20),
               variables.$fw-400,
               normal,
-              variables.$main-white );
+              variables.$main-white
+            );
 
             &:hover {
               color: variables.$light-blue !important;
               img {
-                filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%) !important;
+                filter: invert(54%) sepia(89%) saturate(1267%)
+                  hue-rotate(166deg) brightness(90%) contrast(89%) !important;
               }
             }
           }
 
           .menuItemChildMainWrapper {
             .menuItemChildWrapper {
-              @include font-style(calcVWM(20),
+              @include font-style(
+                calcVWM(20),
                 variables.$fw-400,
                 calcVWM(20),
-                variables.$main-white );
+                variables.$main-white
+              );
 
               .activeElem {
                 width: calcVWM(29);
@@ -781,10 +822,12 @@
           background: transparent;
 
           .socialIconsTitle {
-            @include font-style(calcVWM(18),
+            @include font-style(
+              calcVWM(18),
               variables.$fw-700,
               calcVWM(21),
-              variables.$main-white );
+              variables.$main-white
+            );
           }
 
           .socialIcons {
@@ -796,7 +839,6 @@
     }
 
     .openHeaderWrapper {
-
       flex-wrap: wrap;
       background: rgba(0, 0, 0, 1);
       position: fixed;
@@ -809,9 +851,7 @@
         position: absolute;
         top: calcVWM(34);
         right: calcVWM(16);
-
       }
-
 
       .menuWrapper:first-of-type {
         height: max-content;
@@ -833,7 +873,6 @@
           }
         }
 
-
         .menuItem {
           row-gap: calcVWM(26);
           width: 100% !important;
@@ -844,10 +883,12 @@
           }
 
           .menuItemTitle {
-            @include font-style(calcVWM(20),
+            @include font-style(
+              calcVWM(20),
               variables.$fw-400,
               normal,
-              variables.$main-white );
+              variables.$main-white
+            );
           }
 
           .menuItemChildMainWrapper {
@@ -859,10 +900,12 @@
               height: calcVWM(64);
               padding: calcVWM(20);
               border-radius: calcVWM(8) !important;
-              @include font-style(calcVWM(14),
+              @include font-style(
+                calcVWM(14),
                 variables.$fw-700,
                 normal,
-                variables.$main-white );
+                variables.$main-white
+              );
             }
           }
         }
@@ -892,9 +935,6 @@
           width: 100%;
         }
       }
-
     }
-
-
   }
 }
