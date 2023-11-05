@@ -27,13 +27,14 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
   }, []);
 
   const onSmall = () => {
-    setToSmall(!toSmall)
-  }
+    setToSmall(!toSmall);
+  };
 
   return (
     <Row className={`${styles.footer} ${toSmall && styles.transition}`}>
       <Row className={styles.footerContent}>
         <Paragraph className={styles.footerTitle}>Summary:</Paragraph>
+        <div className={styles.shadow} />
         <div className={styles.scrollElement}>
           <Row className={styles.items}>
             {liveStacks?.map((item, i) => (
@@ -49,7 +50,6 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
             ))}
           </Row>
         </div>
-        <div className={styles.shadow} />
       </Row>
       <Row className={styles.buttonWrapper}>
         <Button lightBlue text="Proceed" onClick={onClick} />
@@ -60,7 +60,7 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
         width="1.25vw"
         height="1.25vw"
         alt="image"
-        onClick={() => !isSmallScreen ? onClose() : onSmall()}
+        onClick={() => (!isSmallScreen ? onClose() : onSmall())}
       />
     </Row>
   );

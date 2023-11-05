@@ -175,11 +175,17 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
                 value={file?.name || ""}
               />
             </Upload>
-            {file &&
+            {file && (
               <div className={styles.removeFile}>
-                <Image src={close} width={16} height={16} onClick={() => setFile(null)} />
+                <Image
+                  src={close}
+                  width={16}
+                  height={16}
+                  onClick={() => setFile(null)}
+                  alt=""
+                />
               </div>
-            }
+            )}
           </FormItem>
 
           <FormItem name="cover_letter">

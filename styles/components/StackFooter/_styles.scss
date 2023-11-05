@@ -144,7 +144,7 @@
         .items {
           row-gap: calcVWT(16);
           max-width: calcVWT(650);
-          padding-bottom: calcVWT(35);
+          padding-top: calcVWT(35);
         }
 
         .scrollElement {
@@ -157,7 +157,7 @@
           width: 100%;
           height: 0;
           position: absolute;
-          bottom: 0;
+          top: 0;
         }
       }
 

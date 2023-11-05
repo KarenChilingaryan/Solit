@@ -294,14 +294,15 @@
             outline: none;
           }
         }
+
         .removeFile {
           position: absolute;
           right: 0;
-          top: 0;
+          top: calcVW(10);
           width: max-content;
           cursor: pointer;
           padding-left: 10px;
-          background: white;
+
           img {
             width: calcVW(20);
             height: calcVW(20);
@@ -384,7 +385,7 @@
 
           .acceptText {
             @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
-            a{
+            a {
               margin-left: calcVWL(5);
               @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
             }
@@ -552,10 +553,10 @@
           .acceptText {
             font-size: calcVWT(18);
             line-height: calcVWT(24);
-            a{
+            a {
               margin-left: calcVWT(5);
               font-size: calcVWT(18);
-              line-height: calcVWT(24); 
+              line-height: calcVWT(24);
             }
           }
         }
@@ -725,7 +726,7 @@
           .acceptText {
             font-size: calcVWM(18);
             line-height: calcVWM(24);
-            a{
+            a {
               margin-left: calcVWM(5);
               font-size: calcVWM(18);
               line-height: calcVWM(24);
