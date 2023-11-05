@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Button from "../button/Button";
 import { Col, Row, Paragraph } from "../../atoms";
@@ -11,7 +11,7 @@ import styles from "./StackFooter.module.scss";
 const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [toSmall, setToSmall] = useState(false);
-
+  const scroll = useRef(null)
   // Check the viewport width on component mount and resize
   useEffect(() => {
     const handleResize = () => {
@@ -30,12 +30,20 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
     setToSmall(!toSmall);
   };
 
+  useEffect(() => {
+    if (scroll?.current) {
+      const element = scroll.current;
+      element.scrollTop = element.scrollHeight;
+    }
+
+  }, [liveStacks])
+
   return (
     <Row className={`${styles.footer} ${toSmall && styles.transition}`}>
       <Row className={styles.footerContent}>
         <Paragraph className={styles.footerTitle}>Summary:</Paragraph>
         <div className={styles.shadow} />
-        <div className={styles.scrollElement}>
+        <div className={styles.scrollElement} ref={scroll}>
           <Row className={styles.items}>
             {liveStacks?.map((item, i) => (
               <Col key={i} className={styles.itemWrapper}>
