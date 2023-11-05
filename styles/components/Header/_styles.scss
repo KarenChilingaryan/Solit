@@ -110,6 +110,7 @@
             cursor: pointer;
             border: calcVW(1) solid transparent;
             outline: none !important;
+            border-radius: calcVWT(8);
 
             @media only screen and (max-width: 1440px) and (min-width: 1025px) {
               border-width: calcVWL(1);
@@ -132,7 +133,7 @@
             }
 
             &:hover {
-              border-radius: calcVWT(8);
+              // border-radius: calcVWT(8);
               border: calcVW(1) solid variables.$main-dark-blue;
 
               @media only screen and (max-width: 1440px) and (min-width: 1025px) {

@@ -15,7 +15,7 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
   // Check the viewport width on component mount and resize
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 575);
+      setIsSmallScreen(window.innerWidth < 1025);
     };
 
     handleResize(); // Check on component mount

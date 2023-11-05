@@ -5,9 +5,9 @@ import cx from "classnames";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import SuccessModal from "../../organisms/successModal/SuccessModal";
 import LetsTalkModal from "../letsTalkModal/letsTalkModal";
+import { emailLetsTalkApi } from "../../../services/emailLetsTalkApi";
 
 import styles from "./Button.module.scss";
-import { emailLetsTalkApi } from "../../../services/emailLetsTalkApi";
 
 const Button = ({
   text,
@@ -44,9 +44,9 @@ const Button = ({
       setOpen(false);
       setTimeout(() => {
         setOpenSuccess(false);
-        setClose()
+        setClose();
       }, 3000);
-    } catch { }
+    } catch {}
   };
 
   const handleResize = () => {
@@ -63,26 +63,25 @@ const Button = ({
   }, []);
 
   useEffect(() => {
-    const next = document.getElementById("__next")
+    const next = document.getElementById("__next");
     if ((text == "Let’s talk" && open) || openSuccess) {
-      setTop(window.scrollY)
-      next.style.top = `-${window.scrollY}px`
-      next.style.width = `100%`
+      setTop(window.scrollY);
+      next.style.top = `-${window.scrollY}px`;
+      next.style.width = `100%`;
       next.style.position = `fixed`;
     }
-  }, [text, open, openSuccess])
-
+  }, [text, open, openSuccess]);
 
   const setClose = () => {
-    const next = document.getElementById("__next")
-    next.style.top = `-${window.scrollY}px`
-    next.style.width = `100%`
+    const next = document.getElementById("__next");
+    next.style.top = `-${window.scrollY}px`;
+    next.style.width = `100%`;
     next.style.position = `inherit`;
     if (top) {
-      window.scrollTo(0, top)
+      window.scrollTo(0, top);
     }
     setTop(0);
-  }
+  };
 
   return (
     <>
@@ -101,14 +100,14 @@ const Button = ({
         type={type}
         {...(onClick
           ? {
-            onClick: (e) => {
-              if (text == "Let’s talk") {
-                setOpen(true);
-              } else {
-                onClick(e);
-              }
-            },
-          }
+              onClick: (e) => {
+                if (text == "Let’s talk") {
+                  setOpen(true);
+                } else {
+                  onClick(e);
+                }
+              },
+            }
           : {})}
       >
         {text}
@@ -121,11 +120,11 @@ const Button = ({
             isTablet <= 1024 && isTablet > 576
               ? "52vw"
               : isTablet > 1024 && isTablet <= 1440
-                ? "37vw"
-                : "28vw"
+              ? "37vw"
+              : "28vw"
           }
           setOpen={(e) => {
-            setClose()
+            setClose();
             setOpen(e);
           }}
           style={styles.modal}
@@ -137,10 +136,13 @@ const Button = ({
           />
         </ModalWrapper>
       )}
-      <SuccessModal open={openSuccess} setOpen={(e) => {
-        setOpenSuccess(e);
-        setClose();
-      }} />
+      <SuccessModal
+        open={openSuccess}
+        setOpen={(e) => {
+          setOpenSuccess(e);
+          setClose();
+        }}
+      />
     </>
   );
 };
