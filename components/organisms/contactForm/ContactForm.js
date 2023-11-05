@@ -22,7 +22,7 @@ const ContactForm = ({
   data = null,
   fromContactPage = false,
   h1 = false,
-  career = false
+  career = false,
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
@@ -34,13 +34,13 @@ const ContactForm = ({
   const dispatch = useDispatch();
 
   const setClose = () => {
-    const next = document.getElementById("__next")
-    next.style.width = `100%`
+    const next = document.getElementById("__next");
+    next.style.width = `100%`;
     next.style.position = `inherit`;
     if (top) {
-      window.scrollTo(0, top)
+      window.scrollTo(0, top);
     }
-  }
+  };
 
   const submitForm = async (values) => {
     const data = { ...values, file_cv: file };
@@ -57,9 +57,9 @@ const ContactForm = ({
         setClose();
         setOpenSuccess(false);
       }, 3000);
-      form.resetFields()
-      setFile(null)
-    } catch { }
+      form.resetFields();
+      setFile(null);
+    } catch {}
   };
 
   const setRecaptcha = (value) => {
@@ -87,30 +87,36 @@ const ContactForm = ({
 
   useEffect(() => {
     if (openSuccess) {
-      const next = document.getElementById("__next")
-      setTop(window.scrollY)
-      next.style.top = `-${window.scrollY}px`
-      next.style.width = `100%`
+      const next = document.getElementById("__next");
+      setTop(window.scrollY);
+      next.style.top = `-${window.scrollY}px`;
+      next.style.width = `100%`;
       next.style.position = `fixed`;
     }
-  }, [openSuccess])
+  }, [openSuccess]);
 
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
-        }`}
+      className={`${styles.contactFormWrapper} ${
+        !title ? styles.withoutTitle : ""
+      }`}
       style={style}
     >
       <Col
-        className={`${styles.infoSection} ${career && styles.infoSectionCareer}`}
+        className={`${styles.infoSection} ${
+          career && styles.infoSectionCareer
+        }`}
         style={{ ...(fromContactPage ? { paddingLeft: 0 } : {}) }}
       >
-        {h1 ?
-          <h1 className={styles.title} style={{ margin: 0 }}>{data?.title}</h1> :
+        {h1 ? (
+          <h1 className={styles.title} style={{ margin: 0 }}>
+            {data?.title}
+          </h1>
+        ) : (
           <Row className={styles.title}>
             {data?.title || "Got a project in mind?"}
           </Row>
-        }
+        )}
         <div
           className={styles.info}
           dangerouslySetInnerHTML={{
@@ -177,7 +183,7 @@ const ContactForm = ({
                 placeholder="Phone"
                 name="phone_number"
                 type="number"
-                value={''}
+                value={""}
                 formatter={(value) => value.replace("e", "")}
                 onChange={(e) => handleInputChange(e)}
               />
@@ -189,20 +195,41 @@ const ContactForm = ({
                 name="message"
               />
             </FormItem>
-            <FormItem name={"file_cv"} className={`${styles.uploadItem}  ${file && styles.uploadedFile}`}>
+            <FormItem
+              name={"file_cv"}
+              className={`${styles.uploadItem}  ${file && styles.uploadedFile}`}
+            >
               <Upload {...props} name="file_cv" className={styles.uploadAntd}>
-                <FloatInput label={"About your project"}
+                <FloatInput
+                  label={"About your project"}
                   placeholder={"About your project"}
-                  name={"file_cv"} type="text" disabled readOnly={true}
-                  suffix={file ? null : <Image className={styles.suffix} src={upload} alt="image" />}
-                  value={file?.name || ''}
+                  name={"file_cv"}
+                  type="text"
+                  disabled
+                  readOnly={true}
+                  suffix={
+                    file ? null : (
+                      <Image
+                        className={styles.suffix}
+                        src={upload}
+                        alt="image"
+                      />
+                    )
+                  }
+                  value={file?.name || ""}
                 />
               </Upload>
-              {file &&
+              {file && (
                 <div className={styles.removeFile}>
-                  <Image src={close} width={16} height={16} onClick={() => setFile(null)} />
+                  <Image
+                    src={close}
+                    width={16}
+                    height={16}
+                    onClick={() => setFile(null)}
+                    alt=""
+                  />
                 </div>
-              }
+              )}
             </FormItem>
             <FormItem
               name="accept"
@@ -227,7 +254,11 @@ const ContactForm = ({
                 value={onChangeCheckbox}
               />
               <Row className={styles.acceptText}>
-                I accept your   <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
+                I accept your{" "}
+                <a href="https://solit-llc.com/privacy-policy">
+                  {" "}
+                  Privacy Policy
+                </a>
               </Row>
             </FormItem>
             {/* <div className={styles.recaptcha}> */}
@@ -236,10 +267,7 @@ const ContactForm = ({
               style={{ width: "300px" }}
               className={styles.recaptcha}
               onChange={() =>
-                checkFormValidation(
-                  setDisabled,
-                  recaptchaRef.current
-                )
+                checkFormValidation(setDisabled, recaptchaRef.current)
               }
               onExpired={() => setDisabled(true)}
               sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"

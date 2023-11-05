@@ -261,15 +261,15 @@ const DiscussProjectStack = () => {
       );
       setOpenSuccess(true);
       setModalFormData(null);
-      setLiveStacks([])
-      setOpen(false)
+      setLiveStacks([]);
+      setOpen(false);
       setTimeout(() => {
         setOpenSuccess(false);
-        setClose()
+        setClose();
         form.resetFields();
       }, 3000);
       return true;
-    } catch { }
+    } catch {}
   };
 
   useEffect(() => {
@@ -336,28 +336,27 @@ const DiscussProjectStack = () => {
     ]);
   };
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setIsSSR(true)
+    if (typeof window !== "undefined") {
+      setIsSSR(true);
     }
-  }, [])
-
+  }, []);
 
   useEffect(() => {
-    const next = document.getElementById("__next")
+    const next = document.getElementById("__next");
     if ((modalFormData && open) || modalOpen) {
-      setTop(window.scrollY)
-      next.style.top = `-${window.scrollY}px`
-      next.style.width = `100%`
+      setTop(window.scrollY);
+      next.style.top = `-${window.scrollY}px`;
+      next.style.width = `100%`;
       next.style.position = `fixed`;
     }
-  }, [modalFormData, open, modalOpen])
+  }, [modalFormData, open, modalOpen]);
 
   const setClose = () => {
-    const next = document.getElementById("__next")
+    const next = document.getElementById("__next");
     next.style.position = `inherit`;
     window.scrollTo(0, top);
     setTop(0);
-  }
+  };
 
   return (
     <HomeMainWithImage
@@ -370,7 +369,7 @@ const DiscussProjectStack = () => {
           classname="other-modal"
           open={modalOpen}
           setOpen={() => {
-            setClose()
+            setClose();
             setModalOpen(false);
             setIndustryOther("");
           }}
@@ -416,17 +415,20 @@ const DiscussProjectStack = () => {
         </ModalWrapper>
       )}
       <>
-        <SuccessModal open={openSuccess} setOpen={(e) => {
-          setClose()
-          setOpenSuccess(e)
-        }} />
+        <SuccessModal
+          open={openSuccess}
+          setOpen={(e) => {
+            setClose();
+            setOpenSuccess(e);
+          }}
+        />
         {modalFormData && (
           <ModalWrapper
             open={open}
             width={"66.7vw"}
             setOpen={(e) => {
-              setClose()
-              setOpen(e)
+              setClose();
+              setOpen(e);
             }}
             classname="discuss"
           >
@@ -469,9 +471,10 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project-stack" &&
+                className={`${
+                  asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -557,10 +560,11 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}

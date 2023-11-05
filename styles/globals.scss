@@ -34,6 +34,9 @@ body {
     display: none !important;
     top: 0 !important;
   }
+  .ant-tooltip {
+    display: none !important;
+  }
 }
 
 h1,
@@ -93,7 +96,7 @@ textarea::-webkit-scrollbar-thumb {
   top: 60px !important;
 }
 
-.ant-modal-centered>div {
+.ant-modal-centered > div {
   top: unset !important;
 }
 

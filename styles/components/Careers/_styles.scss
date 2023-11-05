@@ -52,9 +52,11 @@
       margin: calcVW(320) 0 calcVW(32) 0;
 
       .secondTitle {
-        @include font-style(getCareersSizes(content-second-title-fz),
+        @include font-style(
+          getCareersSizes(content-second-title-fz),
           variables.$fw-400,
-          getCareersSizes(content-second-title-lh));
+          getCareersSizes(content-second-title-lh)
+        );
       }
 
       .secondDescription {
@@ -62,10 +64,7 @@
           text-align: center;
           margin-bottom: calcVW(8);
 
-          @include font-style(calcVW(24),
-            variables.$fw-400,
-            calcVW(24),
-            #fff);
+          @include font-style(calcVW(24), variables.$fw-400, calcVW(24), #fff);
         }
       }
     }
@@ -82,6 +81,11 @@
       width: 100%;
       height: 100%;
       margin: calcVW(168) 0;
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      width: calcVWL(1280);
+      margin: calcVWL(478) auto 0 auto;
     }
 
     @media (max-width: 1024px) {
@@ -118,10 +122,12 @@
         .secondDescription {
           p {
             margin-bottom: calcVWT(8);
-            @include font-style(calcVWT(24),
+            @include font-style(
+              calcVWT(24),
               variables.$fw-400,
               calcVWT(24),
-              #fff);
+              #fff
+            );
           }
         }
       }
@@ -135,7 +141,7 @@
       }
 
       .contactUsWrapper {
-        margin: calcVWT(320) 0  0 0;
+        margin: calcVWT(320) 0 0 0;
       }
     }
 
@@ -162,7 +168,7 @@
         }
       }
 
-      .pageHeader>div {
+      .pageHeader > div {
         margin: 0;
       }
 
@@ -177,10 +183,12 @@
           margin-top: calcVWM(32);
           p {
             margin-bottom: calcVWM(8);
-            @include font-style(calcVWM(24),
+            @include font-style(
+              calcVWM(24),
               variables.$fw-400,
               calcVWM(24),
-              #fff);
+              #fff
+            );
           }
         }
       }
