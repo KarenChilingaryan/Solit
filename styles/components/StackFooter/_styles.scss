@@ -34,31 +34,25 @@
       padding: 0 calcVW(32);
 
       .footerTitle {
-        @include font-style(
-          calcVW(36),
+        @include font-style(calcVW(36),
           variables.$fw-500,
           calcVW(44),
-          variables.$black
-        );
+          variables.$black );
 
         @media (max-width: 1024px) {
-          @include font-style(
-            calcVWT(20),
+          @include font-style(calcVWT(20),
             variables.$fw-700,
             calcVWT(24),
-            variables.$black
-          );
+            variables.$black );
           position: relative;
           z-index: 11;
         }
 
         @media (max-width: 576px) {
-          @include font-style(
-            calcVWM(20),
+          @include font-style(calcVWM(20),
             variables.$fw-700,
             calcVWM(24),
-            variables.$black
-          );
+            variables.$black );
         }
       }
 
@@ -73,29 +67,23 @@
           padding: calcVW(5);
 
           .item {
-            @include font-style(
-              calcVW(20),
+            @include font-style(calcVW(20),
               variables.$fw-500,
               normal,
-              variables.$black
-            );
+              variables.$black );
 
             @media (max-width: 1024px) {
-              @include font-style(
-                calcVWT(14),
+              @include font-style(calcVWT(14),
                 variables.$fw-700,
                 calcVWT(19),
-                variables.$black
-              );
+                variables.$black );
             }
 
             @media (max-width: 576px) {
-              @include font-style(
-                calcVWM(14),
+              @include font-style(calcVWM(14),
                 variables.$fw-700,
                 calcVWM(19),
-                variables.$black
-              );
+                variables.$black );
             }
           }
 
@@ -123,8 +111,7 @@
     }
 
     .buttonWrapper {
-      @media (max-width: 1024px) {
-      }
+      @media (max-width: 1024px) {}
 
       @media (max-width: 576px) {
         width: 100%;
@@ -148,12 +135,12 @@
     }
 
     @media (max-width: 1024px) {
-      padding: calcVWT(64);
+      padding: calcVWT(32) calcVWT(64);
       height: max-content;
       transition: 0.3s;
 
       .footerContent {
-        gap: calcVWT(16);
+        gap: calcVWT(0);
         padding-left: calcVWT(32);
         position: relative;
         padding-top: calcVWT(24);
@@ -174,7 +161,7 @@
           width: 100%;
           height: 0;
           position: absolute;
-          top: calcVWT(85);
+          top: calcVWT(65);
           z-index: 10;
           width: calcVWT(650);
         }
@@ -230,7 +217,7 @@
   .transition {
     @media (max-width: 1025px) {
       transition: 0.3s;
-      height: calcVWT(100);
+      height: calcVWT(108);
       overflow: hidden;
 
       .closeIcon {
@@ -238,6 +225,7 @@
         rotate: 180deg;
       }
     }
+
     @media (max-width: 575px) {
       height: calcVWM(55);
     }

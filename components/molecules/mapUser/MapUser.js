@@ -35,6 +35,7 @@ const MapUser = ({ user, changeTo }) => {
         </div>
         {tooltip && (
           <Tooltip
+            overlayClassName="user-map-tooltip"
             color="#219FDB"
             title={TooltipElement(user.testimonial)}
             {...(window.innerWidth <= 1024 && window.innerWidth > 576
