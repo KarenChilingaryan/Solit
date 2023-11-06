@@ -349,6 +349,7 @@ const DiscussProject = () => {
                     type="submit"
                     onClick={() => {
                       if (otherValue) {
+                        setClose()
                         setValueinForm(otherValue);
                       }
                     }}

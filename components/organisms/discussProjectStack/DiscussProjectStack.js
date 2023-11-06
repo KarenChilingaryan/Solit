@@ -400,6 +400,7 @@ const DiscussProjectStack = () => {
                   type="submit"
                   onClick={() => {
                     if (industryOther) {
+                      setClose()
                       setValueinForm(industryOther);
                     }
                   }}
