@@ -12,12 +12,13 @@ import { postsSeoFieldsApi } from "../../../services/postsSeoFieldsApi";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
 import styles from "./HomeMainWithImage.module.scss";
-
+const percentsSecond = [1566, 1301, 1300, 1384]
 const HomeMainWithImage = ({
   firstImage,
   className,
   children,
   seoName = "",
+  mainContainer = null
 }) => {
   const routes = useRouter();
   const [hideToTop, setHideToTop] = useState(false);
@@ -129,6 +130,8 @@ const HomeMainWithImage = ({
           ((goToTopTop + window?.scrollY + goToTopHeight - heightContent) /
             goToTop.current.children[0].children[0].clientWidth) *
           100;
+
+
         setPercents({
           percent0,
           percent1,
@@ -239,7 +242,8 @@ const HomeMainWithImage = ({
                       style={{
                         ...(className == "portfolioItem" &&
                           percents["percent" + i] &&
-                          percents["percent" + i] + 25 > 0
+                          percents["percent" + i] + 25 > 0 &&
+                          percents["percent" + i] - percentsSecond[i] < -20
                           ? {
                             filter:
                               "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
@@ -251,15 +255,19 @@ const HomeMainWithImage = ({
                       className={styles.text}
                       style={{
                         ...(className == "portfolioItem" &&
-                          percents["percent" + i] >= 0
+                          percents["percent" + i] >= 0 && percents["percent" + i] - percentsSecond[i] < 0
                           ? {
                             backgroundImage: `linear-gradient(to right, black ${percents["percent" + i]
                               }%, white ${percents["percent" + i]}%)`,
                             backgroundClip: "text",
                             "-webkit-background-clip": "text",
                             color: "transparent",
-                          }
-                          : {
+                          } : className == "portfolioItem" && percents["percent" + i] > 100 ? {
+                            backgroundImage: `linear-gradient(to right, white ${percents["percent" + i] - percentsSecond[i]}%, black ${percents["percent" + i] - percentsSecond[i]}%)`,
+                            backgroundClip: "text",
+                            "-webkit-background-clip": "text",
+                            color: "transparent",
+                          } : {
                             color: "white",
                           }),
                       }}
@@ -282,14 +290,19 @@ const HomeMainWithImage = ({
             <Paragraph
               className={styles.text}
               style={{
-                ...(className == "portfolioItem" && percents["percent4"] >= 0
+                ...(className == "portfolioItem" && percents["percent4"] >= 0 && percents["percent4"] - percentsSecond[3] < 0
                   ? {
                     backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
                     backgroundClip: "text",
                     "-webkit-background-clip": "text",
                     color: "transparent",
                   }
-                  : {
+                  : className == "portfolioItem" && percents["percent4"] > 100 ? {
+                    backgroundImage: `linear-gradient(to right, white ${percents["percent4"] - percentsSecond[3]}%, black ${percents["percent4"] - percentsSecond[3]}%)`,
+                    backgroundClip: "text",
+                    "-webkit-background-clip": "text",
+                    color: "transparent",
+                  } : {
                     color: "white",
                   }),
               }}
@@ -300,13 +313,13 @@ const HomeMainWithImage = ({
               style={{
                 transform: "rotate(90deg)",
                 ...(className == "portfolioItem" &&
-                  percents["percent4"] &&
-                  percents["percent4"] - 125 > 0
+                  ((percents["percent4"] &&
+                    percents["percent4"] - 125 > 0 && (percents["percent4"] - percentsSecond[3]) < 133))
                   ? {
                     filter:
                       "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
-                  }
-                  : {}),
+                  } : {
+                  }),
               }}
               src={rughtRowTop}
               className={styles.image}
