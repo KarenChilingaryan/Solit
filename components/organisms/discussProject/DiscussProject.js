@@ -201,13 +201,7 @@ const DiscussProject = () => {
     const updatedValues = { ...form.getFieldsValue() };
     updatedValues.duration = state;
     form.setFieldsValue(updatedValues, true);
-    setLiveStacks([
-      ...liveStacks,
-      {
-        category: "duration",
-        item: `${state} months`,
-      },
-    ]);
+    getProjectData(updatedValues)
   };
 
   const handleButtonClick = (field, item) => {
@@ -577,7 +571,6 @@ const DiscussProject = () => {
                       defaultValue={1}
                       max={24}
                       tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
-                    // open={true}
                     />
                   </FormItem>
                   <Row className={styles.monthsWrapper}>
