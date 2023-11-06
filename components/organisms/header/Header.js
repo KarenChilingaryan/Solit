@@ -246,14 +246,6 @@ const Header = () => {
                       !router.pathname?.search(el.fix_url) &&
                       styles.menuItemTitleActiveDrop
                     }`}
-                    style={{
-                      borderBottom:
-                        el.fix_url === router.pathname ||
-                        (el?.fix_url === "what-we-do" &&
-                          router.pathname === "/")
-                          ? "2px solid #ffffff"
-                          : "0",
-                    }}
                   >
                     <span>{el.name}</span>
                     <Image src={dropdown} alt="image" />
