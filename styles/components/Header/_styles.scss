@@ -74,7 +74,7 @@
           &:hover {
             color: variables.$light-blue;
             transition: color 0.4s;
-            border-bottom: 2px solid variables.$light-blue !important;
+            // border-bottom: 2px solid variables.$light-blue !important;
 
             img {
               filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg)
@@ -87,9 +87,9 @@
           &:hover {
             border-bottom: none !important;
 
-            span {
-              border-bottom: 2px solid variables.$light-blue;
-            }
+            // span {
+            //   // border-bottom: 2px solid variables.$light-blue;
+            // }
 
             img {
               filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg)
