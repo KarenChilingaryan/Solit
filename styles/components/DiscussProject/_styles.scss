@@ -31,7 +31,7 @@
 
         @media (max-width: 1024px) {
           @include font-style(
-            calcVT(18),
+            calcVWT(18),
             variables.$fw-400,
             normal,
             variables.$black
