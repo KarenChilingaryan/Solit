@@ -149,6 +149,13 @@
         row-gap: calcVW(0);
         justify-content: space-around;
         border-radius: 0 0 calcVW(16) calcVW(16);
+        .name{
+          height: calcVWL(18);
+          flex-direction: column;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
 
       &:hover {
@@ -238,7 +245,7 @@
       border-radius: calcVWL(16);
 
       .imageContainer {
-        border-radius: calcVWL(16);
+                border-radius: calcVWL(16);
         height: calcVWL(320);
 
         .img {
@@ -326,6 +333,13 @@
           height: calcVWL(56);
           row-gap: calcVWL(0);
           border-radius: 0 0 calcVWL(16) calcVWL(16);
+          .name{
+            height: calcVWL(18);
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
         }
 
         &:hover {
