@@ -412,7 +412,7 @@
             gap: calcVWT(64);
 
             .industries {
-              padding: 0 24px;
+              padding: 0 calcVWT(24);
               gap: calcVWT(16);
 
               :global(.ant-slider-horizontal) {
