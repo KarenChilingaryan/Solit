@@ -12,7 +12,6 @@ import { postsSeoFieldsApi } from "../../../services/postsSeoFieldsApi";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
 import styles from "./HomeMainWithImage.module.scss";
-const percentsSecond = [1566, 1301, 1300, 1384];
 const HomeMainWithImage = ({
   firstImage,
   className,
@@ -34,6 +33,13 @@ const HomeMainWithImage = ({
   const goToTop = useRef(null);
   const refContent = useRef(null);
   const dispatch = useDispatch();
+  const [isTablet, setIsTablet] = useState(0);
+  const percentsSecond = [
+    1566 * (isTablet > 1440 ? 1.038 : 1),
+    1301 * (isTablet > 1440 ? 1.038 : 1),
+    1300 * (isTablet > 1440 ? 1.038 : 1),
+    1384 * (isTablet > 1440 ? 1.038 : 1),
+  ];
 
   const { breadcrumbElements, setBreadcrumbElements } =
     useContext(BreadcrumbContext);
@@ -54,6 +60,18 @@ const HomeMainWithImage = ({
       };
     });
   };
+
+  const handleResize = () => {
+    setIsTablet(window.innerWidth); // Adjust the threshold as per your requirements
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (routes) {
@@ -194,6 +212,8 @@ const HomeMainWithImage = ({
     }
   }, [breadcrumbElements]);
 
+  console.log(mainContainer?.current?.offsetHeight);
+  // console.log(window);
   return (
     <div className={`${styles.content} ${styles[className]}`} ref={refContent}>
       {seoData && (
@@ -312,10 +332,8 @@ const HomeMainWithImage = ({
                   : className == "portfolioItem" && percents["percent4"] > 100
                   ? {
                       backgroundImage: `linear-gradient(to right, white ${
-                        percents["percent4"] - percentsSecond[3] - 50
-                      }%, black ${
-                        percents["percent4"] - percentsSecond[3] - 52
-                      }%)`,
+                        percents["percent4"] - percentsSecond[3]
+                      }%, black ${percents["percent4"] - percentsSecond[3]}%)`,
                       backgroundClip: "text",
                       "-webkit-background-clip": "text",
                       color: "transparent",
