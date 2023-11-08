@@ -53,6 +53,19 @@
       position: relative;
       z-index: 1;
 
+      .errorMesssageRight {
+        :global(.ant-form-item-explain-error) {
+          transition: 0.1s;
+          transform: translateX(5px);
+        }
+      }
+
+      .errorMesssageLeft {
+        :global(.ant-form-item-explain-error) {
+          transition: 0.1s;
+          transform: translateX(-5px);
+        }
+      }
       .uploadAntd {
         width: 100%;
 

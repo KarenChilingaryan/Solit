@@ -64,6 +64,8 @@
 
       .items {
         max-width: calcVW(1545);
+        max-height: calcVW(100);
+        overflow-y: auto;
 
         .itemWrapper {
           display: flex;

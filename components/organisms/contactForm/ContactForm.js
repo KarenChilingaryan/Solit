@@ -30,6 +30,7 @@ const ContactForm = ({
   const [openSuccess, setOpenSuccess] = useState(false);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
   const [top, setTop] = useState(0);
+  const [errorMesssage, setErrorMesssage] = useState("");
 
   const dispatch = useDispatch();
 
@@ -135,6 +136,15 @@ const ContactForm = ({
       </Col>
       <Col className={styles.formWrapper}>
         <Form
+          onFinishFailed={() => {
+            setErrorMesssage("errorMesssageLeft");
+            setTimeout(() => {
+              setErrorMesssage("errorMesssageRight");
+              setTimeout(() => {
+                setErrorMesssage("");
+              }, 100);
+            }, 100);
+          }}
           form={form}
           onFinish={submitForm}
           className={styles.form}
@@ -144,6 +154,7 @@ const ContactForm = ({
         >
           <Row className={styles.inputSection}>
             <FormItem
+              className={`${styles[errorMesssage]}`}
               name="full_name"
               rules={[
                 {
@@ -159,6 +170,7 @@ const ContactForm = ({
               />
             </FormItem>
             <FormItem
+              className={`${styles[errorMesssage]}`}
               name="from_email"
               rules={[
                 {
@@ -232,8 +244,8 @@ const ContactForm = ({
               )}
             </FormItem>
             <FormItem
+              className={`${styles.accept} ${styles[errorMesssage]}`}
               name="accept"
-              className={styles.accept}
               rules={[
                 {
                   required: true,

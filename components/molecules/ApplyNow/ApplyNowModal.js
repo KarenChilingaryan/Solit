@@ -15,6 +15,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState(null);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
+  const [errorMesssage, setErrorMesssage] = useState("");
 
   const submitForm = (values) => {
     const formData = {
@@ -53,6 +54,15 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Form
+        onFinishFailed={() => {
+          setErrorMesssage("errorMesssageLeft");
+          setTimeout(() => {
+            setErrorMesssage("errorMesssageRight");
+            setTimeout(() => {
+              setErrorMesssage("");
+            }, 100);
+          }, 100);
+        }}
         form={form}
         onFinish={(values) => {
           submitForm(values, data);
@@ -61,6 +71,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
       >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
+            className={`${styles[errorMesssage]}`}
             name="full_name"
             rules={[
               {
@@ -77,6 +88,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
             />
           </FormItem>
           <FormItem
+            className={`${styles[errorMesssage]}`}
             name="from_email"
             rules={[
               {
@@ -97,6 +109,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
             />
           </FormItem>
           <FormItem
+            className={`${styles[errorMesssage]}`}
             name="position"
             rules={[
               {
@@ -112,7 +125,16 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
               required={true}
             />
           </FormItem>
-          <FormItem name="level">
+          <FormItem
+            name="level"
+            className={`${styles[errorMesssage]}`}
+            rules={[
+              {
+                required: true,
+                message: "Level is required",
+              },
+            ]}
+          >
             <FloatInput
               label="Level"
               placeholder="Level"
@@ -123,7 +145,16 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
             />
           </FormItem>
 
-          <FormItem name="link_to_linkedin" className={styles.inputWithIcon}>
+          <FormItem
+            name="link_to_linkedin"
+            className={`${styles.inputWithIcon} ${styles[errorMesssage]}`}
+            rules={[
+              {
+                required: true,
+                message: "Linkedin is required",
+              },
+            ]}
+          >
             <FloatInput
               label="Linkedin"
               placeholder="Link to LinkedIn"
@@ -138,7 +169,13 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
           </FormItem>
           <FormItem
             name="link_to_github_or_portfolio"
-            className={styles.inputWithIcon}
+            className={`${styles.inputWithIcon} ${styles[errorMesssage]}`}
+            rules={[
+              {
+                required: true,
+                message: "Github is required",
+              },
+            ]}
           >
             <FloatInput
               label="Portfolio"
@@ -154,7 +191,15 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
           </FormItem>
           <FormItem
             name={"file_document"}
-            className={`${styles.uploadItem}  ${file && styles.uploadedFile}`}
+            className={`${styles.uploadItem}  ${file && styles.uploadedFile} ${
+              styles[errorMesssage]
+            }`}
+            rules={[
+              {
+                required: true,
+                message: "CV is required",
+              },
+            ]}
           >
             <Upload
               {...props}
@@ -197,7 +242,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
           </FormItem>
 
           <FormItem
-            className={styles.accept}
+            className={`${styles.accept} ${styles[errorMesssage]}`}
             name="accept"
             rules={[
               {

@@ -21,6 +21,7 @@ const ModalLetsTalkForm = ({
   const [form] = Form.useForm();
   const [file, setFile] = useState(null);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
+  const [errorMesssage, setErrorMesssage] = useState("");
 
   const submitForm = (values, data) => {
     const formData = {
@@ -64,6 +65,15 @@ const ModalLetsTalkForm = ({
       </Row>
 
       <Form
+        onFinishFailed={() => {
+          setErrorMesssage("errorMesssageLeft");
+          setTimeout(() => {
+            setErrorMesssage("errorMesssageRight");
+            setTimeout(() => {
+              setErrorMesssage("");
+            }, 100);
+          }, 100);
+        }}
         form={form}
         onFinish={(values) => {
           submitForm(values, data);
@@ -72,6 +82,7 @@ const ModalLetsTalkForm = ({
       >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
+            className={`${styles[errorMesssage]}`}
             name="full_name"
             rules={[
               {
@@ -87,6 +98,7 @@ const ModalLetsTalkForm = ({
             />
           </FormItem>
           <FormItem
+            className={`${styles[errorMesssage]}`}
             name="from_email"
             rules={[
               {
@@ -107,6 +119,7 @@ const ModalLetsTalkForm = ({
             />
           </FormItem>
           <FormItem
+            className={`${styles[errorMesssage]}`}
             name="phone_number"
             rules={[
               {
@@ -146,11 +159,17 @@ const ModalLetsTalkForm = ({
                 value={file?.name || ""}
               />
             </Upload>
-            {file &&
+            {file && (
               <div className={styles.removeFile}>
-                <Image src={close} width={16} height={16} onClick={() => setFile(null)} />
+                <Image
+                  src={close}
+                  width={16}
+                  height={16}
+                  onClick={() => setFile(null)}
+                  alt=""
+                />
               </div>
-            }
+            )}
           </FormItem>
 
           <FormItem name="comment">
@@ -158,7 +177,7 @@ const ModalLetsTalkForm = ({
           </FormItem>
 
           <FormItem
-            className={styles.accept}
+            className={`${styles.accept} ${styles[errorMesssage]}`}
             name="accept"
             rules={[
               {
@@ -180,7 +199,8 @@ const ModalLetsTalkForm = ({
               value={onChangeCheckbox}
             />
             <Row className={styles.acceptText}>
-              I accept your   <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
+              I accept your{" "}
+              <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
             </Row>
           </FormItem>
         </Row>
