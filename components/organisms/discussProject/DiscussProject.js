@@ -201,7 +201,7 @@ const DiscussProject = () => {
     const updatedValues = { ...form.getFieldsValue() };
     updatedValues.duration = state;
     form.setFieldsValue(updatedValues, true);
-    getProjectData(updatedValues)
+    getProjectData(updatedValues);
   };
 
   const handleButtonClick = (field, item) => {
@@ -254,14 +254,14 @@ const DiscussProject = () => {
       setOpenSuccess(true);
       setTimeout(() => {
         setOpenSuccess(false);
-        setClose()
+        setClose();
         form.resetFields();
       }, 3000);
       setModalFormData(null);
       setOpen(false);
       setLiveStacks([]);
       return true;
-    } catch { }
+    } catch {}
   };
 
   const setValueinForm = (val) => {
@@ -277,30 +277,30 @@ const DiscussProject = () => {
     setModalOpen(name);
   };
 
-
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setIsSSR(true)
+    if (typeof window !== "undefined") {
+      setIsSSR(true);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    const next = document.getElementById("__next")
-    if (modalFormData && open || modalOpen) {
-      setTop(window.scrollY)
-      next.style.top = `-${window.scrollY}px`
-      next.style.width = `100%`
+    const next = document.getElementById("__next");
+    if ((modalFormData && open) || modalOpen) {
+      setTop(window.scrollY);
+      next.style.top = `-${window.scrollY}px`;
+      next.style.width = `100%`;
       next.style.position = `fixed`;
     }
-  }, [modalFormData, open, modalOpen])
+  }, [modalFormData, open, modalOpen]);
 
   const setClose = () => {
-    const next = document.getElementById("__next")
+    const next = document.getElementById("__next");
     next.style.position = `inherit`;
     window.scrollTo(0, top);
     setTop(0);
-  }
+  };
 
+  useEffect(() => {}, []);
   return (
     <HomeMainWithImage
       firstImage={bgImage}
@@ -313,7 +313,7 @@ const DiscussProject = () => {
             classname="other-modal"
             open={modalOpen}
             setOpen={() => {
-              setClose()
+              setClose();
               setModalOpen("");
               setOtherValue("");
             }}
@@ -349,7 +349,7 @@ const DiscussProject = () => {
                     type="submit"
                     onClick={() => {
                       if (otherValue) {
-                        setClose()
+                        setClose();
                         setValueinForm(otherValue);
                       }
                     }}
@@ -359,17 +359,20 @@ const DiscussProject = () => {
             </Row>
           </ModalWrapper>
         )}
-        <SuccessModal open={openSuccess} setOpen={(e) => {
-          setClose();
-          setOpenSuccess(e);
-        }} />
+        <SuccessModal
+          open={openSuccess}
+          setOpen={(e) => {
+            setClose();
+            setOpenSuccess(e);
+          }}
+        />
         {modalFormData && (
           <ModalWrapper
             open={open}
             width={"66.7vw"}
             setOpen={(e) => {
-              setClose()
-              setOpen(e)
+              setClose();
+              setOpen(e);
             }}
             classname="discuss"
           >
@@ -415,8 +418,9 @@ const DiscussProject = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project" && styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                className={`${
+                  asPath == "/discuss-project" && styles.currentStageDiscuss
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -442,12 +446,13 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${form
-                            .getFieldsValue()
-                            .applicationType?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form
+                              .getFieldsValue()
+                              .applicationType?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -476,10 +481,11 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().currentStage?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -509,10 +515,11 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -542,10 +549,11 @@ const DiscussProject = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().industry?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -577,7 +585,10 @@ const DiscussProject = () => {
                   <Row className={styles.monthsWrapper}>
                     <Col
                       className={styles.month}
-                      onClick={() => updateDuration(1)}
+                      onClick={() => {
+                        if (form.getFieldsValue(["duration"]).duration != 1)
+                          updateDuration(1);
+                      }}
                     >
                       1 month
                     </Col>

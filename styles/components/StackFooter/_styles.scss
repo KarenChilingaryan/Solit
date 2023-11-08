@@ -145,7 +145,7 @@
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       .items {
-        max-width: calcVWL(1200) !important;
+        max-width: calcVWL(1150) !important;
       }
     }
 
@@ -158,11 +158,11 @@
         gap: calcVWT(0);
         padding-left: calcVWT(32);
         position: relative;
-        padding-top: calcVWT(24);
+        padding-top: calcVWT(15);
 
         .items {
           row-gap: calcVWT(16);
-          max-width: calcVWT(650);
+          max-width: calcVWT(620);
         }
 
         .scrollElement {
