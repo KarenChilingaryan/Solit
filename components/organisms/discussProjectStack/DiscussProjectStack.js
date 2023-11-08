@@ -269,7 +269,7 @@ const DiscussProjectStack = () => {
         form.resetFields();
       }, 3000);
       return true;
-    } catch { }
+    } catch {}
   };
 
   useEffect(() => {
@@ -327,7 +327,7 @@ const DiscussProjectStack = () => {
     const updatedValues = { ...form.getFieldsValue() };
     updatedValues.duration = state;
     form.setFieldsValue(updatedValues, true);
-    getProjectData(updatedValues)
+    getProjectData(updatedValues);
   };
 
   useEffect(() => {
@@ -400,7 +400,7 @@ const DiscussProjectStack = () => {
                   type="submit"
                   onClick={() => {
                     if (industryOther) {
-                      setClose()
+                      setClose();
                       setValueinForm(industryOther);
                     }
                   }}
@@ -467,9 +467,10 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project-stack" &&
+                className={`${
+                  asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -555,10 +556,11 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -591,7 +593,10 @@ const DiscussProjectStack = () => {
                   <Row className={styles.monthsWrapper}>
                     <Col
                       className={styles.month}
-                      onClick={() => updateDuration(1)}
+                      onClick={() => {
+                        if (form.getFieldsValue(["duration"]).duration != 1)
+                          updateDuration(1);
+                      }}
                     >
                       1 month
                     </Col>
