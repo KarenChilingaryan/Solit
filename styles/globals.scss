@@ -177,8 +177,9 @@ textarea::-webkit-scrollbar-thumb {
   .ant-tooltip-content {
     width: max-content !important;
     height: max-content !important;
-
+    
     .ant-tooltip-inner {
+      border: 1px solid #3FC1FF;
       width: max-content !important;
       height: max-content !important;
       min-height: max-content !important;

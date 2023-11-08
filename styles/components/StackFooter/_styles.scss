@@ -14,7 +14,7 @@
     width: 100%;
     z-index: 999;
     transform: translateY(0);
-    height: calcVW(248);
+    height: max-content;
     background-color: rgb(255, 255, 255);
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
@@ -64,7 +64,6 @@
 
       .items {
         max-width: calcVW(1545);
-        max-height: calcVW(100);
         overflow-y: auto;
 
         .itemWrapper {
