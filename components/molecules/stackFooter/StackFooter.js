@@ -38,6 +38,13 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
 
   }, [liveStacks])
 
+  useEffect(()=>{
+    if (scroll?.current) {
+      const element = scroll.current;
+      element.scrollTop = toSmall ? 0 : element.scrollHeight;
+    }
+  },[toSmall])
+
   return (
     <Row className={`${styles.footer} ${toSmall && styles.transition}`}>
       <Row className={styles.footerContent}>
