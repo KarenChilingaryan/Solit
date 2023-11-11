@@ -5,9 +5,9 @@ import Image from "next/image";
 import { Col, Row } from "../../atoms";
 import elipse from "../../../assets/img/Ellipse.png";
 import Button from "../../molecules/button/Button";
+import PortfolioCard from "../../molecules/portfolioCard/PortfolioCard";
 
 import styles from "./Portfolios.module.scss";
-import PortfolioCard from "../../molecules/portfolioCard/PortfolioCard";
 
 const Portfolios = ({ data }) => {
   const router = useRouter();
