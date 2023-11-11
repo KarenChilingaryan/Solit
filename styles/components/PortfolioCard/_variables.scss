@@ -1,0 +1,22 @@
+@import "../../abstract/functions";
+@import "../../base/variables";
+
+$ourProjectCard-sizes: (
+  project-card-width: calcVW(296),
+  project-card-height: calcVW(300),
+  main-project-card-width: calcVW(296),
+  main-project-card-height: calcVW(340),
+  project-position-section-p: calcVW(32),
+  project-position-height: calcVW(76),
+  project-position-hover-height: calcVW(116),
+  project-name-fz: calcVW(16),
+  project-name-lh: calcVW(24),
+  team-member-position-fz: calcVW(18),
+  team-member-position-lh: calcVW(24),
+  team-member-position-hover-fz: calcVW(18),
+  team-member-position-hover-lh: calcVW(22),
+);
+
+@function getOurProjectCardSizes($property) {
+  @return map-get($ourProjectCard-sizes, $property);
+}

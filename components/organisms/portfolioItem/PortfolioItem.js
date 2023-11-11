@@ -8,10 +8,10 @@ import { HomeMain } from "../homeMain";
 import { portfolioApi } from "../../../services/portfolioApi";
 import Button from "../../molecules/button/Button";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
-import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import arrow from "../../../assets/img/arrow.svg";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
+import PortfolioCard from "../../molecules/portfolioCard/PortfolioCard";
 
 import styles from "./PortfolioItem.module.scss";
 
@@ -20,8 +20,8 @@ const PortfolioItem = () => {
     useContext(BreadcrumbContext);
   const { id } = useRouter().query;
   const router = useRouter();
-  const mainContainer = useRef(null)
-  const itemDescription = useRef(null)
+  const mainContainer = useRef(null);
+  const itemDescription = useRef(null);
   const [padding, setPadding] = useState(1);
   const handleClickDiscuss = () => {
     router.push(`/discuss-project`);
@@ -70,14 +70,18 @@ const PortfolioItem = () => {
     }
 
     return copyArr.slice(0, numberOfValues);
-  }
+  };
 
   useEffect(() => {
     if (postPortfolioApiData && itemDescription?.current) {
-      const dif = (780 / (1280 / itemDescription.current.offsetWidth) - itemDescription.current.children[1].children[0].children[0].clientHeight) * (2.3 / (1280 / itemDescription.current.offsetWidth))
-      setPadding(dif > 110 ? 110 : dif)
+      const dif =
+        (780 / (1280 / itemDescription.current.offsetWidth) -
+          itemDescription.current.children[1].children[0].children[0]
+            .clientHeight) *
+        (2.3 / (1280 / itemDescription.current.offsetWidth));
+      setPadding(dif > 110 ? 110 : dif);
     }
-  }, [itemDescription, postPortfolioApiData])
+  }, [itemDescription, postPortfolioApiData]);
 
   return (
     <Row className={styles.profilePage} ref={mainContainer}>
@@ -89,14 +93,18 @@ const PortfolioItem = () => {
           title: postPortfolioApiData?.meta_title,
         }}
       />
-      <HomeMainWithImage className={"portfolioItem"} mainContainer={mainContainer}>
+      <HomeMainWithImage
+        className={"portfolioItem"}
+        mainContainer={mainContainer}
+      >
         <Row className={styles.content}>
-          <Row className={styles.itemDescription}
+          <Row
+            className={styles.itemDescription}
             style={{
-              ...(padding >= 0 ?
-                { paddingTop: padding / 32 + 'vw' } : {})
+              ...(padding >= 0 ? { paddingTop: padding / 32 + "vw" } : {}),
             }}
-            ref={itemDescription}>
+            ref={itemDescription}
+          >
             <Col className={styles.imageCard}>
               {postPortfolioApiData?.webp_image && (
                 <Image
@@ -112,7 +120,9 @@ const PortfolioItem = () => {
                 h1={true}
                 data={{
                   title: postPortfolioApiData?.title,
-                  firstSubtitle: postPortfolioApiData?.description + postPortfolioApiData?.description.slice(0, 200),
+                  firstSubtitle:
+                    postPortfolioApiData?.description +
+                    postPortfolioApiData?.description.slice(0, 200),
                 }}
                 className={"prtfolioItem"}
               />
@@ -150,9 +160,9 @@ const PortfolioItem = () => {
           >
             {postPortfolioApi &&
               getRandomValuesFromArray(postPortfolioApi?.data_list, 3)?.map(
-                (project, i) =>
-                  <OurProjectCard
-                    onClick={() => handleClick('/portfolio', project.slug)}
+                (project, i) => (
+                  <PortfolioCard
+                    onClick={() => handleClick("/portfolio", project.slug)}
                     key={i}
                     component="portfolioItem"
                     name={project.title}
@@ -160,10 +170,15 @@ const PortfolioItem = () => {
                     more={project == "more"}
                     images={project?.technology_logos}
                   />
+                )
               )}
           </Row>
           <Row className={styles.buttonWrapper}>
-            <Button icon={arrow} text="Go Back to Portfolio" onClick={() => handleClick('/portfolio', '')} />
+            <Button
+              icon={arrow}
+              text="Go Back to Portfolio"
+              onClick={() => handleClick("/portfolio", "")}
+            />
           </Row>
           <Row className={styles.knowMoreSection}>
             <WhatToKnow

@@ -134,11 +134,11 @@
         }
 
         p {
-          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
         }
 
         li {
-          @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32));
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
         }
 
         strong {

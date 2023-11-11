@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { Col, Row } from "../../atoms";
 import elipse from "../../../assets/img/Ellipse.png";
-import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import Button from "../../molecules/button/Button";
 
 import styles from "./Portfolios.module.scss";
+import PortfolioCard from "../../molecules/portfolioCard/PortfolioCard";
 
 const Portfolios = ({ data }) => {
   const router = useRouter();
@@ -85,7 +85,7 @@ const Portfolios = ({ data }) => {
         {data &&
           portfolioData &&
           [...portfolioData]?.map((project, i) => (
-            <OurProjectCard
+            <PortfolioCard
               onClick={() => handleClick(project.slug)}
               key={i}
               more={project == "more"}

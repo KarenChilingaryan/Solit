@@ -1,7 +1,7 @@
 @use "../../base/variables";
 @import "../../base/mixins";
 
-@mixin generate-our-project-styles {
+@mixin generate-portfolio-card-styles {
   .mainWrapper {
     height: calcVW(320);
     @include flex(center, center, center);
@@ -76,26 +76,12 @@
             object-fit: cover;
           }
         }
-
-        .blogDescription {
-          text-align: start;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical;
-        }
       }
 
       &:hover {
         transition: all 0.4s;
         height: calcVW(420);
         box-shadow: 0 42px 98px -42px #7811fe;
-
-        .blogsPadding {
-          padding: calcVW(16) !important;
-          align-items: flex-start;
-        }
 
         .img {
           transition: all 0.4s;
@@ -117,15 +103,6 @@
             );
           }
 
-          .blogDescription {
-            @include font-style(
-              getOurProjectCardSizes(project-name-hover-fz),
-              variables.$fw-500,
-              getOurProjectCardSizes(project-name-hover-lh),
-              #fff
-            );
-          }
-
           .stacks {
             transition: 0.4s;
             justify-content: center;
@@ -139,10 +116,6 @@
           }
         }
       }
-    }
-
-    .home {
-      width: calcVW(296);
     }
 
     .portfolio,
@@ -177,72 +150,6 @@
     .portfolioItem {
       &:hover {
         box-shadow: none;
-      }
-    }
-
-    .blogs {
-      width: calcVW(405);
-
-      .positionSection {
-        transition: 0.4s;
-        padding: calcVW(16);
-        height: calcVW(76);
-        justify-content: flex-start;
-        gap: calcVW(0);
-        align-items: flex-start;
-        border-radius: 0 0 calcVW(16) calcVW(16);
-
-        .stacks {
-          transition: 0.3s;
-          height: 0;
-        }
-
-        .name {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          height: calcVW(44);
-        }
-      }
-
-      .img {
-        height: calcVW(224);
-      }
-
-      .blogDescription {
-        transition: 0.4s;
-        height: 0;
-        @include font-style(calcVW(18), variables.$fw-400, calcVW(24), #fff);
-        overflow: hidden;
-        text-align: start;
-      }
-
-      &:hover {
-        height: calcVW(400);
-
-        .img {
-          height: calcVW(212);
-        }
-
-        .positionSection {
-          transition: 0.4s;
-          height: calcVW(188);
-          background: rgba(2, 13, 28, 0.73);
-          gap: calcVW(15);
-        }
-
-        .blogDescription {
-          transition: 0.4s;
-          gap: calcVW(16);
-          height: calcVW(96);
-        }
-
-        .stacks {
-          transition: 0.4s;
-          height: calcVW(96);
-        }
       }
     }
 
@@ -291,10 +198,6 @@
           height: calcVWL(420);
           box-shadow: 0 42px 98px -42px #7811fe;
 
-          .blogsPadding {
-            padding: calcVWL(16) !important;
-          }
-
           .img {
             height: calcVWL(306);
           }
@@ -304,10 +207,6 @@
 
             .name {
               @include font-style(calcVWL(18), variables.$fw-700, normal, #fff);
-            }
-
-            .blogDescription {
-              @include font-style(calcVWL(18), variables.$fw-500, normal, #fff);
             }
 
             .stacks {
@@ -320,10 +219,6 @@
             }
           }
         }
-      }
-
-      .home {
-        width: calcVWL(296);
       }
 
       .portfolio,
@@ -349,55 +244,6 @@
           }
         }
       }
-
-      .blogs {
-        width: calcVWL(405);
-
-        .positionSection {
-          padding: calcVWL(16);
-          height: calcVWL(76);
-          border-radius: 0 0 calcVWL(16) calcVWL(16);
-
-          .name {
-            height: calcVWL(44);
-          }
-        }
-
-        .img {
-          height: calcVWL(224);
-        }
-
-        .blogDescription {
-          @include font-style(
-            calcVWL(18),
-            variables.$fw-400,
-            calcVWL(24),
-            #fff
-          );
-        }
-
-        &:hover {
-          height: calcVWL(400);
-
-          .img {
-            height: calcVWL(212);
-          }
-
-          .positionSection {
-            height: calcVWL(188);
-            gap: calcVWL(15);
-          }
-
-          .blogDescription {
-            gap: calcVWL(16);
-            height: calcVWL(96);
-          }
-
-          .stacks {
-            height: calcVWL(96);
-          }
-        }
-      }
     }
 
     @media (max-width: 1024px) {
@@ -416,38 +262,6 @@
         }
       }
 
-      .home {
-        width: calcVWT(200);
-        height: calcVWT(320);
-        border-radius: calcVWT(16);
-
-        .img {
-          height: calcVWT(246);
-        }
-
-        .positionSection {
-          height: calcVWT(66);
-
-          .stacks {
-            column-gap: calcVWT(24);
-            height: 0 !important;
-          }
-
-          .name {
-            @include font-style(
-              calcVWT(18),
-              variables.$fw-700,
-              calcVWT(24),
-              #fff
-            );
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-          }
-        }
-      }
-
       .portfolioItem {
         width: calcVWT(288);
         height: calcVWT(300);
@@ -462,6 +276,7 @@
           border-radius: 0 0 calcVWT(16) calcVWT(16);
 
           .name {
+            height: calcVWT(44);
             @include font-style(
               calcVWT(18),
               variables.$fw-700,
@@ -497,120 +312,10 @@
         }
       }
 
-      .blogs {
-        width: calcVWT(272);
-        height: calcVWT(300);
-
-        .img {
-          height: calcVWT(246);
-        }
-
-        .positionSection {
-          transition: 0.4s;
-          padding: calcVWT(16);
-          justify-content: flex-start;
-          gap: calcVWT(0);
-          align-items: flex-start;
-          height: calcVWT(102);
-          border-radius: 0 0 calcVWT(16) calcVWT(16);
-
-          .stacks {
-            height: 0;
-            overflow: hidden;
-          }
-
-          .name {
-            height: calcVWT(70);
-            -webkit-line-clamp: 3;
-            @include font-style(
-              calcVWT(18),
-              variables.$fw-700,
-              calcVWT(24),
-              #fff
-            );
-            text-align: start;
-          }
-        }
-
-        .blogDescription {
-          @include font-style(
-            calcVWT(18),
-            variables.$fw-500,
-            calcVWT(24),
-            #fff
-          );
-        }
-
-        &:hover {
-          height: calcVWT(356);
-
-          .img {
-            transition: 0.4s;
-            height: calcVWT(142);
-          }
-
-          .positionSection {
-            transition: 0.3s;
-            padding: calcVWT(16);
-            gap: calcVWT(15);
-            background: rgba(2, 13, 28, 0.73);
-            height: calcVWT(214);
-
-            .name {
-              @include font-style(
-                calcVWT(18),
-                variables.$fw-700,
-                calcVWT(24),
-                #fff
-              );
-            }
-
-            .stacks {
-              height: calcVWT(96);
-            }
-          }
-
-          .blogDescription {
-            height: calcVWT(96);
-            overflow: hidden;
-          }
-        }
-      }
-
-      .blogItem {
-        width: calcVWT(304);
-      }
-
       &:hover {
         height: calcVWT(340);
         margin-top: calcVWT(-20);
         margin-bottom: calcVWT(-20);
-
-        .home {
-          width: calcVWT(200);
-          height: calcVWT(360);
-
-          .img {
-            height: calcVWT(246);
-          }
-
-          .positionSection {
-            height: calcVWT(96);
-
-            .stacks {
-              column-gap: calcVWT(24);
-              flex-wrap: nowrap;
-              min-width: max-content;
-              margin-left: calcVWT(-17);
-              height: calcVWT(24) !important;
-
-              .icon {
-                width: calcVWT(24);
-                height: calcVWT(24);
-              }
-            }
-          }
-        }
 
         .portfolio,
         .portfolioItem {
@@ -656,37 +361,6 @@
         }
       }
 
-      .home {
-        border-radius: calcVWM(17);
-        width: calcVWM(163);
-        height: calcVWM(280);
-
-        .img {
-          height: calcVWM(250);
-        }
-
-        .positionSection {
-          height: calcVWM(32);
-
-          .name {
-            @include font-style(
-              calcVWM(10),
-              variables.$fw-700,
-              calcVWM(12),
-              #fff
-            );
-          }
-
-          .stacks {
-            height: 0;
-
-            .icon {
-              height: calcVWM(0);
-            }
-          }
-        }
-      }
-
       .portfolio,
       .portfolioItem {
         border-radius: calcVWM(17);
@@ -700,133 +374,21 @@
         .positionSection {
           height: calcVWM(30);
 
-          .name {
-            @include font-style(
-              calcVWM(10),
-              variables.$fw-700,
-              calcVWM(12),
-              #fff
-            );
-          }
+          // .name {
+          //   @include font-style(
+          //     calcVWM(10),
+          //     variables.$fw-700,
+          //     calcVWM(12),
+          //     #fff
+          //   );
+          // }
         }
-      }
-
-      .blogs {
-        border-radius: calcVWM(16);
-        width: 100%;
-        height: calcVWM(300);
-
-        .img {
-          height: calcVWM(246);
-          max-height: calcVWM(198);
-        }
-
-        .positionSection {
-          transition: 0.4s;
-          padding: calcVWM(16);
-          gap: calcVWM(0);
-          height: calcVWM(102);
-          border-radius: 0 0 calcVWM(16) calcVWM(16);
-
-          .stacks {
-            height: 0;
-            overflow: hidden;
-          }
-
-          .name {
-            height: calcVWM(71);
-            -webkit-line-clamp: 3;
-            @include font-style(
-              calcVWM(18),
-              variables.$fw-700,
-              calcVWM(24),
-              #fff
-            );
-          }
-        }
-
-        .blogDescription {
-          @include font-style(
-            calcVWM(18),
-            variables.$fw-500,
-            calcVWM(24),
-            #fff
-          );
-        }
-
-        &:hover {
-          height: calcVWM(380);
-
-          .img {
-            transition: 0.4s;
-            height: calcVWM(166);
-          }
-
-          .positionSection {
-            transition: 0.3s;
-            padding: calcVWM(16);
-            gap: calcVWM(15);
-            background: rgba(2, 13, 28, 0.73);
-            height: calcVWM(214);
-
-            .name {
-              @include font-style(
-                calcVWM(18),
-                variables.$fw-700,
-                calcVWM(24),
-                #fff
-              );
-            }
-
-            .stacks {
-              height: calcVWM(96);
-            }
-          }
-
-          .blogDescription {
-            height: calcVWM(96);
-          }
-        }
-      }
-
-      .blogItem {
-        width: 100%;
       }
 
       &:hover {
         height: calcVWM(280);
         margin-top: calcVWM(0);
         margin-bottom: calcVWM(0);
-
-        .home {
-          width: calcVWM(163);
-          height: calcVWM(280);
-
-          .img {
-            height: calcVWM(218);
-          }
-
-          .positionSection {
-            height: calcVWM(70);
-            padding: calcVWM(7) 0;
-
-            .name {
-              margin: auto;
-            }
-
-            .stacks {
-              column-gap: calcVWM(20);
-              flex-wrap: nowrap;
-              min-width: max-content;
-              height: calcVWM(22) !important;
-
-              .icon {
-                width: calcVWM(22);
-                height: calcVWM(22);
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -844,8 +406,7 @@
         }
       }
 
-      .portfolio,
-      .portfolioItem {
+      .portfolio {
         .positionSection {
           padding: 0 calcVWT(16);
           display: flex;
@@ -855,8 +416,7 @@
       }
 
       &:hover {
-        .portfolio,
-        .portfolioItem {
+        .portfolio {
           .img {
             height: calcVWT(306) !important;
           }
@@ -950,34 +510,8 @@
       }
     }
 
-    .mainWrapper-blogs {
-      transition: 0.4s;
-      height: calcVWT(300);
-      border-radius: calcVWT(16);
-
-      &:hover {
-        transition: 0.4s;
-        height: calcVWT(356);
-      }
-
-      @media (max-width: 1024px) {
-        &:hover {
-          margin-top: calcVWT(-30);
-          margin-bottom: calcVWT(-40);
-        }
-      }
-
-      @media (max-width: 576px) {
-        height: calcVWM(300);
-        border-radius: calcVWM(16);
-
-        &:hover {
-          height: calcVWM(380);
-        }
-      }
-    }
-
     .mainWrapper-portfolioItem {
+      transition: all 0.4s;
       height: calcVWT(400) !important;
       margin-top: calcVWT(0) !important;
       margin-bottom: calcVWT(0) !important;
@@ -988,7 +522,6 @@
         }
       }
 
-      .portfolio,
       .portfolioItem {
         .positionSection {
           padding: 0 calcVWT(16);
@@ -999,7 +532,6 @@
       }
 
       &:hover {
-        .portfolio,
         .portfolioItem {
           .img {
             height: calcVWT(306) !important;

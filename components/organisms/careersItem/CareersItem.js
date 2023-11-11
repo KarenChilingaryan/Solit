@@ -34,6 +34,10 @@ const CareersComponent = () => {
   const [copy, setCopy] = useState('');
   const [top, setTop] = useState(0);
 
+  const goBack = () => {
+    router.back();
+  };
+
   const dispatch = useDispatch();
   const [postsCareersJobOpeningApiData, setPostsCareersJobOpeningApiData] =
     useState(null);
@@ -146,7 +150,7 @@ const CareersComponent = () => {
                   {copy}
                 </div>
               }
-              <Image src={copyImage} width={20} height={20} onClick={() => { copyText() }} />
+              <Image src={copyImage} width={20} height={20} onClick={() => { copyText() }} alt=""/>
               {window?.location.href}
             </div>
           </div>
@@ -179,9 +183,9 @@ const CareersComponent = () => {
             />
             <div className={styles.backSection}>
               <div className={styles.back}>
-                <Link href="/careers">
+                <span onClick={goBack}>
                   <Image src={back} alt="back" /> <span>{`Back ${isMobile ? '' : 'to all jobs'}`}</span>
-                </Link>
+                </span>
               </div>
               <div className={styles.share} onClick={() => setOpenShareModal(true)}>
                 <span>Share</span>
