@@ -17,21 +17,26 @@ import SuccessModal from "../../organisms/successModal/SuccessModal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
-import { LinkedinShareButton, TelegramShareButton, WhatsappShareButton } from "react-share";
+import {
+  LinkedinShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+} from "react-share";
 import { Modal, Tooltip } from "antd";
 import Button from "../../molecules/button/Button";
 
 import styles from "./careersItem.module.scss";
 
 const CareersComponent = () => {
-  const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
-  const router = useRouter()
+  const { breadcrumbElements, setBreadcrumbElements } =
+    useContext(BreadcrumbContext);
+  const router = useRouter();
   const { id } = router.query;
   const [openData, setOpenData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [openShareModal, setOpenShareModal] = useState(false);
-  const [copy, setCopy] = useState('');
+  const [copy, setCopy] = useState("");
   const [top, setTop] = useState(0);
 
   const goBack = () => {
@@ -67,22 +72,24 @@ const CareersComponent = () => {
         await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-      setOpenData(null)
+      setOpenData(null);
       setTimeout(() => {
         setOpenSuccess(false);
-        setClose()
+        setClose();
       }, 3000);
-    } catch { }
+    } catch {}
   };
 
   useEffect(() => {
     if (postsCareersJobOpeningApiData && breadcrumbElements) {
-      const newBred = [...breadcrumbElements?.slice(0, 3)]
-      newBred[2] = { name: postsCareersJobOpeningApiData.breadcrumb, link: '/' };
-      setBreadcrumbElements(newBred)
+      const newBred = [...breadcrumbElements?.slice(0, 3)];
+      newBred[2] = {
+        name: postsCareersJobOpeningApiData.breadcrumb,
+        link: "/",
+      };
+      setBreadcrumbElements(newBred);
     }
-  }, [postsCareersJobOpeningApiData])
-
+  }, [postsCareersJobOpeningApiData]);
 
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 576); // Adjust the threshold as per your requirements
@@ -103,78 +110,105 @@ const CareersComponent = () => {
 
   const copyText = async () => {
     await navigator.clipboard.writeText(window.location.href);
-    setCopy('copied!')
+    setCopy("copied!");
     setTimeout(() => {
-      setCopy('')
-    }, 1000)
-  }
+      setCopy("");
+    }, 1000);
+  };
 
   useEffect(() => {
-    const next = document.getElementById("__next")
+    const next = document.getElementById("__next");
     if (!!openData) {
-      setTop(window.scrollY)
-      next.style.top = `-${window.scrollY}px`
-      next.style.width = `100%`
+      setTop(window.scrollY);
+      next.style.top = `-${window.scrollY}px`;
+      next.style.width = `100%`;
       next.style.position = `fixed`;
     }
-  }, [openData])
+  }, [openData]);
 
   const setClose = () => {
-    const next = document.getElementById("__next")
+    const next = document.getElementById("__next");
     next.style.position = `inherit`;
     window.scrollTo(0, top);
     setTop(0);
-  }
+  };
 
   return (
     <div className={styles.careerPage}>
-      <Modal open={openShareModal} onCancel={() => setOpenShareModal(false)} footer={<></>} className="share-careers">
-        {socialData &&
+      <Modal
+        open={openShareModal}
+        onCancel={() => setOpenShareModal(false)}
+        footer={<></>}
+        className="share-careers"
+      >
+        {socialData && (
           <div className={styles.shareButtons}>
             <div>
-              <Paragraph className={styles.title}>Share this job position</Paragraph>
-              <Paragraph className={styles.description}>{postsCareersJobOpeningApiData?.html_h1_tag}</Paragraph>
+              <Paragraph className={styles.title}>
+                Share this job position
+              </Paragraph>
+              <Paragraph className={styles.description}>
+                {postsCareersJobOpeningApiData?.html_h1_tag}
+              </Paragraph>
             </div>
             <TelegramShareButton url={socialData.contact[2].link}>
-              <Button transparentBlue text="Share on telegram" icon={socialData.contact[2].logo} />
+              <Button
+                transparentBlue
+                text="Share on telegram"
+                icon={socialData.contact[2].logo}
+              />
             </TelegramShareButton>
             <WhatsappShareButton url={socialData.contact[1].link}>
-              <Button transparentBlue text="Share on Whatsapp" icon={socialData.contact[1].logo} />
+              <Button
+                transparentBlue
+                text="Share on Whatsapp"
+                icon={socialData.contact[1].logo}
+              />
             </WhatsappShareButton>
             <LinkedinShareButton url={socialData.contact[0].link}>
-              <Button transparentBlue text="Share on Linkedin" icon={socialData.contact[0].logo} />
+              <Button
+                transparentBlue
+                text="Share on Linkedin"
+                icon={socialData.contact[0].logo}
+              />
             </LinkedinShareButton>
             <div className={styles.shareLink}>
-              {copy &&
-                <div className={styles.copyButtonTooltip}>
-                  {copy}
-                </div>
-              }
-              <Image src={copyImage} width={20} height={20} onClick={() => { copyText() }} alt=""/>
+              {copy && <div className={styles.copyButtonTooltip}>{copy}</div>}
+              <Image
+                src={copyImage}
+                width={20}
+                height={20}
+                onClick={() => {
+                  copyText();
+                }}
+                alt=""
+              />
               {window?.location.href}
             </div>
           </div>
-        }
+        )}
       </Modal>
       <SeoCard
-        details={
-          {
-            pageDescription: postsCareersJobOpeningApiData?.meta_description,
-            pageKeyWords: postsCareersJobOpeningApiData?.meta_keywords,
-            pageUrl: websiteUrl + router.asPath,
-            title: postsCareersJobOpeningApiData?.meta_title,
-          }
-        }
+        details={{
+          pageDescription: postsCareersJobOpeningApiData?.meta_description,
+          pageKeyWords: postsCareersJobOpeningApiData?.meta_keywords,
+          pageUrl: websiteUrl + router.asPath,
+          title: postsCareersJobOpeningApiData?.meta_title,
+        }}
       />
-      <SuccessModal open={openSuccess} setOpen={
-        (e) => {
-          setClose()
-          setOpenSuccess(e)
-        }} />
+      <SuccessModal
+        open={openSuccess}
+        setOpen={(e) => {
+          setClose();
+          setOpenSuccess(e);
+        }}
+      />
       <HomeMainWithImage firstImage={imageBG}>
         <div className={styles.content}>
           <div className={styles.bottomBlock}>
-            <h1 className={styles.h1Title}>{postsCareersJobOpeningApiData?.html_h1_tag}</h1>
+            <h1 className={styles.h1Title}>
+              {postsCareersJobOpeningApiData?.html_h1_tag}
+            </h1>
             <div
               className={styles.blockItemImage}
               dangerouslySetInnerHTML={{
@@ -184,10 +218,14 @@ const CareersComponent = () => {
             <div className={styles.backSection}>
               <div className={styles.back}>
                 <span onClick={goBack}>
-                  <Image src={back} alt="back" /> <span>{`Back ${isMobile ? '' : 'to all jobs'}`}</span>
+                  <Image src={back} alt="back" />{" "}
+                  <span>{`Back ${isMobile ? "" : "to all jobs"}`}</span>
                 </span>
               </div>
-              <div className={styles.share} onClick={() => setOpenShareModal(true)}>
+              <div
+                className={styles.share}
+                onClick={() => setOpenShareModal(true)}
+              >
                 <span>Share</span>
                 <Image src={share} alt="share" />
               </div>
@@ -236,25 +274,25 @@ const CareersComponent = () => {
             </Row>
           </div>
         </div>
-        {openData &&
+        {openData && (
           <ModalWrapper
-            classname={'modalApplyNowForm'}
+            classname={"modalApplyNowForm"}
             open={!!openData}
             width={
               isMobile <= 1024 && isMobile > 576
                 ? "52vw"
                 : isMobile > 1024 && isMobile <= 1440
-                  ? "37vw"
-                  : "28vw"
+                ? "37vw"
+                : "28vw"
             }
             setOpen={(e) => {
-              setClose()
-              setOpenData(e)
+              setClose();
+              setOpenData(e);
             }}
           >
             <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
           </ModalWrapper>
-        }
+        )}
       </HomeMainWithImage>
     </div>
   );
