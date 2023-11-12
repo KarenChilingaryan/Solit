@@ -560,11 +560,11 @@
           .positionSection {
             border-radius: 0 0 calcVWT(16) calcVWT(16);
             height: calcVWM(54) !important;
-            padding: 0 calcVWM(16);
+            padding: 0 calcVWM(16) !important;
 
             .name {
               transition: 0.4s;
-              height: calcVWM(70);
+              height: calcVWM(54);
               @include font-style(calcVWM(18) !important,
                 variables.$fw-700 !important,
                 calcVWM(22) !important,
@@ -602,7 +602,6 @@
 
               .name {
                 transition: 0.4s;
-                height: 0;
               }
             }
           }
