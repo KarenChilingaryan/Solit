@@ -34,8 +34,6 @@ const PortfolioItem = () => {
     (state) => state?.postPortfolioApi?.queries?.["posts(undefined)"]?.data
   );
 
-  const [randomArray, setRandomArray] = useState([]);
-
   const handleClick = (page, slug) => {
     router.push(`${page}/${slug}`);
   };
