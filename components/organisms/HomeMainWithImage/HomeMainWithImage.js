@@ -202,18 +202,15 @@ const HomeMainWithImage = ({
   }, []);
 
   useEffect(() => {
-    const lastBreadcrumb = document.getElementById("last-breadcrumb");
+    const lastBreadcrumb = document.getElementById("last-breadcrumb")?.children[0];
     if (lastBreadcrumb) {
-      lastBreadcrumb.scrollIntoView({
+      lastBreadcrumb.scroll({
+        left: 1000,
         behavior: "smooth",
-        block: "end",
-        inline: "end",
       });
     }
   }, [breadcrumbElements]);
 
-  console.log(mainContainer?.current?.offsetHeight);
-  // console.log(window);
   return (
     <div className={`${styles.content} ${styles[className]}`} ref={refContent}>
       {seoData && (
@@ -229,14 +226,14 @@ const HomeMainWithImage = ({
       {breadcrumbElements?.length > 1 && (
         <div ref={containerRef} className={styles.scrollContainer}>
           <Breadcrumb
-            className={styles.breadcrumb}
+            className={`${styles.breadcrumb} last-breadcrumb`}
+            id="last-breadcrumb"
             separator={<Image src={rughtRow} width={24} height={24} alt="" />}
           >
             {breadcrumbElements.map((el, index) => (
               <Breadcrumb.Item
                 href={el.link}
                 key={index}
-                id={index == breadcrumbElements.length - 1 && "last-breadcrumb"}
               >
                 {el.name}
               </Breadcrumb.Item>

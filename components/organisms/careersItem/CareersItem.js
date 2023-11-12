@@ -40,6 +40,7 @@ const CareersComponent = () => {
   const [top, setTop] = useState(0);
 
   const goBack = () => {
+    localStorage.setItem('fromJob', true)
     router.back();
   };
 

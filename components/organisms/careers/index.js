@@ -141,6 +141,13 @@ const Careers = () => {
     setTop(0);
   }
 
+  useEffect(() => {
+    if (localStorage.getItem('fromJob')) {
+      document.getElementById("to-jobs").scrollIntoView();
+      localStorage.removeItem('fromJob')
+    }
+  }, [])
+
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">
       <SuccessModal open={openSuccess} setOpen={(e) => {
@@ -180,7 +187,7 @@ const Careers = () => {
             />
           ))}
         </div>
-        <div className={styles.secondInfo}>
+        <div className={styles.secondInfo} id="to-jobs">
           <div className={styles.secondTitle}>
             {careersJobOpeningApi?.data_text[0].title}
           </div>

@@ -138,19 +138,24 @@
       background-color: #1c2844;
 
       .back {
+        cursor: pointer;
+
         a {
           display: flex;
           align-items: center;
           gap: calcVW(10);
+        }
 
-          span {
-            @include font-style(calcVW(20), variables.$fw-500, calcVW(32));
-          }
+        span {
+          @include font-style(calcVW(20), variables.$fw-500, calcVW(32));
+          display: flex;
+          align-items: center;
+          column-gap: calcVW(8);
+        }
 
-          img {
-            width: calcVW(24);
-            height: calcVW(24);
-          }
+        img {
+          width: calcVW(24);
+          height: calcVW(24);
         }
       }
 
@@ -282,14 +287,16 @@
           a {
             gap: calcVWL(10);
 
-            span {
-              @include font-style(calcVWL(20), variables.$fw-500, calcVWL(32));
-            }
+          }
 
-            img {
-              width: calcVWL(24);
-              height: calcVWL(24);
-            }
+          span {
+            @include font-style(calcVWL(20), variables.$fw-500, calcVWL(32));
+            column-gap: calcVWL(8);
+          }
+
+          img {
+            width: calcVWL(24);
+            height: calcVWL(24);
           }
         }
 
@@ -413,15 +420,16 @@
         .back {
           a {
             gap: calcVWT(10);
+          }
 
-            span {
-              @include font-style(calcVWT(20), variables.$fw-500, calcVWT(32));
-            }
+          span {
+            @include font-style(calcVWT(20), variables.$fw-500, calcVWT(32));
+            column-gap: calcVWT(8);
+          }
 
-            img {
-              width: calcVWT(24);
-              height: calcVWT(24);
-            }
+          img {
+            width: calcVWT(24);
+            height: calcVWT(24);
           }
         }
 
@@ -547,15 +555,16 @@
         .back {
           a {
             gap: calcVWM(10);
+          }
 
-            span {
-              @include font-style(calcVWM(20), variables.$fw-500, calcVWM(32));
-            }
+          span {
+            @include font-style(calcVWM(20), variables.$fw-500, calcVWM(32));
+            column-gap: calcVWM(8);
+          }
 
-            img {
-              width: calcVWM(18);
-              height: calcVWM(18);
-            }
+          img {
+            width: calcVWM(18);
+            height: calcVWM(18);
           }
         }
 
