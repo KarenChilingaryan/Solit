@@ -29,12 +29,10 @@
         display: flex;
         gap: 10px;
         align-items: center;
-        @include font-style(
-          getOurProjectCardSizes(team-member-position-fz),
+        @include font-style(getOurProjectCardSizes(team-member-position-fz),
           variables.$fw-700,
           getOurProjectCardSizes(team-member-position-lh),
-          #219fdb
-        );
+          #219fdb);
 
         img {
           width: calcVW(18);
@@ -95,12 +93,10 @@
           background: rgba(2, 13, 28);
 
           .name {
-            @include font-style(
-              getOurProjectCardSizes(project-name-hover-fz),
+            @include font-style(getOurProjectCardSizes(project-name-hover-fz),
               variables.$fw-700,
               getOurProjectCardSizes(project-name-hover-lh),
-              #fff
-            );
+              #fff);
           }
 
           .stacks {
@@ -128,6 +124,7 @@
         row-gap: calcVW(0);
         justify-content: space-around;
         border-radius: 0 0 calcVW(16) calcVW(16);
+
         .name {
           height: calcVWL(18);
           flex-direction: column;
@@ -168,12 +165,10 @@
 
         .more {
           gap: 10px;
-          @include font-style(
-            calcVWL(18),
+          @include font-style(calcVWL(18),
             variables.$fw-700,
             calcVWL(24),
-            #219fdb
-          );
+            #219fdb);
 
           img {
             width: calcVWL(18);
@@ -229,6 +224,7 @@
           height: calcVWL(56);
           row-gap: calcVWL(0);
           border-radius: 0 0 calcVWL(16) calcVWL(16);
+
           .name {
             height: calcVWL(18);
             flex-direction: column;
@@ -277,12 +273,10 @@
 
           .name {
             height: calcVWT(44);
-            @include font-style(
-              calcVWT(18),
+            @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(24),
-              #fff
-            );
+              #fff);
           }
         }
       }
@@ -302,12 +296,10 @@
 
           .name {
             height: calcVWT(44);
-            @include font-style(
-              calcVWT(18),
+            @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(24),
-              #fff
-            );
+              #fff);
           }
         }
       }
@@ -467,12 +459,10 @@
 
             .name {
               height: calcVWM(40);
-              @include font-style(
-                calcVWM(18) !important,
+              @include font-style(calcVWM(18) !important,
                 variables.$fw-700 !important,
                 calcVWM(22) !important,
-                #fff
-              );
+                #fff);
             }
           }
         }
@@ -526,7 +516,7 @@
           padding: 0 calcVWT(16);
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: space-around;
         }
       }
 
@@ -570,14 +560,15 @@
           .positionSection {
             border-radius: 0 0 calcVWT(16) calcVWT(16);
             height: calcVWM(54) !important;
+            padding: 0 calcVWM(16);
 
             .name {
-              @include font-style(
-                calcVWM(18) !important,
+              transition: 0.4s;
+              height: calcVWM(70);
+              @include font-style(calcVWM(18) !important,
                 variables.$fw-700 !important,
                 calcVWM(22) !important,
-                #fff
-              );
+                #fff);
             }
           }
         }
@@ -607,6 +598,11 @@
                   width: calcVWM(22) !important;
                   height: calcVWM(22) !important;
                 }
+              }
+
+              .name {
+                transition: 0.4s;
+                height: 0;
               }
             }
           }
