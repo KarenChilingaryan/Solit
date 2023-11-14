@@ -82,21 +82,6 @@
             }
           }
         }
-        //remove later
-        // .menuItemTitle:has(span) {
-        //   &:hover {
-        //     border-bottom: none !important;
-
-        //     // span {
-        //     //   // border-bottom: 2px solid variables.$light-blue;
-        //     // }
-
-        //     img {
-        //       filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg)
-        //         brightness(90%) contrast(89%);
-        //     }
-        //   }
-        // }
 
         .menuItemTitleActive {
           color: variables.$white !important;
@@ -893,7 +878,7 @@
         }
 
         .menuItem {
-          row-gap: calcVWM(16);
+          row-gap: calcVWM(22);
           width: 100% !important;
           margin: 0 !important;
 
