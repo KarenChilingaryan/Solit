@@ -86,6 +86,7 @@
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       width: calcVWL(1280);
       margin: calcVWL(478) auto 0 auto;
+      align-items: center;
     }
 
     @media (max-width: 1024px) {
