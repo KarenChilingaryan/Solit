@@ -261,7 +261,7 @@ const DiscussProject = () => {
       setOpen(false);
       setLiveStacks([]);
       return true;
-    } catch {}
+    } catch { }
   };
 
   const setValueinForm = (val) => {
@@ -279,7 +279,7 @@ const DiscussProject = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setTimeout(()=>{
+      setTimeout(() => {
         setIsSSR(true);
       }, 1000)
     }
@@ -419,9 +419,8 @@ const DiscussProject = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${
-                  asPath == "/discuss-project" && styles.currentStageDiscuss
-                } ${styles.buttons}`}
+                className={`${asPath == "/discuss-project" && styles.currentStageDiscuss
+                  } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -447,13 +446,12 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form
+                          className={`${styles.clickableOption} ${form
                               .getFieldsValue()
                               .applicationType?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -482,11 +480,10 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().currentStage?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -516,11 +513,10 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -550,11 +546,10 @@ const DiscussProject = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().industry?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry
                             value={item}
