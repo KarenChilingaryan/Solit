@@ -269,7 +269,7 @@ const DiscussProjectStack = () => {
         form.resetFields();
       }, 3000);
       return true;
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
@@ -332,7 +332,9 @@ const DiscussProjectStack = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setIsSSR(true);
+      setTimeout(() => {
+        setIsSSR(true);
+      }, 1000)
     }
   }, []);
 
@@ -467,10 +469,9 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${
-                  asPath == "/discuss-project-stack" &&
+                className={`${asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                } ${styles.buttons}`}
+                  } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -556,11 +557,10 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry
                             value={item}
