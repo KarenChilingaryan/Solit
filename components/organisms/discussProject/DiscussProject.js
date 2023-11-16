@@ -279,7 +279,9 @@ const DiscussProject = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setIsSSR(true);
+      setTimeout(()=>{
+        setIsSSR(true);
+      }, 1000)
     }
   }, []);
 
@@ -300,7 +302,6 @@ const DiscussProject = () => {
     setTop(0);
   };
 
-  useEffect(() => {}, []);
   return (
     <HomeMainWithImage
       firstImage={bgImage}
