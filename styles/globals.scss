@@ -214,6 +214,7 @@ textarea::-webkit-scrollbar-thumb {
       @media (max-width: 576px) {
         font-size: calcVWM(10) !important;
         padding: calcVWM(10) !important;
+        margin: 0 calcVWM(10);
       }
     }
   }
