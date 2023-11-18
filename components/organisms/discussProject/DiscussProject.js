@@ -392,7 +392,7 @@ const DiscussProject = () => {
             />
           </ModalWrapper>
         )}
-        {!open && !modalOpen && liveStacks?.length && !closeFooterStack && (
+        {!open && !modalOpen && liveStacks?.length && !closeFooterStack ? (
           <StackFooter
             liveStacks={liveStacks}
             handleDelete={(item) => handleDelete(item)}
@@ -401,6 +401,8 @@ const DiscussProject = () => {
               setCloseFooterStack(true);
             }}
           />
+        ) : (
+          <></>
         )}
         <div className={styles.content}>
           <div className={styles.mainTitle}>

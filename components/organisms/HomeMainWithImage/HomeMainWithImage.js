@@ -35,12 +35,20 @@ const HomeMainWithImage = ({
   const dispatch = useDispatch();
   const [isTablet, setIsTablet] = useState(0);
   const percentsSecond = [
-    1550 * (isTablet > 1440 ? 1.045 - (1 - 1920 / isTablet) / 50 : 1 - (1 - 1440 / isTablet) / 40),
+    1550 *
+      (isTablet > 1440
+        ? 1.045 - (1 - 1920 / isTablet) / 50
+        : 1 - (1 - 1440 / isTablet) / 40),
     1300 * (isTablet > 1440 ? 1.038 : 1),
     1296 * (isTablet > 1440 ? 1.038 - (1 - 1920 / isTablet) / 50 : 1),
-    1382 * (isTablet > 1440 ? 1.043 : isTablet <= 1024 ? 1.197 : 1),
-  ];
-
+    1382 *
+      (isTablet > 1440
+        ? 1.043 + (1 - 1920 / isTablet) / 30
+        : isTablet <= 1024
+        ? 1.197 - (1 - 1024 / isTablet) / (250): 
+        isTablet == 1025 || isTablet  == 1026 ? 1.002
+        : 0.999 + (1 - 1440 / isTablet) / (50))
+      ];
   const { breadcrumbElements, setBreadcrumbElements } =
     useContext(BreadcrumbContext);
 
@@ -202,7 +210,8 @@ const HomeMainWithImage = ({
   }, []);
 
   useEffect(() => {
-    const lastBreadcrumb = document.getElementById("last-breadcrumb")?.children[0];
+    const lastBreadcrumb =
+      document.getElementById("last-breadcrumb")?.children[0];
     if (lastBreadcrumb) {
       lastBreadcrumb.scroll({
         left: 1000,
@@ -231,10 +240,7 @@ const HomeMainWithImage = ({
             separator={<Image src={rughtRow} width={24} height={24} alt="" />}
           >
             {breadcrumbElements.map((el, index) => (
-              <Breadcrumb.Item
-                href={el.link}
-                key={index}
-              >
+              <Breadcrumb.Item href={el.link} key={index}>
                 {el.name}
               </Breadcrumb.Item>
             ))}
@@ -258,13 +264,13 @@ const HomeMainWithImage = ({
                       alt="image"
                       style={{
                         ...(className == "portfolioItem" &&
-                          percents["percent" + i] &&
-                          percents["percent" + i] + 25 > 0 &&
-                          percents["percent" + i] - percentsSecond[i] < -20
+                        percents["percent" + i] &&
+                        percents["percent" + i] + 25 > 0 &&
+                        percents["percent" + i] - percentsSecond[i] < -20
                           ? {
-                            filter:
-                              "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
-                          }
+                              filter:
+                                "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                            }
                           : {}),
                       }}
                     />
@@ -272,26 +278,29 @@ const HomeMainWithImage = ({
                       className={styles.text}
                       style={{
                         ...(className == "portfolioItem" &&
-                          percents["percent" + i] >= 0 &&
-                          percents["percent" + i] - percentsSecond[i] < 0
+                        percents["percent" + i] >= 0 &&
+                        percents["percent" + i] - percentsSecond[i] < 0
                           ? {
-                            backgroundImage: `linear-gradient(to right, black ${percents["percent" + i]
+                              backgroundImage: `linear-gradient(to right, black ${
+                                percents["percent" + i]
                               }%, white ${percents["percent" + i]}%)`,
-                            backgroundClip: "text",
-                            "-webkit-background-clip": "text",
-                            color: "transparent",
-                          }
-                          : className == "portfolioItem" &&
-                            percents["percent" + i] > 100
-                            ? {
-                              backgroundImage: `linear-gradient(to right, white ${percents["percent" + i] - percentsSecond[i]
-                                }%, black ${percents["percent" + i] - percentsSecond[i]
-                                }%)`,
                               backgroundClip: "text",
                               "-webkit-background-clip": "text",
                               color: "transparent",
                             }
-                            : {
+                          : className == "portfolioItem" &&
+                            percents["percent" + i] > 100
+                          ? {
+                              backgroundImage: `linear-gradient(to right, white ${
+                                percents["percent" + i] - percentsSecond[i]
+                              }%, black ${
+                                percents["percent" + i] - percentsSecond[i]
+                              }%)`,
+                              backgroundClip: "text",
+                              "-webkit-background-clip": "text",
+                              color: "transparent",
+                            }
+                          : {
                               color: "white",
                             }),
                       }}
@@ -315,23 +324,24 @@ const HomeMainWithImage = ({
               className={styles.text}
               style={{
                 ...(className == "portfolioItem" &&
-                  percents["percent4"] >= 0 &&
-                  percents["percent4"] - percentsSecond[3] < 0
+                percents["percent4"] >= 0 &&
+                percents["percent4"] - percentsSecond[3] < 0
                   ? {
-                    backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
-                    backgroundClip: "text",
-                    "-webkit-background-clip": "text",
-                    color: "transparent",
-                  }
-                  : className == "portfolioItem" && percents["percent4"] > 100
-                    ? {
-                      backgroundImage: `linear-gradient(to right, white ${percents["percent4"] - percentsSecond[3]
-                        }%, black ${percents["percent4"] - percentsSecond[3]}%)`,
+                      backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
                       backgroundClip: "text",
                       "-webkit-background-clip": "text",
                       color: "transparent",
                     }
-                    : {
+                  : className == "portfolioItem" && percents["percent4"] > 100
+                  ? {
+                      backgroundImage: `linear-gradient(to right, white ${
+                        percents["percent4"] - percentsSecond[3]
+                      }%, black ${percents["percent4"] - percentsSecond[3]}%)`,
+                      backgroundClip: "text",
+                      "-webkit-background-clip": "text",
+                      color: "transparent",
+                    }
+                  : {
                       color: "white",
                     }),
               }}
@@ -342,13 +352,13 @@ const HomeMainWithImage = ({
               style={{
                 transform: "rotate(90deg)",
                 ...(className == "portfolioItem" &&
-                  percents["percent4"] &&
-                  percents["percent4"] - 125 > 0 &&
-                  percents["percent4"] - percentsSecond[3] < 133
+                percents["percent4"] &&
+                percents["percent4"] - 125 > 0 &&
+                percents["percent4"] - percentsSecond[3] < 133
                   ? {
-                    filter:
-                      "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
-                  }
+                      filter:
+                        "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                    }
                   : {}),
               }}
               src={rughtRowTop}
