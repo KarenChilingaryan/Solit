@@ -187,7 +187,8 @@ const Careers = () => {
             />
           ))}
         </div>
-        <div className={styles.secondInfo} id="to-jobs">
+        <div id="to-jobs"></div>
+        <div className={styles.secondInfo}>
           <div className={styles.secondTitle}>
             {careersJobOpeningApi?.data_text[0].title}
           </div>
