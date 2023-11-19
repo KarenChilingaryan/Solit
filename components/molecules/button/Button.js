@@ -1,6 +1,7 @@
 import { memo, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
+import { Spin } from "antd";
 import cx from "classnames";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import SuccessModal from "../../organisms/successModal/SuccessModal";
@@ -24,6 +25,7 @@ const Button = ({
   classN,
   onClick,
   type = "button",
+  disabled = false,
 }) => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
@@ -86,6 +88,7 @@ const Button = ({
   return (
     <>
       <button
+        disabled={disabled}
         className={`${cx(styles.button, {
           [styles.whiteButton]: whiteButton,
           [styles.boldWhite]: boldWhite,
@@ -110,6 +113,7 @@ const Button = ({
             }
           : {})}
       >
+        {disabled && <Spin size="small" delay={5} />}
         {text}
         {icon && <Image src={icon} alt="image" width={18} height={18} />}
       </button>

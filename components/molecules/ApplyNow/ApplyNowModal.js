@@ -16,13 +16,19 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
   const [file, setFile] = useState(null);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
   const [errorMesssage, setErrorMesssage] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
-  const submitForm = (values) => {
+  const submitForm = async (values) => {
     const formData = {
       ...values,
       ["file_document"]: file,
     };
-    onSubmit(formData);
+    setDisabled(true);
+    try {
+      await onSubmit(formData);
+    } catch {}
+    setDisabled(false);
+
     setFile(null);
     form.resetFields();
   };
@@ -196,7 +202,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
             }`}
             rules={[
               {
-                required: true,
+                required: file ? false : true,
                 message: "CV is required",
               },
             ]}
@@ -271,7 +277,12 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
         </Row>
 
         <Col className={styles.buttonWrapper}>
-          <Button text="Submit" transparentBlue type="submit" />
+          <Button
+            text="Submit"
+            transparentBlue
+            type="submit"
+            disabled={disabled}
+          />
         </Col>
       </Form>
     </Col>

@@ -22,14 +22,20 @@ const ModalLetsTalkForm = ({
   const [file, setFile] = useState(null);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
   const [errorMesssage, setErrorMesssage] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
-  const submitForm = (values, data) => {
+  const submitForm = async (values, data) => {
     const formData = {
       ...values,
       ...(data ? data : {}),
       [from == "apply" ? "file_cv" : "file_document"]: file,
     };
-    onSubmit(formData);
+
+    setDisabled(true);
+    try {
+      await onSubmit(formData);
+    } catch {}
+    setDisabled(false);
     setFile(null);
     form.resetFields();
   };
@@ -206,7 +212,12 @@ const ModalLetsTalkForm = ({
         </Row>
 
         <Col className={styles.buttonWrapper}>
-          <Button text="Submit" transparentBlue type="submit" />
+          <Button
+            text="Submit"
+            transparentBlue
+            type="submit"
+            disabled={disabled}
+          />
         </Col>
       </Form>
     </Col>

@@ -278,6 +278,11 @@ textarea::-webkit-scrollbar-thumb {
   top: 30% !important;
 }
 
+.ant-spin-sm {
+  height: calcVW(14);
+  margin-top: calcVW(-4) !important;
+}
+
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
   .ant-slider-handle {
     width: calcVWL(32) !important;
@@ -330,9 +335,17 @@ textarea::-webkit-scrollbar-thumb {
   .modalApplyNowForm {
     width: calcVWL(602) !important;
   }
+  .ant-spin-sm {
+    height: calcVWL(14);
+    margin-top: calcVWL(-4) !important;
+  }
 }
 
 @media (max-width: 1024px) {
+  .ant-spin-sm {
+    height: calcVWT(14);
+    margin-top: calcVWT(-4) !important;
+  }
   .ant-slider-horizontal {
     margin: calcVWT(79) 0 0 0 !important;
   }
@@ -431,6 +444,10 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 576px) {
+  .ant-spin-sm {
+    height: calcVWM(12);
+    margin-top: calcVWM(0) !important;
+  }
   .ant-slider-horizontal {
     margin: calcVWM(79) 0 0 0 !important;
   }

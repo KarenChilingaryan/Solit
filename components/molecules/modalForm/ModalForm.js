@@ -24,6 +24,7 @@ const ModalForm = ({
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
   const [onChangeCheckboxNDA, setOnChangeCheckboxNDA] = useState(false);
   const [errorMesssage, setErrorMesssage] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   const submitForm = async (values, data) => {
     const formData = {
@@ -31,7 +32,11 @@ const ModalForm = ({
       ...(data ? data : {}),
       file_document: file,
     };
-    await onSubmit(formData);
+    setDisabled(true);
+    try {
+      await onSubmit(formData);
+    } catch {}
+    setDisabled(false);
     form.resetFields();
   };
 
@@ -138,16 +143,24 @@ const ModalForm = ({
                 disabled
                 readOnly={true}
                 suffix={
-                  file ? null : <Image className={styles.suffix} src={upload} alt="image" />
+                  file ? null : (
+                    <Image className={styles.suffix} src={upload} alt="image" />
+                  )
                 }
                 value={file?.name || ""}
               />
             </Upload>
-            {file &&
+            {file && (
               <div className={styles.removeFile}>
-                <Image src={close} width={16} height={16} onClick={() => setFile(null)} />
+                <Image
+                  src={close}
+                  width={16}
+                  height={16}
+                  onClick={() => setFile(null)}
+                  alt=""
+                />
               </div>
-            }
+            )}
           </FormItem>
           <FormItem name="comment">
             <FloatInput label="Comment" placeholder="Comment" name="comment" />
@@ -173,8 +186,9 @@ const ModalForm = ({
             </Select>
           </FormItem>
           <FormItem
-            className={`${styles.accept} ${secondCheckBox && styles.acceptLeft
-              } ${styles[errorMesssage]}`}
+            className={`${styles.accept} ${
+              secondCheckBox && styles.acceptLeft
+            } ${styles[errorMesssage]}`}
             name="accept"
             rules={[
               {
@@ -184,7 +198,6 @@ const ModalForm = ({
             ]}
           >
             <Checkbox
-              required={true}
               name="accept"
               onChange={() => {
                 setOnChangeCheckbox(!onChangeCheckbox);
@@ -197,7 +210,8 @@ const ModalForm = ({
               value={onChangeCheckbox}
             />
             <Row className={styles.acceptText}>
-              I accept your   <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
+              I accept your{" "}
+              <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
             </Row>
           </FormItem>
 
@@ -206,7 +220,7 @@ const ModalForm = ({
             name="acceptNDA"
             rules={[
               {
-                required: false,
+                required: true,
                 message: "NDA is required",
               },
             ]}
@@ -230,7 +244,12 @@ const ModalForm = ({
         </Row>
 
         <Col className={styles.buttonWrapper}>
-          <Button text="Submit" transparentBlue type="submit" />
+          <Button
+            text="Submit"
+            transparentBlue
+            type="submit"
+            disabled={disabled}
+          />
         </Col>
       </Form>
     </Col>

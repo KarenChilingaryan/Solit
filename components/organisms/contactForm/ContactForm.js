@@ -31,6 +31,7 @@ const ContactForm = ({
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
   const [top, setTop] = useState(0);
   const [errorMesssage, setErrorMesssage] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -49,6 +50,7 @@ const ContactForm = ({
     for (const key in data) {
       formData.append(key, data[key]);
     }
+    setDisabled(true);
     try {
       const res = await dispatch(
         await emailApi.endpoints.email.initiate(formData)
@@ -61,6 +63,7 @@ const ContactForm = ({
       form.resetFields();
       setFile(null);
     } catch {}
+    setDisabled(false);
   };
 
   const setRecaptcha = (value) => {
@@ -288,7 +291,12 @@ const ContactForm = ({
           </Row>
 
           <Col className={styles.buttonWrapper}>
-            <Button text="Send message" transparentBlue type="submit" />
+            <Button
+              text="Send message"
+              transparentBlue
+              type="submit"
+              disabled={disabled}
+            />
           </Col>
         </Form>
       </Col>

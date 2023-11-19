@@ -659,6 +659,10 @@
       transition: 0.3s;
     }
 
+    &:disabled {
+      pointer-events: none;
+    }
+    
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       @include font-style(calcVWL(13),
         variables.$fw-700,
