@@ -191,8 +191,18 @@ textarea::-webkit-scrollbar-thumb {
         height: calcVWT(22) !important;
       }
       @media (max-width: 576px) {
+        background: transparent !important;
         height: calcVWM(22) !important;
+        
       }
+    }
+
+    .ant-tooltip-arrow-content {
+      @media (max-width: 576px) {
+        background: transparent !important;
+      &::before{
+        background: transparent !important;
+      }}
     }
 
     .ant-tooltip-inner {
