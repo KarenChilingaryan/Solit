@@ -579,7 +579,7 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="duration" className={styles.slider}>
                     <Slider
-                      min={0}
+                      min={1}
                       defaultValue={1}
                       max={24}
                       tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
