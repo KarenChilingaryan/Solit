@@ -23,6 +23,9 @@ const PricingModal = ({
     return data.filter((item) => item.category === category);
   };
 
+  console.log(stackNamesSecond);
+  console.log(stackNames);
+  console.log(data);
 
   return (
     <Row className={styles.content}>
@@ -37,7 +40,7 @@ const PricingModal = ({
         </Row>
         <Row className={styles.summarySection}>
           <Paragraph className={styles.summary}>
-            Summary of your request:
+            {data && data.length ? "Summary of your request:" : "You haven't chosen additional options."}
           </Paragraph>
 
           {stackNamesSecond &&
@@ -58,10 +61,10 @@ const PricingModal = ({
             </Row>
           }
           <Row className={styles.projType}>
-            {stackNamesSecond &&
+            {stackNamesSecond && data && data.length ?
               <Paragraph className={styles.specialistsTitle}>
                 Specialists selected for your project:
-              </Paragraph>
+              </Paragraph> : <></>
             }
             {stackNames.map((name) =>
               filterDataByCategory(name).map((item, index) => {

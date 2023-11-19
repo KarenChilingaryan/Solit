@@ -218,12 +218,6 @@ const ModalForm = ({
           <FormItem
             className={`${styles.accept}  ${styles[errorMesssage]}`}
             name="acceptNDA"
-            rules={[
-              {
-                required: true,
-                message: "NDA is required",
-              },
-            ]}
           >
             <Checkbox
               name="acceptNDA"
