@@ -340,7 +340,7 @@ const DiscussProjectStack = () => {
 
   useEffect(() => {
     const next = document.getElementById("__next");
-    if ((modalFormData && open) || modalOpen) {
+    if (((modalFormData && open) || modalOpen) && !top) {
       setTop(window.scrollY);
       next.style.top = `-${window.scrollY}px`;
       next.style.width = `100%`;
@@ -558,8 +558,8 @@ const DiscussProjectStack = () => {
                             handleButtonClick("industry", item)
                           }
                           className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                              ? styles.selected
-                              : ""
+                            ? styles.selected
+                            : ""
                             }`}
                         >
                           <Industry
