@@ -23,10 +23,6 @@ const PricingModal = ({
     return data.filter((item) => item.category === category);
   };
 
-  console.log(stackNamesSecond);
-  console.log(stackNames);
-  console.log(data);
-
   return (
     <Row className={styles.content}>
       <Col className={styles.leftContent}>
