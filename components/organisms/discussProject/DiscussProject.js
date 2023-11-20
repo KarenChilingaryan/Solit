@@ -66,8 +66,9 @@ const DiscussProject = () => {
   const [modalOpen, setModalOpen] = useState("");
   const [otherValue, setOtherValue] = useState("");
   const [isSSR, setIsSSR] = useState(false);
+  const [sliderValue, setSliderValue] = useState(4);
   const [top, setTop] = useState(0);
-
+  console.log(sliderValue); 
   const dispatch = useDispatch();
 
   const submitForm = (values, fromDelete = false) => {
@@ -170,6 +171,7 @@ const DiscussProject = () => {
       form.setFieldValue("duration", 1);
     }
   }, []);
+
 
   const handleClear = (field) => {
     const updatedStacks = liveStacks.filter(
@@ -578,6 +580,13 @@ const DiscussProject = () => {
                       min={0}
                       defaultValue={1}
                       max={25}
+                      onChange={(val)=>{
+                        if(val == 0){
+                          form.setFieldValue("duration", 1);
+                        }else if(val == 25){
+                          form.setFieldValue("duration", 24);
+                        }
+                      }}
                       tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
                       marks={{
                         1: "1 month",

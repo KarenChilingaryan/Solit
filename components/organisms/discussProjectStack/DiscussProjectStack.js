@@ -588,6 +588,13 @@ const DiscussProjectStack = () => {
                       max={24}
                       tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
                       open={true}
+                      onChange={(val)=>{
+                        if(val == 0){
+                          form.setFieldValue("duration", 1);
+                        }else if(val == 25){
+                          form.setFieldValue("duration", 24);
+                        }
+                      }}
                     />
                   </FormItem>
                   <Row className={styles.monthsWrapper}>
