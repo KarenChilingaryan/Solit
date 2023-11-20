@@ -585,7 +585,7 @@ const DiscussProjectStack = () => {
                     <Slider
                       min={0}
                       defaultValue={1}
-                      max={24}
+                      max={25}
                       tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
                       open={true}
                       onChange={(val)=>{
