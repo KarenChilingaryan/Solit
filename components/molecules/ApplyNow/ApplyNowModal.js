@@ -248,7 +248,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
           </FormItem>
 
           <FormItem
-            className={`${styles.accept} ${styles[errorMesssage]}`}
+            className={`${styles.accept} ${styles[errorMesssage]} ${styles.fromApply}`}
             name="accept"
             rules={[
               {
