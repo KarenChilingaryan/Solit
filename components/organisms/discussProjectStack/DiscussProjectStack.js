@@ -124,6 +124,7 @@ const DiscussProjectStack = () => {
   const [closeFooterStack, setCloseFooterStack] = useState(false);
   const [isSSR, setIsSSR] = useState(false);
   const [top, setTop] = useState(0);
+  const [tooltip, setTooltip] = useState(true);
 
   const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -269,7 +270,7 @@ const DiscussProjectStack = () => {
         form.resetFields();
       }, 3000);
       return true;
-    } catch { }
+    } catch {}
   };
 
   useEffect(() => {
@@ -334,7 +335,7 @@ const DiscussProjectStack = () => {
     if (typeof window !== "undefined") {
       setTimeout(() => {
         setIsSSR(true);
-      }, 1000)
+      }, 1000);
     }
   }, []);
 
@@ -354,6 +355,24 @@ const DiscussProjectStack = () => {
     window.scrollTo(0, top);
     setTop(0);
   };
+
+  const handleResize = () => {
+    if (tooltip) {
+      setTooltip(false);
+      const timeout = setTimeout(() => {
+        setTooltip(true);
+        clearTimeout(timeout);
+      }, 200);
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <HomeMainWithImage
@@ -469,9 +488,10 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project-stack" &&
+                className={`${
+                  asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -557,10 +577,11 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -582,7 +603,7 @@ const DiscussProjectStack = () => {
                     4. What is the expected duration of your project?
                   </Paragraph>
                   <FormItem name="duration" className={styles.slider}>
-                  <Slider
+                    <Slider
                       min={0}
                       defaultValue={1}
                       max={25}
@@ -591,7 +612,12 @@ const DiscussProjectStack = () => {
                           form.setFieldValue("duration", 1);
                         }
                       }}
-                      tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
+                      tooltip={{
+                        formatter,
+                        ...(isSSR && tooltip
+                          ? { open: true }
+                          : { open: false }),
+                      }}
                       marks={{
                         1: "1 month",
                         6: "6 month",

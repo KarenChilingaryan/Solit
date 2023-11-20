@@ -69,6 +69,7 @@ const DiscussProject = () => {
   const [otherValue, setOtherValue] = useState("");
   const [isSSR, setIsSSR] = useState(false);
   const [top, setTop] = useState(0);
+  const [tooltip, setTooltip] = useState(true);
   const dispatch = useDispatch();
 
   const submitForm = (values, fromDelete = false) => {
@@ -85,6 +86,25 @@ const DiscussProject = () => {
       setOpen(true);
     }
   };
+
+
+  const handleResize = () => {
+    if (tooltip) {
+      setTooltip(false)
+      const timeout = setTimeout(() => {
+        setTooltip(true)
+        clearTimeout(timeout)
+      }, 200)
+    }
+  }
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
     getProjectData(allValues);
@@ -451,13 +471,12 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form
-                              .getFieldsValue()
-                              .applicationType?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form
+                            .getFieldsValue()
+                            .applicationType?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -486,11 +505,10 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().currentStage?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -520,11 +538,10 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -554,11 +571,10 @@ const DiscussProject = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().industry?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -589,7 +605,7 @@ const DiscussProject = () => {
                           form.setFieldValue("duration", 1);
                         }
                       }}
-                      tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
+                      tooltip={{ formatter, ...(isSSR && tooltip ? { open: true } : { open: false }) }}
                       marks={{
                         1: "1 month",
                         6: "6 month",
