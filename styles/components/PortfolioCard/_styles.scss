@@ -445,8 +445,10 @@
           }
 
           .positionSection {
+            transition: all 0.4s;
             border-radius: 0 0 calcVWT(16) calcVWT(16);
             height: calcVWM(54) !important;
+            padding: 0;
 
             .stacks {
               height: 0;
@@ -478,7 +480,9 @@
             }
 
             .positionSection {
+              transition: all 0.4s;
               height: calcVWM(94) !important;
+              padding: calcVWM(10) 0;
 
               .stacks {
                 column-gap: calcVWM(20) !important;

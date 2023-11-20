@@ -31,7 +31,7 @@
       .summarySection {
         @include flex(null, null, column);
         gap: getPricingModal(summary-section-gap);
-        padding: getPricingModal(summary-section-padding);
+        padding: 0;
         margin-top: getPricingModal(summary-section-mt);
 
         .summary {

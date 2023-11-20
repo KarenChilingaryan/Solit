@@ -808,7 +808,10 @@
           }
 
           .positionSection {
+            transition: all 0.4s;
             height: calcVWM(70);
+            padding-top: calcVWM(10);
+            padding-bottom: calcVWM(10);
 
             .stacks {
               column-gap: calcVWM(20);

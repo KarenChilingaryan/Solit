@@ -85,7 +85,7 @@ const HomeMainWithImage = ({
     if (routes) {
       setBreadcrumbElements([
         { name: "Main", link: "/" },
-        ...splitAndCapitalize(routes.asPath).slice(0, 1),
+        ...splitAndCapitalize(routes.asPath?.split("?")[0]).slice(0, 1),
       ]);
     }
   }, [routes]);
