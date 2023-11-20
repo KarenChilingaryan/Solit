@@ -32,6 +32,7 @@ const ContactForm = ({
   const [top, setTop] = useState(0);
   const [errorMesssage, setErrorMesssage] = useState("");
   const [disabled, setDisabled] = useState(false);
+  const [recaptcha, setRecaptcha] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -45,30 +46,31 @@ const ContactForm = ({
   };
 
   const submitForm = async (values) => {
-    const data = { ...values, file_cv: file };
-    const formData = new FormData();
-    for (const key in data) {
-      formData.append(key, data[key]);
+    if (recaptcha) {
+      const data = { ...values, file_cv: file };
+      const formData = new FormData();
+      for (const key in data) {
+        formData.append(key, data[key]);
+      }
+      setDisabled(true);
+      try {
+        const res = await dispatch(
+          await emailApi.endpoints.email.initiate(formData)
+        );
+        setOpenSuccess(true);
+        setTimeout(() => {
+          setClose();
+          setOpenSuccess(false);
+        }, 3000);
+        form.resetFields();
+        setFile(null);
+      } catch { }
+      setDisabled(false);
+    }else {
+      console.log(recaptcha, 'recaptcha');
     }
-    setDisabled(true);
-    try {
-      const res = await dispatch(
-        await emailApi.endpoints.email.initiate(formData)
-      );
-      setOpenSuccess(true);
-      setTimeout(() => {
-        setClose();
-        setOpenSuccess(false);
-      }, 3000);
-      form.resetFields();
-      setFile(null);
-    } catch {}
-    setDisabled(false);
   };
 
-  const setRecaptcha = (value) => {
-    // console.log(value, "?????????????????????");
-  };
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
     if (!/^[^eE]*$/.test(inputValue)) {
@@ -101,15 +103,13 @@ const ContactForm = ({
 
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${
-        !title ? styles.withoutTitle : ""
-      }`}
+      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
+        }`}
       style={style}
     >
       <Col
-        className={`${styles.infoSection} ${
-          career && styles.infoSectionCareer
-        }`}
+        className={`${styles.infoSection} ${career && styles.infoSectionCareer
+          }`}
         style={{ ...(fromContactPage ? { paddingLeft: 0 } : {}) }}
       >
         {h1 ? (
@@ -151,9 +151,6 @@ const ContactForm = ({
           form={form}
           onFinish={submitForm}
           className={styles.form}
-          onFieldsChange={() =>
-            checkFormValidation(setRecaptcha, recaptchaRef.current)
-          }
         >
           <Row className={styles.inputSection}>
             <FormItem
@@ -282,9 +279,9 @@ const ContactForm = ({
               style={{ width: "300px" }}
               className={styles.recaptcha}
               onChange={() =>
-                checkFormValidation(setDisabled, recaptchaRef.current)
+                checkFormValidation(setRecaptcha, recaptchaRef.current)
               }
-              onExpired={() => setDisabled(true)}
+              onExpired={() => setRecaptcha(true)}
               sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
             />
             {/* </div> */}
