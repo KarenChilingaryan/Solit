@@ -17,6 +17,7 @@ import SuccessModal from "../successModal/SuccessModal";
 import FloatInput from "../../molecules/floatInput/FloatInput";
 
 import styles from "./DiscussProject.module.scss";
+import { ifError } from "assert";
 
 const data = ["Android", "iOS", "Cross-platform"];
 const data1 = ["idea", "MVP", "Prototype Specification"];
@@ -579,13 +580,20 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="duration" className={styles.slider}>
                     <Slider
-                      min={1}
+                      min={0}
                       defaultValue={1}
-                      max={24}
+                      max={25}
                       tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
+                      marks={{
+                        1: "1 month",
+                        6: "6 month",
+                        12: "1 year",
+                        18: "1.5 year",
+                        24: "2+ year",
+                      }}
                     />
                   </FormItem>
-                  <Row className={styles.monthsWrapper}>
+                  {/* <Row className={styles.monthsWrapper}>
                     <Col
                       className={styles.month}
                       onClick={() => {
@@ -619,7 +627,7 @@ const DiscussProject = () => {
                     >
                       2+ years
                     </Col>
-                  </Row>
+                  </Row> */}
                   <Button
                     text="Clear"
                     clear
