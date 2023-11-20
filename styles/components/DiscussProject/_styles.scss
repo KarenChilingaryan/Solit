@@ -244,13 +244,15 @@
             }
 
             .slider {
-              margin-bottom: calcVW(5);
+              margin-bottom: calcVW(52);
             }
 
             .monthsWrapper {
               display: flex;
               justify-content: space-between;
-              margin-top: calcVW(8);
+              // margin-top: calcVW(8);
+
+              margin: calcVW(8) calcVW(16) 0 0;
 
               .month {
                 cursor: pointer;
@@ -373,7 +375,7 @@
               }
 
               .slider {
-                margin-bottom: calcVWL(5);
+                margin-bottom: calcVWL(52);
               }
 
               .monthsWrapper {
@@ -424,7 +426,7 @@
               }
 
               .slider {
-                margin-bottom: calcVWT(5);
+                margin-bottom: calcVWT(52);
               }
 
               .monthsWrapper {

@@ -124,6 +124,10 @@ textarea::-webkit-scrollbar-thumb {
   min-height: calcVW(254) !important;
   margin-bottom: calcVW(20);
 
+  @media only screen and (max-width: 1700px) and (min-width: 1025px) {
+    margin-bottom: 0;
+  }
+
   p {
     font-size: calcVW(18);
   }
@@ -175,7 +179,7 @@ textarea::-webkit-scrollbar-thumb {
   height: max-content !important;
 
   @media only screen and (max-width: 1700px) and (min-width: 1025px) {
-  margin-top: calcVW(20) !important;
+    margin-top: calcVW(40) !important;
   }
 
   .ant-tooltip-content {
@@ -183,6 +187,7 @@ textarea::-webkit-scrollbar-thumb {
     height: max-content !important;
 
     .ant-tooltip-arrow {
+      display: none !important;
       height: calcVW(22);
       @media only screen and (max-width: 1440px) and (min-width: 1025px) {
         height: calcVWL(16) !important;
@@ -193,16 +198,16 @@ textarea::-webkit-scrollbar-thumb {
       @media (max-width: 576px) {
         background: transparent !important;
         height: calcVWM(22) !important;
-        
       }
     }
 
     .ant-tooltip-arrow-content {
       @media (max-width: 576px) {
         background: transparent !important;
-      &::before{
-        background: transparent !important;
-      }}
+        &::before {
+          background: transparent !important;
+        }
+      }
     }
 
     .ant-tooltip-inner {
@@ -517,7 +522,7 @@ input::-webkit-inner-spin-button {
 
 /* Firefox */
 input[type="number"] {
-  -moz-appearance: textfield;
+  -moz-appearance: textfield !important;
 }
 
 input[type="file"] {
@@ -531,4 +536,69 @@ input[type="file"] {
     color: #fff;
     cursor: pointer;
   }
+}
+
+.ant-slider-mark {
+  top: calcVW(40) !important;
+  color: #fff !important;
+
+  .ant-slider-mark-text {
+    color: white;
+    width: max-content !important;
+    font-size: calcVW(14) !important;
+    font-weight: 700;
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      font-size: calcVWL(14) !important;
+    }
+    @media (max-width: 1024px) {
+      font-size: calcVWT(14) !important;
+    }
+    @media (max-width: 576px) {
+      font-size: calcVWM(10) !important;
+    }
+  }
+
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    top: calcVWL(40) !important;
+  }
+  @media (max-width: 1024px) {
+    top: calcVWT(40) !important;
+  }
+  @media (max-width: 576px) {
+    top: calcVWM(35) !important;
+  }
+}
+
+.ant-slider {
+  padding: 0 calcVW(1);
+  @media (max-width: 576px) {
+    .ant-slider-mark span {
+      width: calcVWM(20) !important;
+    }
+    .ant-slider-mark span:nth-child(1) {
+      text-align: start;
+    }
+
+    .ant-slider-mark span:nth-child(2) {
+      text-align: start;
+    }
+
+    .ant-slider-mark span:nth-child(3) {
+      text-align: center;
+      width: calcVWM(25);
+    }
+
+    .ant-slider-mark span:nth-child(4) {
+      text-align: end;
+    }
+
+    .ant-slider-mark span:nth-child(5) {
+      text-align: end;
+    }
+  }
+}
+
+.ant-slider-dot {
+  display: none;
 }
