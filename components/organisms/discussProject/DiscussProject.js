@@ -66,9 +66,7 @@ const DiscussProject = () => {
   const [modalOpen, setModalOpen] = useState("");
   const [otherValue, setOtherValue] = useState("");
   const [isSSR, setIsSSR] = useState(false);
-  const [sliderValue, setSliderValue] = useState(4);
   const [top, setTop] = useState(0);
-  console.log(sliderValue); 
   const dispatch = useDispatch();
 
   const submitForm = (values, fromDelete = false) => {
