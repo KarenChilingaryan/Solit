@@ -27,6 +27,24 @@ const MapUser = ({ user, changeTo }) => {
     }, 100);
   }, [user]);
 
+  const handleResize = () => {
+    if (tooltip) {
+      setTooltip(false)
+      const timeout = setTimeout(() => {
+        setTooltip(true)
+        clearTimeout(timeout)
+      }, 200)
+    }
+  }
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.imgBlock}>

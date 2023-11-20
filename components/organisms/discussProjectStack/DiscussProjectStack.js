@@ -124,6 +124,7 @@ const DiscussProjectStack = () => {
   const [closeFooterStack, setCloseFooterStack] = useState(false);
   const [isSSR, setIsSSR] = useState(false);
   const [top, setTop] = useState(0);
+  const [tooltip, setTooltip] = useState(true);
 
   const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -354,6 +355,25 @@ const DiscussProjectStack = () => {
     window.scrollTo(0, top);
     setTop(0);
   };
+
+
+  const handleResize = () => {
+    if (tooltip) {
+      setTooltip(false)
+      const timeout = setTimeout(() => {
+        setTooltip(true)
+        clearTimeout(timeout)
+      }, 200)
+    }
+  }
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <HomeMainWithImage
@@ -586,12 +606,12 @@ const DiscussProjectStack = () => {
                       min={0}
                       defaultValue={1}
                       max={25}
-                      tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
+                      tooltip={{ formatter, ...(isSSR && tooltip ? { open: true } : { open: false }) }}
                       open={true}
-                      onChange={(val)=>{
-                        if(val == 0){
+                      onChange={(val) => {
+                        if (val == 0) {
                           form.setFieldValue("duration", 1);
-                        }else if(val == 25){
+                        } else if (val == 25) {
                           form.setFieldValue("duration", 24);
                         }
                       }}
