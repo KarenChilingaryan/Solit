@@ -270,7 +270,7 @@ const DiscussProjectStack = () => {
         form.resetFields();
       }, 3000);
       return true;
-    } catch { }
+    } catch {}
   };
 
   useEffect(() => {
@@ -335,7 +335,7 @@ const DiscussProjectStack = () => {
     if (typeof window !== "undefined") {
       setTimeout(() => {
         setIsSSR(true);
-      }, 1000)
+      }, 1000);
     }
   }, []);
 
@@ -356,16 +356,15 @@ const DiscussProjectStack = () => {
     setTop(0);
   };
 
-
   const handleResize = () => {
     if (tooltip) {
-      setTooltip(false)
+      setTooltip(false);
       const timeout = setTimeout(() => {
-        setTooltip(true)
-        clearTimeout(timeout)
-      }, 200)
+        setTooltip(true);
+        clearTimeout(timeout);
+      }, 200);
     }
-  }
+  };
 
   useEffect(() => {
     handleResize();
@@ -489,9 +488,10 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project-stack" &&
+                className={`${
+                  asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -577,10 +577,11 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -606,18 +607,27 @@ const DiscussProjectStack = () => {
                       min={0}
                       defaultValue={1}
                       max={25}
-                      tooltip={{ formatter, ...(isSSR && tooltip ? { open: true } : { open: false }) }}
-                      open={true}
                       onChange={(val) => {
                         if (val == 0) {
                           form.setFieldValue("duration", 1);
-                        } else if (val == 25) {
-                          form.setFieldValue("duration", 24);
                         }
+                      }}
+                      tooltip={{
+                        formatter,
+                        ...(isSSR && tooltip
+                          ? { open: true }
+                          : { open: false }),
+                      }}
+                      marks={{
+                        1: "1 month",
+                        6: "6 month",
+                        12: "1 year",
+                        18: "1.5 year",
+                        24: "2 year",
                       }}
                     />
                   </FormItem>
-                  <Row className={styles.monthsWrapper}>
+                  {/* <Row className={styles.monthsWrapper}>
                     <Col
                       className={styles.month}
                       onClick={() => {
@@ -651,7 +661,7 @@ const DiscussProjectStack = () => {
                     >
                       2+ years
                     </Col>
-                  </Row>
+                  </Row> */}
                   <Button
                     text="Clear"
                     clear
