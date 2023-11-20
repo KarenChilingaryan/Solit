@@ -47,6 +47,8 @@ const formatter = (value) => {
   } else if (value === 18) {
     return "1.5 years";
   } else if (value === 24) {
+    return "2 years";
+  } else if (value > 24) {
     return "2+ years";
   } else {
     return `${value} months`;
@@ -170,7 +172,6 @@ const DiscussProject = () => {
     }
   }, []);
 
-
   const handleClear = (field) => {
     const updatedStacks = liveStacks.filter(
       (stack) => stack.category !== field
@@ -262,7 +263,7 @@ const DiscussProject = () => {
       setOpen(false);
       setLiveStacks([]);
       return true;
-    } catch { }
+    } catch {}
   };
 
   const setValueinForm = (val) => {
@@ -422,8 +423,9 @@ const DiscussProject = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project" && styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                className={`${
+                  asPath == "/discuss-project" && styles.currentStageDiscuss
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -449,12 +451,13 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${form
+                          className={`${styles.clickableOption} ${
+                            form
                               .getFieldsValue()
                               .applicationType?.includes(item)
                               ? styles.selected
                               : ""
-                            }`}
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -483,10 +486,11 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().currentStage?.includes(item)
                               ? styles.selected
                               : ""
-                            }`}
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -516,10 +520,11 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
                               ? styles.selected
                               : ""
-                            }`}
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -549,10 +554,11 @@ const DiscussProject = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().industry?.includes(item)
                               ? styles.selected
                               : ""
-                            }`}
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -578,11 +584,9 @@ const DiscussProject = () => {
                       min={0}
                       defaultValue={1}
                       max={25}
-                      onChange={(val)=>{
-                        if(val == 0){
+                      onChange={(val) => {
+                        if (val == 0) {
                           form.setFieldValue("duration", 1);
-                        }else if(val == 25){
-                          form.setFieldValue("duration", 24);
                         }
                       }}
                       tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
@@ -591,7 +595,7 @@ const DiscussProject = () => {
                         6: "6 month",
                         12: "1 year",
                         18: "1.5 year",
-                        24: "2+ year",
+                        24: "2 year",
                       }}
                     />
                   </FormItem>

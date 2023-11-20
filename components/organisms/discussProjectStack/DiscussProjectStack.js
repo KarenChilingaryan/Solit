@@ -582,22 +582,26 @@ const DiscussProjectStack = () => {
                     4. What is the expected duration of your project?
                   </Paragraph>
                   <FormItem name="duration" className={styles.slider}>
-                    <Slider
+                  <Slider
                       min={0}
                       defaultValue={1}
                       max={25}
-                      tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
-                      open={true}
-                      onChange={(val)=>{
-                        if(val == 0){
+                      onChange={(val) => {
+                        if (val == 0) {
                           form.setFieldValue("duration", 1);
-                        }else if(val == 25){
-                          form.setFieldValue("duration", 24);
                         }
+                      }}
+                      tooltip={{ formatter, ...(isSSR ? { open: true } : {}) }}
+                      marks={{
+                        1: "1 month",
+                        6: "6 month",
+                        12: "1 year",
+                        18: "1.5 year",
+                        24: "2 year",
                       }}
                     />
                   </FormItem>
-                  <Row className={styles.monthsWrapper}>
+                  {/* <Row className={styles.monthsWrapper}>
                     <Col
                       className={styles.month}
                       onClick={() => {
@@ -631,7 +635,7 @@ const DiscussProjectStack = () => {
                     >
                       2+ years
                     </Col>
-                  </Row>
+                  </Row> */}
                   <Button
                     text="Clear"
                     clear
