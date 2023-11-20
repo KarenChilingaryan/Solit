@@ -20,7 +20,6 @@ const PortfolioItem = () => {
     useContext(BreadcrumbContext);
   const { id } = useRouter().query;
   const router = useRouter();
-  const mainContainer = useRef(null);
   const itemDescription = useRef(null);
   const [padding, setPadding] = useState(1);
   const handleClickDiscuss = () => {
@@ -82,7 +81,7 @@ const PortfolioItem = () => {
   }, [itemDescription, postPortfolioApiData]);
 
   return (
-    <Row className={styles.profilePage} ref={mainContainer}>
+    <Row className={styles.profilePage}>
       <SeoCard
         details={{
           pageDescription: postPortfolioApiData?.meta_description,
@@ -93,7 +92,6 @@ const PortfolioItem = () => {
       />
       <HomeMainWithImage
         className={"portfolioItem"}
-        mainContainer={mainContainer}
       >
         <Row className={styles.content}>
           <Row

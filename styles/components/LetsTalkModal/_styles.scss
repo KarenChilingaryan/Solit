@@ -104,7 +104,11 @@
       width: 100%;
       position: relative;
       z-index: 1;
-
+      input:not([type="range"]) {
+        &::after {
+          display: none;
+        }
+      }
       .errorMesssageRight {
         :global(.ant-form-item-explain-error) {
           transition: 0.1s;

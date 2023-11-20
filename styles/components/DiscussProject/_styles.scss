@@ -4,7 +4,11 @@
 @mixin generate-discuss-project-styles {
   .form {
     width: 100%;
-
+    input:not([type="range"]) {
+      &::after {
+        display: none;
+      }
+    }
     label {
       color: black !important;
     }

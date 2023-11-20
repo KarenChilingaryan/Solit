@@ -83,7 +83,11 @@
       position: relative;
       z-index: 1;
       padding: calcVW(24) 0;
-
+      input:not([type="range"]) {
+        &::after {
+          display: none;
+        }
+      }
       .uploadItem {
         position: relative;
 

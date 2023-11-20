@@ -17,7 +17,6 @@ const HomeMainWithImage = ({
   className,
   children,
   seoName = "",
-  mainContainer = null,
 }) => {
   const routes = useRouter();
   const [hideToTop, setHideToTop] = useState(false);
