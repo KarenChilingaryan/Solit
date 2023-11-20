@@ -36,6 +36,10 @@ const ContactForm = ({
 
   const dispatch = useDispatch();
 
+  const changeRecaptcha = (value) => {
+    form.setFieldValue('recaptcha', value)
+    setRecaptcha(value)
+  }
   const setClose = () => {
     const next = document.getElementById("__next");
     next.style.width = `100%`;
@@ -66,7 +70,7 @@ const ContactForm = ({
         setFile(null);
       } catch { }
       setDisabled(false);
-    }else {
+    } else {
       console.log(recaptcha, 'recaptcha');
     }
   };
@@ -273,17 +277,28 @@ const ContactForm = ({
                 </a>
               </Row>
             </FormItem>
-            {/* <div className={styles.recaptcha}> */}
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              style={{ width: "300px" }}
-              className={styles.recaptcha}
-              onChange={() =>
-                checkFormValidation(setRecaptcha, recaptchaRef.current)
-              }
-              onExpired={() => setRecaptcha(true)}
-              sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
-            />
+            <FormItem
+              className={`${styles.recaptchaForm} ${styles[errorMesssage]}`}
+              name="recaptcha"
+              rules={[
+                {
+                  required: true,
+                  message: "ReCAPTCHA is required",
+                },
+              ]}
+            >
+
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                style={{ width: "300px" }}
+                className={styles.recaptcha}
+                onChange={() =>
+                  checkFormValidation(changeRecaptcha, recaptchaRef.current)
+                }
+                onExpired={() => setRecaptcha(true)}
+                sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
+              />
+            </FormItem>
             {/* </div> */}
           </Row>
 
