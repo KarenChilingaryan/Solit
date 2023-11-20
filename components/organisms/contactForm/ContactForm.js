@@ -42,37 +42,45 @@ const ContactForm = ({
   }
   const setClose = () => {
     const next = document.getElementById("__next");
+    next.style.top = `-${window.scrollY}px`;
     next.style.width = `100%`;
     next.style.position = `inherit`;
     if (top) {
       window.scrollTo(0, top);
     }
+    setTop(0);
   };
 
+  const hideScroll = () => {
+    const next = document.getElementById("__next");
+    if (openSuccess) {
+      setTop(window.scrollY);
+      next.style.top = `-${window.scrollY}px`;
+      next.style.width = `100%`;
+      next.style.position = `fixed`;
+    }
+  }
   const submitForm = async (values) => {
-    if (recaptcha) {
-      const data = { ...values, file_cv: file };
-      const formData = new FormData();
-      for (const key in data) {
-        formData.append(key, data[key]);
-      }
-      setDisabled(true);
-      try {
-        const res = await dispatch(
-          await emailApi.endpoints.email.initiate(formData)
-        );
-        setOpenSuccess(true);
-        setTimeout(() => {
-          setClose();
-          setOpenSuccess(false);
-        }, 3000);
+    const data = { ...values, file_cv: file };
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    setDisabled(true);
+    try {
+      const res = await dispatch(
+        await emailApi.endpoints.email.initiate(formData)
+      );
+      setOpenSuccess(true);
+      hideScroll()
+      setTimeout(() => {
+        setOpenSuccess(false);
+        setClose();
         form.resetFields();
         setFile(null);
-      } catch { }
-      setDisabled(false);
-    } else {
-      console.log(recaptcha, 'recaptcha');
-    }
+      }, 3000);
+    } catch { }
+    setDisabled(false);
   };
 
   const handleInputChange = (e) => {
@@ -94,16 +102,6 @@ const ContactForm = ({
     },
     fileList: file ? [file] : [],
   };
-
-  useEffect(() => {
-    if (openSuccess) {
-      const next = document.getElementById("__next");
-      setTop(window.scrollY);
-      next.style.top = `-${window.scrollY}px`;
-      next.style.width = `100%`;
-      next.style.position = `fixed`;
-    }
-  }, [openSuccess]);
 
   return (
     <Col
@@ -277,7 +275,7 @@ const ContactForm = ({
                 </a>
               </Row>
             </FormItem>
-            <FormItem
+            {/* <FormItem
               className={`${styles.recaptchaForm} ${styles[errorMesssage]}`}
               name="recaptcha"
               rules={[
@@ -286,19 +284,19 @@ const ContactForm = ({
                   message: "ReCAPTCHA is required",
                 },
               ]}
-            >
+            > */}
 
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                style={{ width: "300px" }}
-                className={styles.recaptcha}
-                onChange={() =>
-                  checkFormValidation(changeRecaptcha, recaptchaRef.current)
-                }
-                onExpired={() => setRecaptcha(true)}
-                sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
-              />
-            </FormItem>
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              style={{ width: "300px" }}
+              className={styles.recaptcha}
+              onChange={() =>
+                checkFormValidation(changeRecaptcha, recaptchaRef.current)
+              }
+              onExpired={() => setRecaptcha(true)}
+              sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
+            />
+            {/* </FormItem> */}
             {/* </div> */}
           </Row>
 
