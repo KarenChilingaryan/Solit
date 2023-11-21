@@ -270,7 +270,7 @@ const DiscussProjectStack = () => {
         form.resetFields();
       }, 3000);
       return true;
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
@@ -461,7 +461,7 @@ const DiscussProjectStack = () => {
             />
           </ModalWrapper>
         )}
-        {!open && !modalOpen && liveStacks?.length && !closeFooterStack && (
+        {!open && !modalOpen && liveStacks?.length && !closeFooterStack ? (
           <StackFooter
             liveStacks={liveStacks}
             handleDelete={handleDelete}
@@ -470,7 +470,7 @@ const DiscussProjectStack = () => {
               setCloseFooterStack(true);
             }}
           />
-        )}
+        ) : <></>}
         <div className={styles.content}>
           <div className={styles.mainTitle}>
             <HomeMain
@@ -488,10 +488,9 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${
-                  asPath == "/discuss-project-stack" &&
+                className={`${asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                } ${styles.buttons}`}
+                  } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -577,11 +576,10 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry
                             value={item}
