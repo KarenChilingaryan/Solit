@@ -33,6 +33,7 @@ const HomeMainWithImage = ({
   const refContent = useRef(null);
   const dispatch = useDispatch();
   const [isTablet, setIsTablet] = useState(0);
+  console.log(isTablet, 'isTablet');
   const percentsSecond = [
     1550 *
     (isTablet > 1440
