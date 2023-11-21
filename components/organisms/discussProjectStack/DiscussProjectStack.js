@@ -207,7 +207,7 @@ const DiscussProjectStack = () => {
         (elem) => elem !== item.item
       );
     } else if (item.category === "duration") {
-      data[item.category] = undefined;
+      data[item.category] = 1;
     }
 
     form.setFieldsValue(data);
@@ -665,7 +665,10 @@ const DiscussProjectStack = () => {
                   <Button
                     text="Clear"
                     clear
-                    onClick={() => handleDelete({ category: "duration" })}
+                    onClick={() =>
+                      form.getFieldsValue().duration !== 1 &&
+                      handleDelete({ category: "duration" })
+                    }
                   />
                 </Row>
               </Row>
