@@ -494,6 +494,10 @@
               .title {
                 height: unset;
               }
+              .slider {
+                margin-bottom: calcVWM(52);
+              }
+
 
               .monthsWrapper {
                 display: flex;

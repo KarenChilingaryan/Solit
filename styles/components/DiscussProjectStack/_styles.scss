@@ -631,7 +631,7 @@
         margin-top: calcVWM(-26);
 
         .form > button {
-          margin-top: calcVWM(36);
+          margin-top: 0;
         }
 
         .form {
@@ -662,6 +662,10 @@
               .title {
                 height: unset;
               }
+              .slider {
+                margin-bottom: calcVWM(52);
+              }
+
 
               .monthsWrapper {
                 display: flex;
