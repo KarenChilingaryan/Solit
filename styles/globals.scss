@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,400;1,700&display=swap');
 @import "./abstract/functions";
 
 * {
@@ -545,7 +546,7 @@ input[type="file"] {
     color: white;
     width: max-content !important;
     font-size: calcVW(14) !important;
-    font-weight: 700;
+    font-weight: 500;
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       font-size: calcVWL(14) !important;
