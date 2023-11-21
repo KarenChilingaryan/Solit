@@ -16,9 +16,8 @@ const PricingModal = ({
   stackNames = [],
   stackNamesSecond,
   onSubmit,
-  secondCheckBox
+  secondCheckBox,
 }) => {
-
   const filterDataByCategory = (category) => {
     return data.filter((item) => item.category === category);
   };
@@ -31,15 +30,19 @@ const PricingModal = ({
             Please, leave your contact details to proceed
           </Paragraph>
           <Paragraph className={styles.smallTitle}>
-            {"Your personal data will be processed securely and won't be available to third parties."}
+            {
+              "Your personal data will be processed securely and won't be available to third parties."
+            }
           </Paragraph>
         </Row>
         <Row className={styles.summarySection}>
           <Paragraph className={styles.summary}>
-            {data && data.length ? "Summary of your request:" : "You haven't chosen additional options."}
+            {data && data.length
+              ? "Summary of your request:"
+              : "You haven't chosen additional options."}
           </Paragraph>
 
-          {stackNamesSecond &&
+          {stackNamesSecond && (
             <Row className={styles.projType}>
               {stackNamesSecond.map((name) =>
                 filterDataByCategory(name).map((item, index) => (
@@ -52,36 +55,51 @@ const PricingModal = ({
                       alt="i"
                     />
                   </Col>
-                )
-                ))}
+                ))
+              )}
             </Row>
-          }
+          )}
           <Row className={styles.projType}>
-            {stackNamesSecond && data && data.length ?
+            {stackNamesSecond && data && data.length ? (
               <Paragraph className={styles.specialistsTitle}>
                 Specialists selected for your project:
-              </Paragraph> : <></>
-            }
+              </Paragraph>
+            ) : (
+              <></>
+            )}
             {stackNames.map((name) =>
               filterDataByCategory(name).map((item, index) => {
-                const split = stackNamesSecond && item?.item?.split(" - ")
-                return stackNamesSecond ?
+                const split = stackNamesSecond && item?.item?.split(" - ");
+                return stackNamesSecond ? (
                   <Col key={index} className={styles.itemWrapper}>
                     <Col className={styles.item}>{split[0]}</Col>
                     <Image
                       src={minus}
                       className={styles.iconChange}
-                      onClick={() => handleChange(item.category, split[0], Number(split[1]) - 1)}
+                      onClick={() =>
+                        handleChange(
+                          item.category,
+                          split[0],
+                          Number(split[1]) - 1
+                        )
+                      }
                       alt="i"
                     />
                     <Col className={styles.iconChangeValue}>{split[1]}</Col>
                     <Image
                       src={plus}
                       className={styles.iconChange}
-                      onClick={() => handleChange(item.category, split[0], Number(split[1]) + 1)}
+                      onClick={() =>
+                        handleChange(
+                          item.category,
+                          split[0],
+                          Number(split[1]) + 1
+                        )
+                      }
                       alt="i"
                     />
-                  </Col> :
+                  </Col>
+                ) : (
                   <Col key={index} className={styles.itemWrapper}>
                     <Col className={styles.item}>{item.item}</Col>
                     <Image
@@ -91,9 +109,9 @@ const PricingModal = ({
                       alt="i"
                     />
                   </Col>
-              }
-
-              ))}
+                );
+              })
+            )}
           </Row>
         </Row>
       </Col>

@@ -74,6 +74,8 @@ const formatter = (value) => {
   } else if (value === 18) {
     return "1.5 years";
   } else if (value === 24) {
+    return "2 years";
+  } else if (value > 24) {
     return "2+ years";
   } else {
     return `${value} months`;
@@ -270,7 +272,7 @@ const DiscussProjectStack = () => {
         form.resetFields();
       }, 3000);
       return true;
-    } catch { }
+    } catch {}
   };
 
   useEffect(() => {
@@ -470,7 +472,9 @@ const DiscussProjectStack = () => {
               setCloseFooterStack(true);
             }}
           />
-        ) : <></>}
+        ) : (
+          <></>
+        )}
         <div className={styles.content}>
           <div className={styles.mainTitle}>
             <HomeMain
@@ -488,9 +492,10 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project-stack" &&
+                className={`${
+                  asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -576,10 +581,11 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
                               ? styles.selected
                               : ""
-                            }`}
+                          }`}
                         >
                           <Industry
                             value={item}
