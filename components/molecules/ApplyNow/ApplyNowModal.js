@@ -57,6 +57,16 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
     }
   }, [data]);
 
+  const validateLinkedInUrl = (_, value) => {
+    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+
+    if (!value || urlRegex.test(value)) {
+      return Promise.resolve();
+    }
+
+    return Promise.reject("Please enter a valid  URL");
+  };
+
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Form
@@ -159,6 +169,10 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
                 required: true,
                 message: "Linkedin is required",
               },
+              {
+                validator: validateLinkedInUrl,
+                validateTrigger: "onSubmit",
+              },
             ]}
           >
             <FloatInput
@@ -180,6 +194,10 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
               {
                 required: true,
                 message: "Github is required",
+              },
+              {
+                validator: validateLinkedInUrl,
+                validateTrigger: "onSubmit",
               },
             ]}
           >

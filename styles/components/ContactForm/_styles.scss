@@ -132,6 +132,8 @@
         :global(.ant-checkbox-inner) {
           background: transparent !important;
           border-color: white !important;
+          width: 18px;
+          height: 18px;
         }
 
         :global(.ant-checkbox-checked) {
@@ -185,7 +187,7 @@
 
       :global(.ant-input-affix-wrapper-focused) {
         box-shadow: none;
-        border-bottom: 1px solid white;
+        // border-bottom: 1px solid white;
       }
 
       :global(.ant-input-suffix) {
