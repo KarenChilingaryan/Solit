@@ -35,7 +35,7 @@ const ModalForm = ({
     setDisabled(true);
     try {
       await onSubmit(formData);
-    } catch {}
+    } catch { }
     setDisabled(false);
     form.resetFields();
   };
@@ -113,6 +113,10 @@ const ModalForm = ({
             name="phon_number"
             rules={[
               {
+                type: "number",
+                message: "The input is not a valid Number",
+              },
+              {
                 required: true,
                 message: "Phone number is required",
               },
@@ -186,9 +190,8 @@ const ModalForm = ({
             </Select>
           </FormItem>
           <FormItem
-            className={`${styles.accept} ${
-              secondCheckBox && styles.acceptLeft
-            } ${styles[errorMesssage]}`}
+            className={`${styles.accept} ${secondCheckBox && styles.acceptLeft
+              } ${styles[errorMesssage]}`}
             name="accept"
             rules={[
               {

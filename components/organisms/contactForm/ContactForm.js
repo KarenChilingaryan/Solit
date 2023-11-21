@@ -32,13 +32,11 @@ const ContactForm = ({
   const [top, setTop] = useState(0);
   const [errorMesssage, setErrorMesssage] = useState("");
   const [disabled, setDisabled] = useState(false);
-  const [recaptcha, setRecaptcha] = useState(false);
 
   const dispatch = useDispatch();
 
   const changeRecaptcha = (value) => {
     form.setFieldValue('recaptcha', value)
-    setRecaptcha(value)
   }
   const setClose = () => {
     const next = document.getElementById("__next");
@@ -293,7 +291,6 @@ const ContactForm = ({
               onChange={() =>
                 checkFormValidation(changeRecaptcha, recaptchaRef.current)
               }
-              onExpired={() => setRecaptcha(true)}
               sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
             />
             {/* </FormItem> */}

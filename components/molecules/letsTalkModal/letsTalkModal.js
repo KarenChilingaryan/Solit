@@ -34,7 +34,7 @@ const ModalLetsTalkForm = ({
     setDisabled(true);
     try {
       await onSubmit(formData);
-    } catch {}
+    } catch { }
     setDisabled(false);
     setFile(null);
     form.resetFields();
@@ -127,11 +127,14 @@ const ModalLetsTalkForm = ({
           <FormItem
             className={`${styles[errorMesssage]}`}
             name="phone_number"
-            rules={[
-              {
-                required: true,
-                message: "Phone number is required",
-              },
+            rules={[{
+              type: "number",
+              message: "The input is not a valid Number",
+            },
+            {
+              required: true,
+              message: "Phone number is required",
+            },
             ]}
           >
             <FloatInput
