@@ -37,13 +37,13 @@ const HomeMainWithImage = ({
   const percentsSecond = [
     1550 *
     (isTablet > 1440
-      ? 1.045 - (1 - 1920 / isTablet) / 100
-      : 1 - (1 - 1440 / isTablet) / 40),
+      ? 1.045 - (1 - 1920 / isTablet) / 100 : isTablet <= 1099 ? (1.01 - (((1099 - isTablet) / 75) / 300)) : isTablet <= 1150 ? (1)
+        : (1 - (1 - 1440 / isTablet) / 40)),
 
     1300 * (isTablet > 1440 ? 1.038 : 1),
 
     1296 * (isTablet > 1440 ? 1.038 - (1 - 1920 / isTablet) / 50 : 1),
-    
+
     1382 *
     (isTablet > 1440
       ? 1.043 + (1 - 1920 / isTablet) / 30
@@ -55,6 +55,7 @@ const HomeMainWithImage = ({
   const { breadcrumbElements, setBreadcrumbElements } =
     useContext(BreadcrumbContext);
 
+  console.log((1 - (1 - 1440 / isTablet) / 40));
   const splitAndCapitalize = (str) => {
     const parts = str.split("/").filter((word) => word !== "");
     let currentLink = "";
