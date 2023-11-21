@@ -273,7 +273,7 @@ const ContactForm = ({
                 </a>
               </Row>
             </FormItem>
-            {/* <FormItem
+            <FormItem
               className={`${styles.recaptchaForm} ${styles[errorMesssage]}`}
               name="recaptcha"
               rules={[
@@ -282,18 +282,18 @@ const ContactForm = ({
                   message: "ReCAPTCHA is required",
                 },
               ]}
-            > */}
+            >
 
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              style={{ width: "300px" }}
-              className={styles.recaptcha}
-              onChange={() =>
-                checkFormValidation(changeRecaptcha, recaptchaRef.current)
-              }
-              sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
-            />
-            {/* </FormItem> */}
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                style={{ width: "300px" }}
+                className={styles.recaptcha}
+                onChange={() =>
+                  checkFormValidation(changeRecaptcha, recaptchaRef.current)
+                }
+                sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
+              />
+            </FormItem>
             {/* </div> */}
           </Row>
 
