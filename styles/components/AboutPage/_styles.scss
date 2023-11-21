@@ -59,6 +59,8 @@
       }
       .aboutImage {
         width: 100%;
+        max-width: calcVW(1280);
+        max-height: calcVW(683);
         object-fit: cover;
         border-radius: getAboutPageSizes(about-image-br);
         margin-bottom: calcVW(234);
@@ -123,6 +125,7 @@
           }
         }
         .aboutImage {
+          max-width: calcVWL(1280);
           height: calcVWL(683);
           border-radius: calcVWL(16);
           margin-bottom: calcVWL(234);
@@ -162,7 +165,7 @@
           margin-top: calcVWT(32);
           row-gap: calcVWT(32);
           padding: 0 calcVWT(24);
-          margin-bottom: calcVWT(96)
+          margin-bottom: calcVWT(96);
         }
         .description {
           p {
@@ -175,6 +178,8 @@
         .aboutImage {
           margin: 0 auto;
           height: calcVWT(595);
+          max-height: calcVWT(595);
+          max-width:  calcVWT(896);
           display: block;
           width: calcVWT(896);
           margin-bottom: calcVWT(88);
