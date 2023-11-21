@@ -40,7 +40,8 @@ const HomeMainWithImage = ({
       ? 1.045 - (1 - 1920 / isTablet) / 100 : isTablet <= 1099 ? (1.01 - (((1099 - isTablet) / 75) / 300)) : isTablet <= 1150 ? (1)
         : (1 - (1 - 1440 / isTablet) / 40)),
 
-    1300 * (isTablet > 1440 ? 1.038 : 1),
+    1300 * (isTablet > 1440 ? 1.038 - (1 - 1920 / isTablet) / 100 : isTablet <= 1099 ? (0.998 - (((1099 - isTablet) / 75) / 300)) : isTablet <= 1170 ? (0.995)
+        : (0.995)),
 
     1296 * (isTablet > 1440 ? 1.038 - (1 - 1920 / isTablet) / 50 : 1),
 
