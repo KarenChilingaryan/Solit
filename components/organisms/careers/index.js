@@ -158,6 +158,7 @@ const Careers = () => {
     }
   }, [win])
 
+  console.log(isSafari, 'isSafari');
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">
       <SuccessModal open={openSuccess} setOpen={(e) => {
