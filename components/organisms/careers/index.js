@@ -28,6 +28,7 @@ const Careers = () => {
   const [isMobile, setIsMobile] = useState(false);
   const dispatch = useDispatch();
   const [top, setTop] = useState(0);
+  const [isSafari, setIsSafari] = useState(0);
 
   const careersJobOpeningApi = useSelector(
     (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
@@ -42,6 +43,8 @@ const Careers = () => {
       state?.postsTextCareersColourfulApi?.queries?.["careersAbout(undefined)"]
         ?.data
   );
+
+
 
   useEffect(() => {
     if (postsTextCareersAboutUsApi) {
@@ -151,7 +154,7 @@ const Careers = () => {
   const win = typeof window != 'undefined'
   useEffect(() => {
     if (win) {
-        console.log(navigator.userAgent);
+      setIsSafari(navigator.userAgent.indexOf('Safari'))
     }
   }, [win])
 
@@ -194,9 +197,9 @@ const Careers = () => {
             />
           ))}
         </div>
+        {!isSafari ? <div id="to-jobs"></div> : <></>}
         <div className={styles.secondInfo}>
           <div className={styles.secondTitle}>
-            <div id="to-jobs"></div>
 
             {careersJobOpeningApi?.data_text[0].title}
           </div>
@@ -214,6 +217,7 @@ const Careers = () => {
           />
         </Row>
         <Row className={styles.weKnowSection}>
+          {isSafari ? <div id="to-jobs"></div> : <></>}
           <WhatToKnow
             title="If you haven't found position..."
             description="For further information don't hesitate to contact us. We would be happy to provide you with more information."
