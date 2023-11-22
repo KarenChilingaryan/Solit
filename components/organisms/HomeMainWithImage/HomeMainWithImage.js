@@ -274,7 +274,7 @@ const HomeMainWithImage = ({
                       style={{
                         ...(className == "portfolioItem" &&
                           percents["percent" + i] >= 0 &&
-                          percents["percent" + i] - newpercents["newpercent" + i] < 0
+                          newpercents["newpercent" + i] < 0
                           ? {
                             backgroundImage: `linear-gradient(to right, black ${percents["percent" + i]
                               }%, white ${percents["percent" + i]}%)`,
@@ -317,7 +317,7 @@ const HomeMainWithImage = ({
               style={{
                 ...(className == "portfolioItem" &&
                   percents["percent4"] >= 0 &&
-                  percents["percent4"] - newpercents["newpercent" + 4] < 0
+                  newpercents["newpercent" + 4] < 0
                   ? {
                     backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
                     backgroundClip: "text",
