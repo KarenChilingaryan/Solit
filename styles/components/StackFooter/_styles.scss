@@ -131,7 +131,7 @@
         .shadow {
           width: calcVWL(1077);
           box-shadow: 0 calcVWL(-18) calcVWL(20) calcVWL(15) white;
-          top: calcVWL(65);
+          top: calcVWL(45);
         }
 
         .scrollElement {
@@ -163,6 +163,7 @@
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       .items {
         max-width: calcVWL(1150) !important;
+        column-gap: calcVWL(10);
       }
     }
 
@@ -178,6 +179,7 @@
         padding-top: calcVWT(15);
 
         .items {
+          column-gap: calcVWT(8);
           row-gap: calcVWT(16);
           max-width: calcVWT(620);
         }
