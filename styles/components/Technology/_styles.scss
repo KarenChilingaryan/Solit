@@ -60,7 +60,6 @@
           justify-content: center;
           background-color: #000000;
           border: 1px solid #3fc1ff;
-          border-radius: getTechnologySizes(language-block-br);
           width: getTechnologySizes(language-block-w);
           height: getTechnologySizes(language-block-h);
 
@@ -116,17 +115,34 @@
         .languageBlock {
           width: calcVWL(106);
           height: calcVWL(106);
+          border-radius: calcVWL(16);
 
           .icon {
             width: calcVWL(40);
             height: calcVWL(40);
+            margin-bottom: calcVWL(5);
+          }
+
+          .name {
+            height: calcVWL(0);
+            @include font-style(0,
+              variables.$fw-600,
+              calcVWL(24));
           }
 
           &:hover {
-            border-radius: calcVWL(16);
+            width: calcVWL(106);
+            height: calcVWL(106);
 
             .name {
-              @include font-style(calcVWL(16), variables.$fw-600, calcVWL(24));
+              height: calcVWL(24);
+              @include font-style(calcVWL(16),
+                variables.$fw-600,
+                calcVWL(24));
+            }
+
+            .icon {
+              margin-bottom: calcVWL(5);
             }
           }
         }
@@ -162,12 +178,21 @@
             height: calcVWT(40);
           }
 
+          .name {
+            @include font-style(0, variables.$fw-500, calcVWT(24));
+          }
           &:hover {
             border-radius: calcVWT(16);
+            width: calcVWT(106);
+            height: calcVWT(106);
 
             .name {
-              display: block;
+              height: calcVWT(24);
               @include font-style(calcVWT(14), variables.$fw-500, calcVWT(24));
+            }
+
+            .icon {
+              margin-bottom: calcVWT(5);
             }
           }
         }
@@ -211,6 +236,8 @@
           }
 
           &:hover {
+            width: calcVWM(40);
+            height: calcVWM(40);
             pointer-events: none;
             border-radius: none;
             border: none;
