@@ -17,7 +17,8 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import SuccessModal from "../successModal/SuccessModal";
 import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";
-import { Element, scroller } from 'react-scroll';
+
+
 import styles from "./careers.module.scss";
 
 const Careers = () => {
@@ -25,9 +26,10 @@ const Careers = () => {
   const [openData, setOpenData] = useState(null);
   const [data, setData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
   const [top, setTop] = useState(0);
+  const [isSafari, setIsSafari] = useState(0);
 
   const careersJobOpeningApi = useSelector(
     (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
@@ -144,15 +146,22 @@ const Careers = () => {
   }
 
   useEffect(() => {
-    const scrollToSection = () => {
-      scroller.scrollTo('to-jobs', {
-        duration: 0,
-        delay: 0,
-        smooth: false,
-      });
-    };
-    scrollToSection();
-  }, []);
+    if (localStorage.getItem('fromJob')) {
+      const doc = document.getElementById("to-jobs")
+      if (doc) {
+        doc.scrollIntoView();
+        localStorage.removeItem('fromJob')
+      }
+    }
+  }, [])
+
+  const win = typeof window != 'undefined'
+  useEffect(() => {
+    if (win) {
+      setIsSafari(navigator.userAgent.indexOf('Safari'))
+      setChecked(true)
+    }
+  }, [win])
 
   useEffect(() => {
     if (checked) {
@@ -164,7 +173,7 @@ const Careers = () => {
         }
       }
     }
-  }, [checked])
+  }, [isSafari, checked])
 
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">
@@ -205,7 +214,7 @@ const Careers = () => {
             />
           ))}
         </div>
-        {checked ? <Element name="to-jobs"></Element> : <></>}
+        {checked ? <div id="to-jobs"></div> : <></>}
         <div className={styles.secondInfo}>
           <div className={styles.secondTitle}>
 
