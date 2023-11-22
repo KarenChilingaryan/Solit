@@ -17,9 +17,7 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import SuccessModal from "../successModal/SuccessModal";
 import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";
-import smoothscroll from 'smoothscroll-polyfill';
-
-smoothscroll.polyfill();
+import { Element, scroller } from 'react-scroll';
 import styles from "./careers.module.scss";
 
 const Careers = () => {
@@ -146,14 +144,15 @@ const Careers = () => {
   }
 
   useEffect(() => {
-    if (localStorage.getItem('fromJob')) {
-      const doc = document.getElementById("to-jobs")
-      if (doc) {
-        doc.scrollIntoView();
-        localStorage.removeItem('fromJob')
-      }
-    }
-  }, [])
+    const scrollToSection = () => {
+      scroller.scrollTo('to-jobs', {
+        duration: 0,
+        delay: 0,
+        smooth: false,
+      });
+    };
+    scrollToSection();
+  }, []);
 
   useEffect(() => {
     if (checked) {
@@ -206,7 +205,7 @@ const Careers = () => {
             />
           ))}
         </div>
-        {checked ? <div id="to-jobs"></div> : <></>}
+        {checked ? <Element name="to-jobs"></Element> : <></>}
         <div className={styles.secondInfo}>
           <div className={styles.secondTitle}>
 
