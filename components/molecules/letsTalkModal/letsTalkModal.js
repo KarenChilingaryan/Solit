@@ -185,6 +185,7 @@ const ModalLetsTalkForm = ({
             <FloatInput label="Comment" placeholder="Comment" name="comment" />
           </FormItem>
 
+        </Row>
           <FormItem
             className={`${styles.accept} ${styles[errorMesssage]}`}
             name="accept"
@@ -212,7 +213,6 @@ const ModalLetsTalkForm = ({
               <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
             </Row>
           </FormItem>
-        </Row>
 
         <Col className={styles.buttonWrapper}>
           <Button
