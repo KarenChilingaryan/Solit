@@ -151,7 +151,7 @@ const Careers = () => {
   const win = typeof window != 'undefined'
   useEffect(() => {
     if (win) {
-        console.log(window);
+        console.log(navigator.userAgent);
     }
   }, [win])
 
