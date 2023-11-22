@@ -93,7 +93,7 @@ const HomeMainWithImage = ({
       const targetElementContent = refContent.current;
       if (!targetElementContent) return;
 
-      const targetElementMainContainer = mainContainer.current;
+      const targetElementMainContainer = mainContainer?.current;
       if (!targetElementMainContainer) return;
 
       const { height: heightMainContainer } = targetElementMainContainer.getBoundingClientRect();
