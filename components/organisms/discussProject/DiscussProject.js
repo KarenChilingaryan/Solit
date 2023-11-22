@@ -86,14 +86,25 @@ const DiscussProject = () => {
       setOpen(true);
     }
   };
+  const [prevWidth, setPrevWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
 
   const handleResize = () => {
-    if (tooltip) {
-      setTooltip(false);
-      const timeout = setTimeout(() => {
-        setTooltip(true);
-        clearTimeout(timeout);
-      }, 200);
+    if (typeof window !== "undefined") {
+      const currentWidth = window.innerWidth;
+
+      if (currentWidth !== prevWidth) {
+        setTooltip(false);
+
+        const timeout = setTimeout(() => {
+          setTooltip(true);
+        }, 200);
+
+        setPrevWidth(currentWidth);
+
+        return () => clearTimeout(timeout);
+      }
     }
   };
 
@@ -103,7 +114,7 @@ const DiscussProject = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [prevWidth]);
 
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
     getProjectData(allValues);
