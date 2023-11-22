@@ -30,6 +30,7 @@
     "remark-gfm": "^3.0.1",
     "remark-rehype": "^10.1.0",
     "sass": "^1.54.9",
+    "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.3.5",
     "xmlbuilder2": "^3.1.1"
   },

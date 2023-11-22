@@ -18,7 +18,7 @@ import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobP
 import SuccessModal from "../successModal/SuccessModal";
 import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";
 
-
+smoothscroll.polyfill();
 import styles from "./careers.module.scss";
 
 const Careers = () => {
@@ -26,10 +26,9 @@ const Careers = () => {
   const [openData, setOpenData] = useState(null);
   const [data, setData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
   const dispatch = useDispatch();
   const [top, setTop] = useState(0);
-  const [isSafari, setIsSafari] = useState(0);
 
   const careersJobOpeningApi = useSelector(
     (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
@@ -155,14 +154,6 @@ const Careers = () => {
     }
   }, [])
 
-  const win = typeof window != 'undefined'
-  useEffect(() => {
-    if (win) {
-      setIsSafari(navigator.userAgent.indexOf('Safari'))
-      setChecked(true)
-    }
-  }, [win])
-
   useEffect(() => {
     if (checked) {
       if (localStorage.getItem('fromJob')) {
@@ -173,7 +164,7 @@ const Careers = () => {
         }
       }
     }
-  }, [isSafari, checked])
+  }, [checked])
 
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">
