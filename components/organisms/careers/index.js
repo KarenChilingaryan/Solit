@@ -175,7 +175,6 @@ const Careers = () => {
     }
   }, [isSafari, checked])
 
-  console.log(isSafari, 'isSafari');
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">
       <SuccessModal open={openSuccess} setOpen={(e) => {
@@ -235,8 +234,6 @@ const Careers = () => {
           />
         </Row>
         <Row className={styles.weKnowSection}>
-          {/* {checked && isSafari ? <div id="to-jobs"></div> : <></>}
-          <div id="to-jobs">afsf</div> */}
           <WhatToKnow
             title="If you haven't found position..."
             description="For further information don't hesitate to contact us. We would be happy to provide you with more information."
