@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Col, Row } from "../../atoms";
 import Image from "next/image";
 import { HomeMainWithImage } from "../HomeMainWithImage";
@@ -163,43 +163,17 @@ const Careers = () => {
     }
   }, [win])
 
-  // useEffect(() => {
-  //   if (checked) {
-  //     if (localStorage.getItem('fromJob')) {
-  //       const doc = document.getElementById("to-jobs")
-  //       if (doc) {
-  //         doc.scrollIntoView();
-  //         localStorage.removeItem('fromJob')
-  //       }
-  //     }
-  //   }
-  // }, [isSafari, checked])
-
-  const sectionToScrollRef = useRef(null);
-
   useEffect(() => {
-    const section = sectionToScrollRef.current;
-    if (section) {
-      section.scrollIntoView({ behavior: 'auto', block: 'start' });
+    if (checked) {
+      if (localStorage.getItem('fromJob')) {
+        const doc = document.getElementById("to-jobs")
+        if (doc) {
+          doc.scrollIntoView();
+          localStorage.removeItem('fromJob')
+        }
+      }
     }
-
-    // Save the scroll position on page unload or navigation
-    const handleBeforeUnload = () => {
-      sessionStorage.setItem('scrollPosition', window.scrollY.toString());
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    // Restore the scroll position when the page is loaded
-    const savedScrollPosition = sessionStorage.getItem('scrollPosition');
-    if (savedScrollPosition) {
-      window.scrollTo(0, parseInt(savedScrollPosition, 10));
-    }
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []);
+  }, [isSafari, checked])
 
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">
@@ -240,7 +214,7 @@ const Careers = () => {
             />
           ))}
         </div>
-        {checked ? <div id="to-jobs" ref={sectionToScrollRef}></div> : <></>}
+        {checked ? <div id="to-jobs"></div> : <></>}
         <div className={styles.secondInfo}>
           <div className={styles.secondTitle}>
 
