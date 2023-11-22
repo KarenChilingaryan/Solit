@@ -148,6 +148,13 @@ const Careers = () => {
     }
   }, [])
 
+  const win = typeof window != 'undefined'
+  useEffect(() => {
+    if (win) {
+        console.log(window);
+    }
+  }, [win])
+
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">
       <SuccessModal open={openSuccess} setOpen={(e) => {
@@ -187,9 +194,10 @@ const Careers = () => {
             />
           ))}
         </div>
-        <div id="to-jobs"></div>
         <div className={styles.secondInfo}>
           <div className={styles.secondTitle}>
+            <div id="to-jobs"></div>
+
             {careersJobOpeningApi?.data_text[0].title}
           </div>
           <div
