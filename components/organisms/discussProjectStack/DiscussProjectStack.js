@@ -209,10 +209,11 @@ const DiscussProjectStack = () => {
         (elem) => elem !== item.item
       );
     } else if (item.category === "duration") {
-      data[item.category] = 1;
+      data[item.category] = undefined;
     }
-
+    
     form.setFieldsValue(data);
+    item.category === "duration" &&  form.setFieldValue("duration", 1) 
     getProjectData(data);
     submitForm(form.getFieldsValue(), true);
   };
@@ -356,6 +357,10 @@ const DiscussProjectStack = () => {
     next.style.position = `inherit`;
     window.scrollTo(0, top);
     setTop(0);
+    setIsSSR(false)
+    setTimeout(()=>{
+      setIsSSR(true)
+    }, 200)
   };
 
   const handleResize = () => {
