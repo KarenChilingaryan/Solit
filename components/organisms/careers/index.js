@@ -17,6 +17,7 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import SuccessModal from "../successModal/SuccessModal";
 import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";
+import smoothscroll from 'smoothscroll-polyfill';
 
 smoothscroll.polyfill();
 import styles from "./careers.module.scss";
