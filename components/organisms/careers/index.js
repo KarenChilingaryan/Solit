@@ -26,6 +26,7 @@ const Careers = () => {
   const [openData, setOpenData] = useState(null);
   const [data, setData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
   const [top, setTop] = useState(0);
   const [isSafari, setIsSafari] = useState(0);
@@ -146,8 +147,11 @@ const Careers = () => {
 
   useEffect(() => {
     if (localStorage.getItem('fromJob')) {
-      document.getElementById("to-jobs").scrollIntoView();
-      localStorage.removeItem('fromJob')
+      const doc = document.getElementById("to-jobs")
+      if (doc) {
+        doc.scrollIntoView();
+        localStorage.removeItem('fromJob')
+      }
     }
   }, [])
 
@@ -155,8 +159,21 @@ const Careers = () => {
   useEffect(() => {
     if (win) {
       setIsSafari(navigator.userAgent.indexOf('Safari'))
+      setChecked(true)
     }
   }, [win])
+
+  useEffect(() => {
+    if (checked) {
+      if (localStorage.getItem('fromJob')) {
+        const doc = document.getElementById("to-jobs")
+        if (doc) {
+          doc.scrollIntoView();
+          localStorage.removeItem('fromJob')
+        }
+      }
+    }
+  }, [isSafari, checked])
 
   console.log(isSafari, 'isSafari');
   return (
@@ -198,7 +215,7 @@ const Careers = () => {
             />
           ))}
         </div>
-        {!isSafari ? <div id="to-jobs"></div> : <></>}
+        {checked && !isSafari ? <div id="to-jobs"></div> : <></>}
         <div className={styles.secondInfo}>
           <div className={styles.secondTitle}>
 
@@ -218,7 +235,7 @@ const Careers = () => {
           />
         </Row>
         <Row className={styles.weKnowSection}>
-          {isSafari ? <div id="to-jobs"></div> : <></>}
+          {checked && isSafari ? <div id="to-jobs"></div> : <></>}
           <WhatToKnow
             title="If you haven't found position..."
             description="For further information don't hesitate to contact us. We would be happy to provide you with more information."
