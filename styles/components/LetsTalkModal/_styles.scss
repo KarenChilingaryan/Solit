@@ -241,7 +241,7 @@
         position: relative;
 
         label {
-          left: calcVW(28);
+          left: calcVW(32);
         }
 
         .prefix {
@@ -579,7 +579,8 @@
 
         .uploadItem {
           label {
-            left: calcVWL(28);
+            left: calcVWL(32);
+            top: calcVWL(1);
           }
 
           .prefix {
@@ -768,7 +769,8 @@
 
         .uploadItem {
           label {
-            left: calcVWT(28);
+            left: calcVWT(32);
+            top: calcVWT(12) !important;
           }
 
           .prefix {
@@ -1003,7 +1005,8 @@
 
         .uploadItem {
           label {
-            left: calcVWM(30);
+            left: calcVWM(32);
+            top: unset !important;
           }
 
           .prefix {
