@@ -7,7 +7,7 @@ import Button from "../../molecules/button/Button";
 import styles from "./Technology.module.scss";
 
 const Technology = () => {
-  const [filter, setFilter] = useState("Back-End");
+  const [filter, setFilter] = useState("All");
 
   const postsMainTechnologyApi = useSelector(
     (state) =>
@@ -39,7 +39,7 @@ const Technology = () => {
 
   useEffect(() => {
     if (postsMainTechnologyFiltersApi) {
-      setFilter(postsMainTechnologyFiltersApi[0].filter_number);
+      setFilter(0);
     }
   }, [postsMainTechnologyFiltersApi]);
 
@@ -79,7 +79,12 @@ const Technology = () => {
       />
       <div className={styles.buttonsParent} ref={containerRef}>
         <div className={styles.buttons}>
-          {postsMainTechnologyFiltersApi?.map((el, index) => (
+          {[{
+            filter_name_main_technology: "All",
+            filter_number: 0,
+            id: 0
+          }, ...(postsMainTechnologyFiltersApi ? postsMainTechnologyFiltersApi : [])
+          ]?.map((el, index) => (
             <Button
               key={index}
               text={el.filter_name_main_technology}
@@ -96,10 +101,9 @@ const Technology = () => {
       <div className={styles.languages}>
         {filteredIcons.map((el, i) => (
           <div
-            className={`${styles.languageBlock} ${
-              el.filter_name_main_technology.filter_number != filter &&
+            className={`${styles.languageBlock} ${(el.filter_name_main_technology.filter_number != filter && filter != 0) &&
               styles.languageBlockDeActive
-            }`}
+              }`}
             key={i}
           >
             <Image

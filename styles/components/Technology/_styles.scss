@@ -4,20 +4,16 @@
 @mixin generate-technology-styles {
   .container {
     .title {
-      @include font-style(
-        getTechnologySizes(technology-title-fz),
+      @include font-style(getTechnologySizes(technology-title-fz),
         variables.$fw-500,
-        getTechnologySizes(technology-title-lh)
-      );
+        getTechnologySizes(technology-title-lh));
     }
 
     .description {
       margin-top: getTechnologySizes(technology-description-mt);
-      @include font-style(
-        getTechnologySizes(technology-description-fz),
+      @include font-style(getTechnologySizes(technology-description-fz),
         variables.$fw-400,
-        getTechnologySizes(technology-description-lh)
-      );
+        getTechnologySizes(technology-description-lh));
     }
 
     .buttons {
@@ -32,61 +28,71 @@
       column-gap: calcVW(10);
 
       .languageBlock {
-        transition: 0.5s;
-        transform-origin: center;
-        transform-box: fill-box;
+        transition: 0.6s;
         @include flex(center, center, column);
         width: getTechnologySizes(language-block-w);
+        border: 1px solid transparent;
         height: getTechnologySizes(language-block-h);
         border-radius: getTechnologySizes(language-block-br);
+        background-color: transparent;
         cursor: pointer;
 
         .icon {
+          transition: 0.6s;
           width: getTechnologySizes(icon-w);
           height: getTechnologySizes(icon-w);
           object-fit: cover;
+          margin-bottom: calcVW(5);
         }
 
         .name {
-          display: none;
+          transition: 0.6s;
+          width: 0;
+          height: calcVW(0);
+          @include font-style(0,
+            variables.$fw-600,
+            getTechnologySizes(language-name-lh));
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         &:hover {
-          transition: 1s;
+          transition: 0.6s;
           filter: none;
           justify-content: center;
           background-color: #000000;
           border: 1px solid #3fc1ff;
-          border-radius: getTechnologySizes(language-block-br);
+          width: getTechnologySizes(language-block-w);
+          height: getTechnologySizes(language-block-h);
 
           .name {
-            display: block;
-            @include font-style(
-              getTechnologySizes(language-name-fz),
+            transition: 0.6s;
+            width: 100%;
+            height: calcVW(24);
+            @include font-style(getTechnologySizes(language-name-fz),
               variables.$fw-600,
-              getTechnologySizes(language-name-lh)
-            );
-            text-align: center;
+              getTechnologySizes(language-name-lh));
           }
+
           .icon {
-            transition: 1s;
-            margin-bottom: 5px;
+            transition: 0.6s;
+            margin-bottom: calcVW(5);
           }
         }
       }
 
       .languageBlockDeActive {
         .icon {
-          transition: 2s;
-          filter: invert(19%) sepia(0%) saturate(91%) hue-rotate(94deg)
-            brightness(12%) contrast(82%);
+          transition: 1s;
+          filter: invert(19%) sepia(0%) saturate(91%) hue-rotate(94deg) brightness(12%) contrast(82%);
         }
 
         &:hover {
           .icon {
-            transition: 1.2s;
+            transition: 1s;
             filter: none;
-            margin-bottom: 5px;
           }
         }
       }
@@ -114,17 +120,34 @@
         .languageBlock {
           width: calcVWL(106);
           height: calcVWL(106);
+          border-radius: calcVWL(16);
 
           .icon {
             width: calcVWL(40);
             height: calcVWL(40);
+            margin-bottom: calcVWL(5);
+          }
+
+          .name {
+            height: calcVWL(0);
+            @include font-style(0,
+              variables.$fw-600,
+              calcVWL(24));
           }
 
           &:hover {
-            border-radius: calcVWL(16);
+            width: calcVWL(106);
+            height: calcVWL(106);
 
             .name {
-              @include font-style(calcVWL(16), variables.$fw-600, calcVWL(24));
+              height: calcVWL(24);
+              @include font-style(calcVWL(16),
+                variables.$fw-600,
+                calcVWL(24));
+            }
+
+            .icon {
+              margin-bottom: calcVWL(5);
             }
           }
         }
@@ -160,12 +183,22 @@
             height: calcVWT(40);
           }
 
+          .name {
+            @include font-style(0, variables.$fw-500, calcVWT(24));
+          }
+
           &:hover {
             border-radius: calcVWT(16);
+            width: calcVWT(106);
+            height: calcVWT(106);
 
             .name {
-              display: block;
+              height: calcVWT(24);
               @include font-style(calcVWT(14), variables.$fw-500, calcVWT(24));
+            }
+
+            .icon {
+              margin-bottom: calcVWT(5);
             }
           }
         }
@@ -209,6 +242,8 @@
           }
 
           &:hover {
+            width: calcVWM(40);
+            height: calcVWM(40);
             pointer-events: none;
             border-radius: none;
             border: none;
