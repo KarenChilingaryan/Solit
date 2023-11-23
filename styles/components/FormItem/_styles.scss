@@ -82,7 +82,7 @@
 
     .asLabel {
       left: 0 !important;
-      top: calcVW(-20);
+      top: calcVW(-20) !important ;
       background: transparent;
       @include font-style(
         calcVW(13),
@@ -93,6 +93,10 @@
 
       span {
         color: red;
+      }
+      
+      @media (max-width: 576px) {
+        top: calcVWM(-15) !important ;
       }
     }
 
@@ -109,17 +113,20 @@
           variables.$fw-400,
           calcVWL(24) !important
         );
-        top: calcVWL(5); 
+        top: calcVWL(5);
       }
 
       .asLabel {
-        top: calcVWL(-20);
+        top: calcVWL(-20) !important;
         @include font-style(
           calcVWL(13) !important,
           variables.$fw-400,
           normal,
           #8296a5 !important
         );
+      }
+      .file {
+        top: calcVW(0) !important;
       }
     }
   }
@@ -139,7 +146,7 @@
         variables.$fw-400,
         calcVWT(24) !important
       );
-      top: calcVWT(10) !important;
+      top: calcVWT(1) !important;
     }
 
     .label {
@@ -160,6 +167,9 @@
         #8296a5 !important
       );
     }
+    .file {
+      top: calcVW(20) !important;
+    }
   }
 
   @media (max-width: 576px) {
@@ -169,20 +179,20 @@
         variables.$fw-400,
         calcVWM(24)
       );
-      top: calcVWM(10) !important;
+      top: calcVWM(5) !important;
     }
 
     .label {
       @include font-style(
         calcVWM(18) !important,
         variables.$fw-400,
-        normal,
+        normal !important,
         #8296a5
       );
     }
 
     .asLabel {
-      top: calcVWM(-15) !important;
+      top: calcVWM(0) !important;
       @include font-style(
         calcVWM(13) !important,
         variables.$fw-400,

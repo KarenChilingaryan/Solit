@@ -243,6 +243,7 @@ const ContactForm = ({
                 </div>
               )}
             </FormItem>
+          </Row>
             <FormItem
               className={`${styles.accept} ${styles[errorMesssage]}`}
               name="accept"
@@ -294,8 +295,6 @@ const ContactForm = ({
                 sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
               />
             </FormItem>
-            {/* </div> */}
-          </Row>
 
           <Col className={styles.buttonWrapper}>
             <Button

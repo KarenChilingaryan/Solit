@@ -4,8 +4,34 @@ import { Input, FormItem } from "../../atoms";
 import styles from "./FloatInput.module.scss";
 
 const phoneValues = [
-  'Backspace', 'Delete', 'Tab', 'Enter', ' ', 'Shift', 'Control', 'Alt', 'CapsLock', 'Escape',
-  'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'F3', 'F12', 'Insert', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+'
+  "Backspace",
+  "Delete",
+  "Tab",
+  "Enter",
+  " ",
+  "Shift",
+  "Control",
+  "Alt",
+  "CapsLock",
+  "Escape",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowUp",
+  "ArrowDown",
+  "F3",
+  "F12",
+  "Insert",
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "+",
 ];
 
 const FloatInput = ({
@@ -19,6 +45,7 @@ const FloatInput = ({
   suffix,
   prefix,
   border,
+  isUpload = false,
   rest,
 }) => {
   const [focus, setFocus] = useState(false);
@@ -35,12 +62,15 @@ const FloatInput = ({
     <span className={styles.textDanger}>*</span>
   ) : null;
   const handleKeyDown = (e) => {
-    if (!((
-      e.ctrlKey && (e.key === 'a' || e.key === 'A'))
-      || (e.ctrlKey && (e.key === 'c' || e.key === 'C'))
-      || (e.ctrlKey && (e.key === 'v' || e.key === 'V'))
-      || (e.ctrlKey && (e.key === 'x' || e.key === 'X')))
-      && !phoneValues.includes(e.key)) {
+    if (
+      !(
+        (e.ctrlKey && (e.key === "a" || e.key === "A")) ||
+        (e.ctrlKey && (e.key === "c" || e.key === "C")) ||
+        (e.ctrlKey && (e.key === "v" || e.key === "V")) ||
+        (e.ctrlKey && (e.key === "x" || e.key === "X"))
+      ) &&
+      !phoneValues.includes(e.key)
+    ) {
       e.preventDefault();
     }
   };
@@ -65,7 +95,7 @@ const FloatInput = ({
         <Input
           onChange={onChange}
           type={type}
-          onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => { })}
+          onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => {})}
           defaultValue={value}
           showUploadList={showUploadList}
           suffix={suffix}
@@ -74,10 +104,14 @@ const FloatInput = ({
           {...rest}
         />
       )}
-      <label className={labelClass}>
+      <label
+        className={`${labelClass} ${
+          isUpload && !isOccupied ? styles.file : ""
+        }`}
+      >
         {isOccupied ? label : placeholder} {requiredMark}
       </label>
-      {type == 'file' && prefix}
+      {type == "file" && prefix}
     </div>
   );
 };

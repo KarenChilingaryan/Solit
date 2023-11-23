@@ -34,7 +34,7 @@ const ModalLetsTalkForm = ({
     setDisabled(true);
     try {
       await onSubmit(formData);
-    } catch { }
+    } catch {}
     setDisabled(false);
     setFile(null);
     form.resetFields();
@@ -127,14 +127,15 @@ const ModalLetsTalkForm = ({
           <FormItem
             className={`${styles[errorMesssage]}`}
             name="phone_number"
-            rules={[{
-              type: "number",
-              message: "The input is not a valid Number",
-            },
-            {
-              required: true,
-              message: "Phone number is required",
-            },
+            rules={[
+              {
+                type: "number",
+                message: "The input is not a valid Number",
+              },
+              {
+                required: true,
+                message: "Phone number is required",
+              },
             ]}
           >
             <FloatInput
@@ -166,6 +167,7 @@ const ModalLetsTalkForm = ({
                   <Image className={styles.suffix} src={upload} alt="image" />
                 }
                 value={file?.name || ""}
+                isUpload={true}
               />
             </Upload>
             {file && (
@@ -184,35 +186,34 @@ const ModalLetsTalkForm = ({
           <FormItem name="comment">
             <FloatInput label="Comment" placeholder="Comment" name="comment" />
           </FormItem>
-
         </Row>
-          <FormItem
-            className={`${styles.accept} ${styles[errorMesssage]}`}
+        <FormItem
+          className={`${styles.accept} ${styles[errorMesssage]}`}
+          name="accept"
+          rules={[
+            {
+              required: true,
+              message: "Accept is required",
+            },
+          ]}
+        >
+          <Checkbox
             name="accept"
-            rules={[
-              {
-                required: true,
-                message: "Accept is required",
-              },
-            ]}
-          >
-            <Checkbox
-              name="accept"
-              onChange={() => {
-                setOnChangeCheckbox(!onChangeCheckbox);
-                if (onChangeCheckbox) {
-                  form.resetFields(["accept"]);
-                } else {
-                  form.setFieldValue("accept", !onChangeCheckbox);
-                }
-              }}
-              value={onChangeCheckbox}
-            />
-            <Row className={styles.acceptText}>
-              I accept your{" "}
-              <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
-            </Row>
-          </FormItem>
+            onChange={() => {
+              setOnChangeCheckbox(!onChangeCheckbox);
+              if (onChangeCheckbox) {
+                form.resetFields(["accept"]);
+              } else {
+                form.setFieldValue("accept", !onChangeCheckbox);
+              }
+            }}
+            value={onChangeCheckbox}
+          />
+          <Row className={styles.acceptText}>
+            I accept your{" "}
+            <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
+          </Row>
+        </FormItem>
 
         <Col className={styles.buttonWrapper}>
           <Button

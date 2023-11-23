@@ -185,6 +185,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
               suffix={
                 <Image className={styles.suffix} src={linkedin} alt="image" />
               }
+              isUpload
             />
           </FormItem>
           <FormItem
@@ -211,6 +212,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
               suffix={
                 <Image className={styles.suffix} src={u_link} alt="image" />
               }
+              isUpload
             />
           </FormItem>
           <FormItem
@@ -242,6 +244,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
                   <Image className={styles.suffix} src={upload} alt="image" />
                 }
                 value={file?.name || ""}
+                isUpload={true}
               />
             </Upload>
             {file && (

@@ -716,6 +716,7 @@
         .inputWithIcon {
           label {
             left: calcVWT(32);
+            // top: calcVWT(8) !important;
           }
 
           input {
@@ -766,11 +767,13 @@
             }
           }
         }
-
+        
+        .uploadItem:has(.asPlaceholder) {
+          top: calcVWT(12) !important;
+        }
         .uploadItem {
           label {
             left: calcVWT(32);
-            top: calcVWT(12) !important;
           }
 
           .prefix {
@@ -1006,7 +1009,7 @@
         .uploadItem {
           label {
             left: calcVWM(32);
-            top: unset !important;
+            // top: unset !important;
           }
 
           .prefix {
