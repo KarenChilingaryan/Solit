@@ -746,6 +746,9 @@
 
           :global(.ant-input-suffix) {
             margin-top: calcVWT(10);
+            @media (max-width: 576px) {
+              margin-top: 0;
+            }
           }
         }
 
@@ -767,7 +770,7 @@
             }
           }
         }
-        
+
         .uploadItem:has(.asPlaceholder) {
           top: calcVWT(12) !important;
         }
@@ -962,7 +965,7 @@
         }
 
         :global(.ant-input-suffix) {
-          top: 8;
+          top: calcVWM(-5);
         }
 
         .suffix {
@@ -1046,6 +1049,7 @@
             a {
               font-size: calcVWM(18);
               line-height: calcVWM(24);
+              margin-left: calcVWM(4);
             }
           }
         }

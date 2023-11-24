@@ -350,10 +350,18 @@
         margin-top: calcVW(15) !important;
         :global(.ant-form-item-explain-error) {
           margin-top: calcVW(-9);
-          // margin-bottom: -42px;
         }
         @media (max-width: 1024px) {
           margin-bottom: calcVWT(50) !important;
+        }
+        @media (max-width: 576px) {
+          height: calcVWM(45) !important;
+          :global(.ant-form-item-explain-error) {
+            margin-left: calcVWM(20);
+          }
+          :global(.ant-form-item-control-input-content) {
+            height: calcVWM(74);
+          }
         }
       }
     }
@@ -707,7 +715,7 @@
       .form {
         width: 100%;
         max-width: 100%;
-        gap: calcVWM(25);
+        gap: calcVWM(35);
 
         .uploadAntd {
           :global(.ant-input) {
@@ -739,7 +747,7 @@
         }
 
         .inputSection {
-          gap: calcVWM(52);
+          gap: calcVWM(40);
         }
 
         .inputSection > div > div > div {
@@ -771,6 +779,8 @@
         }
 
         .accept {
+          height: calcVWM(34) !important;
+
           .acceptText {
             font-size: calcVWM(18);
             line-height: calcVWM(24);
@@ -789,7 +799,7 @@
 
         :global(.ant-form-item) {
           margin-bottom: calcVWM(20);
-          height: calcVWM(34);
+          height: calcVWM(25);
         }
 
         :global(.ant-checkbox-inner) {
