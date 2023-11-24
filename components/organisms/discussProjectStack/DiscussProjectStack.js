@@ -205,15 +205,19 @@ const DiscussProjectStack = () => {
         data[item.category] = [];
       }
     } else if (item.category === "industry") {
-      data[item.category] = data[item.category].filter(
-        (elem) => elem !== item.item
-      );
+      if (item.item) {
+        data[item.category] = data[item.category].filter(
+          (elem) => elem !== item?.item
+        );
+      } else {
+        data[item.category] = [];
+      }
     } else if (item.category === "duration") {
       data[item.category] = undefined;
     }
-    
+
     form.setFieldsValue(data);
-    item.category === "duration" &&  form.setFieldValue("duration", 1) 
+    item.category === "duration" && form.setFieldValue("duration", 1);
     getProjectData(data);
     submitForm(form.getFieldsValue(), true);
   };
@@ -357,10 +361,10 @@ const DiscussProjectStack = () => {
     next.style.position = `inherit`;
     window.scrollTo(0, top);
     setTop(0);
-    setIsSSR(false)
-    setTimeout(()=>{
-      setIsSSR(true)
-    }, 200)
+    setIsSSR(false);
+    setTimeout(() => {
+      setIsSSR(true);
+    }, 200);
   };
 
   const handleResize = () => {
