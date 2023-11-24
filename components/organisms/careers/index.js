@@ -145,16 +145,6 @@ const Careers = () => {
     setTop(0);
   }
 
-  useEffect(() => {
-    if (localStorage.getItem('fromJob')) {
-      const doc = document.getElementById("to-jobs")
-      if (doc) {
-        doc.scrollIntoView();
-        localStorage.removeItem('fromJob')
-      }
-    }
-  }, [])
-
   const win = typeof window != 'undefined'
   useEffect(() => {
     if (win) {
@@ -164,16 +154,18 @@ const Careers = () => {
   }, [win])
 
   useEffect(() => {
-    if (checked) {
+    if (checked && postsTextCareersColourfulApi, careersJobOpeningApi) {
       if (localStorage.getItem('fromJob')) {
-        const doc = document.getElementById("to-jobs")
-        if (doc) {
-          doc.scrollIntoView();
-          localStorage.removeItem('fromJob')
-        }
+        setTimeout(() => {
+          const doc = document.getElementById("to-jobs")
+          if (doc) {
+            doc.scrollIntoView({ behavior: 'smooth' });
+            localStorage.removeItem('fromJob')
+          }
+        }, 300)
       }
     }
-  }, [isSafari, checked])
+  }, [checked, postsTextCareersColourfulApi, careersJobOpeningApi])
 
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">

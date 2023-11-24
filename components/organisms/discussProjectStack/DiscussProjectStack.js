@@ -127,10 +127,11 @@ const DiscussProjectStack = () => {
   const [isSSR, setIsSSR] = useState(false);
   const [top, setTop] = useState(0);
   const [tooltip, setTooltip] = useState(true);
+  const [month, setMonth] = useState(false);
 
   const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
-    getProjectData(allValues);
+    getProjectData(allValues, changedValues?.duration);
   };
 
   const handleFieldChange = (field, name, value) => {
@@ -152,7 +153,7 @@ const DiscussProjectStack = () => {
     getProjectData(form.getFieldsValue());
   };
 
-  function getProjectData(projectStacks) {
+  const getProjectData = (projectStacks, isMonth = false) => {
     const data = [];
 
     const developers = [];
@@ -190,8 +191,19 @@ const DiscussProjectStack = () => {
       developers: projectStacks?.developers || [],
       specialists: projectStacks?.specialists || [],
     };
+
     setProjectStacks(newProjectStacks);
-    setLiveStacks([...data]);
+    if (!month && !isMonth) {
+      const newData = []
+      for (let i = 0; i < data.length; i++) {
+        const element = data[i];
+        if (element.category != 'duration')
+          newData.push(element)
+      }
+      setLiveStacks([...newData]);
+    } else {
+      setLiveStacks([...data]);
+    }
   }
 
   const handleDelete = (item) => {
@@ -218,6 +230,8 @@ const DiscussProjectStack = () => {
 
     form.setFieldsValue(data);
     item.category === "duration" && form.setFieldValue("duration", 1);
+    item.category === "duration" && (data.duration = undefined) && setMonth(false);
+    item.category === "duration" && setMonth(false)
     getProjectData(data);
     submitForm(form.getFieldsValue(), true);
   };
@@ -277,7 +291,7 @@ const DiscussProjectStack = () => {
         form.resetFields();
       }, 3000);
       return true;
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
@@ -501,10 +515,9 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${
-                  asPath == "/discuss-project-stack" &&
+                className={`${asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                } ${styles.buttons}`}
+                  } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -590,11 +603,10 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -621,6 +633,7 @@ const DiscussProjectStack = () => {
                       defaultValue={1}
                       max={25}
                       onChange={(val) => {
+                        setMonth(true);
                         if (val == 0) {
                           form.setFieldValue("duration", 1);
                         }
@@ -632,11 +645,26 @@ const DiscussProjectStack = () => {
                           : { open: false }),
                       }}
                       marks={{
-                        1: "1 month",
-                        6: "6 month",
-                        12: "1 year",
-                        18: "1.5 year",
-                        24: "2 year",
+                        1: <span onClick={() => {
+                          setMonth(true)
+                          getProjectData(form.getFieldsValue(), true)
+                        }}>1 month</span>,
+                        6: <span onClick={() => {
+                          setMonth(true)
+                          getProjectData(form.getFieldsValue(), true)
+                        }}>6 month</span>,
+                        12: <span onClick={() => {
+                          setMonth(true)
+                          getProjectData(form.getFieldsValue(), true)
+                        }}>1 year</span>,
+                        18: <span onClick={() => {
+                          setMonth(true)
+                          getProjectData(form.getFieldsValue(), true)
+                        }}>1.5 year</span>,
+                        24: <span onClick={() => {
+                          setMonth(true)
+                          getProjectData(form.getFieldsValue(), true)
+                        }}>2 year</span>,
                       }}
                     />
                   </FormItem>
@@ -678,10 +706,10 @@ const DiscussProjectStack = () => {
                   <Button
                     text="Clear"
                     clear
-                    onClick={() =>
-                      form.getFieldsValue().duration !== 1 &&
+                    onClick={() => {
+                      setMonth(false);
                       handleDelete({ category: "duration" })
-                    }
+                    }}
                   />
                 </Row>
               </Row>

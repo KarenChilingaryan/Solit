@@ -17,7 +17,6 @@ import SuccessModal from "../successModal/SuccessModal";
 import FloatInput from "../../molecules/floatInput/FloatInput";
 
 import styles from "./DiscussProject.module.scss";
-import { ifError } from "assert";
 
 const data = ["Android", "iOS", "Cross-platform"];
 const data1 = ["idea", "MVP", "Prototype Specification"];
@@ -70,6 +69,7 @@ const DiscussProject = () => {
   const [isSSR, setIsSSR] = useState(false);
   const [top, setTop] = useState(0);
   const [tooltip, setTooltip] = useState(true);
+  const [month, setMonth] = useState(false);
   const dispatch = useDispatch();
 
   const submitForm = (values, fromDelete = false) => {
@@ -120,7 +120,7 @@ const DiscussProject = () => {
     getProjectData(allValues);
   };
 
-  function getProjectData(projectStacks) {
+  function getProjectData(projectStacks, isMonth = false) {
     const data = [];
 
     projectStacks?.applicationType?.forEach((type) => {
@@ -164,6 +164,17 @@ const DiscussProject = () => {
             : `${projectStacks.duration} months`,
       });
 
+    if (!month && !isMonth) {
+      const newData = []
+      for (let i = 0; i < data.length; i++) {
+        const element = data[i];
+        if (element.category != 'duration')
+          newData.push(element)
+      }
+      setLiveStacks([...newData]);
+    } else {
+      setLiveStacks([...data]);
+    }
     setLiveStacks(data);
   }
 
@@ -191,6 +202,7 @@ const DiscussProject = () => {
       case "duration":
         form.setFieldValue("duration", 1);
         updatedValues.duration = 1;
+        setMonth(false)
         break;
       default:
         break;
@@ -210,6 +222,7 @@ const DiscussProject = () => {
     const updatedStacks = liveStacks.filter(
       (stack) => stack.category !== field
     );
+    console.log(liveStacks);
     setLiveStacks(updatedStacks);
 
     const updatedValues = { ...form.getFieldsValue() };
@@ -273,6 +286,9 @@ const DiscussProject = () => {
       };
     }
 
+    if (!month) {
+      updatedValues["duration"] = undefined
+    }
     getProjectData(updatedValues);
 
     setSelectedValue(updatedValues.applicationStack || "none");
@@ -297,7 +313,7 @@ const DiscussProject = () => {
       setOpen(false);
       setLiveStacks([]);
       return true;
-    } catch {}
+    } catch { }
   };
 
   const setValueinForm = (val) => {
@@ -457,9 +473,8 @@ const DiscussProject = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${
-                  asPath == "/discuss-project" && styles.currentStageDiscuss
-                } ${styles.buttons}`}
+                className={`${asPath == "/discuss-project" && styles.currentStageDiscuss
+                  } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -485,13 +500,12 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form
-                              .getFieldsValue()
-                              .applicationType?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form
+                            .getFieldsValue()
+                            .applicationType?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -520,11 +534,10 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().currentStage?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -554,11 +567,10 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -588,11 +600,10 @@ const DiscussProject = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().industry?.includes(item)
-                              ? styles.selected
-                              : ""
-                          }`}
+                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
+                            ? styles.selected
+                            : ""
+                            }`}
                         >
                           <Industry
                             value={item}
@@ -622,6 +633,7 @@ const DiscussProject = () => {
                         if (val == 0) {
                           form.setFieldValue("duration", 1);
                         }
+                        setMonth(true)
                       }}
                       tooltip={{
                         formatter,
@@ -630,11 +642,26 @@ const DiscussProject = () => {
                           : { open: false }),
                       }}
                       marks={{
-                        1: "1 month",
-                        6: "6 month",
-                        12: "1 year",
-                        18: "1.5 year",
-                        24: "2 year",
+                        1: <span onClick={() => {
+                          setMonth(true)
+                          getProjectData(form.getFieldsValue(), true)
+                        }}>1 month</span>,
+                        6: <span onClick={() => {
+                          setMonth(true)
+                          getProjectData(form.getFieldsValue(), true)
+                        }}>6 month</span>,
+                        12: <span onClick={() => {
+                          setMonth(true)
+                          getProjectData(form.getFieldsValue(), true)
+                        }}>1 year</span>,
+                        18: <span onClick={() => {
+                          setMonth(true)
+                          getProjectData(form.getFieldsValue(), true)
+                        }}>1.5 year</span>,
+                        24: <span onClick={() => {
+                          setMonth(true)
+                          getProjectData(form.getFieldsValue(), true)
+                        }}>2 year</span>,
                       }}
                     />
                   </FormItem>
@@ -676,7 +703,10 @@ const DiscussProject = () => {
                   <Button
                     text="Clear"
                     clear
-                    onClick={() => handleClear("duration")}
+                    onClick={() => {
+                      setMonth(false)
+                      handleClear("duration")
+                    }}
                   />
                 </Row>
                 <Button text="Get Pricing" transparentOpposite type="submit" />
