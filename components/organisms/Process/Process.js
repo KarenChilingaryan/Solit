@@ -264,6 +264,7 @@ const Line = () => {
   const targetRef = useRef(null);
   const targetRefMobile = useRef(null);
   const [visiblePercentage, setVisiblePercentage] = useState(0);
+  const [changeValue, setChangeValue] = useState(0);
   const [visiblePercentageMobile, setVisiblePercentageMobile] = useState(0);
 
   useEffect(() => {
@@ -294,30 +295,6 @@ const Line = () => {
     };
   }, []);
 
-  const stopScroll = () => {
-    if (window.scrollY) {
-      localStorage.setItem("scrollTop", window.scrollY);
-      const next = document.getElementById("__next");
-      next.style.top = `-${window.scrollY}px`;
-      next.style.width = `100%`;
-      next.style.position = `fixed`;
-    }
-  };
-
-  const setClose = () => {
-    if (localStorage.getItem("scrollTop")) {
-      const next = document.getElementById("__next");
-      next.style.position = `inherit`;
-      window.scrollTo(0, Number(localStorage.getItem("scrollTop")));
-      localStorage.removeItem("scrollTop");
-    }
-  };
-
-  useEffect(() => {
-    localStorage.removeItem("scrollTop");
-    localStorage.removeItem("scrollStep");
-  }, []);
-
   return (
     <>
       <svg
@@ -329,91 +306,9 @@ const Line = () => {
       >
         {svgSizes.map((el, index) => {
           let color = "white";
-          if (visiblePercentage < 10) {
-            localStorage.setItem("scrollStep", 0);
-          } else if (visiblePercentage < 30 && visiblePercentage > 25) {
-            localStorage.setItem("scrollStep", 1);
-          } else if (visiblePercentage < 40 && visiblePercentage > 35) {
-            localStorage.setItem("scrollStep", 2);
-          } else if (visiblePercentage < 50 && visiblePercentage > 45) {
-            localStorage.setItem("scrollStep", 3);
-          } else if (visiblePercentage < 60 && visiblePercentage > 55) {
-            localStorage.setItem("scrollStep", 4);
-          }
-
-          if (visiblePercentage > 10 && index < 3) {
+          if (visiblePercentage > 30) {
             color = "#3FC1FF";
           }
-          if (visiblePercentage > 30 && index < 9) {
-            color = "#3FC1FF";
-          }
-
-          if (visiblePercentage > 40 && index < 11) {
-            color = "#3FC1FF";
-          }
-
-          if (visiblePercentage > 50 && index < 17) {
-            color = "#3FC1FF";
-          }
-
-          if (visiblePercentage > 60 && index < 30) {
-            color = "#3FC1FF";
-          }
-
-          if (visiblePercentage > 0 && window.innerWidth > 576) {
-            const step = localStorage.getItem("scrollStep");
-            const scrollTop = localStorage.getItem("scrollTop");
-            if (visiblePercentage > 10 && step == 0) {
-              if (!scrollTop) {
-                stopScroll();
-                localStorage.setItem("scrollStep", 1);
-                setTimeout(() => {
-                  setClose();
-                }, 1000);
-              }
-            }
-
-            if (visiblePercentage > 30 && step == 1) {
-              if (!scrollTop) {
-                stopScroll();
-                localStorage.setItem("scrollStep", 2);
-                setTimeout(() => {
-                  setClose();
-                }, 2200);
-              }
-            }
-
-            if (visiblePercentage > 40 && step == 2) {
-              if (!scrollTop) {
-                stopScroll();
-                localStorage.setItem("scrollStep", 3);
-                setTimeout(() => {
-                  setClose();
-                }, 1000);
-              }
-            }
-
-            if (visiblePercentage > 50 && step == 3) {
-              if (!scrollTop) {
-                stopScroll();
-                localStorage.setItem("scrollStep", 4);
-                setTimeout(() => {
-                  setClose();
-                }, 2300);
-              }
-            }
-
-            if (visiblePercentage > 60 && step == 4) {
-              if (!scrollTop) {
-                stopScroll();
-                localStorage.setItem("scrollStep", 5);
-                setTimeout(() => {
-                  setClose();
-                }, 1000);
-              }
-            }
-          }
-
           if (el.type === "path") {
             const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
 
@@ -622,14 +517,6 @@ const Process = () => {
     (state) =>
       state?.postsMainProcessTextApi?.queries?.["posts(undefined)"]?.data
   );
-  const [isSSR, setIsSSR] = useState(false);
-
-  const win = typeof window != undefined;
-  useEffect(() => {
-    if (win) {
-      setIsSSR(true);
-    }
-  }, [win]);
 
   return (
     <div className={styles.container}>
@@ -644,7 +531,7 @@ const Process = () => {
             : "",
         }}
       />
-      {isSSR && <Line />};
+      <Line />;
     </div>
   );
 };
