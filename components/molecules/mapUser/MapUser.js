@@ -19,6 +19,7 @@ const TooltipElement = (text) => {
 
 const MapUser = ({ user, changeTo }) => {
   const [tooltip, setTooltip] = useState(true);
+  const [top, setTop] = useState(0);
 
   useEffect(() => {
     setTooltip(false);
@@ -29,13 +30,13 @@ const MapUser = ({ user, changeTo }) => {
 
   const handleResize = () => {
     if (tooltip) {
-      setTooltip(false)
+      setTooltip(false);
       const timeout = setTimeout(() => {
-        setTooltip(true)
-        clearTimeout(timeout)
-      }, 200)
+        setTooltip(true);
+        clearTimeout(timeout);
+      }, 200);
     }
-  }
+  };
 
   useEffect(() => {
     handleResize();
@@ -45,13 +46,26 @@ const MapUser = ({ user, changeTo }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setTop(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  console.log(top);
+
   return (
     <div className={styles.container}>
       <div className={styles.imgBlock}>
         <div className={styles.iconBlock} onClick={() => changeTo("prev")}>
           <Image className={styles.arrowIcon} src={arrowLeft} alt="image" />
         </div>
-        {tooltip && (
+        {tooltip && top > 7000 && (
           <Tooltip
             overlayClassName="user-map-tooltip"
             color="#219FDB"
@@ -59,8 +73,9 @@ const MapUser = ({ user, changeTo }) => {
             {...(window.innerWidth <= 1024 && window.innerWidth > 576
               ? { visible: true, placement: "left" }
               : window.innerWidth <= 576
-                ? { visible: true }
-                : { visible: true })}
+              ? { visible: true }
+              : { visible: true })}
+            {...(top > 7000 ? { visible: true } : { visible: false })}
           >
             <div className={styles.imageBlock}>
               <Image
