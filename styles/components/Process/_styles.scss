@@ -4,7 +4,6 @@
 @mixin generate-process-styles {
   .container {
     .desktopSvg {
-
       .loadingPath {
         stroke-dasharray: 1000;
         stroke-dashoffset: 1000;
@@ -17,51 +16,51 @@
       }
 
       .loadingPath3 {
-        animation: colorChange 5s linear 0.8s forwards;
+        animation: colorChange 5s linear forwards;
       }
 
       .loadingPath4 {
-        animation: colorChange 5s linear 1.8s forwards;
+        animation: colorChange 5s linear 0.8s forwards;
       }
 
       .loadingPath5 {
-        animation: colorChange 5s linear 2.2s forwards;
+        animation: colorChange 5s linear 1.2s forwards;
       }
 
       .loadingPath6 {
-        animation: colorChange 5s linear 2.4s forwards;
+        animation: colorChange 5s linear 1.4s forwards;
       }
 
       .loadingPath7 {
-        animation: colorChange 5s linear 2.8s forwards;
+        animation: colorChange 5s linear 1.8s forwards;
       }
 
       .loadingPath9 {
-        animation: colorChange 5s linear 3.3s forwards;
+        animation: colorChange 5s linear forwards;
       }
 
       .loadingPath11 {
-        animation: colorChange 5s linear 3.8s forwards;
+        animation: colorChange 5s linear forwards;
       }
 
       .loadingPath12 {
-        animation: colorChange 5s linear 4.8s forwards;
+        animation: colorChange 5s linear 1s forwards;
       }
 
       .loadingPath13 {
-        animation: colorChange 5s linear 5.4s forwards;
+        animation: colorChange 5s linear 1.6s forwards;
       }
 
       .loadingPath15 {
-        animation: colorChange 5s linear 5.6s forwards;
+        animation: colorChange 5s linear 1.8s forwards;
       }
 
       .loadingPath17 {
-        animation: colorChange 5s linear 6.6s forwards;
+        animation: colorChange 5s linear forwards;
       }
 
       .loadingPath14 {
-        animation: colorChange1 5s linear 5.6s forwards;
+        animation: colorChange1 5s linear 1.8s forwards;
       }
 
       .loadingPathRound {
@@ -83,35 +82,35 @@
       }
 
       .loadingPathRound8 {
-        animation: colorChangeRound 0.1s linear 3.2s forwards;
+        animation: colorChangeRound 0.1s linear 2.2s forwards;
       }
 
       .loadingPathRoundFill8 {
-        animation: colorChangeRoundFill 0.1s linear 3.2s forwards;
+        animation: colorChangeRoundFill 0.1s linear 2.2s forwards;
       }
 
       .loadingPathRound10 {
-        animation: colorChangeRound 0.1s linear 3.7s forwards;
+        animation: colorChangeRound 0.1s linear 0.7s forwards;
       }
 
       .loadingPathRoundFill10 {
-        animation: colorChangeRoundFill 0.1s linear 3.7s forwards;
+        animation: colorChangeRoundFill 0.1s linear 0.7s forwards;
       }
 
       .loadingPathRound16 {
-        animation: colorChangeRound 0.1s linear 6s forwards;
+        animation: colorChangeRound 0.1s linear 2.2s forwards;
       }
 
       .loadingPathRoundFill16 {
-        animation: colorChangeRoundFill 0.1s linear 6s forwards;
+        animation: colorChangeRoundFill 0.1s linear 2.2s forwards;
       }
 
       .loadingPathRound18 {
-        animation: colorChangeRound 0.1s linear 7.2s forwards;
+        animation: colorChangeRound 0.1s linear 0.6s forwards;
       }
 
       .loadingPathRoundFill18 {
-        animation: colorChangeRoundFill 0.1s linear 7.2s forwards;
+        animation: colorChangeRoundFill 0.1s linear 0.6s forwards;
       }
 
       .loadingPathRound0 {
@@ -121,7 +120,6 @@
       .loadingPathRoundFill0 {
         animation: colorChangeRoundFill 0.1s linear forwards;
       }
-
     }
 
     .mobileSvg {
@@ -209,7 +207,6 @@
       .loadingPathRoundFill10 {
         animation: colorChangeRoundFill 0.1s linear 10.7s forwards;
       }
-
     }
 
     @keyframes colorChange1 {
@@ -249,16 +246,20 @@
     }
 
     .title {
-      @include font-style(getProcessSizes(process-title-fz),
+      @include font-style(
+        getProcessSizes(process-title-fz),
         variables.$fw-500,
-        getProcessSizes(process-title-lh));
+        getProcessSizes(process-title-lh)
+      );
     }
 
     .description {
       margin-top: getProcessSizes(process-description-mt);
-      @include font-style(getProcessSizes(process-description-fz),
+      @include font-style(
+        getProcessSizes(process-description-fz),
         variables.$fw-400,
-        getProcessSizes(process-description-lh));
+        getProcessSizes(process-description-lh)
+      );
     }
 
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
