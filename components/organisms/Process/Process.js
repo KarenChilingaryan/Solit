@@ -360,7 +360,7 @@ const Line = () => {
             color = "#3FC1FF";
           }
 
-          if (visiblePercentage > 0) {
+          if (visiblePercentage > 0 && window.innerWidth > 576) {
             const step = localStorage.getItem("scrollStep");
             const scrollTop = localStorage.getItem("scrollTop");
             if (visiblePercentage > 10 && step == 0) {
