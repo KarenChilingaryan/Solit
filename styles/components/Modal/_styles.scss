@@ -86,8 +86,8 @@
       }
 
       :global(.ant-modal-close) {
-        top: calcVWT(40);
-        right: calcVWT(30);
+        top: calcVWT(57);
+        right: calcVWT(48);
       }
     }
 
@@ -115,6 +115,11 @@
         width: 100% !important;
         padding: calcVWM(16) !important;
         border-radius: calcVWM(16) !important;
+      }
+
+      :global(.ant-modal-close) {
+        top: calcVWM(10);
+        right: calcVWM(10);
       }
     }
 

@@ -742,6 +742,7 @@
             );
             width: calcVWT(380);
             margin-left: calcVWT(32);
+            max-height: calcVWT(36);
           }
 
           :global(.ant-input-suffix) {
@@ -757,6 +758,8 @@
         }
 
         .inputSection {
+          gap: calcVWT(32);
+          padding-bottom: calcVWT(10);
           :global(.ant-form-item) {
             height: calcVWT(48);
             margin-bottom: calcVWT(10);
@@ -785,12 +788,20 @@
           }
 
           .removeFile {
-            top: calcVWT(15);
+            top: calcVWT(12);
 
             img {
               width: calcVWT(24);
               height: calcVWT(24);
             }
+          }
+          @media (min-width: 576px) {
+            // :global(.ant-upload) > div {
+            //   max-height: calcVWT(36);
+            // }
+            // :global(.ant-row){
+            //   max-height: calcVWT(36) !important;
+            // }
           }
         }
 
@@ -985,6 +996,8 @@
         }
 
         .inputSection {
+          gap: calcVWM(32);
+          padding-bottom: calcVWM(13);
           :global(.ant-form-item) {
             height: calcVWM(48);
             margin-bottom: calcVWM(10);

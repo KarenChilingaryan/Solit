@@ -8,44 +8,6 @@ import Button from "../../../molecules/button/Button";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-// const data = [
-//   {
-//     id: 1,
-//     image: img,
-//     title: "Meditative Minds",
-//     desc: "#Android #Kotlin #Java#RXjava",
-//   },
-//   {
-//     id: 2,
-//     image: img,
-//     title: "Huma",
-//     desc: "#Android #Kotlin #Java#RXjava",
-//   },
-//   {
-//     id: 3,
-//     image: img,
-//     title: "Nmible",
-//     desc: "#Android #Kotlin #Java#RXjava",
-//   },
-//   {
-//     id: 4,
-//     image: img,
-//     title: "Meditative Minds",
-//     desc: "#Android #Kotlin #Java#RXjava",
-//   },
-//   {
-//     id: 5,
-//     image: img,
-//     title: "Huma",
-//     desc: "#Android #Kotlin #Java#RXjava",
-//   },
-//   {
-//     id: 6,
-//     image: img,
-//     title: "Nmible",
-//     desc: "#Android #Kotlin #Java#RXjava",
-//   },
-// ];
 
 const BottomCarousel = ({ data }) => {
   const router = useRouter();
