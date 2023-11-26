@@ -41,7 +41,7 @@ const CareersComponent = () => {
 
   const goBack = () => {
     localStorage.setItem('fromJob', true)
-    router.back();
+    router.push('/careers');
   };
 
   const dispatch = useDispatch();
