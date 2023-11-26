@@ -164,12 +164,18 @@ const WhatWeDo = ({ data }) => {
               }
               }
             >
-              Show {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
-              <Image
-                src={!showMoreClass ? showMore : showMore}
-                className={styles.btnImg}
-                alt="image"
-              />
+              <span>
+                Show {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
+              </span>
+              <span>
+                <Image
+                  src={!showMoreClass ? showMore : showMore}
+                  className={styles.btnImg}
+                  alt="image"
+                />
+              </span>
+              <div className={styles.shadow}>
+              </div>
             </ShowMore>
           </Row>
         </div>
@@ -236,12 +242,18 @@ const WhatWeDo = ({ data }) => {
                     }
                     }
                   >
-                    Show  {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
-                    <Image
-                      src={!showMoreClass ? showMore : showMore}
-                      className={`${styles.btnImg} ${showMoreClass == 'showMoreClass' ? styles.rotatebtnImg : ''}`}
-                      alt="image"
-                    />
+                    <span>
+                      Show  {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
+                    </span>
+                    <span>
+                      <Image
+                        src={!showMoreClass ? showMore : showMore}
+                        className={`${styles.btnImg} ${showMoreClass == 'showMoreClass' ? styles.rotatebtnImg : ''}`}
+                        alt="image"
+                      />
+                    </span>
+                    <div className={styles.shadow}>
+                    </div>
                   </ShowMore>
                 </Row>
               ),
@@ -266,10 +278,6 @@ const WhatWeDo = ({ data }) => {
           />
 
           {renderTabsOrDropdown()}
-          {showMoreClass != 'showMoreClass' &&
-            <div className={styles.shadow}></div>
-          }
-
         </Col>
         <Link href={"/what-we-do"}>
           <Button text="More expertise" boldWhite icon={goRight} />
