@@ -90,6 +90,11 @@ textarea::-webkit-scrollbar-thumb {
 .ant-dropdown-open {
   background: #000000;
   border-radius: calcVWM(16) calcVWM(16) 0 0;
+
+  img {
+    transition: 0.5s;
+    transform: rotate(180deg) !important;
+  }
 }
 
 .ant-dropdown-menu {
@@ -100,7 +105,7 @@ textarea::-webkit-scrollbar-thumb {
   top: 60px !important;
 }
 
-.ant-modal-centered > div {
+.ant-modal-centered>div {
   top: unset !important;
 }
 
@@ -178,6 +183,7 @@ textarea::-webkit-scrollbar-thumb {
   height: max-content !important;
 
   margin-top: calcVW(40) !important;
+
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     margin-top: calcVWL(50) !important;
   }
@@ -189,12 +195,15 @@ textarea::-webkit-scrollbar-thumb {
     .ant-tooltip-arrow {
       display: none !important;
       height: calcVW(22);
+
       @media only screen and (max-width: 1440px) and (min-width: 1025px) {
         height: calcVWL(16) !important;
       }
+
       @media (max-width: 1024px) {
         height: calcVWT(22) !important;
       }
+
       @media (max-width: 576px) {
         background: transparent !important;
         height: calcVWM(22) !important;
@@ -204,6 +213,7 @@ textarea::-webkit-scrollbar-thumb {
     .ant-tooltip-arrow-content {
       @media (max-width: 576px) {
         background: transparent !important;
+
         &::before {
           background: transparent !important;
         }
@@ -216,16 +226,19 @@ textarea::-webkit-scrollbar-thumb {
       height: max-content !important;
       min-height: max-content !important;
       padding: calcVW(16) !important;
+
       // font-size: calcVW(18) !important;
       // font-weight: 500 !important;
       @media only screen and (max-width: 1440px) and (min-width: 1025px) {
         font-size: calcVWL(12) !important;
         padding: calcVWL(16) !important;
       }
+
       @media (max-width: 1024px) {
         font-size: calcVWT(18) !important;
         padding: calcVWT(10) !important;
       }
+
       @media (max-width: 576px) {
         font-size: calcVWM(10) !important;
         padding: calcVWM(10) !important;
@@ -340,6 +353,7 @@ textarea::-webkit-scrollbar-thumb {
   .modalApplyNowForm {
     width: calcVWL(602) !important;
   }
+
   .ant-spin-sm {
     height: calcVWL(14);
     margin-top: calcVWL(-4) !important;
@@ -351,6 +365,7 @@ textarea::-webkit-scrollbar-thumb {
     height: calcVWT(14);
     margin-top: calcVWT(-4) !important;
   }
+
   .ant-slider-horizontal {
     margin: calcVWT(79) 0 0 0 !important;
   }
@@ -453,6 +468,7 @@ textarea::-webkit-scrollbar-thumb {
     height: calcVWM(12);
     margin-top: calcVWM(0) !important;
   }
+
   .ant-slider-horizontal {
     margin: calcVWM(79) 0 0 0 !important;
   }
@@ -551,9 +567,11 @@ input[type="file"] {
     @media only screen and (max-width: 1440px) and (min-width: 1025px) {
       font-size: calcVWL(14) !important;
     }
+
     @media (max-width: 1024px) {
       font-size: calcVWT(14) !important;
     }
+
     @media (max-width: 576px) {
       font-size: calcVWM(10) !important;
     }
@@ -562,9 +580,11 @@ input[type="file"] {
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     top: calcVWL(40) !important;
   }
+
   @media (max-width: 1024px) {
     top: calcVWT(40) !important;
   }
+
   @media (max-width: 576px) {
     top: calcVWM(35) !important;
   }
@@ -572,10 +592,12 @@ input[type="file"] {
 
 .ant-slider {
   padding: 0 calcVW(1);
+
   @media (max-width: 576px) {
     .ant-slider-mark span {
       width: calcVWM(20) !important;
     }
+
     .ant-slider-mark span:nth-child(1) {
       text-align: start;
     }

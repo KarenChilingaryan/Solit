@@ -59,7 +59,7 @@
         position: absolute;
         width: 88.5%;
         left: 6%;
-        box-shadow: 0 0 calcVW(33) calcVW(45) #03071895;
+        box-shadow: 0 0 calcVW(33) calcVW(60) #03071895;
       }
 
       .title {
@@ -69,7 +69,7 @@
       .contextWrapper {
         display: flex;
         flex-direction: column;
-        gap: calcVW(30);
+        gap: calcVW(18);
 
         .button {
           display: flex;
@@ -83,6 +83,8 @@
             variables.$light-blue );
           width: max-content;
           padding: 0;
+          padding-left: calcVW(41);
+          margin-bottom: calcVW(10);
           align-items: center;
 
           .btnImg {
@@ -157,6 +159,7 @@
         .contextHeader {
           display: flex;
           gap: 20px;
+          margin-top: calcVW(10);
         }
 
         :global(.ant-tabs-nav) {
@@ -227,6 +230,8 @@
         :global(.ant-tabs-nav-list) div:first-child {
           border-radius: calcVW(16) 0 0 calcVW(16);
           overflow: hidden;
+          padding: calcVW(8) calcVW(17);
+          white-space: break-spaces;
         }
 
         :global(.ant-tabs-tab-active) {
@@ -297,7 +302,9 @@
 
         .shadow {
           bottom: calcVWL(100);
-          box-shadow: 0 0 calcVWL(33) calcVWL(45) #03071895;
+          box-shadow: 0 0 calcVWL(33) calcVWL(60) #03071895;
+          width: 92%;
+          left: 4%;
         }
 
         .title {
@@ -308,9 +315,11 @@
         }
 
         .contextWrapper {
-          gap: calcVWL(30);
+          gap: calcVWL(18);
 
           .button {
+            padding-left: calcVWL(41);
+            margin-bottom: calcVWL(10);
             @include font-style(calcVWL(18),
               variables.$fw-700,
               calcVWL(20),
@@ -323,6 +332,8 @@
           }
 
           .contextHeader {
+            margin-top: calcVWL(10);
+
             .contextTitle {
               @include font-style(calcVWL(24),
                 variables.$fw-700,
@@ -379,6 +390,11 @@
             }
           }
 
+          :global(.ant-tabs-nav-list) div:first-child {
+            padding: calcVWL(8) calcVWL(17);
+          }
+
+
           :global(.ant-tabs-nav-list) {
             border-radius: calcVWL(10);
             padding-bottom: calcVWL(36);
@@ -402,7 +418,6 @@
           :global(.ant-tabs-tab) {
             min-width: calcVWL(256);
             height: calcVWL(112);
-            margin-bottom: calcVWL(32);
           }
 
           :global(.ant-tabs-tab-active) {
@@ -488,14 +503,20 @@
         }
 
         .contextWrapper {
+          gap: calcVWT(24);
+
           .showLessClass {
-            height: calcVWT(430);
+            height: calcVWT(398);
+          }
+
+          .contextHeader {
+            margin: 0;
           }
         }
 
         .tabs {
           width: 100%;
-          gap: calcVWT(10);
+          gap: calcVWT(0);
 
           :global(.ant-tabs-nav-list) {
             width: 100%;
@@ -503,7 +524,7 @@
             justify-content: space-between;
             border-radius: calcVWT(16);
             overflow: auto;
-            padding-bottom: calcVWT(36);
+            padding-bottom: calcVWT(28);
 
             &::-webkit-scrollbar {
               display: none;
@@ -529,6 +550,7 @@
             background-color: transparent !important;
 
             :global(.ant-tabs-tab-btn) {
+              padding: calcVWT(8) calcVWT(30) !important;
               display: flex;
               align-items: center;
               word-break: break-word;
@@ -574,6 +596,8 @@
           }
 
           .button {
+            padding-left: calcVWT(40);
+            margin-bottom: calcVWT(10);
             @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(22),
@@ -649,6 +673,8 @@
 
           .button {
             margin: calcVWM(40) 0 0 calcVWM(54);
+            margin-left: calcVWM(30);
+            margin-top: calcVWM(30);
             @include font-style(calcVWM(18),
               variables.$fw-700,
               calcVWM(20),
@@ -700,8 +726,10 @@
               #fff);
 
             img {
+              transition: 0.5s;
               width: calcVWM(15);
               height: calcVWM(15);
+              transform: rotate(0);
             }
           }
         }

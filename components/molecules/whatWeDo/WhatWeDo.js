@@ -42,7 +42,7 @@ const FullMenu = styled(Menu)`
 `;
 const WhatWeDo = ({ data }) => {
   const [contextData, setContextData] = useState(null);
-  const [showMoreClass, setShowMoreClass] = useState("");
+  const [showMoreClass, setShowMoreClass] = useState("showLessClass");
   const [windowScroll, setWindowScroll] = useState(0);
   const tabsRef = useRef(null)
   const tabsBackgroundActive = useRef(null)
