@@ -73,7 +73,20 @@
     .asPlaceholder {
       color: rgba(255, 255, 255, 0.73);
       @include font-style(calcVW(18), variables.$fw-400, calcVW(24));
-      top: 0;
+      top: 5px !important;
+
+      @media only screen and (max-width: 1200px) and (min-width: 1025px) {
+        top: calcVWL(10) !important;
+      }
+      @media only screen and (max-width: 860px) and (min-width: 760px) {
+        top: calcVWL(15) !important;
+      }
+      @media only screen and (max-width: 760px) and (min-width: 670px) {
+        top: calcVWL(20) !important;
+      }
+      @media only screen and (max-width: 670px) and (min-width: 576px) {
+        top: calcVWL(30) !important;
+      }
 
       span {
         color: red;
@@ -94,7 +107,7 @@
       span {
         color: red;
       }
-      
+
       @media (max-width: 576px) {
         top: calcVWM(-15) !important ;
       }
@@ -113,7 +126,7 @@
           variables.$fw-400,
           calcVWL(24) !important
         );
-        top: calcVWL(5);
+        // top: calcVWL(5);
       }
 
       .asLabel {
@@ -125,9 +138,9 @@
           #8296a5 !important
         );
       }
-      .file {
-        top: calcVW(0) !important;
-      }
+      // .file {
+      //   top: calcVW(0) !important;
+      // }
     }
   }
 
@@ -146,7 +159,6 @@
         variables.$fw-400,
         calcVWT(24) !important
       );
-      top: calcVWT(1) !important;
     }
 
     .label {
@@ -179,7 +191,7 @@
         variables.$fw-400,
         calcVWM(24)
       );
-      top: calcVWM(5) !important;
+      // top: calcVWM(5) !important;
     }
 
     .label {

@@ -267,7 +267,7 @@
       }
 
       :global(.ant-input-affix-wrapper) {
-        height: max-content;
+        height: 36px;
         z-index: 0;
         background: transparent;
         border-bottom: 1px solid white;
@@ -276,6 +276,7 @@
         border-right: none;
         padding: 0;
         // height: calcVW(35);
+  
       }
 
       :global(.ant-input-affix-wrapper-status-error) {
@@ -517,10 +518,15 @@
           input {
             padding-left: calcVWL(36);
           }
+
+          :global(.ant-input-affix-wrapper) {
+            height: unset !important;
+          }
         }
 
         .uploadAntd {
           :global(.ant-input) {
+            height: calcVWL(35);
             @include font-style(
               calcVWL(18),
               variables.$fw-400,
