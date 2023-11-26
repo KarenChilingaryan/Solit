@@ -26,6 +26,28 @@
     align-items: center;
     gap: calcVW(88);
 
+    .allTabs {
+      position: relative;
+
+      .tabsBackground {
+        position: absolute;
+        width: 100%;
+        height: calcVW(112);
+        background-color: rgba(0, 0, 0, 0.32) !important;
+        border-radius: calcVW(16);
+        overflow: hidden;
+
+        .tabsBackgroundActive {
+          position: absolute;
+          width: calcVW(256);
+          height: calcVW(112);
+          backdrop-filter: brightness(0.5);
+          background: rgba(0, 0, 0, 0.32);
+          z-index: 1;
+        }
+      }
+    }
+
     .whatWeDoWrapper {
       display: flex;
       flex-direction: column;
@@ -120,6 +142,8 @@
         flex-direction: column;
         gap: 30px;
         width: calcVW(1280);
+        position: relative;
+        z-index: 10;
 
         .contextTitle {
           @include font-style( // getWhatWeDoSizes(what-we-do-development-fz),
@@ -147,7 +171,7 @@
         }
 
         :global(.ant-tabs-tab) {
-          background-color: rgba(0, 0, 0, 0.32) !important;
+          background-color: transparent !important;
 
           :global(.ant-tabs-tab-btn) {
             @include font-style(calcVW(20) !important,
@@ -197,20 +221,15 @@
           min-width: calcVW(256);
           height: calcVW(112);
           border: none;
-          background: rgba(0, 0, 0, 0.32);
-          backdrop-filter: blur(36.5px);
-          // margin-bottom: calcVW(32);
           margin-left: 0 !important;
         }
 
         :global(.ant-tabs-nav-list) div:first-child {
-          border-bottom-left-radius: 5px;
+          border-radius: calcVW(16) 0 0 calcVW(16);
+          overflow: hidden;
         }
 
         :global(.ant-tabs-tab-active) {
-          backdrop-filter: brightness(0.5);
-          background: rgba(0, 0, 0, 0.32);
-
           :global(.ant-tabs-tab-btn) {
             @include font-style(calcVW(20) !important,
               variables.$fw-700 !important,
@@ -259,6 +278,18 @@
     }
 
     .sectionWrapper {
+      .allTabs {
+        .tabsBackground {
+          height: calcVWL(112);
+          border-radius: calcVWL(16);
+
+          .tabsBackgroundActive {
+            width: calcVWL(256);
+            height: calcVWL(112);
+          }
+        }
+      }
+
       gap: calcVWL(88);
 
       .whatWeDoWrapper {
@@ -420,6 +451,18 @@
     .sectionWrapper {
       gap: calcVWT(64);
 
+      .allTabs {
+        .tabsBackground {
+          height: calcVWT(138);
+          border-radius: calcVWT(16);
+
+          .tabsBackgroundActive {
+            width: calcVWT(187);
+            height: calcVWT(138);
+          }
+        }
+      }
+
       .whatWeDoWrapper {
         .shadow {
           bottom: calcVWT(93);
@@ -554,6 +597,18 @@
 
     .sectionWrapper {
       gap: 0;
+
+      .allTabs {
+        display: none;
+
+        .tabsBackground {
+          display: none;
+
+          .tabsBackgroundActive {
+            display: none;
+          }
+        }
+      }
 
       .whatWeDoWrapper {
         margin-bottom: calcVWM(64);

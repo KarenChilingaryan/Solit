@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
@@ -44,8 +44,18 @@ const WhatWeDo = ({ data }) => {
   const [contextData, setContextData] = useState(null);
   const [showMoreClass, setShowMoreClass] = useState("");
   const [windowScroll, setWindowScroll] = useState(0);
+  const tabsRef = useRef(null)
+  const tabsBackgroundActive = useRef(null)
 
   const dispatch = useDispatch();
+  const [isSSR, setIsSSR] = useState(false);
+
+  const win = typeof window != undefined;
+  useEffect(() => {
+    if (win) {
+      setIsSSR(true);
+    }
+  }, [win]);
 
   const onChange = (e) => {
     // setSize(e.target.value);
@@ -79,6 +89,31 @@ const WhatWeDo = ({ data }) => {
       getContext(data.data_list[0].about_as_what_we_do_detail);
     }
   }, [data]);
+
+  const positionChangeValue = (activeTab, activeList) => {
+    if (tabsBackgroundActive?.current) {
+      tabsBackgroundActive.current.style.left = ((Number(localStorage.getItem('activeTabElement')) || 1) - 1) * activeTab.clientWidth - activeList.scrollLeft + 'px'
+    }
+  }
+  const positionChange = () => {
+    const activeTab = tabsRef.current.querySelector('.ant-tabs-tab-active');
+    const activeList = tabsRef.current.querySelector('.ant-tabs-nav-list');
+    if (activeTab) {
+      activeList.addEventListener('scroll', (e) => {
+        positionChangeValue(activeTab, activeList)
+      })
+    }
+  }
+
+  useEffect(() => {
+    if (tabsRef?.current && isSSR) {
+      setTimeout(() => {
+        positionChange()
+      }, 1500)
+    }
+    return localStorage.removeItem('activeTabElement')
+
+  }, [tabsRef, isSSR])
 
   const renderTabsOrDropdown = () => {
     if (isMobile) {
@@ -142,65 +177,78 @@ const WhatWeDo = ({ data }) => {
     }
 
     return (
-      <Tabs
-        onChange={(e) => {
-          getContext(data.data_list[e - 1].about_as_what_we_do_detail);
-        }}
-        defaultActiveKey="1"
-        type="card"
-        className={styles.tabs}
-        // size={size}
-        items={data?.data_list?.map((item, i) => {
-          const id = String(i + 1);
-          return {
-            label: item.title,
-            key: id,
-            children: (
-              // <Context icon={devIcon} context={context} title={title} />
-              <Row className={styles.contextWrapper}>
-                <Row className={styles.contextHeader}>
-                  <Image
-                    src={devIcon}
-                    className={styles.contextIcon}
-                    alt="image"
-                  />
-                  <Col className={styles.contextTitle}>
-                    {contextData?.name_about_as_what_we_do_detail}
-                  </Col>
-                </Row>
-                <Row className={`${styles.context} ${styles[showMoreClass]}`}>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: contextData?.info_name_about_as_what_we_do_detail,
-                    }}
-                  />
-                </Row>
-                <ShowMore
-                  className={styles.button}
-                  onClick={() => {
-                    if (showMoreClass == 'showMoreClass') {
-                      window.scrollTo(0, windowScroll);
-                    } else {
-                      setWindowScroll(window.scrollY)
+      <div
+        ref={tabsRef}
+        className={styles.allTabs}
+      >
+        <div className={styles.tabsBackground} >
+          <div className={styles.tabsBackgroundActive} ref={tabsBackgroundActive} />
+        </div>
+
+        <Tabs
+          onChange={(e) => {
+            localStorage.setItem('activeTabElement', e)
+            const activeTab = tabsRef.current.querySelector('.ant-tabs-tab-active');
+            const activeList = tabsRef.current.querySelector('.ant-tabs-nav-list');
+            positionChangeValue(activeTab, activeList)
+            getContext(data.data_list[e - 1].about_as_what_we_do_detail);
+          }}
+          defaultActiveKey="1"
+          type="card"
+          className={styles.tabs}
+          // size={size}
+          items={data?.data_list?.map((item, i) => {
+            const id = String(i + 1);
+            return {
+              label: item.title,
+              key: id,
+              children: (
+                // <Context icon={devIcon} context={context} title={title} />
+                <Row className={styles.contextWrapper}>
+                  <Row className={styles.contextHeader}>
+                    <Image
+                      src={devIcon}
+                      className={styles.contextIcon}
+                      alt="image"
+                    />
+                    <Col className={styles.contextTitle}>
+                      {contextData?.name_about_as_what_we_do_detail}
+                    </Col>
+                  </Row>
+                  <Row className={`${styles.context} ${styles[showMoreClass]}`}>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: contextData?.info_name_about_as_what_we_do_detail,
+                      }}
+                    />
+                  </Row>
+                  <ShowMore
+                    className={styles.button}
+                    onClick={() => {
+                      if (showMoreClass == 'showMoreClass') {
+                        window.scrollTo(0, windowScroll);
+                      } else {
+                        setWindowScroll(window.scrollY)
+                      }
+                      setShowMoreClass(
+                        showMoreClass != 'showMoreClass' ? "showMoreClass" : "showLessClass"
+                      )
                     }
-                    setShowMoreClass(
-                      showMoreClass != 'showMoreClass' ? "showMoreClass" : "showLessClass"
-                    )
-                  }
-                  }
-                >
-                  Show  {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
-                  <Image
-                    src={!showMoreClass ? showMore : showMore}
-                    className={`${styles.btnImg} ${showMoreClass == 'showMoreClass' ? styles.rotatebtnImg : ''}`}
-                    alt="image"
-                  />
-                </ShowMore>
-              </Row>
-            ),
-          };
-        })}
-      />
+                    }
+                  >
+                    Show  {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
+                    <Image
+                      src={!showMoreClass ? showMore : showMore}
+                      className={`${styles.btnImg} ${showMoreClass == 'showMoreClass' ? styles.rotatebtnImg : ''}`}
+                      alt="image"
+                    />
+                  </ShowMore>
+                </Row>
+              ),
+            };
+          })}
+        />
+      </div>
     );
   };
   return (
