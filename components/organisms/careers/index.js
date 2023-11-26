@@ -159,7 +159,7 @@ const Careers = () => {
         setTimeout(() => {
           const doc = document.getElementById("to-jobs")
           if (doc) {
-            doc.scrollIntoView({ behavior: 'smooth' });
+            doc.scrollIntoView({ behavior: 'smooth', block: 'start' });
             localStorage.removeItem('fromJob')
           }
         }, 300)
