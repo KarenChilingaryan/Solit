@@ -109,43 +109,43 @@ const WhatWeDo = ({ data }) => {
       tabsBackgroundActive.current.style.left = ((Number(localStorage.getItem('activeTabElement')) || 1) - 1) * activeTab.clientWidth - activeList.scrollLeft + 'px'
     }
   }
-  // const positionChange = () => {
-  //   const activeTab = tabsRef.current.querySelector('.ant-tabs-tab-active');
-  //   const activeList = tabsRef.current.querySelector('.ant-tabs-nav-list');
-  //   if (activeList) {
+  const positionChange = () => {
+    const activeTab = tabsRef.current.querySelector('.ant-tabs-tab-active');
+    const activeList = tabsRef.current.querySelector('.ant-tabs-nav-list');
+    if (activeList) {
 
-  //     if (activeTab) {
-  //       activeList.addEventListener('scroll', (e) => {
-  //         positionChangeValue(activeTab, activeList)
-  //       })
-  //     }
-  //     activeList.addEventListener('touchstart', (event) => {
-  //       isDragging = true;
-  //       lastX = event.touches[0].clientX;
-  //     });
+      if (activeTab) {
+        activeList.addEventListener('scroll', (e) => {
+          positionChangeValue(activeTab, activeList)
+        })
+      }
+      activeList.addEventListener('touchstart', (event) => {
+        isDragging = true;
+        lastX = event.touches[0].clientX;
+      });
 
-  //     activeList.addEventListener('touchmove', (event) => {
-  //       if (!isDragging) return;
-  //       const newX = event.touches[0].clientX;
-  //       const deltaX = newX - lastX;
-  //       activeList.scrollLeft -= deltaX * 2;
-  //       lastX = newX;
-  //     });
-  //     activeList.addEventListener('touchend', () => {
-  //       isDragging = false;
-  //     });
-  //   }
-  // }
+      activeList.addEventListener('touchmove', (event) => {
+        if (!isDragging) return;
+        const newX = event.touches[0].clientX;
+        const deltaX = newX - lastX;
+        activeList.scrollLeft -= deltaX * 2;
+        lastX = newX;
+      });
+      activeList.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+    }
+  }
 
-  // useEffect(() => {
-  //   if (tabsRef?.current && isSSR && data && contextData) {
-  //     setTimeout(() => {
-  //       positionChange()
-  //     }, 2000)
-  //   }
-  //   return localStorage.removeItem('activeTabElement')
+  useEffect(() => {
+    if (tabsRef?.current && isSSR && data && contextData) {
+      setTimeout(() => {
+        positionChange()
+      }, 2000)
+    }
+    return localStorage.removeItem('activeTabElement')
 
-  // }, [tabsRef, isSSR, data, contextData])
+  }, [tabsRef, isSSR, data, contextData])
 
   const renderTabsOrDropdown = () => {
     if (isMobile) {
@@ -154,7 +154,7 @@ const WhatWeDo = ({ data }) => {
           {data?.data_list?.map((item, i) => (
             <MenuItem
               key={i + 1}
-              active={data.data_list[i].about_as_what_we_do_detail == contextData.id}
+              active={data.data_list[i].about_as_what_we_do_detail == contextData?.id}
               onClick={(e) => {
                 getContext(data.data_list[i].about_as_what_we_do_detail);
               }}
