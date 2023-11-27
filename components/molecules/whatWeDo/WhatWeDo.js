@@ -137,15 +137,15 @@ const WhatWeDo = ({ data }) => {
     }
   }
 
-  useEffect(() => {
-    if (tabsRef?.current && isSSR && data && contextData) {
-      setTimeout(() => {
-        positionChange()
-      }, 2000)
-    }
-    return localStorage.removeItem('activeTabElement')
+  // useEffect(() => {
+  //   if (tabsRef?.current && isSSR && data && contextData) {
+  //     setTimeout(() => {
+  //       positionChange()
+  //     }, 2000)
+  //   }
+  //   return localStorage.removeItem('activeTabElement')
 
-  }, [tabsRef, isSSR, data, contextData])
+  // }, [tabsRef, isSSR, data, contextData])
 
   const renderTabsOrDropdown = () => {
     if (isMobile) {
