@@ -52,14 +52,14 @@ const FullMenu = styled(Menu)`
   border-radius: 0 0 ${16 * 0.266711333}vw ${16 * 0.266711333}vw;
   overflow: hidden;
 `;
+let isDragging = false;
+let lastX;
 const WhatWeDo = ({ data }) => {
   const [contextData, setContextData] = useState(null);
   const [showMoreClass, setShowMoreClass] = useState("showLessClass");
   const [windowScroll, setWindowScroll] = useState(0);
   const tabsRef = useRef(null)
   const tabsBackgroundActive = useRef(null)
-  let isDragging = false;
-  let lastX;
 
   const dispatch = useDispatch();
   const [isSSR, setIsSSR] = useState(false);
