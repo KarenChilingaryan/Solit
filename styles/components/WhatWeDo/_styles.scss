@@ -36,12 +36,12 @@
         background-color: rgba(0, 0, 0, 0.32) !important;
         border-radius: calcVW(16);
         overflow: hidden;
+        backdrop-filter: blur(36.5px);
 
         .tabsBackgroundActive {
           position: absolute;
           width: calcVW(256);
           height: calcVW(112);
-          backdrop-filter: brightness(0.5);
           background: rgba(0, 0, 0, 0.32);
           z-index: 1;
         }
@@ -54,14 +54,14 @@
       gap: calcVW(32);
 
       .shadow {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.7);
         position: absolute;
         width: calcVW(1280);
         height: calcVW(74);
         top: 0;
         left: calcVW(-32);
         border-radius: 0 0 calcVW(16) calcVW(16);
-        box-shadow: 0 calcVW(-5) calcVW(43) calcVW(48) rgba(0, 0, 0, 0.5);
+        box-shadow: 0 calcVW(-5) calcVW(43) calcVW(60) rgba(0, 0, 0, 0.7);
       }
 
       .title {
@@ -311,11 +311,12 @@
         gap: calcVWL(32);
 
         .shadow {
+        background: rgba(0, 0, 0, 0.6);
           width: calcVWL(1280);
           height: calcVWL(74);
           left: calcVWL(-32);
           border-radius: 0 0 calcVWL(16) calcVWL(16);
-          box-shadow: 0 calcVWL(-5) calcVWL(43) calcVWL(48) rgba(0, 0, 0, 0.5);
+          box-shadow: 0 calcVWL(-5) calcVWL(43) calcVWL(48) rgba(0, 0, 0, 0.6);
         }
 
         .title {
