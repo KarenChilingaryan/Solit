@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { Dropdown, Menu } from "antd";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { postAbutUsWhatWeDoApi } from "../../../services/postAbutUsWhatWeDoApi";
 import { Button as ShowMore, Col, Row, Tabs } from "../../atoms";
 import Button from "../../molecules/button/Button";
@@ -33,6 +33,18 @@ const MenuItem = styled(Menu.Item)`
       color: #000000
     }
   }
+  ${props =>
+    (props.active) &&
+    css`
+      background: rgba(0, 0, 0, 0.5);
+      backdrop - filter: blur(36.5px);
+      color: #219fdb;
+      span {
+        background: #219FDB;
+        border-radius: 8px;
+        color: #000000
+      }
+  `}
 `;
 
 const FullMenu = styled(Menu)`
@@ -122,7 +134,7 @@ const WhatWeDo = ({ data }) => {
           {data?.data_list?.map((item, i) => (
             <MenuItem
               key={i + 1}
-              className={styles.dropdownOption}
+              active={data.data_list[i].about_as_what_we_do_detail == contextData.id}
               onClick={(e) => {
                 getContext(data.data_list[i].about_as_what_we_do_detail);
               }}
