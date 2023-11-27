@@ -138,7 +138,7 @@ const WhatWeDo = ({ data }) => {
     if (tabsRef?.current && isSSR) {
       setTimeout(() => {
         positionChange()
-      }, 1500)
+      }, 2000)
     }
     return localStorage.removeItem('activeTabElement')
 
