@@ -58,6 +58,8 @@ const WhatWeDo = ({ data }) => {
   const [windowScroll, setWindowScroll] = useState(0);
   const tabsRef = useRef(null)
   const tabsBackgroundActive = useRef(null)
+  let isDragging = false;
+  let lastX;
 
   const dispatch = useDispatch();
   const [isSSR, setIsSSR] = useState(false);
@@ -115,6 +117,21 @@ const WhatWeDo = ({ data }) => {
         positionChangeValue(activeTab, activeList)
       })
     }
+    activeList.addEventListener('touchstart', (event) => {
+      isDragging = true;
+      lastX = event.touches[0].clientX;
+    });
+
+    activeList.addEventListener('touchmove', (event) => {
+      if (!isDragging) return;
+      const newX = event.touches[0].clientX;
+      const deltaX = newX - lastX;
+      activeList.scrollLeft -= deltaX * 2;
+      lastX = newX;
+    });
+    activeList.addEventListener('touchend', () => {
+      isDragging = false;
+    });
   }
 
   useEffect(() => {
