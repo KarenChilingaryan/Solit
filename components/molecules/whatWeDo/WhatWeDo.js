@@ -174,8 +174,10 @@ const WhatWeDo = ({ data }) => {
                   alt="image"
                 />
               </span>
-              <div className={styles.shadow}>
-              </div>
+              {showMoreClass != 'showMoreClass' &&
+                <div className={styles.shadow}>
+                </div>
+              }
             </ShowMore>
           </Row>
         </div>
@@ -252,8 +254,9 @@ const WhatWeDo = ({ data }) => {
                         alt="image"
                       />
                     </span>
-                    <div className={styles.shadow}>
-                    </div>
+                    {showMoreClass != 'showMoreClass' &&
+                      <div className={styles.shadow}>
+                      </div>}
                   </ShowMore>
                 </Row>
               ),
