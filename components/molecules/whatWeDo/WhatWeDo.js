@@ -112,26 +112,29 @@ const WhatWeDo = ({ data }) => {
   const positionChange = () => {
     const activeTab = tabsRef.current.querySelector('.ant-tabs-tab-active');
     const activeList = tabsRef.current.querySelector('.ant-tabs-nav-list');
-    if (activeTab) {
-      activeList.addEventListener('scroll', (e) => {
-        positionChangeValue(activeTab, activeList)
-      })
-    }
-    activeList.addEventListener('touchstart', (event) => {
-      isDragging = true;
-      lastX = event.touches[0].clientX;
-    });
+    if (activeList) {
 
-    activeList.addEventListener('touchmove', (event) => {
-      if (!isDragging) return;
-      const newX = event.touches[0].clientX;
-      const deltaX = newX - lastX;
-      activeList.scrollLeft -= deltaX * 2;
-      lastX = newX;
-    });
-    activeList.addEventListener('touchend', () => {
-      isDragging = false;
-    });
+      if (activeTab) {
+        activeList.addEventListener('scroll', (e) => {
+          positionChangeValue(activeTab, activeList)
+        })
+      }
+      activeList.addEventListener('touchstart', (event) => {
+        isDragging = true;
+        lastX = event.touches[0].clientX;
+      });
+
+      activeList.addEventListener('touchmove', (event) => {
+        if (!isDragging) return;
+        const newX = event.touches[0].clientX;
+        const deltaX = newX - lastX;
+        activeList.scrollLeft -= deltaX * 2;
+        lastX = newX;
+      });
+      activeList.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+    }
   }
 
   useEffect(() => {
