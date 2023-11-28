@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { Dropdown, Menu } from "antd";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { postAbutUsWhatWeDoApi } from "../../../services/postAbutUsWhatWeDoApi";
 import { Button as ShowMore, Col, Row, Tabs } from "../../atoms";
 import Button from "../../molecules/button/Button";
@@ -33,6 +33,18 @@ const MenuItem = styled(Menu.Item)`
       color: #000000
     }
   }
+  ${props =>
+    (props.active) &&
+    css`
+      background: rgba(0, 0, 0, 0.5);
+      backdrop - filter: blur(36.5px);
+      color: #219fdb;
+      span {
+        background: #219FDB;
+        border-radius: 8px;
+        color: #000000
+      }
+  `}
 `;
 
 const FullMenu = styled(Menu)`
@@ -40,6 +52,8 @@ const FullMenu = styled(Menu)`
   border-radius: 0 0 ${16 * 0.266711333}vw ${16 * 0.266711333}vw;
   overflow: hidden;
 `;
+let isDragging = false;
+let lastX;
 const WhatWeDo = ({ data }) => {
   const [contextData, setContextData] = useState(null);
   const [showMoreClass, setShowMoreClass] = useState("showLessClass");
@@ -98,22 +112,40 @@ const WhatWeDo = ({ data }) => {
   const positionChange = () => {
     const activeTab = tabsRef.current.querySelector('.ant-tabs-tab-active');
     const activeList = tabsRef.current.querySelector('.ant-tabs-nav-list');
-    if (activeTab) {
-      activeList.addEventListener('scroll', (e) => {
-        positionChangeValue(activeTab, activeList)
-      })
+    if (activeList) {
+
+      if (activeTab) {
+        activeList.addEventListener('scroll', (e) => {
+          positionChangeValue(activeTab, activeList)
+        })
+      }
+      activeList.addEventListener('touchstart', (event) => {
+        isDragging = true;
+        lastX = event.touches[0].clientX;
+      });
+
+      activeList.addEventListener('touchmove', (event) => {
+        if (!isDragging) return;
+        const newX = event.touches[0].clientX;
+        const deltaX = newX - lastX;
+        activeList.scrollLeft -= deltaX * 2;
+        lastX = newX;
+      });
+      activeList.addEventListener('touchend', () => {
+        isDragging = false;
+      });
     }
   }
 
   useEffect(() => {
-    if (tabsRef?.current && isSSR) {
+    if (tabsRef?.current && isSSR && data && contextData) {
       setTimeout(() => {
         positionChange()
-      }, 1500)
+      }, 2000)
     }
     return localStorage.removeItem('activeTabElement')
 
-  }, [tabsRef, isSSR])
+  }, [tabsRef, isSSR, data, contextData])
 
   const renderTabsOrDropdown = () => {
     if (isMobile) {
@@ -122,7 +154,7 @@ const WhatWeDo = ({ data }) => {
           {data?.data_list?.map((item, i) => (
             <MenuItem
               key={i + 1}
-              className={styles.dropdownOption}
+              active={data.data_list[i].about_as_what_we_do_detail == contextData?.id}
               onClick={(e) => {
                 getContext(data.data_list[i].about_as_what_we_do_detail);
               }}
@@ -164,12 +196,20 @@ const WhatWeDo = ({ data }) => {
               }
               }
             >
-              Show {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
-              <Image
-                src={!showMoreClass ? showMore : showMore}
-                className={styles.btnImg}
-                alt="image"
-              />
+              <span>
+                Show {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
+              </span>
+              <span>
+                <Image
+                  src={!showMoreClass ? showMore : showMore}
+                  className={styles.btnImg}
+                  alt="image"
+                />
+              </span>
+              {showMoreClass != 'showMoreClass' &&
+                <div className={styles.shadow}>
+                </div>
+              }
             </ShowMore>
           </Row>
         </div>
@@ -236,12 +276,19 @@ const WhatWeDo = ({ data }) => {
                     }
                     }
                   >
-                    Show  {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
-                    <Image
-                      src={!showMoreClass ? showMore : showMore}
-                      className={`${styles.btnImg} ${showMoreClass == 'showMoreClass' ? styles.rotatebtnImg : ''}`}
-                      alt="image"
-                    />
+                    <span>
+                      Show  {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
+                    </span>
+                    <span>
+                      <Image
+                        src={!showMoreClass ? showMore : showMore}
+                        className={`${styles.btnImg} ${showMoreClass == 'showMoreClass' ? styles.rotatebtnImg : ''}`}
+                        alt="image"
+                      />
+                    </span>
+                    {showMoreClass != 'showMoreClass' &&
+                      <div className={styles.shadow}>
+                      </div>}
                   </ShowMore>
                 </Row>
               ),
@@ -266,10 +313,6 @@ const WhatWeDo = ({ data }) => {
           />
 
           {renderTabsOrDropdown()}
-          {showMoreClass != 'showMoreClass' &&
-            <div className={styles.shadow}></div>
-          }
-
         </Col>
         <Link href={"/what-we-do"}>
           <Button text="More expertise" boldWhite icon={goRight} />
