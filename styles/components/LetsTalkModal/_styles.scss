@@ -180,6 +180,7 @@
 
       .suffix {
         width: calcVW(24);
+        height: calcVW(24);
       }
 
       .accept {
@@ -275,8 +276,6 @@
         border-left: none;
         border-right: none;
         padding: 0;
-        // height: calcVW(35);
-  
       }
 
       :global(.ant-input-affix-wrapper-status-error) {
@@ -293,7 +292,24 @@
         left: 0;
         top: 0;
         color: white;
-        bottom: calcVW(10);
+        bottom: calcVW(0);
+
+        @media (max-width: 1024px) {
+          bottom: calcVWT(-2);
+        }
+        @media only screen and (max-width: 736px) and (min-width: 688px) {
+          bottom: calcVWT(-10);
+        }
+        @media only screen and (max-width: 688px) and (min-width: 640px) {
+          bottom: calcVWT(-20);
+        }
+        @media only screen and (max-width: 640px) and (min-width: 592px) {
+          bottom: calcVWT(-30);
+        }
+
+        @media only screen and (max-width: 592px) and (min-width: 576px) {
+          bottom: calcVWT(-20);
+        }
       }
 
       .uploadFile {
@@ -510,6 +526,10 @@
       }
 
       .form {
+        :global(.ant-input-suffix) {
+          bottom: calcVWL(-5);
+        }
+
         .inputWithIcon {
           label {
             left: calcVWL(32);
@@ -542,6 +562,7 @@
 
         .suffix {
           width: calcVWL(24);
+          height: calcVWL(24);
         }
 
         .accept {
@@ -623,6 +644,7 @@
         }
 
         :global(.ant-input) {
+          height: 35px;
           padding: 0 0px calcVWL(5) 0;
           @include font-style(
             calcVWL(18),
@@ -722,7 +744,6 @@
         .inputWithIcon {
           label {
             left: calcVWT(32);
-            // top: calcVWT(8) !important;
           }
 
           input {
@@ -732,10 +753,6 @@
 
         .buttonWrapper {
           margin: auto;
-        }
-
-        :global(.ant-input-affix-wrapper) {
-          // height: calcVWT(35);
         }
 
         .uploadAntd {
@@ -752,7 +769,6 @@
           }
 
           :global(.ant-input-suffix) {
-            margin-top: calcVWT(10);
             @media (max-width: 576px) {
               margin-top: 0;
             }
@@ -761,6 +777,7 @@
 
         .suffix {
           width: calcVWT(24);
+          height: calcVWT(24);
         }
 
         .inputSection {
@@ -957,6 +974,10 @@
           input {
             padding-left: calcVWM(36);
           }
+
+          :global(.ant-input-affix-wrapper) {
+            height: calcVWM(30);
+          }
         }
 
         .uploadAntd {
@@ -977,8 +998,8 @@
         }
 
         .suffix {
-          width: calcVWM(18);
-          height: calcVWM(18);
+          width: calcVWM(24);
+          height: calcVWM(24);
         }
 
         :global(.ant-input-suffix) {

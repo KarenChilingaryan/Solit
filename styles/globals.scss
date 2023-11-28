@@ -137,6 +137,10 @@ textarea::-webkit-scrollbar-thumb {
   }
 }
 
+.ant-input-suffix{
+  margin-left: unset !important;
+}
+
 .ant-tooltip-placement-top {
   display: flex !important;
   justify-content: center;
@@ -623,4 +627,8 @@ input[type="file"] {
 
 .ant-slider-dot {
   display: none;
+}
+
+.ant-form-item-control-input{
+  min-height: 30px !important;
 }

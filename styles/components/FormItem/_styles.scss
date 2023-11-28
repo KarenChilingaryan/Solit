@@ -72,22 +72,116 @@
 
     .asPlaceholder {
       color: rgba(255, 255, 255, 0.73);
-      @include font-style(calcVW(18), variables.$fw-400, calcVW(24));
-      top: 5px !important;
+      // font-size: 18px;
+      // font-weight: 400;
+      @include font-style(calcVW(18), variables.$fw-400, normal);
+      top: calcVW(5) !important;
 
-      @media only screen and (max-width: 1200px) and (min-width: 1025px) {
+      @media only screen and (max-width: 1820px) and (min-width: 1720px) {
+        top: calcVW(6) !important;
+      }
+
+      @media only screen and (max-width: 1720px) and (min-width: 1620px) {
+        top: calcVW(10) !important;
+      }
+
+      @media only screen and (max-width: 1620px) and (min-width: 1520px) {
+        top: calcVW(12) !important;
+      }
+
+      @media only screen and (max-width: 1520px) and (min-width: 1440px) {
+        top: calcVW(14) !important;
+      }
+      @media only screen and (max-width: 1440px) and (min-width: 1390px) {
+        top: calcVWL(11) !important;
+      }
+
+      @media only screen and (max-width: 1390px) and (min-width: 1340px) {
         top: calcVWL(10) !important;
       }
-      @media only screen and (max-width: 860px) and (min-width: 760px) {
-        top: calcVWL(15) !important;
-      }
-      @media only screen and (max-width: 760px) and (min-width: 670px) {
-        top: calcVWL(20) !important;
-      }
-      @media only screen and (max-width: 670px) and (min-width: 576px) {
-        top: calcVWL(30) !important;
+
+      @media only screen and (max-width: 1340px) and (min-width: 1290px) {
+        top: calcVWL(12) !important;
       }
 
+      @media only screen and (max-width: 1290px) and (min-width: 1240px) {
+        top: calcVWL(14) !important;
+      }
+
+      @media only screen and (max-width: 1240px) and (min-width: 1190px) {
+        top: calcVWL(16) !important;
+      }
+
+      @media only screen and (max-width: 1190px) and (min-width: 1140px) {
+        top: calcVWL(18) !important;
+      }
+
+      @media only screen and (max-width: 1140px) and (min-width: 1090px) {
+        top: calcVWL(20) !important;
+      }
+
+      @media only screen and (max-width: 1090px) and (min-width: 1024px) {
+        top: calcVWL(20) !important;
+      }
+
+      @media only screen and (max-width: 1024px) and (min-width: 976px) {
+        top: calcVWT(7) !important;
+      }
+
+      @media only screen and (max-width: 976px) and (min-width: 928px) {
+        top: calcVWT(8) !important;
+      }
+
+      @media only screen and (max-width: 928px) and (min-width: 880px) {
+        top: calcVWT(10) !important;
+      }
+
+      @media only screen and (max-width: 880px) and (min-width: 832px) {
+        top: calcVWT(12) !important;
+      }
+
+      @media only screen and (max-width: 832px) and (min-width: 784px) {
+        top: calcVWT(14) !important;
+      }
+
+      @media only screen and (max-width: 784px) and (min-width: 736px) {
+        top: calcVWT(16) !important;
+      }
+
+      @media only screen and (max-width: 736px) and (min-width: 688px) {
+        top: calcVWT(20) !important;
+      }
+
+      @media only screen and (max-width: 688px) and (min-width: 640px) {
+        top: calcVWT(26) !important;
+      }
+
+      @media only screen and (max-width: 640px) and (min-width: 592px) {
+        top: calcVWT(32) !important;
+      }
+
+      @media only screen and (max-width: 592px) and (min-width: 576px) {
+        top: calcVWT(32) !important;
+      }
+      @media only screen and (max-width: 576px) and (min-width: 526px) {
+        top: calcVWM(1) !important;
+      }
+
+      @media only screen and (max-width: 526px) and (min-width: 476px) {
+        top: calcVWM(2) !important;
+      }
+
+      @media only screen and (max-width: 476px) and (min-width: 426px) {
+        top: calcVWM(3) !important;
+      }
+
+      @media only screen and (max-width: 426px) and (min-width: 376px) {
+        top: calcVWM(4) !important;
+      }
+
+      @media only screen and (max-width: 376px) and (min-width: 326px) {
+        top: calcVWM(5) !important;
+      }
       span {
         color: red;
       }
@@ -127,6 +221,7 @@
           calcVWL(24) !important
         );
         // top: calcVWL(5);
+        font-size: 18px;
       }
 
       .asLabel {

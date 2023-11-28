@@ -109,8 +109,6 @@
 
       @media screen and (max-width: 1440px) and (min-width: 1025px) {
         .uploadItem {
-          top: calcVWL(10);
-
           .removeFile {
             img {
               width: calcVWL(20);
@@ -372,7 +370,7 @@
 
       :global(.ant-input) {
         position: relative;
-        padding: calcVW(12) 0px calcVW(5) 0;
+        // padding: calcVW(12) 0px calcVW(5) 0;
         width: 100%;
         outline: 0;
         border: 0;
@@ -555,7 +553,7 @@
         }
 
         :global(.ant-input) {
-          padding: calcVWT(12) 0px calcVWT(5) 0;
+          // padding: calcVWT(12) 0px calcVWT(5) 0;
           border-bottom: 2px solid #ffffff;
         }
 
@@ -613,7 +611,7 @@
           gap: calcVWT(34);
           .select {
             .selectPlaceholder {
-              @include font-style(calcVWT(13), variables.$fw-400, normal, #000);
+              @include font-style(calcVWT(18), variables.$fw-400, normal, #000);
             }
           }
         }
