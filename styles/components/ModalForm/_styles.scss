@@ -269,6 +269,31 @@
           bottom: 10px;
         }
       }
+      @media (min-width: 1440px) {
+        .uploadAntd {
+          :global(.ant-input-suffix) {
+            img {
+              position: absolute;
+              left: -15px;
+              bottom: 5px;
+            }
+          }
+        }
+      }
+      @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+        .uploadAntd {
+          :global(.ant-input-suffix) {
+            position: relative;
+            img {
+              height: calcVWL(20);
+              width: calcVWL(20);
+              position: absolute;
+              left: -15px;
+              bottom: 5px;
+            }
+          }
+        }
+      }
 
       .inputSection {
         display: flex;
@@ -537,8 +562,13 @@
 
           :global(.ant-input-suffix) {
             margin-top: calcVWT(10);
-            @media (max-width: 1024px) {
-              margin-top: 0;
+            position: relative;
+            @media (max-width: 1024px) and (min-width: 576px) {
+              img {
+                position: absolute;
+                left: -15px;
+                bottom: 5px;
+              }
             }
           }
         }
