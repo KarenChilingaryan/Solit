@@ -30,7 +30,7 @@ const ContactForm = ({
   const [openSuccess, setOpenSuccess] = useState(false);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
   const [top, setTop] = useState(0);
-  const [errorMesssage, setErrorMesssage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [disabled, setDisabled] = useState(false);
 
   const dispatch = useDispatch();
@@ -142,11 +142,11 @@ const ContactForm = ({
       <Col className={styles.formWrapper}>
         <Form
           onFinishFailed={() => {
-            setErrorMesssage("errorMessageLeft");
+            setErrorMessage("errorMessageLeft");
             setTimeout(() => {
-              setErrorMesssage("errorMessageRight");
+              setErrorMessage("errorMessageRight");
               setTimeout(() => {
-                setErrorMesssage("");
+                setErrorMessage("");
               }, 100);
             }, 100);
           }}
@@ -156,7 +156,7 @@ const ContactForm = ({
         >
           <Row className={styles.inputSection}>
             <FormItem
-              className={`${styles[errorMesssage]}`}
+              className={`${styles[errorMessage]}`}
               name="full_name"
               rules={[
                 {
@@ -172,7 +172,7 @@ const ContactForm = ({
               />
             </FormItem>
             <FormItem
-              className={`${styles[errorMesssage]}`}
+              className={`${styles[errorMessage]}`}
               name="from_email"
               rules={[
                 {
@@ -247,7 +247,7 @@ const ContactForm = ({
             </FormItem>
           </Row>
           <FormItem
-            className={`${styles.accept} ${styles[errorMesssage]}`}
+            className={`${styles.accept} ${styles[errorMessage]}`}
             name="accept"
             rules={[
               {
@@ -274,7 +274,7 @@ const ContactForm = ({
             </Row>
           </FormItem>
           <FormItem
-            className={`${styles.recaptchaForm} ${styles[errorMesssage]}`}
+            className={`${styles.recaptchaForm} ${styles[errorMessage]}`}
             name="recaptcha"
             rules={[
               {

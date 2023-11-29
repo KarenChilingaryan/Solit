@@ -21,7 +21,7 @@ const ModalLetsTalkForm = ({
   const [form] = Form.useForm();
   const [file, setFile] = useState(null);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
-  const [errorMesssage, setErrorMesssage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [disabled, setDisabled] = useState(false);
 
   const submitForm = async (values, data) => {
@@ -72,11 +72,11 @@ const ModalLetsTalkForm = ({
 
       <Form
         onFinishFailed={() => {
-          setErrorMesssage("errorMessageLeft");
+          setErrorMessage("errorMessageLeft");
           setTimeout(() => {
-            setErrorMesssage("errorMessageRight");
+            setErrorMessage("errorMessageRight");
             setTimeout(() => {
-              setErrorMesssage("");
+              setErrorMessage("");
             }, 100);
           }, 100);
         }}
@@ -88,7 +88,7 @@ const ModalLetsTalkForm = ({
       >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
-            className={`${styles[errorMesssage]}`}
+            className={`${styles[errorMessage]}`}
             name="full_name"
             rules={[
               {
@@ -104,7 +104,7 @@ const ModalLetsTalkForm = ({
             />
           </FormItem>
           <FormItem
-            className={`${styles[errorMesssage]}`}
+            className={`${styles[errorMessage]}`}
             name="from_email"
             rules={[
               {
@@ -125,7 +125,7 @@ const ModalLetsTalkForm = ({
             />
           </FormItem>
           <FormItem
-            className={`${styles[errorMesssage]}`}
+            className={`${styles[errorMessage]}`}
             name="phone_number"
             rules={[
               {
@@ -188,7 +188,7 @@ const ModalLetsTalkForm = ({
           </FormItem>
         </Row>
         <FormItem
-          className={`${styles.accept} ${styles[errorMesssage]}`}
+          className={`${styles.accept} ${styles[errorMessage]}`}
           name="accept"
           rules={[
             {
