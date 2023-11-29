@@ -113,14 +113,14 @@
           display: none;
         }
       }
-      .errorMesssageRight {
+      .errorMessageRight {
         :global(.ant-form-item-explain-error) {
           transition: 0.1s;
           transform: translateX(5px);
         }
       }
 
-      .errorMesssageLeft {
+      .errorMessageLeft {
         :global(.ant-form-item-explain-error) {
           transition: 0.1s;
           transform: translateX(-5px);
@@ -990,6 +990,7 @@
             );
             width: calcVWM(280);
             margin-left: calcVWM(32);
+            max-height: unset;
           }
 
           :global(.ant-input-affix-wrapper) {
@@ -1003,7 +1004,7 @@
         }
 
         :global(.ant-input-suffix) {
-          top: calcVWM(-5);
+          top: calcVWM(-1);
         }
 
         .suffix {

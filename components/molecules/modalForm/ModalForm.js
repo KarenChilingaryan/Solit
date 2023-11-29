@@ -6,16 +6,15 @@ import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 import arrow from "../../../assets/img/icons/selectIcon.svg";
 import close from "../../../assets/img/icons/close.svg";
+import { Upload } from "antd";
 
 import styles from "./ModalForm.module.scss";
-import { Upload } from "antd";
 
 const ModalForm = ({
   title,
   style = {},
   data,
   onSubmit,
-  from = "apply",
   className,
   secondCheckBox,
 }) => {
@@ -23,7 +22,7 @@ const ModalForm = ({
   const [file, setFile] = useState(null);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
   const [onChangeCheckboxNDA, setOnChangeCheckboxNDA] = useState(false);
-  const [errorMesssage, setErrorMesssage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [disabled, setDisabled] = useState(false);
 
   const submitForm = async (values, data) => {
@@ -35,7 +34,7 @@ const ModalForm = ({
     setDisabled(true);
     try {
       await onSubmit(formData);
-    } catch { }
+    } catch {}
     setDisabled(false);
     form.resetFields();
   };
@@ -50,16 +49,15 @@ const ModalForm = ({
     },
     fileList: file ? [file] : [],
   };
-
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Form
         onFinishFailed={() => {
-          setErrorMesssage("errorMesssageLeft");
+          setErrorMessage("errorMessageLeft");
           setTimeout(() => {
-            setErrorMesssage("errorMesssageRight");
+            setErrorMessage("errorMessageRight");
             setTimeout(() => {
-              setErrorMesssage("");
+              setErrorMessage("");
             }, 100);
           }, 100);
         }}
@@ -71,7 +69,7 @@ const ModalForm = ({
       >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
-            className={`${styles[errorMesssage]}`}
+            className={`${styles[errorMessage]}`}
             name="full_name"
             rules={[
               {
@@ -87,7 +85,7 @@ const ModalForm = ({
             />
           </FormItem>
           <FormItem
-            className={`${styles[errorMesssage]}`}
+            className={`${styles[errorMessage]}`}
             name="from_email"
             rules={[
               {
@@ -109,7 +107,7 @@ const ModalForm = ({
           </FormItem>
 
           <FormItem
-            className={`${styles[errorMesssage]}`}
+            className={`${styles[errorMessage]}`}
             name="phon_number"
             rules={[
               {
@@ -170,7 +168,7 @@ const ModalForm = ({
             <FloatInput label="Comment" placeholder="Comment" name="comment" />
           </FormItem>
 
-          <FormItem className={`${styles[errorMesssage]}`} name="your_budget">
+          <FormItem className={`${styles[errorMessage]}`} name="your_budget">
             <Select
               className={styles.select}
               suffixIcon={<Image src={arrow} alt="image" />}
@@ -190,8 +188,9 @@ const ModalForm = ({
             </Select>
           </FormItem>
           <FormItem
-            className={`${styles.accept} ${secondCheckBox && styles.acceptLeft
-              } ${styles[errorMesssage]}`}
+            className={`${styles.accept} ${
+              secondCheckBox && styles.acceptLeft
+            } ${styles[errorMessage]}`}
             name="accept"
             rules={[
               {
@@ -219,7 +218,7 @@ const ModalForm = ({
           </FormItem>
 
           <FormItem
-            className={`${styles.accept}  ${styles[errorMesssage]}`}
+            className={`${styles.accept}  ${styles[errorMessage]}`}
             name="acceptNDA"
           >
             <Checkbox

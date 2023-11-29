@@ -72,9 +72,9 @@ const ModalLetsTalkForm = ({
 
       <Form
         onFinishFailed={() => {
-          setErrorMesssage("errorMesssageLeft");
+          setErrorMesssage("errorMessageLeft");
           setTimeout(() => {
-            setErrorMesssage("errorMesssageRight");
+            setErrorMesssage("errorMessageRight");
             setTimeout(() => {
               setErrorMesssage("");
             }, 100);

@@ -71,9 +71,9 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Form
         onFinishFailed={() => {
-          setErrorMesssage("errorMesssageLeft");
+          setErrorMesssage("errorMessageLeft");
           setTimeout(() => {
-            setErrorMesssage("errorMesssageRight");
+            setErrorMesssage("errorMessageRight");
             setTimeout(() => {
               setErrorMesssage("");
             }, 100);

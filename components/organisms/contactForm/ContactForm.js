@@ -36,8 +36,8 @@ const ContactForm = ({
   const dispatch = useDispatch();
 
   const changeRecaptcha = (value) => {
-    form.setFieldValue('recaptcha', value)
-  }
+    form.setFieldValue("recaptcha", value);
+  };
   const setClose = () => {
     const next = document.getElementById("__next");
     next.style.top = `-${window.scrollY}px`;
@@ -57,7 +57,7 @@ const ContactForm = ({
       next.style.width = `100%`;
       next.style.position = `fixed`;
     }
-  }
+  };
   const submitForm = async (values) => {
     const data = { ...values, file_cv: file };
     const formData = new FormData();
@@ -70,14 +70,14 @@ const ContactForm = ({
         await emailApi.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-      hideScroll()
+      hideScroll();
       setTimeout(() => {
         setOpenSuccess(false);
         setClose();
         form.resetFields();
         setFile(null);
       }, 3000);
-    } catch { }
+    } catch {}
     setDisabled(false);
   };
 
@@ -103,13 +103,15 @@ const ContactForm = ({
 
   return (
     <Col
-      className={`${styles.contactFormWrapper} ${!title ? styles.withoutTitle : ""
-        }`}
+      className={`${styles.contactFormWrapper} ${
+        !title ? styles.withoutTitle : ""
+      }`}
       style={style}
     >
       <Col
-        className={`${styles.infoSection} ${career && styles.infoSectionCareer
-          }`}
+        className={`${styles.infoSection} ${
+          career && styles.infoSectionCareer
+        }`}
         style={{ ...(fromContactPage ? { paddingLeft: 0 } : {}) }}
       >
         {h1 ? (
@@ -140,9 +142,9 @@ const ContactForm = ({
       <Col className={styles.formWrapper}>
         <Form
           onFinishFailed={() => {
-            setErrorMesssage("errorMesssageLeft");
+            setErrorMesssage("errorMessageLeft");
             setTimeout(() => {
-              setErrorMesssage("errorMesssageRight");
+              setErrorMesssage("errorMessageRight");
               setTimeout(() => {
                 setErrorMesssage("");
               }, 100);
@@ -244,57 +246,53 @@ const ContactForm = ({
               )}
             </FormItem>
           </Row>
-            <FormItem
-              className={`${styles.accept} ${styles[errorMesssage]}`}
+          <FormItem
+            className={`${styles.accept} ${styles[errorMesssage]}`}
+            name="accept"
+            rules={[
+              {
+                required: true,
+                message: "Accept is required",
+              },
+            ]}
+          >
+            <Checkbox
               name="accept"
-              rules={[
-                {
-                  required: true,
-                  message: "Accept is required",
-                },
-              ]}
-            >
-              <Checkbox
-                name="accept"
-                onChange={() => {
-                  setOnChangeCheckbox(!onChangeCheckbox);
-                  if (onChangeCheckbox) {
-                    form.resetFields(["accept"]);
-                  } else {
-                    form.setFieldValue("accept", !onChangeCheckbox);
-                  }
-                }}
-                value={onChangeCheckbox}
-              />
-              <Row className={styles.acceptText}>
-                I accept your{" "}
-                <a href="https://solit-llc.com/privacy-policy">
-                  {" "}
-                  Privacy Policy
-                </a>
-              </Row>
-            </FormItem>
-            <FormItem
-              className={`${styles.recaptchaForm} ${styles[errorMesssage]}`}
-              name="recaptcha"
-              rules={[
-                {
-                  required: true,
-                  message: "ReCAPTCHA is required",
-                },
-              ]}
-            >
-
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                style={{ width: "300px" }}
-                className={styles.recaptcha}
-                onChange={() =>
-                  checkFormValidation(changeRecaptcha, recaptchaRef.current)
+              onChange={() => {
+                setOnChangeCheckbox(!onChangeCheckbox);
+                if (onChangeCheckbox) {
+                  form.resetFields(["accept"]);
+                } else {
+                  form.setFieldValue("accept", !onChangeCheckbox);
                 }
-                sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
-              />
-            </FormItem>
+              }}
+              value={onChangeCheckbox}
+            />
+            <Row className={styles.acceptText}>
+              I accept your{" "}
+              <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
+            </Row>
+          </FormItem>
+          <FormItem
+            className={`${styles.recaptchaForm} ${styles[errorMesssage]}`}
+            name="recaptcha"
+            rules={[
+              {
+                required: true,
+                message: "ReCAPTCHA is required",
+              },
+            ]}
+          >
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              style={{ width: "300px" }}
+              className={styles.recaptcha}
+              onChange={() =>
+                checkFormValidation(changeRecaptcha, recaptchaRef.current)
+              }
+              sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
+            />
+          </FormItem>
 
           <Col className={styles.buttonWrapper}>
             <Button

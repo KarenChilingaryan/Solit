@@ -18,7 +18,6 @@ import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobP
 import SuccessModal from "../successModal/SuccessModal";
 import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";
 
-
 import styles from "./careers.module.scss";
 
 const Careers = () => {
@@ -44,8 +43,6 @@ const Careers = () => {
       state?.postsTextCareersColourfulApi?.queries?.["careersAbout(undefined)"]
         ?.data
   );
-
-
 
   useEffect(() => {
     if (postsTextCareersAboutUsApi) {
@@ -101,12 +98,12 @@ const Careers = () => {
         await emailApplyForJobPositionApi.endpoints.email.initiate(formData)
       );
       setOpenSuccess(true);
-      setOpenData(null)
-      setTimeout(() => {
-        setOpenSuccess(false);
-        setClose()
-      }, 3000);
-    } catch { }
+      setOpenData(null);
+      // setTimeout(() => {
+      //   setOpenSuccess(false);
+      //   setClose();
+      // }, 3000);
+    } catch {}
   };
 
   const handleResize = () => {
@@ -122,57 +119,59 @@ const Careers = () => {
   }, []);
 
   useEffect(() => {
-    const next = document.getElementById("__next")
+    const next = document.getElementById("__next");
     if (!!openData) {
-      setTop(window.scrollY)
-      next.style.top = `-${window.scrollY}px`
-      next.style.width = `100%`
+      setTop(window.scrollY);
+      next.style.top = `-${window.scrollY}px`;
+      next.style.width = `100%`;
       next.style.position = `fixed`;
     }
-  }, [openData])
-
+  }, [openData]);
 
   const setClose = () => {
-    const next = document.getElementById("__next")
-    next.style.top = `-${window.scrollY}px`
-    next.style.width = `100%`
-    if (next.style.position == 'fixed') {
+    const next = document.getElementById("__next");
+    next.style.top = `-${window.scrollY}px`;
+    next.style.width = `100%`;
+    if (next.style.position == "fixed") {
       next.style.position = `inherit`;
     }
     if (top) {
-      window.scrollTo(0, top)
+      window.scrollTo(0, top);
     }
     setTop(0);
-  }
+  };
 
-  const win = typeof window != 'undefined'
+  const win = typeof window != "undefined";
   useEffect(() => {
     if (win) {
-      setIsSafari(navigator.userAgent.indexOf('Safari'))
-      setChecked(true)
+      setIsSafari(navigator.userAgent.indexOf("Safari"));
+      setChecked(true);
     }
-  }, [win])
+  }, [win]);
 
   useEffect(() => {
-    if (checked && postsTextCareersColourfulApi, careersJobOpeningApi) {
-      if (localStorage.getItem('fromJob')) {
+    if ((checked && postsTextCareersColourfulApi, careersJobOpeningApi)) {
+      if (localStorage.getItem("fromJob")) {
         setTimeout(() => {
-          const doc = document.getElementById("to-jobs")
+          const doc = document.getElementById("to-jobs");
           if (doc) {
-            doc.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            localStorage.removeItem('fromJob')
+            doc.scrollIntoView({ behavior: "smooth", block: "start" });
+            localStorage.removeItem("fromJob");
           }
-        }, 300)
+        }, 300);
       }
     }
-  }, [checked, postsTextCareersColourfulApi, careersJobOpeningApi])
+  }, [checked, postsTextCareersColourfulApi, careersJobOpeningApi]);
 
   return (
     <HomeMainWithImage firstImage={earth} seoName="careers">
-      <SuccessModal open={openSuccess} setOpen={(e) => {
-        setClose()
-        setOpenSuccess(e)
-      }} />
+      <SuccessModal
+        open={openSuccess}
+        setOpen={(e) => {
+          setClose();
+          setOpenSuccess(e);
+        }}
+      />
       <Row className={styles.content}>
         <Row className={styles.pageHeader}>
           <h1 className={styles.title} style={{ margin: 0 }}>
@@ -209,7 +208,6 @@ const Careers = () => {
         {checked ? <div id="to-jobs"></div> : <></>}
         <div className={styles.secondInfo}>
           <div className={styles.secondTitle}>
-
             {careersJobOpeningApi?.data_text[0].title}
           </div>
           <div
@@ -237,25 +235,25 @@ const Careers = () => {
           <ContactForm career={true} />
         </Row>
       </Row>
-      {!!openData &&
+      {!!openData && (
         <ModalWrapper
-          classname={'modalApplyNowForm'}
+          classname={"modalApplyNowForm"}
           open={!!openData}
           width={
             isMobile <= 1024 && isMobile > 576
               ? "52vw"
               : isMobile > 1024 && isMobile <= 1440
-                ? "37vw"
-                : "28vw"
+              ? "37vw"
+              : "28vw"
           }
           setOpen={(e) => {
-            setClose()
-            setOpenData(e)
+            setClose();
+            setOpenData(e);
           }}
         >
           <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
         </ModalWrapper>
-      }
+      )}
     </HomeMainWithImage>
   );
 };

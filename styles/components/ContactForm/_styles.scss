@@ -59,14 +59,14 @@
         }
       }
 
-      .errorMesssageRight {
+      .errorMessageRight {
         :global(.ant-form-item-explain-error) {
           transition: 0.1s;
           transform: translateX(5px);
         }
       }
 
-      .errorMesssageLeft {
+      .errorMessageLeft {
         :global(.ant-form-item-explain-error) {
           transition: 0.1s;
           transform: translateX(-5px);

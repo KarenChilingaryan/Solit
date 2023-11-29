@@ -274,7 +274,7 @@
           :global(.ant-input-suffix) {
             img {
               position: absolute;
-              left: -15px;
+              right: 0px;
               bottom: 5px;
             }
           }
@@ -500,14 +500,14 @@
       transform: translateX(0);
     }
 
-    .errorMesssageRight {
+    .errorMessageRight {
       :global(.ant-form-item-explain-error) {
         transition: 0.1s;
         transform: translateX(5px);
       }
     }
 
-    .errorMesssageLeft {
+    .errorMessageLeft {
       :global(.ant-form-item-explain-error) {
         transition: 0.1s;
         transform: translateX(-5px);
@@ -698,7 +698,7 @@
 
         .uploadAntd {
           :global(.ant-input) {
-            height: calcVWM(36) !important;
+            height: 36px !important;
             @include font-style(
               calcVWM(18),
               variables.$fw-400,
@@ -709,7 +709,7 @@
           }
 
           :global(.ant-input-affix-wrapper) {
-            height: calcVWM(36);
+            height: unset;
           }
         }
 

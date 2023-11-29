@@ -48,6 +48,7 @@ const FloatInput = ({
   isUpload = false,
   rest,
 }) => {
+  console.log(type,']]]]]]]]]]]]]]]');
   const [focus, setFocus] = useState(false);
 
   if (!placeholder) placeholder = label;
@@ -99,7 +100,7 @@ const FloatInput = ({
           defaultValue={value}
           showUploadList={showUploadList}
           suffix={suffix}
-          status={type == "file" && !value && "warning"}
+          // status={type == "file" && !value && "warning"}
           value={value}
           {...rest}
         />
