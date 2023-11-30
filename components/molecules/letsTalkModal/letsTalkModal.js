@@ -6,6 +6,7 @@ import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 import close from "../../../assets/img/icons/close.svg";
+import PhoneInput from "react-phone-input-2";
 
 import styles from "./LetsTalkModal.module.scss";
 
@@ -58,6 +59,12 @@ const ModalLetsTalkForm = ({
     fileList: file ? [file] : [],
   };
 
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const handlePhoneNumberChange = (value) => {
+    setPhoneNumber(value);
+  };
+
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Row className={styles.textWrapper}>
@@ -85,6 +92,9 @@ const ModalLetsTalkForm = ({
           submitForm(values, data);
         }}
         className={styles.form}
+        onValuesChange={(changedValues, allValues) =>
+          console.log(changedValues, allValues, "kkkkkkkkkk")
+        }
       >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
@@ -128,10 +138,10 @@ const ModalLetsTalkForm = ({
             className={`${styles[errorMessage]}`}
             name="phone_number"
             rules={[
-              {
-                type: "number",
-                message: "The input is not a valid Number",
-              },
+              // {
+              //   type: "number",
+              //   message: "The input is not a valid Number",
+              // },
               {
                 required: true,
                 message: "Phone number is required",

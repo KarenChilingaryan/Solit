@@ -1,5 +1,7 @@
 import { memo, useState } from "react";
 import { Input, FormItem } from "../../atoms";
+import PhoneInput from "react-phone-input-2";
+import es from "react-phone-input-2/lang/es.json";
 
 import styles from "./FloatInput.module.scss";
 
@@ -48,7 +50,6 @@ const FloatInput = ({
   isUpload = false,
   rest,
 }) => {
-  console.log(type,']]]]]]]]]]]]]]]');
   const [focus, setFocus] = useState(false);
 
   if (!placeholder) placeholder = label;
@@ -75,6 +76,14 @@ const FloatInput = ({
       e.preventDefault();
     }
   };
+
+  const [phoneNumber, setPhoneNumber] = useState(0);
+
+  const handlePhoneNumberChange = (value) => {
+    console.log(value, "599999999999");
+    // let num  = Number(value)
+    setPhoneNumber(value);
+  };
   return (
     <div
       className={`${styles.floatLabel} ${border && styles.floatLabelBorder}`}
@@ -92,6 +101,28 @@ const FloatInput = ({
           inputMode="text"
           {...rest}
         />
+      ) : type === "number" ? (
+        isOccupied || value ? (
+          <PhoneInput
+          country='us'
+            alwaysDefaultMask={false}
+            defaultMask="."
+            type="number"
+            copyNumbersOnly={true}
+            value={value}
+            localization={es}
+            onChange={onChange}
+            inputStyle={{ width: "100%", border: "none" }}
+            inputClass="phoneInput"
+            // countrySelectProps={{
+            //   defaultCountry: "us",
+            //   preferredCountries: ["us", "ca", "gb"],
+            // }}
+            buttonStyle={{ background: "transparent", border: "none" }}
+          />
+        ) : (
+          <Input {...rest} />
+        )
       ) : (
         <Input
           onChange={onChange}

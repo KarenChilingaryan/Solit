@@ -105,7 +105,7 @@ textarea::-webkit-scrollbar-thumb {
   top: 60px !important;
 }
 
-.ant-modal-centered>div {
+.ant-modal-centered > div {
   top: unset !important;
 }
 
@@ -137,7 +137,7 @@ textarea::-webkit-scrollbar-thumb {
   }
 }
 
-.ant-input-suffix{
+.ant-input-suffix {
   margin-left: unset !important;
 }
 
@@ -629,6 +629,22 @@ input[type="file"] {
   display: none;
 }
 
-.ant-form-item-control-input{
+.ant-form-item-control-input {
   min-height: 30px !important;
+}
+
+.phoneInput {
+  // @include font-style(calcVW(13), variables.$fw-400, calcVW(20), #8296a5);
+  font-size: calcVW(18) !important;
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    font-size: calcVWL(18) !important;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: calcVWT(18) !important;
+  }
+
+  @media (max-width: 576px) {
+    font-size: calcVWM(18) !important;
+  }
 }

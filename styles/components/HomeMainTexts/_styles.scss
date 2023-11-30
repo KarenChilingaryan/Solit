@@ -57,7 +57,8 @@
     }
 
     @media (max-width: 1024px) {
-      padding-left: calcVWT(24);
+      //need to check
+      // padding-left: calcVWT(24);
 
       .title {
         @include font-style(calcVWT(36), variables.$fw-500, calcVWT(44));

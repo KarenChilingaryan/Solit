@@ -3,6 +3,9 @@
 
 @mixin generate-form-item-styles {
   .floatLabel {
+    .phoneInput {
+      @include font-style(calcVW(13) !important, variables.$fw-400, calcVW(20), #8296a5);
+    }
     align-items: center;
     position: relative;
     display: flex;
@@ -58,6 +61,10 @@
 
     input:-webkit-autofill {
       background-color: transparent;
+    }
+
+    .flag-dropdown {
+      background: transparent;
     }
 
     .label {
