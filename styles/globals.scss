@@ -634,6 +634,7 @@ input[type="file"] {
 }
 
 .phoneInput {
+  background: transparent !important;
   // @include font-style(calcVW(13), variables.$fw-400, calcVW(20), #8296a5);
   font-size: calcVW(18) !important;
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
@@ -647,4 +648,8 @@ input[type="file"] {
   @media (max-width: 576px) {
     font-size: calcVWM(18) !important;
   }
+}
+
+.selected-flag{
+  background: transparent !important;
 }

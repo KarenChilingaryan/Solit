@@ -199,7 +199,6 @@ const ContactForm = ({
                 type="number"
                 value={""}
                 formatter={(value) => value.replace("e", "")}
-                onChange={(e) => handleInputChange(e)}
               />
             </FormItem>
             <FormItem name="message">

@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
 import { Input, FormItem } from "../../atoms";
 import PhoneInput from "react-phone-input-2";
 import es from "react-phone-input-2/lang/es.json";
@@ -77,13 +77,23 @@ const FloatInput = ({
     }
   };
 
-  const [phoneNumber, setPhoneNumber] = useState(0);
+  const [country, setCountry] = useState(null);
 
-  const handlePhoneNumberChange = (value) => {
-    console.log(value, "599999999999");
-    // let num  = Number(value)
-    setPhoneNumber(value);
+  const getCountryInfo = async () => {
+    try {
+      const response = await fetch("https://ipapi.co/json/");
+      const data = await response.json();
+      setCountry(data.country.toLowerCase());
+      return data.country;
+    } catch (error) {
+      console.log("Error fetching user information:", error);
+      return null;
+    }
   };
+
+  useEffect(() => {
+    type === "number" && getCountryInfo();
+  }, [type]);
   return (
     <div
       className={`${styles.floatLabel} ${border && styles.floatLabelBorder}`}
@@ -104,13 +114,13 @@ const FloatInput = ({
       ) : type === "number" ? (
         isOccupied || value ? (
           <PhoneInput
-          country='us'
+            country={country || ""}
             alwaysDefaultMask={false}
             defaultMask="."
             type="number"
             copyNumbersOnly={true}
             value={value}
-            localization={es}
+            localization={country}
             onChange={onChange}
             inputStyle={{ width: "100%", border: "none" }}
             inputClass="phoneInput"
