@@ -192,7 +192,7 @@ const Careers = () => {
   }, [checked, postsTextCareersColourfulApi, careersJobOpeningApi]);
 
   return (
-    <HomeMainWithImage firstImage={earth} seoName="careers">
+    <HomeMainWithImage firstImage={"https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_DRbxvv3/5912883b228f99df98543797ea56d711.webp"} seoName="careers">
       <SuccessModal
         open={openSuccess}
         setOpen={(e) => {
