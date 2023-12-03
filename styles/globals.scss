@@ -635,7 +635,36 @@ input[type="file"] {
 
 .phoneInput {
   background: transparent !important;
-  // @include font-style(calcVW(13), variables.$fw-400, calcVW(20), #8296a5);
+  // border-bottom: 1px solid #000000 !important;
+  padding-left: calcVW(48) !important;
+  font-size: calcVW(18) !important;
+  @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+    padding-left: calcVWL(56) !important;
+    font-size: calcVWL(18) !important;
+  }
+
+  @media (max-width: 1024px) {
+    padding-left: calcVWT(48) !important;
+    font-size: calcVWT(18) !important;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: calcVWT(60) !important;
+    font-size: calcVWT(18) !important;
+  }
+
+  @media (max-width: 576px) {
+    padding-left: calcVWM(40) !important;
+    font-size: calcVWM(18) !important;
+  }
+}
+
+.phoneInputBlack {
+  color: white !important;
+  background: transparent !important;
+  border-bottom: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+
   font-size: calcVW(18) !important;
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {
     font-size: calcVWL(18) !important;
@@ -650,6 +679,14 @@ input[type="file"] {
   }
 }
 
-.selected-flag{
+.selected-flag {
   background: transparent !important;
+}
+
+
+.ant-form-item-has-error {
+  input {
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgb(207, 39, 39) !important;
+  }
 }

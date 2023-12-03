@@ -48,6 +48,7 @@ const FloatInput = ({
   prefix,
   border,
   isUpload = false,
+  phoneClass,
   rest,
 }) => {
   const [focus, setFocus] = useState(false);
@@ -123,7 +124,7 @@ const FloatInput = ({
             localization={country}
             onChange={onChange}
             inputStyle={{ width: "100%", border: "none" }}
-            inputClass="phoneInput"
+            inputClass={phoneClass}
             // countrySelectProps={{
             //   defaultCountry: "us",
             //   preferredCountries: ["us", "ca", "gb"],

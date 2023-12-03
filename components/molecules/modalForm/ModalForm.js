@@ -108,7 +108,7 @@ const ModalForm = ({
 
           <FormItem
             className={`${styles[errorMessage]}`}
-            name="phon_number"
+            name="phone_number"
             rules={[
               {
                 type: "number",
@@ -124,8 +124,9 @@ const ModalForm = ({
               required={true}
               label="Phone number"
               placeholder="Phone number"
-              name="phon_number"
+              name="phone_number"
               type="number"
+              phoneClass="phoneInput"
             />
           </FormItem>
           <FormItem

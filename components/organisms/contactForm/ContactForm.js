@@ -199,6 +199,7 @@ const ContactForm = ({
                 type="number"
                 value={""}
                 formatter={(value) => value.replace("e", "")}
+                phoneClass="phoneInputBlack"
               />
             </FormItem>
             <FormItem name="message">

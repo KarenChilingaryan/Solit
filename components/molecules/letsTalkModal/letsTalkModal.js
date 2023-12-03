@@ -155,6 +155,7 @@ const ModalLetsTalkForm = ({
               type="number"
               required={true}
               min={0}
+              phoneClass="phoneInput"
             />
           </FormItem>
           <FormItem

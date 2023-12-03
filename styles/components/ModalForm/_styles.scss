@@ -107,6 +107,12 @@
         }
       }
 
+      :global(.ant-form-item-has-error) {
+        input {
+          border-bottom: 1px solid rgb(207, 39, 39) !important;
+        }
+      }
+
       @media screen and (max-width: 1440px) and (min-width: 1025px) {
         .uploadItem {
           .removeFile {
