@@ -116,9 +116,13 @@
       @media screen and (max-width: 1440px) and (min-width: 1025px) {
         .uploadItem {
           .removeFile {
+            top: calcVWL(10);
             img {
               width: calcVWL(20);
               height: calcVWL(20);
+            }
+            @media (max-width: 1100px) {
+              top: calcVWL(15);
             }
           }
         }
