@@ -219,7 +219,7 @@ const Careers = () => {
           </Row>
           {/* <Button text="Recommended" transparentOpposite /> */}
         </Row>
-        <Image className={styles.worldMap} src={worldMap} alt="image" />
+        <Image className={styles.worldMap} src={"https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_BZ4J6Hz/a5699a5fcec7dd6929cf7f33fe2f3ad6.webp"} width={1280} height={709} alt="image" />
         <div className={styles.aboutContent}>
           {data.map((row, i) => (
             <ReversedAboutUs
