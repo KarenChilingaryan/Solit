@@ -649,7 +649,7 @@ input[type="file"] {
   }
 
   @media (max-width: 768px) {
-    padding-left: calcVWT(60) !important;
+    padding-left: calcVWT(70) !important;
     font-size: calcVWT(18) !important;
   }
 
@@ -681,8 +681,17 @@ input[type="file"] {
 
 .selected-flag {
   background: transparent !important;
+  .flag {
+    .arrow {
+      border-left: 5px solid transparent !important;
+      border-right: 5px solid transparent !important;
+      border-top: 5px solid #555 !important;
+    }
+    .up {
+      border-top: none !important;
+    }
+  }
 }
-
 
 .ant-form-item-has-error {
   input {

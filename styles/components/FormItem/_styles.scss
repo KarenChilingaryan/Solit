@@ -195,6 +195,7 @@
     }
 
     .asLabel {
+      z-index: 9;
       left: 0 !important;
       top: calcVW(-20) !important ;
       background: transparent;
