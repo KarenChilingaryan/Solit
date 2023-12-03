@@ -11,7 +11,7 @@ import user1 from "../../../assets/img/revers1.png";
 import user2 from "../../../assets/img/revers2.png";
 import user3 from "../../../assets/img/revers3.png";
 import user4 from "../../../assets/img/revers4.png";
-import worldMap from "../../../assets/img/career-world-pam.png";
+import worldMap from "../../../assets/img/career-world-pam.webp";
 import { ReversedAboutUs } from "../reversedAboutUs";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
