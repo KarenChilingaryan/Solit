@@ -103,7 +103,7 @@ const Careers = () => {
       //   setOpenSuccess(false);
       //   setClose();
       // }, 3000);
-    } catch {}
+    } catch { }
   };
 
   const handleResize = () => {
@@ -149,13 +149,41 @@ const Careers = () => {
     }
   }, [win]);
 
+  const smoothScroll = (targetElement, duration) => {
+    const targetPosition = targetElement.offsetTop;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+      if (startTime === null) {
+        startTime = currentTime;
+      }
+      const timeElapsed = currentTime - startTime;
+      const run = ease(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    }
+
+    function ease(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+  }
+
   useEffect(() => {
     if ((checked && postsTextCareersColourfulApi, careersJobOpeningApi)) {
       if (localStorage.getItem("fromJob")) {
         setTimeout(() => {
           const doc = document.getElementById("to-jobs");
           if (doc) {
-            doc.scrollIntoView({ behavior: "smooth", block: "start" });
+            smoothScroll(doc, 1000);
             localStorage.removeItem("fromJob");
           }
         }, 300);
@@ -243,8 +271,8 @@ const Careers = () => {
             isMobile <= 1024 && isMobile > 576
               ? "52vw"
               : isMobile > 1024 && isMobile <= 1440
-              ? "37vw"
-              : "28vw"
+                ? "37vw"
+                : "28vw"
           }
           setOpen={(e) => {
             setClose();
