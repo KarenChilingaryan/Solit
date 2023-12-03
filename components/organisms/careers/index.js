@@ -11,7 +11,7 @@ import user1 from "../../../assets/img/revers1.png";
 import user2 from "../../../assets/img/revers2.png";
 import user3 from "../../../assets/img/revers3.png";
 import user4 from "../../../assets/img/revers4.png";
-import worldMap from "../../../assets/img/career-world-pam.png";
+import worldMap from "../../../assets/img/career-world-pam.webp";
 import { ReversedAboutUs } from "../reversedAboutUs";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
@@ -219,7 +219,7 @@ const Careers = () => {
           </Row>
           {/* <Button text="Recommended" transparentOpposite /> */}
         </Row>
-        <Image className={styles.worldMap} src={"https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_BZ4J6Hz/a5699a5fcec7dd6929cf7f33fe2f3ad6.webp"} width={1280} height={709} alt="image" />
+        <Image className={styles.worldMap} src={worldMap} alt="image" />
         <div className={styles.aboutContent}>
           {data.map((row, i) => (
             <ReversedAboutUs
