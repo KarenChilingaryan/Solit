@@ -186,7 +186,7 @@ const Careers = () => {
             smoothScroll(doc, 1000);
             localStorage.removeItem("fromJob");
           }
-        }, 300);
+        }, 500);
       }
     }
   }, [checked, postsTextCareersColourfulApi, careersJobOpeningApi]);
