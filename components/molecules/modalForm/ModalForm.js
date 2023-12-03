@@ -66,6 +66,9 @@ const ModalForm = ({
         }}
         className={styles.form}
         form={form}
+        onValuesChange={(changedValues, allValues) =>
+          console.log(changedValues, allValues, "8888888888888")
+        }
       >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem
@@ -110,10 +113,10 @@ const ModalForm = ({
             className={`${styles[errorMessage]}`}
             name="phone_number"
             rules={[
-              {
-                type: "number",
-                message: "The input is not a valid Number",
-              },
+              // {
+              //   type: "number",
+              //   message: "The input is not a valid Number",
+              // },
               {
                 required: true,
                 message: "Phone number is required",

@@ -125,10 +125,6 @@ const FloatInput = ({
             onChange={onChange}
             inputStyle={{ width: "100%", border: "none" }}
             inputClass={phoneClass}
-            // countrySelectProps={{
-            //   defaultCountry: "us",
-            //   preferredCountries: ["us", "ca", "gb"],
-            // }}
             buttonStyle={{ background: "transparent", border: "none" }}
           />
         ) : (
