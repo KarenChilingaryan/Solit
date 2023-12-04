@@ -1,12 +1,12 @@
 import { memo, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox, Select } from "../../atoms";
+import { Upload } from "antd";
 import Image from "next/image";
 import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 import arrow from "../../../assets/img/icons/selectIcon.svg";
 import close from "../../../assets/img/icons/close.svg";
-import { Upload } from "antd";
 
 import styles from "./ModalForm.module.scss";
 
@@ -111,7 +111,7 @@ const ModalForm = ({
 
           <FormItem
             className={`${styles[errorMessage]}`}
-            name="phone_number"
+            name="phon_number"
             rules={[
               // {
               //   type: "number",
@@ -127,7 +127,7 @@ const ModalForm = ({
               required={true}
               label="Phone number"
               placeholder="Phone number"
-              name="phone_number"
+              name="phon_number"
               type="number"
               phoneClass="phoneInput"
             />
@@ -140,7 +140,7 @@ const ModalForm = ({
               {...props}
               name="file_document"
               className={styles.uploadAntd}
-            >
+                          >
               <FloatInput
                 label={"Upload document"}
                 placeholder={"Upload document"}
@@ -154,7 +154,7 @@ const ModalForm = ({
                   )
                 }
                 value={file?.name || ""}
-              />
+                              />
             </Upload>
             {file && (
               <div className={styles.removeFile}>

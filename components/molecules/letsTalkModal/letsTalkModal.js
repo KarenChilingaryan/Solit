@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
-import { Upload } from "antd";
 import Image from "next/image";
+import { Upload } from "antd";
 import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
