@@ -29,6 +29,7 @@ const Careers = () => {
   const dispatch = useDispatch();
   const [top, setTop] = useState(0);
   const [isSafari, setIsSafari] = useState(0);
+  const [isError, setIsError] = useState();
 
   const careersJobOpeningApi = useSelector(
     (state) => state?.careersJobOpeningApi?.queries?.["career(undefined)"]?.data
@@ -99,15 +100,16 @@ const Careers = () => {
       );
       setOpenSuccess(true);
       setOpenData(null);
-      // setTimeout(() => {
-      //   setOpenSuccess(false);
-      //   setClose();
-      // }, 3000);
-    } catch { }
+      setIsError(res.isError);
+      setTimeout(() => {
+        setOpenSuccess(false);
+        setClose();
+      }, 3000);
+    } catch {}
   };
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth); // Adjust the threshold as per your requirements
+    setIsMobile(window.innerWidth);
   };
 
   useEffect(() => {
@@ -169,13 +171,13 @@ const Careers = () => {
 
     function ease(t, b, c, d) {
       t /= d / 2;
-      if (t < 1) return c / 2 * t * t + b;
+      if (t < 1) return (c / 2) * t * t + b;
       t--;
-      return -c / 2 * (t * (t - 2) - 1) + b;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
     }
 
     requestAnimationFrame(animation);
-  }
+  };
 
   useEffect(() => {
     if ((checked && postsTextCareersColourfulApi, careersJobOpeningApi)) {
@@ -192,13 +194,19 @@ const Careers = () => {
   }, [checked, postsTextCareersColourfulApi, careersJobOpeningApi]);
 
   return (
-    <HomeMainWithImage firstImage={"https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_DRbxvv3/5912883b228f99df98543797ea56d711.webp"} seoName="careers">
+    <HomeMainWithImage
+      firstImage={
+        "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_DRbxvv3/5912883b228f99df98543797ea56d711.webp"
+      }
+      seoName="careers"
+    >
       <SuccessModal
         open={openSuccess}
         setOpen={(e) => {
           setClose();
           setOpenSuccess(e);
         }}
+        success={!isError}
       />
       <Row className={styles.content}>
         <Row className={styles.pageHeader}>
@@ -271,8 +279,8 @@ const Careers = () => {
             isMobile <= 1024 && isMobile > 576
               ? "52vw"
               : isMobile > 1024 && isMobile <= 1440
-                ? "37vw"
-                : "28vw"
+              ? "37vw"
+              : "28vw"
           }
           setOpen={(e) => {
             setClose();

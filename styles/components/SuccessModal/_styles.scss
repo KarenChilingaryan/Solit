@@ -21,7 +21,7 @@
         @media (max-width: 1024px) {
             row-gap: calcVWT(32);
             .title {
-                @include font-style(calcVWT(36), normal, calcVWT(36), variables.$black);
+                @include font-style(calcVWT(36), variables.$fw-500, calcVWT(36), variables.$black);
             }
             .description {
                 @include font-style(calcVWT(24), variables.$fw-400, calcVWT(32), variables.$black);
@@ -31,10 +31,10 @@
         @media (max-width: 576px) {
             row-gap: calcVWM(32);
             .title {
-                @include font-style(calcVWM(36), normal, calcVWM(36), variables.$black);
+                @include font-style(calcVWM(24), variables.$fw-700, calcVWM(36), variables.$black);
             }
             .description {
-                @include font-style(calcVWM(24), variables.$fw-400, calcVWM(32), variables.$black);
+                @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), variables.$black);
                 max-width: calcVWM(311);
             }
         }

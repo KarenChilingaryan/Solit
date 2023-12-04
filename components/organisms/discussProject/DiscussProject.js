@@ -70,6 +70,7 @@ const DiscussProject = () => {
   const [top, setTop] = useState(0);
   const [tooltip, setTooltip] = useState(true);
   const [month, setMonth] = useState(false);
+  const [isError, setIsError] = useState();
   const dispatch = useDispatch();
 
   const submitForm = (values, fromDelete = false) => {
@@ -165,11 +166,10 @@ const DiscussProject = () => {
       });
 
     if (!month && !isMonth) {
-      const newData = []
+      const newData = [];
       for (let i = 0; i < data.length; i++) {
         const element = data[i];
-        if (element.category != 'duration')
-          newData.push(element)
+        if (element.category != "duration") newData.push(element);
       }
       setLiveStacks([...newData]);
     } else {
@@ -202,7 +202,7 @@ const DiscussProject = () => {
       case "duration":
         form.setFieldValue("duration", 1);
         updatedValues.duration = 1;
-        setMonth(false)
+        setMonth(false);
         break;
       default:
         break;
@@ -287,7 +287,7 @@ const DiscussProject = () => {
     }
 
     if (!month) {
-      updatedValues["duration"] = undefined
+      updatedValues["duration"] = undefined;
     }
     getProjectData(updatedValues);
 
@@ -303,6 +303,7 @@ const DiscussProject = () => {
       const res = await dispatch(
         await emailDiscussYourProject1Api.endpoints.email.initiate(formData)
       );
+      setIsError(res.isError);
       setOpenSuccess(true);
       setTimeout(() => {
         setOpenSuccess(false);
@@ -313,7 +314,7 @@ const DiscussProject = () => {
       setOpen(false);
       setLiveStacks([]);
       return true;
-    } catch { }
+    } catch {}
   };
 
   const setValueinForm = (val) => {
@@ -418,6 +419,7 @@ const DiscussProject = () => {
             setClose();
             setOpenSuccess(e);
           }}
+          success={!isError}
         />
         {modalFormData && (
           <ModalWrapper
@@ -473,8 +475,9 @@ const DiscussProject = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project" && styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                className={`${
+                  asPath == "/discuss-project" && styles.currentStageDiscuss
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project">
                   <Button
@@ -500,12 +503,13 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
-                          className={`${styles.clickableOption} ${form
-                            .getFieldsValue()
-                            .applicationType?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form
+                              .getFieldsValue()
+                              .applicationType?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -534,10 +538,11 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().currentStage?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().currentStage?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -567,10 +572,11 @@ const DiscussProject = () => {
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -600,10 +606,11 @@ const DiscussProject = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().industry?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().industry?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -633,7 +640,7 @@ const DiscussProject = () => {
                         if (val == 0) {
                           form.setFieldValue("duration", 1);
                         }
-                        setMonth(true)
+                        setMonth(true);
                       }}
                       tooltip={{
                         formatter,
@@ -642,26 +649,56 @@ const DiscussProject = () => {
                           : { open: false }),
                       }}
                       marks={{
-                        1: <span onClick={() => {
-                          setMonth(true)
-                          getProjectData(form.getFieldsValue(), true)
-                        }}>1 month</span>,
-                        6: <span onClick={() => {
-                          setMonth(true)
-                          getProjectData(form.getFieldsValue(), true)
-                        }}>6 month</span>,
-                        12: <span onClick={() => {
-                          setMonth(true)
-                          getProjectData(form.getFieldsValue(), true)
-                        }}>1 year</span>,
-                        18: <span onClick={() => {
-                          setMonth(true)
-                          getProjectData(form.getFieldsValue(), true)
-                        }}>1.5 year</span>,
-                        24: <span onClick={() => {
-                          setMonth(true)
-                          getProjectData(form.getFieldsValue(), true)
-                        }}>2 year</span>,
+                        1: (
+                          <span
+                            onClick={() => {
+                              setMonth(true);
+                              getProjectData(form.getFieldsValue(), true);
+                            }}
+                          >
+                            1 month
+                          </span>
+                        ),
+                        6: (
+                          <span
+                            onClick={() => {
+                              setMonth(true);
+                              getProjectData(form.getFieldsValue(), true);
+                            }}
+                          >
+                            6 month
+                          </span>
+                        ),
+                        12: (
+                          <span
+                            onClick={() => {
+                              setMonth(true);
+                              getProjectData(form.getFieldsValue(), true);
+                            }}
+                          >
+                            1 year
+                          </span>
+                        ),
+                        18: (
+                          <span
+                            onClick={() => {
+                              setMonth(true);
+                              getProjectData(form.getFieldsValue(), true);
+                            }}
+                          >
+                            1.5 year
+                          </span>
+                        ),
+                        24: (
+                          <span
+                            onClick={() => {
+                              setMonth(true);
+                              getProjectData(form.getFieldsValue(), true);
+                            }}
+                          >
+                            2 year
+                          </span>
+                        ),
                       }}
                     />
                   </FormItem>
@@ -704,8 +741,8 @@ const DiscussProject = () => {
                     text="Clear"
                     clear
                     onClick={() => {
-                      setMonth(false)
-                      handleClear("duration")
+                      setMonth(false);
+                      handleClear("duration");
                     }}
                   />
                 </Row>

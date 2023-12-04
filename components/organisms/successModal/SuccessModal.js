@@ -4,7 +4,7 @@ import ModalWrapper from "../../molecules/Modal/Modal";
 
 import styles from "./SuccessModal.module.scss";
 
-const SuccessModal = ({ open, setOpen, success = false }) => {
+const SuccessModal = ({ open, setOpen, success = true }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {
@@ -22,11 +22,13 @@ const SuccessModal = ({ open, setOpen, success = false }) => {
     <ModalWrapper
       open={open}
       width={
-        isMobile <= 1024 && isMobile > 576
+        isMobile < 576
+          ? "91vw"
+          : isMobile <= 1024 && isMobile > 576
           ? "58vw"
           : isMobile > 1024 && isMobile <= 1440
           ? "37vw"
-          : "58vw"
+          : "38vw"
       }
       setOpen={setOpen}
       centered

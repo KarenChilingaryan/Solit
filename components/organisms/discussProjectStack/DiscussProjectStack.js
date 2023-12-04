@@ -128,6 +128,7 @@ const DiscussProjectStack = () => {
   const [top, setTop] = useState(0);
   const [tooltip, setTooltip] = useState(true);
   const [month, setMonth] = useState(false);
+  const [isError, setIsError] = useState();
 
   const dispatch = useDispatch();
   const handleFormValuesChange = (changedValues, allValues, kkk) => {
@@ -285,6 +286,7 @@ const DiscussProjectStack = () => {
       setModalFormData(null);
       setLiveStacks([]);
       setOpen(false);
+      setIsError(res.isError)
       setTimeout(() => {
         setOpenSuccess(false);
         setClose();
@@ -463,6 +465,7 @@ const DiscussProjectStack = () => {
             setClose();
             setOpenSuccess(e);
           }}
+          success={!isError}
         />
         {modalFormData && (
           <ModalWrapper

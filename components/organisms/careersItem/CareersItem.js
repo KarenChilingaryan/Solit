@@ -38,10 +38,11 @@ const CareersComponent = () => {
   const [openShareModal, setOpenShareModal] = useState(false);
   const [copy, setCopy] = useState("");
   const [top, setTop] = useState(0);
+  const [isError, setIsError] = useState();
 
   const goBack = () => {
-    localStorage.setItem('fromJob', true)
-    router.push('/careers');
+    localStorage.setItem("fromJob", true);
+    router.push("/careers");
   };
 
   const dispatch = useDispatch();
@@ -74,6 +75,7 @@ const CareersComponent = () => {
       );
       setOpenSuccess(true);
       setOpenData(null);
+      setIsError(res.isError);
       setTimeout(() => {
         setOpenSuccess(false);
         setClose();
@@ -203,6 +205,7 @@ const CareersComponent = () => {
           setClose();
           setOpenSuccess(e);
         }}
+        success={!isError}
       />
       <HomeMainWithImage firstImage={imageBG}>
         <div className={styles.content}>
