@@ -55,7 +55,7 @@ const FloatInput = ({
 
   if (!placeholder) placeholder = label;
 
-  const isOccupied = focus || (value && value.length !== 0);
+  let isOccupied = focus || (value && value.length !== 0);
 
   const labelClass = isOccupied
     ? `${styles.label} ${styles.asLabel}`
@@ -79,6 +79,7 @@ const FloatInput = ({
   };
 
   const [country, setCountry] = useState(null);
+  // const [countryCode, setCountryCode] = useState();
 
   const getCountryInfo = async () => {
     try {
@@ -92,6 +93,9 @@ const FloatInput = ({
     }
   };
 
+  // if (type === "number" && countryCode) {
+  //   isOccupied = true;
+  // }
   useEffect(() => {
     type === "number" && getCountryInfo();
   }, [type]);
@@ -101,26 +105,17 @@ const FloatInput = ({
       onBlur={() => setFocus(false)}
       onFocus={() => setFocus(true)}
     >
-      {type == "file" && suffix}
-      {type == "file" ? (
-        <input
-          onChange={onChange}
-          type={type}
-          defaultValue={value}
-          showUploadList={showUploadList}
-          suffix={suffix}
-          inputMode="text"
-          {...rest}
-        />
-      ) : type === "number" ? (
+      {/* {type == "file" && suffix} */}
+      {type === "number" ? (
         isOccupied || value ? (
           <PhoneInput
+            // onChange={(e, country, r, d) => setCountryCode(country)}
             country={country || ""}
-            alwaysDefaultMask={false}
             defaultMask="."
             type="number"
             copyNumbersOnly={true}
             value={value}
+            enableSearch={true}
             localization={country}
             onChange={onChange}
             inputStyle={{ width: "100%", border: "none" }}
@@ -132,7 +127,10 @@ const FloatInput = ({
         )
       ) : (
         <Input
-          onChange={onChange}
+          onChange={(e) => {
+            console.log(e);
+            onChange(e);
+          }}
           type={type}
           onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => {})}
           defaultValue={value}
