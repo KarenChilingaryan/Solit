@@ -1,40 +1,9 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, useRef } from "react";
 import { Input, FormItem } from "../../atoms";
 import PhoneInput from "react-phone-input-2";
 import es from "react-phone-input-2/lang/es.json";
 
 import styles from "./FloatInput.module.scss";
-
-const phoneValues = [
-  "Backspace",
-  "Delete",
-  "Tab",
-  "Enter",
-  " ",
-  "Shift",
-  "Control",
-  "Alt",
-  "CapsLock",
-  "Escape",
-  "ArrowLeft",
-  "ArrowRight",
-  "ArrowUp",
-  "ArrowDown",
-  "F3",
-  "F12",
-  "Insert",
-  "0",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "+",
-];
 
 const FloatInput = ({
   label,
@@ -64,22 +33,17 @@ const FloatInput = ({
   const requiredMark = required ? (
     <span className={styles.textDanger}>*</span>
   ) : null;
-  const handleKeyDown = (e) => {
-    if (
-      !(
-        (e.ctrlKey && (e.key === "a" || e.key === "A")) ||
-        (e.ctrlKey && (e.key === "c" || e.key === "C")) ||
-        (e.ctrlKey && (e.key === "v" || e.key === "V")) ||
-        (e.ctrlKey && (e.key === "x" || e.key === "X"))
-      ) &&
-      !phoneValues.includes(e.key)
-    ) {
-      e.preventDefault();
-    }
-  };
 
   const [country, setCountry] = useState(null);
-  // const [countryCode, setCountryCode] = useState();
+  const [countryCode, setCountryCode] = useState(0);
+  const [countryCode2, setCountryCode2] = useState(0);
+
+  const handleChange = (e) => {
+    if (countryCode != countryCode2 && countryCode != e) {
+      setCountryCode(e);
+      setCountryCode2(countryCode);
+    }
+  };
 
   const getCountryInfo = async () => {
     try {
@@ -93,23 +57,40 @@ const FloatInput = ({
     }
   };
 
-  // if (type === "number" && countryCode) {
-  //   isOccupied = true;
-  // }
   useEffect(() => {
     type === "number" && getCountryInfo();
   }, [type]);
+
+  useEffect(() => {
+    const handleMouseOut = () => {
+      console.log("Mouse out event triggered");
+    };
+
+    const phoneInput = document.querySelector(".react-tel-input input");
+
+    if (phoneInput) {
+      phoneInput.addEventListener("mouseout", handleMouseOut);
+
+      return () => {
+        phoneInput.removeEventListener("mouseout", handleMouseOut);
+      };
+    }
+  }, []);
   return (
     <div
       className={`${styles.floatLabel} ${border && styles.floatLabelBorder}`}
-      onBlur={() => setFocus(false)}
+      onBlur={() =>
+        countryCode != countryCode2 || type == "number" ? null : setFocus(false)
+      }
       onFocus={() => setFocus(true)}
     >
-      {/* {type == "file" && suffix} */}
-      {type === "number" ? (
+      {type == "number" ? (
         isOccupied || value ? (
           <PhoneInput
-            // onChange={(e, country, r, d) => setCountryCode(country)}
+            onChange={(e, country, r, d) => {
+              handleChange(country);
+              onChange(e, country, r, d);
+            }}
             country={country || ""}
             defaultMask="."
             type="number"
@@ -117,10 +98,10 @@ const FloatInput = ({
             value={value}
             enableSearch={true}
             localization={country}
-            onChange={onChange}
             inputStyle={{ width: "100%", border: "none" }}
             inputClass={phoneClass}
             buttonStyle={{ background: "transparent", border: "none" }}
+            onBlur={() => setFocus(false)}
           />
         ) : (
           <Input {...rest} />
@@ -128,11 +109,10 @@ const FloatInput = ({
       ) : (
         <Input
           onChange={(e) => {
-            console.log(e);
             onChange(e);
           }}
           type={type}
-          onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => {})}
+          // onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => {})}
           defaultValue={value}
           showUploadList={showUploadList}
           suffix={suffix}

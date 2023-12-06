@@ -140,7 +140,7 @@ const ModalForm = ({
               {...props}
               name="file_document"
               className={styles.uploadAntd}
-                          >
+            >
               <FloatInput
                 label={"Upload document"}
                 placeholder={"Upload document"}
@@ -154,7 +154,7 @@ const ModalForm = ({
                   )
                 }
                 value={file?.name || ""}
-                              />
+              />
             </Upload>
             {file && (
               <div className={styles.removeFile}>
