@@ -1,7 +1,6 @@
 import { memo, useState, useEffect, useRef } from "react";
 import { Input, FormItem } from "../../atoms";
 import PhoneInput from "react-phone-input-2";
-import es from "react-phone-input-2/lang/es.json";
 
 import styles from "./FloatInput.module.scss";
 
@@ -92,7 +91,7 @@ const FloatInput = ({
               onChange(e, country, r, d);
             }}
             country={country || ""}
-            defaultMask="."
+            autoFormat={false}
             type="number"
             copyNumbersOnly={true}
             value={value}
@@ -112,11 +111,9 @@ const FloatInput = ({
             onChange(e);
           }}
           type={type}
-          // onKeyDown={(e) => (type == "number" ? handleKeyDown(e) : () => {})}
           defaultValue={value}
           showUploadList={showUploadList}
           suffix={suffix}
-          // status={type == "file" && !value && "warning"}
           value={value}
           {...rest}
         />
