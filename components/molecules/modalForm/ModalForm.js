@@ -149,7 +149,7 @@ const ModalForm = ({
                 disabled
                 readOnly={true}
                 suffix={
-                  file ? null : (
+                  file ? <></> : (
                     <Image className={styles.suffix} src={upload} alt="image" />
                   )
                 }

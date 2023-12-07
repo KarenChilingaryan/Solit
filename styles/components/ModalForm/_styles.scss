@@ -99,6 +99,7 @@
           cursor: pointer;
           padding-left: 10px;
           background: white;
+          z-index: 999;
 
           img {
             width: calcVW(20);

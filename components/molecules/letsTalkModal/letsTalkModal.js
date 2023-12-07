@@ -6,7 +6,6 @@ import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 import close from "../../../assets/img/icons/close.svg";
-import PhoneInput from "react-phone-input-2";
 
 import styles from "./LetsTalkModal.module.scss";
 
