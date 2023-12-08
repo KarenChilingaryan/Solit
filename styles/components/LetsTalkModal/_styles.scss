@@ -284,7 +284,6 @@
 
       :global(.ant-input-affix-wrapper-focused) {
         box-shadow: none;
-        // border-bottom: 1px solid white;
       }
 
       :global(.ant-input-suffix) {
@@ -365,7 +364,6 @@
 
       :global(.ant-input) {
         position: relative;
-        // padding: 0 0px calcVW(5) 0;
         width: 100%;
         outline: 0;
         border: 0;
@@ -818,14 +816,6 @@
               height: calcVWT(24);
             }
           }
-          @media (min-width: 576px) {
-            // :global(.ant-upload) > div {
-            //   max-height: calcVWT(36);
-            // }
-            // :global(.ant-row){
-            //   max-height: calcVWT(36) !important;
-            // }
-          }
         }
 
         :global(.ant-input) {
@@ -967,8 +957,6 @@
         .inputWithIcon {
           label {
             left: calcVWM(32);
-            // top: calcVWM(14) !important;
-            // bottom: calcVWM(14) !important;
           }
 
           input {
@@ -1053,7 +1041,6 @@
         .uploadItem {
           label {
             left: calcVWM(32);
-            // top: unset !important;
           }
 
           .prefix {

@@ -41,9 +41,6 @@
       padding: calcVW(32);
       margin-top: calcVW(24);
     }
-    // .form > div > div > div > div > div > div > div > div > .form-control{
-    //   background: red !important;
-    // }
 
     .form {
       display: flex;
@@ -124,13 +121,10 @@
           align-items: center;
           justify-content: center;
           gap: calcVW(18);
-          // margin-top: calcVW(-45);
         }
 
         :global(.ant-form-item-explain-connected) {
           padding-left: calcVW(65);
-          // margin-top: calcVW(-20);
-          // margin-bottom: calcVW(20);
         }
 
         :global(.ant-checkbox-inner) {
@@ -195,7 +189,6 @@
 
       :global(.ant-input-affix-wrapper-focused) {
         box-shadow: none;
-        // border-bottom: 1px solid white;
       }
 
       :global(.ant-input-suffix) {
@@ -225,7 +218,6 @@
 
         :global(.ant-form-item-label) {
           transform: translateY(-125%);
-          // font-size: 0.75em;
         }
       }
 

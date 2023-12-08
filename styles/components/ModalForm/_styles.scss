@@ -193,7 +193,6 @@
         :global(.ant-form-item-control-input-content) {
           display: flex;
           align-items: center;
-          // justify-content: center;
           gap: calcVW(18);
         }
 
@@ -408,7 +407,6 @@
 
       :global(.ant-input) {
         position: relative;
-        // padding: calcVW(12) 0px calcVW(5) 0;
         width: 100%;
         outline: 0;
         border: 0;
@@ -596,7 +594,6 @@
         }
 
         :global(.ant-input) {
-          // padding: calcVWT(12) 0px calcVWT(5) 0;
           border-bottom: 2px solid #ffffff;
         }
 

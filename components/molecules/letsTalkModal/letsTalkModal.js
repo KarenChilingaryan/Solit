@@ -137,10 +137,6 @@ const ModalLetsTalkForm = ({
             className={`${styles[errorMessage]}`}
             name="phone_number"
             rules={[
-              // {
-              //   type: "number",
-              //   message: "The input is not a valid Number",
-              // },
               {
                 required: true,
                 message: "Phone number is required",

@@ -11,9 +11,7 @@
 body {
   margin: 0;
   padding: 0;
-  // @media (max-width: 768px) {
-  //   padding-top: calcVW(250);
-  // }
+
   background-color: #020d1c !important;
   overflow: auto !important;
   overflow-y: scroll !important;
@@ -231,8 +229,6 @@ textarea::-webkit-scrollbar-thumb {
       min-height: max-content !important;
       padding: calcVW(16) !important;
 
-      // font-size: calcVW(18) !important;
-      // font-weight: 500 !important;
       @media only screen and (max-width: 1440px) and (min-width: 1025px) {
         font-size: calcVWL(12) !important;
         padding: calcVWL(16) !important;
@@ -635,7 +631,6 @@ input[type="file"] {
 
 .phoneInput {
   background: transparent !important;
-  // border-bottom: 1px solid #000000 !important;
   padding-left: calcVW(48) !important;
   font-size: calcVW(18) !important;
   @media only screen and (max-width: 1440px) and (min-width: 1025px) {

@@ -34,7 +34,6 @@ export async function getServerSideProps(context) {
   const res = await axios.get(`https://jsonplaceholder.typicode.com/users/`);
 
   return {
-    // will be passed to the page component as props
     props: {
       item: res.data,
     },
@@ -69,7 +68,9 @@ const PageWrapper = ({ children, item }) => {
       await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate());
       if (!a.pathname.includes("/portfolio")) {
         await dispatch(await postPortfolioApi.endpoints.posts.initiate());
-        await dispatch(await portfolioFiltersApi.endpoints.portfolioFilters.initiate());
+        await dispatch(
+          await portfolioFiltersApi.endpoints.portfolioFilters.initiate()
+        );
       }
       //to do
       if (!a.pathname.includes("/about-us"))
@@ -125,7 +126,9 @@ const PageWrapper = ({ children, item }) => {
     }
     if (a.pathname.includes("/portfolio") || flag) {
       await dispatch(await postPortfolioApi.endpoints.posts.initiate());
-      await dispatch(await portfolioFiltersApi.endpoints.portfolioFilters.initiate());
+      await dispatch(
+        await portfolioFiltersApi.endpoints.portfolioFilters.initiate()
+      );
     }
     if (a.pathname.includes("/what-we-do") || flag) {
       await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate());

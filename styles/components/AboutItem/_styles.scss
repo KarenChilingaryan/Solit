@@ -33,7 +33,6 @@
       }
 
       .title {
-        // margin: getAboutItemSizes(about-item-title-m);
         @include font-style(getAboutItemSizes(about-item-title-fz),
           variables.$fw-700,
           getAboutItemSizes(about-item-title-lh),
@@ -81,7 +80,6 @@
         }
 
         .title {
-          // margin: calcVWL(10) 0;
           @include font-style(calcVWL(24),
             variables.$fw-500,
             calcVWL(24),
@@ -206,7 +204,6 @@
       .content {
         width: calcVWT(448) !important;
         height: calcVWT(356) !important;
-        // height: 100% !important;
         padding: calcVWT(64) calcVWT(32) !important;
         gap: calcVWT(16) !important;
 
@@ -230,7 +227,6 @@
         align-items: center;
         padding: calcVWM(64) calcVWM(32) !important;
         gap: calcVWM(16) !important;
-        // height: unset;
       }
     }
   }

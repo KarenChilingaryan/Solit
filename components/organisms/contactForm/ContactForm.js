@@ -84,7 +84,6 @@ const ContactForm = ({
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
     if (!/^[^eE]*$/.test(inputValue)) {
-      // If 'e' or 'E' is detected, prevent the input change
       return;
     }
     return true; // Continue with the change if it's valid

@@ -33,8 +33,8 @@ const MenuItem = styled(Menu.Item)`
       color: #000000
     }
   }
-  ${props =>
-    (props.active) &&
+  ${(props) =>
+    props.active &&
     css`
       background: rgba(0, 0, 0, 0.5);
       backdrop - filter: blur(36.5px);
@@ -58,8 +58,8 @@ const WhatWeDo = ({ data }) => {
   const [contextData, setContextData] = useState(null);
   const [showMoreClass, setShowMoreClass] = useState("showLessClass");
   const [windowScroll, setWindowScroll] = useState(0);
-  const tabsRef = useRef(null)
-  const tabsBackgroundActive = useRef(null)
+  const tabsRef = useRef(null);
+  const tabsBackgroundActive = useRef(null);
 
   const dispatch = useDispatch();
   const [isSSR, setIsSSR] = useState(false);
@@ -71,15 +71,11 @@ const WhatWeDo = ({ data }) => {
     }
   }, [win]);
 
-  const onChange = (e) => {
-    // setSize(e.target.value);
-  };
-
   const [isMobile, setIsMobile] = useState(false);
 
   // Function to check if the screen size is below the mobile threshold
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 576); // Adjust the threshold as per your requirements
+    setIsMobile(window.innerWidth <= 576);
   };
 
   // Add event listener for window resize
@@ -106,46 +102,48 @@ const WhatWeDo = ({ data }) => {
 
   const positionChangeValue = (activeTab, activeList) => {
     if (tabsBackgroundActive?.current) {
-      tabsBackgroundActive.current.style.left = ((Number(localStorage.getItem('activeTabElement')) || 1) - 1) * activeTab.clientWidth - activeList.scrollLeft + 'px'
+      tabsBackgroundActive.current.style.left =
+        ((Number(localStorage.getItem("activeTabElement")) || 1) - 1) *
+          activeTab.clientWidth -
+        activeList.scrollLeft +
+        "px";
     }
-  }
+  };
   const positionChange = () => {
-    const activeTab = tabsRef.current.querySelector('.ant-tabs-tab-active');
-    const activeList = tabsRef.current.querySelector('.ant-tabs-nav-list');
+    const activeTab = tabsRef.current.querySelector(".ant-tabs-tab-active");
+    const activeList = tabsRef.current.querySelector(".ant-tabs-nav-list");
     if (activeList) {
-
       if (activeTab) {
-        activeList.addEventListener('scroll', (e) => {
-          positionChangeValue(activeTab, activeList)
-        })
+        activeList.addEventListener("scroll", (e) => {
+          positionChangeValue(activeTab, activeList);
+        });
       }
-      activeList.addEventListener('touchstart', (event) => {
+      activeList.addEventListener("touchstart", (event) => {
         isDragging = true;
         lastX = event.touches[0].clientX;
       });
 
-      activeList.addEventListener('touchmove', (event) => {
+      activeList.addEventListener("touchmove", (event) => {
         if (!isDragging) return;
         const newX = event.touches[0].clientX;
         const deltaX = newX - lastX;
         activeList.scrollLeft -= deltaX * 2;
         lastX = newX;
       });
-      activeList.addEventListener('touchend', () => {
+      activeList.addEventListener("touchend", () => {
         isDragging = false;
       });
     }
-  }
+  };
 
   useEffect(() => {
     if (tabsRef?.current && isSSR && data && contextData) {
       setTimeout(() => {
-        positionChange()
-      }, 2000)
+        positionChange();
+      }, 2000);
     }
-    return localStorage.removeItem('activeTabElement')
-
-  }, [tabsRef, isSSR, data, contextData])
+    return localStorage.removeItem("activeTabElement");
+  }, [tabsRef, isSSR, data, contextData]);
 
   const renderTabsOrDropdown = () => {
     if (isMobile) {
@@ -154,7 +152,9 @@ const WhatWeDo = ({ data }) => {
           {data?.data_list?.map((item, i) => (
             <MenuItem
               key={i + 1}
-              active={data.data_list[i].about_as_what_we_do_detail == contextData?.id}
+              active={
+                data.data_list[i].about_as_what_we_do_detail == contextData?.id
+              }
               onClick={(e) => {
                 getContext(data.data_list[i].about_as_what_we_do_detail);
               }}
@@ -185,19 +185,20 @@ const WhatWeDo = ({ data }) => {
             <ShowMore
               className={styles.button}
               onClick={() => {
-                if (showMoreClass == 'showMoreClass') {
+                if (showMoreClass == "showMoreClass") {
                   window.scrollTo(0, windowScroll);
                 } else {
-                  setWindowScroll(window.scrollY)
+                  setWindowScroll(window.scrollY);
                 }
                 setShowMoreClass(
-                  showMoreClass != 'showMoreClass' ? "showMoreClass" : "showLessClass"
-                )
-              }
-              }
+                  showMoreClass != "showMoreClass"
+                    ? "showMoreClass"
+                    : "showLessClass"
+                );
+              }}
             >
               <span>
-                Show {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
+                Show {showMoreClass != "showMoreClass" ? "More" : "less"}
               </span>
               <span>
                 <Image
@@ -206,10 +207,9 @@ const WhatWeDo = ({ data }) => {
                   alt="image"
                 />
               </span>
-              {showMoreClass != 'showMoreClass' &&
-                <div className={styles.shadow}>
-                </div>
-              }
+              {showMoreClass != "showMoreClass" && (
+                <div className={styles.shadow}></div>
+              )}
             </ShowMore>
           </Row>
         </div>
@@ -217,33 +217,34 @@ const WhatWeDo = ({ data }) => {
     }
 
     return (
-      <div
-        ref={tabsRef}
-        className={styles.allTabs}
-      >
-        <div className={styles.tabsBackground} >
-          <div className={styles.tabsBackgroundActive} ref={tabsBackgroundActive} />
+      <div ref={tabsRef} className={styles.allTabs}>
+        <div className={styles.tabsBackground}>
+          <div
+            className={styles.tabsBackgroundActive}
+            ref={tabsBackgroundActive}
+          />
         </div>
 
         <Tabs
           onChange={(e) => {
-            localStorage.setItem('activeTabElement', e)
-            const activeTab = tabsRef.current.querySelector('.ant-tabs-tab-active');
-            const activeList = tabsRef.current.querySelector('.ant-tabs-nav-list');
-            positionChangeValue(activeTab, activeList)
+            localStorage.setItem("activeTabElement", e);
+            const activeTab = tabsRef.current.querySelector(
+              ".ant-tabs-tab-active"
+            );
+            const activeList =
+              tabsRef.current.querySelector(".ant-tabs-nav-list");
+            positionChangeValue(activeTab, activeList);
             getContext(data.data_list[e - 1].about_as_what_we_do_detail);
           }}
           defaultActiveKey="1"
           type="card"
           className={styles.tabs}
-          // size={size}
           items={data?.data_list?.map((item, i) => {
             const id = String(i + 1);
             return {
               label: item.title,
               key: id,
               children: (
-                // <Context icon={devIcon} context={context} title={title} />
                 <Row className={styles.contextWrapper}>
                   <Row className={styles.contextHeader}>
                     <Image
@@ -258,37 +259,43 @@ const WhatWeDo = ({ data }) => {
                   <Row className={`${styles.context} ${styles[showMoreClass]}`}>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: contextData?.info_name_about_as_what_we_do_detail,
+                        __html:
+                          contextData?.info_name_about_as_what_we_do_detail,
                       }}
                     />
                   </Row>
                   <ShowMore
                     className={styles.button}
                     onClick={() => {
-                      if (showMoreClass == 'showMoreClass') {
+                      if (showMoreClass == "showMoreClass") {
                         window.scrollTo(0, windowScroll);
                       } else {
-                        setWindowScroll(window.scrollY)
+                        setWindowScroll(window.scrollY);
                       }
                       setShowMoreClass(
-                        showMoreClass != 'showMoreClass' ? "showMoreClass" : "showLessClass"
-                      )
-                    }
-                    }
+                        showMoreClass != "showMoreClass"
+                          ? "showMoreClass"
+                          : "showLessClass"
+                      );
+                    }}
                   >
                     <span>
-                      Show  {showMoreClass != 'showMoreClass' ? 'More' : 'less'}
+                      Show {showMoreClass != "showMoreClass" ? "More" : "less"}
                     </span>
                     <span>
                       <Image
                         src={!showMoreClass ? showMore : showMore}
-                        className={`${styles.btnImg} ${showMoreClass == 'showMoreClass' ? styles.rotatebtnImg : ''}`}
+                        className={`${styles.btnImg} ${
+                          showMoreClass == "showMoreClass"
+                            ? styles.rotatebtnImg
+                            : ""
+                        }`}
                         alt="image"
                       />
                     </span>
-                    {showMoreClass != 'showMoreClass' &&
-                      <div className={styles.shadow}>
-                      </div>}
+                    {showMoreClass != "showMoreClass" && (
+                      <div className={styles.shadow}></div>
+                    )}
                   </ShowMore>
                 </Row>
               ),
@@ -319,7 +326,7 @@ const WhatWeDo = ({ data }) => {
         </Link>
       </Col>
       <Image src={ourTeamBg} className={styles.backImage} alt="image" />
-    </div >
+    </div>
   );
 };
 

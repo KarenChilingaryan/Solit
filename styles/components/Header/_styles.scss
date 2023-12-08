@@ -74,7 +74,6 @@
           &:hover {
             color: variables.$light-blue;
             transition: color 0.4s;
-            // border-bottom: 2px solid variables.$light-blue !important;
 
             img {
               filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg)
@@ -109,13 +108,8 @@
             span {
               color: variables.$light-blue !important;
               border-bottom: 2px solid variables.$light-blue !important;
-              // transition: color 0.4s;
             }
           }
-
-          // img {
-          //   filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%) !important;
-          // }
         }
 
         .menuItemChildMainWrapper {
@@ -161,7 +155,6 @@
             }
 
             &:hover {
-              // border-radius: calcVWT(8);
               border: calcVW(1) solid variables.$main-dark-blue;
 
               @media only screen and (max-width: 1440px) and (min-width: 1025px) {
@@ -187,7 +180,6 @@
               transition: 0.3s;
             }
 
-            // transition: 0.4s;
             @include font-style(
               getHeaderSizes(header-menu-item-child-fz),
               variables.$fw-400,
@@ -223,7 +215,6 @@
             a {
               overflow: hidden;
               transition: 0.4s;
-              // height: calcVW(62);
             }
 
             .menuItemChildWrapper {

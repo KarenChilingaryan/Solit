@@ -29,10 +29,12 @@
         display: flex;
         gap: 10px;
         align-items: center;
-        @include font-style(getOurProjectCardSizes(team-member-position-fz),
+        @include font-style(
+          getOurProjectCardSizes(team-member-position-fz),
           variables.$fw-700,
           getOurProjectCardSizes(team-member-position-lh),
-          #219fdb);
+          #219fdb
+        );
 
         img {
           width: calcVW(18);
@@ -93,10 +95,12 @@
           background: rgba(2, 13, 28);
 
           .name {
-            @include font-style(getOurProjectCardSizes(project-name-hover-fz),
+            @include font-style(
+              getOurProjectCardSizes(project-name-hover-fz),
               variables.$fw-700,
               getOurProjectCardSizes(project-name-hover-lh),
-              #fff);
+              #fff
+            );
           }
 
           .stacks {
@@ -165,10 +169,12 @@
 
         .more {
           gap: 10px;
-          @include font-style(calcVWL(18),
+          @include font-style(
+            calcVWL(18),
             variables.$fw-700,
             calcVWL(24),
-            #219fdb);
+            #219fdb
+          );
 
           img {
             width: calcVWL(18);
@@ -273,10 +279,12 @@
 
           .name {
             height: calcVWT(44);
-            @include font-style(calcVWT(18),
+            @include font-style(
+              calcVWT(18),
               variables.$fw-700,
               calcVWT(24),
-              #fff);
+              #fff
+            );
           }
         }
       }
@@ -296,10 +304,12 @@
 
           .name {
             height: calcVWT(44);
-            @include font-style(calcVWT(18),
+            @include font-style(
+              calcVWT(18),
               variables.$fw-700,
               calcVWT(24),
-              #fff);
+              #fff
+            );
           }
         }
       }
@@ -365,15 +375,6 @@
 
         .positionSection {
           height: calcVWM(30);
-
-          // .name {
-          //   @include font-style(
-          //     calcVWM(10),
-          //     variables.$fw-700,
-          //     calcVWM(12),
-          //     #fff
-          //   );
-          // }
         }
       }
 
@@ -461,10 +462,12 @@
 
             .name {
               height: calcVWM(40);
-              @include font-style(calcVWM(18) !important,
+              @include font-style(
+                calcVWM(18) !important,
                 variables.$fw-700 !important,
                 calcVWM(22) !important,
-                #fff);
+                #fff
+              );
             }
           }
         }
@@ -569,10 +572,12 @@
             .name {
               transition: 0.4s;
               height: calcVWM(54);
-              @include font-style(calcVWM(18) !important,
+              @include font-style(
+                calcVWM(18) !important,
                 variables.$fw-700 !important,
                 calcVWM(22) !important,
-                #fff);
+                #fff
+              );
             }
           }
         }

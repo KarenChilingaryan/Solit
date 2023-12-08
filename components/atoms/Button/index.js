@@ -2,9 +2,6 @@ import styled, { css } from "styled-components";
 import { Button as button } from "antd";
 
 const Button = styled(button)`
-  // background: #7854ff;
-  // box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
-  // height: 3.125004vw;
   border: none;
   font-weight: 500;
   color: #fff;

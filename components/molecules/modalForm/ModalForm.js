@@ -113,10 +113,6 @@ const ModalForm = ({
             className={`${styles[errorMessage]}`}
             name="phon_number"
             rules={[
-              // {
-              //   type: "number",
-              //   message: "The input is not a valid Number",
-              // },
               {
                 required: true,
                 message: "Phone number is required",
@@ -149,7 +145,9 @@ const ModalForm = ({
                 disabled
                 readOnly={true}
                 suffix={
-                  file ? <></> : (
+                  file ? (
+                    <></>
+                  ) : (
                     <Image className={styles.suffix} src={upload} alt="image" />
                   )
                 }

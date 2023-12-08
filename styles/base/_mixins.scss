@@ -13,16 +13,12 @@
   flex-wrap: $flex-wrap;
 }
 
-// Center with position: absolute;
-
 @mixin center-absolute {
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
 }
-
-// Center with display: flex
 
 @mixin center-flex {
   @include flex(center, center);
@@ -36,7 +32,7 @@
   white-space: nowrap;
 }
 
-@mixin font-style($fz, $fw, $lh, $color: #FFFFFF) {
+@mixin font-style($fz, $fw, $lh, $color: #ffffff) {
   font-size: $fz;
   font-weight: $fw;
   line-height: $lh;

@@ -1,13 +1,14 @@
-// BreadcrumbContext.js
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
 const BreadcrumbContext = createContext();
 
 const BreadcrumbProvider = ({ children }) => {
-  const [breadcrumbElements, setBreadcrumbElements] = useState([])
+  const [breadcrumbElements, setBreadcrumbElements] = useState([]);
 
   return (
-    <BreadcrumbContext.Provider value={{ breadcrumbElements, setBreadcrumbElements }}>
+    <BreadcrumbContext.Provider
+      value={{ breadcrumbElements, setBreadcrumbElements }}
+    >
       {children}
     </BreadcrumbContext.Provider>
   );

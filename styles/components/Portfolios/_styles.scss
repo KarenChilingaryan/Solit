@@ -57,7 +57,6 @@
     @media (max-width: 1024px) and (min-width: 576px) {
       .projects {
         margin: calcVWT(64) calcVWT(24) 0;
-        // row-gap: unset !important;
         column-gap: calcVWT(32) !important;
         row-gap: calcVWT(64) !important;
       }
