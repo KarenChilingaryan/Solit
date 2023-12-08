@@ -219,7 +219,11 @@ const HomeContent = () => {
             </div>
           </div>
           <Col className={styles.servicesMainButton}>
-              <Button text="Discuss your project" transparentOpposite onClick={()=>router.push("/discuss-project")} />
+            <Button
+              text="Discuss your project"
+              transparentOpposite
+              onClick={() => router.push("/discuss-project")}
+            />
           </Col>
           <div
             className={`${styles.borderedText} ${styles.borderedTextMargin}`}
