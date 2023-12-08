@@ -702,41 +702,6 @@ const DiscussProject = () => {
                       }}
                     />
                   </FormItem>
-                  {/* <Row className={styles.monthsWrapper}>
-                    <Col
-                      className={styles.month}
-                      onClick={() => {
-                        if (form.getFieldsValue(["duration"]).duration != 1)
-                          updateDuration(1);
-                      }}
-                    >
-                      1 month
-                    </Col>
-                    <Col
-                      className={styles.month}
-                      onClick={() => updateDuration(6)}
-                    >
-                      6 months
-                    </Col>
-                    <Col
-                      className={styles.month}
-                      onClick={() => updateDuration(12)}
-                    >
-                      1 year
-                    </Col>
-                    <Col
-                      className={styles.month}
-                      onClick={() => updateDuration(18)}
-                    >
-                      1.5 years
-                    </Col>
-                    <Col
-                      className={styles.month}
-                      onClick={() => updateDuration(24)}
-                    >
-                      2+ years
-                    </Col>
-                  </Row> */}
                   <Button
                     text="Clear"
                     clear

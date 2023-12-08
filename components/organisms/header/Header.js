@@ -340,7 +340,6 @@ const Header = () => {
               <Paragraph className={styles.socialIconsTitle}>
                 Let’s Contact for Great
               </Paragraph>
-              {/* data && data[0]?.social_link? */}
               {footerApi &&
                 footerApi?.contact?.map((item, index) => (
                   <Link href={item.link} target="_blank" key={index}>
