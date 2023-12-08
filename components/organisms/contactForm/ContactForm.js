@@ -122,13 +122,13 @@ const ContactForm = ({
               "Share the details of your project – like scope, timeframes, or business challenges you would like to solve. Our team will carefully study them and then we’ll figure out the next move together.",
           }}
         />
-        {/* {fromContactPage && (
+        {fromContactPage && (
           <Image
             src={contactUsBgImage}
             className={styles.contactUsImage}
             alt="image"
           />
-        )} */}
+        )}
       </Col>
       <Col className={styles.formWrapper}>
         <Form
@@ -295,13 +295,13 @@ const ContactForm = ({
           </Col>
         </Form>
       </Col>
-      {/* {!fromContactPage && (
+      {!fromContactPage && (
         <Image
           src={contactBgImage}
           className={`${styles.backImage} ${styles.topBackImage}`}
           alt="image"
         />
-      )} */}
+      )}
       <SuccessModal open={openSuccess} setOpen={setOpenSuccess} />
     </Col>
   );
