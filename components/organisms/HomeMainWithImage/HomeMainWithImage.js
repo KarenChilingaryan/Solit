@@ -17,7 +17,7 @@ const HomeMainWithImage = ({
   className,
   children,
   seoName = "",
-  mainContainer = null
+  mainContainer = null,
 }) => {
   const routes = useRouter();
   const [hideToTop, setHideToTop] = useState(false);
@@ -96,7 +96,8 @@ const HomeMainWithImage = ({
       const targetElementMainContainer = mainContainer?.current;
       if (!targetElementMainContainer) return;
 
-      const { height: heightMainContainer } = targetElementMainContainer.getBoundingClientRect();
+      const { height: heightMainContainer } =
+        targetElementMainContainer.getBoundingClientRect();
       const { height: heightContent } =
         targetElementContent.getBoundingClientRect();
 
@@ -111,7 +112,8 @@ const HomeMainWithImage = ({
         const element02 = parentElem[0]?.clientWidth - element01;
         const element03 = top + window?.scrollY + height - element02;
         const percent0 = ((element03 - heightContent) / element01) * 100;
-        const newpercent0 = ((element03 - heightMainContainer) / element01) * 100;
+        const newpercent0 =
+          ((element03 - heightMainContainer) / element01) * 100;
 
         const element11 = parentElem[1]?.children[0]?.children[1]?.clientWidth;
         const element12 = parentElem[1]?.clientWidth - element11;
@@ -122,7 +124,8 @@ const HomeMainWithImage = ({
           element12 -
           parentElem[0]?.clientWidth;
         const percent1 = ((element13 - heightContent) / element11) * 100 - 25;
-        const newpercent1 = ((element13 - heightMainContainer) / element11) * 100 - 25;
+        const newpercent1 =
+          ((element13 - heightMainContainer) / element11) * 100 - 25;
 
         const element21 = parentElem[1]?.children[0]?.children[1]?.clientWidth;
         const element22 = parentElem[1]?.clientWidth - element21;
@@ -134,7 +137,8 @@ const HomeMainWithImage = ({
           parentElem[0]?.clientWidth -
           parentElem[1]?.clientWidth;
         const percent2 = ((element23 - heightContent) / element21) * 100 - 50;
-        const newpercent2 = ((element23 - heightMainContainer) / element21) * 100 - 50;
+        const newpercent2 =
+          ((element23 - heightMainContainer) / element21) * 100 - 50;
 
         const percent4 =
           ((goToTopTop + window?.scrollY + goToTopHeight - heightContent) /
@@ -142,7 +146,10 @@ const HomeMainWithImage = ({
           100;
 
         const newpercent4 =
-          ((goToTopTop + window?.scrollY + goToTopHeight - heightMainContainer) /
+          ((goToTopTop +
+            window?.scrollY +
+            goToTopHeight -
+            heightMainContainer) /
             goToTop.current.children[0].children[0].clientWidth) *
           100;
 
@@ -260,12 +267,13 @@ const HomeMainWithImage = ({
                       alt="image"
                       style={{
                         ...(className == "portfolioItem" &&
-                          ((percents["percent" + i] &&
-                            percents["percent" + i] + 25 > 0) && (newpercents["newpercent" + i] < -25))
+                        percents["percent" + i] &&
+                        percents["percent" + i] + 25 > 0 &&
+                        newpercents["newpercent" + i] < -25
                           ? {
-                            filter:
-                              "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
-                          }
+                              filter:
+                                "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                            }
                           : {}),
                       }}
                     />
@@ -273,26 +281,27 @@ const HomeMainWithImage = ({
                       className={styles.text}
                       style={{
                         ...(className == "portfolioItem" &&
-                          percents["percent" + i] >= 0 &&
-                          newpercents["newpercent" + i] < 0
+                        percents["percent" + i] >= 0 &&
+                        newpercents["newpercent" + i] < 0
                           ? {
-                            backgroundImage: `linear-gradient(to right, black ${percents["percent" + i]
+                              backgroundImage: `linear-gradient(to right, black ${
+                                percents["percent" + i]
                               }%, white ${percents["percent" + i]}%)`,
-                            backgroundClip: "text",
-                            "-webkit-background-clip": "text",
-                            color: "transparent",
-                          }
-                          : className == "portfolioItem" &&
-                            percents["percent" + i] > 100
-                            ? {
-                              backgroundImage: `linear-gradient(to right, white ${newpercents["newpercent" + i]
-                                }%, black ${newpercents["newpercent" + i]
-                                }%)`,
                               backgroundClip: "text",
                               "-webkit-background-clip": "text",
                               color: "transparent",
                             }
-                            : {
+                          : className == "portfolioItem" &&
+                            percents["percent" + i] > 100
+                          ? {
+                              backgroundImage: `linear-gradient(to right, white ${
+                                newpercents["newpercent" + i]
+                              }%, black ${newpercents["newpercent" + i]}%)`,
+                              backgroundClip: "text",
+                              "-webkit-background-clip": "text",
+                              color: "transparent",
+                            }
+                          : {
                               color: "white",
                             }),
                       }}
@@ -316,23 +325,24 @@ const HomeMainWithImage = ({
               className={styles.text}
               style={{
                 ...(className == "portfolioItem" &&
-                  percents["percent4"] >= 0 &&
-                  newpercents["newpercent" + 4] < 0
+                percents["percent4"] >= 0 &&
+                newpercents["newpercent" + 4] < 0
                   ? {
-                    backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
-                    backgroundClip: "text",
-                    "-webkit-background-clip": "text",
-                    color: "transparent",
-                  }
-                  : className == "portfolioItem" && percents["percent4"] > 100
-                    ? {
-                      backgroundImage: `linear-gradient(to right, white ${newpercents["newpercent" + 4]
-                        }%, black ${newpercents["newpercent" + 4]}%)`,
+                      backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
                       backgroundClip: "text",
                       "-webkit-background-clip": "text",
                       color: "transparent",
                     }
-                    : {
+                  : className == "portfolioItem" && percents["percent4"] > 100
+                  ? {
+                      backgroundImage: `linear-gradient(to right, white ${
+                        newpercents["newpercent" + 4]
+                      }%, black ${newpercents["newpercent" + 4]}%)`,
+                      backgroundClip: "text",
+                      "-webkit-background-clip": "text",
+                      color: "transparent",
+                    }
+                  : {
                       color: "white",
                     }),
               }}
@@ -343,13 +353,13 @@ const HomeMainWithImage = ({
               style={{
                 transform: "rotate(90deg)",
                 ...(className == "portfolioItem" &&
-                  percents["percent4"] &&
-                  percents["percent4"] - 125 > 0 &&
-                  newpercents["newpercent" + 4] < 125
+                percents["percent4"] &&
+                percents["percent4"] - 125 > 0 &&
+                newpercents["newpercent" + 4] < 125
                   ? {
-                    filter:
-                      "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
-                  }
+                      filter:
+                        "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                    }
                   : {}),
               }}
               src={rughtRowTop}
@@ -361,7 +371,7 @@ const HomeMainWithImage = ({
           </div>
         </div>
       )}
-      {/* {firstImage && (
+      {firstImage && (
         <Image
           alt="image"
           src={firstImage}
@@ -374,7 +384,7 @@ const HomeMainWithImage = ({
           width={1920}
           height={800}
         />
-      )} */}
+      )}
       {children}
     </div>
   );
