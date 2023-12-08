@@ -361,7 +361,7 @@ const HomeMainWithImage = ({
           </div>
         </div>
       )}
-      {firstImage && (
+      {/* {firstImage && (
         <Image
           alt="image"
           src={firstImage}
@@ -374,7 +374,7 @@ const HomeMainWithImage = ({
           width={1920}
           height={800}
         />
-      )}
+      )} */}
       {children}
     </div>
   );
