@@ -274,7 +274,7 @@ const ContactForm = ({
               },
             ]}
           >
-            {/* <ReCAPTCHA
+            <ReCAPTCHA
               ref={recaptchaRef}
               style={{ width: "300px" }}
               className={styles.recaptcha}
@@ -282,7 +282,7 @@ const ContactForm = ({
                 checkFormValidation(changeRecaptcha, recaptchaRef.current)
               }
               sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
-            /> */}
+            />
           </FormItem>
 
           <Col className={styles.buttonWrapper}>
