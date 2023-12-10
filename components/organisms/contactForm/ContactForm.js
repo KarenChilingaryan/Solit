@@ -1,46 +1,18 @@
-// import { memo, useRef, useState } from "react";
-import {  Form } from "../../atoms";
+import { memo,  useRef, useState } from "react";
+import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
-// import Button from "../../molecules/button/Button";
-// import { emailApi } from "../../../services/emailApi";
-// import { useDispatch } from "react-redux";
-// import FloatInput from "../../molecules/floatInput/FloatInput";
-// import upload from "../../../assets/img/uploadIcon.svg";
-// import contactBgImage from "../../../assets/img/contact_bg.png";
-// import contactUsBgImage from "../../../assets/img/contactus-background.png";
-// import close from "../../../assets/img/icons/close.svg";
 import ReCAPTCHA from "react-google-recaptcha";
-// import { checkFormValidation } from "../../../utils/hooks/checkRecaptchaValidation";
-// import SuccessModal from "../successModal/SuccessModal";
 import { Upload } from "antd";
-
-import dynamic from 'next/dynamic';
-
-// Dynamically import components
-const Col = dynamic(() => import('../../atoms/Col'));
-const Row = dynamic(() => import('../../atoms/Row'));
-const FormItem = dynamic(() => import('../../atoms/FormItem'));
-// const Form = dynamic(() => import('../../atoms/Form'));
-const Checkbox = dynamic(() => import('../../atoms/Checkbox'));
-const Button = dynamic(() => import('../../molecules/button/Button'));
-const FloatInput = dynamic(() => import('../../molecules/floatInput/FloatInput'));
-// const Image = dynamic(() => import('next/image'));
-const SuccessModal = dynamic(() => import('../successModal/SuccessModal'));
-// const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'));
-// const Upload = dynamic(() => import('antd').then(module => ({ Upload: module.Upload })));
-
-// Other imports
-import { memo, useRef, useState } from 'react';
-import { emailApi } from '../../../services/emailApi';
-import { useDispatch } from 'react-redux';
-import upload from '../../../assets/img/uploadIcon.svg';
-import contactBgImage from '../../../assets/img/contact_bg.png';
-import contactUsBgImage from '../../../assets/img/contactus-background.png';
-import close from '../../../assets/img/icons/close.svg';
-import { checkFormValidation } from '../../../utils/hooks/checkRecaptchaValidation';
-
-// Your component code goes here
-
+import Button from "../../molecules/button/Button";
+import { emailApi } from "../../../services/emailApi";
+import { useDispatch } from "react-redux";
+import FloatInput from "../../molecules/floatInput/FloatInput";
+import upload from "../../../assets/img/uploadIcon.svg";
+import contactBgImage from "../../../assets/img/contact_bg.png";
+import contactUsBgImage from "../../../assets/img/contactus-background.png";
+import close from "../../../assets/img/icons/close.svg";
+import { checkFormValidation } from "../../../utils/hooks/checkRecaptchaValidation";
+import SuccessModal from "../successModal/SuccessModal";
 
 import styles from "./ContactForm.module.scss";
 
