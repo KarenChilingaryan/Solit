@@ -3,248 +3,505 @@
 
 @mixin generate-process-styles {
   .container {
-    .desktopSvg {
 
-      .loadingPath {
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
-        stroke: #3fc1ff;
-        /* Set the initial color */
+    .snack {
+      height: calcVW(784);
+      margin: calcVW(80) 0;
+      flex-wrap: wrap;
+      position: relative;
+
+      .borderRound {
+        min-width: calcVW(32);
+        height: calcVW(32);
+        border: 2px solid variables.$white;
+        border-radius: calcVW(32);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .round {
+          min-width: calcVW(16);
+          height: calcVW(16);
+          border-radius: calcVW(16);
+          background: variables.$white;
+        }
+
+        .info {
+          position: absolute;
+        }
       }
 
-      .loadingPath1 {
-        animation: colorChange 5s linear forwards;
+      .borderRound1 {
+        margin-left: calcVW(189);
       }
 
-      .loadingPath3 {
-        animation: colorChange 5s linear 0.8s forwards;
+      .line {
+        min-width: calcVW(373);
+        height: calcVW(2);
+        background: variables.$white;
+        margin-top: calcVW(15);
       }
 
-      .loadingPath4 {
-        animation: colorChange 5s linear 1.8s forwards;
+      .line1 {
+        margin-top: calcVW(15);
       }
 
-      .loadingPath5 {
-        animation: colorChange 5s linear 2.2s forwards;
+      .line2 {
+        min-width: calcVW(610);
+        margin-top: calcVW(15);
       }
 
-      .loadingPath6 {
-        animation: colorChange 5s linear 2.4s forwards;
+      // .oval {
+
+      // }
+      .oval1 {
+        border-top: 2px solid variables.$white;
+        border-right: 2px solid variables.$white;
+        border-radius: 0 calcVW(50) 0 0;
+        min-width: calcVW(44);
+        margin-top: calcVW(15);
+        height: calcVW(44);
       }
 
-      .loadingPath7 {
-        animation: colorChange 5s linear 2.8s forwards;
+      .line3 {
+        min-width: calcVW(2);
+        min-height: calcVW(184);
+        margin-left: calcVW(1278);
+        margin-top: 0;
       }
 
-      .loadingPath9 {
-        animation: colorChange 5s linear 3.3s forwards;
+      .oval2 {
+        border-bottom: 2px solid variables.$white;
+        border-right: 2px solid variables.$white;
+        border-radius: 0 0 calcVW(50) 0;
+        min-width: calcVW(44);
+        height: calcVW(44);
       }
 
-      .loadingPath11 {
-        animation: colorChange 5s linear 3.8s forwards;
+      .oval3 {
+        border-top: 2px solid variables.$white;
+        border-left: 2px solid variables.$white;
+        border-radius: calcVW(50) 0 0 0;
+        min-width: calcVW(44);
+        height: calcVW(44);
+        margin-top: calcVW(42);
       }
 
-      .loadingPath12 {
-        animation: colorChange 5s linear 4.8s forwards;
+      .line4 {
+        min-width: calcVW(186);
+        margin-top: calcVW(42);
       }
 
-      .loadingPath13 {
-        animation: colorChange 5s linear 5.4s forwards;
+      .borderRound2 {
+        margin-top: calcVW(28);
       }
 
-      .loadingPath15 {
-        animation: colorChange 5s linear 5.6s forwards;
+      .line5 {
+        min-width: calcVW(372);
+        margin-top: calcVW(42);
       }
 
-      .loadingPath17 {
-        animation: colorChange 5s linear 6.6s forwards;
+      .borderRound3 {
+        margin-top: calcVW(28);
       }
 
-      .loadingPath14 {
-        animation: colorChange1 5s linear 5.6s forwards;
+      .line6 {
+        min-width: calcVW(570);
+        margin-top: calcVW(42);
       }
 
-      .loadingPathRound {
-        stroke: white;
-        /* Initial color */
+      .line7 {
+        min-width: calcVW(2);
+        width: calcVW(2);
+        min-height: calcVW(184);
+        margin-top: 0;
       }
 
-      .loadingPathRound2 {
-        animation: colorChangeRound 0.1s linear 0.7s forwards;
+      .oval4 {
+        border-bottom: 2px solid variables.$white;
+        border-left: 2px solid variables.$white;
+        border-radius: 0 0 0 calcVW(50);
+        min-width: calcVW(44);
+        height: calcVW(44);
       }
 
-      .loadingPathRoundFill {
-        fill: white;
-        /* Initial color */
+      .line8 {
+        min-width: calcVW(183);
+        height: calcVW(2);
+        margin-top: calcVW(42);
       }
 
-      .loadingPathRoundFill2 {
-        animation: colorChangeRoundFill 0.1s linear 0.7s forwards;
+      .borderRound4 {
+        margin-top: calcVW(28);
       }
 
-      .loadingPathRound8 {
-        animation: colorChangeRound 0.1s linear 3.2s forwards;
+      .line9 {
+        min-width: calcVW(376);
+        height: calcVW(2);
+        margin-top: calcVW(42);
       }
 
-      .loadingPathRoundFill8 {
-        animation: colorChangeRoundFill 0.1s linear 3.2s forwards;
+      .borderRound5 {
+        margin-top: calcVW(28);
       }
 
-      .loadingPathRound10 {
-        animation: colorChangeRound 0.1s linear 3.7s forwards;
+
+      .part1 {
+        display: flex;
+        overflow: hidden;
+        width: 0;
       }
 
-      .loadingPathRoundFill10 {
-        animation: colorChangeRoundFill 0.1s linear 3.7s forwards;
+      .part2 {
+        height: 0;
+        overflow: hidden;
+        width: 100%;
       }
 
-      .loadingPathRound16 {
-        animation: colorChangeRound 0.1s linear 6s forwards;
+      .part3 {
+        display: flex;
+        overflow: hidden;
+        width: 0;
+        margin-left: auto;
       }
 
-      .loadingPathRoundFill16 {
-        animation: colorChangeRoundFill 0.1s linear 6s forwards;
+      .part4 {
+        height: 0;
+        overflow: hidden;
+        width: 100%;
       }
 
-      .loadingPathRound18 {
-        animation: colorChangeRound 0.1s linear 7.2s forwards;
+      .part5 {
+        display: flex;
+        overflow: hidden;
+        width: 0;
       }
 
-      .loadingPathRoundFill18 {
-        animation: colorChangeRoundFill 0.1s linear 7.2s forwards;
+      .snackBlue {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+
+        .borderRound {
+          border: 2px solid variables.$light-blue;
+
+          .round {
+            background: variables.$light-blue;
+          }
+        }
+
+        .line {
+          background: variables.$light-blue;
+        }
+
+        .oval1 {
+          border-top: 2px solid variables.$light-blue;
+          border-right: 2px solid variables.$light-blue;
+        }
+
+        .oval2 {
+          border-bottom: 2px solid variables.$light-blue;
+          border-right: 2px solid variables.$light-blue;
+        }
+
+        .oval3 {
+          border-top: 2px solid variables.$light-blue;
+          border-left: 2px solid variables.$light-blue;
+        }
+
+        .oval4 {
+          border-bottom: 2px solid variables.$light-blue;
+          border-left: 2px solid variables.$light-blue;
+        }
       }
 
-      .loadingPathRound0 {
-        animation: colorChangeRound 0.1s linear forwards;
-      }
+      .snackText {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
 
-      .loadingPathRoundFill0 {
-        animation: colorChangeRoundFill 0.1s linear forwards;
-      }
 
+        .borderRound {
+          border: 2px solid transparent;
+          display: flex;
+          justify-content: center;
+
+          .round {
+            background: transparent;
+          }
+
+          .info {
+            height: calcVW(277);
+            width: calcVW(405);
+            margin-top: calcVW(172);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .titleInfo {
+              @include font-style(calcVW(24),
+                variables.$fw-600,
+                normal);
+              margin: 0;
+              margin-bottom: calcVW(80);
+              text-align: center;
+              opacity: 0;
+            }
+
+            .descriptionInfo {
+              @include font-style(calcVW(18),
+                variables.$fw-400,
+                normal);
+              margin: 0;
+              width: calcVW(277);
+              opacity: 0;
+            }
+          }
+        }
+
+        .line {
+          background: transparent;
+        }
+
+        .oval1 {
+          border-top: 2px solid transparent;
+          border-right: 2px solid transparent;
+        }
+
+        .oval2 {
+          border-bottom: 2px solid transparent;
+          border-right: 2px solid transparent;
+        }
+
+        .oval3 {
+          border-top: 2px solid transparent;
+          border-left: 2px solid transparent;
+        }
+
+        .oval4 {
+          border-bottom: 2px solid transparent;
+          border-left: 2px solid transparent;
+        }
+
+        .part1 {
+          overflow: initial;
+          width: max-content;
+        }
+
+        .part2 {
+          height: max-content;
+          overflow: initial;
+          width: max-content;
+        }
+
+        .part3 {
+          height: max-content;
+          overflow: initial;
+          width: max-content;
+        }
+
+        .part4 {
+          height: max-content;
+          overflow: initial;
+          width: max-content;
+        }
+
+        .part5 {
+          height: max-content;
+          overflow: initial;
+          width: max-content;
+        }
+      }
     }
 
-    .mobileSvg {
-      .loadingPath {
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
-        stroke: #3fc1ff;
-        /* Set the initial color */
-      }
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .snack {
+        height: calcVWL(784);
+        margin: calcVWL(80) 0;
 
-      .loadingPathRound {
-        stroke: white;
-        /* Initial color */
-      }
+        .borderRound {
+          min-width: calcVWL(32);
+          height: calcVWL(32);
+          border-radius: calcVWL(32);
 
-      .loadingPathRoundFill {
-        fill: white;
-        /* Initial color */
-      }
+          .round {
+            min-width: calcVWL(16);
+            height: calcVWL(16);
+            border-radius: calcVWL(16);
+          }
 
-      .loadingPath1 {
-        animation: colorChange 5s linear 0.8s forwards;
-      }
+        }
 
-      .loadingPath3 {
-        animation: colorChange 5s linear 2.8s forwards;
-      }
+        .borderRound1 {
+          margin-left: calcVWL(189);
+        }
 
-      .loadingPath5 {
-        animation: colorChange 5s linear 4.8s forwards;
-      }
+        .line {
+          min-width: calcVWL(373);
+          height: calcVWL(2);
+          margin-top: calcVWL(15);
+        }
 
-      .loadingPath7 {
-        animation: colorChange 5s linear 6.8s forwards;
-      }
+        .line1 {
+          margin-top: calcVWL(15);
+        }
 
-      .loadingPath9 {
-        animation: colorChange 5s linear 8.8s forwards;
-      }
+        .line2 {
+          min-width: calcVWL(610);
+          margin-top: calcVWL(15);
+        }
 
-      .loadingPathRound0 {
-        animation: colorChangeRound 0.1s linear forwards;
-      }
+        .oval1 {
+          border-radius: 0 calcVWL(50) 0 0;
+          min-width: calcVWL(44);
+          margin-top: calcVWL(15);
+          height: calcVWL(44);
+        }
 
-      .loadingPathRound2 {
-        animation: colorChangeRound 0.1s linear 2.7s forwards;
-      }
+        .line3 {
+          min-width: calcVWL(2);
+          min-height: calcVWL(184);
+          margin-left: calcVWL(1278);
+          margin-top: 0;
+        }
 
-      .loadingPathRound4 {
-        animation: colorChangeRound 0.1s linear 4.7s forwards;
-      }
+        .oval2 {
+          border-radius: 0 0 calcVWL(50) 0;
+          min-width: calcVWL(44);
+          height: calcVWL(44);
+        }
 
-      .loadingPathRound6 {
-        animation: colorChangeRound 0.1s linear 6.7s forwards;
-      }
+        .oval3 {
+          border-radius: calcVWL(50) 0 0 0;
+          min-width: calcVWL(44);
+          height: calcVWL(44);
+          margin-top: calcVWL(42);
+        }
 
-      .loadingPathRound8 {
-        animation: colorChangeRound 0.1s linear 8.7s forwards;
-      }
+        .line4 {
+          min-width: calcVWL(186);
+          margin-top: calcVWL(42);
+        }
 
-      .loadingPathRound10 {
-        animation: colorChangeRound 0.1s linear 10.7s forwards;
-      }
+        .borderRound2 {
+          margin-top: calcVWL(28);
+        }
 
-      .loadingPathRoundFill0 {
-        animation: colorChangeRoundFill 0.1s linear forwards;
-      }
+        .line5 {
+          min-width: calcVWL(372);
+          margin-top: calcVWL(42);
+        }
 
-      .loadingPathRoundFill2 {
-        animation: colorChangeRoundFill 0.1s linear 2.7s forwards;
-      }
+        .borderRound3 {
+          margin-top: calcVWL(28);
+        }
 
-      .loadingPathRoundFill4 {
-        animation: colorChangeRoundFill 0.1s linear 4.7s forwards;
-      }
+        .line6 {
+          min-width: calcVWL(570);
+          margin-top: calcVWL(42);
+        }
 
-      .loadingPathRoundFill6 {
-        animation: colorChangeRoundFill 0.1s linear 6.7s forwards;
-      }
+        .line7 {
+          min-width: calcVWL(2);
+          width: calcVWL(2);
+          min-height: calcVWL(184);
+          margin-top: 0;
+        }
 
-      .loadingPathRoundFill8 {
-        animation: colorChangeRoundFill 0.1s linear 8.7s forwards;
-      }
+        .oval4 {
+          border-radius: 0 0 0 calcVWL(50);
+          min-width: calcVWL(44);
+          height: calcVWL(44);
+        }
 
-      .loadingPathRoundFill10 {
-        animation: colorChangeRoundFill 0.1s linear 10.7s forwards;
-      }
+        .line8 {
+          min-width: calcVWL(183);
+          height: calcVWL(2);
+          margin-top: calcVWL(42);
+        }
 
-    }
+        .borderRound4 {
+          margin-top: calcVWL(28);
+        }
 
-    @keyframes colorChange1 {
-      from {
-        stroke-dashoffset: 1000;
-        stroke: #3fc1ff;
-        /* Change to the final color */
-      }
+        .line9 {
+          min-width: calcVWL(376);
+          height: calcVWL(2);
+          margin-top: calcVWL(42);
+        }
 
-      to {
-        stroke-dashoffset: 0;
-        stroke: #3fc1ff;
-        /* Change to the final color */
-      }
-    }
+        .borderRound5 {
+          margin-top: calcVWL(28);
+        }
 
-    @keyframes colorChange {
-      to {
-        stroke-dashoffset: 0;
-        stroke: #3fc1ff;
-        /* Change to the final color */
-      }
-    }
+        .part1 {
+          width: 0;
+        }
 
-    @keyframes colorChangeRound {
-      to {
-        stroke: #3fc1ff;
-        /* Final color after 3-second delay */
-      }
-    }
+        .part2 {
+          height: 0;
+          width: 100%;
+        }
 
-    @keyframes colorChangeRoundFill {
-      to {
-        fill: #3fc1ff;
-        /* Final color after 3-second delay */
+        .part3 {
+          width: 0;
+        }
+
+        .part4 {
+          height: 0;
+          width: 100%;
+        }
+
+        .part5 {
+          width: 0;
+        }
+
+        .snackBlue {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .snackText {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+
+          .borderRound {
+            .info {
+              height: calcVWL(277);
+              width: calcVWL(405);
+              margin-top: calcVWL(172);
+
+              .titleInfo {
+                @include font-style(calcVWL(24),
+                  variables.$fw-600,
+                  normal);
+                margin: 0;
+                margin-bottom: calcVWL(80);
+                opacity: 0;
+              }
+
+              .descriptionInfo {
+                @include font-style(calcVWL(18),
+                  variables.$fw-400,
+                  normal);
+                margin: 0;
+                width: calcVWL(277);
+                opacity: 0;
+              }
+            }
+          }
+        }
       }
     }
 
@@ -286,10 +543,6 @@
       }
     }
 
-    .mobileSvg {
-      display: none;
-    }
-
     @media (max-width: 576px) {
       .title {
         @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
@@ -299,14 +552,6 @@
         margin-top: getProcessSizes(process-description-mt);
         margin-bottom: calcVWM(80);
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
-      }
-
-      .desktopSvg {
-        display: none;
-      }
-
-      .mobileSvg {
-        display: block;
       }
     }
   }

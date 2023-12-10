@@ -6,266 +6,39 @@ import styles from "./Process.module.scss";
 
 const svgSizes = [
   {
-    type: "round",
-    A: 80,
-    B: 50,
-    name: "Requirement Analysis",
+    title: "Requirement Analysis",
     description:
-      "Our expert team initiates the process by thoroughly understanding your project requirements, goals, and expectations. This analysis serves as the foundation for creating a tailored solution that perfectly aligns with your business needs.",
-    position: 45,
+      "Analyzing needs, we tailor solutions to align with your business goals.",
   },
   {
-    type: "path",
-    A: { x: 85, y: 50 },
-    B: { x: 250, y: 50 },
-  },
-  {
-    type: "round",
-    A: 239,
-    B: 50,
-    name: "Planning and Design",
+    title: "Planning and Design",
     description:
-      "With a comprehensive understanding of your project, we meticulously plan the development roadmap and craft an intuitive design that not only enhances user experience but also ensures scalability and flexibility for future expansions.",
-    position: 45,
+      "Plan, design for user experience, scalability, ensuring robust, high-performance software solutions.",
   },
   {
-    type: "path",
-    A: { x: 244, y: 50 },
-    B: { x: 465, y: 50 },
-  },
-  {
-    A: { x: 465, y: 50 },
-    B: { x: 499, y: 90 },
-    controlPoint: { x: 499, y: 48 },
-  },
-  {
-    type: "path",
-    A: { x: 499, y: 90 },
-    B: { x: 499, y: 171 },
-  },
-  {
-    A: { x: 499, y: 171 },
-    B: { x: 465, y: 204 },
-    controlPoint: { x: 499, y: 204 },
-  },
-  {
-    type: "path",
-    A: { x: 465, y: 204 },
-    B: { x: 405, y: 204 },
-  },
-  {
-    type: "round",
-    A: 400,
-    B: 204,
-    name: "Development and Coding",
+    title: "Development and Coding",
     description:
-      "Our seasoned developers leverage cutting-edge technologies and industry best practices to transform the approved design into a functional software solution, leaving no stone unturned in delivering a robust and high-performance product.",
-    position: 45,
+      "Transform design into high-performance software using cutting-edge technologies and best practices.",
   },
   {
-    type: "path",
-    A: { x: 395, y: 204 },
-    B: { x: 245, y: 204 },
-  },
-  {
-    type: "round",
-    A: 240,
-    B: 204,
-    name: "Testing and Quality Assurance",
+    title: "Testing and Quality Assurance",
     description:
-      "Rigorous testing methodologies are employed to identify and eliminate any potential bugs or glitches, ensuring the final product meets the highest standards of quality, reliability, and security.",
-    position: 45,
-  },
-  {
-    type: "path",
-    A: { x: 240, y: 204 },
-    B: { x: 36, y: 204 },
-  },
-  {
-    A: { x: 36, y: 204 },
-    B: { x: 1, y: 236 },
-    controlPoint: { x: 1, y: 204 },
-  },
-  {
-    type: "path",
-    A: { x: 1, y: 236 },
-    B: { x: 1, y: 320 },
-  },
-  {
-    A: { x: 34, y: 357 },
-    B: { x: 1, y: 320 },
-    controlPoint: { x: 1, y: 357 },
-  },
-  {
-    type: "path",
-    A: { x: 34, y: 357 },
-    B: { x: 100, y: 357 },
-  },
-  {
-    type: "round",
-    A: 100,
-    B: 357,
-    name: "Deployment and Integration",
+      "Rigorous testing ensures quality, reliability, and security by identifying and eliminating potential issues.",
+  }, {
+    title: "Deployment and Integration",
     description:
-      "Once the software is thoroughly vetted and approved, we seamlessly deploy it to your desired platform, offering full integration support to ensure a smooth transition and minimal disruption to your existing systems.",
-    position: 45,
+      "Seamless deployment, integration support for a smooth transition with minimal disruption to existing systems.",
   },
   {
-    type: "path",
-    A: { x: 105, y: 357 },
-    B: { x: 260, y: 357 },
-  },
-  {
-    type: "round",
-    A: 260,
-    B: 357,
-    name: "Maintenance and Support",
-    description:
-      "Our commitment extends beyond deployment as we provide ongoing maintenance and support services, promptly addressing any issues that may arise and proactively updating the software to keep it at its peak performance.",
-    position: 66,
+    title: "Maintenance and Support",
+    description: "Ongoing maintenance, support services to promptly address issues, ensuring peak software performance.",
   },
 ];
-
-const svgSizesMobile = [
-  {
-    type: "round",
-    A: 17,
-    B: 50,
-    name: "Requirement Analysis",
-    description:
-      "Our expert team initiates the process by thoroughly understanding your project requirements, goals, and expectations. This analysis serves as the foundation for creating a tailored solution that perfectly aligns with your business needs.",
-    position: 233,
-  },
-  {
-    type: "path",
-    A: { x: 17, y: 60 },
-    B: { x: 17, y: 400 },
-  },
-  {
-    type: "round",
-    A: 17,
-    B: 400,
-    name: "Planning and Design",
-    description:
-      "With a comprehensive understanding of your project, we meticulously plan the development roadmap and craft an intuitive design that not only enhances user experience but also ensures scalability and flexibility for future expansions.",
-    position: 227,
-  },
-  {
-    type: "path",
-    A: { x: 17, y: 410 },
-    B: { x: 17, y: 770 },
-  },
-  {
-    type: "round",
-    A: 17,
-    B: 770,
-    name: "Development and",
-    secondPosition: 118,
-    secondName: "Coding",
-    description:
-      "Our seasoned developers leverage cutting-edge technologies and industry best practices to transform the approved design into a functional software solution, leaving no stone unturned in delivering a robust and high-performance product.",
-    position: 204,
-  },
-  {
-    type: "path",
-    A: { x: 17, y: 770 },
-    B: { x: 17, y: 1190 },
-  },
-  {
-    type: "round",
-    A: 17,
-    B: 1190,
-    name: "Testing and Quality",
-    secondPosition: 142,
-    secondName: "Assurance",
-    description:
-      "Rigorous testing methodologies are employed to identify and eliminate any potential bugs or glitches, ensuring the final product meets the highest standards of quality, reliability, and security.",
-    position: 213,
-  },
-  {
-    type: "path",
-    A: { x: 17, y: 1200 },
-    B: { x: 17, y: 1550 },
-  },
-  {
-    type: "round",
-    A: 17,
-    B: 1550,
-    name: "Deployment and",
-    secondPosition: 148,
-    secondName: "Integration",
-    description:
-      "Once the software is thoroughly vetted and approved, we seamlessly deploy it to your desired platform, offering full integration support to ensure a smooth transition and minimal disruption to your existing systems.",
-    position: 193,
-  },
-  {
-    type: "path",
-    A: { x: 17, y: 1560 },
-    B: { x: 17, y: 1940 },
-  },
-  {
-    type: "round",
-    A: 17,
-    B: 1940,
-    name: "Maintenance and ",
-    secondPosition: 123,
-    secondName: "Support",
-    description:
-      "Our commitment extends beyond deployment as we provide ongoing maintenance and support services, promptly addressing any issues that may arise and proactively updating the software to keep it at its peak performance.",
-    position: 198,
-  },
-];
-
-const GetText = (
-  text,
-  A,
-  B,
-  fs = 8,
-  lh = 10,
-  anchor = "middle",
-  position = 0
-) => {
-  const [description, setDescription] = useState([]);
-  useEffect(() => {
-    if (text) {
-      const textArr = text.split(" ");
-      const arr = [];
-      let textValue = "";
-      for (let i = 0; i < textArr.length; i++) {
-        const element = textArr[i];
-        if (textValue.length + element.length < 28) {
-          textValue = `${textValue} ${element}`;
-        } else {
-          arr.push(textValue);
-          textValue = element;
-        }
-      }
-      arr.push(textValue);
-      setDescription(arr);
-    }
-  }, [text]);
-
-  return description?.map((el, index) => (
-    <text
-      key={index}
-      x={A - position}
-      y={B + 20 + index * (lh + (window?.innerWidth <= 1024 ? 2 : 0))}
-      fill="rgba(255, 255, 255, 0.73)"
-      textAnchor={anchor}
-      dominantBaseline="baseline"
-      fontSize={(fs + (window?.innerWidth <= 1024 ? 2 : 0)).toString()}
-    >
-      {el}
-    </text>
-  ));
-};
 
 const Line = () => {
   const targetRef = useRef(null);
   const targetRefMobile = useRef(null);
   const [visiblePercentage, setVisiblePercentage] = useState(0);
-  const [changeValue, setChangeValue] = useState(0);
-  const [visiblePercentageMobile, setVisiblePercentageMobile] = useState(0);
 
   useEffect(() => {
     const getForMobile = () => {
@@ -283,7 +56,7 @@ const Line = () => {
 
       const { top, height } = targetElement.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const percentage = Math.round(((windowHeight - top) / height) * 60);
+      const percentage = ((windowHeight - top) / height) * 120;
       setVisiblePercentage(percentage);
       getForMobile();
     };
@@ -295,220 +68,332 @@ const Line = () => {
     };
   }, []);
 
+  const part1Ref = useRef(null)
+  const part2Ref = useRef(null)
+  const part3Ref = useRef(null)
+  const part4Ref = useRef(null)
+  const part5Ref = useRef(null)
+
+  const part1RefBlue = useRef(null)
+  const part2RefBlue = useRef(null)
+  const part3RefBlue = useRef(null)
+  const part4RefBlue = useRef(null)
+  const part5RefBlue = useRef(null)
+
+
+  const infoTextRef1 = useRef(null)
+  const infoTextRef2 = useRef(null)
+  const infoTextRef3 = useRef(null)
+  const infoTextRef4 = useRef(null)
+  const infoTextRef5 = useRef(null)
+  const infoTextRef6 = useRef(null)
+
+  useEffect(() => {
+    if (visiblePercentage > 0) {
+      const width = ((targetRef.current.offsetWidth) * visiblePercentage * 2.5) / 100
+      const px = width > targetRef.current.offsetWidth ? (targetRef.current.offsetWidth) : width
+      part1Ref.current.style.width = `${px}px`;
+    } else {
+      part1Ref.current.style.width = `0px`
+    }
+
+    if (visiblePercentage > 40) {
+      const height = ((part2Ref.current.children[0].offsetHeight) * (((visiblePercentage - 40) * 5) > 100 ? 100 : ((visiblePercentage - 40) * 5))) / 100
+      part2Ref.current.style.height = `${height}px`
+      part2Ref.current.style.marginBottom = `${part2Ref.current.children[0].offsetHeight - height}px`
+    } else {
+      part2Ref.current.style.height = `${0}px`
+    }
+
+    if (visiblePercentage > 60) {
+      const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 60) * (100 / 30)) / 100
+      const realWidth = width > targetRef.current.offsetWidth ? (targetRef.current.offsetWidth) : width;
+      part3Ref.current.style.width = `${realWidth}px`
+      part3Ref.current.scrollLeft = targetRef.current.offsetWidth - realWidth
+    } else {
+      part3Ref.current.style.width = `${0}px`
+      part3Ref.current.scrollLeft = 0
+    }
+
+    if (visiblePercentage > 90) {
+      const height = ((part4Ref.current.children[0].offsetHeight) * (((visiblePercentage - 90) * 5) > 100 ? 100 : ((visiblePercentage - 90) * 5))) / 100
+      part4Ref.current.style.height = `${height}px`
+      part4Ref.current.style.marginBottom = `${part4Ref.current.children[0].offsetHeight - height}px`
+    } else {
+      part4Ref.current.style.height = `${0}px`
+    }
+
+    if (visiblePercentage > 110) {
+      const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 110) * 2.5) / 100
+      const realWidth = width > targetRef.current.offsetWidth ? (targetRef.current.offsetWidth) : width;
+      part5Ref.current.style.width = `${realWidth}px`
+    } else {
+      part5Ref.current.style.width = `${0}px`
+    }
+
+    if (visiblePercentage > 10) {
+      const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 10) * 2.5) / 100
+      const px = width > targetRef.current.offsetWidth ? (targetRef.current.offsetWidth) : width
+      part1RefBlue.current.style.width = `${px}px`
+    } else {
+      part1RefBlue.current.style.width = `0px`
+    }
+
+    if (visiblePercentage > 50) {
+      const height = ((part2RefBlue.current.children[0].offsetHeight) * (((visiblePercentage - 50) * 5) > 100 ? 100 : ((visiblePercentage - 50) * 5))) / 100
+      part2RefBlue.current.style.height = `${height}px`
+      part2RefBlue.current.style.marginBottom = `${part2RefBlue.current.children[0].offsetHeight - height}px`
+    } else {
+      part2RefBlue.current.style.height = `${0}px`
+    }
+
+    if (visiblePercentage > 70) {
+      const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 70) * (100 / 30)) / 100
+      const realWidth = width > targetRef.current.offsetWidth ? (targetRef.current.offsetWidth) : width;
+      part3RefBlue.current.style.width = `${realWidth}px`
+      part3RefBlue.current.scrollLeft = targetRef.current.offsetWidth - realWidth
+    } else {
+      part3RefBlue.current.style.width = `${0}px`
+      part3RefBlue.current.scrollLeft = 0
+    }
+
+    if (visiblePercentage > 100) {
+      const height = ((part4RefBlue.current.children[0].offsetHeight) * (((visiblePercentage - 100) * 5) > 100 ? 100 : ((visiblePercentage - 100) * 5))) / 100
+      part4RefBlue.current.style.height = `${height}px`
+      part4RefBlue.current.style.marginBottom = `${part4RefBlue.current.children[0].offsetHeight - height}px`
+    } else {
+      part4RefBlue.current.style.height = `${0}px`
+    }
+
+    if (visiblePercentage > 120) {
+      const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 120) * 2.5) / 100
+      const realWidth = width > targetRef.current.offsetWidth ? (targetRef.current.offsetWidth) : width;
+      part5RefBlue.current.style.width = `${realWidth}px`
+    } else {
+      part5RefBlue.current.style.width = `${0}px`
+    }
+
+    if(visiblePercentage > 0){
+      infoTextRef1.current.children[0].style.opacity = (1 * visiblePercentage * 2.5) / 100
+    } else {
+      infoTextRef1.current.children[0].style.opacity = 0
+    }
+    if(visiblePercentage > 20){
+      infoTextRef1.current.children[1].style.opacity = (1 * (visiblePercentage - 20) * 2.5) / 100
+      infoTextRef2.current.children[0].style.opacity = (1 * (visiblePercentage - 20) * 2.5) / 100
+    } else {
+      infoTextRef1.current.children[1].style.opacity = 0
+      infoTextRef2.current.children[0].style.opacity = 0
+    }
+
+    if(visiblePercentage > 35){
+      infoTextRef2.current.children[1].style.opacity = (1 * (visiblePercentage - 35) * 5) / 100
+    }else {
+      infoTextRef2.current.children[1].style.opacity = 0
+    }
+
+    if(visiblePercentage > 70){
+      infoTextRef3.current.children[0].style.opacity = (1 * (visiblePercentage - 70) * 2.5) / 100
+    } else {
+      infoTextRef3.current.children[0].style.opacity = 0
+    }
+    if(visiblePercentage > 80){
+      infoTextRef3.current.children[1].style.opacity = (1 * (visiblePercentage - 80) * 2.5) / 100
+      infoTextRef4.current.children[0].style.opacity = (1 * (visiblePercentage - 80) * 2.5) / 100
+    } else {
+      infoTextRef3.current.children[1].style.opacity = 0
+      infoTextRef4.current.children[0].style.opacity = 0
+    }
+
+    if(visiblePercentage > 95){
+      infoTextRef4.current.children[1].style.opacity = (1 * (visiblePercentage - 95) * 5) / 100
+    }else {
+      infoTextRef4.current.children[1].style.opacity = 0
+    }
+
+    if(visiblePercentage > 117){
+      infoTextRef5.current.children[0].style.opacity = (1 * (visiblePercentage - 117) * 5) / 100
+    } else {
+      infoTextRef5.current.children[0].style.opacity = 0
+    }
+
+    if(visiblePercentage > 130){
+      infoTextRef5.current.children[1].style.opacity = (1 * (visiblePercentage - 130) * 5) / 100
+      infoTextRef6.current.children[0].style.opacity = (1 * (visiblePercentage - 130) * 5) / 100
+    } else {
+      infoTextRef5.current.children[1].style.opacity = 0
+      infoTextRef6.current.children[0].style.opacity = 0
+    }
+    if(visiblePercentage > 145){
+      infoTextRef6.current.children[1].style.opacity = (1 * (visiblePercentage - 145) * 5) / 100
+    } else {
+      infoTextRef6.current.children[1].style.opacity = 0
+    }
+  }, [visiblePercentage])
+
   return (
-    <>
-      <svg
-        viewBox="0 0 500 490"
-        width="100%"
-        height="100%"
-        ref={targetRef}
-        className={styles.desktopSvg}
-      >
-        {svgSizes.map((el, index) => {
-          let color = "white";
-          if (visiblePercentage > 30) {
-            color = "#3FC1FF";
-          }
-          if (el.type === "path") {
-            const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
+    <div className={styles.snack} ref={targetRef}>
+      <div className={styles.part1} ref={part1Ref}>
+        <div className={`${styles.borderRound} ${styles.borderRound1}`}>
+          <div className={styles.round}></div>
+        </div>
+        <div className={`${styles.line1} ${styles.line}`}></div>
+        <div className={styles.borderRound}>
+          <div className={styles.round}></div>
+        </div>
+        <div className={`${styles.line2} ${styles.line}`}></div>
+        <div className={`${styles.oval1} ${styles.oval}`}></div>
+      </div>
+      <div className={styles.part2} ref={part2Ref}>
+        <div className={`${styles.line3} ${styles.line}`}></div>
+      </div>
+      <div className={styles.part3} ref={part3Ref}>
+        <div className={`${styles.oval3} ${styles.oval}`}></div>
+        <div className={`${styles.line6} ${styles.line}`}></div>
+        <div className={`${styles.borderRound} ${styles.borderRound3}`}>
+          <div className={styles.round}></div>
+        </div>
+        <div className={`${styles.line5} ${styles.line}`}></div>
 
-            return (
-              <>
-                <path
-                  key={path}
-                  d={path}
-                  stroke="white"
-                  strokeWidth="1"
-                  fill="none"
-                />
-                <path
-                  className={
-                    color == "#3FC1FF" &&
-                    `${styles["loadingPath" + index]} ${styles.loadingPath}`
-                  }
-                  key={path}
-                  d={path}
-                  stroke="white"
-                  strokeWidth="1"
-                  fill="none"
-                />
-              </>
-            );
-          } else if (el.type === "round") {
-            return (
-              <>
-                <text
-                  x={el.A}
-                  y={el.B - 13}
-                  fill={"white"}
-                  textAnchor="middle"
-                  dominantBaseline="baseline"
-                  fontSize="10"
-                  fontWeight="600"
-                >
-                  {el.name}
-                </text>
-                <circle
-                  cx={el.A}
-                  cy={el.B}
-                  r="6"
-                  stroke={"white"}
-                  stroke-width="1"
-                  className={
-                    color == "#3FC1FF" &&
-                    `${styles["loadingPathRound" + index]} ${
-                      styles.loadingPathRound
-                    }`
-                  }
-                />
-                <circle
-                  cx={el.A}
-                  cy={el.B}
-                  r="4"
-                  fill={"white"}
-                  className={
-                    color == "#3FC1FF" &&
-                    `${styles["loadingPathRoundFill" + index]} ${
-                      styles.loadingPathRoundFill
-                    }`
-                  }
-                />
-                {GetText(
-                  el.description,
-                  el.A,
-                  el.B,
-                  7,
-                  10,
-                  "start",
-                  el.position
-                )}
-              </>
-            );
-          } else {
-            const path = `M${el.A.x},${el.A.y} Q${el.controlPoint.x},${el.controlPoint.y} ${el.B.x},${el.B.y}`;
-            return (
-              <>
-                <path
-                  key={index}
-                  d={path}
-                  stroke="white"
-                  strokeWidth="1"
-                  fill="none"
-                />
-                ;
-                <path
-                  className={
-                    color == "#3FC1FF"
-                      ? `${styles["loadingPath" + index]} ${styles.loadingPath}`
-                      : styles.loadingPathBack
-                  }
-                  key={index}
-                  d={path}
-                  stroke="white"
-                  strokeWidth="1"
-                  fill="none"
-                />
-                ;
-              </>
-            );
-          }
-        })}
-      </svg>
-      <svg
-        viewBox="0 0 500 2350"
-        width="100%"
-        height="100%"
-        ref={targetRefMobile}
-        className={styles.mobileSvg}
-      >
-        {svgSizesMobile.map((el, index) => {
-          let color = "white";
-          if (visiblePercentage > 0) {
-            color = "#3FC1FF";
-          }
-          if (el.type === "path") {
-            const path = `M${el.A.x},${el.A.y} L${el.B.x},${el.B.y}`;
+        <div className={`${styles.borderRound} ${styles.borderRound2}`}>
+          <div className={styles.round}></div>
+        </div>
+        <div className={`${styles.line4} ${styles.line}`}></div>
+        <div className={`${styles.oval2} ${styles.oval}`}></div>
+      </div>
 
-            return (
-              <path
-                key={index}
-                d={path}
-                className={
-                  color == "#3FC1FF" &&
-                  `${styles["loadingPath" + index]} ${styles.loadingPath}`
-                }
-                stroke={color}
-                strokeWidth="2"
-                fill="none"
-              />
-            );
-          } else if (el.type === "round") {
-            return (
-              <>
-                <text
-                  x={el.A + el.position}
-                  y={el.B + 15}
-                  fill={"white"}
-                  textAnchor="middle"
-                  dominantBaseline="baseline"
-                  fontSize="32"
-                  fontWeight={600}
-                >
-                  {el.name}
-                </text>
-                {el?.secondName && (
-                  <text
-                    x={el.A + el.secondPosition}
-                    y={el.B + 55}
-                    fill={"white"}
-                    textAnchor="middle"
-                    dominantBaseline="baseline"
-                    fontWeight={600}
-                    fontSize="32"
-                  >
-                    {el.secondName}
-                  </text>
-                )}
-                <circle
-                  cx={el.A}
-                  cy={el.B}
-                  r="15"
-                  stroke={color}
-                  stroke-width="3"
-                  className={
-                    color == "#3FC1FF" &&
-                    `${styles["loadingPathRound" + index]} ${
-                      styles.loadingPathRound
-                    }`
-                  }
-                />
-                <circle
-                  cx={el.A}
-                  cy={el.B}
-                  r="9"
-                  fill={color}
-                  className={
-                    color == "#3FC1FF" &&
-                    `${styles["loadingPathRoundFill" + index]} ${
-                      styles.loadingPathRoundFill
-                    }`
-                  }
-                />
-                {GetText(
-                  el.description,
-                  el.A + 60,
-                  el.B + (el?.secondName ? 95 : 45),
-                  22,
-                  26,
-                  "start",
-                  0
-                )}
-              </>
-            );
-          }
-        })}
-      </svg>
-    </>
+      <div className={styles.part4} ref={part4Ref}>
+        <div className={`${styles.line7} ${styles.line}`}></div>
+      </div>
+      <div className={styles.part5} ref={part5Ref}>
+        <div className={`${styles.oval4} ${styles.oval}`}></div>
+        <div className={`${styles.line8} ${styles.line}`}></div>
+        <div className={`${styles.borderRound} ${styles.borderRound4}`}>
+          <div className={styles.round}></div>
+        </div>
+        <div className={`${styles.line9} ${styles.line}`}></div>
+        <div className={`${styles.borderRound} ${styles.borderRound5}`}>
+          <div className={styles.round}></div>
+        </div>
+      </div>
+      <div className={styles.snackBlue}>
+        <div className={styles.part1} ref={part1RefBlue}>
+          <div className={`${styles.borderRound} ${styles.borderRound1}`}>
+            <div className={styles.round}></div>
+          </div>
+          <div className={`${styles.line1} ${styles.line}`}></div>
+          <div className={styles.borderRound}>
+            <div className={styles.round}></div>
+          </div>
+          <div className={`${styles.line2} ${styles.line}`}></div>
+          <div className={`${styles.oval1} ${styles.oval}`}></div>
+        </div>
+        <div className={styles.part2} ref={part2RefBlue}>
+          <div className={`${styles.line3} ${styles.line}`}></div>
+        </div>
+        <div className={styles.part3} ref={part3RefBlue}>
+          <div className={`${styles.oval3} ${styles.oval}`}></div>
+          <div className={`${styles.line6} ${styles.line}`}></div>
+          <div className={`${styles.borderRound} ${styles.borderRound3}`}>
+            <div className={styles.round}></div>
+          </div>
+          <div className={`${styles.line5} ${styles.line}`}></div>
+
+          <div className={`${styles.borderRound} ${styles.borderRound2}`}>
+            <div className={styles.round}></div>
+          </div>
+          <div className={`${styles.line4} ${styles.line}`}></div>
+          <div className={`${styles.oval2} ${styles.oval}`}></div>
+        </div>
+
+        <div className={styles.part4} ref={part4RefBlue}>
+          <div className={`${styles.line7} ${styles.line}`}></div>
+        </div>
+        <div className={styles.part5} ref={part5RefBlue}>
+          <div className={`${styles.oval4} ${styles.oval}`}></div>
+          <div className={`${styles.line8} ${styles.line}`}></div>
+          <div className={`${styles.borderRound} ${styles.borderRound4}`}>
+            <div className={styles.round}></div>
+          </div>
+          <div className={`${styles.line9} ${styles.line}`}></div>
+          <div className={`${styles.borderRound} ${styles.borderRound5}`}>
+            <div className={styles.round}></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div className={styles.snackText}>
+        <div className={styles.part1}>
+          <div className={`${styles.borderRound} ${styles.borderRound1}`}>
+            <div className={styles.info} ref={infoTextRef1}>
+              <p className={styles.titleInfo}>{svgSizes[0].title}</p>
+              <p className={styles.descriptionInfo}>{svgSizes[0].description}</p>
+            </div>
+            <div className={styles.round}></div>
+          </div>
+          <div className={`${styles.line1} ${styles.line}`}></div>
+          <div className={styles.borderRound}>
+            <div className={styles.info} ref={infoTextRef2}>
+              <p className={styles.titleInfo}>{svgSizes[1].title}</p>
+              <p className={styles.descriptionInfo}>{svgSizes[1].description}</p>
+            </div>
+            <div className={styles.round}></div>
+          </div>
+          <div className={`${styles.line2} ${styles.line}`}></div>
+          <div className={`${styles.oval1} ${styles.oval}`}></div>
+        </div>
+        <div className={styles.part2} >
+          <div className={`${styles.line3} ${styles.line}`}></div>
+        </div>
+        <div className={styles.part3} >
+          <div className={`${styles.oval3} ${styles.oval}`}></div>
+          <div className={`${styles.line6} ${styles.line}`}></div>
+          <div className={`${styles.borderRound} ${styles.borderRound3}`}>
+            <div className={styles.info} ref={infoTextRef4}>
+              <p className={styles.titleInfo}>{svgSizes[2].title}</p>
+              <p className={styles.descriptionInfo}>{svgSizes[2].description}</p>
+            </div>
+            <div className={styles.round}></div>
+          </div>
+          <div className={`${styles.line5} ${styles.line}`}></div>
+
+          <div className={`${styles.borderRound} ${styles.borderRound2}`}>
+            <div className={styles.info} ref={infoTextRef3}>
+              <p className={styles.titleInfo}>{svgSizes[3].title}</p>
+              <p className={styles.descriptionInfo}>{svgSizes[3].description}</p>
+            </div>
+            <div className={styles.round}></div>
+          </div>
+          <div className={`${styles.line4} ${styles.line}`}></div>
+          <div className={`${styles.oval2} ${styles.oval}`}></div>
+        </div>
+
+        <div className={styles.part4} >
+          <div className={`${styles.line7} ${styles.line}`}></div>
+        </div>
+        <div className={styles.part5} >
+          <div className={`${styles.oval4} ${styles.oval}`}></div>
+          <div className={`${styles.line8} ${styles.line}`}></div>
+          <div className={`${styles.borderRound} ${styles.borderRound4}`}>
+            <div className={styles.info} ref={infoTextRef5}>
+              <p className={styles.titleInfo}>{svgSizes[4].title}</p>
+              <p className={styles.descriptionInfo}>{svgSizes[4].description}</p>
+            </div>
+            <div className={styles.round}></div>
+          </div>
+          <div className={`${styles.line9} ${styles.line}`}></div>
+          <div className={`${styles.borderRound} ${styles.borderRound5}`}>
+            <div className={styles.info} ref={infoTextRef6}>
+              <p className={styles.titleInfo}>{svgSizes[5].title}</p>
+              <p className={styles.descriptionInfo}>{svgSizes[5].description}</p>
+            </div>
+            <div className={styles.round}></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   );
 };
 
