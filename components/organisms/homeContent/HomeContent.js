@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { memo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { useSelector } from "react-redux";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
@@ -50,8 +49,6 @@ const HomeContent = () => {
   const handleClick = (slug) => {
     router.push(`/portfolio/${slug ? slug : ""}`);
   };
-
-  const win = typeof window;
 
   const mainInfoData = useSelector(
     (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
@@ -347,7 +344,6 @@ const HomeContent = () => {
           </div>
           <div className={styles.mapContainer}>
             <div className={styles.worldMap}>
-              {" "}
               {postTestimonialsApi && activeUser && (
                 <WorldMap
                   data={postTestimonialsApi}

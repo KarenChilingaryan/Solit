@@ -12,6 +12,7 @@ import { postsSeoFieldsApi } from "../../../services/postsSeoFieldsApi";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";
 
 import styles from "./HomeMainWithImage.module.scss";
+
 const HomeMainWithImage = ({
   firstImage,
   className,

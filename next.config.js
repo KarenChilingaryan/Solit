@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -10,8 +14,8 @@ const nextConfig = {
     reactRemoveProperties: true,
   },
   images: {
-    domains: ['djnago-solit-static.s3.amazonaws.com'],
+    domains: ["djnago-solit-static.s3.amazonaws.com"],
   },
 };
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);

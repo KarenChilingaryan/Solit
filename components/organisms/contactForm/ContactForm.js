@@ -1,6 +1,8 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo,  useRef, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
+import ReCAPTCHA from "react-google-recaptcha";
+import { Upload } from "antd";
 import Button from "../../molecules/button/Button";
 import { emailApi } from "../../../services/emailApi";
 import { useDispatch } from "react-redux";
@@ -9,10 +11,8 @@ import upload from "../../../assets/img/uploadIcon.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
 import contactUsBgImage from "../../../assets/img/contactus-background.png";
 import close from "../../../assets/img/icons/close.svg";
-import ReCAPTCHA from "react-google-recaptcha";
 import { checkFormValidation } from "../../../utils/hooks/checkRecaptchaValidation";
 import SuccessModal from "../successModal/SuccessModal";
-import { Upload } from "antd";
 
 import styles from "./ContactForm.module.scss";
 
