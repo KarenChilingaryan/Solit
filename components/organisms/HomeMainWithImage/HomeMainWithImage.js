@@ -28,15 +28,15 @@ const HomeMainWithImage = ({
     percent2: 0,
     percent4: 0,
   });
-  const [newpercents, setNewPercents] = useState({
-    newpercent0: 0,
-    newpercent1: 0,
-    newpercent2: 0,
-    newpercent4: 0,
-  });
+  // const [newpercents, setNewPercents] = useState({
+  //   newpercent0: 0,
+  //   newpercent1: 0,
+  //   newpercent2: 0,
+  //   newpercent4: 0,
+  // });
 
-  const socialRef = useRef(null);
-  const goToTop = useRef(null);
+  // const socialRef = useRef(null);
+  // const goToTop = useRef(null);
   const refContent = useRef(null);
   const dispatch = useDispatch();
   const { breadcrumbElements, setBreadcrumbElements } =
@@ -68,116 +68,116 @@ const HomeMainWithImage = ({
     }
   }, [routes]);
 
-  const data = useSelector(
-    (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
-  );
+  // const data = useSelector(
+  //   (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
+  // );
 
-  const scrallToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  // const scrallToTop = () => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // };
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY < 200) {
-        setHideToTop(false);
-      } else {
-        setHideToTop(false);
-      }
-      const goToTopElement = goToTop.current;
-      if (!goToTopElement) return;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY < 200) {
+  //       setHideToTop(false);
+  //     } else {
+  //       setHideToTop(false);
+  //     }
+  //     const goToTopElement = goToTop.current;
+  //     if (!goToTopElement) return;
 
-      const { top: goToTopTop, height: goToTopHeight } =
-        goToTopElement.getBoundingClientRect();
+  //     const { top: goToTopTop, height: goToTopHeight } =
+  //       goToTopElement.getBoundingClientRect();
 
-      const targetElementContent = refContent.current;
-      if (!targetElementContent) return;
+  //     const targetElementContent = refContent.current;
+  //     if (!targetElementContent) return;
 
-      const targetElementMainContainer = mainContainer?.current;
-      if (!targetElementMainContainer) return;
+  //     const targetElementMainContainer = mainContainer?.current;
+  //     if (!targetElementMainContainer) return;
 
-      const { height: heightMainContainer } =
-        targetElementMainContainer.getBoundingClientRect();
-      const { height: heightContent } =
-        targetElementContent.getBoundingClientRect();
+  //     const { height: heightMainContainer } =
+  //       targetElementMainContainer.getBoundingClientRect();
+  //     const { height: heightContent } =
+  //       targetElementContent.getBoundingClientRect();
 
-      const targetElement = socialRef.current;
-      if (!targetElement) return;
+  //     const targetElement = socialRef.current;
+  //     if (!targetElement) return;
 
-      const { top, height } = targetElement.getBoundingClientRect();
+  //     const { top, height } = targetElement.getBoundingClientRect();
 
-      const parentElem = socialRef.current.children;
-      if (parentElem) {
-        const element01 = parentElem[0]?.children[0]?.children[1]?.clientWidth;
-        const element02 = parentElem[0]?.clientWidth - element01;
-        const element03 = top + window?.scrollY + height - element02;
-        const percent0 = ((element03 - heightContent) / element01) * 100;
-        const newpercent0 =
-          ((element03 - heightMainContainer) / element01) * 100;
+  //     const parentElem = socialRef.current.children;
+  //     if (parentElem) {
+  //       const element01 = parentElem[0]?.children[0]?.children[1]?.clientWidth;
+  //       const element02 = parentElem[0]?.clientWidth - element01;
+  //       const element03 = top + window?.scrollY + height - element02;
+  //       const percent0 = ((element03 - heightContent) / element01) * 100;
+  //       const newpercent0 =
+  //         ((element03 - heightMainContainer) / element01) * 100;
 
-        const element11 = parentElem[1]?.children[0]?.children[1]?.clientWidth;
-        const element12 = parentElem[1]?.clientWidth - element11;
-        const element13 =
-          top +
-          window?.scrollY +
-          height -
-          element12 -
-          parentElem[0]?.clientWidth;
-        const percent1 = ((element13 - heightContent) / element11) * 100 - 25;
-        const newpercent1 =
-          ((element13 - heightMainContainer) / element11) * 100 - 25;
+  //       const element11 = parentElem[1]?.children[0]?.children[1]?.clientWidth;
+  //       const element12 = parentElem[1]?.clientWidth - element11;
+  //       const element13 =
+  //         top +
+  //         window?.scrollY +
+  //         height -
+  //         element12 -
+  //         parentElem[0]?.clientWidth;
+  //       const percent1 = ((element13 - heightContent) / element11) * 100 - 25;
+  //       const newpercent1 =
+  //         ((element13 - heightMainContainer) / element11) * 100 - 25;
 
-        const element21 = parentElem[1]?.children[0]?.children[1]?.clientWidth;
-        const element22 = parentElem[1]?.clientWidth - element21;
-        const element23 =
-          top +
-          window?.scrollY +
-          height -
-          element22 -
-          parentElem[0]?.clientWidth -
-          parentElem[1]?.clientWidth;
-        const percent2 = ((element23 - heightContent) / element21) * 100 - 50;
-        const newpercent2 =
-          ((element23 - heightMainContainer) / element21) * 100 - 50;
+  //       const element21 = parentElem[1]?.children[0]?.children[1]?.clientWidth;
+  //       const element22 = parentElem[1]?.clientWidth - element21;
+  //       const element23 =
+  //         top +
+  //         window?.scrollY +
+  //         height -
+  //         element22 -
+  //         parentElem[0]?.clientWidth -
+  //         parentElem[1]?.clientWidth;
+  //       const percent2 = ((element23 - heightContent) / element21) * 100 - 50;
+  //       const newpercent2 =
+  //         ((element23 - heightMainContainer) / element21) * 100 - 50;
 
-        const percent4 =
-          ((goToTopTop + window?.scrollY + goToTopHeight - heightContent) /
-            goToTop.current.children[0].children[0].clientWidth) *
-          100;
+  //       const percent4 =
+  //         ((goToTopTop + window?.scrollY + goToTopHeight - heightContent) /
+  //           goToTop.current.children[0].children[0].clientWidth) *
+  //         100;
 
-        const newpercent4 =
-          ((goToTopTop +
-            window?.scrollY +
-            goToTopHeight -
-            heightMainContainer) /
-            goToTop.current.children[0].children[0].clientWidth) *
-          100;
+  //       const newpercent4 =
+  //         ((goToTopTop +
+  //           window?.scrollY +
+  //           goToTopHeight -
+  //           heightMainContainer) /
+  //           goToTop.current.children[0].children[0].clientWidth) *
+  //         100;
 
-        setPercents({
-          percent0,
-          percent1,
-          percent2,
-          percent4,
-        });
+  //       setPercents({
+  //         percent0,
+  //         percent1,
+  //         percent2,
+  //         percent4,
+  //       });
 
-        setNewPercents({
-          newpercent0,
-          newpercent1,
-          newpercent2,
-          newpercent4,
-        });
-      }
-    };
-    setTimeout(() => {
-      handleScroll();
-    }, 1000);
+  //       setNewPercents({
+  //         newpercent0,
+  //         newpercent1,
+  //         newpercent2,
+  //         newpercent4,
+  //       });
+  //     }
+  //   };
+  //   setTimeout(() => {
+  //     handleScroll();
+  //   }, 1000);
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   const getSeoData = async () => {
     const res = await dispatch(
@@ -250,7 +250,7 @@ const HomeMainWithImage = ({
           </Breadcrumb>
         </div>
       )}
-      <div className={styles.socialSites}>
+      {/* <div className={styles.socialSites}>
         <div className={styles.socialSitesValues} ref={socialRef}>
           {data?.contact?.map(
             (el, i) =>
@@ -313,8 +313,8 @@ const HomeMainWithImage = ({
               )
           )}
         </div>
-      </div>
-      {!hideToTop && (
+      </div> */}
+      {/* {!hideToTop && (
         <div
           className={`${styles.socialSites} ${styles.socialSitesTop} ${styles[className]}`}
           onClick={scrallToTop}
@@ -370,7 +370,7 @@ const HomeMainWithImage = ({
             />
           </div>
         </div>
-      )}
+      )} */}
       {firstImage && (
         <Image
           alt="image"

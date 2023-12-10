@@ -246,13 +246,6 @@ const DiscussProject = () => {
     form.setFieldsValue(updatedValues, true);
   };
 
-  const updateDuration = (state) => {
-    const updatedValues = { ...form.getFieldsValue() };
-    updatedValues.duration = state;
-    form.setFieldsValue(updatedValues, true);
-    getProjectData(updatedValues);
-  };
-
   const handleButtonClick = (field, item) => {
     const currentValues = form.getFieldsValue();
     let updatedValues = {};
