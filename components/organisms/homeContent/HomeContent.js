@@ -17,7 +17,6 @@ import user2 from "../../../assets/img/img5.png";
 import user3 from "../../../assets/img/img3.png";
 import user4 from "../../../assets/img/img4.png";
 import user5 from "../../../assets/img/img1.png";
-import whatWeDoImage from "../../../assets/img/what-we-do_bg.png";
 import ourProjectImage from "../../../assets/img/our-project_bg.png";
 import services from "../../../assets/img/services.svg";
 import process from "../../../assets/img/process.svg";
@@ -99,12 +98,13 @@ const HomeContent = () => {
             {
               name: "",
               position: "",
-              image: user1,
+              image: "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_T9mVlfy/bfe163750d160f367f419de8defec605.webp",
             },
             {
               name: "",
               position: "",
-              image: user2,
+              image:
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_6CIr84m/f6151c816a15b29d1936fb7d3c40ad07.webp",
             },
           ],
           about: {
@@ -117,12 +117,12 @@ const HomeContent = () => {
             {
               name: "",
               position: "",
-              image: user3,
+              image: "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_7LeBq5Y/df536f6c6cb91853f0285b5b3a998fcf.webp",
             },
             {
               name: "",
               position: "",
-              image: user4,
+              image: "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_PMHlzHC/797c0ce2d36e54c97afc1a2d5b8389f3.webp",
             },
           ],
           about: {
@@ -135,12 +135,12 @@ const HomeContent = () => {
             {
               name: "",
               position: "",
-              image: user5,
+              image: "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_35D1sa9/f0df76f443ec52346dcbfaa0030d24b5.webp",
             },
             {
               name: "",
               position: "",
-              image: user5,
+              image: "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_35D1sa9/f0df76f443ec52346dcbfaa0030d24b5.webp",
               more: true,
             },
           ],
@@ -182,7 +182,12 @@ const HomeContent = () => {
   };
 
   return (
-    <HomeMainWithImage firstImage={bgImage} seoName="main">
+    <HomeMainWithImage
+      firstImage={
+        "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_cIYJOYx/a37f8744bbc1ccf790c213849c8f6079.webp"
+      }
+      seoName="main"
+    >
       <>
         <div className={styles.content}>
           <HomeMain
