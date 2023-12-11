@@ -384,6 +384,7 @@ const HomeMainWithImage = ({
           }}
           width={1920}
           height={800}
+          loader="lazy"
         />
       )}
       {children}

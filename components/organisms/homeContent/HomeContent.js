@@ -98,7 +98,8 @@ const HomeContent = () => {
             {
               name: "",
               position: "",
-              image: "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_T9mVlfy/bfe163750d160f367f419de8defec605.webp",
+              image:
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_T9mVlfy/bfe163750d160f367f419de8defec605.webp",
             },
             {
               name: "",
@@ -117,12 +118,14 @@ const HomeContent = () => {
             {
               name: "",
               position: "",
-              image: "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_7LeBq5Y/df536f6c6cb91853f0285b5b3a998fcf.webp",
+              image:
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_7LeBq5Y/df536f6c6cb91853f0285b5b3a998fcf.webp",
             },
             {
               name: "",
               position: "",
-              image: "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_PMHlzHC/797c0ce2d36e54c97afc1a2d5b8389f3.webp",
+              image:
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_PMHlzHC/797c0ce2d36e54c97afc1a2d5b8389f3.webp",
             },
           ],
           about: {
@@ -135,12 +138,14 @@ const HomeContent = () => {
             {
               name: "",
               position: "",
-              image: "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_35D1sa9/f0df76f443ec52346dcbfaa0030d24b5.webp",
+              image:
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_35D1sa9/f0df76f443ec52346dcbfaa0030d24b5.webp",
             },
             {
               name: "",
               position: "",
-              image: "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_35D1sa9/f0df76f443ec52346dcbfaa0030d24b5.webp",
+              image:
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_35D1sa9/f0df76f443ec52346dcbfaa0030d24b5.webp",
               more: true,
             },
           ],
@@ -260,6 +265,7 @@ const HomeContent = () => {
               }
               className={`${styles.backImage} ${styles.topBackImage}`}
               alt="image"
+          
             />
             <Paragraph className={styles.title}>
               {postsMainWhatWeDoTextApi
