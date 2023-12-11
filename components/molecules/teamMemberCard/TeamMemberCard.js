@@ -17,7 +17,7 @@ const TeamMember = ({ name, position, more, image, fromCareers }) => {
     <Col className={`${styles.imageContainer} ${more && styles.moreWrapper} ${fromCareers && styles.fromCareers}`} onClick={handleClick}>
       {!more ? (
         <>
-          <Image src={image} alt="icon" className={styles.img} />
+          <Image src={image} alt="icon" className={styles.img} loading="lazy" />
           <Row className={styles.positionSection}>
             <Row className={styles.name}>{name} </Row>
             <Row className={styles.position}>{position}</Row>
