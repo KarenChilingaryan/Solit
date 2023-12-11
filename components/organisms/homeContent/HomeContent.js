@@ -250,7 +250,9 @@ const HomeContent = () => {
           </div>
           <div className={styles.projectContent}>
             <Image
-              src={whatWeDoImage}
+              src={
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_Co2AOTl/15e3f62bc7a8ac88d251df66d27fda59.webp"
+              }
               className={`${styles.backImage} ${styles.topBackImage}`}
               alt="image"
             />
