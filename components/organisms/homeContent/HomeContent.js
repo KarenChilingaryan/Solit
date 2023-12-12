@@ -89,6 +89,13 @@ const HomeContent = () => {
     (state) =>
       state?.abutUsCompanyOfExpertsApi?.queries?.["about(undefined)"]?.data
   );
+  const [windowWidth, setWindowWidth] = useState(0);
+  const win = typeof window != 'undefined'
+  useEffect(()=>{
+    if(win){
+      setWindowWidth(window.innerWidth);
+    }
+  },[win])
 
   useEffect(() => {
     if (postsTextMainAboutUsApi) {
@@ -265,7 +272,8 @@ const HomeContent = () => {
               }
               className={`${styles.backImage} ${styles.topBackImage}`}
               alt="image"
-          
+              width={windowWidth || 1920}
+              height={windowWidth || 1920}
             />
             <Paragraph className={styles.title}>
               {postsMainWhatWeDoTextApi

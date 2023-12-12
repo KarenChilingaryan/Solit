@@ -23,6 +23,7 @@ const HomeMainWithImage = ({
   const routes = useRouter();
   const [hideToTop, setHideToTop] = useState(false);
   const [seoData, setSeoData] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(0);
   const [percents, setPercents] = useState({
     percent0: 0,
     percent1: 0,
@@ -77,6 +78,13 @@ const HomeMainWithImage = ({
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const containerRef = useRef(null);
+
+  const win = typeof window != 'undefined'
+  useEffect(()=>{
+    if(win){
+      setWindowWidth(window.innerWidth);
+    }
+  },[win])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -382,8 +390,8 @@ const HomeMainWithImage = ({
             position: "absolute",
             top: 0,
           }}
-          width={1920}
-          height={800}
+          width={windowWidth || 1920}
+          height={windowWidth ?windowWidth /2.4 : 800}
           loading="lazy"
         />
       )}
