@@ -392,7 +392,7 @@ const HomeMainWithImage = ({
           }}
           width={windowWidth || 1920}
           height={windowWidth ?windowWidth /2.4 : 800}
-          loading="lazy"
+          
         />
       )}
       {children}
