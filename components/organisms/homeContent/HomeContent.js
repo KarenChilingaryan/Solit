@@ -3,15 +3,21 @@ import { memo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { HomeMain } from "../homeMain";
-import { HomeMainWithImage } from "../HomeMainWithImage";
 import { Col, Paragraph } from "../../atoms";
+import { HomeMainWithImage } from "../HomeMainWithImage";
+import { HomeMain } from "../homeMain";
 import { ReversedAboutUs } from "../reversedAboutUs";
 import { Technology } from "../Technology";
 import { Process } from "../Process";
 import { WorldMap } from "../WorldMap";
 import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 import BorderedText from "../../molecules/borderedText/BorderedText";
+import MapUser from "../../molecules/mapUser/MapUser";
+import Button from "../../molecules/button/Button";
+import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
+import WeDoCard from "../../molecules/weDoCard/WeDoCard";
+import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
+import ContactForm from "../contactForm/ContactForm";
 // import user1 from "../../../assets/img/img2.png";
 // import user2 from "../../../assets/img/img5.png";
 // import user3 from "../../../assets/img/img3.png";
@@ -26,13 +32,7 @@ import ourProjects from "../../../assets/img/our_projects.svg";
 import testimonials from "../../../assets/img/testimonials.svg";
 import contacts from "../../../assets/img/contacts.svg";
 import technology from "../../../assets/img/technology.svg";
-import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
-import WeDoCard from "../../molecules/weDoCard/WeDoCard";
-import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
-import ContactForm from "../contactForm/ContactForm";
 import bgImage from "../../../assets/img/main_bg.png";
-import MapUser from "../../molecules/mapUser/MapUser";
-import Button from "../../molecules/button/Button";
 
 import styles from "./HomeContent.module.scss";
 
@@ -90,12 +90,12 @@ const HomeContent = () => {
       state?.abutUsCompanyOfExpertsApi?.queries?.["about(undefined)"]?.data
   );
   const [windowWidth, setWindowWidth] = useState(0);
-  const win = typeof window != 'undefined'
-  useEffect(()=>{
-    if(win){
+  const win = typeof window != "undefined";
+  useEffect(() => {
+    if (win) {
       setWindowWidth(window.innerWidth);
     }
-  },[win])
+  }, [win]);
 
   useEffect(() => {
     if (postsTextMainAboutUsApi) {

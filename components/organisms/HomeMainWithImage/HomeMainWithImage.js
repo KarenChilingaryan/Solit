@@ -21,6 +21,7 @@ const HomeMainWithImage = ({
   mainContainer = null,
 }) => {
   const routes = useRouter();
+  const [isMobile, setIsMobile] = useState(false);
   const [hideToTop, setHideToTop] = useState(false);
   const [seoData, setSeoData] = useState(null);
   const [windowWidth, setWindowWidth] = useState(0);
@@ -43,6 +44,18 @@ const HomeMainWithImage = ({
   const dispatch = useDispatch();
   const { breadcrumbElements, setBreadcrumbElements } =
     useContext(BreadcrumbContext);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth);
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const splitAndCapitalize = (str) => {
     const parts = str.split("/").filter((word) => word !== "");
@@ -79,12 +92,12 @@ const HomeMainWithImage = ({
   };
   const containerRef = useRef(null);
 
-  const win = typeof window != 'undefined'
-  useEffect(()=>{
-    if(win){
+  const win = typeof window != "undefined";
+  useEffect(() => {
+    if (win) {
       setWindowWidth(window.innerWidth);
     }
-  },[win])
+  }, [win]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -259,70 +272,72 @@ const HomeMainWithImage = ({
           </Breadcrumb>
         </div>
       )}
-      <div className={styles.socialSites}>
-        <div className={styles.socialSitesValues} ref={socialRef}>
-          {data?.contact?.map(
-            (el, i) =>
-              (el.name == "Telegram" ||
-                el.name == "Linkedin" ||
-                el.name == "Whatsapp") && (
-                <Link href={el.link} target="_blank" key={i}>
-                  <div className={styles.site}>
-                    <Image
-                      src={el.logo}
-                      className={styles.image}
-                      width={80}
-                      height={80}
-                      alt="image"
-                      style={{
-                        ...(className == "portfolioItem" &&
-                        percents["percent" + i] &&
-                        percents["percent" + i] + 25 > 0 &&
-                        newpercents["newpercent" + i] < -25
-                          ? {
-                              filter:
-                                "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
-                            }
-                          : {}),
-                      }}
-                    />
-                    <Paragraph
-                      className={styles.text}
-                      style={{
-                        ...(className == "portfolioItem" &&
-                        percents["percent" + i] >= 0 &&
-                        newpercents["newpercent" + i] < 0
-                          ? {
-                              backgroundImage: `linear-gradient(to right, black ${
-                                percents["percent" + i]
-                              }%, white ${percents["percent" + i]}%)`,
-                              backgroundClip: "text",
-                              "-webkit-background-clip": "text",
-                              color: "transparent",
-                            }
-                          : className == "portfolioItem" &&
-                            percents["percent" + i] > 100
-                          ? {
-                              backgroundImage: `linear-gradient(to right, white ${
-                                newpercents["newpercent" + i]
-                              }%, black ${newpercents["newpercent" + i]}%)`,
-                              backgroundClip: "text",
-                              "-webkit-background-clip": "text",
-                              color: "transparent",
-                            }
-                          : {
-                              color: "white",
-                            }),
-                      }}
-                    >
-                      {el.name}
-                    </Paragraph>
-                  </div>
-                </Link>
-              )
-          )}
+      {isMobile > 576 && (
+        <div className={styles.socialSites}>
+          <div className={styles.socialSitesValues} ref={socialRef}>
+            {data?.contact?.map(
+              (el, i) =>
+                (el.name == "Telegram" ||
+                  el.name == "Linkedin" ||
+                  el.name == "Whatsapp") && (
+                  <Link href={el.link} target="_blank" key={i}>
+                    <div className={styles.site}>
+                      <Image
+                        src={el.logo}
+                        className={styles.image}
+                        width={80}
+                        height={80}
+                        alt="image"
+                        style={{
+                          ...(className == "portfolioItem" &&
+                          percents["percent" + i] &&
+                          percents["percent" + i] + 25 > 0 &&
+                          newpercents["newpercent" + i] < -25
+                            ? {
+                                filter:
+                                  "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                              }
+                            : {}),
+                        }}
+                      />
+                      <Paragraph
+                        className={styles.text}
+                        style={{
+                          ...(className == "portfolioItem" &&
+                          percents["percent" + i] >= 0 &&
+                          newpercents["newpercent" + i] < 0
+                            ? {
+                                backgroundImage: `linear-gradient(to right, black ${
+                                  percents["percent" + i]
+                                }%, white ${percents["percent" + i]}%)`,
+                                backgroundClip: "text",
+                                "-webkit-background-clip": "text",
+                                color: "transparent",
+                              }
+                            : className == "portfolioItem" &&
+                              percents["percent" + i] > 100
+                            ? {
+                                backgroundImage: `linear-gradient(to right, white ${
+                                  newpercents["newpercent" + i]
+                                }%, black ${newpercents["newpercent" + i]}%)`,
+                                backgroundClip: "text",
+                                "-webkit-background-clip": "text",
+                                color: "transparent",
+                              }
+                            : {
+                                color: "white",
+                              }),
+                        }}
+                      >
+                        {el.name}
+                      </Paragraph>
+                    </div>
+                  </Link>
+                )
+            )}
+          </div>
         </div>
-      </div>
+      )}
       {!hideToTop && (
         <div
           className={`${styles.socialSites} ${styles.socialSitesTop} ${styles[className]}`}
@@ -391,8 +406,7 @@ const HomeMainWithImage = ({
             top: 0,
           }}
           width={windowWidth || 1920}
-          height={windowWidth ?windowWidth /2.4 : 800}
-          
+          height={windowWidth ? windowWidth / 2.4 : 800}
         />
       )}
       {children}

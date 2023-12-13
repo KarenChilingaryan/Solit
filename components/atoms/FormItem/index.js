@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { Form } from 'antd';
+import styled, { css } from "styled-components";
+import { Form } from "antd";
 
 const FormItem = styled(Form.Item)`
   max-width: 100%;
@@ -51,7 +51,7 @@ const FormItem = styled(Form.Item)`
     text-align: left;
   }
 
-  ${props =>
+  ${(props) =>
     (props.label_mb || props.label_mb === 0) &&
     css`
       .ant-form-item-label > label {
@@ -59,22 +59,22 @@ const FormItem = styled(Form.Item)`
       }
     `}
 
-  ${props =>
+  ${(props) =>
     (props.mb || props.mb === 0) &&
     css`
       margin-bottom: ${props.mb}px;
     `}
-  ${props =>
+  ${(props) =>
     props.width &&
     css`
       width: ${props.width};
     `}
-  ${props =>
+  ${(props) =>
     props.margin_right &&
     css`
       margin-right: ${props.margin_right};
     `}
-  ${props =>
+  ${(props) =>
     props.justify &&
     css`
       .ant-form-item-control-input-content {
@@ -83,34 +83,34 @@ const FormItem = styled(Form.Item)`
       }
     `}
 
-    ${props =>
+    ${(props) =>
     props.display &&
     css`
       display: ${props.display};
     `}
-  ${props =>
-    props.layout === 'vertical' &&
+  ${(props) =>
+    props.layout === "vertical" &&
     css`
       div {
         width: 100%;
         text-align: start;
       }
     `}
-  ${props =>
+  ${(props) =>
     props.labelcolor &&
     css`
       .ant-form-item-label > label {
         color: ${props.labelcolor};
       }
     `}
-  ${props =>
+  ${(props) =>
     props.labelalign &&
     css`
       .ant-form-item-label {
         text-align: ${props.labelalign};
       }
     `}
-  ${props =>
+  ${(props) =>
     props.content_just &&
     css`
       .ant-form-item-control-input-content {
@@ -118,36 +118,36 @@ const FormItem = styled(Form.Item)`
         justify-content: ${props.content_just};
       }
     `}
-  ${props =>
+  ${(props) =>
     props.labelheight &&
     css`
       .ant-form-item-label {
         height: ${props.labelheight};
       }
     `}
-  ${props =>
-    props.hide === 'requiredText' &&
+  ${(props) =>
+    props.hide === "requiredText" &&
     css`
       .ant-form-item-explain {
         display: none;
       }
     `}
-  ${props =>
+  ${(props) =>
     props.error_padding &&
     css`
       .ant-form-item-explain {
         padding: ${props.error_padding};
       }
     `}
-  ${props =>
-    props.display_item === 'none' &&
+  ${(props) =>
+    props.display_item === "none" &&
     css`
       .ant-form-item-control-input {
         display: ${props.display_item};
       }
     `}
-  ${props =>
-    props.show_only === 'validate' &&
+  ${(props) =>
+    props.show_only === "validate" &&
     css`
       .ant-form-item-control-input,
       .ant-form-item-label {
