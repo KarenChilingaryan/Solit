@@ -46,55 +46,53 @@ const PageWrapper = ({ children, item }) => {
   const dispatch = useDispatch();
 
   const a = useRouter();
-  if (a.pathname === "/") {
-  }
   const getAllData = async (flag = true) => {
-    // if (a.pathname === "/" || flag) {
-    //   await dispatch(await postsApi.endpoints.posts.initiate());
-    //   if (!a.pathname.includes("/services"))
-    //     await dispatch(await servicesApi.endpoints.services.initiate());
-    //   await dispatch(await footerApi.endpoints.footer.initiate());
-    //   await dispatch(
-    //     await postsTextMainAboutUsApi.endpoints.mainAbout.initiate()
-    //   );
-    //   await dispatch(await postsMainProcessTextApi.endpoints.posts.initiate());
-    //   await dispatch(await postsMainWhatWeDoTextApi.endpoints.posts.initiate());
-    //   if (!a.pathname.includes("/what-we-do"))
-    //     await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate());
-    //   await dispatch(
-    //     await postsMainTechnologyFiltersApi.endpoints.posts.initiate()
-    //   );
-    //   await dispatch(await postsMainTechnologyApi.endpoints.posts.initiate());
-    //   await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate());
-    //   if (!a.pathname.includes("/portfolio")) {
-    //     await dispatch(await postPortfolioApi.endpoints.posts.initiate());
-    //     await dispatch(
-    //       await portfolioFiltersApi.endpoints.portfolioFilters.initiate()
-    //     );
-    //   }
-    //   //to do
-    //   if (!a.pathname.includes("/about-us"))
-    //     await dispatch(
-    //       await abutUsCompanyOfExpertsApi.endpoints.about.initiate()
-    //     );
-    //   if (!a.pathname.includes("/blog")) {
-    //     await dispatch(await postsBlogApi.endpoints.blog.initiate());
-    //     await dispatch(await postsFilterNameBlogApi.endpoints.blog.initiate());
-    //   }
-    //   await dispatch(await postTestimonialsApi.endpoints.posts.initiate());
-    //   await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate());
+    if (a.pathname === "/" || flag) {
+      await dispatch(await postsApi.endpoints.posts.initiate());
+      if (!a.pathname.includes("/services"))
+        await dispatch(await servicesApi.endpoints.services.initiate());
+      await dispatch(await footerApi.endpoints.footer.initiate());
+      await dispatch(
+        await postsTextMainAboutUsApi.endpoints.mainAbout.initiate()
+      );
+      await dispatch(await postsMainProcessTextApi.endpoints.posts.initiate());
+      await dispatch(await postsMainWhatWeDoTextApi.endpoints.posts.initiate());
+      if (!a.pathname.includes("/what-we-do"))
+        await dispatch(await postsWhatWeDoApi.endpoints.posts.initiate());
+      await dispatch(
+        await postsMainTechnologyFiltersApi.endpoints.posts.initiate()
+      );
+      await dispatch(await postsMainTechnologyApi.endpoints.posts.initiate());
+      await dispatch(await postsMainOurProjectsApi.endpoints.posts.initiate());
+      if (!a.pathname.includes("/portfolio")) {
+        await dispatch(await postPortfolioApi.endpoints.posts.initiate());
+        await dispatch(
+          await portfolioFiltersApi.endpoints.portfolioFilters.initiate()
+        );
+      }
+      //to do
+      if (!a.pathname.includes("/about-us"))
+        await dispatch(
+          await abutUsCompanyOfExpertsApi.endpoints.about.initiate()
+        );
+      if (!a.pathname.includes("/blog")) {
+        await dispatch(await postsBlogApi.endpoints.blog.initiate());
+        await dispatch(await postsFilterNameBlogApi.endpoints.blog.initiate());
+      }
+      await dispatch(await postTestimonialsApi.endpoints.posts.initiate());
+      await dispatch(await postsMainContactsTextApi.endpoints.posts.initiate());
 
-    //   if (!a.pathname.includes("/terms-and-conditions")) {
-    //     await dispatch(
-    //       await postsPrivacyPolicyOrConditionTermsApi.endpoints.terms.initiate()
-    //     );
-    //   }
-    //   if (!a.pathname.includes("/privacy-policy")) {
-    //     await dispatch(
-    //       await postsPrivacyPolicyOrConditionPolicyApi.endpoints.policy.initiate()
-    //     );
-    //   }
-    // }
+      if (!a.pathname.includes("/terms-and-conditions")) {
+        await dispatch(
+          await postsPrivacyPolicyOrConditionTermsApi.endpoints.terms.initiate()
+        );
+      }
+      if (!a.pathname.includes("/privacy-policy")) {
+        await dispatch(
+          await postsPrivacyPolicyOrConditionPolicyApi.endpoints.policy.initiate()
+        );
+      }
+    }
 
     if (a.pathname.includes("/blog") || flag) {
       await dispatch(await postsBlogApi.endpoints.blog.initiate());
