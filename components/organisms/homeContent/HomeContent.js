@@ -18,11 +18,6 @@ import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
 import ContactForm from "../contactForm/ContactForm";
-// import user1 from "../../../assets/img/img2.png";
-// import user2 from "../../../assets/img/img5.png";
-// import user3 from "../../../assets/img/img3.png";
-// import user4 from "../../../assets/img/img4.png";
-// import user5 from "../../../assets/img/img1.png";
 import ourProjectImage from "../../../assets/img/our-project_bg.png";
 import services from "../../../assets/img/services.svg";
 import process from "../../../assets/img/process.svg";
@@ -32,7 +27,6 @@ import ourProjects from "../../../assets/img/our_projects.svg";
 import testimonials from "../../../assets/img/testimonials.svg";
 import contacts from "../../../assets/img/contacts.svg";
 import technology from "../../../assets/img/technology.svg";
-import bgImage from "../../../assets/img/main_bg.png";
 
 import styles from "./HomeContent.module.scss";
 
