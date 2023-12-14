@@ -11,7 +11,7 @@ import upload from "../../../assets/img/uploadIcon.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
 import contactUsBgImage from "../../../assets/img/contactus-background.png";
 import close from "../../../assets/img/icons/close.svg";
-// import { checkFormValidation } from "../../../utils/hooks/checkRecaptchaValidation";
+import { checkFormValidation } from "../../../utils/hooks/checkRecaptchaValidation";
 import SuccessModal from "../successModal/SuccessModal";
 
 import styles from "./ContactForm.module.scss";
@@ -26,7 +26,7 @@ const ContactForm = ({
 }) => {
   const [form] = Form.useForm();
   const [file, setFile] = useState();
-  // const recaptchaRef = useRef();
+  const recaptchaRef = useRef();
   const [openSuccess, setOpenSuccess] = useState(false);
   const [onChangeCheckbox, setOnChangeCheckbox] = useState(false);
   const [top, setTop] = useState(0);
