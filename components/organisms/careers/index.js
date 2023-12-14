@@ -6,7 +6,6 @@ import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import JobsTable from "../../molecules/jobsTable/JobsTable";
 import { useDispatch, useSelector } from "react-redux";
 import ContactForm from "../contactForm/ContactForm";
-import earth from "../../../assets/img/main-bg-careers.png";
 import user1 from "../../../assets/img/revers1.png";
 import user2 from "../../../assets/img/revers2.png";
 import user3 from "../../../assets/img/revers3.png";
