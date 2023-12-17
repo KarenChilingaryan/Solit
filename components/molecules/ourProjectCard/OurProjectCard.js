@@ -6,8 +6,6 @@ import react from "../../../assets/img/icons/reactjs.svg";
 
 import styles from "./OurProjectCard.module.scss";
 
-const array = [1, 2, 3, 4, 5];
-
 const OurProjectCard = ({
   name,
   more,
@@ -19,9 +17,12 @@ const OurProjectCard = ({
   onClick,
   description,
 }) => {
+  const array = [1, 2, 3, 4, 5];
   return (
     <Col
-      className={`${styles.mainWrapper} ${styles["mainWrapper-" + component]} ${more && styles.moreCard}`}
+      className={`${styles.mainWrapper} ${styles["mainWrapper-" + component]} ${
+        more && styles.moreCard
+      }`}
       onClick={onClick}
     >
       <Col

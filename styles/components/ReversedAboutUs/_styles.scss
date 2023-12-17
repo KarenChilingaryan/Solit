@@ -43,7 +43,7 @@
         margin-bottom: calcVWL(-192);
       }
     }
-  
+
     .block {
       .users {
         width: calcVWL(624);
@@ -93,7 +93,8 @@
       }
     }
 
-    .careers_block {row-gap: calcVWT(28);
+    .careers_block {
+      row-gap: calcVWT(28);
       .users {
         height: calcVWM(460);
         justify-content: space-between;
