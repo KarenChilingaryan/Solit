@@ -79,11 +79,15 @@ const Technology = () => {
       />
       <div className={styles.buttonsParent} ref={containerRef}>
         <div className={styles.buttons}>
-          {[{
-            filter_name_main_technology: "All",
-            filter_number: 0,
-            id: 0
-          }, ...(postsMainTechnologyFiltersApi ? postsMainTechnologyFiltersApi : [])
+          {[
+            {
+              filter_name_main_technology: "All",
+              filter_number: 0,
+              id: 0,
+            },
+            ...(postsMainTechnologyFiltersApi
+              ? postsMainTechnologyFiltersApi
+              : []),
           ]?.map((el, index) => (
             <Button
               key={index}
@@ -101,9 +105,11 @@ const Technology = () => {
       <div className={styles.languages}>
         {filteredIcons.map((el, i) => (
           <div
-            className={`${styles.languageBlock} ${(el.filter_name_main_technology.filter_number != filter && filter != 0) &&
+            className={`${styles.languageBlock} ${
+              el.filter_name_main_technology.filter_number != filter &&
+              filter != 0 &&
               styles.languageBlockDeActive
-              }`}
+            }`}
             key={i}
           >
             <Image

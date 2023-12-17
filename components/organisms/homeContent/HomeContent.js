@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { memo } from "react";
+import { useState, useEffect, memo } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { Col, Paragraph } from "../../atoms";
@@ -10,14 +10,32 @@ import { ReversedAboutUs } from "../reversedAboutUs";
 import { Technology } from "../Technology";
 import { Process } from "../Process";
 import { WorldMap } from "../WorldMap";
-import ServiceCard from "../../molecules/serviceCard/ServiceCard";
-import BorderedText from "../../molecules/borderedText/BorderedText";
-import MapUser from "../../molecules/mapUser/MapUser";
-import Button from "../../molecules/button/Button";
-import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
-import WeDoCard from "../../molecules/weDoCard/WeDoCard";
-import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
-import ContactForm from "../contactForm/ContactForm";
+
+const ServiceCard = dynamic(() =>
+  import("../../molecules/serviceCard/ServiceCard")
+);
+const BorderedText = dynamic(() =>
+  import("../../molecules/borderedText/BorderedText")
+);
+const MapUser = dynamic(() => import("../../molecules/mapUser/MapUser"));
+const Button = dynamic(() => import("../../molecules/button/Button"));
+const OurProjectCard = dynamic(() =>
+  import("../../molecules/ourProjectCard/OurProjectCard")
+);
+const WeDoCard = dynamic(() => import("../../molecules/weDoCard/WeDoCard"));
+const AboutCompany = dynamic(() =>
+  import("../../molecules/aboutCompany/AboutCompany")
+);
+const ContactForm = dynamic(() => import("../contactForm/ContactForm"));
+
+// import ServiceCard from "../../molecules/serviceCard/ServiceCard";
+// import BorderedText from "../../molecules/borderedText/BorderedText";
+// import MapUser from "../../molecules/mapUser/MapUser";
+// import Button from "../../molecules/button/Button";
+// import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
+// import WeDoCard from "../../molecules/weDoCard/WeDoCard";
+// import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
+// import ContactForm from "../contactForm/ContactForm";
 import ourProjectImage from "../../../assets/img/our-project_bg.png";
 import services from "../../../assets/img/services.svg";
 import process from "../../../assets/img/process.svg";
