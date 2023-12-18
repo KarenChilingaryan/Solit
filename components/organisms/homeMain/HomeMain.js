@@ -1,8 +1,15 @@
 import { memo, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Col, Button as ShowMore } from "../../atoms";
-import Button from "../../molecules/button/Button";
-import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
+
+const Button = dynamic(() => import("../../molecules/button/Button"));
+const HomeMainTexts = dynamic(() =>
+  import("../../molecules/homeMainTexts/HomeMainTexts")
+);
+
+// import Button from "../../molecules/button/Button";
+// import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
 import showMore from "../../../assets/img/angle-down.svg";
 
 import styles from "./HomeMain.module.scss";
@@ -26,8 +33,8 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false, h1 }) => {
           showMoreButton && !showMoreClass && height > 140
             ? "defaultShowMoreClass"
             : !showMoreButton
-              ? ""
-              : "showMoreClass"
+            ? ""
+            : "showMoreClass"
         }
         setHeight={setHeight}
         heightStyle={heightStyle}
@@ -37,18 +44,20 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false, h1 }) => {
           <Button text={buttonText} transparentOpposite onClick={onClick} />
         </Col>
       )}
-      {showMoreButton &&
+      {showMoreButton && (
         <ShowMore
-          className={`${styles.button} ${showMoreButton && showMoreClass && styles.rotate}`}
+          className={`${styles.button} ${
+            showMoreButton && showMoreClass && styles.rotate
+          }`}
           onClick={() => {
             setHeightStyle(true);
             setShowMoreClass(!showMoreClass);
           }}
         >
-          Show  {!showMoreClass ? 'More' : 'less'}
+          Show {!showMoreClass ? "More" : "less"}
           <Image src={showMore} className={styles.btnImg} alt="image" />
         </ShowMore>
-      }
+      )}
     </Col>
   );
 };
