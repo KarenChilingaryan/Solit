@@ -3,7 +3,9 @@
 
 @mixin generate-process-styles {
   .container {
-
+    .snackMobile {
+      display: none;
+    }
     .snack {
       height: calcVW(784);
       margin: calcVW(80) 0;
@@ -632,7 +634,7 @@
           height: 0;
           width: 100%;
           display: flex;
-          justify-content: end;
+          justify-content: flex-end;
         }
 
         .part3 {
@@ -730,6 +732,7 @@
       .snack {
         display: none
       }
+
       .title {
         @include font-style(calcVWM(36), variables.$fw-500, calcVWM(44));
       }
@@ -738,6 +741,92 @@
         margin-top: getProcessSizes(process-description-mt);
         margin-bottom: calcVWM(80);
         @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24));
+      }
+
+      .snackMobile {
+        position: relative;
+        display: block;
+
+        .blockMobile {
+          padding: calcVWM(16);
+        }
+
+        .titleMobile {
+          @include font-style(calcVWM(24), variables.$fw-600, calcVWM(32));
+        }
+
+        .descriptionMobile {
+          @include font-style(calcVWM(18), variables.$fw-400, calcVWM(24), rgba(255, 255, 255, 0.73));
+        }
+
+        .snackMobileShadow {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+
+          .shadowLine {
+            width: calcVWM(4);
+            background: rgba(0, 0, 0, 0.32);
+
+            .mobileLine {
+              height: calcVWM(200);
+            }
+
+            .mobileLine:nth-child(15) {
+              background: linear-gradient(180deg, rgba(33, 70, 173, 0.00) 0%, #5E87F1 48.96%, rgba(33, 70, 173, 0.00) 100%);
+
+              filter: blur(0.5px);
+            }
+          }
+
+          .shadowElements {
+            width: inherit;
+          }
+
+          .titleMobile {
+            opacity: 0;
+            max-width: calcVWM(313);
+          }
+
+          .descriptionMobile {
+            opacity: 0;
+            max-width: calcVWM(313);
+          }
+
+          .blockMobile {
+            background: rgba(0, 0, 0, 0.52);
+            margin-left: calcVWM(10);
+          }
+
+          .blockMobile:nth-child(15) {
+            box-shadow: inset 10px 0 86px -14px rgba(0, 0, 0, 0.52), inset 0 -10px 86px -10px rgba(0, 0, 0, 0.52), inset 0 10px 86px -10px rgba(0, 0, 0, 0.52);
+
+            background: radial-gradient(10.26% 50% at 0% 50%, rgba(39, 65, 135, 0.73) 0%, rgba(43, 74, 154, 0.00) 100%);
+          }
+        }
+
+        .mainBlock {
+          position: absolute;
+          overflow: hidden;
+          left: calcVWM(-15.969);
+          width: calc(100% + calcVWM(31.938));
+          top: calcVWM(-2982);
+          height: calcVWM(200*30);
+
+          .blockMobile {
+            height: calcVWM(200);
+          }
+        }
+      }
+
+      .mobileBlockElement {
+        width: calc(100% + calcVWM(31.938));
+        margin-left: calcVWM(-15.969);
+        padding: 0 calcVWM(15.969);
+        overflow: hidden;
       }
     }
   }
