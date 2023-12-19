@@ -204,7 +204,7 @@ const Header = () => {
               : {}),
           }}
         >
-          <Link href="/">
+          <Link href="/" prefetch={false}>
             <Image
               src={menuLogoWhite}
               alt="logo"
@@ -216,7 +216,11 @@ const Header = () => {
           </Link>
 
           <div className={`${styles.menuWrapper}`}>
-            <Link href="/discuss-project" className={styles.pricing}>
+            <Link
+              href="/discuss-project"
+              className={styles.pricing}
+              prefetch={false}
+            >
               <Button
                 text="Pricing"
                 transparentBlue
@@ -258,6 +262,7 @@ const Header = () => {
                       <Link
                         href={el?.fix_url + "/" + (e?.slug || "")}
                         key={idx}
+                        prefetch={false}
                       >
                         <div
                           className={styles.menuItemChildWrapper}
@@ -330,6 +335,7 @@ const Header = () => {
                           ? "2px solid #ffffff"
                           : "0",
                     }}
+                    prefetch={false}
                   >
                     {el.name}
                   </Link>
@@ -342,7 +348,12 @@ const Header = () => {
               </Paragraph>
               {footerApi &&
                 footerApi?.contact?.map((item, index) => (
-                  <Link href={item.link} target="_blank" key={index}>
+                  <Link
+                    href={item.link}
+                    target="_blank"
+                    key={index}
+                    prefetch={false}
+                  >
                     <Image
                       src={item.logo || linkedIn}
                       alt="logo"
@@ -355,7 +366,11 @@ const Header = () => {
             </Col>
           </div>
           <div className={styles.rightButtons}>
-            <Link href="/discuss-project" className={styles.pricing}>
+            <Link
+              href="/discuss-project"
+              className={styles.pricing}
+              prefetch={false}
+            >
               <Button text="Pricing" transparentBlue />
             </Link>
             <div className={`${openMenu ? styles.closedMenu : ""}`}>

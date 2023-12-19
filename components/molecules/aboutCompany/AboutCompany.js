@@ -6,9 +6,19 @@ import styles from "./AboutCompany.module.scss";
 
 const AboutCompany = ({ number, title, image, withOutBG }) => {
   return (
-    <Col className={`${styles.card} ${withOutBG ? styles.withOutBG : styles.withBG}`}>
+    <Col
+      className={`${styles.card} ${
+        withOutBG ? styles.withOutBG : styles.withBG
+      }`}
+    >
       <Col className={styles.mainWrapper}>
-        <Image src={image} className={styles.image} alt={title} width={300} height={100} />
+        <Image
+          src={image}
+          className={styles.image}
+          alt={title}
+          width={300}
+          height={100}
+        />
         <Col className={styles.info}>
           <p className={styles.number}>{number}</p>
           <Col className={styles.description}>

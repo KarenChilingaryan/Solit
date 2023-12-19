@@ -280,7 +280,7 @@ const HomeMainWithImage = ({
                 (el.name == "Telegram" ||
                   el.name == "Linkedin" ||
                   el.name == "Whatsapp") && (
-                  <Link href={el.link} target="_blank" key={i}>
+                  <Link href={el.link} target="_blank" key={i} prefetch={false}>
                     <div className={styles.site}>
                       <Image
                         src={el.logo}

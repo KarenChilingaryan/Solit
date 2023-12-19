@@ -44,6 +44,7 @@ const WhatWeDo = () => {
                 href={`/what-we-do/${el.slug}`}
                 key={i}
                 className={styles.block}
+                prefetch={false}
               >
                 <AboutItem
                   weDo

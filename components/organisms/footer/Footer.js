@@ -94,7 +94,7 @@ const Footer = () => {
           </Paragraph>
           {dataDefault[1].expertise.data.map((el, idx) => (
             <Paragraph className={styles.text} key={idx}>
-              <Link href={el.link} key={idx}>
+              <Link href={el.link} key={idx} prefetch={false}>
                 {el.name}
               </Link>
             </Paragraph>
@@ -106,7 +106,7 @@ const Footer = () => {
           </Paragraph>
           {dataDefault[2].company.data.map((el, idx) => (
             <Paragraph className={styles.text} key={idx}>
-              <Link href={el.link} key={idx}>
+              <Link href={el.link} key={idx} prefetch={false}>
                 {el.name}
               </Link>
             </Paragraph>
@@ -134,7 +134,7 @@ const Footer = () => {
           </Paragraph>
           {footerApi &&
             footerApi?.contact?.map((item, index) => (
-              <Link href={item.link} target="_blank" key={index}>
+              <Link href={item.link} target="_blank" key={index} prefetch={false}>
                 <Image
                   src={item.logo || linkedIn}
                   alt="logo"

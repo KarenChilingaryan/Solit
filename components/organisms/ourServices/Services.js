@@ -34,7 +34,7 @@ const Services = ({ data }) => {
         ))}
       </Row>
       <Col className={styles.buttonWrapper}>
-        <Link href="/services">
+        <Link href="/services" prefetch={false}>
           <Button text={buttonText} whiteButton />
         </Link>
       </Col>

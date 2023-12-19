@@ -13,6 +13,7 @@ const WeDoCard = ({ item, fromDetail }) => {
       href={
         item != "more" ? `/what-we-do/${item.slug}` : "/what-we-do"
       }
+      prefetch={false}
     >
       <Col
         className={`${styles.weDoCardWrapper} ${fromDetail && styles.fromDetail} ${

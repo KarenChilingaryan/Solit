@@ -1,8 +1,12 @@
 import { memo } from "react";
-import dynamic from 'next/dynamic';  // Import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
-const TeamMemberCard = dynamic(() => import('../../molecules/teamMemberCard/TeamMemberCard'));
-const TitleWithDescription = dynamic(() => import('../../molecules/titleWithDescription/TitleWithDescription'));
+const TeamMemberCard = dynamic(() =>
+  import("../../molecules/teamMemberCard/TeamMemberCard")
+);
+const TitleWithDescription = dynamic(() =>
+  import("../../molecules/titleWithDescription/TitleWithDescription")
+);
 
 // import TeamMemberCard from "../../molecules/teamMemberCard/TeamMemberCard";
 // import TitleWithDescription from "../../molecules/titleWithDescription/TitleWithDescription";

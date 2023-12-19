@@ -37,10 +37,10 @@ const BottomCarousel = ({ data }) => {
       </Carousel>
 
       <Row className={styles.buttonWrapper}>
-        <Link href="/services">
+        <Link href="/services" prefetch={false}>
           <Button text={"Our Services"} whiteButton />
         </Link>
-        <Link href="/contact-us">
+        <Link href="/contact-us" prefetch={false}>
           <Button text={"Contact"} whiteButton />
         </Link>
       </Row>

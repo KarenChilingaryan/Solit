@@ -522,14 +522,14 @@ const DiscussProjectStack = () => {
                   styles.currentStageDiscuss
                   } ${styles.buttons}`}
               >
-                <Link href="/discuss-project">
+                <Link href="/discuss-project" prefetch={false}>
                   <Button
                     text="Mobile Application Development"
                     grayTextBtn
                     type="button"
                   />
                 </Link>
-                <Link href="/discuss-project-stack">
+                <Link href="/discuss-project-stack" prefetch={false}>
                   <Button text="Team Augmentation" grayTextBtn type="button" />
                 </Link>
               </div>

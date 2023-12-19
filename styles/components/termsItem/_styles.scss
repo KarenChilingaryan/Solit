@@ -37,10 +37,12 @@
     }
 
     .title {
-      @include font-style(getTermsSizes(title-fz),
+      @include font-style(
+        getTermsSizes(title-fz),
         variables.$fw-500,
         getTermsSizes(title-lh),
-        #fff);
+        #fff
+      );
       margin: calcVW(250) 0 calcVW(32) 0 !important;
     }
 
@@ -76,10 +78,7 @@
       }
 
       .title {
-        @include font-style(calcVWL(36),
-          variables.$fw-500,
-          calcVWL(44),
-          #fff);
+        @include font-style(calcVWL(36), variables.$fw-500, calcVWL(44), #fff);
         margin: calcVWL(250) 0 calcVWL(32) 0 !important;
       }
     }
