@@ -91,8 +91,70 @@ const Line = () => {
   const infoTextRef6 = useRef(null)
 
   useEffect(() => {
-    if (window.innerWidth <= 576) {
+    if (window.innerWidth <= 576 && targetRef?.current) {
       mobileScroll.current.style.top = `${-792 + (visiblePercentageMobile + 30) * 2.9}vw`
+      console.log(visiblePercentageMobile);
+      const mainElement = targetRef.current.children[1].children;
+      if (visiblePercentageMobile > -26) {
+        let margin = ((20) * (visiblePercentageMobile + 26) * 10) / 100
+        margin = margin > 20 ? 20 : margin;
+        margin = margin < 0 ? 0 : margin;
+        mainElement[0].style.marginTop = `-${margin}px`
+        mainElement[0].style.marginBottom = `${margin}px`
+      } else {
+        mainElement[0].style.marginTop = `-${0}px`
+        mainElement[0].style.marginBottom = `${0}px`
+      }
+      if (visiblePercentageMobile > -15) {
+        let margin = ((20) * (visiblePercentageMobile + 15) * 10) / 100
+        margin = margin > 20 ? 20 : margin;
+        margin = margin < 0 ? 0 : margin;
+        mainElement[1].style.marginTop = `-${margin}px`
+        mainElement[1].style.marginBottom = `${margin}px`
+      } else {
+        mainElement[1].style.marginTop = `-${0}px`
+        mainElement[1].style.marginBottom = `${0}px`
+      }
+      if (visiblePercentageMobile > -4) {
+        let margin = ((20) * (visiblePercentageMobile + 4) * 10) / 100
+        margin = margin > 20 ? 20 : margin;
+        margin = margin < 0 ? 0 : margin;
+        mainElement[2].style.marginTop = `-${margin}px`
+        mainElement[2].style.marginBottom = `${margin}px`
+      } else {
+        mainElement[2].style.marginTop = `-${0}px`
+        mainElement[2].style.marginBottom = `${0}px`
+      }
+      if (visiblePercentageMobile > 17) {
+        let margin = ((20) * (visiblePercentageMobile - 17) * 10) / 100
+        margin = margin > 20 ? 20 : margin;
+        margin = margin < 0 ? 0 : margin;
+        mainElement[3].style.marginTop = `-${margin}px`
+        mainElement[3].style.marginBottom = `${margin}px`
+      } else {
+        mainElement[3].style.marginTop = `-${0}px`
+        mainElement[3].style.marginBottom = `${0}px`
+      }
+      if (visiblePercentageMobile > 28) {
+        let margin = ((20) * (visiblePercentageMobile - 28) * 10) / 100
+        margin = margin > 20 ? 20 : margin;
+        margin = margin < 0 ? 0 : margin;
+        mainElement[4].style.marginTop = `-${margin}px`
+        mainElement[4].style.marginBottom = `${margin}px`
+      } else {
+        mainElement[4].style.marginTop = `-${0}px`
+        mainElement[4].style.marginBottom = `${0}px`
+      }
+      if (visiblePercentageMobile > 39) {
+        let margin = ((20) * (visiblePercentageMobile - 39) * 10) / 100
+        margin = margin > 20 ? 20 : margin;
+        margin = margin < 0 ? 0 : margin;
+        mainElement[5].style.marginTop = `-${margin}px`
+        mainElement[5].style.marginBottom = `${margin}px`
+      } else {
+        mainElement[5].style.marginTop = `-${0}px`
+        mainElement[5].style.marginBottom = `${0}px`
+      }
     } else {
       if (visiblePercentage > 10) {
         const opacity = ((1) * (visiblePercentage - 10) * 50) / 100
