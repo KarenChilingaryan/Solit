@@ -134,8 +134,8 @@ const Line = () => {
         mainElement[3].style.marginTop = `-${0}px`
         mainElement[3].style.marginBottom = `${0}px`
       }
-      if (visiblePercentageMobile > 28) {
-        let margin = ((20) * (visiblePercentageMobile - 28) * 10) / 100
+      if (visiblePercentageMobile > 33) {
+        let margin = ((20) * (visiblePercentageMobile - 33) * 10) / 100
         margin = margin > 20 ? 20 : margin;
         margin = margin < 0 ? 0 : margin;
         mainElement[4].style.marginTop = `-${margin}px`
@@ -144,8 +144,8 @@ const Line = () => {
         mainElement[4].style.marginTop = `-${0}px`
         mainElement[4].style.marginBottom = `${0}px`
       }
-      if (visiblePercentageMobile > 39) {
-        let margin = ((20) * (visiblePercentageMobile - 39) * 10) / 100
+      if (visiblePercentageMobile > 49) {
+        let margin = ((20) * (visiblePercentageMobile - 49) * 10) / 100
         margin = margin > 20 ? 20 : margin;
         margin = margin < 0 ? 0 : margin;
         mainElement[5].style.marginTop = `-${margin}px`
