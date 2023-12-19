@@ -8,23 +8,27 @@ import Button from "../../../molecules/button/Button";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-
 const BottomCarousel = ({ data }) => {
   const router = useRouter();
   const onClick = (slug) => {
     router.push(`/portfolio/${slug}`);
-  }
+  };
 
   return (
     <Col className={styles.bottomCarouselSectionMainWrapper}>
-      <Carousel slidesToShow={3} autoplay dots={false} responsive={[
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2
-          }
-        }
-      ]}>
+      <Carousel
+        slidesToShow={3}
+        autoplay
+        dots={false}
+        responsive={[
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+        ]}
+      >
         {data?.map((el) => (
           <BottomCarouselItem
             key={el?.id}
