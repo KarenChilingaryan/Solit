@@ -93,7 +93,6 @@ const Line = () => {
   useEffect(() => {
     if (window.innerWidth <= 576 && targetRef?.current) {
       mobileScroll.current.style.top = `${-792 + (visiblePercentageMobile + 30) * 2.9}vw`
-      console.log(visiblePercentageMobile);
       const mainElement = targetRef.current.children[1].children;
       if (visiblePercentageMobile > -26) {
         let margin = ((20) * (visiblePercentageMobile + 26) * 10) / 100
