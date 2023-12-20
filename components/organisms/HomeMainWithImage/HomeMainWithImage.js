@@ -408,8 +408,7 @@ const HomeMainWithImage = ({
           width={windowWidth || 1920}
           height={windowWidth ? windowWidth / 2.4 : 800}
           className={styles.bigImage}
-          // loading="lazy"
-          priority={true}
+          loading="lazy"
         />
       )}
       {children}
