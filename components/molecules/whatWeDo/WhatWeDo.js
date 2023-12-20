@@ -51,7 +51,7 @@ const FullMenu = styled(Menu)`
   background: #000000;
   border-radius: 0 0 ${16 * 0.266711333}vw ${16 * 0.266711333}vw;
   overflow: hidden;
-`;
+  `;
 let isDragging = false;
 let lastX;
 const WhatWeDo = ({ data }) => {
@@ -60,6 +60,7 @@ const WhatWeDo = ({ data }) => {
   const [windowScroll, setWindowScroll] = useState(0);
   const tabsRef = useRef(null);
   const tabsBackgroundActive = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const dispatch = useDispatch();
   const [isSSR, setIsSSR] = useState(false);
@@ -71,7 +72,6 @@ const WhatWeDo = ({ data }) => {
     }
   }, [win]);
 
-  const [isMobile, setIsMobile] = useState(false);
 
   // Function to check if the screen size is below the mobile threshold
   const handleResize = () => {
