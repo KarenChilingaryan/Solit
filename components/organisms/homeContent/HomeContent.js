@@ -205,26 +205,9 @@ const HomeContent = () => {
     }
   };
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Function to check if the screen size is below the mobile threshold
-  const handleResize = () => {
-    setIsMobile(window.innerWidth <= 576);
-  };
-
-  // Add event listener for window resize
-  useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-
   return (
     <HomeMainWithImage
-      firstImage={isMobile ? 'https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_3AmvYXm/9c49419a92c187e58cc9a8e4e7a93f02.webp':
+      firstImage={
         "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_cIYJOYx/a37f8744bbc1ccf790c213849c8f6079.webp"
       }
       seoName="main"
