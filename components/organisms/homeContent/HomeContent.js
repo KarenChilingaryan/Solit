@@ -224,7 +224,7 @@ const HomeContent = () => {
 
   return (
     <HomeMainWithImage
-      firstImage={isMobile ? 'https://djnago-solit-static.s3.amazonaws.com/media/images/converted_image_3AmvYXm.png':
+      firstImage={isMobile ? 'https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_3AmvYXm/9c49419a92c187e58cc9a8e4e7a93f02.webp':
         "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_cIYJOYx/a37f8744bbc1ccf790c213849c8f6079.webp"
       }
       seoName="main"
