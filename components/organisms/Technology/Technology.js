@@ -1,8 +1,9 @@
 import { memo, useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import { Paragraph } from "../../atoms";
-import Button from "../../molecules/button/Button";
+const Button = dynamic(() => import("../../molecules/button/Button"));
 
 import styles from "./Technology.module.scss";
 

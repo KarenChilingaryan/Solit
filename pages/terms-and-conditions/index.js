@@ -1,5 +1,9 @@
 import { memo } from "react";
-import { TermsComponent } from "../../components/organisms/termsItem";
+import dynamic from "next/dynamic";
+
+const TermsComponent = dynamic(() =>
+  import("../../components/organisms/termsItem/TermsItem")
+);
 
 const Terms = () => {
   return (

@@ -1,12 +1,17 @@
 import { memo } from "react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 import { useSelector } from "react-redux";
 import { Row } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { HomeMain } from "../homeMain";
 import bgImage from "../../../assets/img/main-bg-services.png";
-import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
-import ServiceCard from "../../molecules/serviceCard/ServiceCard";
+const WhatToKnow = dynamic(() =>
+  import("../../molecules/whatToKnow/WhatToKnow")
+);
+const ServiceCard = dynamic(() =>
+  import("../../molecules/serviceCard/ServiceCard")
+);
 
 import styles from "./Services.module.scss";
 
@@ -31,8 +36,7 @@ const Services = () => {
             h1={true}
             data={{
               title: services?.data_text[0]?.title,
-              firstSubtitle:
-                services?.data_text[0]?.description
+              firstSubtitle: services?.data_text[0]?.description,
             }}
             showMoreButton={true}
             ellipsis
@@ -40,7 +44,12 @@ const Services = () => {
 
           <Row className={styles.services}>
             {services?.data_list?.map((item, i) => (
-              <ServiceCard item={item} key={i} className={styles.serviceCard} onClick={() => handleClick(item.slug)} />
+              <ServiceCard
+                item={item}
+                key={i}
+                className={styles.serviceCard}
+                onClick={() => handleClick(item.slug)}
+              />
             ))}
           </Row>
           <Row className={styles.weKnowSection}>

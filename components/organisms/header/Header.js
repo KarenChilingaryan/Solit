@@ -6,6 +6,7 @@ import _ from "lodash";
 import cx from "classnames";
 import { Col, Paragraph } from "../../atoms";
 import { useSelector } from "react-redux";
+import { useOutsideClick } from "./OutSideClick";
 import menuLogoWhite from "../../../assets/img/bigLogo.png";
 import hamburger from "../../../assets/img/hamburger.svg";
 import close from "../../../assets/img/u_times.svg";
@@ -14,62 +15,9 @@ import active_menu_element from "../../../assets/img/active-menu-element.svg";
 import menu_element from "../../../assets/img/menu-element.svg";
 import Button from "../../molecules/button/Button";
 import linkedIn from "../../../assets/img/linkedin.png";
+import { data } from "../../../utils/hooks/helpers";
 
 import styles from "./Header.module.scss";
-
-const data = [
-  {
-    dropdown: false,
-    id: 3,
-    name: "Portfolio",
-    fix_url: "/portfolio",
-    data: [],
-  },
-  {
-    dropdown: false,
-    id: 4,
-    name: "About us",
-    fix_url: "/about-us",
-    data: [],
-  },
-  {
-    dropdown: false,
-    id: 5,
-    name: "Careers",
-    fix_url: "/careers",
-    data: [],
-  },
-  {
-    dropdown: false,
-    id: 6,
-    name: "Blog",
-    fix_url: "/blog",
-    data: [],
-  },
-  {
-    dropdown: false,
-    id: 7,
-    name: "Contact Us",
-    fix_url: "/contact-us",
-    data: [],
-  },
-];
-
-const useOutsideClick = (ref, callback) => {
-  const handleClick = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      callback();
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("click", handleClick);
-
-    return () => {
-      document.removeEventListener("click", handleClick);
-    };
-  }, [ref, callback]);
-};
 
 const Header = () => {
   const router = useRouter();

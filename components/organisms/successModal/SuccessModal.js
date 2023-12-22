@@ -1,6 +1,9 @@
 import { memo, useEffect, useState } from "react";
+import dynamic from 'next/dynamic';
+
 import { Paragraph } from "../../atoms";
-import ModalWrapper from "../../molecules/Modal/Modal";
+const ModalWrapper = dynamic(() => import('../../molecules/Modal/Modal'));
+
 
 import styles from "./SuccessModal.module.scss";
 

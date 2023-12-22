@@ -1,5 +1,10 @@
 import { memo } from "react";
-import { WhatWeDo } from "../../components/organisms/whatWeDo";
+import dynamic from "next/dynamic";
+const WhatWeDo = dynamic(() =>
+  import("../../components/organisms/whatWeDo/WhatWeDo")
+);
+
+// import { WhatWeDo } from "../../components/organisms/whatWeDo";
 
 const WhatWeDoPage = () => {
   return <WhatWeDo />;

@@ -1,11 +1,14 @@
 import { memo, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { Col, Row } from "../../atoms";
 import elipse from "../../../assets/img/Ellipse.png";
 import Button from "../../molecules/button/Button";
-import PortfolioCard from "../../molecules/portfolioCard/PortfolioCard";
+const PortfolioCard = dynamic(() =>
+  import("../../molecules/portfolioCard/PortfolioCard")
+);
 
 import styles from "./Portfolios.module.scss";
 

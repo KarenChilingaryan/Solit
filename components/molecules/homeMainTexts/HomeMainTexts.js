@@ -1,5 +1,6 @@
 import { memo, useEffect } from "react";
 import { Col, Paragraph } from "../../atoms";
+
 import styles from "./HomeMainTexts.module.scss";
 
 const HomeMainTexts = ({
@@ -29,8 +30,9 @@ const HomeMainTexts = ({
   return (
     <>
       <Col
-        className={`${styles.bigTextWrapper} ${ellipsis && styles.contentWrapper
-          } ${styles[className]} ${heightStyle && styles.heightStyle}`}
+        className={`${styles.bigTextWrapper} ${
+          ellipsis && styles.contentWrapper
+        } ${styles[className]} ${heightStyle && styles.heightStyle}`}
       >
         {h1 ? (
           <h1 className={styles.title}>{title}</h1>
@@ -42,11 +44,12 @@ const HomeMainTexts = ({
           <div
             id="text1"
             dangerouslySetInnerHTML={{ __html: firstSubtitle }}
-            className={`${styles.firstSubtitle} ${ellipsis && styles.ellipsisText
-              } ${styles[showMoreClassName]}`}
+            className={`${styles.firstSubtitle} ${
+              ellipsis && styles.ellipsisText
+            } ${styles[showMoreClassName]}`}
           />
         )}
-        <div className={styles[showMoreClassName + 'Shadow']}></div>
+        <div className={styles[showMoreClassName + "Shadow"]}></div>
         {secondSubtitle && (
           <Paragraph
             className={`${styles.firstSubtitle} ${styles.secondSubtitle}`}

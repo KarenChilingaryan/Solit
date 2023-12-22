@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <link rel="preload"/>
+          <link rel="preload" />
           <meta name="title" content="Solit" />
           <title>Solit</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />

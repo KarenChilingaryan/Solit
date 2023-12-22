@@ -1,10 +1,15 @@
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+const Portfolios = dynamic(() => import("../portfolios/Portfolios"));
+const WhatToKnow = dynamic(() =>
+  import("../../molecules/whatToKnow/WhatToKnow")
+);
 import { Row } from "../../atoms";
-import Portfolios from "../portfolios/Portfolios";
+// import Portfolios from "../portfolios/Portfolios";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
+// import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import { HomeMain } from "../homeMain";
 import bgImage from "../../../assets/img/main-bg-portfolio.png";
 
@@ -34,9 +39,9 @@ const PortfolioMain = () => {
             />
           </div>
           <Row className={styles.portfoliosSection}>
-            {postPortfolioApi?.data_list &&
+            {postPortfolioApi?.data_list && (
               <Portfolios data={postPortfolioApi?.data_list} />
-            }
+            )}
           </Row>
           <Row className={styles.knowMoreSection}>
             <WhatToKnow onClick={handleClickDiscuss} />

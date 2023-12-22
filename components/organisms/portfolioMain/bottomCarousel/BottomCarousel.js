@@ -1,12 +1,15 @@
 import { memo } from "react";
+import dynamic from 'next/dynamic';
+import Link from "next/link";
 import { Carousel } from "antd";
+import { useRouter } from "next/router";
 import img from "../../../../assets/img/img.png";
-import styles from "../PortfolioMain.module.scss";
 import BottomCarouselItem from "./BottomCarouselItem";
 import { Col, Row } from "../../../atoms";
-import Button from "../../../molecules/button/Button";
-import Link from "next/link";
-import { useRouter } from "next/router";
+const Button = dynamic(() => import('../../molecules/button/Button'));
+
+
+import styles from "../PortfolioMain.module.scss";
 
 const BottomCarousel = ({ data }) => {
   const router = useRouter();
