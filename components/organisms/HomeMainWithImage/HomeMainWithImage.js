@@ -272,7 +272,7 @@ const HomeMainWithImage = ({
           </Breadcrumb>
         </div>
       )}
-      {isMobile > 576 && (
+      {/* {isMobile > 576 && (
         <div className={styles.socialSites}>
           <div className={styles.socialSitesValues} ref={socialRef}>
             {data?.contact?.map(
@@ -394,8 +394,8 @@ const HomeMainWithImage = ({
             />
           </div>
         </div>
-      )}
-      {/* {firstImage && (
+      )} */}
+      {firstImage && (
         <Image
           alt="image"
           src={firstImage}
@@ -409,7 +409,7 @@ const HomeMainWithImage = ({
           height={windowWidth ? windowWidth / 2.4 : 800}
           className={styles.bigImage}
         />
-      )} */}
+      )}
       {children}
     </div>
   );
