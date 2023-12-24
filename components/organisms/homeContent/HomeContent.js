@@ -271,7 +271,7 @@ const HomeContent = () => {
           <div className={styles.borderedTextWhat}>
             <BorderedText img={process} />
           </div>
-          {/* <Process /> */}
+          <Process />
           <div
             className={`${styles.borderedTextWhat} ${styles.borderedTextWhatTop}`}
           >

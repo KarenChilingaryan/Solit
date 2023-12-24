@@ -272,7 +272,7 @@ const HomeMainWithImage = ({
           </Breadcrumb>
         </div>
       )}
-      {/* {isMobile > 576 && (
+      {isMobile > 576 && (
         <div className={styles.socialSites}>
           <div className={styles.socialSitesValues} ref={socialRef}>
             {data?.contact?.map(
@@ -394,7 +394,7 @@ const HomeMainWithImage = ({
             />
           </div>
         </div>
-      )} */}
+      )}
       {firstImage && (
         <Image
           alt="image"
