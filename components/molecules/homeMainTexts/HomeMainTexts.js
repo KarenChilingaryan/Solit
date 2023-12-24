@@ -40,7 +40,7 @@ const HomeMainTexts = ({
           <Paragraph className={styles.title}>{title}</Paragraph>
         )}
 
-        {/* {firstSubtitle && (
+        {firstSubtitle && (
           <div
             id="text1"
             dangerouslySetInnerHTML={{ __html: firstSubtitle }}
@@ -48,7 +48,7 @@ const HomeMainTexts = ({
               ellipsis && styles.ellipsisText
             } ${styles[showMoreClassName]}`}
           />
-        )} */}
+        )}
         <div className={styles[showMoreClassName + "Shadow"]}></div>
         {secondSubtitle && (
           <Paragraph
