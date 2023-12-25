@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -144,7 +144,9 @@ const PageWrapper = ({ children, item }) => {
     }
 
     if (!flag) {
-      await getAllData(true);
+      setTimeout(async () => {
+        await getAllData(true);
+      }, 2000);
     }
   };
 
