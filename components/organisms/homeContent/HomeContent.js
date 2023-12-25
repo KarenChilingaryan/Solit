@@ -61,9 +61,9 @@ const HomeContent = () => {
     router.push(`/portfolio/${slug ? slug : ""}`);
   };
 
-  // const mainInfoData = useSelector(
-  //   (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
-  // );
+  const mainInfoData = useSelector(
+    (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
+  );
 
   const postsMainOurProjectsApi = useSelector(
     (state) =>
@@ -217,9 +217,8 @@ const HomeContent = () => {
           <HomeMain
             h1={true}
             data={{
-              title: "Your partner for software innovations",
-              firstSubtitle:
-                "Welcome to SOLIT, a leading IT company that has been revolutionizing the software development industry. We are dedicated to providing top-notch software solutions to businesses of all sizes, helping them leverage technology to achieve their goals.",
+              title: mainInfoData ? mainInfoData[0]?.title : "",
+              firstSubtitle: mainInfoData ? mainInfoData[0]?.description : "",
               buttonText: "Let’s talk",
             }}
             onClick={handleClickDiscuss}
