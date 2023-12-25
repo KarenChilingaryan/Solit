@@ -214,7 +214,7 @@ const HomeContent = () => {
     >
       <>
         <div className={styles.content}>
-          <HomeMain
+          {/* <HomeMain
             h1={true}
             data={{
               title: mainInfoData ? mainInfoData[0]?.title : "",
@@ -222,7 +222,7 @@ const HomeContent = () => {
               buttonText: "Let’s talk",
             }}
             onClick={handleClickDiscuss}
-          />
+          /> */}
           <div className={styles.servicesMain}>
             <div
               className={`${styles.borderedText} ${styles.borderedTextBottom}`}

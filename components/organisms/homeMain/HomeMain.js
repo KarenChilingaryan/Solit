@@ -39,11 +39,11 @@ const HomeMain = ({ data, className, onClick, showMoreButton = false, h1 }) => {
         setHeight={setHeight}
         heightStyle={heightStyle}
       />
-      {/* {buttonText && (
+      {buttonText && (
         <Col className={styles.buttonWrapper}>
           <Button text={buttonText} transparentOpposite onClick={onClick} />
         </Col>
-      )} */}
+      )}
       {showMoreButton && (
         <ShowMore
           className={`${styles.button} ${
