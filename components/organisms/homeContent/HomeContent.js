@@ -214,15 +214,16 @@ const HomeContent = () => {
     >
       <>
         <div className={styles.content}>
-          {/* <HomeMain
+          <HomeMain
             h1={true}
             data={{
-              title: mainInfoData ? mainInfoData[0]?.title : "",
-              firstSubtitle: mainInfoData ? mainInfoData[0]?.description : "",
+              title: "Your partner for software innovations",
+              firstSubtitle:
+                "Welcome to SOLIT, a leading IT company that has been revolutionizing the software development industry. We are dedicated to providing top-notch software solutions to businesses of all sizes, helping them leverage technology to achieve their goals.",
               buttonText: "Let’s talk",
             }}
             onClick={handleClickDiscuss}
-          /> */}
+          />
           <div className={styles.servicesMain}>
             <div
               className={`${styles.borderedText} ${styles.borderedTextBottom}`}
