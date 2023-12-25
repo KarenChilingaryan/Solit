@@ -144,9 +144,7 @@ const PageWrapper = ({ children, item }) => {
     }
 
     if (!flag) {
-      setTimeout(async () => {
-        await getAllData(true);
-      }, 2000);
+      await getAllData(true);
     }
   };
 
