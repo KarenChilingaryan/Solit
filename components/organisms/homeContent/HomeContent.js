@@ -61,9 +61,9 @@ const HomeContent = () => {
     router.push(`/portfolio/${slug ? slug : ""}`);
   };
 
-  const mainInfoData = useSelector(
-    (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
-  );
+  // const mainInfoData = useSelector(
+  //   (state) => state?.postsApi?.queries?.["posts(undefined)"]?.data
+  // );
 
   const postsMainOurProjectsApi = useSelector(
     (state) =>
