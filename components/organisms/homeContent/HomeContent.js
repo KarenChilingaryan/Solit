@@ -217,8 +217,8 @@ const HomeContent = () => {
           <HomeMain
             h1={true}
             data={{
-              title: mainInfoData ? mainInfoData[0]?.title : "",
-              firstSubtitle: mainInfoData ? mainInfoData[0]?.description : "",
+              title:mainInfoData && mainInfoData[0]?.title,
+              firstSubtitle:mainInfoData &&  mainInfoData[0]?.description,
               buttonText: "Let’s talk",
             }}
             onClick={handleClickDiscuss}
