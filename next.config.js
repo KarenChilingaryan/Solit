@@ -11,12 +11,12 @@ const pluginOptions = {
   },
 };
 
-
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
-    webVitalsAttribution: ['CLS', 'LCP']
+    webVitalsAttribution: ["CLS", "LCP"],
+    esmExternals: true,
   },
   compiler: {
     styledComponents: {
@@ -35,12 +35,12 @@ module.exports = withBundleAnalyzer({
       use: [
         options.defaultLoaders.babel,
         {
-          loader: '@mdx-js/loader',
+          loader: "@mdx-js/loader",
           options: pluginOptions.options,
         },
       ],
-    })
- 
-    return config
+    });
+
+    return config;
   },
 });
