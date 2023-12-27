@@ -4,6 +4,14 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   openAnalyzer: false,
 });
 
+const pluginOptions = {
+  options: {
+    remarkPlugins: [], // Add Remark plugins for MDX processing
+    rehypePlugins: [], // Add Rehype plugins for MDX processing
+  },
+};
+
+
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   swcMinify: true,
