@@ -7,6 +7,9 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    webVitalsAttribution: ['CLS', 'LCP']
+  },
   compiler: {
     styledComponents: {
       displayName: true,
@@ -16,5 +19,20 @@ module.exports = withBundleAnalyzer({
   },
   images: {
     domains: ["djnago-solit-static.s3.amazonaws.com"],
+  },
+  // Add the PostCSS configuration with PurgeCSS
+  webpack: (config, options) => {
+    config.module.rules.push({
+      test: /\.mdx/,
+      use: [
+        options.defaultLoaders.babel,
+        {
+          loader: '@mdx-js/loader',
+          options: pluginOptions.options,
+        },
+      ],
+    })
+ 
+    return config
   },
 });
