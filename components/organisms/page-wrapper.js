@@ -48,7 +48,7 @@ const PageWrapper = ({ children, item }) => {
   const a = useRouter();
   const getAllData = async (flag = true) => {
     if (a.pathname === "/" || flag) {
-      await dispatch(await postsApi.endpoints.posts.initiate());
+      // await dispatch(await postsApi.endpoints.posts.initiate());
       if (!a.pathname.includes("/services"))
         await dispatch(await servicesApi.endpoints.services.initiate());
       await dispatch(await footerApi.endpoints.footer.initiate());
