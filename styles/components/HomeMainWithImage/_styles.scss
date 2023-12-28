@@ -137,6 +137,7 @@
       @include flex(center, center);
 
       .image {
+        transform: rotate(90deg);
         object-fit: cover;
         width: getHomeMainWithImage(sites-image-width);
         height: getHomeMainWithImage(sites-image-width);

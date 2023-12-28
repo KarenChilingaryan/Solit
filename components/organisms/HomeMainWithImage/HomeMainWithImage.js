@@ -375,7 +375,6 @@ const HomeMainWithImage = ({
             </Paragraph>
             <Image
               style={{
-                transform: "rotate(90deg)",
                 ...(className == "portfolioItem" &&
                 percents["percent4"] &&
                 percents["percent4"] - 125 > 0 &&
