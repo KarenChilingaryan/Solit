@@ -14,19 +14,27 @@ import { WorldMap } from "../WorldMap";
 const ServiceCard = dynamic(() =>
   import("../../molecules/serviceCard/ServiceCard")
 );
-const BorderedText = dynamic(() =>
-  import("../../molecules/borderedText/BorderedText")
+const BorderedText = dynamic(
+  () => import("../../molecules/borderedText/BorderedText"),
+  { ssr: false }
 );
-const MapUser = dynamic(() => import("../../molecules/mapUser/MapUser"));
+const MapUser = dynamic(() => import("../../molecules/mapUser/MapUser"), {
+  ssr: false,
+});
 const Button = dynamic(() => import("../../molecules/button/Button"));
-const OurProjectCard = dynamic(() =>
-  import("../../molecules/ourProjectCard/OurProjectCard")
+const OurProjectCard = dynamic(
+  () => import("../../molecules/ourProjectCard/OurProjectCard"),
+  { ssr: false }
 );
-const WeDoCard = dynamic(() => import("../../molecules/weDoCard/WeDoCard"));
+const WeDoCard = dynamic(() => import("../../molecules/weDoCard/WeDoCard"), {
+  ssr: false,
+});
 const AboutCompany = dynamic(() =>
   import("../../molecules/aboutCompany/AboutCompany")
 );
-const ContactForm = dynamic(() => import("../contactForm/ContactForm"));
+const ContactForm = dynamic(() => import("../contactForm/ContactForm"), {
+  ssr: false,
+});
 
 // import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 // import BorderedText from "../../molecules/borderedText/BorderedText";
@@ -217,8 +225,8 @@ const HomeContent = () => {
           <HomeMain
             h1={true}
             data={{
-              title:mainInfoData && mainInfoData[0]?.title,
-              firstSubtitle:mainInfoData &&  mainInfoData[0]?.description,
+              title: mainInfoData && mainInfoData[0]?.title,
+              firstSubtitle: mainInfoData && mainInfoData[0]?.description,
               buttonText: "Let’s talk",
             }}
             onClick={handleClickDiscuss}

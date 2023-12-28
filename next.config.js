@@ -16,4 +16,12 @@ module.exports = withBundleAnalyzer({
   images: {
     domains: ["djnago-solit-static.s3.amazonaws.com"],
   },
+  webpack: (config, options) => {
+    config.module.rules.push({
+      test: /\.mdx/,
+      use: [options.defaultLoaders.babel],
+    });
+
+    return config;
+  },
 });

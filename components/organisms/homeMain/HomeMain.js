@@ -3,7 +3,8 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Col, Button as ShowMore } from "../../atoms";
 
-const Button = dynamic(() => import("../../molecules/button/Button"));
+const Button = dynamic(() => import("../../molecules/button/Button"),
+{ ssr: false });
 const HomeMainTexts = dynamic(() =>
   import("../../molecules/homeMainTexts/HomeMainTexts")
 );
