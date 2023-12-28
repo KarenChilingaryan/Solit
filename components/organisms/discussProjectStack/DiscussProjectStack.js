@@ -195,17 +195,16 @@ const DiscussProjectStack = () => {
 
     setProjectStacks(newProjectStacks);
     if (!month && !isMonth) {
-      const newData = []
+      const newData = [];
       for (let i = 0; i < data.length; i++) {
         const element = data[i];
-        if (element.category != 'duration')
-          newData.push(element)
+        if (element.category != "duration") newData.push(element);
       }
       setLiveStacks([...newData]);
     } else {
       setLiveStacks([...data]);
     }
-  }
+  };
 
   const handleDelete = (item) => {
     const data = { ...form.getFieldsValue() };
@@ -231,8 +230,10 @@ const DiscussProjectStack = () => {
 
     form.setFieldsValue(data);
     item.category === "duration" && form.setFieldValue("duration", 1);
-    item.category === "duration" && (data.duration = undefined) && setMonth(false);
-    item.category === "duration" && setMonth(false)
+    item.category === "duration" &&
+      (data.duration = undefined) &&
+      setMonth(false);
+    item.category === "duration" && setMonth(false);
     getProjectData(data);
     submitForm(form.getFieldsValue(), true);
   };
@@ -286,14 +287,14 @@ const DiscussProjectStack = () => {
       setModalFormData(null);
       setLiveStacks([]);
       setOpen(false);
-      setIsError(res.isError)
+      setIsError(res.isError);
       setTimeout(() => {
         setOpenSuccess(false);
         setClose();
         form.resetFields();
       }, 3000);
       return true;
-    } catch { }
+    } catch {}
   };
 
   useEffect(() => {
@@ -518,9 +519,10 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${asPath == "/discuss-project-stack" &&
+                className={`${
+                  asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                  } ${styles.buttons}`}
+                } ${styles.buttons}`}
               >
                 <Link href="/discuss-project" prefetch={false}>
                   <Button
@@ -546,10 +548,10 @@ const DiscussProjectStack = () => {
                           <Paragraph className={styles.stackName}>
                             {item?.name}
                           </Paragraph>
-                          {item?.data?.map((item) => (
+                          {item?.data?.map((item, i) => (
                             <AddSpecialist
                               liveStacks={liveStacks}
-                              key={item}
+                              key={i}
                               name={item}
                               onChange={handleFieldChange}
                               field="developers"
@@ -606,10 +608,11 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
-                            ? styles.selected
-                            : ""
-                            }`}
+                          className={`${styles.clickableOption} ${
+                            form.getFieldsValue().consultation?.includes(item)
+                              ? styles.selected
+                              : ""
+                          }`}
                         >
                           <Industry
                             value={item}
@@ -648,36 +651,66 @@ const DiscussProjectStack = () => {
                           : { open: false }),
                       }}
                       marks={{
-                        1: <span onClick={() => {
-                          setMonth(true)
-                          getProjectData(form.getFieldsValue(), true)
-                        }}>1 month</span>,
-                        6: <span onClick={() => {
-                          setMonth(true)
-                          getProjectData(form.getFieldsValue(), true)
-                        }}>6 month</span>,
-                        12: <span onClick={() => {
-                          setMonth(true)
-                          getProjectData(form.getFieldsValue(), true)
-                        }}>1 year</span>,
-                        18: <span onClick={() => {
-                          setMonth(true)
-                          getProjectData(form.getFieldsValue(), true)
-                        }}>1.5 year</span>,
-                        24: <span onClick={() => {
-                          setMonth(true)
-                          getProjectData(form.getFieldsValue(), true)
-                        }}>2 year</span>,
+                        1: (
+                          <span
+                            onClick={() => {
+                              setMonth(true);
+                              getProjectData(form.getFieldsValue(), true);
+                            }}
+                          >
+                            1 month
+                          </span>
+                        ),
+                        6: (
+                          <span
+                            onClick={() => {
+                              setMonth(true);
+                              getProjectData(form.getFieldsValue(), true);
+                            }}
+                          >
+                            6 month
+                          </span>
+                        ),
+                        12: (
+                          <span
+                            onClick={() => {
+                              setMonth(true);
+                              getProjectData(form.getFieldsValue(), true);
+                            }}
+                          >
+                            1 year
+                          </span>
+                        ),
+                        18: (
+                          <span
+                            onClick={() => {
+                              setMonth(true);
+                              getProjectData(form.getFieldsValue(), true);
+                            }}
+                          >
+                            1.5 year
+                          </span>
+                        ),
+                        24: (
+                          <span
+                            onClick={() => {
+                              setMonth(true);
+                              getProjectData(form.getFieldsValue(), true);
+                            }}
+                          >
+                            2 year
+                          </span>
+                        ),
                       }}
                     />
                   </FormItem>
-                
+
                   <Button
                     text="Clear"
                     clear
                     onClick={() => {
                       setMonth(false);
-                      handleDelete({ category: "duration" })
+                      handleDelete({ category: "duration" });
                     }}
                   />
                 </Row>

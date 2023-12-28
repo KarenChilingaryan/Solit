@@ -1,7 +1,8 @@
 import { memo,  useRef, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
-import ReCAPTCHA from "react-google-recaptcha";
+import dynamic from 'next/dynamic';
+// import ReCAPTCHA from "react-google-recaptcha";
 import { Upload } from "antd";
 import Button from "../../molecules/button/Button";
 import { emailApi } from "../../../services/emailApi";
@@ -24,6 +25,11 @@ const ContactForm = ({
   h1 = false,
   career = false,
 }) => {
+
+  const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'), {
+    loading: () => <p>Loading reCAPTCHA...</p>,
+    ssr: false,
+  });
   const [form] = Form.useForm();
   const [file, setFile] = useState();
   const recaptchaRef = useRef();
