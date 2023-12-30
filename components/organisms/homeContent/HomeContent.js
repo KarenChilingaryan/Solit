@@ -265,7 +265,7 @@ const HomeContent = () => {
             <BorderedText img={aboutUs} />
           </div>
         </div>
-        {/* <div className={styles.afterAboutContent}> */}
+        <div className={styles.afterAboutContent}>
           <div className={styles.aboutContent}>
             {data.map((row, i) => (
               <ReversedAboutUs
@@ -414,7 +414,7 @@ const HomeContent = () => {
               }
             />
           </div>
-        {/* </div> */}
+        </div>
       </>
     </HomeMainWithImage>
   );
