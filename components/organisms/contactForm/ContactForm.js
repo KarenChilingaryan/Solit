@@ -55,7 +55,7 @@ const ContactForm = ({
   }, []);
 
   const changeRecaptcha = (value) => {
-    form.setFieldValue("recaptcha", value);
+  !isMobile &&  form.setFieldValue("recaptcha", value);
   };
   const setClose = () => {
     const next = document.getElementById("__next");
