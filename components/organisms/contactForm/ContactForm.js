@@ -1,8 +1,8 @@
-import { memo,  useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
-import dynamic from 'next/dynamic';
-// import ReCAPTCHA from "react-google-recaptcha";
+import dynamic from "next/dynamic";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Upload } from "antd";
 import Button from "../../molecules/button/Button";
 import { emailApi } from "../../../services/emailApi";
@@ -25,11 +25,10 @@ const ContactForm = ({
   h1 = false,
   career = false,
 }) => {
-
-  const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'), {
-    loading: () => <p>Loading reCAPTCHA...</p>,
-    ssr: false,
-  });
+  // const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'), {
+  //   loading: () => <p>Loading reCAPTCHA...</p>,
+  //   ssr: false,
+  // });
   const [form] = Form.useForm();
   const [file, setFile] = useState();
   const recaptchaRef = useRef();
@@ -38,8 +37,22 @@ const ContactForm = ({
   const [top, setTop] = useState(0);
   const [errorMessage, setErrorMessage] = useState("");
   const [disabled, setDisabled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const dispatch = useDispatch();
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 576);
+  };
+
+  // Add event listener for window resize
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const changeRecaptcha = (value) => {
     form.setFieldValue("recaptcha", value);
@@ -270,26 +283,28 @@ const ContactForm = ({
               <a href="https://solit-llc.com/privacy-policy"> Privacy Policy</a>
             </Row>
           </FormItem>
-          <FormItem
-            className={`${styles.recaptchaForm} ${styles[errorMessage]}`}
-            name="recaptcha"
-            rules={[
-              {
-                required: true,
-                message: "ReCAPTCHA is required",
-              },
-            ]}
-          >
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              style={{ width: "300px" }}
-              className={styles.recaptcha}
-              onChange={() =>
-                checkFormValidation(changeRecaptcha, recaptchaRef.current)
-              }
-              sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
-            />
-          </FormItem>
+          {!isMobile && (
+            <FormItem
+              className={`${styles.recaptchaForm} ${styles[errorMessage]}`}
+              name="recaptcha"
+              rules={[
+                {
+                  required: true,
+                  message: "ReCAPTCHA is required",
+                },
+              ]}
+            >
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                style={{ width: "300px" }}
+                className={styles.recaptcha}
+                onChange={() =>
+                  checkFormValidation(changeRecaptcha, recaptchaRef.current)
+                }
+                sitekey="6Lee0CIoAAAAAB_dq-qSv6jLMpVn--g2ny42Ww_D"
+              />
+            </FormItem>
+          )}
 
           <Col className={styles.buttonWrapper}>
             <Button
