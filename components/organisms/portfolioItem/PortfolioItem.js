@@ -119,8 +119,7 @@ const PortfolioItem = () => {
                 data={{
                   title: postPortfolioApiData?.title,
                   firstSubtitle:
-                    postPortfolioApiData?.description +
-                    postPortfolioApiData?.description.slice(0, 200),
+                    postPortfolioApiData?.description
                 }}
                 className={"prtfolioItem"}
               />
