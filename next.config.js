@@ -11,6 +11,7 @@ module.exports = {
     reactRemoveProperties: true,
   },
   images: {
+    minimumCacheTTL: 60,  
     domains: ["djnago-solit-static.s3.amazonaws.com"],
   },
 };
