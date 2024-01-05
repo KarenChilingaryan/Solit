@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { Paragraph, SeoCard } from "../../atoms";
-import rughtRowTop from "../../../assets/img/icons/u_arrow-up.svg";
+import rughtRowTop from "../../../assets/img/icons/file.svg";
 import rughtRow from "../../../assets/img/right.svg";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import { postsSeoFieldsApi } from "../../../services/postsSeoFieldsApi";
