@@ -105,7 +105,7 @@ const Line = () => {
         mainElement[0].style.marginBottom = `${0}px`
       }
       if (visiblePercentageMobile > -15) {
-        let margin = ((20) * (visiblePercentageMobile5) * 10) / 100
+        let margin = ((20) * (visiblePercentageMobile) * 10) / 100
         margin = margin > 20 ? 20 : margin;
         margin = margin < 0 ? 0 : margin;
         mainElement[1].style.marginTop = `-${margin}px`
