@@ -59,7 +59,7 @@
         border-top: 2px solid variables.$white;
         border-right: 2px solid variables.$white;
         border-radius: 0 calcVW(50) 0 0;
-        min-width: calcVW(44);
+        min-width: calcVW(43);
         margin-top: calcVW(15);
         height: calcVW(44);
       }
@@ -67,30 +67,32 @@
       .line3 {
         min-width: 2px;
         min-height: calcVW(184);
-        margin-left: calcVW(1278);
+        width: 2px;
         margin-top: 0;
+        margin-left: auto;
       }
 
       .oval2 {
         border-bottom: 2px solid variables.$white;
         border-right: 2px solid variables.$white;
         border-radius: 0 0 calcVW(50) 0;
-        min-width: calcVW(44);
-        height: calcVW(44);
+        min-width: calcVW(43);
+        width: calcVW(43);
+        height: calcVW(45);
       }
 
       .oval3 {
         border-top: 2px solid variables.$white;
         border-left: 2px solid variables.$white;
         border-radius: calcVW(50) 0 0 0;
-        min-width: calcVW(44);
-        height: calcVW(44);
+        min-width: calcVW(42);
+        height: calcVW(45);
         margin-top: calcVW(42);
       }
 
       .line4 {
         min-width: calcVW(186);
-        margin-top: calcVW(42);
+        margin-top: calcVW(43);
       }
 
       .borderRound2 {
@@ -107,7 +109,7 @@
       }
 
       .line6 {
-        min-width: calcVW(570);
+        min-width: calcVW(573);
         margin-top: calcVW(42);
       }
 
@@ -122,7 +124,7 @@
         border-bottom: 2px solid variables.$white;
         border-left: 2px solid variables.$white;
         border-radius: 0 0 0 calcVW(50);
-        min-width: calcVW(44);
+        min-width: calcVW(43);
         height: calcVW(44);
       }
 
@@ -367,8 +369,9 @@
 
         .line3 {
           min-width: 2px;
+          width: 2px;
           min-height: calcVWL(184);
-          margin-left: calcVWL(1278);
+          margin-left: auto;
           margin-top: 0;
         }
 
