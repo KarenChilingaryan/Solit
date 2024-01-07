@@ -47,7 +47,7 @@ const Line = () => {
 
       const { top, height } = targetElement.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const percentage = Math.round(((windowHeight - top) / height) * 60);
+      const percentage = Math.ceil(((windowHeight - top) / height) * 60);
       setVisiblePercentageMobile(percentage);
     };
     const handleScroll = () => {
@@ -254,7 +254,7 @@ const Line = () => {
 
       if (visiblePercentage > 40) {
         const maxWidth = targetRef.current.offsetWidth;
-        const width = ((maxWidth) * (visiblePercentage - 40) * 5.55) / 100 + part1Ref.current.children[0].offsetLeft + part1Ref.current.children[0].offsetWidth + part1Ref.current.children[1].offsetWidth + part1Ref.current.children[2].offsetWidth;
+        const width = ((maxWidth) * (visiblePercentage - 40) * 3) / 100 + part1Ref.current.children[0].offsetLeft + part1Ref.current.children[0].offsetWidth + part1Ref.current.children[1].offsetWidth + part1Ref.current.children[2].offsetWidth;
         const px = width > maxWidth ? (maxWidth) : width
         part1RefBlue.current.style.width = `${px}px`;
       }
@@ -268,8 +268,8 @@ const Line = () => {
       }
 
       let blueHeight = 0;
-      if (visiblePercentage > 50) {
-        blueHeight = ((part2RefBlue.current.children[0].offsetHeight) * (((visiblePercentage - 50) * 10) > 100 ? 100 : ((visiblePercentage - 50) * 10))) / 100
+      if (visiblePercentage > 57) {
+        blueHeight = ((part2RefBlue.current.children[0].offsetHeight) * (((visiblePercentage - 57) * 17) > 100 ? 100 : ((visiblePercentage - 57) * 17))) / 100
         part2RefBlue.current.style.height = `${blueHeight}px`
         part2RefBlue.current.style.marginBottom = `${part2RefBlue.current.children[0].offsetHeight - blueHeight}px`
       } else {
@@ -280,19 +280,19 @@ const Line = () => {
         const maxWidth = part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth;
         const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 59) * 5.55) / 100;
         const realWidth = (width > maxWidth ? (maxWidth) : width);
-        part3Ref.current.style.width = `${Math.round(realWidth)}px`;
-        part3Ref.current.scrollLeft = targetRef.current.offsetWidth - Math.round(realWidth);
+        part3Ref.current.style.width = `${Math.ceil(realWidth)}px`;
+        part3Ref.current.scrollLeft = targetRef.current.offsetWidth - Math.ceil(realWidth);
       } else {
         part3Ref.current.style.width = `${0}px`
         part3Ref.current.scrollLeft = 0
       }
 
-      if (visiblePercentage > 61) {
+      if (visiblePercentage > 63) {
         const maxWidth = part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth;
-        const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 61) * 5.55) / 100;
+        const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 63) * 5.55) / 100;
         const realWidth = (width > maxWidth ? (maxWidth) : width);
-        part3RefBlue.current.style.width = `${Math.round(realWidth)}px`;
-        part3RefBlue.current.scrollLeft = targetRef.current.offsetWidth - Math.round(realWidth);
+        part3RefBlue.current.style.width = `${Math.ceil(realWidth)}px`;
+        part3RefBlue.current.scrollLeft = targetRef.current.offsetWidth - Math.ceil(realWidth);
       } else {
         part3RefBlue.current.style.width = `${0}px`
         part3RefBlue.current.scrollLeft = 0
@@ -301,7 +301,7 @@ const Line = () => {
       if (visiblePercentage > 63) {
         const opacity = ((1) * (visiblePercentage - 63) * 50) / 100
         part3Ref.current.children[4].style.opacity = opacity
-        part3Ref.current.style.width = `${Math.round(1 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth)}px`
+        part3Ref.current.style.width = `${Math.ceil(1 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth)}px`
       } else {
         part3Ref.current.children[4].style.opacity = 0
       }
@@ -312,7 +312,7 @@ const Line = () => {
         part3RefBlue.current.children[4].style.opacity = opacity
         infoTextRef3.current.children[0].style.opacity = opacity
         const realWidth = 1 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth
-        part3RefBlue.current.style.width = `${Math.round(realWidth)}px`
+        part3RefBlue.current.style.width = `${Math.ceil(realWidth)}px`
       } else {
         part3Ref.current.children[4].children[0].style.opacity = 0
         part3RefBlue.current.children[4].style.opacity = 0
@@ -327,7 +327,7 @@ const Line = () => {
         const maxWidth = part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth + part3Ref.current.children[3].offsetWidth
         const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 67) * 5.55) / 100 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth
         const realWidth = (width > maxWidth ? (maxWidth) : width);
-        part3Ref.current.style.width = `${Math.round(realWidth)}px`
+        part3Ref.current.style.width = `${Math.ceil(realWidth)}px`
       } else {
         part3RefBlue.current.children[4].children[0].style.opacity = 0;
         infoTextRef3.current.children[1].style.opacity = 0;
@@ -337,13 +337,13 @@ const Line = () => {
         const maxWidth = part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth + part3Ref.current.children[3].offsetWidth
         const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 70) * 7.55) / 100 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth;
         const realWidth = width > maxWidth ? (maxWidth) : width;
-        part3RefBlue.current.style.width = `${Math.round(realWidth)}px`;
+        part3RefBlue.current.style.width = `${Math.ceil(realWidth)}px`;
       }
 
       if (visiblePercentage > 72.5) {
         const opacity = ((1) * (visiblePercentage - 72.5) * 50) / 100
         part3Ref.current.children[2].style.opacity = opacity
-        part3Ref.current.style.width = `${Math.round(1 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth + part3Ref.current.children[3].offsetWidth + part3Ref.current.children[2].offsetWidth)}px`;
+        part3Ref.current.style.width = `${Math.ceil(1 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth + part3Ref.current.children[3].offsetWidth + part3Ref.current.children[2].offsetWidth)}px`;
       } else {
         part3Ref.current.children[2].style.opacity = 0
       }
@@ -354,7 +354,7 @@ const Line = () => {
         part3RefBlue.current.children[2].style.opacity = opacity;
 
         const realWidth = 1 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[3].offsetWidth + part3Ref.current.children[2].offsetWidth + part3Ref.current.children[4].offsetWidth
-        part3RefBlue.current.style.width = `${Math.round(realWidth)}px`
+        part3RefBlue.current.style.width = `${Math.ceil(realWidth)}px`
 
         infoTextRef4.current.children[0].style.opacity = opacity
       } else {
@@ -370,7 +370,7 @@ const Line = () => {
         const maxWidth = targetRef.current.offsetWidth;
         const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 76.5) * 5.55) / 100 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth + part3Ref.current.children[3].offsetWidth + part3Ref.current.children[2].offsetWidth
         const realWidth = (width > maxWidth ? (maxWidth) : width);
-        part3Ref.current.style.width = `${Math.round(realWidth)}px`
+        part3Ref.current.style.width = `${Math.ceil(realWidth)}px`
       } else {
         part3RefBlue.current.children[2].children[0].style.opacity = 0;
         infoTextRef4.current.children[1].style.opacity = 0;
@@ -378,13 +378,13 @@ const Line = () => {
 
       if (visiblePercentage > 79) {
         const maxWidth = targetRef.current.offsetWidth;
-        const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 79) * 5.55) / 100 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth + part3Ref.current.children[3].offsetWidth + part3Ref.current.children[2].offsetWidth
+        const width = ((targetRef.current.offsetWidth) * (visiblePercentage - 79) * 3) / 100 + part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth + part3Ref.current.children[3].offsetWidth + part3Ref.current.children[2].offsetWidth
         const realWidth = (width > maxWidth ? (maxWidth) : width);
-        part3RefBlue.current.style.width = `${Math.round(realWidth)}px`
+        part3RefBlue.current.style.width = `${Math.ceil(realWidth)}px`
       }
 
-      if (visiblePercentage > 88) {
-        const blueHeight = ((part4RefBlue.current.children[0].offsetHeight) * (((visiblePercentage - 88) * 5) > 100 ? 100 : ((visiblePercentage - 88) * 5))) / 100
+      if (visiblePercentage > 95) {
+        const blueHeight = ((part4RefBlue.current.children[0].offsetHeight) * (((visiblePercentage - 95) * 5) > 100 ? 100 : ((visiblePercentage - 95) * 5))) / 100
         part4RefBlue.current.style.height = `${blueHeight}px`
         part4RefBlue.current.style.marginBottom = `${part4RefBlue.current.children[0].offsetHeight - blueHeight}px`
       } else {
@@ -409,9 +409,9 @@ const Line = () => {
         part5Ref.current.style.width = `${0}px`;
       }
 
-      if (visiblePercentage > 109) {
+      if (visiblePercentage > 115) {
         const maxWidth = part5RefBlue.current.children[0].offsetWidth + part5RefBlue.current.children[1].offsetWidth;
-        const width = ((maxWidth) * (visiblePercentage - 109) * 10.55) / 100;
+        const width = ((maxWidth) * (visiblePercentage - 115) * 10.55) / 100;
         const px = width > maxWidth ? (maxWidth) : width
         part5RefBlue.current.style.width = `${px}px`;
       } else {
