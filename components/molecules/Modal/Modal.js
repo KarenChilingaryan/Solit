@@ -42,7 +42,7 @@ const ModalWrapper = ({
         handleClose();
       }
     }
-  }, [open]);
+  }, [open, visible]);
 
   return (
     <Modal

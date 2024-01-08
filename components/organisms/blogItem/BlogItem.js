@@ -1,4 +1,4 @@
-import { memo, useContext, useEffect, useState } from "react";
+import { memo, useCallback, useContext, useEffect, useState } from "react";
 import { Paragraph, Row, SeoCard } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import imageBG from "../../../assets/img/career_bg.png"
@@ -24,15 +24,17 @@ const BlogItem = () => {
 
   const dispatch = useDispatch();
   const [blogItemData, setBlogItem] = useState(null)
-  const getData = async (id) => {
+
+  const getData = useCallback(async (id) => {
     const res = await dispatch(await blogItemApi.endpoints.blogItem.initiate(id));
     setBlogItem(res.data)
-  }
+  }, [dispatch])
+
   useEffect(() => {
     if (id) {
       getData(id)
     }
-  }, [id])
+  }, [id, getData])
 
   const postsBlogApi = useSelector(
     (state) =>
@@ -52,7 +54,7 @@ const BlogItem = () => {
       newBred[2] = { name: blogItemData.breadcrumb, link: '/' };
       setBreadcrumbElements(newBred)
     }
-  }, [blogItemData])
+  }, [blogItemData, breadcrumbElements, setBreadcrumbElements])
 
   const getRandomValuesFromArray = (arr, numberOfValues) => {
     const copyArr = [...arr];

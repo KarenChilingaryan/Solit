@@ -1,4 +1,4 @@
-import { memo, useContext, useEffect, useState } from "react";
+import { memo, useCallback, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -19,15 +19,16 @@ const WhatWeDoComponent = () => {
   const { id } = router.query;
   const dispatch = useDispatch();
   const [postWhatWeDoDetail, setPostWhatWeDoDetail] = useState(null)
-  const getData = async (id) => {
+  const getData = useCallback(async (id) => {
     const res = await dispatch(await postsWhatWeDoDetailApi.endpoints.whatDetail.initiate(id));
-    setPostWhatWeDoDetail(res.data)
-  }
+    setPostWhatWeDoDetail(res.data);
+  }, [dispatch]);
+
   useEffect(() => {
     if (id) {
       getData(id)
     }
-  }, [id])
+  }, [id, getData])
 
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
@@ -39,7 +40,7 @@ const WhatWeDoComponent = () => {
       newBred[2] = { name: postWhatWeDoDetail.breadcrumb, link: '/' };
       setBreadcrumbElements(newBred)
     }
-  }, [postWhatWeDoDetail])
+  }, [postWhatWeDoDetail, breadcrumbElements, setBreadcrumbElements])
 
 
   const getRandomValuesFromArray = (arr, numberOfValues) => {

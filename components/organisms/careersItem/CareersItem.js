@@ -1,4 +1,4 @@
-import { memo, useEffect, useContext, useState } from "react";
+import { memo, useEffect, useContext, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -48,17 +48,19 @@ const CareersComponent = () => {
   const dispatch = useDispatch();
   const [postsCareersJobOpeningApiData, setPostsCareersJobOpeningApiData] =
     useState(null);
-  const getData = async (id) => {
+
+  const getData = useCallback(async (id) => {
     const res = await dispatch(
       await postsCareersJobOpeningApi.endpoints.career.initiate(id)
     );
     setPostsCareersJobOpeningApiData(res.data);
-  };
+  }, [dispatch]);
+
   useEffect(() => {
     if (id) {
       getData(id);
     }
-  }, [id]);
+  }, [id, getData]);
 
   const findAndSetData = () => {
     setOpenData({ role: postsCareersJobOpeningApiData?.html_h1_tag });
@@ -80,7 +82,7 @@ const CareersComponent = () => {
         setOpenSuccess(false);
         setClose();
       }, 3000);
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
@@ -92,7 +94,7 @@ const CareersComponent = () => {
       };
       setBreadcrumbElements(newBred);
     }
-  }, [postsCareersJobOpeningApiData]);
+  }, [postsCareersJobOpeningApiData, breadcrumbElements, setBreadcrumbElements]);
 
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 576); // Adjust the threshold as per your requirements
@@ -286,8 +288,8 @@ const CareersComponent = () => {
               isMobile <= 1024 && isMobile > 576
                 ? "52vw"
                 : isMobile > 1024 && isMobile <= 1440
-                ? "37vw"
-                : "28vw"
+                  ? "37vw"
+                  : "28vw"
             }
             setOpen={(e) => {
               setClose();

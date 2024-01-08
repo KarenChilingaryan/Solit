@@ -38,7 +38,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
       setFile(null);
       form.resetFields();
     }
-  }, [open]);
+  }, [open, form]);
 
   const props = {
     onRemove: () => {
@@ -55,7 +55,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
     if (data.role) {
       form.setFieldValue("position", data.role);
     }
-  }, [data]);
+  }, [data, form]);
 
   const validateLinkedInUrl = (_, value) => {
     const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;

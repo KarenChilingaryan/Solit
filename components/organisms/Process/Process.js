@@ -489,7 +489,7 @@ const Line = () => {
         part5RefBlue.current.children[4].children[0].style.opacity = 0;
       }
     }
-  }, [visiblePercentage])
+  }, [visiblePercentage, visiblePercentageMobile])
 
   return (
     <div className={styles.mobileBlockElement} ref={targetRef}>

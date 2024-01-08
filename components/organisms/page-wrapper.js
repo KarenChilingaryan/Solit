@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { aboutApi } from "../../services/aboutApi";
 import { abutQuickFactsApi } from "../../services/abutQuickFactsApi";
@@ -46,7 +46,7 @@ const PageWrapper = ({ children, item }) => {
   const dispatch = useDispatch();
 
   const a = useRouter();
-  const getAllData = async (flag = true) => {
+  const getAllData = useCallback(async (flag = true) => {
     if (a.pathname === "/" || flag) {
       await dispatch(await postsApi.endpoints.posts.initiate());
       if (!a.pathname.includes("/services"))
@@ -146,12 +146,12 @@ const PageWrapper = ({ children, item }) => {
     if (!flag) {
       await getAllData(true);
     }
-  };
+  }, [dispatch, a])
 
   useEffect(() => {
     dispatch(headerApi.endpoints.header.initiate());
     getAllData(false);
-  }, [id]);
+  }, [id, getAllData, dispatch]);
 
   return <div>{children}</div>;
 };

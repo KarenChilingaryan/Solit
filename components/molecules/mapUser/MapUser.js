@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { Tooltip } from "antd";
 import { Paragraph } from "../../atoms";
@@ -26,8 +26,7 @@ const MapUser = ({ user, changeTo }) => {
       setTooltip(true);
     }, 100);
   }, [user]);
-
-  const handleResize = () => {
+  const handleResize = useCallback(async () => {
     if (tooltip) {
       setTooltip(false)
       const timeout = setTimeout(() => {
@@ -35,7 +34,7 @@ const MapUser = ({ user, changeTo }) => {
         clearTimeout(timeout)
       }, 200)
     }
-  }
+  }, [tooltip])
 
   useEffect(() => {
     handleResize();
@@ -43,7 +42,7 @@ const MapUser = ({ user, changeTo }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [handleResize]);
 
   return (
     <div className={styles.container}>

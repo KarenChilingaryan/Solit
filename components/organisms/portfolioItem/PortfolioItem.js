@@ -1,4 +1,4 @@
-import { memo, useContext, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -38,18 +38,18 @@ const PortfolioItem = () => {
     router.push(`${page}/${slug}`);
   };
 
-  const getData = async (id) => {
+  const getData = useCallback(async (id) => {
     const res = await dispatch(
       await portfolioApi.endpoints.portfolio.initiate(id)
     );
     setPostPortfolioApiData(res.data);
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     if (id) {
       getData(id);
     }
-  }, [id]);
+  }, [id, getData]);
 
   useEffect(() => {
     if (postPortfolioApiData && breadcrumbElements) {
@@ -57,7 +57,7 @@ const PortfolioItem = () => {
       newBred[2] = { name: postPortfolioApiData.breadcrumb, link: "/" };
       setBreadcrumbElements(newBred);
     }
-  }, [postPortfolioApiData]);
+  }, [postPortfolioApiData, breadcrumbElements, setBreadcrumbElements]);
 
   const getRandomValuesFromArray = (arr, numberOfValues) => {
     const copyArr = [...arr];

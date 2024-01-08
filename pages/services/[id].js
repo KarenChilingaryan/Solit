@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { serviceItemApi } from "../../services/servicesItemApi";
@@ -15,15 +15,17 @@ const ServiceItem = () => {
   const { id } = useRouter().query;
   const dispatch = useDispatch();
   const [postServiceApiData, setPostServiceApiData] = useState(null)
-  const getData = async (id) => {
+
+  const getData = useCallback(async (id) => {
     const res = await dispatch(await serviceItemApi.endpoints.serviceItem.initiate(id));
     setPostServiceApiData(res.data)
-  }
+  }, [dispatch])
+
   useEffect(() => {
     if (id) {
       getData(id)
     }
-  }, [id])
+  }, [id, getData])
 
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const ServiceItem = () => {
       newBred[2] = { name: postServiceApiData.breadcrumb, link: '/' };
       setBreadcrumbElements(newBred)
     }
-  }, [postServiceApiData])
+  }, [postServiceApiData, breadcrumbElements, setBreadcrumbElements])
   return (
     <Col className={styles.portfolioItemWrapper}>
       <SeoCard details={

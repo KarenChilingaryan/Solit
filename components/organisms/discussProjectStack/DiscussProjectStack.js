@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
@@ -294,14 +294,14 @@ const DiscussProjectStack = () => {
         form.resetFields();
       }, 3000);
       return true;
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
     if (form) {
       form.setFieldValue("duration", 1);
     }
-  }, []);
+  }, [form]);
 
   const handleAdd = () => {
     setModalOpen(true);
@@ -371,7 +371,7 @@ const DiscussProjectStack = () => {
       next.style.width = `100%`;
       next.style.position = `fixed`;
     }
-  }, [modalFormData, open, modalOpen]);
+  }, [modalFormData, open, modalOpen, top]);
 
   const setClose = () => {
     const next = document.getElementById("__next");
@@ -383,8 +383,7 @@ const DiscussProjectStack = () => {
       setIsSSR(true);
     }, 200);
   };
-
-  const handleResize = () => {
+  const handleResize = useCallback(async () => {
     if (tooltip) {
       setTooltip(false);
       const timeout = setTimeout(() => {
@@ -392,7 +391,7 @@ const DiscussProjectStack = () => {
         clearTimeout(timeout);
       }, 200);
     }
-  };
+  }, [tooltip])
 
   useEffect(() => {
     handleResize();
@@ -400,7 +399,7 @@ const DiscussProjectStack = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [handleResize]);
 
   return (
     <HomeMainWithImage
@@ -519,10 +518,9 @@ const DiscussProjectStack = () => {
               onValuesChange={handleFormValuesChange}
             >
               <div
-                className={`${
-                  asPath == "/discuss-project-stack" &&
+                className={`${asPath == "/discuss-project-stack" &&
                   styles.currentStageDiscuss
-                } ${styles.buttons}`}
+                  } ${styles.buttons}`}
               >
                 <Link href="/discuss-project" prefetch={false}>
                   <Button
@@ -608,11 +606,10 @@ const DiscussProjectStack = () => {
                             item != "Other" &&
                             handleButtonClick("industry", item)
                           }
-                          className={`${styles.clickableOption} ${
-                            form.getFieldsValue().consultation?.includes(item)
+                          className={`${styles.clickableOption} ${form.getFieldsValue().consultation?.includes(item)
                               ? styles.selected
                               : ""
-                          }`}
+                            }`}
                         >
                           <Industry
                             value={item}

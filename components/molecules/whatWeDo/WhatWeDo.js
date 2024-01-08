@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
@@ -87,29 +87,30 @@ const WhatWeDo = ({ data }) => {
     };
   }, []);
 
-  const getContext = async (id) => {
+  const getContext = useCallback(async (id) => {
     const data = await dispatch(
       await postAbutUsWhatWeDoApi.endpoints.about.initiate(id)
     );
     setContextData(data?.data);
-  };
+  }, [dispatch])
 
   useEffect(() => {
     if (!contextData && data) {
       getContext(data.data_list[0].about_as_what_we_do_detail);
     }
-  }, [data]);
+  }, [data, contextData, getContext]);
 
   const positionChangeValue = (activeTab, activeList) => {
     if (tabsBackgroundActive?.current) {
       tabsBackgroundActive.current.style.left =
         ((Number(localStorage.getItem("activeTabElement")) || 1) - 1) *
-          activeTab.clientWidth -
+        activeTab.clientWidth -
         activeList.scrollLeft +
         "px";
     }
   };
-  const positionChange = () => {
+
+  const positionChange = useCallback(async () => {
     const activeTab = tabsRef.current.querySelector(".ant-tabs-tab-active");
     const activeList = tabsRef.current.querySelector(".ant-tabs-nav-list");
     if (activeList) {
@@ -134,7 +135,7 @@ const WhatWeDo = ({ data }) => {
         isDragging = false;
       });
     }
-  };
+  }, [])
 
   useEffect(() => {
     if (tabsRef?.current && isSSR && data && contextData) {
@@ -143,7 +144,7 @@ const WhatWeDo = ({ data }) => {
       }, 2000);
     }
     return localStorage.removeItem("activeTabElement");
-  }, [tabsRef, isSSR, data, contextData]);
+  }, [tabsRef, isSSR, data, contextData, positionChange]);
 
   const renderTabsOrDropdown = () => {
     if (isMobile) {
@@ -285,11 +286,10 @@ const WhatWeDo = ({ data }) => {
                     <span>
                       <Image
                         src={!showMoreClass ? showMore : showMore}
-                        className={`${styles.btnImg} ${
-                          showMoreClass == "showMoreClass"
-                            ? styles.rotatebtnImg
-                            : ""
-                        }`}
+                        className={`${styles.btnImg} ${showMoreClass == "showMoreClass"
+                          ? styles.rotatebtnImg
+                          : ""
+                          }`}
                         alt="image"
                       />
                     </span>
