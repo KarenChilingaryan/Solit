@@ -49,13 +49,13 @@
         padding: getAboutPageSizes(description-p);
       }
       .description {
-        p {
+        // p {
           @include font-style(
             getAboutPageSizes(description-fz),
             variables.$fw-400,
             getAboutPageSizes(description-fl)
           );
-        }
+        // }
       }
       .aboutImage {
         width: 100%;

@@ -281,14 +281,14 @@
       .description {
         padding: 0 5px;
 
-        p {
+        // p {
           @include font-style(
             getWhatWeDoSizes(what-we-do-description-fz),
             variables.$fw-300,
             getWhatWeDoSizes(what-we-do-description-lh),
             #fff
           );
-        }
+        // }
       }
     }
   }
