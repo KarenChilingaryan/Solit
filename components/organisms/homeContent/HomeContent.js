@@ -53,6 +53,7 @@ import ourProjects from "../../../assets/img/our_projects.svg";
 import testimonials from "../../../assets/img/testimonials.svg";
 import contacts from "../../../assets/img/contacts.svg";
 import technology from "../../../assets/img/technology.svg";
+import bgImage from "../../../assets/img/main_bg-test.png";
 
 import styles from "./HomeContent.module.scss";
 
@@ -215,9 +216,10 @@ const HomeContent = () => {
 
   return (
     <HomeMainWithImage
-      firstImage={
-        "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_cIYJOYx/a37f8744bbc1ccf790c213849c8f6079.webp"
-      }
+      // firstImage={
+      //   "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_cIYJOYx/a37f8744bbc1ccf790c213849c8f6079.webp"
+      // }
+      firstImage={bgImage}
       seoName="main"
     >
       <>
