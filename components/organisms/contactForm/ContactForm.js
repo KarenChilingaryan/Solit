@@ -25,10 +25,6 @@ const ContactForm = ({
   h1 = false,
   career = false,
 }) => {
-  // const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'), {
-  //   loading: () => <p>Loading reCAPTCHA...</p>,
-  //   ssr: false,
-  // });
   const [form] = Form.useForm();
   const [file, setFile] = useState();
   const recaptchaRef = useRef();
@@ -55,7 +51,7 @@ const ContactForm = ({
   }, []);
 
   const changeRecaptcha = (value) => {
-  !isMobile &&  form.setFieldValue("recaptcha", value);
+    !isMobile && form.setFieldValue("recaptcha", value);
   };
   const setClose = () => {
     const next = document.getElementById("__next");
@@ -133,14 +129,10 @@ const ContactForm = ({
             {data?.title || "Got a project in mind?"}
           </Row>
         )}
-        <div
-          className={styles.info}
-          dangerouslySetInnerHTML={{
-            __html:
-              data?.description ||
-              "Share the details of your project – like scope, timeframes, or business challenges you would like to solve. Our team will carefully study them and then we’ll figure out the next move together.",
-          }}
-        />
+        <div className={styles.info}>
+          {data?.description ||
+            "Share the details of your project – like scope, timeframes, or business challenges you would like to solve. Our team will carefully study them and then we’ll figure out the next move together."}
+        </div>
         {fromContactPage && (
           <Image
             src={contactUsBgImage}

@@ -302,12 +302,16 @@ const HomeContent = () => {
             </Paragraph>
             <div
               className={styles.description}
-              dangerouslySetInnerHTML={{
-                __html: postsMainWhatWeDoTextApi
-                  ? postsMainWhatWeDoTextApi[0].description
-                  : "",
-              }}
-            />
+              // dangerouslySetInnerHTML={{
+              //   __html: postsMainWhatWeDoTextApi
+              //     ? postsMainWhatWeDoTextApi[0].description
+              //     : "",
+              // }}
+            >
+              {postsMainWhatWeDoTextApi
+                ? postsMainWhatWeDoTextApi[0].description
+                : ""}
+            </div>
             {postsWhatWeDoApi &&
               [
                 ...postsWhatWeDoApi?.data_list.slice(0, 5),
