@@ -14,7 +14,6 @@ const HomeMainTexts = ({
   setHeight,
   heightStyle,
 }) => {
-  console.log(firstSubtitle, 'OOOOOOOOOOO');
   useEffect(() => {
     const text1 = document.getElementById("text1");
     const text2 = document.getElementById("text2");
