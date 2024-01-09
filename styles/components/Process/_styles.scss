@@ -327,182 +327,315 @@
       .snack {
         height: calcVWL(784);
         margin: calcVWL(80) 0;
-
+        flex-wrap: wrap;
+        position: relative;
+  
         .borderRound {
           min-width: calcVWL(32);
           height: calcVWL(32);
+          border: 2px solid variables.$white;
           border-radius: calcVWL(32);
-
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+  
           .round {
             min-width: calcVWL(16);
             height: calcVWL(16);
             border-radius: calcVWL(16);
+            background: variables.$white;
           }
-
+  
+          .info {
+            position: absolute;
+          }
         }
-
+  
         .borderRound1 {
           margin-left: calcVWL(190);
         }
-
+  
         .line {
           min-width: calcVWL(373);
           height: 2px;
+          background: variables.$white;
           margin-top: calcVWL(15);
         }
-
+  
         .line1 {
           margin-top: calcVWL(15);
         }
-
+  
         .line2 {
           min-width: calcVWL(610);
           margin-top: calcVWL(15);
         }
-
+  
         .oval1 {
+          border-top: 2px solid variables.$white;
+          border-right: 2px solid variables.$white;
           border-radius: 0 calcVWL(50) 0 0;
           min-width: calcVWL(43);
           margin-top: calcVWL(15);
           height: calcVWL(44);
         }
-
+  
         .line3 {
           min-width: 2px;
-          width: 2px;
           min-height: calcVWL(184);
-          margin-left: auto;
+          width: 2px;
           margin-top: 0;
+          margin-left: auto;
         }
-
+  
         .oval2 {
+          border-bottom: 2px solid variables.$white;
+          border-right: 2px solid variables.$white;
           border-radius: 0 0 calcVWL(50) 0;
-          min-width: calcVWL(43);
+          min-width: calcVWL(43.45);
           width: calcVWL(43);
           height: calcVWL(45);
         }
-
+  
         .oval3 {
+          border-top: 2px solid variables.$white;
+          border-left: 2px solid variables.$white;
           border-radius: calcVWL(50) 0 0 0;
-          margin-top: calcVWL(42.45);
           min-width: calcVWL(42.45);
-          height: calcVW(45);
+          height: calcVWL(45);
+          margin-top: calcVWL(42.45);
         }
-
+  
         .line4 {
-          min-width: calcVWL(186);
-          margin-top: calcVWL(43);
+          min-width: calcVWL(185);
+          margin-top: calcVWL(42.45);
         }
-
+  
         .borderRound2 {
           margin-top: calcVWL(28);
         }
-
+  
         .line5 {
           min-width: calcVWL(372);
           margin-top: calcVWL(42.45);
         }
-
+  
         .borderRound3 {
           margin-top: calcVWL(28);
         }
-
+  
         .line6 {
           min-width: calcVWL(573);
           margin-top: calcVWL(42.45);
         }
-
+  
         .line7 {
           min-width: 2px;
           width: 2px;
           min-height: calcVWL(184);
           margin-top: 0;
         }
-
+  
         .oval4 {
+          border-bottom: 2px solid variables.$white;
+          border-left: 2px solid variables.$white;
           border-radius: 0 0 0 calcVWL(50);
           min-width: calcVWL(43);
           height: calcVWL(44);
         }
-
+  
         .line8 {
           min-width: calcVWL(183);
           height: 2px;
           margin-top: calcVWL(42.45);
         }
-
+  
         .borderRound4 {
           margin-top: calcVWL(28);
         }
-
+  
         .line9 {
           min-width: calcVWL(376);
           height: 2px;
           margin-top: calcVWL(42.45);
         }
-
+  
         .borderRound5 {
           margin-top: calcVWL(28);
         }
-
-
+  
+  
         .part1 {
+          display: flex;
+          overflow: hidden;
           width: 0;
         }
-
+  
         .part2 {
           height: 0;
+          overflow: hidden;
           width: 100%;
         }
-
+  
         .part3 {
+          display: flex;
+          overflow: hidden;
           width: 0;
+          margin-left: auto;
+          max-width: 100%;
         }
-
+  
         .part4 {
           height: 0;
+          overflow: hidden;
           width: 100%;
         }
-
+  
         .part5 {
+          display: flex;
+          overflow: hidden;
           width: 0;
         }
-
+  
         .snackBlue {
+          position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
-        }
-
-        .snackText {
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-
+  
+  
           .borderRound {
+            border: 2px solid variables.$light-blue;
+  
+            .round {
+              background: variables.$light-blue;
+            }
+          }
+  
+          .line {
+            background: variables.$light-blue;
+          }
+  
+          .oval1 {
+            border-top: 2px solid variables.$light-blue;
+            border-right: 2px solid variables.$light-blue;
+          }
+  
+          .oval2 {
+            border-bottom: 2px solid variables.$light-blue;
+            border-right: 2px solid variables.$light-blue;
+          }
+  
+          .oval3 {
+            border-top: 2px solid variables.$light-blue;
+            border-left: 2px solid variables.$light-blue;
+          }
+  
+          .oval4 {
+            border-bottom: 2px solid variables.$light-blue;
+            border-left: 2px solid variables.$light-blue;
+          }
+        }
+  
+        .snackText {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+  
+  
+          .borderRound {
+            border: 2px solid transparent;
+            display: flex;
+            justify-content: center;
+  
+            .round {
+              background: transparent;
+            }
+  
             .info {
               height: calcVWL(277);
               width: calcVWL(405);
               margin-top: calcVWL(172);
-
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+  
               .titleInfo {
                 @include font-style(calcVWL(24),
                   variables.$fw-600,
                   normal);
                 margin: 0;
                 margin-bottom: calcVWL(80);
+                text-align: center;
+                opacity: 0;
               }
-
+  
               .descriptionInfo {
                 @include font-style(calcVWL(18),
                   variables.$fw-400,
                   normal);
                 margin: 0;
                 width: calcVWL(277);
+                opacity: 0;
               }
             }
+          }
+  
+          .line {
+            background: transparent;
+          }
+  
+          .oval1 {
+            border-top: 2px solid transparent;
+            border-right: 2px solid transparent;
+          }
+  
+          .oval2 {
+            border-bottom: 2px solid transparent;
+            border-right: 2px solid transparent;
+          }
+  
+          .oval3 {
+            border-top: 2px solid transparent;
+            border-left: 2px solid transparent;
+          }
+  
+          .oval4 {
+            border-bottom: 2px solid transparent;
+            border-left: 2px solid transparent;
+          }
+  
+          .part1 {
+            overflow: initial;
+            width: max-content;
+          }
+  
+          .part2 {
+            height: max-content;
+            overflow: initial;
+            width: max-content;
+          }
+  
+          .part3 {
+            height: max-content;
+            overflow: initial;
+            width: max-content;
+          }
+  
+          .part4 {
+            height: max-content;
+            overflow: initial;
+            width: max-content;
+          }
+  
+          .part5 {
+            height: max-content;
+            overflow: initial;
+            width: max-content;
           }
         }
       }
@@ -633,6 +766,7 @@
 
         .part1 {
           width: 0;
+          max-width: 100%;
         }
 
         .part2 {
@@ -653,6 +787,7 @@
 
         .part5 {
           width: 0;
+          max-width: 100%;
         }
 
         .snackBlue {
