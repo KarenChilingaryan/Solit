@@ -146,12 +146,12 @@ const PageWrapper = ({ children, item }) => {
     if (!flag) {
       await getAllData(true);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     dispatch(headerApi.endpoints.header.initiate());
     getAllData(false);
-  }, [id, getAllData, dispatch]);
+  }, [id]);
 
   return <div>{children}</div>;
 };

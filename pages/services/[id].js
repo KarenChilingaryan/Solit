@@ -19,7 +19,7 @@ const ServiceItem = () => {
   const getData = useCallback(async (id) => {
     const res = await dispatch(await serviceItemApi.endpoints.serviceItem.initiate(id));
     setPostServiceApiData(res.data)
-  }, [dispatch])
+  }, [])
 
   useEffect(() => {
     if (id) {
@@ -34,7 +34,7 @@ const ServiceItem = () => {
       newBred[2] = { name: postServiceApiData.breadcrumb, link: '/' };
       setBreadcrumbElements(newBred)
     }
-  }, [postServiceApiData, breadcrumbElements, setBreadcrumbElements])
+  }, [postServiceApiData ])
   return (
     <Col className={styles.portfolioItemWrapper}>
       <SeoCard details={

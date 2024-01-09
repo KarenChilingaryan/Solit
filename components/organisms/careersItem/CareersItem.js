@@ -54,7 +54,7 @@ const CareersComponent = () => {
       await postsCareersJobOpeningApi.endpoints.career.initiate(id)
     );
     setPostsCareersJobOpeningApiData(res.data);
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (id) {

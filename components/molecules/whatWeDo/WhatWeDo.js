@@ -92,7 +92,7 @@ const WhatWeDo = ({ data }) => {
       await postAbutUsWhatWeDoApi.endpoints.about.initiate(id)
     );
     setContextData(data?.data);
-  }, [dispatch])
+  }, [])
 
   useEffect(() => {
     if (!contextData && data) {

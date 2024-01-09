@@ -22,7 +22,7 @@ const WhatWeDoComponent = () => {
   const getData = useCallback(async (id) => {
     const res = await dispatch(await postsWhatWeDoDetailApi.endpoints.whatDetail.initiate(id));
     setPostWhatWeDoDetail(res.data);
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (id) {

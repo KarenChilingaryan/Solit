@@ -26,15 +26,12 @@ const BlogItem = () => {
   const dispatch = useDispatch();
   const [blogItemData, setBlogItem] = useState(null);
 
-  const getData = useCallback(
-    async (id) => {
-      const res = await dispatch(
-        await blogItemApi.endpoints.blogItem.initiate(id)
-      );
-      setBlogItem(res.data);
-    },
-    [dispatch]
-  );
+  const getData = useCallback(async (id) => {
+    const res = await dispatch(
+      await blogItemApi.endpoints.blogItem.initiate(id)
+    );
+    setBlogItem(res.data);
+  }, []);
 
   useEffect(() => {
     if (id) {

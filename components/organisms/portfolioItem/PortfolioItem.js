@@ -43,7 +43,7 @@ const PortfolioItem = () => {
       await portfolioApi.endpoints.portfolio.initiate(id)
     );
     setPostPortfolioApiData(res.data);
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (id) {
@@ -57,7 +57,7 @@ const PortfolioItem = () => {
       newBred[2] = { name: postPortfolioApiData.breadcrumb, link: "/" };
       setBreadcrumbElements(newBred);
     }
-  }, [postPortfolioApiData, breadcrumbElements, setBreadcrumbElements]);
+  }, [postPortfolioApiData]);
 
   const getRandomValuesFromArray = (arr, numberOfValues) => {
     const copyArr = [...arr];
