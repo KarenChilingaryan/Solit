@@ -34,13 +34,13 @@ const HomeMainTexts = ({
           ellipsis && styles.contentWrapper
         } ${styles[className]} ${heightStyle && styles.heightStyle}`}
       >
-        {h1 ? (
+        {/* {h1 ? (
           <h1 className={styles.title}>{title}</h1>
         ) : (
           <Paragraph className={styles.title}>{title}</Paragraph>
-        )}
+        )} */}
 
-        {firstSubtitle && (
+        {/* {firstSubtitle && (
           <div
             id="text1"
             className={`${styles.firstSubtitle} ${
@@ -49,7 +49,7 @@ const HomeMainTexts = ({
           >
             {firstSubtitle}
           </div>
-        )}
+        )} */}
         <div className={styles[showMoreClassName + "Shadow"]}></div>
         {secondSubtitle && (
           <Paragraph
