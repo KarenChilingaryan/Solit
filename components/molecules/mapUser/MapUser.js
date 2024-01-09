@@ -34,7 +34,7 @@ const MapUser = ({ user, changeTo }) => {
         clearTimeout(timeout)
       }, 200)
     }
-  }, [tooltip])
+  }, [])
 
   useEffect(() => {
     handleResize();
@@ -42,7 +42,7 @@ const MapUser = ({ user, changeTo }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [handleResize]);
+  }, []);
 
   return (
     <div className={styles.container}>
