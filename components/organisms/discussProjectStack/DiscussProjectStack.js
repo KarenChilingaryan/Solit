@@ -391,7 +391,7 @@ const DiscussProjectStack = () => {
         clearTimeout(timeout);
       }, 200);
     }
-  }, [tooltip])
+  }, [])
 
   useEffect(() => {
     handleResize();
@@ -399,7 +399,7 @@ const DiscussProjectStack = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [handleResize]);
+  }, []);
 
   return (
     <HomeMainWithImage
