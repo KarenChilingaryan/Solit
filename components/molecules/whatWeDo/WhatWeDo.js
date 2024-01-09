@@ -25,7 +25,7 @@ const MenuItem = styled(Menu.Item)`
   }
   &:hover {
     background: rgba(0, 0, 0, 0.5);
-    backdrop - filter: blur(36.5px);
+    backdrop-filter: blur(36.5px);
     color: #219fdb;
     span {
       background: #219FDB;

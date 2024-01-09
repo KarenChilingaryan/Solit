@@ -36,12 +36,9 @@ const WeDoCard = ({ item, fromDetail }) => {
             </Col>
             <div
               className={styles.description}
-              dangerouslySetInnerHTML={{
-                __html:
-                  item?.description ||
-                  "Save time routing and tagging rules, and get insights on time before release collection of",
-              }}
-            />
+            >
+              {item?.description}
+            </div>
           </>
         ) : (
           <Row className={styles.more}>
