@@ -26,7 +26,7 @@ const HomeMainTexts = ({
       height2 = 0;
     }
     setHeight(height1 + height2);
-  }, [firstSubtitle, secondSubtitle, setHeight]);
+  }, [firstSubtitle, secondSubtitle]);
   return (
     <>
       <Col

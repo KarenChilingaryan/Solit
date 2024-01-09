@@ -38,7 +38,7 @@ const ModalApplyNowForm = ({ style = {}, data, onSubmit, className, open }) => {
       setFile(null);
       form.resetFields();
     }
-  }, [open, form]);
+  }, [open]);
 
   const props = {
     onRemove: () => {

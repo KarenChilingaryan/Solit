@@ -146,7 +146,7 @@ const PageWrapper = ({ children, item }) => {
     if (!flag) {
       await getAllData(true);
     }
-  }, [dispatch, a])
+  }, [])
 
   useEffect(() => {
     dispatch(headerApi.endpoints.header.initiate());

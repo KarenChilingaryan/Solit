@@ -301,7 +301,7 @@ const DiscussProjectStack = () => {
     if (form) {
       form.setFieldValue("duration", 1);
     }
-  }, [form]);
+  }, []);
 
   const handleAdd = () => {
     setModalOpen(true);

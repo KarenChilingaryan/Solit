@@ -60,7 +60,7 @@ const CareersComponent = () => {
     if (id) {
       getData(id);
     }
-  }, [id, getData]);
+  }, [id]);
 
   const findAndSetData = () => {
     setOpenData({ role: postsCareersJobOpeningApiData?.html_h1_tag });

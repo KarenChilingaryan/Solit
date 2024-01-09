@@ -25,7 +25,7 @@ const ServiceItem = () => {
     if (id) {
       getData(id)
     }
-  }, [id, getData])
+  }, [id])
 
 
   useEffect(() => {

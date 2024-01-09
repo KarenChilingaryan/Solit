@@ -98,7 +98,7 @@ const WhatWeDo = ({ data }) => {
     if (!contextData && data) {
       getContext(data.data_list[0].about_as_what_we_do_detail);
     }
-  }, [data, contextData, getContext]);
+  }, [data]);
 
   const positionChangeValue = (activeTab, activeList) => {
     if (tabsBackgroundActive?.current) {

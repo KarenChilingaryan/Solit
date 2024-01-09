@@ -1,7 +1,7 @@
 import { memo, useCallback, useContext, useEffect, useState } from "react";
 import { Paragraph, Row, SeoCard } from "../../atoms";
 import { HomeMainWithImage } from "../HomeMainWithImage";
-import imageBG from "../../../assets/img/career_bg.png"
+import imageBG from "../../../assets/img/career_bg.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -18,43 +18,45 @@ export const dataProject = [
 ];
 
 const BlogItem = () => {
-  const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
-  const { id } = useRouter().query
+  const { breadcrumbElements, setBreadcrumbElements } =
+    useContext(BreadcrumbContext);
+  const { id } = useRouter().query;
   const router = useRouter();
 
   const dispatch = useDispatch();
-  const [blogItemData, setBlogItem] = useState(null)
+  const [blogItemData, setBlogItem] = useState(null);
 
-  const getData = useCallback(async (id) => {
-    const res = await dispatch(await blogItemApi.endpoints.blogItem.initiate(id));
-    setBlogItem(res.data)
-  }, [dispatch])
+  const getData = useCallback(
+    async (id) => {
+      const res = await dispatch(
+        await blogItemApi.endpoints.blogItem.initiate(id)
+      );
+      setBlogItem(res.data);
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
     if (id) {
-      getData(id)
+      getData(id);
     }
-  }, [id, getData])
+  }, [id]);
 
   const postsBlogApi = useSelector(
-    (state) =>
-      state?.postsBlogApi?.queries?.[
-        "blog(undefined)"
-      ]?.data
+    (state) => state?.postsBlogApi?.queries?.["blog(undefined)"]?.data
   );
 
   const handleClick = (slug) => {
     router.push(`/blog/${slug}`);
   };
 
-
   useEffect(() => {
     if (blogItemData && breadcrumbElements) {
-      const newBred = [...breadcrumbElements?.slice(0, 3)]
-      newBred[2] = { name: blogItemData.breadcrumb, link: '/' };
-      setBreadcrumbElements(newBred)
+      const newBred = [...breadcrumbElements?.slice(0, 3)];
+      newBred[2] = { name: blogItemData.breadcrumb, link: "/" };
+      setBreadcrumbElements(newBred);
     }
-  }, [blogItemData, breadcrumbElements, setBreadcrumbElements])
+  }, [blogItemData]);
 
   const getRandomValuesFromArray = (arr, numberOfValues) => {
     const copyArr = [...arr];
@@ -65,43 +67,52 @@ const BlogItem = () => {
     }
 
     return copyArr.slice(0, numberOfValues);
-  }
+  };
 
-  return <div className={styles.careerPage}>
-    <SeoCard details={
-      {
-        pageDescription: blogItemData?.meta_description,
-        pageKeyWords: blogItemData?.meta_keywords,
-        pageUrl: websiteUrl + router.asPath,
-        title: blogItemData?.meta_title,
-      }
-    } />
-    <HomeMainWithImage firstImage={imageBG}>
-      <div className={styles.content}>
-        <div className={styles.bottomBlock}>
-          <h1 className={styles.h1Title}>{blogItemData?.html_h1_tag}</h1>
-          <div className={styles.blockItemImage} dangerouslySetInnerHTML={{ __html: blogItemData?.create_page_blog_detail || "" }}>
+  return (
+    <div className={styles.careerPage}>
+      <SeoCard
+        details={{
+          pageDescription: blogItemData?.meta_description,
+          pageKeyWords: blogItemData?.meta_keywords,
+          pageUrl: websiteUrl + router.asPath,
+          title: blogItemData?.meta_title,
+        }}
+      />
+      <HomeMainWithImage firstImage={imageBG}>
+        <div className={styles.content}>
+          <div className={styles.bottomBlock}>
+            <h1 className={styles.h1Title}>{blogItemData?.html_h1_tag}</h1>
+            <div
+              className={styles.blockItemImage}
+              dangerouslySetInnerHTML={{
+                __html: blogItemData?.create_page_blog_detail || "",
+              }}
+            ></div>
+            <Paragraph className={styles.title}>Explore more</Paragraph>
+            <Row className={styles.blockItems}>
+              {postsBlogApi?.data_list &&
+                getRandomValuesFromArray(postsBlogApi?.data_list, 3)
+                  ?.slice(0, 3)
+                  ?.map((project, i) => (
+                    <OurProjectCard
+                      onClick={() => handleClick(project.slug)}
+                      key={i}
+                      name={project.title}
+                      image={project?.webp_image_blog}
+                      description={project.description}
+                      more={project == "more"}
+                      component="blogs"
+                      blogItem="blogItem"
+                      blogs
+                    />
+                  ))}
+            </Row>
           </div>
-          <Paragraph className={styles.title}>Explore more</Paragraph>
-          <Row className={styles.blockItems}>
-            {postsBlogApi?.data_list && getRandomValuesFromArray(postsBlogApi?.data_list, 3)?.slice(0, 3)?.map((project, i) =>
-              <OurProjectCard
-                onClick={() => handleClick(project.slug)}
-                key={i}
-                name={project.title}
-                image={project?.webp_image_blog}
-                description={project.description}
-                more={project == "more"}
-                component="blogs"
-                blogItem="blogItem"
-                blogs
-              />
-            )}
-          </Row>
         </div>
-      </div>
-    </HomeMainWithImage>
-  </div>;
+      </HomeMainWithImage>
+    </div>
+  );
 };
 
 export default memo(BlogItem);

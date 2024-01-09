@@ -74,7 +74,7 @@ const Header = () => {
         setScrollYNew(scrollY);
       }
     }
-  }, [scrollY, scrollYNew]);
+  }, [scrollY]);
 
   useEffect(() => {
     if (headerData) {

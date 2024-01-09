@@ -49,7 +49,7 @@ const PortfolioItem = () => {
     if (id) {
       getData(id);
     }
-  }, [id, getData]);
+  }, [id]);
 
   useEffect(() => {
     if (postPortfolioApiData && breadcrumbElements) {

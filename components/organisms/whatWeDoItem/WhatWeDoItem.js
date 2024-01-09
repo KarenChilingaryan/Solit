@@ -28,7 +28,7 @@ const WhatWeDoComponent = () => {
     if (id) {
       getData(id)
     }
-  }, [id, getData])
+  }, [id, ])
 
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
@@ -40,7 +40,7 @@ const WhatWeDoComponent = () => {
       newBred[2] = { name: postWhatWeDoDetail.breadcrumb, link: '/' };
       setBreadcrumbElements(newBred)
     }
-  }, [postWhatWeDoDetail, breadcrumbElements, setBreadcrumbElements])
+  }, [postWhatWeDoDetail])
 
 
   const getRandomValuesFromArray = (arr, numberOfValues) => {

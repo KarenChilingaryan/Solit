@@ -215,7 +215,7 @@ const DiscussProject = () => {
     if (form) {
       form.setFieldValue("duration", 1);
     }
-  }, [form]);
+  }, []);
 
   const handleClear = (field) => {
     const updatedStacks = liveStacks.filter(

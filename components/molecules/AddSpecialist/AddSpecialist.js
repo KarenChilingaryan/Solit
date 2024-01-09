@@ -27,7 +27,7 @@ const AddSpecialist = ({ field, name, onChange, liveStacks }) => {
     if (!elem) {
       setCount(0)
     }
-  }, [liveStacks, field, name])
+  }, [liveStacks])
 
   return (
     <Col className={styles.mainWrapper} key={name}>

@@ -1,4 +1,11 @@
-import { memo, useCallback, useContext, useEffect, useRef, useState } from "react";
+import {
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Breadcrumb } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -81,7 +88,7 @@ const HomeMainWithImage = ({
         ...splitAndCapitalize(routes.asPath?.split("?")[0]).slice(0, 1),
       ]);
     }
-  }, [routes, setBreadcrumbElements]);
+  }, [routes]);
 
   const data = useSelector(
     (state) => state?.footerApi?.queries?.["footer(undefined)"]?.data
@@ -208,7 +215,7 @@ const HomeMainWithImage = ({
     if (data) {
       setSeoData(data);
     }
-  }, [dispatch, seoName])
+  }, []);
 
   useEffect(() => {
     if (seoName) {
@@ -289,13 +296,13 @@ const HomeMainWithImage = ({
                         alt="image"
                         style={{
                           ...(className == "portfolioItem" &&
-                            percents["percent" + i] &&
-                            percents["percent" + i] + 25 > 0 &&
-                            newpercents["newpercent" + i] < -25
+                          percents["percent" + i] &&
+                          percents["percent" + i] + 25 > 0 &&
+                          newpercents["newpercent" + i] < -25
                             ? {
-                              filter:
-                                "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
-                            }
+                                filter:
+                                  "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                              }
                             : {}),
                         }}
                       />
@@ -303,25 +310,27 @@ const HomeMainWithImage = ({
                         className={styles.text}
                         style={{
                           ...(className == "portfolioItem" &&
-                            percents["percent" + i] >= 0 &&
-                            newpercents["newpercent" + i] < 0
+                          percents["percent" + i] >= 0 &&
+                          newpercents["newpercent" + i] < 0
                             ? {
-                              backgroundImage: `linear-gradient(to right, black ${percents["percent" + i]
+                                backgroundImage: `linear-gradient(to right, black ${
+                                  percents["percent" + i]
                                 }%, white ${percents["percent" + i]}%)`,
-                              backgroundClip: "text",
-                              "-webkit-background-clip": "text",
-                              color: "transparent",
-                            }
-                            : className == "portfolioItem" &&
-                              percents["percent" + i] > 100
-                              ? {
-                                backgroundImage: `linear-gradient(to right, white ${newpercents["newpercent" + i]
-                                  }%, black ${newpercents["newpercent" + i]}%)`,
                                 backgroundClip: "text",
                                 "-webkit-background-clip": "text",
                                 color: "transparent",
                               }
-                              : {
+                            : className == "portfolioItem" &&
+                              percents["percent" + i] > 100
+                            ? {
+                                backgroundImage: `linear-gradient(to right, white ${
+                                  newpercents["newpercent" + i]
+                                }%, black ${newpercents["newpercent" + i]}%)`,
+                                backgroundClip: "text",
+                                "-webkit-background-clip": "text",
+                                color: "transparent",
+                              }
+                            : {
                                 color: "white",
                               }),
                         }}
@@ -346,23 +355,24 @@ const HomeMainWithImage = ({
               className={styles.text}
               style={{
                 ...(className == "portfolioItem" &&
-                  percents["percent4"] >= 0 &&
-                  newpercents["newpercent" + 4] < 0
+                percents["percent4"] >= 0 &&
+                newpercents["newpercent" + 4] < 0
                   ? {
-                    backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
-                    backgroundClip: "text",
-                    "-webkit-background-clip": "text",
-                    color: "transparent",
-                  }
-                  : className == "portfolioItem" && percents["percent4"] > 100
-                    ? {
-                      backgroundImage: `linear-gradient(to right, white ${newpercents["newpercent" + 4]
-                        }%, black ${newpercents["newpercent" + 4]}%)`,
+                      backgroundImage: `linear-gradient(to right, black ${percents["percent4"]}%, white ${percents["percent4"]}%)`,
                       backgroundClip: "text",
                       "-webkit-background-clip": "text",
                       color: "transparent",
                     }
-                    : {
+                  : className == "portfolioItem" && percents["percent4"] > 100
+                  ? {
+                      backgroundImage: `linear-gradient(to right, white ${
+                        newpercents["newpercent" + 4]
+                      }%, black ${newpercents["newpercent" + 4]}%)`,
+                      backgroundClip: "text",
+                      "-webkit-background-clip": "text",
+                      color: "transparent",
+                    }
+                  : {
                       color: "white",
                     }),
               }}
@@ -372,13 +382,13 @@ const HomeMainWithImage = ({
             <Image
               style={{
                 ...(className == "portfolioItem" &&
-                  percents["percent4"] &&
-                  percents["percent4"] - 125 > 0 &&
-                  newpercents["newpercent" + 4] < 125
+                percents["percent4"] &&
+                percents["percent4"] - 125 > 0 &&
+                newpercents["newpercent" + 4] < 125
                   ? {
-                    filter:
-                      "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
-                  }
+                      filter:
+                        "invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(100%)",
+                    }
                   : {}),
               }}
               src={rughtRowTop}

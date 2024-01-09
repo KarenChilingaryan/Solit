@@ -45,7 +45,7 @@ const ModalLetsTalkForm = ({
       setFile(null);
       form.resetFields();
     }
-  }, [open, form]);
+  }, [open]);
 
   const props = {
     onRemove: () => {
