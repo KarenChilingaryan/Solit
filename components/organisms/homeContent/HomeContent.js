@@ -216,10 +216,9 @@ const HomeContent = () => {
 
   return (
     <HomeMainWithImage
-      // firstImage={
-      //   "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_cIYJOYx/a37f8744bbc1ccf790c213849c8f6079.webp"
-      // }
-      firstImage={bgImage}
+      firstImage={
+        "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_D1oj6h7/1455a99c083542e58e6f71c99ff2f02d.webp"
+      }
       seoName="main"
     >
       <>

@@ -100,11 +100,11 @@ const AboutPage = () => {
               {(aboutApi && aboutApi[0].title) || ""}
             </Paragraph>
             <div
-              // dangerouslySetInnerHTML={{
-              //   __html: (aboutApi && aboutApi[0].description) || "",
-              // }}
+              dangerouslySetInnerHTML={{
+                __html: (aboutApi && aboutApi[0].description) || "",
+              }}
               className={styles.description}
-            >{(aboutApi && aboutApi[0].description) || ""} </div>
+            />
           </div>
           <Image src={aboutImage} className={styles.aboutImage} alt="image" />
           <Paragraph className={styles.title}>Quick facts</Paragraph>
