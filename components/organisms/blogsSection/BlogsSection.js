@@ -9,18 +9,6 @@ import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 
 import styles from "./BlogsSection.module.scss";
 
-export const dataProject = [
-  "How to manage product backlog with data-driven techniques",
-  "The AI development process - a comprehensive guide",
-  "Applications of NLP in business and everyday life",
-  "How to build an AI assistant for your business or yourself",
-  "Applications of NLP in healthcare: how AI is transforming the industry",
-  "The AI development process - a comprehensive guide",
-  "Creating custom AI solutions for your business: all you need to know",
-  "The best AI APIs everyone should know about",
-  "How do chatbots work?",
-];
-
 const BlogsSection = ({ data }) => {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState("All");
