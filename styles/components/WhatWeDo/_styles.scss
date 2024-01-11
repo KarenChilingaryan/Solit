@@ -288,8 +288,8 @@
             getWhatWeDoSizes(what-we-do-description-lh),
             #fff
           );
-        // }
-      }
+        }
+      // }
     }
   }
 
@@ -475,14 +475,14 @@
         }
 
         .description {
-          p {
+          // p {
             @include font-style(
               calcVWL(18),
               variables.$fw-300,
               calcVWL(22),
               #fff
             );
-          }
+          // }
         }
       }
     }
@@ -537,14 +537,14 @@
           padding: 0;
           margin: calcVWT(32) 0;
 
-          p {
+          // p {
             @include font-style(
               calcVWT(18),
               variables.$fw-400,
               calcVWT(24),
               #fff
             );
-          }
+          // }
         }
 
         .contextWrapper {
@@ -715,14 +715,14 @@
           padding: 0;
           margin: calcVWM(32) 0;
 
-          p {
+          // p {
             @include font-style(
               calcVWM(18),
               variables.$fw-400,
               calcVWM(24),
               #fff
             );
-          }
+          // }
         }
 
         .contextWrapper {

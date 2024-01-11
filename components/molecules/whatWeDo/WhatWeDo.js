@@ -314,10 +314,10 @@ const WhatWeDo = ({ data }) => {
           </Col>
           <div
             className={styles.description}
-            // dangerouslySetInnerHTML={{
-            //   __html: (data && data.data_text[0].description) || "",
-            // }}
-          >{ (data && data.data_text[0].description) || ""}  </div>
+            dangerouslySetInnerHTML={{
+              __html: (data && data.data_text[0].description) || "",
+            }}
+          />
 
           {renderTabsOrDropdown()}
         </Col>
