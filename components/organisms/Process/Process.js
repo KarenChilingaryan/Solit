@@ -315,7 +315,7 @@ const Line = () => {
         part3RefBlue.current.children[4].style.opacity = opacity
         infoTextRef3.current.children[0].style.opacity = opacity
         const realWidth = part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[4].offsetWidth
-        part3RefBlue.current.style.width = `${Math.ceil(realWidth + 0.5)}px`
+        part3RefBlue.current.style.width = `${Math.ceil(realWidth)}px`
       } else {
         part3Ref.current.children[4].children[0].style.opacity = 0;
         part3RefBlue.current.children[4].style.opacity = 0;
@@ -357,7 +357,7 @@ const Line = () => {
         part3RefBlue.current.children[2].style.opacity = opacity;
 
         const realWidth = part3Ref.current.children[5].offsetWidth + part3Ref.current.children[6].offsetWidth + part3Ref.current.children[3].offsetWidth + part3Ref.current.children[2].offsetWidth + part3Ref.current.children[4].offsetWidth
-        part3RefBlue.current.style.width = `${Math.ceil(realWidth + 0.5)}px`
+        part3RefBlue.current.style.width = `${Math.ceil(realWidth)}px`
 
         infoTextRef4.current.children[0].style.opacity = opacity;
       } else {
@@ -449,7 +449,7 @@ const Line = () => {
       } else {
         part5RefBlue.current.style.width = `${0}px`;
       }
-
+      console.log(visiblePercentage);
       if (visiblePercentage > 117) {
         const opacity = ((1) * (visiblePercentage - 117) * 50) / 100
         part5Ref.current.children[2].style.opacity = opacity
