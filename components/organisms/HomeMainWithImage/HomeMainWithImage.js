@@ -397,7 +397,7 @@ const HomeMainWithImage = ({
                   : {}),
               }}
               src={rughtRowTop}
-              className={styles.image}
+              className={`${styles.image} ${styles.imageTop}`}
               width={80}
               height={80}
               alt="image"
