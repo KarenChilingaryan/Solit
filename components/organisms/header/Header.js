@@ -66,15 +66,17 @@ const Header = () => {
   useOutsideClick(modalRef, handleOutsideClick);
 
   useEffect(() => {
-    const is = document.getElementsByClassName("ant-scrolling-effect").length;
-    if (!is) {
-      if (scrollYNew && !scrollY) {
-        setScrollYNew(scrollY);
-      } else if (!scrollYNew && scrollY) {
-        setScrollYNew(scrollY);
+    setTimeout(() => {
+      const is = document.getElementsByClassName("ant-scrolling-effect").length;
+      if (!is) {
+        if (scrollYNew && !scrollY) {
+          setScrollYNew(scrollY);
+        } else if (!scrollYNew && scrollY) {
+          setScrollYNew(scrollY);
+        }
       }
-    }
-  }, [scrollY]);
+    }, 10)
+  }, [scrollY, scrollYNew]);
 
   useEffect(() => {
     if (headerData) {
@@ -191,13 +193,13 @@ const Header = () => {
                   }}
                   className={`${styles.menuItem} ${
                     styles["menuItem" + index]
-                  } ${filteredData !== el.name ? styles.closedMenu : ""}`}
+                    } ${filteredData !== el.name ? styles.closedMenu : ""}`}
                 >
                   <div
                     className={`${styles.menuItemTitle} ${
                       !router.pathname?.search(el.fix_url) &&
                       styles.menuItemTitleActiveDrop
-                    }`}
+                      }`}
                   >
                     <span>{el.name}</span>
                     <Image src={dropdown} alt="image" />
@@ -229,7 +231,7 @@ const Header = () => {
                             alt="image"
                             style={{
                               ...(el?.fix_url === activeTab.name &&
-                              e.slug == activeTab.slug
+                                e.slug == activeTab.slug
                                 ? { display: "block" }
                                 : {}),
                             }}
@@ -240,7 +242,7 @@ const Header = () => {
                             alt="image"
                             style={{
                               ...(el?.fix_url === activeTab.name &&
-                              e.slug == activeTab.slug
+                                e.slug == activeTab.slug
                                 ? { display: "none" }
                                 : {}),
                             }}
@@ -267,19 +269,19 @@ const Header = () => {
                   }}
                   className={`${styles.menuItem} ${
                     styles["menuItem" + (index + 2)]
-                  }`}
+                    }`}
                 >
                   <Link
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
                     className={`${styles.menuItemTitle} ${
                       !router.pathname?.search(el.fix_url) &&
                       styles.menuItemTitleActive
-                    }`}
+                      }`}
                     style={{
                       borderBottom:
                         el.fix_url === router.pathname ||
-                        (el?.fix_url === "what-we-do" &&
-                          router.pathname === "/")
+                          (el?.fix_url === "what-we-do" &&
+                            router.pathname === "/")
                           ? "2px solid #ffffff"
                           : "0",
                     }}

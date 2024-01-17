@@ -338,7 +338,7 @@ const DiscussProject = () => {
       next.style.width = `100%`;
       next.style.position = `fixed`;
     }
-  }, [modalFormData, open, modalOpen]);
+  }, [modalFormData, open, modalOpen, top]);
 
   const setClose = () => {
     const next = document.getElementById("__next");
