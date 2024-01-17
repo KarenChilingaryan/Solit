@@ -273,6 +273,7 @@ const Line = () => {
       } else {
         part2Ref.current.style.height = `${0}px`;
       }
+      console.log(visiblePercentage, 'visiblePercentage');
 
       let blueHeight = 0;
       if (visiblePercentage > 57) {
@@ -453,7 +454,7 @@ const Line = () => {
       if (visiblePercentage > 117) {
         const opacity = ((1) * (visiblePercentage - 117) * 50) / 100
         part5Ref.current.children[2].style.opacity = opacity
-        part5Ref.current.style.width = `${part5Ref.current.children[0].offsetWidth + part5Ref.current.children[1].offsetWidth + part5Ref.current.children[2].offsetWidth + 0.5}px`;
+        part5Ref.current.style.width = `${part5Ref.current.children[0].offsetWidth + part5Ref.current.children[1].offsetWidth + part5Ref.current.children[2].offsetWidth - (window.innerWidth < 1440 ? 0.5 : 0)}px`;
       } else {
         part5Ref.current.children[2].style.opacity = 0;
       }
@@ -461,9 +462,9 @@ const Line = () => {
       if (visiblePercentage > 119) {
         const opacity = ((1) * (visiblePercentage - 119) * 50) / 100
         part5Ref.current.children[2].children[0].style.opacity = opacity
-        part5Ref.current.style.width = `${part5Ref.current.children[0].offsetWidth + part5Ref.current.children[1].offsetWidth + part5Ref.current.children[2].offsetWidth}px`;
+        part5Ref.current.style.width = `${part5Ref.current.children[0].offsetWidth + part5Ref.current.children[1].offsetWidth + part5Ref.current.children[2].offsetWidth - (window.innerWidth < 1440 ? 0.5 : 0)}px`;
         infoTextRef5.current.children[0].style.opacity = opacity
-        part5RefBlue.current.style.width = `${part5RefBlue.current.children[0].offsetWidth + part5RefBlue.current.children[1].offsetWidth + part5RefBlue.current.children[2].offsetWidth}px`;
+        part5RefBlue.current.style.width = `${part5RefBlue.current.children[0].offsetWidth + part5RefBlue.current.children[1].offsetWidth + part5RefBlue.current.children[2].offsetWidth - (window.innerWidth < 1440 ? 0.5 : 0)}px`;
         part5RefBlue.current.children[2].style.opacity = opacity;
       } else {
         part5Ref.current.children[2].children[0].style.opacity = 0;
@@ -486,7 +487,7 @@ const Line = () => {
         part5RefBlue.current.children[2].children[0].style.opacity = opacity;
         infoTextRef5.current.children[1].style.opacity = opacity;
         const px = width > maxWidth ? maxWidth : width;
-        part5Ref.current.style.width = `${px}px`;
+        part5Ref.current.style.width = `${px - (window.innerWidth < 1440 ? 0.5 : 0)}px`;
       } else {
         infoTextRef5.current.children[1].style.opacity = 0;
         part5RefBlue.current.children[2].children[0].style.opacity = 0;
@@ -504,7 +505,7 @@ const Line = () => {
           part5RefBlue.current.children[1].offsetWidth +
           part5RefBlue.current.children[2].offsetWidth;
         const px = width > maxWidth ? maxWidth : width;
-        part5RefBlue.current.style.width = `${px}px`;
+        part5RefBlue.current.style.width = `${px - (window.innerWidth < 1440 ? 0.5 : 0)}px`;
       }
 
       if (visiblePercentage > 131.8) {

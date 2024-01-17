@@ -64,20 +64,17 @@
           }
 
           cursor: pointer;
-          @include font-style(
-            getHeaderSizes(header-menu-item-fz),
+          @include font-style(getHeaderSizes(header-menu-item-fz),
             variables.$fw-500,
             normal,
-            variables.$main-white
-          );
+            variables.$main-white );
 
           &:hover {
             color: variables.$light-blue;
             transition: color 0.4s;
 
             img {
-              filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg)
-                brightness(90%) contrast(89%);
+              filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%);
             }
           }
         }
@@ -88,8 +85,7 @@
           transition: color 0.4s;
 
           img {
-            filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg)
-              brightness(90%) contrast(89%) !important;
+            filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%) !important;
           }
 
           &:hover {
@@ -104,6 +100,7 @@
             border-bottom: 2px solid variables.$white !important;
             transition: color 0.4s;
           }
+
           &:hover {
             span {
               color: variables.$light-blue !important;
@@ -180,11 +177,9 @@
               transition: 0.3s;
             }
 
-            @include font-style(
-              getHeaderSizes(header-menu-item-child-fz),
+            @include font-style(getHeaderSizes(header-menu-item-child-fz),
               variables.$fw-400,
-              normal
-            );
+              normal);
 
             @media (min-width: 1441px) {
               max-height: calcVW(62);
@@ -346,12 +341,10 @@
               margin-left: calcVWL(8);
             }
 
-            @include font-style(
-              calcVWL(20),
+            @include font-style(calcVWL(20),
               variables.$fw-500,
               normal,
-              variables.$main-white
-            );
+              variables.$main-white );
           }
 
           .menuItemChildMainWrapper {
@@ -522,12 +515,10 @@
               display: none;
             }
 
-            @include font-style(
-              calcVWT(20),
+            @include font-style(calcVWT(20),
               variables.$fw-400,
               normal,
-              variables.$main-white
-            );
+              variables.$main-white );
           }
         }
 
@@ -603,12 +594,10 @@
               align-items: center;
               padding: calcVWT(16);
               transition: height 1s ease, padding 1s ease;
-              @include font-style(
-                calcVWT(14),
+              @include font-style(calcVWT(14),
                 variables.$fw-700,
                 calcVWT(20),
-                variables.$main-white
-              );
+                variables.$main-white );
 
               .activeElem {
                 display: none;
@@ -680,12 +669,10 @@
           .socialIconsTitle {
             letter-spacing: calcVWT(0.5);
             width: 100%;
-            @include font-style(
-              calcVWT(18),
+            @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(21),
-              variables.$main-white
-            );
+              variables.$main-white );
           }
 
           .socialIcons {
@@ -702,6 +689,7 @@
     .headerWrapper {
       height: calcVWM(88);
       padding: calcVWM(24) calcVWM(16);
+      transition: all 0.2s;
 
       .rightButtons {
         column-gap: calcVWM(32);
@@ -755,33 +743,30 @@
               filter: none !important;
             }
 
-            @include font-style(
-              calcVWM(20),
+            @include font-style(calcVWM(20),
               variables.$fw-400,
               normal,
-              variables.$main-white
-            );
+              variables.$main-white );
 
             &:hover {
               color: variables.$light-blue !important;
+
               span {
                 color: variables.$light-blue !important;
               }
+
               img {
-                filter: invert(54%) sepia(89%) saturate(1267%)
-                  hue-rotate(166deg) brightness(90%) contrast(89%) !important;
+                filter: invert(54%) sepia(89%) saturate(1267%) hue-rotate(166deg) brightness(90%) contrast(89%) !important;
               }
             }
           }
 
           .menuItemChildMainWrapper {
             .menuItemChildWrapper {
-              @include font-style(
-                calcVWM(20),
+              @include font-style(calcVWM(20),
                 variables.$fw-400,
                 calcVWM(20),
-                variables.$main-white
-              );
+                variables.$main-white );
 
               .activeElem {
                 width: calcVWM(29);
@@ -817,12 +802,10 @@
           background: transparent;
 
           .socialIconsTitle {
-            @include font-style(
-              calcVWM(18),
+            @include font-style(calcVWM(18),
               variables.$fw-700,
               calcVWM(21),
-              variables.$main-white
-            );
+              variables.$main-white );
           }
 
           .socialIcons {
@@ -831,6 +814,10 @@
           }
         }
       }
+    }
+
+    .headerWrapperScroll {
+      transition: all 0.2s;
     }
 
     .openHeaderWrapper {
@@ -878,12 +865,10 @@
           }
 
           .menuItemTitle {
-            @include font-style(
-              calcVWM(20),
+            @include font-style(calcVWM(20),
               variables.$fw-400,
               normal,
-              variables.$main-white
-            );
+              variables.$main-white );
           }
 
           .menuItemChildMainWrapper {
@@ -895,12 +880,10 @@
               height: calcVWM(64);
               padding: calcVWM(20);
               border-radius: calcVWM(8) !important;
-              @include font-style(
-                calcVWM(14),
+              @include font-style(calcVWM(14),
                 variables.$fw-700,
                 normal,
-                variables.$main-white
-              );
+                variables.$main-white );
             }
           }
         }
