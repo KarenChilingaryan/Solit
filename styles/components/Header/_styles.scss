@@ -689,7 +689,7 @@
     .headerWrapper {
       height: calcVWM(88);
       padding: calcVWM(24) calcVWM(16);
-      transition: all 0.15s;
+      transition: all 0.25s;
 
       .rightButtons {
         column-gap: calcVWM(32);
@@ -817,7 +817,7 @@
     }
 
     .headerWrapperScroll {
-      transition: all 0.15s;
+      transition: all 0.25s;
     }
 
     .openHeaderWrapper {
