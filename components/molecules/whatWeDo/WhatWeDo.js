@@ -70,6 +70,7 @@ const WhatWeDo = ({ data }) => {
     if (win) {
       setIsSSR(true);
     }
+    return localStorage.removeItem("activeTabElement");
   }, [win]);
 
 
@@ -101,7 +102,7 @@ const WhatWeDo = ({ data }) => {
   }, [data]);
 
   const positionChangeValue = (activeTab, activeList) => {
-    if (tabsBackgroundActive?.current) {
+        if (tabsBackgroundActive?.current) {
       tabsBackgroundActive.current.style.left =
         ((Number(localStorage.getItem("activeTabElement")) || 1) - 1) *
         activeTab.clientWidth -
@@ -143,7 +144,6 @@ const WhatWeDo = ({ data }) => {
         positionChange();
       }, 2000);
     }
-    return localStorage.removeItem("activeTabElement");
   }, [tabsRef, isSSR, data, contextData, positionChange]);
 
   const renderTabsOrDropdown = () => {
@@ -228,7 +228,7 @@ const WhatWeDo = ({ data }) => {
 
         <Tabs
           onChange={(e) => {
-            localStorage.setItem("activeTabElement", e);
+                        localStorage.setItem("activeTabElement", e);
             const activeTab = tabsRef.current.querySelector(
               ".ant-tabs-tab-active"
             );
