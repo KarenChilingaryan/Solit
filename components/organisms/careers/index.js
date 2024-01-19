@@ -104,7 +104,7 @@ const Careers = () => {
         setOpenSuccess(false);
         setClose();
       }, 3000);
-    } catch {}
+    } catch { }
   };
 
   const handleResize = () => {
@@ -269,25 +269,23 @@ const Careers = () => {
           <ContactForm career={true} />
         </Row>
       </Row>
-      {!!openData && (
-        <ModalWrapper
-          classname={"modalApplyNowForm"}
-          open={!!openData}
-          width={
-            isMobile <= 1024 && isMobile > 576
+      <ModalWrapper
+        classname={"modalApplyNowForm"}
+        open={!!openData}
+        width={
+          isMobile <= 1024 && isMobile > 576
               ? "52vw"
               : isMobile > 1024 && isMobile <= 1440
               ? "37vw"
               : "28vw"
-          }
-          setOpen={(e) => {
-            setClose();
-            setOpenData(e);
-          }}
-        >
-          <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
-        </ModalWrapper>
-      )}
+        }
+        setOpen={(e) => {
+          setClose();
+          setOpenData(e);
+        }}
+      >
+        <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
+      </ModalWrapper>
     </HomeMainWithImage>
   );
 };

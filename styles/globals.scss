@@ -176,10 +176,6 @@ textarea::-webkit-scrollbar-thumb {
   }
 }
 
-.modalApplyNowForm {
-  width: calcVW(602) !important;
-}
-
 .ant-slider-tooltip {
   width: max-content !important;
   height: max-content !important;
@@ -350,10 +346,6 @@ textarea::-webkit-scrollbar-thumb {
     }
   }
 
-  .modalApplyNowForm {
-    width: calcVWL(602) !important;
-  }
-
   .ant-spin-sm {
     height: calcVWL(14);
     margin-top: calcVWL(-4) !important;
@@ -402,10 +394,6 @@ textarea::-webkit-scrollbar-thumb {
 
   .ant-select-selection-item {
     font-size: calcVWT(18) !important;
-  }
-
-  .modalApplyNowForm {
-    width: calcVWT(602) !important;
   }
 
   .ant-tooltip-inner {

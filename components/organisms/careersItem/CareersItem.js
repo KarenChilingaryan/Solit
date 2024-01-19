@@ -97,7 +97,7 @@ const CareersComponent = () => {
   }, [postsCareersJobOpeningApiData, breadcrumbElements, setBreadcrumbElements]);
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 576); // Adjust the threshold as per your requirements
+    setIsMobile(window.innerWidth); // Adjust the threshold as per your requirements
   };
 
   // Add event listener for window resize
@@ -280,25 +280,23 @@ const CareersComponent = () => {
             </Row>
           </div>
         </div>
-        {openData && (
-          <ModalWrapper
-            classname={"modalApplyNowForm"}
-            open={!!openData}
-            width={
-              isMobile <= 1024 && isMobile > 576
-                ? "52vw"
-                : isMobile > 1024 && isMobile <= 1440
-                  ? "37vw"
-                  : "28vw"
-            }
-            setOpen={(e) => {
-              setClose();
-              setOpenData(e);
-            }}
-          >
-            <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
-          </ModalWrapper>
-        )}
+        <ModalWrapper
+          classname={"modalApplyNowForm"}
+          open={!!openData}
+          width={
+            isMobile <= 1024 && isMobile > 576
+              ? "52vw"
+              : isMobile > 1024 && isMobile <= 1440
+              ? "37vw"
+              : "28vw"
+          }
+          setOpen={(e) => {
+            setClose();
+            setOpenData(e);
+          }}
+        >
+          <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
+        </ModalWrapper>
       </HomeMainWithImage>
     </div>
   );
