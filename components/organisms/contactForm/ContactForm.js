@@ -1,5 +1,6 @@
 import { memo, useEffect, useRef, useState } from "react";
-import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
+import { FormItem, Form, Checkbox } from "../../atoms";
+import Row from "../../atoms/Row";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -8,6 +9,7 @@ import Button from "../../molecules/button/Button";
 import { emailApi } from "../../../services/emailApi";
 import { useDispatch } from "react-redux";
 import FloatInput from "../../molecules/floatInput/FloatInput";
+import Col from "../../atoms/Col";
 import upload from "../../../assets/img/uploadIcon.svg";
 import contactBgImage from "../../../assets/img/contact_bg.png";
 import contactUsBgImage from "../../../assets/img/contactus-background.png";

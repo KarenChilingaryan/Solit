@@ -3,7 +3,8 @@ import dynamic from "next/dynamic";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Col, Row } from "../../atoms";
+import Col from "../../atoms/Col";
+import  Row  from "../../atoms/Row";
 import elipse from "../../../assets/img/Ellipse.png";
 import Button from "../../molecules/button/Button";
 const PortfolioCard = dynamic(() =>

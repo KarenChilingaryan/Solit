@@ -1,17 +1,19 @@
 import { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Row, Col, Paragraph } from "../../atoms";
+import { Paragraph } from "../../atoms";
+import Row from "../../atoms/Row";
 import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
 
 import styles from "./CompanyOfExperts.module.scss";
 
 const CompanyOfExperts = () => {
   const abutUsCompanyOfExpertsApi = useSelector(
-    (state) => state?.abutUsCompanyOfExpertsApi?.queries?.["about(undefined)"]?.data
+    (state) =>
+      state?.abutUsCompanyOfExpertsApi?.queries?.["about(undefined)"]?.data
   );
 
   return (
-    <Row className = {styles.aboutCompanyOfExperts}> 
+    <Row className={styles.aboutCompanyOfExperts}>
       <Paragraph className={styles.aboutCompanyTitle}>
         Company of experts
       </Paragraph>
@@ -26,7 +28,7 @@ const CompanyOfExperts = () => {
         ))}
       </div>
     </Row>
-  )
+  );
 };
 
 export default memo(CompanyOfExperts);

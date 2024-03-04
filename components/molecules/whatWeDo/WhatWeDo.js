@@ -5,7 +5,9 @@ import { useDispatch } from "react-redux";
 import { Dropdown, Menu } from "antd";
 import styled, { css } from "styled-components";
 import { postAbutUsWhatWeDoApi } from "../../../services/postAbutUsWhatWeDoApi";
-import { Button as ShowMore, Col, Row, Tabs } from "../../atoms";
+import { Button as ShowMore,  Tabs } from "../../atoms";
+import Row from "../../atoms/Row";
+import Col from "../../atoms/Col";
 import Button from "../../molecules/button/Button";
 import ourTeamBg from "../../../assets/img/our-team_bg.png";
 import devIcon from "../../../assets/img/mobile-android.svg";
@@ -18,19 +20,19 @@ import styles from "./WhatWeDo.module.scss";
 const MenuItem = styled(Menu.Item)`
   color: #ffffff;
   padding: ${10 * 0.266711333}vw ${22 * 0.266711333}vw;
-    span{
+  span {
     padding: ${22 * 0.266711333}vw ${20 * 0.266711333}vw;
     font-size: ${20 * 0.266711333}vw;
-    font-weight: 700
+    font-weight: 700;
   }
   &:hover {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(36.5px);
     color: #219fdb;
     span {
-      background: #219FDB;
+      background: #219fdb;
       border-radius: 8px;
-      color: #000000
+      color: #000000;
     }
   }
   ${(props) =>
@@ -51,7 +53,7 @@ const FullMenu = styled(Menu)`
   background: #000000;
   border-radius: 0 0 ${16 * 0.266711333}vw ${16 * 0.266711333}vw;
   overflow: hidden;
-  `;
+`;
 let isDragging = false;
 let lastX;
 const WhatWeDo = ({ data }) => {
@@ -73,7 +75,6 @@ const WhatWeDo = ({ data }) => {
     return localStorage.removeItem("activeTabElement");
   }, [win]);
 
-
   // Function to check if the screen size is below the mobile threshold
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 576);
@@ -93,7 +94,7 @@ const WhatWeDo = ({ data }) => {
       await postAbutUsWhatWeDoApi.endpoints.about.initiate(id)
     );
     setContextData(data?.data);
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (!contextData && data) {
@@ -102,10 +103,10 @@ const WhatWeDo = ({ data }) => {
   }, [data]);
 
   const positionChangeValue = (activeTab, activeList) => {
-        if (tabsBackgroundActive?.current) {
+    if (tabsBackgroundActive?.current) {
       tabsBackgroundActive.current.style.left =
         ((Number(localStorage.getItem("activeTabElement")) || 1) - 1) *
-        activeTab.clientWidth -
+          activeTab.clientWidth -
         activeList.scrollLeft +
         "px";
     }
@@ -136,7 +137,7 @@ const WhatWeDo = ({ data }) => {
         isDragging = false;
       });
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (tabsRef?.current && isSSR && data && contextData) {
@@ -144,6 +145,7 @@ const WhatWeDo = ({ data }) => {
         positionChange();
       }, 2000);
     }
+    return localStorage.removeItem("activeTabElement");
   }, [tabsRef, isSSR, data, contextData, positionChange]);
 
   const renderTabsOrDropdown = () => {
@@ -228,7 +230,7 @@ const WhatWeDo = ({ data }) => {
 
         <Tabs
           onChange={(e) => {
-                        localStorage.setItem("activeTabElement", e);
+            localStorage.setItem("activeTabElement", e);
             const activeTab = tabsRef.current.querySelector(
               ".ant-tabs-tab-active"
             );
@@ -286,10 +288,11 @@ const WhatWeDo = ({ data }) => {
                     <span>
                       <Image
                         src={!showMoreClass ? showMore : showMore}
-                        className={`${styles.btnImg} ${showMoreClass == "showMoreClass"
-                          ? styles.rotatebtnImg
-                          : ""
-                          }`}
+                        className={`${styles.btnImg} ${
+                          showMoreClass == "showMoreClass"
+                            ? styles.rotatebtnImg
+                            : ""
+                        }`}
                         alt="image"
                       />
                     </span>
@@ -314,10 +317,12 @@ const WhatWeDo = ({ data }) => {
           </Col>
           <div
             className={styles.description}
-            dangerouslySetInnerHTML={{
-              __html: (data && data.data_text[0].description) || "",
-            }}
-          />
+            // dangerouslySetInnerHTML={{
+            //   __html: (data && data.data_text[0].description) || "",
+            // }}
+          >
+            {(data && data.data_text[0].description) || ""}{" "}
+          </div>
 
           {renderTabsOrDropdown()}
         </Col>

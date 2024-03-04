@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { Col, Link, Paragraph, Row } from "../../components/atoms";
+import { Link, Paragraph } from "../../components/atoms";
+import Row from "../../components/atoms/Row";
+import Col from "../../components/atoms/Col";
 import Button from "../../components/molecules/button/Button";
 import error from "../../assets/img/404error.png";
 

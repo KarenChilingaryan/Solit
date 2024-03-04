@@ -1,9 +1,10 @@
 import { memo } from "react";
-import { Row } from "../../atoms";
+// import { Row } from "../../atoms";
+import Row from "../../atoms/Row";
 import earth from "../../../assets/img/main-bg-blogs.png";
 import { useSelector } from "react-redux";
-import { HomeMainWithImage } from "../HomeMainWithImage";
-import { HomeMain } from "../homeMain";
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
+import HomeMain from '../homeMain/HomeMain'
 import { BlogsSection } from "../blogsSection";
 
 import styles from "./Blogs.module.scss";

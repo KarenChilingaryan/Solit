@@ -1,4 +1,5 @@
-import { HomeContent } from "../components/organisms/homeContent";
+import HomeContent from "../components/organisms/homeContent/HomeContent";
+
 
 const Home = () => {
   return (

@@ -318,8 +318,7 @@ const HomeMainWithImage = ({
                             percents["percent" + i] >= 0 &&
                             newpercents["newpercent" + i] < 0
                             ? {
-                              backgroundImage: `linear-gradient(to right, black ${
-                                  percents["percent" + i]
+                              backgroundImage: `linear-gradient(to right, black ${percents["percent" + i]
                                 }%, white ${percents["percent" + i]}%)`,
                               backgroundClip: "text",
                               "-webkit-background-clip": "text",
@@ -328,8 +327,7 @@ const HomeMainWithImage = ({
                             : className == "portfolioItem" &&
                               percents["percent" + i] > 100
                               ? {
-                                backgroundImage: `linear-gradient(to right, white ${
-                                  newpercents["newpercent" + i]
+                                backgroundImage: `linear-gradient(to right, white ${newpercents["newpercent" + i]
                                   }%, black ${newpercents["newpercent" + i]}%)`,
                                 backgroundClip: "text",
                                 "-webkit-background-clip": "text",
@@ -370,8 +368,7 @@ const HomeMainWithImage = ({
                   }
                   : className == "portfolioItem" && percents["percent4"] > 100
                     ? {
-                      backgroundImage: `linear-gradient(to right, white ${
-                        newpercents["newpercent" + 4]
+                      backgroundImage: `linear-gradient(to right, white ${newpercents["newpercent" + 4]
                         }%, black ${newpercents["newpercent" + 4]}%)`,
                       backgroundClip: "text",
                       "-webkit-background-clip": "text",
@@ -397,7 +394,7 @@ const HomeMainWithImage = ({
                   : {}),
               }}
               src={rughtRowTop}
-              className={`${styles.image} ${styles.imageTop}`}
+              className={styles.image}
               width={80}
               height={80}
               alt="image"

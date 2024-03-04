@@ -8,7 +8,9 @@ const ServiceCard = dynamic(() =>
 const Button = dynamic(() => import("../../molecules/button/Button"));
 
 import { useRouter } from "next/router";
-import { Col, Row } from "../../atoms";
+// import { Row } from "../../atoms";
+import Row from "../../atoms/Row";
+import Col from "../../atoms/Col";
 // import Title from "../../molecules/title/Title";
 // import ServiceCard from "../../molecules/serviceCard/ServiceCard";
 // import Button from "../../molecules/button/Button";

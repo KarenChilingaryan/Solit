@@ -1,7 +1,10 @@
 import { memo } from "react";
 import React from "react";
+import dynamic from "next/dynamic";
 
-import BlogItem from "../../components/organisms/blogItem/BlogItem";
+const BlogItem = dynamic(() =>
+  import("../../components/organisms/blogItem/BlogItem")
+);
 
 const BlogItemPage = () => {
   return <BlogItem />;

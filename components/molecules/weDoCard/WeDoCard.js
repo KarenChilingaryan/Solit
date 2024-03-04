@@ -1,7 +1,9 @@
 import { memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Col, Row } from "../../atoms";
+// import { Row } from "../../atoms";
+import Row from "../../atoms/Row";
+import Col from "../../atoms/Col";
 import devIcon from "../../../assets/img/devIcon.svg";
 import arrow from "../../../assets/img/arrow.svg";
 
@@ -10,15 +12,13 @@ import styles from "./WeDoCard.module.scss";
 const WeDoCard = ({ item, fromDetail }) => {
   return (
     <Link
-      href={
-        item != "more" ? `/what-we-do/${item.slug}` : "/what-we-do"
-      }
+      href={item != "more" ? `/what-we-do/${item.slug}` : "/what-we-do"}
       prefetch={false}
     >
       <Col
-        className={`${styles.weDoCardWrapper} ${fromDetail && styles.fromDetail} ${
-          item === "more" && styles.moreWrapper
-        }`}
+        className={`${styles.weDoCardWrapper} ${
+          fromDetail && styles.fromDetail
+        } ${item === "more" && styles.moreWrapper}`}
       >
         {item != "more" ? (
           <>
@@ -34,11 +34,7 @@ const WeDoCard = ({ item, fromDetail }) => {
             <Col className={styles.development}>
               {item?.title || "Android Development"}
             </Col>
-            <div
-              className={styles.description}
-            >
-              {item?.description}
-            </div>
+            <div className={styles.description}>{item?.description}</div>
           </>
         ) : (
           <Row className={styles.more}>

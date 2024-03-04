@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useSelector } from "react-redux";
-import { HomeMainWithImage } from "../HomeMainWithImage";
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import imageBG from "../../../assets/img/career_bg.png"
 
 import styles from "./PrivacyPolicyItem.module.scss";

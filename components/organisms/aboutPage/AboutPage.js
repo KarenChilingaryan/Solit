@@ -2,8 +2,8 @@ import { memo, useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { HomeMain } from "../homeMain";
-import { HomeMainWithImage } from "../HomeMainWithImage";
+import HomeMain from '../homeMain/HomeMain'
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import bgImage from "../../../assets/img/main-bg-about.png";
 import aboutImage from "../../../assets/img/about-image.png";
 import { Paragraph } from "../../atoms";

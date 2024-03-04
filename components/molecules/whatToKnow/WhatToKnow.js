@@ -1,5 +1,7 @@
 import { memo } from "react";
-import { Col, Row } from "../../atoms";
+// import { Row } from "../../atoms";
+import Row from "../../atoms/Row";
+import Col from "../../atoms/Col";
 import Button from "../../molecules/button/Button";
 
 import styles from "./WhatToKnow.module.scss";

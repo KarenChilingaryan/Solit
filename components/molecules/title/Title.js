@@ -1,6 +1,7 @@
 import { memo } from "react";
 import cx from "classnames";
-import { Row, Col } from "../../atoms/index";
+import Col from "../../atoms/Col";
+import { Row } from "../../atoms/index";
 
 import styles from "./Title.module.scss";
 

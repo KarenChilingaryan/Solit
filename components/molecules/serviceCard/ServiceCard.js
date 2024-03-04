@@ -1,7 +1,9 @@
 import { memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Row, Col } from "../../atoms";
+// import { Row } from "../../atoms";
+import Row from "../../atoms/Row";
+import Col from "../../atoms/Col";
 import cardIcon from "../../../assets/img/cardImage.png";
 import arrow from "../../../assets/img/arrow.svg";
 

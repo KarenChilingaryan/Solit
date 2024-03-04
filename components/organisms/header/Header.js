@@ -2,10 +2,11 @@ import { memo, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 import _ from "lodash";
 import cx from "classnames";
-import { Col, Paragraph } from "../../atoms";
-import { useSelector } from "react-redux";
+import { Paragraph } from "../../atoms";
+import Col from "../../atoms/Col";
 import { useOutsideClick } from "./OutSideClick";
 import menuLogoWhite from "../../../assets/img/bigLogo.png";
 import hamburger from "../../../assets/img/hamburger.svg";
@@ -191,13 +192,11 @@ const Header = () => {
                       );
                     }, 100);
                   }}
-                  className={`${styles.menuItem} ${
-                    styles["menuItem" + index]
+                  className={`${styles.menuItem} ${styles["menuItem" + index]
                     } ${filteredData !== el.name ? styles.closedMenu : ""}`}
                 >
                   <div
-                    className={`${styles.menuItemTitle} ${
-                      !router.pathname?.search(el.fix_url) &&
+                    className={`${styles.menuItemTitle} ${!router.pathname?.search(el.fix_url) &&
                       styles.menuItemTitleActiveDrop
                       }`}
                   >
@@ -267,14 +266,12 @@ const Header = () => {
                       window.scrollTo({ top: 0, left: 0 });
                     }, 100);
                   }}
-                  className={`${styles.menuItem} ${
-                    styles["menuItem" + (index + 2)]
+                  className={`${styles.menuItem} ${styles["menuItem" + (index + 2)]
                     }`}
                 >
                   <Link
                     href={el?.fix_url === "what-we-do" ? "#" : `${el?.fix_url}`}
-                    className={`${styles.menuItemTitle} ${
-                      !router.pathname?.search(el.fix_url) &&
+                    className={`${styles.menuItemTitle} ${!router.pathname?.search(el.fix_url) &&
                       styles.menuItemTitleActive
                       }`}
                     style={{

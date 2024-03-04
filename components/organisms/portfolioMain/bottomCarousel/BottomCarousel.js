@@ -1,13 +1,13 @@
 import { memo } from "react";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Carousel } from "antd";
 import { useRouter } from "next/router";
 import img from "../../../../assets/img/img.png";
 import BottomCarouselItem from "./BottomCarouselItem";
-import { Col, Row } from "../../../atoms";
-const Button = dynamic(() => import('../../molecules/button/Button'));
-
+import Col from "../../../atoms/Col";
+import Row from "../../../atoms/Row";
+const Button = dynamic(() => import("../../molecules/button/Button"));
 
 import styles from "../PortfolioMain.module.scss";
 

@@ -1,6 +1,6 @@
 import { memo } from "react";
 import ContactForm from "../contactForm/ContactForm";
-import { HomeMainWithImage } from "../HomeMainWithImage";
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 
 import styles from "./ContactUses.module.scss";
 

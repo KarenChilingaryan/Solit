@@ -2,12 +2,14 @@ import { memo, useCallback, useContext, useEffect, useRef, useState } from "reac
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Col, Row, SeoCard } from "../../atoms";
-import { HomeMainWithImage } from "../HomeMainWithImage";
-import { HomeMain } from "../homeMain";
+import { SeoCard } from "../../atoms";
+import Row from "../../atoms/Row";
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
+import HomeMain from '../homeMain/HomeMain'
 import { portfolioApi } from "../../../services/portfolioApi";
 import Button from "../../molecules/button/Button";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
+import Col from "../../atoms/Col";
 import arrow from "../../../assets/img/arrow.svg";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
 import { websiteUrl } from "../../../utils/hooks/constants/pageUrl";

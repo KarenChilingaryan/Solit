@@ -1,7 +1,9 @@
 import { memo, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Button from "../button/Button";
-import { Col, Row, Paragraph } from "../../atoms";
+import { Paragraph } from "../../atoms";
+import Row from "../../atoms/Row";
+import Col from "../../atoms/Col";
 import close from "../../../assets/img/icons/closeIcon.svg";
 import closeGray from "../../../assets/img/icons/close.svg";
 import down from "../../../assets/img/down.svg";
@@ -11,7 +13,7 @@ import styles from "./StackFooter.module.scss";
 const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [toSmall, setToSmall] = useState(false);
-  const scroll = useRef(null)
+  const scroll = useRef(null);
   // Check the viewport width on component mount and resize
   useEffect(() => {
     const handleResize = () => {
@@ -35,15 +37,14 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
       const element = scroll.current;
       element.scrollTop = element.scrollHeight;
     }
+  }, [liveStacks]);
 
-  }, [liveStacks])
-
-  useEffect(()=>{
+  useEffect(() => {
     if (scroll?.current) {
       const element = scroll.current;
       element.scrollTop = toSmall ? 0 : element.scrollHeight;
     }
-  },[toSmall])
+  }, [toSmall]);
 
   return (
     <Row className={`${styles.footer} ${toSmall && styles.transition}`}>

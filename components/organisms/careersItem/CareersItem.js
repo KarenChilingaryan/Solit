@@ -4,8 +4,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import ModalWrapper from "../../molecules/Modal/Modal";
-import { HomeMainWithImage } from "../HomeMainWithImage";
-import { Paragraph, Row, SeoCard } from "../../atoms";
+import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
+import { Paragraph, SeoCard } from "../../atoms";
+import Row from "../../atoms/Row";
 import imageBG from "../../../assets/img/main-bg-career-detail.png";
 import copyImage from "../../../assets/img/icons/copy-icon-25.png";
 import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";
@@ -225,7 +226,7 @@ const CareersComponent = () => {
               <div className={styles.back}>
                 <span onClick={goBack}>
                   <Image src={back} alt="back" />{" "}
-                  <span>{`Back ${isMobile ? "" : "to all jobs"}`}</span>
+                  <span>{`Back ${isMobile < 576 ? "" : "to all jobs"}`}</span>
                 </span>
               </div>
               <div
@@ -280,24 +281,24 @@ const CareersComponent = () => {
             </Row>
           </div>
         </div>
-        <ModalWrapper
-          classname={"modalApplyNowForm"}
-          open={!!openData}
-          width={
-            isMobile <= 1024 && isMobile > 576
-              ? "52vw"
-              : isMobile > 1024 && isMobile <= 1440
-              ? "37vw"
-              : "28vw"
-          }
-          setOpen={(e) => {
-            setClose();
-            setOpenData(e);
-          }}
-        >
-          <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
-        </ModalWrapper>
-      </HomeMainWithImage>
+                  <ModalWrapper
+            classname={"modalApplyNowForm"}
+            open={!!openData}
+            width={
+              isMobile <= 1024 && isMobile > 576
+                ? "52vw"
+                : isMobile > 1024 && isMobile <= 1440
+                  ? "37vw"
+                  : "28vw"
+            }
+            setOpen={(e) => {
+              setClose();
+              setOpenData(e);
+            }}
+          >
+            <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
+          </ModalWrapper>
+              </HomeMainWithImage>
     </div>
   );
 };

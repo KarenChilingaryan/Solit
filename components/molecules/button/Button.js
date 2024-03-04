@@ -7,9 +7,11 @@ import cx from "classnames";
 // import ModalWrapper from "../../molecules/Modal/Modal";
 // import SuccessModal from "../../organisms/successModal/SuccessModal";
 // import LetsTalkModal from "../letsTalkModal/letsTalkModal";
-const ModalWrapper = dynamic(() => import('../../molecules/Modal/Modal'));
-const SuccessModal = dynamic(() => import('../../organisms/successModal/SuccessModal'));
-const LetsTalkModal = dynamic(() => import('../letsTalkModal/letsTalkModal'));
+const ModalWrapper = dynamic(() => import("../../molecules/Modal/Modal"));
+const SuccessModal = dynamic(() =>
+  import("../../organisms/successModal/SuccessModal")
+);
+const LetsTalkModal = dynamic(() => import("../letsTalkModal/letsTalkModal"));
 import { emailLetsTalkApi } from "../../../services/emailLetsTalkApi";
 
 import styles from "./Button.module.scss";

@@ -1,9 +1,11 @@
 import { memo, useEffect, useState } from "react";
-import { Col, Row, FormItem, Form, Checkbox, Select } from "../../atoms";
+import { FormItem, Form, Checkbox, Select } from "../../atoms";
+import Row from "../../atoms/Row";
 import { Upload } from "antd";
 import Image from "next/image";
 import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
+import Col from "../../atoms/Col";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 import linkedin from "../../../assets/img/icons/u_linkedin.svg";
 import u_link from "../../../assets/img/icons/u_link-alt.svg";
