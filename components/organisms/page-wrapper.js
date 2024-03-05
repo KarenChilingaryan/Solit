@@ -1,6 +1,6 @@
+import React, { memo, useCallback, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { aboutApi } from "../../services/aboutApi";
 import { abutQuickFactsApi } from "../../services/abutQuickFactsApi";
@@ -156,4 +156,4 @@ const PageWrapper = ({ children, item }) => {
   return <div>{children}</div>;
 };
 
-export default PageWrapper;
+export default memo(PageWrapper);

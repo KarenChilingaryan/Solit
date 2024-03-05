@@ -62,7 +62,5 @@ const Checkbox = styled(checkbox)`
       font-weight: ${props.fw};
     `}
 `;
-Checkbox.defaultProps = {};
 
-/** @component */
 export default Checkbox;

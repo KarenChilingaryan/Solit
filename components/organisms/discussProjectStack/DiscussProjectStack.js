@@ -84,32 +84,6 @@ const formatter = (value) => {
   }
 };
 
-const marks = {
-  1: "Value for key 1",
-  2: "Value for key 2",
-  3: "Value for key 3",
-  4: "Value for key 4",
-  5: "Value for key 5",
-  6: "Value for key 6",
-  7: "Value for key 7",
-  8: "Value for key 8",
-  9: "Value for key 9",
-  10: "Value for key 10",
-  11: "Value for key 11",
-  12: "Value for key 12",
-  13: "Value for key 13",
-  14: "Value for key 14",
-  15: "Value for key 15",
-  16: "Value for key 16",
-  17: "Value for key 17",
-  18: "Value for key 18",
-  19: "Value for key 19",
-  20: "Value for key 20",
-  21: "Value for key 21",
-  22: "Value for key 22",
-  23: "Value for key 23",
-  24: "Value for key 24",
-};
 
 const DiscussProjectStack = () => {
   const [form] = Form.useForm();

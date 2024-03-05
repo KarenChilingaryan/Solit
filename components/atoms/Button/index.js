@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { Button as button } from "antd";
+import { memo } from "react";
 
 const Button = styled(button)`
   border: none;
@@ -307,4 +308,4 @@ const Button = styled(button)`
     `}
 `;
 
-export default Button;
+export default memo(Button);

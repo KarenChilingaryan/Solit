@@ -1,8 +1,8 @@
-import React from "react";
-import  PortfolioItem  from "../../components/organisms/portfolioItem/PortfolioItem";
+import React, { memo } from "react";
+import PortfolioItem from "../../components/organisms/portfolioItem/PortfolioItem";
 
 const PortfolioItemPage = () => {
   return <PortfolioItem />;
 };
 
-export default PortfolioItemPage;
+export default memo(PortfolioItemPage);

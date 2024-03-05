@@ -62,7 +62,6 @@ const DiscussProject = () => {
   const { asPath } = router;
   const [liveStacks, setLiveStacks] = useState([]);
   const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("none");
   const [modalFormData, setModalFormData] = useState(null);
   const [openSuccess, setOpenSuccess] = useState(false);
   const [closeFooterStack, setCloseFooterStack] = useState(false);
@@ -282,9 +281,8 @@ const DiscussProject = () => {
     if (!month) {
       updatedValues["duration"] = undefined;
     }
+    
     getProjectData(updatedValues);
-
-    setSelectedValue(updatedValues.applicationStack || "none");
   };
 
   const onSubmit = async (data) => {

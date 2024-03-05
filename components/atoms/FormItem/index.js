@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { Form } from "antd";
+import { memo } from "react";
 
 const FormItem = styled(Form.Item)`
   max-width: 100%;
@@ -156,7 +157,5 @@ const FormItem = styled(Form.Item)`
     `}
 `;
 
-FormItem.defaultProps = {};
 
-/** @component */
-export default FormItem;
+export default memo(FormItem);

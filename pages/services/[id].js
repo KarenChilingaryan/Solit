@@ -1,6 +1,6 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { memo, useCallback, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { serviceItemApi } from "../../services/servicesItemApi";
 import {  SeoCard } from "../../components/atoms";
 import Col from "../../components/atoms/Col";
@@ -49,4 +49,4 @@ const ServiceItem = () => {
   );
 };
 
-export default ServiceItem;
+export default memo(ServiceItem);

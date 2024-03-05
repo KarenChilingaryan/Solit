@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { Input as input } from "antd";
+import { memo } from "react";
 
 const Input = styled(input)`
   background: #fff;
@@ -104,4 +105,4 @@ const Input = styled(input)`
   }
 `;
 
-export default Input;
+export default memo(Input);

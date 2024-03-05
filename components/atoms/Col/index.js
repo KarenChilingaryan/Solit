@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { Col as col } from "antd";
+import { memo } from "react";
 
 const Col = styled(col)`
   ${(props) =>
@@ -201,5 +202,4 @@ const Col = styled(col)`
     `}
 `;
 
-/** @component */
-export default Col;
+export default memo(Col);

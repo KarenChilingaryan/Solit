@@ -1,5 +1,7 @@
+import { memo } from "react";
 import Image from "next/image";
-import { Link, Paragraph } from "../../components/atoms";
+import Link from "next/link";
+import { Paragraph } from "../../components/atoms";
 import Row from "../../components/atoms/Row";
 import Col from "../../components/atoms/Col";
 import Button from "../../components/molecules/button/Button";
@@ -7,7 +9,7 @@ import error from "../../assets/img/404error.png";
 
 import styles from "./error.module.scss";
 
-export default function Custom404() {
+const Custom = () => {
   return (
     <Row>
       <Col className={styles.errorPage}>
@@ -25,3 +27,5 @@ export default function Custom404() {
     </Row>
   );
 }
+
+export default memo(Custom);

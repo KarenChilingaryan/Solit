@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import Icon from '@ant-design/icons';
+import { memo } from 'react';
 
 const IconWrapper = styled(Icon)`
   ${props =>
@@ -11,4 +12,4 @@ const IconWrapper = styled(Icon)`
     `}
 `;
 
-export default IconWrapper;
+export default memo(IconWrapper);

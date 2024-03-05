@@ -28,7 +28,6 @@ const Careers = () => {
   const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
   const [top, setTop] = useState(0);
-  const [isSafari, setIsSafari] = useState(0);
   const [isError, setIsError] = useState();
 
   const careersJobOpeningApi = useSelector(
@@ -146,7 +145,6 @@ const Careers = () => {
   const win = typeof window != "undefined";
   useEffect(() => {
     if (win) {
-      setIsSafari(navigator.userAgent.indexOf("Safari"));
       setChecked(true);
     }
   }, [win]);

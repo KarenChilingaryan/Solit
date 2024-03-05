@@ -7,7 +7,6 @@ import arrow from "../../../assets/img/arrow.svg";
 
 import styles from "./TeamMemberCard.module.scss";
 
-
 const TeamMember = ({ name, position, more, image, fromCareers }) => {
   const router = useRouter();
   const handleClick = (id) => {
