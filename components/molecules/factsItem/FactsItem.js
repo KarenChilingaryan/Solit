@@ -1,5 +1,4 @@
 import { memo } from "react";
-// import { Col } from "../../atoms";
 import Col from "../../atoms/Col";
 
 import styles from "./FactsItem.module.scss";

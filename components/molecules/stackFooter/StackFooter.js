@@ -14,13 +14,12 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [toSmall, setToSmall] = useState(false);
   const scroll = useRef(null);
-  // Check the viewport width on component mount and resize
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 1025);
     };
 
-    handleResize(); // Check on component mount
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {

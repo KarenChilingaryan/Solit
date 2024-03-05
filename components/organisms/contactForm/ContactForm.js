@@ -43,7 +43,6 @@ const ContactForm = ({
     setIsMobile(window.innerWidth <= 576);
   };
 
-  // Add event listener for window resize
   useEffect(() => {
     handleResize();
     window.addEventListener("resize", handleResize);

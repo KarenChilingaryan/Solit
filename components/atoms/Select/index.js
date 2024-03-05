@@ -25,16 +25,8 @@ const Select = styled(select)`
     justify-content: center;
   }
 
-  &:hover {
-    // border-color: ${colors.main_color} !important;
-    .ant-select-selector {
-      // border-color: ${colors.main_color} !important;
-    }
-  }
   &.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
     .ant-select-selector {
-    // border-color: ${colors.main_color};
-    // box-shadow: 0 0 0 2px ${colors.main_color}2e;
     border-right-width: 1px;
     outline: 0;
   }

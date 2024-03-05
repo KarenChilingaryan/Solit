@@ -75,12 +75,10 @@ const WhatWeDo = ({ data }) => {
     return localStorage.removeItem("activeTabElement");
   }, [win]);
 
-  // Function to check if the screen size is below the mobile threshold
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 576);
   };
 
-  // Add event listener for window resize
   useEffect(() => {
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -318,9 +316,6 @@ const WhatWeDo = ({ data }) => {
           </Col>
           <div
             className={styles.description}
-          // dangerouslySetInnerHTML={{
-          //   __html: (data && data.data_text[0].description) || "",
-          // }}
           >
             {(data && data.data_text[0].description) || ""}{" "}
           </div>

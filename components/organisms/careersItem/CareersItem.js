@@ -98,10 +98,9 @@ const CareersComponent = () => {
   }, [postsCareersJobOpeningApiData, breadcrumbElements, setBreadcrumbElements]);
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth); // Adjust the threshold as per your requirements
+    setIsMobile(window.innerWidth);
   };
 
-  // Add event listener for window resize
   useEffect(() => {
     handleResize();
     window.addEventListener("resize", handleResize);

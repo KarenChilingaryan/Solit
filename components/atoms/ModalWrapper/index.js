@@ -29,7 +29,6 @@ const ModalWrapperComp = styled.div`
 
 const ModalWrapper = ({ children, closeModal }) => {
   const handleWrapperClick = (event) => {
-    // Prevent closing the modal when the content is clicked
     if (event.target === event.currentTarget) {
       closeModal();
     }

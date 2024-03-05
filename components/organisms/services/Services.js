@@ -2,7 +2,6 @@ import { memo } from "react";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { useSelector } from "react-redux";
-// import { Row } from "../../atoms";
 import Row from "../../atoms/Row";
 import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
 import HomeMain from '../homeMain/HomeMain'

@@ -4,7 +4,6 @@ import { Typography } from "antd";
 const { Paragraph: paragraph } = Typography;
 const Paragraph = styled(paragraph)`
   margin-bottom: 0px !important;
-  // color: #171b1e;
   font-weight: 500;
 
   ${(props) =>

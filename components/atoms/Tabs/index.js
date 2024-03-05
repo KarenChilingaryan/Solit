@@ -183,7 +183,6 @@ const Tabs = styled(tabs)`
 
       & .ant-tabs-nav-list {
         & .ant-tabs-tab-btn {
-          // width: 285px;
           text-align: center;
           padding: 0px !important;
         }

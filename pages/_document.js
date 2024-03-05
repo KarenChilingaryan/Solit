@@ -14,7 +14,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* <title>Solit</title> */}
           <link rel="icon" href="/favicon.ico" />
           <meta name="title" content="Solit" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />

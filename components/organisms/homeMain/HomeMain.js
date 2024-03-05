@@ -11,8 +11,6 @@ const HomeMainTexts = dynamic(() =>
   import("../../molecules/homeMainTexts/HomeMainTexts")
 );
 
-// import Button from "../../molecules/button/Button";
-// import HomeMainTexts from "../../molecules/homeMainTexts/HomeMainTexts";
 import showMore from "../../../assets/img/angle-down.svg";
 
 import styles from "./HomeMain.module.scss";

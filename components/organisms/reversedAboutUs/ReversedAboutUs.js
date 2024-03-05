@@ -8,9 +8,6 @@ const TitleWithDescription = dynamic(() =>
   import("../../molecules/titleWithDescription/TitleWithDescription")
 );
 
-// import TeamMemberCard from "../../molecules/teamMemberCard/TeamMemberCard";
-// import TitleWithDescription from "../../molecules/titleWithDescription/TitleWithDescription";
-
 import styles from "./ReversedAboutUs.module.scss";
 
 const ReversedAboutUs = ({

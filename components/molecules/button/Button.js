@@ -4,9 +4,6 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Spin } from "antd";
 import cx from "classnames";
-// import ModalWrapper from "../../molecules/Modal/Modal";
-// import SuccessModal from "../../organisms/successModal/SuccessModal";
-// import LetsTalkModal from "../letsTalkModal/letsTalkModal";
 const ModalWrapper = dynamic(() => import("../../molecules/Modal/Modal"));
 const SuccessModal = dynamic(() =>
   import("../../organisms/successModal/SuccessModal")
@@ -54,14 +51,13 @@ const Button = ({
         setOpenSuccess(false);
         setClose();
       }, 3000);
-    } catch {}
+    } catch { }
   };
 
   const handleResize = () => {
-    setIsTablet(window.innerWidth); // Adjust the threshold as per your requirements
+    setIsTablet(window.innerWidth);
   };
 
-  // Add event listener for window resize
   useEffect(() => {
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -109,14 +105,14 @@ const Button = ({
         type={type}
         {...(onClick
           ? {
-              onClick: (e) => {
-                if (text == "Let’s talk") {
-                  setOpen(true);
-                } else {
-                  onClick(e);
-                }
-              },
-            }
+            onClick: (e) => {
+              if (text == "Let’s talk") {
+                setOpen(true);
+              } else {
+                onClick(e);
+              }
+            },
+          }
           : {})}
       >
         {disabled && <Spin size="small" delay={5} />}
@@ -130,8 +126,8 @@ const Button = ({
             isTablet <= 1024 && isTablet > 576
               ? "52vw"
               : isTablet > 1024 && isTablet <= 1440
-              ? "37vw"
-              : "28vw"
+                ? "37vw"
+                : "28vw"
           }
           setOpen={(e) => {
             setClose();

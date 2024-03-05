@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Button from "../../molecules/button/Button";
 import Col from "../../atoms/Col";
-// import { Row } from "../../atoms";
 import Row from "../../atoms/Row";
 import elipse from "../../../assets/img/Ellipse.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";

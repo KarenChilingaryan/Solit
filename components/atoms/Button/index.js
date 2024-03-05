@@ -171,7 +171,6 @@ const Button = styled(button)`
     css`
       background: #f6f6f6;
       color: #272727;
-      // border: none !important;
       &:hover {
         background: linear-gradient(90deg, #3787e7 -12.55%, #fb55de 116.19%);
         color: #fff;

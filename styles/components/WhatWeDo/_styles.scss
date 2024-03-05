@@ -84,12 +84,10 @@
             z-index: 11;
           }
 
-          @include font-style(
-            calcVW(18),
+          @include font-style(calcVW(18),
             variables.$fw-700,
             calcVW(20),
-            variables.$light-blue
-          );
+            variables.$light-blue );
           width: max-content;
           padding: 0;
           padding-left: calcVW(41);
@@ -108,12 +106,10 @@
 
         .contextHeader {
           .contextTitle {
-            @include font-style(
-              calcVW(24),
+            @include font-style(calcVW(24),
               variables.$fw-700,
               calcVW(28),
-              #fff
-            );
+              #fff);
           }
         }
 
@@ -129,12 +125,10 @@
           position: relative;
 
           p {
-            @include font-style(
-              calcVW(18),
+            @include font-style(calcVW(18),
               variables.$fw-400,
               calcVW(30),
-              #fff
-            );
+              #fff);
           }
         }
 
@@ -185,12 +179,10 @@
           background-color: transparent !important;
 
           :global(.ant-tabs-tab-btn) {
-            @include font-style(
-              calcVW(20) !important,
+            @include font-style(calcVW(20) !important,
               variables.$fw-700 !important,
               calcVW(24) !important,
-              #fff !important
-            );
+              #fff !important);
           }
         }
 
@@ -246,12 +238,10 @@
 
         :global(.ant-tabs-tab-active) {
           :global(.ant-tabs-tab-btn) {
-            @include font-style(
-              calcVW(20) !important,
+            @include font-style(calcVW(20) !important,
               variables.$fw-700 !important,
               calcVW(24) !important,
-              #fff !important
-            );
+              #fff !important);
           }
         }
 
@@ -270,26 +260,20 @@
       }
 
       .development {
-        @include font-style(
-          getWhatWeDoSizes(what-we-do-development-fz),
+        @include font-style(getWhatWeDoSizes(what-we-do-development-fz),
           variables.$fw-500,
           getWhatWeDoSizes(what-we-do-development-lh),
-          #fff
-        );
+          #fff);
       }
 
       .description {
         padding: 0 5px;
 
-        // p {
-          @include font-style(
-            getWhatWeDoSizes(what-we-do-description-fz),
-            variables.$fw-300,
-            getWhatWeDoSizes(what-we-do-description-lh),
-            #fff
-          );
-        }
-      // }
+        @include font-style(getWhatWeDoSizes(what-we-do-description-fz),
+          variables.$fw-300,
+          getWhatWeDoSizes(what-we-do-description-lh),
+          #fff);
+      }
     }
   }
 
@@ -326,12 +310,10 @@
         }
 
         .title {
-          @include font-style(
-            calcVWL(36),
+          @include font-style(calcVWL(36),
             variables.$fw-500,
             calcVWL(44),
-            #fff
-          );
+            #fff);
         }
 
         .contextWrapper {
@@ -340,12 +322,10 @@
           .button {
             padding-left: calcVWL(41);
             margin-bottom: calcVWL(10);
-            @include font-style(
-              calcVWL(18),
+            @include font-style(calcVWL(18),
               variables.$fw-700,
               calcVWL(20),
-              variables.$light-blue
-            );
+              variables.$light-blue );
 
             .btnImg {
               width: calcVWL(18);
@@ -357,12 +337,10 @@
             margin-top: calcVWL(10);
 
             .contextTitle {
-              @include font-style(
-                calcVWL(24),
+              @include font-style(calcVWL(24),
                 variables.$fw-700,
                 calcVWL(28),
-                #fff
-              );
+                #fff);
             }
           }
 
@@ -370,12 +348,10 @@
             height: calcVWL(400);
 
             p {
-              @include font-style(
-                calcVWL(18),
+              @include font-style(calcVWL(18),
                 variables.$fw-400,
                 calcVWL(30),
-                #fff
-              );
+                #fff);
             }
           }
 
@@ -397,12 +373,10 @@
           width: calcVWL(1280);
 
           .contextTitle {
-            @include font-style(
-              calcVWL(14),
+            @include font-style(calcVWL(14),
               variables.$fw-500,
               calcVWL(16),
-              #fff
-            );
+              #fff);
           }
 
           :global(.ant-tabs-nav-wrap) {
@@ -411,12 +385,10 @@
 
           :global(.ant-tabs-tab) {
             :global(.ant-tabs-tab-btn) {
-              @include font-style(
-                calcVWL(20) !important,
+              @include font-style(calcVWL(20) !important,
                 variables.$fw-700 !important,
                 calcVWL(24) !important,
-                #fff !important
-              );
+                #fff !important);
             }
           }
 
@@ -451,12 +423,10 @@
 
           :global(.ant-tabs-tab-active) {
             :global(.ant-tabs-tab-btn) {
-              @include font-style(
-                calcVWL(20) !important,
+              @include font-style(calcVWL(20) !important,
                 variables.$fw-700 !important,
                 calcVWL(24) !important,
-                #fff !important
-              );
+                #fff !important);
             }
           }
 
@@ -466,23 +436,17 @@
         }
 
         .development {
-          @include font-style(
-            calcVWL(24),
+          @include font-style(calcVWL(24),
             variables.$fw-500,
             calcVWL(29),
-            #fff
-          );
+            #fff);
         }
 
         .description {
-          // p {
-            @include font-style(
-              calcVWL(18),
-              variables.$fw-300,
-              calcVWL(22),
-              #fff
-            );
-          // }
+          @include font-style(calcVWL(18),
+            variables.$fw-300,
+            calcVWL(22),
+            #fff);
         }
       }
     }
@@ -525,26 +489,20 @@
         }
 
         .title {
-          @include font-style(
-            calcVWT(36),
+          @include font-style(calcVWT(36),
             variables.$fw-500,
             calcVWT(44),
-            #fff
-          );
+            #fff);
         }
 
         .description {
           padding: 0;
           margin: calcVWT(32) 0;
 
-          // p {
-            @include font-style(
-              calcVWT(18),
-              variables.$fw-400,
-              calcVWT(24),
-              #fff
-            );
-          // }
+          @include font-style(calcVWT(18),
+            variables.$fw-400,
+            calcVWT(24),
+            #fff);
         }
 
         .contextWrapper {
@@ -599,33 +557,27 @@
               display: flex;
               align-items: center;
               word-break: break-word;
-              @include font-style(
-                calcVWT(20) !important,
+              @include font-style(calcVWT(20) !important,
                 variables.$fw-700 !important,
                 calcVWT(24) !important,
-                #fff !important
-              );
+                #fff !important);
             }
           }
 
           :global(.ant-tabs-tab-active) {
             :global(.ant-tabs-tab-btn) {
-              @include font-style(
-                calcVWT(20) !important,
+              @include font-style(calcVWT(20) !important,
                 variables.$fw-700 !important,
                 calcVWT(24) !important,
-                #fff !important
-              );
+                #fff !important);
             }
           }
 
           .contextTitle {
-            @include font-style(
-              calcVWT(24) !important,
+            @include font-style(calcVWT(24) !important,
               variables.$fw-700,
               normal,
-              #fff
-            );
+              #fff);
           }
 
           .contextIcon {
@@ -635,12 +587,10 @@
 
           .context {
             p {
-              @include font-style(
-                calcVWT(18),
+              @include font-style(calcVWT(18),
                 variables.$fw-400,
                 calcVWT(24),
-                #fff
-              );
+                #fff);
             }
           }
 
@@ -651,12 +601,10 @@
           .button {
             padding-left: calcVWT(40);
             margin-bottom: calcVWT(10);
-            @include font-style(
-              calcVWT(18),
+            @include font-style(calcVWT(18),
               variables.$fw-700,
               calcVWT(22),
-              variables.$light-blue
-            );
+              variables.$light-blue );
 
             .btnImg {
               width: calcVWT(18);
@@ -703,26 +651,20 @@
         }
 
         .title {
-          @include font-style(
-            calcVWM(36),
+          @include font-style(calcVWM(36),
             variables.$fw-500,
             calcVWM(44),
-            #fff
-          );
+            #fff);
         }
 
         .description {
           padding: 0;
           margin: calcVWM(32) 0;
 
-          // p {
-            @include font-style(
-              calcVWM(18),
-              variables.$fw-400,
-              calcVWM(24),
-              #fff
-            );
-          // }
+          @include font-style(calcVWM(18),
+            variables.$fw-400,
+            calcVWM(24),
+            #fff);
         }
 
         .contextWrapper {
@@ -736,12 +678,10 @@
             margin: calcVWM(40) 0 0 calcVWM(54);
             margin-left: calcVWM(30);
             margin-top: calcVWM(30);
-            @include font-style(
-              calcVWM(18),
+            @include font-style(calcVWM(18),
               variables.$fw-700,
               calcVWM(20),
-              variables.$light-blue
-            );
+              variables.$light-blue );
 
             .btnImg {
               width: calcVWM(18);
@@ -760,12 +700,10 @@
             padding: 0 calcVWM(32) calcVWM(108) calcVWM(32);
 
             p {
-              @include font-style(
-                calcVWM(18),
+              @include font-style(calcVWM(18),
                 variables.$fw-400,
                 calcVWM(24),
-                #fff
-              );
+                #fff);
             }
           }
 
@@ -783,12 +721,10 @@
             justify-content: space-between;
             padding: calcVWM(32);
             align-items: center;
-            @include font-style(
-              calcVWM(20),
+            @include font-style(calcVWM(20),
               variables.$fw-700,
               calcVWM(24),
-              #fff
-            );
+              #fff);
 
             img {
               transition: 0.5s;

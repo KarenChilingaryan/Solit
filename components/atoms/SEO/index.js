@@ -42,16 +42,9 @@ function SeoCard({ details }) {
           images: [
             {
               url: "https://djnago-solit-static.s3.eu-north-1.amazonaws.com/media/images/converted_image_ZuJcRnF.png"
-              // url: details.pageImage
             },
           ],
         }}
-      // twitter={{
-      //   //twitterName
-      //   handle: '@twitterName',
-      //   site: 'Solit',
-      //   cardType: 'summary_large_image',
-      // }}
       />
       <meta charSet="utf-8" />
     </>

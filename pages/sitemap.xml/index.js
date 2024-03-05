@@ -1,5 +1,3 @@
-// pages/sitemap.xml.js
-
 import { create } from 'xmlbuilder2';
 
 const generateSitemapXml = (pages) => {
@@ -31,7 +29,6 @@ const getRoutes = (element, name) => {
 }
 
 export async function getServerSideProps({ res }) {
-  // Define your pages and last modification dates
   let pages = [
     { path: '/', lastmod: '2023-06-02' },
     { path: '/what-we-do', lastmod: '2023-04-30' },

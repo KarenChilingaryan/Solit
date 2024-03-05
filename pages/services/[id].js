@@ -8,8 +8,6 @@ import ServicesItem from "../../components/organisms/servicesItem/ServicesItem";
 import { BreadcrumbContext } from "../../utils/hooks/contexts/bredcrumb";
 import { websiteUrl } from "../../utils/hooks/constants/pageUrl";
 
-import styles from "./serviceItem.module.scss";
-
 const ServiceItem = () => {
   const router = useRouter()
   const { breadcrumbElements, setBreadcrumbElements } = useContext(BreadcrumbContext);
@@ -37,7 +35,7 @@ const ServiceItem = () => {
     }
   }, [postServiceApiData ])
   return (
-    <Col className={styles.portfolioItemWrapper}>
+    <Col>
       <SeoCard details={
         {
           pageDescription: postServiceApiData?.meta_description,

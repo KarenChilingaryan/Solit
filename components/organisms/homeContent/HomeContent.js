@@ -36,14 +36,6 @@ const ContactForm = dynamic(() => import("../contactForm/ContactForm"), {
   ssr: false,
 });
 
-// import ServiceCard from "../../molecules/serviceCard/ServiceCard";
-// import BorderedText from "../../molecules/borderedText/BorderedText";
-// import MapUser from "../../molecules/mapUser/MapUser";
-// import Button from "../../molecules/button/Button";
-// import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
-// import WeDoCard from "../../molecules/weDoCard/WeDoCard";
-// import AboutCompany from "../../molecules/aboutCompany/AboutCompany";
-// import ContactForm from "../contactForm/ContactForm";
 import ourProjectImage from "../../../assets/img/our-project_bg.png";
 import services from "../../../assets/img/services.svg";
 import process from "../../../assets/img/process.svg";

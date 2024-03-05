@@ -772,11 +772,6 @@ const Process = () => {
       </Paragraph>
       <div
         className={styles.description}
-      // dangerouslySetInnerHTML={{
-      //   __html: postsMainProcessTextApi
-      //     ? postsMainProcessTextApi[0].description
-      //     : "",
-      // }}
       >
         {postsMainProcessTextApi ? postsMainProcessTextApi[0].description : ""}
       </div>

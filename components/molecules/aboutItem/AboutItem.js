@@ -1,6 +1,5 @@
 import { memo } from "react";
 import Image from "next/image";
-// import { Row } from "../../atoms";
 import Col from "../../atoms/Col";
 import Row from "../../atoms/Row";
 

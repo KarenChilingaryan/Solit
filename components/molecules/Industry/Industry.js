@@ -1,5 +1,4 @@
 import { memo, useState } from "react";
-// import { Col } from "../../atoms";
 import { Checkbox } from "../../atoms";
 import Col from "../../atoms/Col";
 

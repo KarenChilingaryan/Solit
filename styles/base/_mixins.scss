@@ -1,5 +1,3 @@
-// Use flexbox
-
 @mixin flex(
   $justify-content: null,
   $align-items: null,
@@ -23,8 +21,6 @@
 @mixin center-flex {
   @include flex(center, center);
 }
-
-// Dots after text
 
 @mixin dots-after-text {
   overflow: hidden;

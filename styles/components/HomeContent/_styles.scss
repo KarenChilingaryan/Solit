@@ -82,7 +82,6 @@
         z-index: 1;
       }
       .description {
-        // margin-top: getHomeContentSizes(what-we-do-description-mt);
         @include font-style(
           getHomeContentSizes(what-we-do-description-fz),
           variables.$fw-400,
@@ -206,7 +205,6 @@
           @include font-style(calcVWL(36), variables.$fw-500, calcVWL(40));
         }
         .description {
-          // margin-top: calcVWL(24);
           @include font-style(calcVWL(18), variables.$fw-400, calcVWL(24));
           margin-bottom: calcVWL(60) !important;
 

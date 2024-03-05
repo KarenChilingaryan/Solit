@@ -4,8 +4,6 @@ const WhatWeDo = dynamic(() =>
   import("../../components/organisms/whatWeDo/WhatWeDo")
 );
 
-// import { WhatWeDo } from "../../components/organisms/whatWeDo";
-
 const WhatWeDoPage = () => {
   return <WhatWeDo />;
 };
