@@ -592,7 +592,7 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="industry">
                     <Checkbox.Group className={styles.checkboxes}>
-                      {data3.map((item) => (
+                      {data3.map((item, i) => (
                         <Col
                           key={i + item}
                           onClick={() =>
