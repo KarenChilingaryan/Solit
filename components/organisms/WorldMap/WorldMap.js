@@ -17,7 +17,7 @@ const WorldMap = ({ data, setActiveUser, activeUser }) => {
           onClick={() => {
             setActiveUser(el);
           }}
-          key={index}
+          key={index + 'WorldMap'}
           style={{
             position: "absolute",
             left: `${(el.x / DEFAULT_WIDTH) * 100 - 2}%`,

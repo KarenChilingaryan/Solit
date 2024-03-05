@@ -88,7 +88,7 @@ const AboutPage = () => {
             {abutUsImpactApi &&
               abutUsImpactApi?.data_list.map((item, i) => (
                 <AboutItem
-                  key={i}
+                  key={i + item.title}
                   title={item.title}
                   desc={item.description}
                   icon={item.original_icons_impact_we_make}
@@ -110,7 +110,7 @@ const AboutPage = () => {
           <Paragraph className={styles.title}>Quick facts</Paragraph>
           <div className={styles.quickFacts}>
             {data.map((el, i) => (
-              <FactsItem key={i} title={el.title} result={el.value} />
+              <FactsItem key={i + el.title} title={el.title} result={el.value} />
             ))}
           </div>
 

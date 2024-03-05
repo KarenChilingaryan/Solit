@@ -34,7 +34,7 @@ const BottomCarousel = ({ data }) => {
       >
         {data?.map((el) => (
           <BottomCarouselItem
-            key={el?.id}
+            key={el?.id + el?.title}
             img={el?.logo_image || img}
             title={el?.title}
             desc={el?.technologies}

@@ -722,7 +722,7 @@ const Line = () => {
       <div className={styles.snackMobile}>
         {svgSizes.map((el, index) => {
           return (
-            <div key={index} className={styles.blockMobile}>
+            <div key={index + el.title} className={styles.blockMobile}>
               <div className={styles.titleMobile}>{el.title}</div>
               <div className={styles.descriptionMobile}>{el.description}</div>
             </div>
@@ -737,7 +737,7 @@ const Line = () => {
                 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
                 23, 24, 25, 26, 27, 28, 29,
               ].map((el) => {
-                return <div key={el} className={styles.mobileLine}></div>;
+                return <div key={el + 'unique-line'} className={styles.mobileLine} />;
               })}
             </div>
             <div className={styles.shadowElements}>
@@ -746,7 +746,7 @@ const Line = () => {
                 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
               ].map((el) => {
                 return (
-                  <div key={el} className={styles.blockMobile}>
+                  <div key={el + 'unique-line1'} className={styles.blockMobile}>
                     <div className={styles.leftPart} />
                   </div>
                 );

@@ -95,8 +95,8 @@ const Footer = () => {
             {dataDefault[1].expertise.title}
           </Paragraph>
           {dataDefault[1].expertise.data.map((el, idx) => (
-            <Paragraph className={styles.text} key={idx}>
-              <Link href={el.link} key={idx} prefetch={false}>
+            <Paragraph className={styles.text} key={idx + el.name}>
+              <Link href={el.link} prefetch={false}>
                 {el.name}
               </Link>
             </Paragraph>
@@ -107,8 +107,8 @@ const Footer = () => {
             {dataDefault[2].company.title}
           </Paragraph>
           {dataDefault[2].company.data.map((el, idx) => (
-            <Paragraph className={styles.text} key={idx}>
-              <Link href={el.link} key={idx} prefetch={false}>
+            <Paragraph className={styles.text} key={idx + el?.name}>
+              <Link href={el.link} prefetch={false}>
                 {el.name}
               </Link>
             </Paragraph>
@@ -127,7 +127,7 @@ const Footer = () => {
                   : `tel:${info[el]}`
               }
               className={styles.text}
-              key={idx}
+              key={idx + info[el]}
             >
               {info[el]}
             </Link>
@@ -144,7 +144,7 @@ const Footer = () => {
               <Link
                 href={item.link}
                 target="_blank"
-                key={index}
+                key={index + item.link}
                 prefetch={false}
               >
                 <Image

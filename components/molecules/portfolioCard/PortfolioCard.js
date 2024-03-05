@@ -8,8 +8,6 @@ import react from "../../../assets/img/icons/reactjs.svg";
 
 import styles from "./PortfolioCard.module.scss";
 
-const array = [1, 2, 3, 4, 5];
-
 const PortfolioCard = ({
   name,
   more,
@@ -46,11 +44,11 @@ const PortfolioCard = ({
               <Row className={styles.name}>{name} </Row>
               <Row className={styles.stacks}>
                 {!blogs &&
-                  (images || array)?.map((item, i) => (
+                  (images)?.map((item, i) => (
                     <Image
                       src={item?.original_logo || react}
                       className={styles.icon}
-                      key={i}
+                      key={i + item?.original_logo}
                       width={100}
                       height={100}
                       alt="image"

@@ -40,7 +40,7 @@ const ReversedAboutUs = ({
       >
         {users?.map((user, index) => (
           <TeamMemberCard
-            key={index}
+            key={index + user.name}
             name={user.name}
             position={user.position}
             image={user.image}

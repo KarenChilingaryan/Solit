@@ -34,7 +34,7 @@ const ServicesItem = ({ data }) => {
           <Row className={styles.blockItems}>
             {servicesData?.data_list && getRandomValuesFromArray(servicesData?.data_list, 3)?.map((item, i) =>
               <ServiceCard
-                key={i}
+                key={i + item?.title}
                 item={item}
                 fromDetail={"fromDetail"}
               />

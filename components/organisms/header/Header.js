@@ -181,7 +181,7 @@ const Header = () => {
             {headerData &&
               dropdownElements?.map((el, index) => (
                 <div
-                  key={el.id}
+                  key={el.id + el?.name}
                   onClick={() => {
                     if (window.innerWidth > 1024) {
                       setOpenMenu(true);
@@ -210,7 +210,7 @@ const Header = () => {
                     {el?.data?.map((e, idx) => (
                       <Link
                         href={el?.fix_url + "/" + (e?.slug || "")}
-                        key={idx}
+                        key={idx + e?.slug}
                         prefetch={false}
                       >
                         <div
@@ -256,7 +256,7 @@ const Header = () => {
             <div className={styles.menuSecondItemBlock}>
               {[...data]?.map((el, index) => (
                 <div
-                  key={el?.id}
+                  key={el?.id + el.name}
                   onClick={() => {
                     setTimeout(() => {
                       setOpenMenu(true);
@@ -298,7 +298,7 @@ const Header = () => {
                   <Link
                     href={item.link}
                     target="_blank"
-                    key={index}
+                    key={index + item?.link}
                     prefetch={false}
                   >
                     <Image

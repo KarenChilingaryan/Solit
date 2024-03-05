@@ -54,7 +54,7 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
         <div className={styles.scrollElement} ref={scroll}>
           <Row className={styles.items}>
             {liveStacks?.map((item, i) => (
-              <Col key={i} className={styles.itemWrapper}>
+              <Col key={i + item.item} className={styles.itemWrapper}>
                 <Col className={styles.item}>{item.item}</Col>
                 <Image
                   src={close}

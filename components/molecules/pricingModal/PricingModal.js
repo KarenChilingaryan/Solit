@@ -48,7 +48,7 @@ const PricingModal = ({
             <Row className={styles.projType}>
               {stackNamesSecond.map((name) =>
                 filterDataByCategory(name).map((item, index) => (
-                  <Col key={index} className={styles.itemWrapper}>
+                  <Col key={index + name} className={styles.itemWrapper}>
                     <Col className={styles.item}>{item.item}</Col>
                     <Image
                       src={close}
@@ -73,7 +73,7 @@ const PricingModal = ({
               filterDataByCategory(name).map((item, index) => {
                 const split = stackNamesSecond && item?.item?.split(" - ");
                 return stackNamesSecond ? (
-                  <Col key={index} className={styles.itemWrapper}>
+                  <Col key={index + item.category} className={styles.itemWrapper}>
                     <Col className={styles.item}>{split[0]}</Col>
                     <Image
                       src={minus}
@@ -102,7 +102,7 @@ const PricingModal = ({
                     />
                   </Col>
                 ) : (
-                  <Col key={index} className={styles.itemWrapper}>
+                  <Col key={index + item.category} className={styles.itemWrapper}>
                     <Col className={styles.item}>{item.item}</Col>
                     <Image
                       src={close}

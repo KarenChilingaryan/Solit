@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { Dropdown, Menu } from "antd";
 import styled, { css } from "styled-components";
 import { postAbutUsWhatWeDoApi } from "../../../services/postAbutUsWhatWeDoApi";
-import { Button as ShowMore,  Tabs } from "../../atoms";
+import { Button as ShowMore, Tabs } from "../../atoms";
 import Row from "../../atoms/Row";
 import Col from "../../atoms/Col";
 import Button from "../../molecules/button/Button";
@@ -106,36 +106,38 @@ const WhatWeDo = ({ data }) => {
     if (tabsBackgroundActive?.current) {
       tabsBackgroundActive.current.style.left =
         ((Number(localStorage.getItem("activeTabElement")) || 1) - 1) *
-          activeTab.clientWidth -
+        activeTab.clientWidth -
         activeList.scrollLeft +
         "px";
     }
   };
 
   const positionChange = useCallback(async () => {
-    const activeTab = tabsRef.current.querySelector(".ant-tabs-tab-active");
-    const activeList = tabsRef.current.querySelector(".ant-tabs-nav-list");
-    if (activeList) {
-      if (activeTab) {
-        activeList.addEventListener("scroll", (e) => {
-          positionChangeValue(activeTab, activeList);
+    if (tabsRef.current) {
+      const activeTab = tabsRef.current.querySelector(".ant-tabs-tab-active");
+      const activeList = tabsRef.current.querySelector(".ant-tabs-nav-list");
+      if (activeList) {
+        if (activeTab) {
+          activeList.addEventListener("scroll", (e) => {
+            positionChangeValue(activeTab, activeList);
+          });
+        }
+        activeList.addEventListener("touchstart", (event) => {
+          isDragging = true;
+          lastX = event.touches[0].clientX;
+        });
+
+        activeList.addEventListener("touchmove", (event) => {
+          if (!isDragging) return;
+          const newX = event.touches[0].clientX;
+          const deltaX = newX - lastX;
+          activeList.scrollLeft -= deltaX * 2;
+          lastX = newX;
+        });
+        activeList.addEventListener("touchend", () => {
+          isDragging = false;
         });
       }
-      activeList.addEventListener("touchstart", (event) => {
-        isDragging = true;
-        lastX = event.touches[0].clientX;
-      });
-
-      activeList.addEventListener("touchmove", (event) => {
-        if (!isDragging) return;
-        const newX = event.touches[0].clientX;
-        const deltaX = newX - lastX;
-        activeList.scrollLeft -= deltaX * 2;
-        lastX = newX;
-      });
-      activeList.addEventListener("touchend", () => {
-        isDragging = false;
-      });
     }
   }, []);
 
@@ -154,7 +156,7 @@ const WhatWeDo = ({ data }) => {
         <FullMenu>
           {data?.data_list?.map((item, i) => (
             <MenuItem
-              key={i + 1}
+              key={i + item?.title}
               active={
                 data.data_list[i].about_as_what_we_do_detail == contextData?.id
               }
@@ -288,11 +290,10 @@ const WhatWeDo = ({ data }) => {
                     <span>
                       <Image
                         src={!showMoreClass ? showMore : showMore}
-                        className={`${styles.btnImg} ${
-                          showMoreClass == "showMoreClass"
+                        className={`${styles.btnImg} ${showMoreClass == "showMoreClass"
                             ? styles.rotatebtnImg
                             : ""
-                        }`}
+                          }`}
                         alt="image"
                       />
                     </span>
@@ -317,9 +318,9 @@ const WhatWeDo = ({ data }) => {
           </Col>
           <div
             className={styles.description}
-            // dangerouslySetInnerHTML={{
-            //   __html: (data && data.data_text[0].description) || "",
-            // }}
+          // dangerouslySetInnerHTML={{
+          //   __html: (data && data.data_text[0].description) || "",
+          // }}
           >
             {(data && data.data_text[0].description) || ""}{" "}
           </div>

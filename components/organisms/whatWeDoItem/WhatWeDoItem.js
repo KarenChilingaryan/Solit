@@ -77,7 +77,7 @@ const WhatWeDoComponent = () => {
             <Paragraph className={styles.title}>Explore more</Paragraph>
             <Row className={styles.blockItems}>
               {postsWhatWeDoApi?.data_list && getRandomValuesFromArray(postsWhatWeDoApi?.data_list, 3).map((el, i) =>
-                    <Link href={`/what-we-do/${el.slug}`} key={i} prefetch={false}>
+                    <Link href={`/what-we-do/${el.slug}`} key={i + el.slug} prefetch={false}>
                       <WeDoCard
                     item={el}
                     fromDetail={true}

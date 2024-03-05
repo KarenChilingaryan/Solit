@@ -246,7 +246,7 @@ const HomeContent = () => {
                 ]?.map((item, i) => (
                   <ServiceCard
                     item={item}
-                    key={i}
+                    key={i + item?.title}
                     index={i}
                     more={item == "more"}
                   />
@@ -270,7 +270,7 @@ const HomeContent = () => {
           <div className={styles.aboutContent}>
             {data.map((row, i) => (
               <ReversedAboutUs
-                key={i}
+                key={i + row.about?.title}
                 users={row.users}
                 about={row.about}
                 reversed={i % 2}
@@ -313,7 +313,7 @@ const HomeContent = () => {
               [
                 ...postsWhatWeDoApi?.data_list.slice(0, 5),
                 ...(postsWhatWeDoApi?.data_list.length <= 5 ? ["more"] : []),
-              ]?.map((project, i) => <WeDoCard key={i} item={project} />)}
+              ]?.map((project, i) => <WeDoCard key={i + project?.title} item={project} />)}
           </div>
           <div className={styles.technology}>
             <div
@@ -358,7 +358,7 @@ const HomeContent = () => {
                 ]?.map((project, i) => (
                   <OurProjectCard
                     onClick={() => handleClick(project.slug)}
-                    key={i}
+                    key={i + project?.slug}
                     name={project.title}
                     image={project.webp_image_portfolio}
                     more={project == "more"}
@@ -371,7 +371,7 @@ const HomeContent = () => {
           <div className={styles.aboutCompanyContent}>
             {abutUsCompanyOfExpertsApi?.map((about, i) => (
               <AboutCompany
-                key={i}
+                key={i + about.rating_text}
                 number={about.rating_number}
                 title={about.rating_text}
                 image={about.original_logo_company_of_expert}

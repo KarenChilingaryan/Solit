@@ -231,7 +231,7 @@ const Careers = () => {
         <div className={styles.aboutContent}>
           {data.map((row, i) => (
             <ReversedAboutUs
-              key={i}
+              key={i + row?.about?.title}
               users={row.users}
               about={row.about}
               reversed={i % 2}

@@ -46,7 +46,7 @@ const WhatWeDo = () => {
             {postsWhatWeDoApi?.data_list.map((el, i) => (
               <Link
                 href={`/what-we-do/${el.slug}`}
-                key={i}
+                key={i + el.slug}
                 className={styles.block}
                 prefetch={false}
               >

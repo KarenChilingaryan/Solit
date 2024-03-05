@@ -47,12 +47,10 @@ const HomeMainTexts = ({
             className={`${styles.firstSubtitle} ${
               ellipsis && styles.ellipsisText
             } ${styles[showMoreClassName]}`}
-            // dangerouslySetInnerHTML={{
-            //   __html:firstSubtitle || "",
-            // }}
-          >
-            {firstSubtitle}
-          </div>
+            dangerouslySetInnerHTML={{
+              __html:firstSubtitle || "",
+            }}
+          />
         )}
         <div className={styles[showMoreClassName + "Shadow"]}></div>
         {secondSubtitle && (

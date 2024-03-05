@@ -276,7 +276,7 @@ const HomeMainWithImage = ({
             separator={<Image src={rughtRow} width={24} height={24} alt="" />}
           >
             {breadcrumbElements.map((el, index) => (
-              <Breadcrumb.Item href={el.link} key={index}>
+              <Breadcrumb.Item href={el.link} key={index + el.name}>
                 {el.name}
               </Breadcrumb.Item>
             ))}
@@ -291,7 +291,7 @@ const HomeMainWithImage = ({
                 (el.name == "Telegram" ||
                   el.name == "Linkedin" ||
                   el.name == "Whatsapp") && (
-                  <Link href={el.link} target="_blank" key={i} prefetch={false}>
+                  <Link href={el.link} target="_blank" key={i + el.name} prefetch={false}>
                     <div className={styles.site}>
                       <Image
                         src={el.logo}

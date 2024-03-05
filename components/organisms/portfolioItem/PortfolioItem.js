@@ -130,7 +130,7 @@ const PortfolioItem = () => {
                   <Image
                     src={item?.original_logo}
                     className={styles.icon}
-                    key={i}
+                    key={i + item?.original_logo}
                     width={400}
                     height={200}
                     alt="image"
@@ -162,7 +162,7 @@ const PortfolioItem = () => {
                 (project, i) => (
                   <PortfolioCard
                     onClick={() => handleClick("/portfolio", project.slug)}
-                    key={i}
+                    key={i + project.title}
                     component="portfolioItem"
                     name={project.title}
                     image={project.webp_image_portfolio}

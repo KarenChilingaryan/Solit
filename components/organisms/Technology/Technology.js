@@ -91,7 +91,7 @@ const Technology = () => {
               : []),
           ]?.map((el, index) => (
             <Button
-              key={index}
+              key={index + el.filter_name_main_technology}
               text={el.filter_name_main_technology}
               lightBlueTech={filter === el.filter_number}
               grayTextBtnTech={filter !== el.filter_number}
@@ -111,7 +111,7 @@ const Technology = () => {
               filter != 0 &&
               styles.languageBlockDeActive
             }`}
-            key={i}
+            key={i + 'filter_name_main_technology'}
           >
             <Image
               src={el.technology_logos_for_main.original_logo}

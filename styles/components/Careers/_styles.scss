@@ -52,20 +52,16 @@
       margin: calcVW(320) 0 calcVW(32) 0;
 
       .secondTitle {
-        @include font-style(
-          getCareersSizes(content-second-title-fz),
+        @include font-style(getCareersSizes(content-second-title-fz),
           variables.$fw-400,
-          getCareersSizes(content-second-title-lh)
-        );
+          getCareersSizes(content-second-title-lh));
       }
 
       .secondDescription {
-        p {
-          text-align: center;
-          margin-bottom: calcVW(8);
+        text-align: center;
+        margin-bottom: calcVW(8);
 
-          @include font-style(calcVW(24), variables.$fw-400, calcVW(24), #fff);
-        }
+        @include font-style(calcVW(24), variables.$fw-400, calcVW(24), #fff);
       }
     }
 
@@ -96,6 +92,7 @@
       .worldMap {
         margin: calcVWT(138) 0;
       }
+
       .pageHeader {
         max-width: calcVWT(840);
         margin: 0 auto;
@@ -116,20 +113,17 @@
       .secondInfo {
         margin-top: calcVWT(184);
         row-gap: calcVWT(32);
+
         .secondTitle {
           @include font-style(calcVWT(36), variables.$fw-500, calcVWT(43));
         }
 
         .secondDescription {
-          p {
-            margin-bottom: calcVWT(8);
-            @include font-style(
-              calcVWT(24),
-              variables.$fw-400,
-              calcVWT(24),
-              #fff
-            );
-          }
+          margin-bottom: calcVWT(8);
+          @include font-style(calcVWT(24),
+            variables.$fw-400,
+            calcVWT(24),
+            #fff);
         }
       }
 
@@ -149,6 +143,7 @@
     @media (max-width: 576px) {
       width: calcVWM(343);
       margin-top: calcVWM(80);
+
       .pageHeader {
         display: flex;
         gap: calcVWM(32);
@@ -169,7 +164,7 @@
         }
       }
 
-      .pageHeader > div {
+      .pageHeader>div {
         margin: 0;
       }
 
@@ -182,15 +177,11 @@
 
         .secondDescription {
           margin-top: calcVWM(32);
-          p {
-            margin-bottom: calcVWM(8);
-            @include font-style(
-              calcVWM(24),
-              variables.$fw-400,
-              calcVWM(24),
-              #fff
-            );
-          }
+          margin-bottom: calcVWM(8);
+          @include font-style(calcVWM(24),
+            variables.$fw-400,
+            calcVWM(24),
+            #fff);
         }
       }
 

@@ -544,15 +544,15 @@ const DiscussProjectStack = () => {
                   <FormItem name="developers">
                     <Row className={styles.stackWrapper}>
                       {stacks.map((item, i) => (
-                        <Col key={i} className={styles.stacks}>
+                        <Col key={i + item.name} className={styles.stacks}>
                           <Paragraph className={styles.stackName}>
                             {item?.name}
                           </Paragraph>
-                          {item?.data?.map((item, i) => (
+                          {item?.data?.map((el, i) => (
                             <AddSpecialist
                               liveStacks={liveStacks}
-                              key={i}
-                              name={item}
+                              key={i + el}
+                              name={el}
                               onChange={handleFieldChange}
                               field="developers"
                             />
@@ -574,11 +574,11 @@ const DiscussProjectStack = () => {
                   <FormItem name="specialists">
                     <Row className={styles.specialistWrapper}>
                       {stacks1?.map((item, i) => (
-                        <Col key={i} className={styles.stacks}>
-                          {item?.data?.map((item) => (
+                        <Col key={i + 'unique'} className={styles.stacks}>
+                          {item?.data?.map((item, index) => (
                             <AddSpecialist
                               form={form}
-                              key={item}
+                              key={index + item}
                               name={item}
                               field="specialists"
                               onChange={handleFieldChange}
@@ -603,7 +603,7 @@ const DiscussProjectStack = () => {
                     <Checkbox.Group className={styles.checkboxes}>
                       {data1.map((item, i) => (
                         <Col
-                          key={i}
+                          key={i + item}
                           onClick={() =>
                             item != "Other" &&
                             handleButtonClick("industry", item)

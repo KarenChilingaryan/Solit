@@ -47,7 +47,7 @@ const Services = () => {
             {services?.data_list?.map((item, i) => (
               <ServiceCard
                 item={item}
-                key={i}
+                key={i + item.slug}
                 className={styles.serviceCard}
                 onClick={() => handleClick(item.slug)}
               />

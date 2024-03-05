@@ -492,7 +492,7 @@ const DiscussProject = () => {
                     <Checkbox.Group className={styles.checkboxes}>
                       {data.map((item,i) => (
                         <Col
-                          key={i}
+                          key={i + item}
                           onClick={() =>
                             handleButtonClick("applicationType", item)
                           }
@@ -527,7 +527,7 @@ const DiscussProject = () => {
                     <Checkbox.Group className={styles.checkboxes}>
                       {data1.map((item,i) => (
                         <Col
-                          key={i}
+                          key={i + item}
                           onClick={() =>
                             handleButtonClick("currentStage", item)
                           }
@@ -559,9 +559,9 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="consultation">
                     <Checkbox.Group className={styles.checkboxes}>
-                      {data2.map((item) => (
+                      {data2.map((item, i) => (
                         <Col
-                          key={item}
+                          key={i + item}
                           onClick={() =>
                             handleButtonClick("consultation", item)
                           }
@@ -594,7 +594,7 @@ const DiscussProject = () => {
                     <Checkbox.Group className={styles.checkboxes}>
                       {data3.map((item) => (
                         <Col
-                          key={item}
+                          key={i + item}
                           onClick={() =>
                             item != "Other" &&
                             handleButtonClick("industry", item)

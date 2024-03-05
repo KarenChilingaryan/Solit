@@ -31,7 +31,7 @@ const AddSpecialist = ({ field, name, onChange, liveStacks }) => {
   }, [liveStacks])
 
   return (
-    <Col className={styles.mainWrapper} key={name}>
+    <Col className={styles.mainWrapper}>
       <Col onClick={decrement}>
         <Image className={styles.minusIcon} src={minusIcon} alt={name} />
       </Col>

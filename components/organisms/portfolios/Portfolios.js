@@ -65,7 +65,7 @@ const Portfolios = ({ data }) => {
           />
           {portfolioFiltersApi?.map((el, index) => (
             <Button
-              key={index}
+              key={index + el.filter_name}
               text={el.filter_name}
               lightBlueTech={selectedCategory === el?.id}
               transparentBlue={selectedCategory !== el?.id}
@@ -91,7 +91,7 @@ const Portfolios = ({ data }) => {
           [...portfolioData]?.map((project, i) => (
             <PortfolioCard
               onClick={() => handleClick(project.slug)}
-              key={i}
+              key={i + project.slug}
               more={project == "more"}
               component="portfolio"
               name={project.title}

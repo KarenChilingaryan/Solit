@@ -32,12 +32,12 @@ const Services = ({ data }) => {
         <Title title={data?.presentation_title} whiteTitle />
       </Col>
       <Row className={styles.serviceSection} gutter={[0, "2.083336vw"]}>
-        {cardsData?.map((el) => (
+        {cardsData?.map((el, i) => (
           <ServiceCard
             icon={svg}
             title={el.title}
             desc={el.description}
-            key={el}
+            key={i + el.title}
             onClick={() => onClick(el?.slug)}
           />
         ))}

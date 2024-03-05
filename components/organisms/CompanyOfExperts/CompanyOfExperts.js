@@ -20,7 +20,7 @@ const CompanyOfExperts = () => {
       <div className={styles.aboutCompanyContent}>
         {abutUsCompanyOfExpertsApi?.map((about, i) => (
           <AboutCompany
-            key={i}
+            key={i+about?.rating_text}
             number={about.rating_number}
             title={about.rating_text}
             image={about.original_logo_company_of_expert}

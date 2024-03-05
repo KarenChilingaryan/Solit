@@ -94,7 +94,7 @@ const BlogsSection = ({ data }) => {
           blogsData?.map((project, i) => (
             <OurProjectCard
               onClick={() => handleClick(project.slug)}
-              key={i}
+              key={i + project.slug}
               name={project.title}
               image={project?.webp_image_blog}
               description={project.description}

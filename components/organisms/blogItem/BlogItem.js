@@ -95,7 +95,7 @@ const BlogItem = () => {
                   ?.map((project, i) => (
                     <OurProjectCard
                       onClick={() => handleClick(project.slug)}
-                      key={i}
+                      key={i + project.title}
                       name={project.title}
                       image={project?.webp_image_blog}
                       description={project.description}
