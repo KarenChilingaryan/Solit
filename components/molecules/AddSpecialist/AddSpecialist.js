@@ -1,7 +1,6 @@
 import { memo, useEffect, useState } from "react";
 import Image from "next/image";
-import { Input } from "../../atoms";
-import Col from "../../atoms/Col";
+import { Col, Input } from "../../atoms";
 import minusIcon from "../../../assets/img/icons/minus.svg";
 import plusIcon from "../../../assets/img/icons/plus.svg";
 

@@ -1,6 +1,5 @@
 import { memo, useEffect } from "react";
-import { Paragraph } from "../../atoms";
-import Col from "../../atoms/Col";
+import { Col, Paragraph } from "../../atoms";
 
 import styles from "./HomeMainTexts.module.scss";
 
@@ -46,11 +45,11 @@ const HomeMainTexts = ({
             id="text1"
             className={`${styles.firstSubtitle} ${
               ellipsis && styles.ellipsisText
-            } ${styles[showMoreClassName]}`}
+            } ${styles[showMoreClassName]}`} 
             dangerouslySetInnerHTML={{
               __html:firstSubtitle || "",
             }}
-          />
+         />
         )}
         <div className={styles[showMoreClassName + "Shadow"]}></div>
         {secondSubtitle && (

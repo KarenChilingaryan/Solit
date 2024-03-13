@@ -1,8 +1,7 @@
 import { memo, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import Col from "../../atoms/Col";
-import Row from "../../atoms/Row";
+import { Col, Row } from "../../atoms";
 import arrow from "../../../assets/img/arrow.svg";
 
 import styles from "./TeamMemberCard.module.scss";

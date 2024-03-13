@@ -1,15 +1,10 @@
 import { memo } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-const Title = dynamic(() => import("../../molecules/title/Title"));
-const ServiceCard = dynamic(() =>
-  import("../../molecules/serviceCard/ServiceCard")
-);
-const Button = dynamic(() => import("../../molecules/button/Button"));
-
 import { useRouter } from "next/router";
-import Row from "../../atoms/Row";
-import Col from "../../atoms/Col";
+import { Col, Row } from "../../atoms";
+import Title from "../../molecules/title/Title";
+import ServiceCard from "../../molecules/serviceCard/ServiceCard";
+import Button from "../../molecules/button/Button";
 import svg from "../../../assets/img/Web.svg";
 
 import styles from "./Services.module.scss";

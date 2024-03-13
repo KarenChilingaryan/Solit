@@ -3,15 +3,13 @@ import { useRouter } from "next/router";
 import { Slider } from "antd";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import HomeMain from '../homeMain/HomeMain'
-import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
+import { HomeMain } from "../homeMain";
+import { HomeMainWithImage } from "../HomeMainWithImage";
 import bgImage from "../../../assets/img/main-bg-discuss.png";
-import { Paragraph, Checkbox, FormItem, Form } from "../../atoms";
-import Row from "../../atoms/Row";
+import { Col, Paragraph, Row, Checkbox, FormItem, Form } from "../../atoms";
 import Button from "../../molecules/button/Button";
 import Industry from "../../molecules/Industry/Industry";
 import StackFooter from "../../molecules/stackFooter/StackFooter";
-import Col from "../../atoms/Col";
 import PricingModal from "../../molecules/pricingModal/PricingModal";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import { emailDiscussYourProject1Api } from "../../../services/emailDiscussYourProject1Api";
@@ -222,6 +220,7 @@ const DiscussProject = () => {
     const updatedStacks = liveStacks.filter(
       (stack) => stack.category !== field
     );
+    console.log(liveStacks);
     setLiveStacks(updatedStacks);
 
     const updatedValues = { ...form.getFieldsValue() };
@@ -488,7 +487,7 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="applicationType">
                     <Checkbox.Group className={styles.checkboxes}>
-                      {data.map((item,i) => (
+                      {data.map((item, i) => (
                         <Col
                           key={i + item}
                           onClick={() =>
@@ -523,7 +522,7 @@ const DiscussProject = () => {
                   </Paragraph>
                   <FormItem name="currentStage">
                     <Checkbox.Group className={styles.checkboxes}>
-                      {data1.map((item,i) => (
+                      {data1.map((item, i) => (
                         <Col
                           key={i + item}
                           onClick={() =>

@@ -1,11 +1,9 @@
 import { memo, useEffect, useState } from "react";
-import { FormItem, Form, Checkbox } from "../../atoms";
-import Row from "../../atoms/Row";
+import { Col, Row, FormItem, Form, Checkbox } from "../../atoms";
 import Image from "next/image";
 import { Upload } from "antd";
 import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
-import Col from "../../atoms/Col";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 import close from "../../../assets/img/icons/close.svg";
 
@@ -60,6 +58,12 @@ const ModalLetsTalkForm = ({
     fileList: file ? [file] : [],
   };
 
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const handlePhoneNumberChange = (value) => {
+    setPhoneNumber(value);
+  };
+
   return (
     <Col className={`${styles.modalFormWrapper}`} style={style}>
       <Row className={styles.textWrapper}>
@@ -87,6 +91,9 @@ const ModalLetsTalkForm = ({
           submitForm(values, data);
         }}
         className={styles.form}
+        onValuesChange={(changedValues, allValues) =>
+          console.log(changedValues, allValues, "kkkkkkkkkk")
+        }
       >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem

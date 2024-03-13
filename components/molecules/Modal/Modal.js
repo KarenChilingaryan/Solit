@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { memo, useEffect, useState } from "react";
-import { Modal } from "antd";
+import { Col, Paragraph, Row } from "../../atoms";
+import { Button, Modal, Animate } from "antd";
 import logo from "../../../assets/img/Logo.svg";
 import close from "../../../assets/img/icons/close.svg";
 

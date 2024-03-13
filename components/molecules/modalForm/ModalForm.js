@@ -1,11 +1,9 @@
 import { memo, useState } from "react";
-import { FormItem, Form, Checkbox, Select } from "../../atoms";
-import Row from "../../atoms/Row";
+import { Col, Row, FormItem, Form, Checkbox, Select } from "../../atoms";
 import { Upload } from "antd";
 import Image from "next/image";
 import Button from "../button/Button";
 import FloatInput from "../floatInput/FloatInput";
-import Col from "../../atoms/Col";
 import upload from "../../../assets/img/icons/uploadBlack.svg";
 import arrow from "../../../assets/img/icons/selectIcon.svg";
 import close from "../../../assets/img/icons/close.svg";
@@ -68,7 +66,9 @@ const ModalForm = ({
         }}
         className={styles.form}
         form={form}
-       
+        onValuesChange={(changedValues, allValues) =>
+          console.log(changedValues, allValues, "8888888888888")
+        }
       >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem

@@ -1,14 +1,11 @@
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
-const Portfolios = dynamic(() => import("../portfolios/Portfolios"));
-const WhatToKnow = dynamic(() =>
-  import("../../molecules/whatToKnow/WhatToKnow")
-);
-import Row from "../../atoms/Row";
-import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
-import HomeMain from '../homeMain/HomeMain'
+import { Row } from "../../atoms";
+import Portfolios from "../portfolios/Portfolios";
+import { HomeMainWithImage } from "../HomeMainWithImage";
+import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
+import { HomeMain } from "../homeMain";
 import bgImage from "../../../assets/img/main-bg-portfolio.png";
 
 import styles from "./PortfolioMain.module.scss";

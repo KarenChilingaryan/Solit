@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useRouter } from "next/router";
 import { Space, Table } from "antd";
-import Row from "../../atoms/Row";
+import { Row } from "../../atoms";
 
 import styles from "./JobsTable.module.scss";
 

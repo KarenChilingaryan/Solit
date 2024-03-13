@@ -3,8 +3,7 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Button from "../../molecules/button/Button";
-import Col from "../../atoms/Col";
-import Row from "../../atoms/Row";
+import { Col, Row } from "../../atoms";
 import elipse from "../../../assets/img/Ellipse.png";
 import OurProjectCard from "../../molecules/ourProjectCard/OurProjectCard";
 

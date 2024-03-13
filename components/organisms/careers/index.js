@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from "react";
-import Row from "../../atoms/Row";
+import { Col, Row } from "../../atoms";
 import Image from "next/image";
-import HomeMainWithImage from '../HomeMainWithImage/HomeMainWithImage'
+import { HomeMainWithImage } from "../HomeMainWithImage";
 import WhatToKnow from "../../molecules/whatToKnow/WhatToKnow";
 import JobsTable from "../../molecules/jobsTable/JobsTable";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +13,6 @@ import user4 from "../../../assets/img/revers4.png";
 import worldMap from "../../../assets/img/career-world-pam.png";
 import { ReversedAboutUs } from "../reversedAboutUs";
 import ModalWrapper from "../../molecules/Modal/Modal";
-import Col from "../../atoms/Col";
 import { emailApplyForJobPositionApi } from "../../../services/emailApplyForJobPositionApi";
 import SuccessModal from "../successModal/SuccessModal";
 import ModalApplyNowForm from "../../molecules/ApplyNow/ApplyNowModal";
@@ -104,7 +103,7 @@ const Careers = () => {
         setOpenSuccess(false);
         setClose();
       }, 3000);
-    } catch {}
+    } catch { }
   };
 
   const handleResize = () => {
@@ -268,24 +267,24 @@ const Careers = () => {
           <ContactForm career={true} />
         </Row>
       </Row>
-              <ModalWrapper
-          classname={"modalApplyNowForm"}
-          open={!!openData}
-          width={
-            isMobile <= 1024 && isMobile > 576
+      <ModalWrapper
+        classname={"modalApplyNowForm"}
+        open={!!openData}
+        width={
+          isMobile <= 1024 && isMobile > 576
               ? "52vw"
               : isMobile > 1024 && isMobile <= 1440
               ? "37vw"
               : "28vw"
-          }
-          setOpen={(e) => {
-            setClose();
-            setOpenData(e);
-          }}
-        >
-          <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
-        </ModalWrapper>
-          </HomeMainWithImage>
+        }
+        setOpen={(e) => {
+          setClose();
+          setOpenData(e);
+        }}
+      >
+        <ModalApplyNowForm data={openData} onSubmit={onSubmit} />
+      </ModalWrapper>
+    </HomeMainWithImage>
   );
 };
 

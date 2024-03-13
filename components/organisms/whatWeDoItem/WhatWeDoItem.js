@@ -2,10 +2,9 @@ import { memo, useCallback, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import HomeMainWithImage from "../HomeMainWithImage/HomeMainWithImage";
-import { Paragraph, SeoCard } from "../../atoms";
-import Row from "../../atoms/Row";
-import imageBG from "../../../assets/img/career_bg.png";
+import { HomeMainWithImage } from "../HomeMainWithImage";
+import { Paragraph, Row, SeoCard } from "../../atoms";
+import imageBG from "../../../assets/img/career_bg.png"
 import { postsWhatWeDoDetailApi } from "../../../services/postsWhatWeDoDetailApi";
 import WeDoCard from "../../molecules/weDoCard/WeDoCard";
 import { BreadcrumbContext } from "../../../utils/hooks/contexts/bredcrumb";
@@ -29,7 +28,7 @@ const WhatWeDoComponent = () => {
     if (id) {
       getData(id)
     }
-  }, [id, ])
+  }, [id,])
 
   const postsWhatWeDoApi = useSelector(
     (state) => state?.postsWhatWeDoApi?.queries?.["posts(undefined)"]?.data
@@ -61,11 +60,11 @@ const WhatWeDoComponent = () => {
       <SeoCard
         details={
           {
-          pageDescription: postWhatWeDoDetail?.meta_description,
-          pageKeyWords: postWhatWeDoDetail?.meta_keywords,
-          pageUrl: websiteUrl + router.asPath,
-          title: postWhatWeDoDetail?.meta_title,
-        }
+            pageDescription: postWhatWeDoDetail?.meta_description,
+            pageKeyWords: postWhatWeDoDetail?.meta_keywords,
+            pageUrl: websiteUrl + router.asPath,
+            title: postWhatWeDoDetail?.meta_title,
+          }
         }
       />
       <HomeMainWithImage firstImage={imageBG}>
@@ -77,13 +76,13 @@ const WhatWeDoComponent = () => {
             <Paragraph className={styles.title}>Explore more</Paragraph>
             <Row className={styles.blockItems}>
               {postsWhatWeDoApi?.data_list && getRandomValuesFromArray(postsWhatWeDoApi?.data_list, 3).map((el, i) =>
-                    <Link href={`/what-we-do/${el.slug}`} key={i + el.slug} prefetch={false}>
-                      <WeDoCard
+                <Link href={`/what-we-do/${el.slug}`} key={i + el.slug} prefetch={false}>
+                  <WeDoCard
                     item={el}
                     fromDetail={true}
                   />
-                    </Link>
-                                  )}
+                </Link>
+              )}
             </Row>
           </div>
         </div>

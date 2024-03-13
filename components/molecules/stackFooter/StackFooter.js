@@ -1,9 +1,7 @@
 import { memo, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Button from "../button/Button";
-import { Paragraph } from "../../atoms";
-import Row from "../../atoms/Row";
-import Col from "../../atoms/Col";
+import { Col, Row, Paragraph } from "../../atoms";
 import close from "../../../assets/img/icons/closeIcon.svg";
 import closeGray from "../../../assets/img/icons/close.svg";
 import down from "../../../assets/img/down.svg";
@@ -36,14 +34,15 @@ const StackFooter = ({ liveStacks = [], handleDelete, onClick, onClose }) => {
       const element = scroll.current;
       element.scrollTop = element.scrollHeight;
     }
-  }, [liveStacks]);
 
-  useEffect(() => {
+  }, [liveStacks])
+
+  useEffect(()=>{
     if (scroll?.current) {
       const element = scroll.current;
       element.scrollTop = toSmall ? 0 : element.scrollHeight;
     }
-  }, [toSmall]);
+  },[toSmall])
 
   return (
     <Row className={`${styles.footer} ${toSmall && styles.transition}`}>

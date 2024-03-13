@@ -1,6 +1,5 @@
 import { memo } from "react";
-import Col from "../../atoms/Col";
-
+import { Col } from "../../atoms";
 import styles from "./FactsItem.module.scss";
 
 const FactsItem = ({ title, result }) => {

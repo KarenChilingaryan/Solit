@@ -1,5 +1,5 @@
 import { memo } from "react";
-import  ContactUses  from "../../components/organisms/contactUses/ContactUses";
+import { ContactUses } from "../../components/organisms/contactUses";
 
 const ContactUs = () => {
   return <div><ContactUses/></div>;

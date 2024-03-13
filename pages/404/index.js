@@ -1,9 +1,7 @@
 import { memo } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { Paragraph } from "../../components/atoms";
-import Row from "../../components/atoms/Row";
-import Col from "../../components/atoms/Col";
+import Image from "next/image";
+import { Col, Paragraph, Row } from "../../components/atoms";
 import Button from "../../components/molecules/button/Button";
 import error from "../../assets/img/404error.png";
 

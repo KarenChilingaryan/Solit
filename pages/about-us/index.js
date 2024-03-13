@@ -1,6 +1,5 @@
-import dynamic from "next/dynamic";
 import { memo } from "react";
-const AboutPage = dynamic(() => import("../../components/organisms/aboutPage/AboutPage"));
+import { AboutPage } from "../../components/organisms/aboutPage";
 
 const AboutUs = () => {
   return <AboutPage />;

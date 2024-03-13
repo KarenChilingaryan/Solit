@@ -1,10 +1,8 @@
 import { memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Col from "../../atoms/Col";
 import { useSelector } from "react-redux";
-import { Paragraph } from "../../atoms";
-import Row from "../../atoms/Row";
+import { Col, Row, Paragraph } from "../../atoms";
 import logoFooter from "../../../assets/img/bigLogo.png";
 
 import styles from "./Footer.module.scss";
@@ -78,10 +76,10 @@ const Footer = () => {
   const info =
     footerApi && footerApi.office
       ? {
-          address: footerApi.office.address,
-          mail: footerApi.office.mail,
-          number: footerApi.office.number,
-        }
+        address: footerApi.office.address,
+        mail: footerApi.office.mail,
+        number: footerApi.office.number,
+      }
       : {};
 
   return (
@@ -116,22 +114,17 @@ const Footer = () => {
         </Col>
         <Col className={styles.companyInfoWraper}>
           <Paragraph className={styles.textTitle}>Office</Paragraph>
-          {Object.keys(info).map((el, idx) => (
-            <Link
+          {
+            Object.keys(info).map((el, idx) => <Link
               target="_blank"
-              href={
-                el == "address"
-                  ? footerApi?.office?.address_link
-                  : el === "mail"
-                  ? `mailto:${info[el]}?`
-                  : `tel:${info[el]}`
-              }
+              href={el == "address" ? footerApi?.office?.address_link : el === "mail" ? `mailto:${info[el]}?` : `tel:${info[el]}`}
               className={styles.text}
               key={idx + info[el]}
             >
               {info[el]}
             </Link>
-          ))}
+            )
+          }
         </Col>
         <Col className={styles.socialIconsWrapper}>
           <Paragraph

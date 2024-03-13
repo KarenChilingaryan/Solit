@@ -3,12 +3,12 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { Paragraph } from "../../atoms";
-import HomeMainWithImage from "../HomeMainWithImage/HomeMainWithImage";
-import HomeMain from "../homeMain/HomeMain";
+import { Col, Paragraph } from "../../atoms";
+import { HomeMainWithImage } from "../HomeMainWithImage";
+import { HomeMain } from "../homeMain";
 import { ReversedAboutUs } from "../reversedAboutUs";
-import Technology from "../Technology/Technology";
-import Process from "../Process/Process";
+import { Technology } from "../Technology";
+import { Process } from "../Process";
 import { WorldMap } from "../WorldMap";
 
 const ServiceCard = dynamic(() =>
@@ -45,7 +45,7 @@ import ourProjects from "../../../assets/img/our_projects.svg";
 import testimonials from "../../../assets/img/testimonials.svg";
 import contacts from "../../../assets/img/contacts.svg";
 import technology from "../../../assets/img/technology.svg";
-import Col from "../../atoms/Col";
+import bgImage from "../../../assets/img/main_bg-test.png";
 
 import styles from "./HomeContent.module.scss";
 
@@ -211,6 +211,9 @@ const HomeContent = () => {
       firstImage={
         "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_D1oj6h7/1455a99c083542e58e6f71c99ff2f02d.webp"
       }
+      // firstImage={
+      //   "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_cIYJOYx/a37f8744bbc1ccf790c213849c8f6079.webp"
+      // }
       seoName="main"
     >
       <>
