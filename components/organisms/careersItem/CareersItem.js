@@ -2,7 +2,6 @@ import { memo, useEffect, useContext, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import ModalWrapper from "../../molecules/Modal/Modal";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import { Paragraph, Row, SeoCard } from "../../atoms";
@@ -22,7 +21,6 @@ import {
   TelegramShareButton,
   WhatsappShareButton,
 } from "react-share";
-import { Modal, Tooltip } from "antd";
 import Button from "../../molecules/button/Button";
 
 import styles from "./careersItem.module.scss";
@@ -122,13 +120,13 @@ const CareersComponent = () => {
 
   useEffect(() => {
     const next = document.getElementById("__next");
-    if (!!openData) {
+    if (!!openData || openShareModal) {
       setTop(window.scrollY);
       next.style.top = `-${window.scrollY}px`;
       next.style.width = `100%`;
       next.style.position = `fixed`;
     }
-  }, [openData]);
+  }, [openData, openShareModal]);
 
   const setClose = () => {
     const next = document.getElementById("__next");
@@ -139,11 +137,15 @@ const CareersComponent = () => {
 
   return (
     <div className={styles.careerPage}>
-      <Modal
+      <ModalWrapper
         open={openShareModal}
-        onCancel={() => setOpenShareModal(false)}
+        onCancel={() => { setClose(); setOpenShareModal(false) }}
         footer={<></>}
-        className="share-careers"
+        classname="share-careers"
+        setOpen={(e) => {
+          setClose();
+          setOpenShareModal(e);
+        }}
       >
         {socialData && (
           <div className={styles.shareButtons}>
@@ -191,7 +193,7 @@ const CareersComponent = () => {
             </div>
           </div>
         )}
-      </Modal>
+      </ModalWrapper>
       <SeoCard
         details={{
           pageDescription: postsCareersJobOpeningApiData?.meta_description,
@@ -286,8 +288,8 @@ const CareersComponent = () => {
             isMobile <= 1024 && isMobile > 576
               ? "52vw"
               : isMobile > 1024 && isMobile <= 1440
-              ? "37vw"
-              : "28vw"
+                ? "37vw"
+                : "28vw"
           }
           setOpen={(e) => {
             setClose();

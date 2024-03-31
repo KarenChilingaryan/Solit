@@ -185,7 +185,7 @@ const Careers = () => {
             smoothScroll(doc, 1000);
             localStorage.removeItem("fromJob");
           }
-        }, 500);
+        }, 100);
       }
     }
   }, [checked, postsTextCareersColourfulApi, careersJobOpeningApi]);
@@ -272,8 +272,8 @@ const Careers = () => {
         open={!!openData}
         width={
           isMobile <= 1024 && isMobile > 576
-              ? "52vw"
-              : isMobile > 1024 && isMobile <= 1440
+            ? "52vw"
+            : isMobile > 1024 && isMobile <= 1440
               ? "37vw"
               : "28vw"
         }

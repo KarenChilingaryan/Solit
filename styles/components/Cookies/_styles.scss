@@ -50,6 +50,7 @@
       img {
         width: calcVW(24);
         height: calcVW(24);
+        cursor: pointer;
       }
 
       :global(#rcc-decline-button) {

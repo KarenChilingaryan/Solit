@@ -49,10 +49,9 @@ const ModalWrapper = ({
       onCancel={() => setOpen(false)}
       open={visible}
       afterClose={afterClose}
-      title={<Image src={logo} className={styles.logo} alt="image" />}
-      className={`${styles.modal} ${styles[animationClass]} ${classname} ${
-        style && style
-      }`}
+      title={classname == 'share-careers' ? null : <Image src={logo} className={styles.logo} alt="image" />}
+      className={`${styles.modal} ${styles[animationClass]} ${classname} ${style && style
+        }`}
       wrapClassName={styles.lll}
       footer={false}
       transitionName=""
