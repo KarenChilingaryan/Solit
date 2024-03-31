@@ -8,6 +8,7 @@ import Header from "../components/organisms/header/Header";
 import Footer from "../components/organisms/footer/Footer";
 import { Provider } from "react-redux";
 import PageWrapper from "../components/organisms/page-wrapper";
+import { Cookies } from "../components/organisms/cookies";
 import store from "../services/store";
 import { BreadcrumbProvider } from "../utils/hooks/contexts/bredcrumb";
 
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }) {
         </BreadcrumbProvider>
       </PageWrapper>
       <Footer />
+      <Cookies />
     </Provider>
   );
 }

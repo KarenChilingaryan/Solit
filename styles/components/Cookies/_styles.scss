@@ -1,0 +1,206 @@
+@use "../../base/variables";
+@import "../../base/mixins";
+
+@mixin generate-cookies-styles {
+  .mainContainer {
+    width: 100%;
+    position: fixed;
+    margin: 0 auto;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+
+    .contentBlocks {
+      background: white;
+      width: calcVW(632);
+      padding: calcVW(16) 0 calcVW(16) calcVW(16);
+      border-radius: calcVW(16) 0 0 0;
+      display: flex;
+      column-gap: calcVW(30);
+      align-items: center;
+
+      .title {
+        @include font-style(calcVW(18),
+          variables.$fw-700,
+          normal,
+          variables.$black );
+      }
+
+      .description {
+        margin-top: calcVW(8);
+        @include font-style(calcVW(13),
+          variables.$fw-400,
+          normal,
+          "#6F6C90"
+        );
+      }
+    }
+
+    .buttonContainer {
+      background: white;
+      width: max-content;
+      padding: calcVW(16);
+      display: flex;
+      flex-direction: row-reverse;
+      column-gap: calcVW(16);
+      justify-content: space-between;
+      border-radius: 0 calcVW(16) 0 0;
+
+      img {
+        width: calcVW(24);
+        height: calcVW(24);
+      }
+
+      :global(#rcc-decline-button) {
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: 0 !important;
+      }
+
+      :global(#rcc-confirm-button) {
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: 0 !important;
+      }
+    }
+
+    @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+      .contentBlocks {
+        width: calcVWL(632);
+        padding: calcVWL(16) 0 calcVWL(16) calcVWL(16);
+        border-radius: calcVWL(16) 0 0 0;
+        column-gap: calcVWL(30);
+
+        .title {
+          @include font-style(calcVWL(18),
+            variables.$fw-700,
+            normal,
+            variables.$black );
+        }
+
+        .description {
+          margin-top: calcVWL(8);
+          @include font-style(calcVWL(13),
+            variables.$fw-400,
+            normal,
+            "#6F6C90"
+          );
+        }
+      }
+
+      .buttonContainer {
+        padding: calcVWL(16);
+        column-gap: calcVWL(16);
+        border-radius: 0 calcVWL(16) 0 0;
+
+        img {
+          width: calcVWL(24);
+          height: calcVWL(24);
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+
+      .contentBlocks {
+        width: calcVWT(632);
+        padding: calcVWT(16) 0 calcVWT(16) calcVWT(16);
+        border-radius: calcVWT(16) 0 0 0;
+        column-gap: calcVWT(30);
+
+        .title {
+          @include font-style(calcVWT(18),
+            variables.$fw-700,
+            normal,
+            variables.$black );
+        }
+
+        .description {
+          margin-top: calcVWT(8);
+          @include font-style(calcVWT(13),
+            variables.$fw-400,
+            normal,
+            "#6F6C90"
+          );
+        }
+      }
+
+      .buttonContainer {
+        padding: calcVWT(16);
+        column-gap: calcVWT(16);
+        border-radius: 0 calcVWT(16) 0 0;
+
+        img {
+          width: calcVWT(24);
+          height: calcVWT(24);
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      align-items: center;
+
+      .contentBlocks {
+        width: calcVWM(343);
+        padding: calcVWM(16) calcVWM(16) 0 calcVWM(16);
+        border-radius: calcVWM(16) calcVWM(16) 0 0;
+        column-gap: calcVWM(30);
+        flex-direction: column;
+        text-align: center;
+
+        .title {
+          margin-top: calcVWM(30);
+          @include font-style(calcVWM(18),
+            variables.$fw-700,
+            normal,
+            variables.$black );
+        }
+
+        .description {
+          margin-top: calcVWM(8);
+          @include font-style(calcVWM(13),
+            variables.$fw-400,
+            calcVWM(20),
+            "#6F6C90"
+          );
+        }
+
+        img {
+          margin-top: calcVWM(30);
+        }
+      }
+
+      .buttonContainer {
+        width: calcVWM(343);
+        padding: calcVWM(16);
+        column-gap: calcVWM(16);
+        border-radius: 0;
+        justify-content: center;
+
+        img {
+          width: calcVWM(24);
+          height: calcVWM(24);
+        }
+
+        button:nth-child(2) {
+          width: 100%;
+
+          button {
+            width: 100% !important;
+            font-weight: 700 !important;
+          }
+        }
+
+        :global(#rcc-decline-button) {
+          position: absolute;
+          top: calcVWM(12);
+          right: calcVWM(24);
+        }
+      }
+    }
+  }
+}
