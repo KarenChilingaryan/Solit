@@ -51,12 +51,14 @@ const Careers = () => {
             {
               name: "Marvel Alina ",
               position: "UX/UI Designer",
-              image: user2,
+              image:
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_35D1sa9/f0df76f443ec52346dcbfaa0030d24b5.webp",
             },
             {
               name: "Marvel Alina ",
               position: "UX/UI Designer",
-              image: user4,
+              image:
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_5PCg0Rg/5963e74e76d3d879385ac79b6b05a16c.webp",
             },
           ],
           about: {
@@ -103,7 +105,7 @@ const Careers = () => {
         setOpenSuccess(false);
         setClose();
       }, 3000);
-    } catch { }
+    } catch {}
   };
 
   const handleResize = () => {
@@ -274,8 +276,8 @@ const Careers = () => {
           isMobile <= 1024 && isMobile > 576
             ? "52vw"
             : isMobile > 1024 && isMobile <= 1440
-              ? "37vw"
-              : "28vw"
+            ? "37vw"
+            : "28vw"
         }
         setOpen={(e) => {
           setClose();

@@ -125,7 +125,7 @@ const HomeContent = () => {
               name: "",
               position: "",
               image:
-                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_ny5K8LH/8700ad19dcfa647045ef1ab400315193.webp",
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_35D1sa9/f0df76f443ec52346dcbfaa0030d24b5.webp",
             },
           ],
           about: {
@@ -159,7 +159,7 @@ const HomeContent = () => {
               name: "",
               position: "",
               image:
-                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_35D1sa9/f0df76f443ec52346dcbfaa0030d24b5.webp",
+                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_Z0kQEGr/e6c2b37a92d8d89a2c80d5b910456f42.webp",
             },
             {
               name: "",
