@@ -121,12 +121,12 @@ const HomeContent = () => {
               image:
                 "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_T9mVlfy/bfe163750d160f367f419de8defec605.webp",
             },
-            {
-              name: "",
-              position: "",
-              image:
-                "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_6CIr84m/f6151c816a15b29d1936fb7d3c40ad07.webp",
-            },
+            // {
+            //   name: "",
+            //   position: "",
+            //   image:
+            //     "https://djnago-solit-static.s3.amazonaws.com/media/CACHE/images/images/converted_image_6CIr84m/f6151c816a15b29d1936fb7d3c40ad07.webp",
+            // },
           ],
           about: {
             title: "About us",

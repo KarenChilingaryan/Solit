@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { HomeMain } from "../homeMain";
 import { HomeMainWithImage } from "../HomeMainWithImage";
 import bgImage from "../../../assets/img/main-bg-about.png";
-import aboutImage from "../../../assets/img/about-image.png";
+// import aboutImage from "../../../assets/img/about-image.png";
 import { Paragraph } from "../../atoms";
 import AboutItem from "../../molecules/aboutItem/AboutItem";
 import FactsItem from "../../molecules/factsItem/FactsItem";
@@ -106,7 +106,7 @@ const AboutPage = () => {
               className={styles.description}
             />
           </div>
-          <Image src={aboutImage} className={styles.aboutImage} alt="image" />
+          {/* <Image src={aboutImage} className={styles.aboutImage} alt="image" /> */}
           <Paragraph className={styles.title}>Quick facts</Paragraph>
           <div className={styles.quickFacts}>
             {data.map((el, i) => (
