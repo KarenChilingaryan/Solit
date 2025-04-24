@@ -42,7 +42,7 @@ const OurProjectCard = ({
               <Row className={styles.name}>{name} </Row>
               <Row className={styles.stacks}>
                 {!blogs &&
-                  (images)?.map((item, i) => (
+                  (images)?.slice(0, 6).map((item, i) => (
                     <Image
                       src={item?.original_logo || react}
                       className={styles.icon}
@@ -55,7 +55,7 @@ const OurProjectCard = ({
                 {blogs && (
                   <Col className={styles.blogDescription}>
                     {description ||
-                      "Let’s now explore how to manage your backlog using product data and provide tips and best practices to implement in your workflow."}
+                      "Let's now explore how to manage your backlog using product data and provide tips and best practices to implement in your workflow."}
                   </Col>
                 )}
               </Row>
