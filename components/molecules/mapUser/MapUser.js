@@ -26,6 +26,7 @@ const MapUser = ({ user, changeTo }) => {
       setTooltip(true);
     }, 100);
   }, [user]);
+
   const handleResize = useCallback(async () => {
     if (tooltip) {
       setTooltip(false)
@@ -37,7 +38,6 @@ const MapUser = ({ user, changeTo }) => {
   }, [])
 
   useEffect(() => {
-    handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
