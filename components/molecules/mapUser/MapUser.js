@@ -19,6 +19,7 @@ const TooltipElement = (text) => {
 
 const MapUser = ({ user, changeTo }) => {
   const [tooltip, setTooltip] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
 
   useEffect(() => {
     setTooltip(false);
@@ -27,24 +28,26 @@ const MapUser = ({ user, changeTo }) => {
     }, 100);
   }, [user]);
 
-  console.log(tooltip)
-
   const handleResize = useCallback(async () => {
-    if (tooltip) {
-      setTooltip(false)
-      const timeout = setTimeout(() => {
-        setTooltip(true)
-        clearTimeout(timeout)
-      }, 200)
+    const newWidth = window.innerWidth;
+    if (newWidth !== windowWidth) {
+      setWindowWidth(newWidth);
+      if (tooltip) {
+        setTooltip(false);
+        const timeout = setTimeout(() => {
+          setTooltip(true);
+          clearTimeout(timeout);
+        }, 200);
+      }
     }
-  }, [])
+  }, [tooltip, windowWidth]);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [handleResize]);
 
   return (
     <div className={styles.container}>
