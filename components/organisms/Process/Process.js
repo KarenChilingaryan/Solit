@@ -273,7 +273,6 @@ const Line = () => {
       } else {
         part2Ref.current.style.height = `${0}px`;
       }
-      console.log(visiblePercentage, 'visiblePercentage');
 
       let blueHeight = 0;
       if (visiblePercentage > 57) {
@@ -450,7 +449,6 @@ const Line = () => {
       } else {
         part5RefBlue.current.style.width = `${0}px`;
       }
-      console.log(visiblePercentage);
       if (visiblePercentage > 117) {
         const opacity = ((1) * (visiblePercentage - 117) * 50) / 100
         part5Ref.current.children[2].style.opacity = opacity
@@ -737,7 +735,7 @@ const Line = () => {
                 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
                 23, 24, 25, 26, 27, 28, 29,
               ].map((el) => {
-                return <div key={el + 'unique-line'} className={styles.mobileLine} />;
+                return <div key={Math.random() + 'unique-line'} className={styles.mobileLine} />;
               })}
             </div>
             <div className={styles.shadowElements}>
@@ -746,7 +744,7 @@ const Line = () => {
                 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
               ].map((el) => {
                 return (
-                  <div key={el + 'unique-line1'} className={styles.blockMobile}>
+                  <div key={Math.random() + 'unique-line1'} className={styles.blockMobile}>
                     <div className={styles.leftPart} />
                   </div>
                 );

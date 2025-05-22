@@ -66,9 +66,11 @@ const ModalForm = ({
         }}
         className={styles.form}
         form={form}
-        onValuesChange={(changedValues, allValues) =>
-          console.log(changedValues, allValues, "8888888888888")
-        }
+        onValuesChange={(changedValues, allValues) => {
+          if (changedValues.accept) {
+            form.setFieldValue("acceptNDA", false);
+          }
+        }}
       >
         <Row className={`${styles.inputSection} ${styles[className]}`}>
           <FormItem

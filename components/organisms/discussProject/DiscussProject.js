@@ -220,7 +220,6 @@ const DiscussProject = () => {
     const updatedStacks = liveStacks.filter(
       (stack) => stack.category !== field
     );
-    console.log(liveStacks);
     setLiveStacks(updatedStacks);
 
     const updatedValues = { ...form.getFieldsValue() };

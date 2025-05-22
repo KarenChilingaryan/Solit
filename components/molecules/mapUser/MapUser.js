@@ -27,6 +27,8 @@ const MapUser = ({ user, changeTo }) => {
     }, 100);
   }, [user]);
 
+  console.log(tooltip)
+
   const handleResize = useCallback(async () => {
     if (tooltip) {
       setTooltip(false)
